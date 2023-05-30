@@ -28,34 +28,49 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves the details of exception notifications for the account in Amazon Security
-    /// Lake.
+    /// Deletes the specified notification subscription in Amazon Security Lake for the organization
+    /// you specify.
     /// </summary>
-    [Cmdlet("Get", "SLKDatalakeExceptionsSubscription")]
-    [OutputType("Amazon.SecurityLake.Model.ProtocolAndNotificationEndpoint")]
-    [AWSCmdlet("Calls the Amazon Security Lake GetDatalakeExceptionsSubscription API operation.", Operation = new[] {"GetDatalakeExceptionsSubscription"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse))]
-    [AWSCmdletOutput("Amazon.SecurityLake.Model.ProtocolAndNotificationEndpoint or Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.ProtocolAndNotificationEndpoint object.",
-        "The service call response (type Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SLKDataLakeExceptionSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Security Lake DeleteDataLakeExceptionSubscription API operation.", Operation = new[] {"DeleteDataLakeExceptionSubscription"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSLKDatalakeExceptionsSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class RemoveSLKDataLakeExceptionSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProtocolAndNotificationEndpoint'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProtocolAndNotificationEndpoint";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKDataLakeExceptionSubscription (DeleteDataLakeExceptionSubscription)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -64,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse, GetSLKDatalakeExceptionsSubscriptionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse, RemoveSLKDataLakeExceptionSubscriptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -81,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionRequest();
+            var request = new Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionRequest();
             
             
             CmdletOutput output;
@@ -116,15 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionRequest request)
+        private Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDatalakeExceptionsSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeleteDataLakeExceptionSubscription");
             try
             {
                 #if DESKTOP
-                return client.GetDatalakeExceptionsSubscription(request);
+                return client.DeleteDataLakeExceptionSubscription(request);
                 #elif CORECLR
-                return client.GetDatalakeExceptionsSubscriptionAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDataLakeExceptionSubscriptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -144,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.SecurityLake.Model.GetDatalakeExceptionsSubscriptionResponse, GetSLKDatalakeExceptionsSubscriptionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProtocolAndNotificationEndpoint;
+            public System.Func<Amazon.SecurityLake.Model.DeleteDataLakeExceptionSubscriptionResponse, RemoveSLKDataLakeExceptionSubscriptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a>
         /// to apply to the dataset group.</para>
         /// </para>
         /// </summary>

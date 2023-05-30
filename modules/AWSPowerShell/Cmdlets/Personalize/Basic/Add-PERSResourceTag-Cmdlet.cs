@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">Tagging
-        /// Personalize resources</a>.</para>
+        /// <para>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging
+        /// Amazon Personalize recources</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

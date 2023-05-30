@@ -31,58 +31,45 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// Retrieves the log sources in the current Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Get", "SLKLogSourceList")]
-    [OutputType("System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.List<System.String>>>")]
+    [OutputType("Amazon.SecurityLake.Model.LogSource")]
     [AWSCmdlet("Calls the Amazon Security Lake ListLogSources API operation.", Operation = new[] {"ListLogSources"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.ListLogSourcesResponse))]
-    [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.List<System.String>>> or Amazon.SecurityLake.Model.ListLogSourcesResponse",
-        "This cmdlet returns a collection of Dictionary<System.String, Dictionary<System.String, List<System.String>>> objects.",
+    [AWSCmdletOutput("Amazon.SecurityLake.Model.LogSource or Amazon.SecurityLake.Model.ListLogSourcesResponse",
+        "This cmdlet returns a collection of Amazon.SecurityLake.Model.LogSource objects.",
         "The service call response (type Amazon.SecurityLake.Model.ListLogSourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetSLKLogSourceListCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter InputOrder
+        #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>Lists the log sources in input order, namely Region, source type, and member account.</para>
+        /// <para>The list of Amazon Web Services accounts for which log sources are displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] InputOrder { get; set; }
+        [Alias("Accounts")]
+        public System.String[] Account { get; set; }
         #endregion
         
-        #region Parameter ListAllDimension
+        #region Parameter SourceRegions
         /// <summary>
         /// <para>
-        /// <para>List the view of log sources for enabled Amazon Security Lake accounts for specific
-        /// Amazon Web Services sources from specific accounts and specific Regions.</para>
+        /// <para>The list of regions for which log sources are displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ListAllDimensions")]
-        public System.Collections.Hashtable ListAllDimension { get; set; }
+        public System.String[] SourceRegions { get; set; }
         #endregion
         
-        #region Parameter ListSingleDimension
+        #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>List the view of log sources for enabled Security Lake accounts for all Amazon Web
-        /// Services sources from specific accounts or specific Regions.</para>
+        /// <para>The list of sources for which log sources are displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] ListSingleDimension { get; set; }
-        #endregion
-        
-        #region Parameter ListTwoDimension
-        /// <summary>
-        /// <para>
-        /// <para>Lists the view of log sources for enabled Security Lake accounts for specific Amazon
-        /// Web Services sources from specific accounts or specific Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ListTwoDimensions")]
-        public System.Collections.Hashtable ListTwoDimension { get; set; }
+        [Alias("Sources")]
+        public Amazon.SecurityLake.Model.LogSourceResource[] Source { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -109,13 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RegionSourceTypesAccountsList'.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Sources'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.ListLogSourcesResponse).
         /// Specifying the name of a property of type Amazon.SecurityLake.Model.ListLogSourcesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RegionSourceTypesAccountsList";
+        public string Select { get; set; } = "Sources";
         #endregion
         
         protected override void ProcessRecord()
@@ -133,44 +120,20 @@ namespace Amazon.PowerShell.Cmdlets.SLK
                 context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.ListLogSourcesResponse, GetSLKLogSourceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.InputOrder != null)
+            if (this.Account != null)
             {
-                context.InputOrder = new List<System.String>(this.InputOrder);
-            }
-            if (this.ListAllDimension != null)
-            {
-                context.ListAllDimension = new Dictionary<System.String, Dictionary<System.String, List<System.String>>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.ListAllDimension.Keys)
-                {
-                    context.ListAllDimension.Add((String)hashKey, (Dictionary<String,List<String>>)(this.ListAllDimension[hashKey]));
-                }
-            }
-            if (this.ListSingleDimension != null)
-            {
-                context.ListSingleDimension = new List<System.String>(this.ListSingleDimension);
-            }
-            if (this.ListTwoDimension != null)
-            {
-                context.ListTwoDimension = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.ListTwoDimension.Keys)
-                {
-                    object hashValue = this.ListTwoDimension[hashKey];
-                    if (hashValue == null)
-                    {
-                        context.ListTwoDimension.Add((String)hashKey, null);
-                        continue;
-                    }
-                    var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<System.String>();
-                    foreach (var s in enumerable)
-                    {
-                        valueSet.Add((System.String)s);
-                    }
-                    context.ListTwoDimension.Add((String)hashKey, valueSet);
-                }
+                context.Account = new List<System.String>(this.Account);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.SourceRegions != null)
+            {
+                context.SourceRegions = new List<System.String>(this.SourceRegions);
+            }
+            if (this.Source != null)
+            {
+                context.Source = new List<Amazon.SecurityLake.Model.LogSourceResource>(this.Source);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,21 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.ListLogSourcesRequest();
             
-            if (cmdletContext.InputOrder != null)
+            if (cmdletContext.Account != null)
             {
-                request.InputOrder = cmdletContext.InputOrder;
-            }
-            if (cmdletContext.ListAllDimension != null)
-            {
-                request.ListAllDimensions = cmdletContext.ListAllDimension;
-            }
-            if (cmdletContext.ListSingleDimension != null)
-            {
-                request.ListSingleDimension = cmdletContext.ListSingleDimension;
-            }
-            if (cmdletContext.ListTwoDimension != null)
-            {
-                request.ListTwoDimensions = cmdletContext.ListTwoDimension;
+                request.Accounts = cmdletContext.Account;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -210,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.SourceRegions != null)
+            {
+                request.Regions = cmdletContext.SourceRegions;
+            }
+            if (cmdletContext.Source != null)
+            {
+                request.Sources = cmdletContext.Source;
             }
             
             CmdletOutput output;
@@ -272,14 +231,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> InputOrder { get; set; }
-            public Dictionary<System.String, Dictionary<System.String, List<System.String>>> ListAllDimension { get; set; }
-            public List<System.String> ListSingleDimension { get; set; }
-            public Dictionary<System.String, List<System.String>> ListTwoDimension { get; set; }
+            public List<System.String> Account { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> SourceRegions { get; set; }
+            public List<Amazon.SecurityLake.Model.LogSourceResource> Source { get; set; }
             public System.Func<Amazon.SecurityLake.Model.ListLogSourcesResponse, GetSLKLogSourceListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RegionSourceTypesAccountsList;
+                (response, cmdlet) => response.Sources;
         }
         
     }

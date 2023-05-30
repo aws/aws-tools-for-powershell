@@ -75,6 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String MapName { get; set; }
         #endregion
         
+        #region Parameter Configuration_PoliticalView
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the political view for the style. Leave unset to not use a political view,
+        /// or, for styles that support specific political views, you can choose a view, such
+        /// as <code>IND</code> for the Indian view.</para><para>Default is unset.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+        /// views</a> for more information.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_PoliticalView { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Style
         /// <summary>
         /// <para>
@@ -87,10 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// provides a detailed vector basemap with a light gray, neutral background style with
         /// minimal colors, labels, and features that's designed to draw attention to your thematic
         /// content. </para></li><li><para><code>VectorEsriTopographic</code> – The Esri Light map style, which provides a detailed
-        /// vector basemap with a classic Esri map style.</para></li><li><para><code>VectorEsriStreets</code> – The Esri World Streets map style, which provides
-        /// a detailed vector basemap for the world symbolized with a classic Esri street map
-        /// style. The vector tile layer is similar in content and style to the World Street Map
-        /// raster map.</para></li><li><para><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides
+        /// vector basemap with a classic Esri map style.</para></li><li><para><code>VectorEsriStreets</code> – The Esri Street Map style, which provides a detailed
+        /// vector basemap for the world symbolized with a classic Esri street map style. The
+        /// vector tile layer is similar in content and style to the World Street Map raster map.</para></li><li><para><code>VectorEsriNavigation</code> – The Esri Navigation map style, which provides
         /// a detailed basemap for the world symbolized with a custom navigation map style that's
         /// designed for use during the day in mobile devices.</para></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
         /// Technologies map styles</a>:</para><ul><li><para><code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high
@@ -227,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.MapName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Configuration_PoliticalView = this.Configuration_PoliticalView;
             context.Configuration_Style = this.Configuration_Style;
             #if MODULAR
             if (this.Configuration_Style == null && ParameterWasBound(nameof(this.Configuration_Style)))
@@ -273,6 +286,16 @@ namespace Amazon.PowerShell.Cmdlets.LOC
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.LocationService.Model.MapConfiguration();
+            System.String requestConfiguration_configuration_PoliticalView = null;
+            if (cmdletContext.Configuration_PoliticalView != null)
+            {
+                requestConfiguration_configuration_PoliticalView = cmdletContext.Configuration_PoliticalView;
+            }
+            if (requestConfiguration_configuration_PoliticalView != null)
+            {
+                request.Configuration.PoliticalView = requestConfiguration_configuration_PoliticalView;
+                requestConfigurationIsNull = false;
+            }
             System.String requestConfiguration_configuration_Style = null;
             if (cmdletContext.Configuration_Style != null)
             {
@@ -367,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Configuration_PoliticalView { get; set; }
             public System.String Configuration_Style { get; set; }
             public System.String Description { get; set; }
             public System.String MapName { get; set; }

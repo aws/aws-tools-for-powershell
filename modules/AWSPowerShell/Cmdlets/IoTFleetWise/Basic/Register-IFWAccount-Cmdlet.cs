@@ -28,20 +28,34 @@ using Amazon.IoTFleetWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
-    /// Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so
-    /// Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web
-    /// Services Cloud. For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html">Setting
-    /// up Amazon Web Services IoT FleetWise</a>. 
-    /// 
-    ///  <note><para>
-    /// An Amazon Web Services account is <b>not</b> the same thing as a "user account". An
-    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users">Amazon
-    /// Web Services user</a> is an identity that you create using Identity and Access Management
-    /// (IAM) and takes the form of either an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html">IAM
-    /// user</a> or an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
-    /// role, both with credentials</a>. A single Amazon Web Services account can, and typically
-    /// does, contain many users and roles.
-    /// </para></note>
+    /// <important><para>
+    /// This API operation contains deprecated parameters. Register your account again without
+    /// the Timestream resources parameter so that Amazon Web Services IoT FleetWise can remove
+    /// the Timestream metadata stored. You should then pass the data destination into the
+    /// <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html">CreateCampaign</a>
+    /// API operation.
+    /// </para><para>
+    /// You must delete any existing campaigns that include an empty data destination before
+    /// you register your account again. For more information, see the <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteCampaign.html">DeleteCampaign</a>
+    /// API operation.
+    /// </para><para>
+    /// If you want to delete the Timestream inline policy from the service-linked role, such
+    /// as to mitigate an overly permissive policy, you must first delete any existing campaigns.
+    /// Then delete the service-linked role and register your account again to enable CloudWatch
+    /// metrics. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a>
+    /// in the <i>Identity and Access Management API Reference</i>.
+    /// </para></important><pre><code> &lt;p&gt;Registers your Amazon Web Services account, IAM,
+    /// and Amazon Timestream resources so Amazon Web Services IoT FleetWise can transfer
+    /// your vehicle data to the Amazon Web Services Cloud. For more information, including
+    /// step-by-step procedures, see &lt;a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html"&gt;Setting
+    /// up Amazon Web Services IoT FleetWise&lt;/a&gt;. &lt;/p&gt; &lt;note&gt; &lt;p&gt;An
+    /// Amazon Web Services account is &lt;b&gt;not&lt;/b&gt; the same thing as a "user."
+    /// An &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users"&gt;Amazon
+    /// Web Services user&lt;/a&gt; is an identity that you create using Identity and Access
+    /// Management (IAM) and takes the form of either an &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html"&gt;IAM
+    /// user&lt;/a&gt; or an &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html"&gt;IAM
+    /// role, both with credentials&lt;/a&gt;. A single Amazon Web Services account can, and
+    /// typically does, contain many users and roles.&lt;/p&gt; &lt;/note&gt; </code></pre>
     /// </summary>
     [Cmdlet("Register", "IFWAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTFleetWise.Model.RegisterAccountResponse")]
@@ -70,14 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>The name of the registered Amazon Timestream database.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TimestreamResources_TimestreamDatabaseName { get; set; }
         #endregion
         
@@ -87,14 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>The name of the registered Amazon Timestream database table.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TimestreamResources_TimestreamTableName { get; set; }
         #endregion
         
@@ -162,19 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IamResources_RoleArn = this.IamResources_RoleArn;
             context.TimestreamResources_TimestreamDatabaseName = this.TimestreamResources_TimestreamDatabaseName;
-            #if MODULAR
-            if (this.TimestreamResources_TimestreamDatabaseName == null && ParameterWasBound(nameof(this.TimestreamResources_TimestreamDatabaseName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TimestreamResources_TimestreamDatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TimestreamResources_TimestreamTableName = this.TimestreamResources_TimestreamTableName;
-            #if MODULAR
-            if (this.TimestreamResources_TimestreamTableName == null && ParameterWasBound(nameof(this.TimestreamResources_TimestreamTableName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TimestreamResources_TimestreamTableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

@@ -7625,6 +7625,13 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.CallLegType
+        "Start-CHMVOSpeakerSearchTask/CallLeg"
+        {
+            $v = "Callee","Caller"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.GeoMatchLevel
         "New-CHMVOProxySession/GeoMatchLevel"
         {
@@ -7703,6 +7710,7 @@ $CHMVO_Completers = {
 
 $CHMVO_map = @{
     "AwsRegion"=@("New-CHMVOVoiceConnector")
+    "CallLeg"=@("Start-CHMVOSpeakerSearchTask")
     "FilterName"=@("Get-CHMVOPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMVOProxySession")
     "LanguageCode"=@("Start-CHMVOVoiceToneAnalysisTask")
@@ -25630,7 +25638,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUEMLTransform/WorkerType")
         }
         {
-            $v = "G.025X","G.1X","G.2X","G.4X","G.8X","Standard"
+            $v = "G.025X","G.1X","G.2X","G.4X","G.8X","Standard","Z.2X"
             break
         }
 
@@ -37988,7 +37996,7 @@ $MDB_Completers = {
             ($_ -eq "Update-MDBUser/AuthenticationMode_Type")
         }
         {
-            $v = "password"
+            $v = "iam","password"
             break
         }
 
@@ -44063,7 +44071,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 
@@ -44100,7 +44108,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -52552,30 +52560,13 @@ $SLK_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.SecurityLake.HttpsMethod
+        # Amazon.SecurityLake.HttpMethod
         {
-            ($_ -eq "New-SLKSubscriptionNotificationConfiguration/HttpsMethod") -Or
-            ($_ -eq "Update-SLKSubscriptionNotificationConfiguration/HttpsMethod")
+            ($_ -eq "New-SLKSubscriberNotification/Configuration_HttpsNotificationConfiguration_HttpMethod") -Or
+            ($_ -eq "Update-SLKSubscriberNotification/Configuration_HttpsNotificationConfiguration_HttpMethod")
         }
         {
             $v = "POST","PUT"
-            break
-        }
-
-        # Amazon.SecurityLake.OcsfEventClass
-        "New-SLKCustomLogSource/EventClass"
-        {
-            $v = "ACCESS_ACTIVITY","ACCOUNT_CHANGE","AUTHENTICATION","AUTHORIZATION","CLOUD_API","CLOUD_STORAGE","CONFIG_STATE","CONTAINER_LIFECYCLE","DATABASE_LIFECYCLE","DHCP_ACTIVITY","DNS_ACTIVITY","ENTITY_MANAGEMENT_AUDIT","FILE_ACTIVITY","FTP_ACTIVITY","HTTP_ACTIVITY","INVENTORY_INFO","KERNEL_ACTIVITY","KERNEL_EXTENSION","MEMORY_ACTIVITY","MODULE_ACTIVITY","NETWORK_ACTIVITY","PROCESS_ACTIVITY","RDP_ACTIVITY","REGISTRY_KEY_ACTIVITY","REGISTRY_VALUE_ACTIVITY","RESOURCE_ACTIVITY","RFB_ACTIVITY","SCHEDULED_JOB_ACTIVITY","SECURITY_FINDING","SMB_ACTIVITY","SMTP_ACTIVITY","SSH_ACTIVITY","VIRTUAL_MACHINE_ACTIVITY"
-            break
-        }
-
-        # Amazon.SecurityLake.SubscriptionProtocolType
-        {
-            ($_ -eq "New-SLKDatalakeExceptionsSubscription/SubscriptionProtocol") -Or
-            ($_ -eq "Update-SLKDatalakeExceptionsSubscription/SubscriptionProtocol")
-        }
-        {
-            $v = "APP","EMAIL","EMAIL_JSON","FIREHOSE","HTTP","HTTPS","LAMBDA","SMS","SQS"
             break
         }
 
@@ -52588,9 +52579,7 @@ $SLK_Completers = {
 }
 
 $SLK_map = @{
-    "EventClass"=@("New-SLKCustomLogSource")
-    "HttpsMethod"=@("New-SLKSubscriptionNotificationConfiguration","Update-SLKSubscriptionNotificationConfiguration")
-    "SubscriptionProtocol"=@("New-SLKDatalakeExceptionsSubscription","Update-SLKDatalakeExceptionsSubscription")
+    "Configuration_HttpsNotificationConfiguration_HttpMethod"=@("New-SLKSubscriberNotification","Update-SLKSubscriberNotification")
 }
 
 _awsArgumentCompleterRegistration $SLK_Completers $SLK_map
@@ -52645,34 +52634,32 @@ $SLK_SelectCompleters = {
 $SLK_SelectMap = @{
     "Select"=@("New-SLKAwsLogSource",
                "New-SLKCustomLogSource",
-               "New-SLKDatalake",
-               "New-SLKDatalakeAutoEnable",
-               "New-SLKDatalakeDelegatedAdmin",
-               "New-SLKDatalakeExceptionsSubscription",
+               "New-SLKDataLake",
+               "New-SLKDataLakeExceptionSubscription",
+               "New-SLKDataLakeOrganizationConfiguration",
                "New-SLKSubscriber",
-               "New-SLKSubscriptionNotificationConfiguration",
+               "New-SLKSubscriberNotification",
                "Remove-SLKAwsLogSource",
                "Remove-SLKCustomLogSource",
-               "Remove-SLKDatalake",
-               "Remove-SLKDatalakeAutoEnable",
-               "Remove-SLKDatalakeDelegatedAdmin",
-               "Remove-SLKDatalakeExceptionsSubscription",
+               "Remove-SLKDataLake",
+               "Remove-SLKDataLakeExceptionSubscription",
+               "Remove-SLKDataLakeOrganizationConfiguration",
                "Remove-SLKSubscriber",
-               "Remove-SLKSubscriptionNotificationConfiguration",
-               "Get-SLKDatalake",
-               "Get-SLKDatalakeAutoEnable",
-               "Get-SLKDatalakeExceptionsExpiry",
-               "Get-SLKDatalakeExceptionsSubscription",
-               "Get-SLKDatalakeStatus",
+               "Remove-SLKSubscriberNotification",
+               "Remove-SLKDataLakeDelegatedAdministrator",
+               "Get-SLKDataLakeExceptionSubscription",
+               "Get-SLKDataLakeOrganizationConfiguration",
+               "Get-SLKDataLakeSource",
                "Get-SLKSubscriber",
-               "Get-SLKDatalakeExceptionList",
+               "Get-SLKDataLakeExceptionList",
+               "Get-SLKDataLakeList",
                "Get-SLKLogSourceList",
                "Get-SLKSubscriberList",
-               "Update-SLKDatalake",
-               "Update-SLKDatalakeExceptionsExpiry",
-               "Update-SLKDatalakeExceptionsSubscription",
+               "Register-SLKDataLakeDelegatedAdministrator",
+               "Update-SLKDataLake",
+               "Update-SLKDataLakeExceptionSubscription",
                "Update-SLKSubscriber",
-               "Update-SLKSubscriptionNotificationConfiguration")
+               "Update-SLKSubscriberNotification")
 }
 
 _awsArgumentCompleterRegistration $SLK_SelectCompleters $SLK_SelectMap

@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Returns the number of minutes used by account.
+    /// Returns the number of reserved minutes used by account.
     /// </summary>
     [Cmdlet("Get", "GSMinuteUsage")]
     [OutputType("Amazon.GroundStation.Model.GetMinuteUsageResponse")]

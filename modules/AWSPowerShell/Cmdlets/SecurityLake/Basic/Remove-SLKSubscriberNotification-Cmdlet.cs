@@ -28,47 +28,54 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Automatically enables Amazon Security Lake for new member accounts in your organization.
-    /// Security Lake is not automatically enabled for any existing member accounts in your
-    /// organization.
+    /// Deletes the specified notification subscription in Amazon Security Lake for the organization
+    /// you specify.
     /// </summary>
-    [Cmdlet("New", "SLKDatalakeAutoEnable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SLKSubscriberNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Security Lake CreateDatalakeAutoEnable API operation.", Operation = new[] {"CreateDatalakeAutoEnable"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse",
+    [AWSCmdlet("Calls the Amazon Security Lake DeleteSubscriberNotification API operation.", Operation = new[] {"DeleteSubscriberNotification"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSLKDatalakeAutoEnableCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class RemoveSLKSubscriberNotificationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter ConfigurationForNewAccount
+        #region Parameter SubscriberId
         /// <summary>
         /// <para>
-        /// <para>Enable Security Lake with the specified configuration settings to begin collecting
-        /// security data for new accounts in your organization. </para>
+        /// <para>The ID of the Security Lake subscriber account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ConfigurationForNewAccounts")]
-        public Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration[] ConfigurationForNewAccount { get; set; }
+        public System.String SubscriberId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SubscriberId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SubscriberId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SubscriberId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -86,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfigurationForNewAccount), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SLKDatalakeAutoEnable (CreateDatalakeAutoEnable)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubscriberId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKSubscriberNotification (DeleteSubscriberNotification)"))
             {
                 return;
             }
@@ -97,19 +104,26 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse, NewSLKDatalakeAutoEnableCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse, RemoveSLKSubscriberNotificationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.ConfigurationForNewAccount != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.ConfigurationForNewAccount = new List<Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration>(this.ConfigurationForNewAccount);
+                context.Select = (response, cmdlet) => this.SubscriberId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SubscriberId = this.SubscriberId;
             #if MODULAR
-            if (this.ConfigurationForNewAccount == null && ParameterWasBound(nameof(this.ConfigurationForNewAccount)))
+            if (this.SubscriberId == null && ParameterWasBound(nameof(this.SubscriberId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConfigurationForNewAccount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SubscriberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.CreateDatalakeAutoEnableRequest();
+            var request = new Amazon.SecurityLake.Model.DeleteSubscriberNotificationRequest();
             
-            if (cmdletContext.ConfigurationForNewAccount != null)
+            if (cmdletContext.SubscriberId != null)
             {
-                request.ConfigurationForNewAccounts = cmdletContext.ConfigurationForNewAccount;
+                request.SubscriberId = cmdletContext.SubscriberId;
             }
             
             CmdletOutput output;
@@ -165,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.CreateDatalakeAutoEnableRequest request)
+        private Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeleteSubscriberNotificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "CreateDatalakeAutoEnable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeleteSubscriberNotification");
             try
             {
                 #if DESKTOP
-                return client.CreateDatalakeAutoEnable(request);
+                return client.DeleteSubscriberNotification(request);
                 #elif CORECLR
-                return client.CreateDatalakeAutoEnableAsync(request).GetAwaiter().GetResult();
+                return client.DeleteSubscriberNotificationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration> ConfigurationForNewAccount { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.CreateDatalakeAutoEnableResponse, NewSLKDatalakeAutoEnableCmdlet, object> Select { get; set; } =
+            public System.String SubscriberId { get; set; }
+            public System.Func<Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse, RemoveSLKSubscriberNotificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -31,22 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
     /// source types for member accounts in required Amazon Web Services Regions, based on
     /// the parameters you specify. You can choose any source type in any Region for either
-    /// accounts that are part of a trusted organization or standalone accounts. At least
-    /// one of the three dimensions is a mandatory input to this API. However, you can supply
-    /// any combination of the three dimensions to this API. 
+    /// accounts that are part of a trusted organization or standalone accounts. Once you
+    /// add an Amazon Web Service as a source, Security Lake starts collecting logs and events
+    /// from it, 
     /// 
     ///  
     /// <para>
-    /// By default, a dimension refers to the entire set. When you don't provide a dimension,
-    /// Security Lake assumes that the missing dimension refers to the entire set. This is
-    /// overridden when you supply any one of the inputs. For instance, when you do not specify
-    /// members, the API enables all Security Lake member accounts for all sources. Similarly,
-    /// when you do not specify Regions, Security Lake is enabled for all the Regions where
-    /// Security Lake is available as a service.
-    /// </para><para>
     /// You can use this API only to enable natively supported Amazon Web Services as a source.
     /// Use <code>CreateCustomLogSource</code> to enable data collection from a custom source.
-    /// 
     /// </para>
     /// </summary>
     [Cmdlet("New", "SLKAwsLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,46 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKAwsLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter EnableAllDimension
+        #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Enables data collection from specific Amazon Web Services sources in all specific
-        /// accounts and specific Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("EnableAllDimensions")]
-        public System.Collections.Hashtable EnableAllDimension { get; set; }
-        #endregion
-        
-        #region Parameter EnableSingleDimension
-        /// <summary>
-        /// <para>
-        /// <para>Enables data collection from all Amazon Web Services sources in specific accounts
-        /// or Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] EnableSingleDimension { get; set; }
-        #endregion
-        
-        #region Parameter EnableTwoDimension
-        /// <summary>
-        /// <para>
-        /// <para>Enables data collection from specific Amazon Web Services sources in specific accounts
-        /// or Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("EnableTwoDimensions")]
-        public System.Collections.Hashtable EnableTwoDimension { get; set; }
-        #endregion
-        
-        #region Parameter InputOrder
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the input order to enable dimensions in Security Lake, namely Region, source
-        /// type, and member account.</para>
+        /// <para>Specify the natively-supported Amazon Web Services service to add as a source in Security
+        /// Lake.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String[] InputOrder { get; set; }
+        [Alias("Sources")]
+        public Amazon.SecurityLake.Model.AwsLogSourceConfiguration[] Source { get; set; }
         #endregion
         
         #region Parameter Select
@@ -137,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InputOrder), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Source), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SLKAwsLogSource (CreateAwsLogSource)"))
             {
                 return;
@@ -153,46 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
                 context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.CreateAwsLogSourceResponse, NewSLKAwsLogSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.EnableAllDimension != null)
+            if (this.Source != null)
             {
-                context.EnableAllDimension = new Dictionary<System.String, Dictionary<System.String, List<System.String>>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EnableAllDimension.Keys)
-                {
-                    context.EnableAllDimension.Add((String)hashKey, (Dictionary<String,List<String>>)(this.EnableAllDimension[hashKey]));
-                }
-            }
-            if (this.EnableSingleDimension != null)
-            {
-                context.EnableSingleDimension = new List<System.String>(this.EnableSingleDimension);
-            }
-            if (this.EnableTwoDimension != null)
-            {
-                context.EnableTwoDimension = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EnableTwoDimension.Keys)
-                {
-                    object hashValue = this.EnableTwoDimension[hashKey];
-                    if (hashValue == null)
-                    {
-                        context.EnableTwoDimension.Add((String)hashKey, null);
-                        continue;
-                    }
-                    var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<System.String>();
-                    foreach (var s in enumerable)
-                    {
-                        valueSet.Add((System.String)s);
-                    }
-                    context.EnableTwoDimension.Add((String)hashKey, valueSet);
-                }
-            }
-            if (this.InputOrder != null)
-            {
-                context.InputOrder = new List<System.String>(this.InputOrder);
+                context.Source = new List<Amazon.SecurityLake.Model.AwsLogSourceConfiguration>(this.Source);
             }
             #if MODULAR
-            if (this.InputOrder == null && ParameterWasBound(nameof(this.InputOrder)))
+            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
             {
-                WriteWarning("You are passing $null as a value for parameter InputOrder which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -211,21 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.CreateAwsLogSourceRequest();
             
-            if (cmdletContext.EnableAllDimension != null)
+            if (cmdletContext.Source != null)
             {
-                request.EnableAllDimensions = cmdletContext.EnableAllDimension;
-            }
-            if (cmdletContext.EnableSingleDimension != null)
-            {
-                request.EnableSingleDimension = cmdletContext.EnableSingleDimension;
-            }
-            if (cmdletContext.EnableTwoDimension != null)
-            {
-                request.EnableTwoDimensions = cmdletContext.EnableTwoDimension;
-            }
-            if (cmdletContext.InputOrder != null)
-            {
-                request.InputOrder = cmdletContext.InputOrder;
+                request.Sources = cmdletContext.Source;
             }
             
             CmdletOutput output;
@@ -288,10 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Dictionary<System.String, List<System.String>>> EnableAllDimension { get; set; }
-            public List<System.String> EnableSingleDimension { get; set; }
-            public Dictionary<System.String, List<System.String>> EnableTwoDimension { get; set; }
-            public List<System.String> InputOrder { get; set; }
+            public List<Amazon.SecurityLake.Model.AwsLogSourceConfiguration> Source { get; set; }
             public System.Func<Amazon.SecurityLake.Model.CreateAwsLogSourceResponse, NewSLKAwsLogSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

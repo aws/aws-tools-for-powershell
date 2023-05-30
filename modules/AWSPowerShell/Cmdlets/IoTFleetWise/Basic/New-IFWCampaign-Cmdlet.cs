@@ -74,6 +74,21 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         public System.Int32? ConditionBasedCollectionScheme_ConditionLanguageVersion { get; set; }
         #endregion
         
+        #region Parameter DataDestinationConfig
+        /// <summary>
+        /// <para>
+        /// <para>The destination where the campaign sends data. You can choose to send data to be stored
+        /// in Amazon S3 or Amazon Timestream.</para><para>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to
+        /// use vehicle data, such as data lakes, centralized data storage, data processing pipelines,
+        /// and analytics. </para><para>You can use Amazon Timestream to access and analyze time series data, and Timestream
+        /// to query vehicle data so that you can identify trends and patterns.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataDestinationConfigs")]
+        public Amazon.IoTFleetWise.Model.DataDestinationConfig[] DataDestinationConfig { get; set; }
+        #endregion
+        
         #region Parameter DataExtraDimension
         /// <summary>
         /// <para>
@@ -115,8 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para> (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970
-        /// at midnight UTC time). Vehicle data won't be collected after the campaign expires.
-        /// </para><para>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</para>
+        /// at midnight UTC time). Vehicle data isn't collected after the campaign expires. </para><para>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,6 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             context.ConditionBasedCollectionScheme_TriggerMode = this.ConditionBasedCollectionScheme_TriggerMode;
             context.TimeBasedCollectionScheme_PeriodMs = this.TimeBasedCollectionScheme_PeriodMs;
             context.Compression = this.Compression;
+            if (this.DataDestinationConfig != null)
+            {
+                context.DataDestinationConfig = new List<Amazon.IoTFleetWise.Model.DataDestinationConfig>(this.DataDestinationConfig);
+            }
             if (this.DataExtraDimension != null)
             {
                 context.DataExtraDimension = new List<System.String>(this.DataExtraDimension);
@@ -513,6 +531,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             {
                 request.Compression = cmdletContext.Compression;
             }
+            if (cmdletContext.DataDestinationConfig != null)
+            {
+                request.DataDestinationConfigs = cmdletContext.DataDestinationConfig;
+            }
             if (cmdletContext.DataExtraDimension != null)
             {
                 request.DataExtraDimensions = cmdletContext.DataExtraDimension;
@@ -632,6 +654,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             public Amazon.IoTFleetWise.TriggerMode ConditionBasedCollectionScheme_TriggerMode { get; set; }
             public System.Int64? TimeBasedCollectionScheme_PeriodMs { get; set; }
             public Amazon.IoTFleetWise.Compression Compression { get; set; }
+            public List<Amazon.IoTFleetWise.Model.DataDestinationConfig> DataDestinationConfig { get; set; }
             public List<System.String> DataExtraDimension { get; set; }
             public System.String Description { get; set; }
             public Amazon.IoTFleetWise.DiagnosticsMode DiagnosticsMode { get; set; }

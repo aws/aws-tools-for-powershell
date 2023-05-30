@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// Specifies where to store your security data and for how long. You can add a rollup
     /// Region to consolidate data from multiple Amazon Web Services Regions.
     /// </summary>
-    [Cmdlet("Update", "SLKDatalake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Security Lake UpdateDatalake API operation.", Operation = new[] {"UpdateDatalake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateDatalakeResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.UpdateDatalakeResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.UpdateDatalakeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SLKDataLake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityLake.Model.DataLakeResource")]
+    [AWSCmdlet("Calls the Amazon Security Lake UpdateDataLake API operation.", Operation = new[] {"UpdateDataLake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateDataLakeResponse))]
+    [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeResource or Amazon.SecurityLake.Model.UpdateDataLakeResponse",
+        "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeResource objects.",
+        "The service call response (type Amazon.SecurityLake.Model.UpdateDataLakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSLKDatalakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class UpdateSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
         #region Parameter Configuration
@@ -56,17 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Configurations")]
-        public System.Collections.Hashtable Configuration { get; set; }
+        public Amazon.SecurityLake.Model.DataLakeConfiguration[] Configuration { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.UpdateDatalakeResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataLakes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.UpdateDataLakeResponse).
+        /// Specifying the name of a property of type Amazon.SecurityLake.Model.UpdateDataLakeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DataLakes";
         #endregion
         
         #region Parameter Force
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Configuration), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SLKDatalake (UpdateDatalake)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SLKDataLake (UpdateDataLake)"))
             {
                 return;
             }
@@ -97,16 +98,12 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.UpdateDatalakeResponse, UpdateSLKDatalakeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.UpdateDataLakeResponse, UpdateSLKDataLakeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             if (this.Configuration != null)
             {
-                context.Configuration = new Dictionary<System.String, Amazon.SecurityLake.Model.LakeConfigurationRequest>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Configuration.Keys)
-                {
-                    context.Configuration.Add((String)hashKey, (LakeConfigurationRequest)(this.Configuration[hashKey]));
-                }
+                context.Configuration = new List<Amazon.SecurityLake.Model.DataLakeConfiguration>(this.Configuration);
             }
             #if MODULAR
             if (this.Configuration == null && ParameterWasBound(nameof(this.Configuration)))
@@ -128,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.UpdateDatalakeRequest();
+            var request = new Amazon.SecurityLake.Model.UpdateDataLakeRequest();
             
             if (cmdletContext.Configuration != null)
             {
@@ -167,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.UpdateDatalakeResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.UpdateDatalakeRequest request)
+        private Amazon.SecurityLake.Model.UpdateDataLakeResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.UpdateDataLakeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "UpdateDatalake");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "UpdateDataLake");
             try
             {
                 #if DESKTOP
-                return client.UpdateDatalake(request);
+                return client.UpdateDataLake(request);
                 #elif CORECLR
-                return client.UpdateDatalakeAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDataLakeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Amazon.SecurityLake.Model.LakeConfigurationRequest> Configuration { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.UpdateDatalakeResponse, UpdateSLKDatalakeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.SecurityLake.Model.DataLakeConfiguration> Configuration { get; set; }
+            public System.Func<Amazon.SecurityLake.Model.UpdateDataLakeResponse, UpdateSLKDataLakeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DataLakes;
         }
         
     }

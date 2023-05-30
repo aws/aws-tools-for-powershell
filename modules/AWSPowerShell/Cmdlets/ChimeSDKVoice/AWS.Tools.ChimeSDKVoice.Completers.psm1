@@ -87,6 +87,13 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.CallLegType
+        "Start-CHMVOSpeakerSearchTask/CallLeg"
+        {
+            $v = "Callee","Caller"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.GeoMatchLevel
         "New-CHMVOProxySession/GeoMatchLevel"
         {
@@ -165,6 +172,7 @@ $CHMVO_Completers = {
 
 $CHMVO_map = @{
     "AwsRegion"=@("New-CHMVOVoiceConnector")
+    "CallLeg"=@("Start-CHMVOSpeakerSearchTask")
     "FilterName"=@("Get-CHMVOPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMVOProxySession")
     "LanguageCode"=@("Start-CHMVOVoiceToneAnalysisTask")

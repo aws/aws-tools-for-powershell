@@ -80,30 +80,13 @@ $SLK_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.SecurityLake.HttpsMethod
+        # Amazon.SecurityLake.HttpMethod
         {
-            ($_ -eq "New-SLKSubscriptionNotificationConfiguration/HttpsMethod") -Or
-            ($_ -eq "Update-SLKSubscriptionNotificationConfiguration/HttpsMethod")
+            ($_ -eq "New-SLKSubscriberNotification/Configuration_HttpsNotificationConfiguration_HttpMethod") -Or
+            ($_ -eq "Update-SLKSubscriberNotification/Configuration_HttpsNotificationConfiguration_HttpMethod")
         }
         {
             $v = "POST","PUT"
-            break
-        }
-
-        # Amazon.SecurityLake.OcsfEventClass
-        "New-SLKCustomLogSource/EventClass"
-        {
-            $v = "ACCESS_ACTIVITY","ACCOUNT_CHANGE","AUTHENTICATION","AUTHORIZATION","CLOUD_API","CLOUD_STORAGE","CONFIG_STATE","CONTAINER_LIFECYCLE","DATABASE_LIFECYCLE","DHCP_ACTIVITY","DNS_ACTIVITY","ENTITY_MANAGEMENT_AUDIT","FILE_ACTIVITY","FTP_ACTIVITY","HTTP_ACTIVITY","INVENTORY_INFO","KERNEL_ACTIVITY","KERNEL_EXTENSION","MEMORY_ACTIVITY","MODULE_ACTIVITY","NETWORK_ACTIVITY","PROCESS_ACTIVITY","RDP_ACTIVITY","REGISTRY_KEY_ACTIVITY","REGISTRY_VALUE_ACTIVITY","RESOURCE_ACTIVITY","RFB_ACTIVITY","SCHEDULED_JOB_ACTIVITY","SECURITY_FINDING","SMB_ACTIVITY","SMTP_ACTIVITY","SSH_ACTIVITY","VIRTUAL_MACHINE_ACTIVITY"
-            break
-        }
-
-        # Amazon.SecurityLake.SubscriptionProtocolType
-        {
-            ($_ -eq "New-SLKDatalakeExceptionsSubscription/SubscriptionProtocol") -Or
-            ($_ -eq "Update-SLKDatalakeExceptionsSubscription/SubscriptionProtocol")
-        }
-        {
-            $v = "APP","EMAIL","EMAIL_JSON","FIREHOSE","HTTP","HTTPS","LAMBDA","SMS","SQS"
             break
         }
 
@@ -116,9 +99,7 @@ $SLK_Completers = {
 }
 
 $SLK_map = @{
-    "EventClass"=@("New-SLKCustomLogSource")
-    "HttpsMethod"=@("New-SLKSubscriptionNotificationConfiguration","Update-SLKSubscriptionNotificationConfiguration")
-    "SubscriptionProtocol"=@("New-SLKDatalakeExceptionsSubscription","Update-SLKDatalakeExceptionsSubscription")
+    "Configuration_HttpsNotificationConfiguration_HttpMethod"=@("New-SLKSubscriberNotification","Update-SLKSubscriberNotification")
 }
 
 _awsArgumentCompleterRegistration $SLK_Completers $SLK_map
@@ -173,34 +154,32 @@ $SLK_SelectCompleters = {
 $SLK_SelectMap = @{
     "Select"=@("New-SLKAwsLogSource",
                "New-SLKCustomLogSource",
-               "New-SLKDatalake",
-               "New-SLKDatalakeAutoEnable",
-               "New-SLKDatalakeDelegatedAdmin",
-               "New-SLKDatalakeExceptionsSubscription",
+               "New-SLKDataLake",
+               "New-SLKDataLakeExceptionSubscription",
+               "New-SLKDataLakeOrganizationConfiguration",
                "New-SLKSubscriber",
-               "New-SLKSubscriptionNotificationConfiguration",
+               "New-SLKSubscriberNotification",
                "Remove-SLKAwsLogSource",
                "Remove-SLKCustomLogSource",
-               "Remove-SLKDatalake",
-               "Remove-SLKDatalakeAutoEnable",
-               "Remove-SLKDatalakeDelegatedAdmin",
-               "Remove-SLKDatalakeExceptionsSubscription",
+               "Remove-SLKDataLake",
+               "Remove-SLKDataLakeExceptionSubscription",
+               "Remove-SLKDataLakeOrganizationConfiguration",
                "Remove-SLKSubscriber",
-               "Remove-SLKSubscriptionNotificationConfiguration",
-               "Get-SLKDatalake",
-               "Get-SLKDatalakeAutoEnable",
-               "Get-SLKDatalakeExceptionsExpiry",
-               "Get-SLKDatalakeExceptionsSubscription",
-               "Get-SLKDatalakeStatus",
+               "Remove-SLKSubscriberNotification",
+               "Remove-SLKDataLakeDelegatedAdministrator",
+               "Get-SLKDataLakeExceptionSubscription",
+               "Get-SLKDataLakeOrganizationConfiguration",
+               "Get-SLKDataLakeSource",
                "Get-SLKSubscriber",
-               "Get-SLKDatalakeExceptionList",
+               "Get-SLKDataLakeExceptionList",
+               "Get-SLKDataLakeList",
                "Get-SLKLogSourceList",
                "Get-SLKSubscriberList",
-               "Update-SLKDatalake",
-               "Update-SLKDatalakeExceptionsExpiry",
-               "Update-SLKDatalakeExceptionsSubscription",
+               "Register-SLKDataLakeDelegatedAdministrator",
+               "Update-SLKDataLake",
+               "Update-SLKDataLakeExceptionSubscription",
                "Update-SLKSubscriber",
-               "Update-SLKSubscriptionNotificationConfiguration")
+               "Update-SLKSubscriberNotification")
 }
 
 _awsArgumentCompleterRegistration $SLK_SelectCompleters $SLK_SelectMap

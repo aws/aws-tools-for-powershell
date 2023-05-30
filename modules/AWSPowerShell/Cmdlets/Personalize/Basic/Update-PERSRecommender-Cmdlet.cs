@@ -28,7 +28,13 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Updates the recommender to modify the recommender configuration.
+    /// Updates the recommender to modify the recommender configuration. If you update the
+    /// recommender to modify the columns used in training, Amazon Personalize automatically
+    /// starts a full retraining of the models backing your recommender. While the update
+    /// completes, you can still get recommendations from the recommender. The recommender
+    /// uses the previous configuration until the update completes. To track the status of
+    /// this update, use the <code>latestRecommenderUpdate</code> returned in the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>
+    /// operation.
     /// </summary>
     [Cmdlet("Update", "PERSRecommender", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -39,6 +45,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     )]
     public partial class UpdatePERSRecommenderCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
+        
+        #region Parameter TrainingDataConfig_ExcludedDatasetColumn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the columns to exclude from training. Each key is a dataset type, and each
+        /// value is a list of columns. Exclude columns to control what data Amazon Personalize
+        /// uses to generate recommendations. For example, you might have a column that you want
+        /// to use only to filter recommendations. You can exclude this column from training and
+        /// Amazon Personalize considers it only when filtering. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderConfig_TrainingDataConfig_ExcludedDatasetColumns")]
+        public System.Collections.Hashtable TrainingDataConfig_ExcludedDatasetColumn { get; set; }
+        #endregion
         
         #region Parameter RecommenderConfig_ItemExplorationConfig
         /// <summary>
@@ -58,7 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Specifies the requested minimum provisioned recommendation requests per second that
-        /// Amazon Personalize will support.</para>
+        /// Amazon Personalize will support. A high <code>minRecommendationRequestsPerSecond</code>
+        /// will increase your bill. We recommend starting with 1 for <code>minRecommendationRequestsPerSecond</code>
+        /// (the default). Track your usage using Amazon CloudWatch metrics, and increase the
+        /// <code>minRecommendationRequestsPerSecond</code> as necessary.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,6 +184,26 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 }
             }
             context.RecommenderConfig_MinRecommendationRequestsPerSecond = this.RecommenderConfig_MinRecommendationRequestsPerSecond;
+            if (this.TrainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                context.TrainingDataConfig_ExcludedDatasetColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TrainingDataConfig_ExcludedDatasetColumn.Keys)
+                {
+                    object hashValue = this.TrainingDataConfig_ExcludedDatasetColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.TrainingDataConfig_ExcludedDatasetColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.TrainingDataConfig_ExcludedDatasetColumn.Add((String)hashKey, valueSet);
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,6 +246,31 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond != null)
             {
                 request.RecommenderConfig.MinRecommendationRequestsPerSecond = requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond.Value;
+                requestRecommenderConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.TrainingDataConfig requestRecommenderConfig_recommenderConfig_TrainingDataConfig = null;
+            
+             // populate TrainingDataConfig
+            var requestRecommenderConfig_recommenderConfig_TrainingDataConfigIsNull = true;
+            requestRecommenderConfig_recommenderConfig_TrainingDataConfig = new Amazon.Personalize.Model.TrainingDataConfig();
+            Dictionary<System.String, List<System.String>> requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = null;
+            if (cmdletContext.TrainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = cmdletContext.TrainingDataConfig_ExcludedDatasetColumn;
+            }
+            if (requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfig.ExcludedDatasetColumns = requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn;
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfigIsNull = false;
+            }
+             // determine if requestRecommenderConfig_recommenderConfig_TrainingDataConfig should be set to null
+            if (requestRecommenderConfig_recommenderConfig_TrainingDataConfigIsNull)
+            {
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfig = null;
+            }
+            if (requestRecommenderConfig_recommenderConfig_TrainingDataConfig != null)
+            {
+                request.RecommenderConfig.TrainingDataConfig = requestRecommenderConfig_recommenderConfig_TrainingDataConfig;
                 requestRecommenderConfigIsNull = false;
             }
              // determine if request.RecommenderConfig should be set to null
@@ -273,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String RecommenderArn { get; set; }
             public Dictionary<System.String, System.String> RecommenderConfig_ItemExplorationConfig { get; set; }
             public System.Int32? RecommenderConfig_MinRecommendationRequestsPerSecond { get; set; }
+            public Dictionary<System.String, List<System.String>> TrainingDataConfig_ExcludedDatasetColumn { get; set; }
             public System.Func<Amazon.Personalize.Model.UpdateRecommenderResponse, UpdatePERSRecommenderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecommenderArn;
         }

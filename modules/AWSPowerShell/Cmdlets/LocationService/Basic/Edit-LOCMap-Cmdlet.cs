@@ -66,6 +66,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String MapName { get; set; }
         #endregion
         
+        #region Parameter ConfigurationUpdate_PoliticalView
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the political view for the style. Set to an empty string to not use a political
+        /// view, or, for styles that support specific political views, you can choose a view,
+        /// such as <code>IND</code> for the Indian view.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+        /// views</a> for more information.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationUpdate_PoliticalView { get; set; }
+        #endregion
+        
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
@@ -141,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.MapName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConfigurationUpdate_PoliticalView = this.ConfigurationUpdate_PoliticalView;
             context.Description = this.Description;
             context.MapName = this.MapName;
             #if MODULAR
@@ -168,6 +182,25 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // create request
             var request = new Amazon.LocationService.Model.UpdateMapRequest();
             
+            
+             // populate ConfigurationUpdate
+            var requestConfigurationUpdateIsNull = true;
+            request.ConfigurationUpdate = new Amazon.LocationService.Model.MapConfigurationUpdate();
+            System.String requestConfigurationUpdate_configurationUpdate_PoliticalView = null;
+            if (cmdletContext.ConfigurationUpdate_PoliticalView != null)
+            {
+                requestConfigurationUpdate_configurationUpdate_PoliticalView = cmdletContext.ConfigurationUpdate_PoliticalView;
+            }
+            if (requestConfigurationUpdate_configurationUpdate_PoliticalView != null)
+            {
+                request.ConfigurationUpdate.PoliticalView = requestConfigurationUpdate_configurationUpdate_PoliticalView;
+                requestConfigurationUpdateIsNull = false;
+            }
+             // determine if request.ConfigurationUpdate should be set to null
+            if (requestConfigurationUpdateIsNull)
+            {
+                request.ConfigurationUpdate = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -243,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ConfigurationUpdate_PoliticalView { get; set; }
             public System.String Description { get; set; }
             public System.String MapName { get; set; }
             [System.ObsoleteAttribute]

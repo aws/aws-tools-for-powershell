@@ -28,29 +28,27 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves the Amazon Security Lake configuration object for the specified Amazon Web
-    /// Services account ID. You can use the <code>GetDatalake</code> API to know whether
-    /// Security Lake is enabled for the current Region. This API does not take input parameters.
+    /// Retrieves the details of exception notifications for the account in Amazon Security
+    /// Lake.
     /// </summary>
-    [Cmdlet("Get", "SLKDatalake")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Security Lake GetDatalake API operation.", Operation = new[] {"GetDatalake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDatalakeResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SecurityLake.Model.GetDatalakeResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SecurityLake.Model.GetDatalakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SLKDataLakeExceptionSubscription")]
+    [OutputType("Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse")]
+    [AWSCmdlet("Calls the Amazon Security Lake GetDataLakeExceptionSubscription API operation.", Operation = new[] {"GetDataLakeExceptionSubscription"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse))]
+    [AWSCmdletOutput("Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse",
+        "This cmdlet returns an Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSLKDatalakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class GetSLKDataLakeExceptionSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Configurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDatalakeResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDatalakeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse).
+        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Configurations";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -65,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDatalakeResponse, GetSLKDatalakeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse, GetSLKDataLakeExceptionSubscriptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -82,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.GetDatalakeRequest();
+            var request = new Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionRequest();
             
             
             CmdletOutput output;
@@ -117,15 +115,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.GetDatalakeResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDatalakeRequest request)
+        private Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDatalake");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDataLakeExceptionSubscription");
             try
             {
                 #if DESKTOP
-                return client.GetDatalake(request);
+                return client.GetDataLakeExceptionSubscription(request);
                 #elif CORECLR
-                return client.GetDatalakeAsync(request).GetAwaiter().GetResult();
+                return client.GetDataLakeExceptionSubscriptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -145,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.SecurityLake.Model.GetDatalakeResponse, GetSLKDatalakeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Configurations;
+            public System.Func<Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse, GetSLKDataLakeExceptionSubscriptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

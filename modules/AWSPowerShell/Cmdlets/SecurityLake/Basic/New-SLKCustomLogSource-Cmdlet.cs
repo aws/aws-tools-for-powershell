@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// events from third-party custom sources. After creating the appropriate IAM role to
     /// invoke Glue crawler, use this API to add a custom source name in Security Lake. This
     /// operation creates a partition in the Amazon S3 bucket for Security Lake as the target
-    /// location for log files from the custom source in addition to an associated Glue table
-    /// and an Glue crawler.
+    /// location for log files from the custom source. In addition, this operation also creates
+    /// an associated Glue table and an Glue crawler.
     /// </summary>
     [Cmdlet("New", "SLKCustomLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityLake.Model.CreateCustomLogSourceResponse")]
@@ -45,64 +45,58 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKCustomLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter CustomSourceName
-        /// <summary>
-        /// <para>
-        /// <para>The name for a third-party custom source. This must be a Regionally unique value.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CustomSourceName { get; set; }
-        #endregion
-        
         #region Parameter EventClass
         /// <summary>
         /// <para>
-        /// <para>The Open Cybersecurity Schema Framework (OCSF) event class which describes the type
-        /// of data that the custom source will send to Security Lake.</para>
+        /// <para>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type
+        /// of data that the custom source will send to Security Lake. The supported event classes
+        /// are:</para><ul><li><para><code>ACCESS_ACTIVITY</code></para></li><li><para><code>FILE_ACTIVITY</code></para></li><li><para><code>KERNEL_ACTIVITY</code></para></li><li><para><code>KERNEL_EXTENSION</code></para></li><li><para><code>MEMORY_ACTIVITY</code></para></li><li><para><code>MODULE_ACTIVITY</code></para></li><li><para><code>PROCESS_ACTIVITY</code></para></li><li><para><code>REGISTRY_KEY_ACTIVITY</code></para></li><li><para><code>REGISTRY_VALUE_ACTIVITY</code></para></li><li><para><code>RESOURCE_ACTIVITY</code></para></li><li><para><code>SCHEDULED_JOB_ACTIVITY</code></para></li><li><para><code>SECURITY_FINDING</code></para></li><li><para><code>ACCOUNT_CHANGE</code></para></li><li><para><code>AUTHENTICATION</code></para></li><li><para><code>AUTHORIZATION</code></para></li><li><para><code>ENTITY_MANAGEMENT_AUDIT</code></para></li><li><para><code>DHCP_ACTIVITY</code></para></li><li><para><code>NETWORK_ACTIVITY</code></para></li><li><para><code>DNS_ACTIVITY</code></para></li><li><para><code>FTP_ACTIVITY</code></para></li><li><para><code>HTTP_ACTIVITY</code></para></li><li><para><code>RDP_ACTIVITY</code></para></li><li><para><code>SMB_ACTIVITY</code></para></li><li><para><code>SSH_ACTIVITY</code></para></li><li><para><code>CONFIG_STATE</code></para></li><li><para><code>INVENTORY_INFO</code></para></li><li><para><code>EMAIL_ACTIVITY</code></para></li><li><para><code>API_ACTIVITY</code></para></li><li><para><code>CLOUD_API</code></para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.SecurityLake.OcsfEventClass")]
-        public Amazon.SecurityLake.OcsfEventClass EventClass { get; set; }
+        [Alias("EventClasses")]
+        public System.String[] EventClass { get; set; }
         #endregion
         
-        #region Parameter GlueInvocationRoleArn
+        #region Parameter ProviderIdentity_ExternalId
+        /// <summary>
+        /// <para>
+        /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ProviderIdentity_ExternalId")]
+        public System.String ProviderIdentity_ExternalId { get; set; }
+        #endregion
+        
+        #region Parameter ProviderIdentity_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The AWS identity principal.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ProviderIdentity_Principal")]
+        public System.String ProviderIdentity_Principal { get; set; }
+        #endregion
+        
+        #region Parameter CrawlerConfiguration_RoleArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
         /// be used by the Glue crawler. The recommended IAM policies are:</para><ul><li><para>The managed policy <code>AWSGlueServiceRole</code></para></li><li><para>A custom policy granting access to your Amazon S3 Data Lake</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GlueInvocationRoleArn { get; set; }
+        [Alias("Configuration_CrawlerConfiguration_RoleArn")]
+        public System.String CrawlerConfiguration_RoleArn { get; set; }
         #endregion
         
-        #region Parameter LogProviderAccountId
+        #region Parameter SourceName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the custom source that will write logs and events
-        /// into the Amazon S3 Data Lake.</para>
+        /// <para>Specify the name for a third-party custom source. This must be a Regionally unique
+        /// value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LogProviderAccountId { get; set; }
+        public System.String SourceName { get; set; }
+        #endregion
+        
+        #region Parameter SourceVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specify the source version for the third-party custom source, to limit log collection
+        /// to a specific version of custom data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceVersion { get; set; }
         #endregion
         
         #region Parameter Select
@@ -152,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CustomSourceName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceName), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SLKCustomLogSource (CreateCustomLogSource)"))
             {
                 return;
@@ -178,34 +183,21 @@ namespace Amazon.PowerShell.Cmdlets.SLK
                 context.Select = (response, cmdlet) => this.EventClass;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CustomSourceName = this.CustomSourceName;
-            #if MODULAR
-            if (this.CustomSourceName == null && ParameterWasBound(nameof(this.CustomSourceName)))
+            context.CrawlerConfiguration_RoleArn = this.CrawlerConfiguration_RoleArn;
+            context.ProviderIdentity_ExternalId = this.ProviderIdentity_ExternalId;
+            context.ProviderIdentity_Principal = this.ProviderIdentity_Principal;
+            if (this.EventClass != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CustomSourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.EventClass = new List<System.String>(this.EventClass);
+            }
+            context.SourceName = this.SourceName;
+            #if MODULAR
+            if (this.SourceName == null && ParameterWasBound(nameof(this.SourceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.EventClass = this.EventClass;
-            #if MODULAR
-            if (this.EventClass == null && ParameterWasBound(nameof(this.EventClass)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EventClass which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.GlueInvocationRoleArn = this.GlueInvocationRoleArn;
-            #if MODULAR
-            if (this.GlueInvocationRoleArn == null && ParameterWasBound(nameof(this.GlueInvocationRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GlueInvocationRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.LogProviderAccountId = this.LogProviderAccountId;
-            #if MODULAR
-            if (this.LogProviderAccountId == null && ParameterWasBound(nameof(this.LogProviderAccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LogProviderAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.SourceVersion = this.SourceVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,21 +214,86 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.CreateCustomLogSourceRequest();
             
-            if (cmdletContext.CustomSourceName != null)
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.SecurityLake.Model.CustomLogSourceConfiguration();
+            Amazon.SecurityLake.Model.CustomLogSourceCrawlerConfiguration requestConfiguration_configuration_CrawlerConfiguration = null;
+            
+             // populate CrawlerConfiguration
+            var requestConfiguration_configuration_CrawlerConfigurationIsNull = true;
+            requestConfiguration_configuration_CrawlerConfiguration = new Amazon.SecurityLake.Model.CustomLogSourceCrawlerConfiguration();
+            System.String requestConfiguration_configuration_CrawlerConfiguration_crawlerConfiguration_RoleArn = null;
+            if (cmdletContext.CrawlerConfiguration_RoleArn != null)
             {
-                request.CustomSourceName = cmdletContext.CustomSourceName;
+                requestConfiguration_configuration_CrawlerConfiguration_crawlerConfiguration_RoleArn = cmdletContext.CrawlerConfiguration_RoleArn;
+            }
+            if (requestConfiguration_configuration_CrawlerConfiguration_crawlerConfiguration_RoleArn != null)
+            {
+                requestConfiguration_configuration_CrawlerConfiguration.RoleArn = requestConfiguration_configuration_CrawlerConfiguration_crawlerConfiguration_RoleArn;
+                requestConfiguration_configuration_CrawlerConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CrawlerConfiguration should be set to null
+            if (requestConfiguration_configuration_CrawlerConfigurationIsNull)
+            {
+                requestConfiguration_configuration_CrawlerConfiguration = null;
+            }
+            if (requestConfiguration_configuration_CrawlerConfiguration != null)
+            {
+                request.Configuration.CrawlerConfiguration = requestConfiguration_configuration_CrawlerConfiguration;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.SecurityLake.Model.AwsIdentity requestConfiguration_configuration_ProviderIdentity = null;
+            
+             // populate ProviderIdentity
+            var requestConfiguration_configuration_ProviderIdentityIsNull = true;
+            requestConfiguration_configuration_ProviderIdentity = new Amazon.SecurityLake.Model.AwsIdentity();
+            System.String requestConfiguration_configuration_ProviderIdentity_providerIdentity_ExternalId = null;
+            if (cmdletContext.ProviderIdentity_ExternalId != null)
+            {
+                requestConfiguration_configuration_ProviderIdentity_providerIdentity_ExternalId = cmdletContext.ProviderIdentity_ExternalId;
+            }
+            if (requestConfiguration_configuration_ProviderIdentity_providerIdentity_ExternalId != null)
+            {
+                requestConfiguration_configuration_ProviderIdentity.ExternalId = requestConfiguration_configuration_ProviderIdentity_providerIdentity_ExternalId;
+                requestConfiguration_configuration_ProviderIdentityIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ProviderIdentity_providerIdentity_Principal = null;
+            if (cmdletContext.ProviderIdentity_Principal != null)
+            {
+                requestConfiguration_configuration_ProviderIdentity_providerIdentity_Principal = cmdletContext.ProviderIdentity_Principal;
+            }
+            if (requestConfiguration_configuration_ProviderIdentity_providerIdentity_Principal != null)
+            {
+                requestConfiguration_configuration_ProviderIdentity.Principal = requestConfiguration_configuration_ProviderIdentity_providerIdentity_Principal;
+                requestConfiguration_configuration_ProviderIdentityIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ProviderIdentity should be set to null
+            if (requestConfiguration_configuration_ProviderIdentityIsNull)
+            {
+                requestConfiguration_configuration_ProviderIdentity = null;
+            }
+            if (requestConfiguration_configuration_ProviderIdentity != null)
+            {
+                request.Configuration.ProviderIdentity = requestConfiguration_configuration_ProviderIdentity;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             if (cmdletContext.EventClass != null)
             {
-                request.EventClass = cmdletContext.EventClass;
+                request.EventClasses = cmdletContext.EventClass;
             }
-            if (cmdletContext.GlueInvocationRoleArn != null)
+            if (cmdletContext.SourceName != null)
             {
-                request.GlueInvocationRoleArn = cmdletContext.GlueInvocationRoleArn;
+                request.SourceName = cmdletContext.SourceName;
             }
-            if (cmdletContext.LogProviderAccountId != null)
+            if (cmdletContext.SourceVersion != null)
             {
-                request.LogProviderAccountId = cmdletContext.LogProviderAccountId;
+                request.SourceVersion = cmdletContext.SourceVersion;
             }
             
             CmdletOutput output;
@@ -299,10 +356,12 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CustomSourceName { get; set; }
-            public Amazon.SecurityLake.OcsfEventClass EventClass { get; set; }
-            public System.String GlueInvocationRoleArn { get; set; }
-            public System.String LogProviderAccountId { get; set; }
+            public System.String CrawlerConfiguration_RoleArn { get; set; }
+            public System.String ProviderIdentity_ExternalId { get; set; }
+            public System.String ProviderIdentity_Principal { get; set; }
+            public List<System.String> EventClass { get; set; }
+            public System.String SourceName { get; set; }
+            public System.String SourceVersion { get; set; }
             public System.Func<Amazon.SecurityLake.Model.CreateCustomLogSourceResponse, NewSLKCustomLogSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

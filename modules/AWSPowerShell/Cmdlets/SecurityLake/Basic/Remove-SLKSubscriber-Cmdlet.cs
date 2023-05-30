@@ -28,8 +28,10 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Deletes the subscription permission for accounts that are already enabled in Amazon
-    /// Security Lake. You can delete a subscriber and remove access to data in the current
+    /// Deletes the subscription permission and all notification settings for accounts that
+    /// are already enabled in Amazon Security Lake. When you run <code>DeleteSubscriber</code>,
+    /// the subscriber will no longer consume data from Security Lake and the subscriber is
+    /// removed. This operation deletes the subscriber and removes access to data in the current
     /// Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Remove", "SLKSubscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -42,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class RemoveSLKSubscriberCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter SubscriberId
         /// <summary>
         /// <para>
         /// <para>A value created by Security Lake that uniquely identifies your <code>DeleteSubscriber</code>
-        /// API request. </para>
+        /// API request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String SubscriberId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -72,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SubscriberId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SubscriberId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SubscriberId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -95,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubscriberId), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKSubscriber (DeleteSubscriber)"))
             {
                 return;
@@ -118,14 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.SubscriberId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.SubscriberId = this.SubscriberId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.SubscriberId == null && ParameterWasBound(nameof(this.SubscriberId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SubscriberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -144,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.DeleteSubscriberRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.SubscriberId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.SubscriberId = cmdletContext.SubscriberId;
             }
             
             CmdletOutput output;
@@ -209,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
+            public System.String SubscriberId { get; set; }
             public System.Func<Amazon.SecurityLake.Model.DeleteSubscriberResponse, RemoveSLKSubscriberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

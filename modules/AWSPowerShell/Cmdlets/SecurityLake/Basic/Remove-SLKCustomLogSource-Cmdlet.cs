@@ -28,22 +28,23 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Removes a custom log source from Amazon Security Lake.
+    /// Removes a custom log source from Amazon Security Lake, to stop sending data from the
+    /// custom source to Security Lake.
     /// </summary>
     [Cmdlet("Remove", "SLKCustomLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
+    [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Security Lake DeleteCustomLogSource API operation.", Operation = new[] {"DeleteCustomLogSource"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveSLKCustomLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter CustomSourceName
+        #region Parameter SourceName
         /// <summary>
         /// <para>
-        /// <para>The custom source name for the custom log source.</para>
+        /// <para>The source name of custom log source that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,26 +55,36 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CustomSourceName { get; set; }
+        public System.String SourceName { get; set; }
+        #endregion
+        
+        #region Parameter SourceVersion
+        /// <summary>
+        /// <para>
+        /// <para>The source version for the third-party custom source. You can limit the custom source
+        /// removal to the specified source version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceVersion { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CustomDataLocation'.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CustomDataLocation";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CustomSourceName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CustomSourceName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SourceName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SourceName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CustomSourceName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -93,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CustomSourceName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceName), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKCustomLogSource (DeleteCustomLogSource)"))
             {
                 return;
@@ -116,16 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CustomSourceName;
+                context.Select = (response, cmdlet) => this.SourceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CustomSourceName = this.CustomSourceName;
+            context.SourceName = this.SourceName;
             #if MODULAR
-            if (this.CustomSourceName == null && ParameterWasBound(nameof(this.CustomSourceName)))
+            if (this.SourceName == null && ParameterWasBound(nameof(this.SourceName)))
             {
-                WriteWarning("You are passing $null as a value for parameter CustomSourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SourceVersion = this.SourceVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,9 +154,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.DeleteCustomLogSourceRequest();
             
-            if (cmdletContext.CustomSourceName != null)
+            if (cmdletContext.SourceName != null)
             {
-                request.CustomSourceName = cmdletContext.CustomSourceName;
+                request.SourceName = cmdletContext.SourceName;
+            }
+            if (cmdletContext.SourceVersion != null)
+            {
+                request.SourceVersion = cmdletContext.SourceVersion;
             }
             
             CmdletOutput output;
@@ -207,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CustomSourceName { get; set; }
+            public System.String SourceName { get; set; }
+            public System.String SourceVersion { get; set; }
             public System.Func<Amazon.SecurityLake.Model.DeleteCustomLogSourceResponse, RemoveSLKCustomLogSourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CustomDataLocation;
+                (response, cmdlet) => null;
         }
         
     }

@@ -101,7 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
         /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
-        /// Metrics</a> in the <i>WAF Developer Guide</i>.</para>
+        /// Metrics</a> in the <i>WAF Developer Guide</i>.</para><para>For web ACLs, the metrics are for web requests that have the web ACL default action
+        /// applied. WAF applies the default action to web requests that pass the inspection of
+        /// all rules in the web ACL without being either allowed or blocked. For more information,
+        /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html">The
+        /// web ACL default action</a> in the <i>WAF Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

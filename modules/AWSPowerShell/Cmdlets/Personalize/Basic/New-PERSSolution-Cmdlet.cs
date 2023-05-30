@@ -114,6 +114,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String SolutionConfig_EventValueThreshold { get; set; }
         #endregion
         
+        #region Parameter TrainingDataConfig_ExcludedDatasetColumn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the columns to exclude from training. Each key is a dataset type, and each
+        /// value is a list of columns. Exclude columns to control what data Amazon Personalize
+        /// uses to generate recommendations. For example, you might have a column that you want
+        /// to use only to filter recommendations. You can exclude this column from training and
+        /// Amazon Personalize considers it only when filtering. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionConfig_TrainingDataConfig_ExcludedDatasetColumns")]
+        public System.Collections.Hashtable TrainingDataConfig_ExcludedDatasetColumn { get; set; }
+        #endregion
+        
         #region Parameter SolutionConfig_FeatureTransformationParameter
         /// <summary>
         /// <para>
@@ -238,7 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter PerformAutoML
         /// <summary>
         /// <para>
-        /// <para>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
+        /// <important><para>We don't recommend enabling automated machine learning. Instead, match your use case
+        /// to the available Amazon Personalize recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html">Determining
+        /// your use case.</a></para></important><para>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
         /// For this case, you must specify <code>recipeArn</code>.</para><para>When set to <code>true</code>, Amazon Personalize analyzes your training data and
         /// selects the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case,
         /// you must omit <code>recipeArn</code>. Amazon Personalize determines the optimal recipe
@@ -287,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a>
         /// to apply to the solution.</para>
         /// </para>
         /// </summary>
@@ -428,6 +445,26 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             context.HpoResourceConfig_MaxParallelTrainingJob = this.HpoResourceConfig_MaxParallelTrainingJob;
             context.OptimizationObjective_ItemAttribute = this.OptimizationObjective_ItemAttribute;
             context.OptimizationObjective_ObjectiveSensitivity = this.OptimizationObjective_ObjectiveSensitivity;
+            if (this.TrainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                context.TrainingDataConfig_ExcludedDatasetColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TrainingDataConfig_ExcludedDatasetColumn.Keys)
+                {
+                    object hashValue = this.TrainingDataConfig_ExcludedDatasetColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.TrainingDataConfig_ExcludedDatasetColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.TrainingDataConfig_ExcludedDatasetColumn.Add((String)hashKey, valueSet);
+                }
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
@@ -504,6 +541,31 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestSolutionConfig_solutionConfig_FeatureTransformationParameter != null)
             {
                 request.SolutionConfig.FeatureTransformationParameters = requestSolutionConfig_solutionConfig_FeatureTransformationParameter;
+                requestSolutionConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.TrainingDataConfig requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
+            
+             // populate TrainingDataConfig
+            var requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = true;
+            requestSolutionConfig_solutionConfig_TrainingDataConfig = new Amazon.Personalize.Model.TrainingDataConfig();
+            Dictionary<System.String, List<System.String>> requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = null;
+            if (cmdletContext.TrainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = cmdletContext.TrainingDataConfig_ExcludedDatasetColumn;
+            }
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig.ExcludedDatasetColumns = requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn;
+                requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = false;
+            }
+             // determine if requestSolutionConfig_solutionConfig_TrainingDataConfig should be set to null
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
+            }
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfig != null)
+            {
+                request.SolutionConfig.TrainingDataConfig = requestSolutionConfig_solutionConfig_TrainingDataConfig;
                 requestSolutionConfigIsNull = false;
             }
             Amazon.Personalize.Model.AutoMLConfig requestSolutionConfig_solutionConfig_AutoMLConfig = null;
@@ -807,6 +869,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String HpoResourceConfig_MaxParallelTrainingJob { get; set; }
             public System.String OptimizationObjective_ItemAttribute { get; set; }
             public Amazon.Personalize.ObjectiveSensitivity OptimizationObjective_ObjectiveSensitivity { get; set; }
+            public Dictionary<System.String, List<System.String>> TrainingDataConfig_ExcludedDatasetColumn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateSolutionResponse, NewPERSSolutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SolutionArn;

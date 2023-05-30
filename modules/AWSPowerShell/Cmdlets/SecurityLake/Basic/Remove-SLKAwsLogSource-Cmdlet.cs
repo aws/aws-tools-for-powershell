@@ -29,26 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
     /// Removes a natively supported Amazon Web Service as an Amazon Security Lake source.
-    /// When you remove the source, Security Lake stops collecting data from that source,
-    /// and subscribers can no longer consume new data from the source. Subscribers can still
-    /// consume data that Security Lake collected from the source before disablement.
+    /// You can remove a source for one or more Regions. When you remove the source, Security
+    /// Lake stops collecting data from that source in the specified Regions and accounts,
+    /// and subscribers can no longer consume new data from the source. However, subscribers
+    /// can still consume data that Security Lake collected from the source before removal.
     /// 
     ///  
     /// <para>
     /// You can choose any source type in any Amazon Web Services Region for either accounts
-    /// that are part of a trusted organization or standalone accounts. At least one of the
-    /// three dimensions is a mandatory input to this API. However, you can supply any combination
-    /// of the three dimensions to this API. 
-    /// </para><para>
-    /// By default, a dimension refers to the entire set. This is overridden when you supply
-    /// any one of the inputs. For instance, when you do not specify members, the API disables
-    /// all Security Lake member accounts for sources. Similarly, when you do not specify
-    /// Regions, Security Lake is disabled for all the Regions where Security Lake is available
-    /// as a service.
-    /// </para><para>
-    /// When you don't provide a dimension, Security Lake assumes that the missing dimension
-    /// refers to the entire set. For example, if you don't provide specific accounts, the
-    /// API applies to the entire set of accounts in your organization.
+    /// that are part of a trusted organization or standalone accounts. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SLKAwsLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -60,45 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class RemoveSLKAwsLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter DisableAllDimension
+        #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Removes the specific Amazon Web Services sources from specific accounts and specific
-        /// Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DisableAllDimensions")]
-        public System.Collections.Hashtable DisableAllDimension { get; set; }
-        #endregion
-        
-        #region Parameter DisableSingleDimension
-        /// <summary>
-        /// <para>
-        /// <para>Removes all Amazon Web Services sources from specific accounts or Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] DisableSingleDimension { get; set; }
-        #endregion
-        
-        #region Parameter DisableTwoDimension
-        /// <summary>
-        /// <para>
-        /// <para>Remove a specific Amazon Web Services source from specific accounts or Regions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DisableTwoDimensions")]
-        public System.Collections.Hashtable DisableTwoDimension { get; set; }
-        #endregion
-        
-        #region Parameter InputOrder
-        /// <summary>
-        /// <para>
-        /// <para>This is a mandatory input. Specify the input order to disable dimensions in Security
-        /// Lake, namely Region (Amazon Web Services Region code, source type, and member (account
-        /// ID of a specific Amazon Web Services account). </para>
+        /// <para>Specify the natively-supported Amazon Web Services service to remove as a source in
+        /// Security Lake.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String[] InputOrder { get; set; }
+        [Alias("Sources")]
+        public Amazon.SecurityLake.Model.AwsLogSourceConfiguration[] Source { get; set; }
         #endregion
         
         #region Parameter Select
@@ -138,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InputOrder), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Source), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKAwsLogSource (DeleteAwsLogSource)"))
             {
                 return;
@@ -154,46 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
                 context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteAwsLogSourceResponse, RemoveSLKAwsLogSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.DisableAllDimension != null)
+            if (this.Source != null)
             {
-                context.DisableAllDimension = new Dictionary<System.String, Dictionary<System.String, List<System.String>>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.DisableAllDimension.Keys)
-                {
-                    context.DisableAllDimension.Add((String)hashKey, (Dictionary<String,List<String>>)(this.DisableAllDimension[hashKey]));
-                }
-            }
-            if (this.DisableSingleDimension != null)
-            {
-                context.DisableSingleDimension = new List<System.String>(this.DisableSingleDimension);
-            }
-            if (this.DisableTwoDimension != null)
-            {
-                context.DisableTwoDimension = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.DisableTwoDimension.Keys)
-                {
-                    object hashValue = this.DisableTwoDimension[hashKey];
-                    if (hashValue == null)
-                    {
-                        context.DisableTwoDimension.Add((String)hashKey, null);
-                        continue;
-                    }
-                    var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<System.String>();
-                    foreach (var s in enumerable)
-                    {
-                        valueSet.Add((System.String)s);
-                    }
-                    context.DisableTwoDimension.Add((String)hashKey, valueSet);
-                }
-            }
-            if (this.InputOrder != null)
-            {
-                context.InputOrder = new List<System.String>(this.InputOrder);
+                context.Source = new List<Amazon.SecurityLake.Model.AwsLogSourceConfiguration>(this.Source);
             }
             #if MODULAR
-            if (this.InputOrder == null && ParameterWasBound(nameof(this.InputOrder)))
+            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
             {
-                WriteWarning("You are passing $null as a value for parameter InputOrder which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -212,21 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.DeleteAwsLogSourceRequest();
             
-            if (cmdletContext.DisableAllDimension != null)
+            if (cmdletContext.Source != null)
             {
-                request.DisableAllDimensions = cmdletContext.DisableAllDimension;
-            }
-            if (cmdletContext.DisableSingleDimension != null)
-            {
-                request.DisableSingleDimension = cmdletContext.DisableSingleDimension;
-            }
-            if (cmdletContext.DisableTwoDimension != null)
-            {
-                request.DisableTwoDimensions = cmdletContext.DisableTwoDimension;
-            }
-            if (cmdletContext.InputOrder != null)
-            {
-                request.InputOrder = cmdletContext.InputOrder;
+                request.Sources = cmdletContext.Source;
             }
             
             CmdletOutput output;
@@ -289,10 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Dictionary<System.String, List<System.String>>> DisableAllDimension { get; set; }
-            public List<System.String> DisableSingleDimension { get; set; }
-            public Dictionary<System.String, List<System.String>> DisableTwoDimension { get; set; }
-            public List<System.String> InputOrder { get; set; }
+            public List<Amazon.SecurityLake.Model.AwsLogSourceConfiguration> Source { get; set; }
             public System.Func<Amazon.SecurityLake.Model.DeleteAwsLogSourceResponse, RemoveSLKAwsLogSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

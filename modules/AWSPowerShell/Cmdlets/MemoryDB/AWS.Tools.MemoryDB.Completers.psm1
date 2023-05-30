@@ -86,7 +86,7 @@ $MDB_Completers = {
             ($_ -eq "Update-MDBUser/AuthenticationMode_Type")
         }
         {
-            $v = "password"
+            $v = "iam","password"
             break
         }
 

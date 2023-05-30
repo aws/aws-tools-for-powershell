@@ -31,17 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// Retrieves a snapshot of the current Region, including whether Amazon Security Lake
     /// is enabled for those accounts and which sources Security Lake is collecting data from.
     /// </summary>
-    [Cmdlet("Get", "SLKDatalakeStatus")]
-    [OutputType("Amazon.SecurityLake.Model.AccountSources")]
-    [AWSCmdlet("Calls the Amazon Security Lake GetDatalakeStatus API operation.", Operation = new[] {"GetDatalakeStatus"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDatalakeStatusResponse))]
-    [AWSCmdletOutput("Amazon.SecurityLake.Model.AccountSources or Amazon.SecurityLake.Model.GetDatalakeStatusResponse",
-        "This cmdlet returns a collection of Amazon.SecurityLake.Model.AccountSources objects.",
-        "The service call response (type Amazon.SecurityLake.Model.GetDatalakeStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SLKDataLakeSource")]
+    [OutputType("Amazon.SecurityLake.Model.GetDataLakeSourcesResponse")]
+    [AWSCmdlet("Calls the Amazon Security Lake GetDataLakeSources API operation.", Operation = new[] {"GetDataLakeSources"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDataLakeSourcesResponse))]
+    [AWSCmdletOutput("Amazon.SecurityLake.Model.GetDataLakeSourcesResponse",
+        "This cmdlet returns an Amazon.SecurityLake.Model.GetDataLakeSourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSLKDatalakeStatusCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class GetSLKDataLakeSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter AccountSet
+        #region Parameter Account
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account ID for which a static snapshot of the current Amazon
@@ -49,19 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] AccountSet { get; set; }
+        [Alias("Accounts")]
+        public System.String[] Account { get; set; }
         #endregion
         
-        #region Parameter MaxAccountResult
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum limit of accounts for which the static snapshot of the current Region,
         /// including enabled accounts and log sources, is retrieved.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("MaxAccountResults")]
-        public System.Int32? MaxAccountResult { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <para>
         /// <para>Lists if there are more results available. The value of nextToken is a unique pagination
         /// token for each page. Repeat the call using the returned token to retrieve the next
-        /// page. Keep all other arguments unchanged. </para><para>Each pagination token expires after 24 hours. Using an expired pagination token will
+        /// page. Keep all other arguments unchanged.</para><para>Each pagination token expires after 24 hours. Using an expired pagination token will
         /// return an HTTP 400 InvalidToken error.</para>
         /// </para>
         /// </summary>
@@ -79,23 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountSourcesList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDatalakeStatusResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDatalakeStatusResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDataLakeSourcesResponse).
+        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDataLakeSourcesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AccountSourcesList";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MaxAccountResult parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MaxAccountResult' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MaxAccountResult' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -108,26 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDatalakeStatusResponse, GetSLKDatalakeStatusCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDataLakeSourcesResponse, GetSLKDataLakeSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.Account != null)
             {
-                context.Select = (response, cmdlet) => this.MaxAccountResult;
+                context.Account = new List<System.String>(this.Account);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AccountSet != null)
-            {
-                context.AccountSet = new List<System.String>(this.AccountSet);
-            }
-            context.MaxAccountResult = this.MaxAccountResult;
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -143,15 +123,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.GetDatalakeStatusRequest();
+            var request = new Amazon.SecurityLake.Model.GetDataLakeSourcesRequest();
             
-            if (cmdletContext.AccountSet != null)
+            if (cmdletContext.Account != null)
             {
-                request.AccountSet = cmdletContext.AccountSet;
+                request.Accounts = cmdletContext.Account;
             }
-            if (cmdletContext.MaxAccountResult != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.MaxAccountResults = cmdletContext.MaxAccountResult.Value;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -190,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.GetDatalakeStatusResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDatalakeStatusRequest request)
+        private Amazon.SecurityLake.Model.GetDataLakeSourcesResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDataLakeSourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDatalakeStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDataLakeSources");
             try
             {
                 #if DESKTOP
-                return client.GetDatalakeStatus(request);
+                return client.GetDataLakeSources(request);
                 #elif CORECLR
-                return client.GetDatalakeStatusAsync(request).GetAwaiter().GetResult();
+                return client.GetDataLakeSourcesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,11 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AccountSet { get; set; }
-            public System.Int32? MaxAccountResult { get; set; }
+            public List<System.String> Account { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.GetDatalakeStatusResponse, GetSLKDatalakeStatusCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AccountSourcesList;
+            public System.Func<Amazon.SecurityLake.Model.GetDataLakeSourcesResponse, GetSLKDataLakeSourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

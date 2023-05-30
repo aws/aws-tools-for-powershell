@@ -28,29 +28,29 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves the expiration period and time-to-live (TTL) for which the exception message
-    /// will remain. Exceptions are stored by default, for 2 weeks from when a record was
-    /// created in Amazon Security Lake. This API does not take input parameters.
+    /// Retrieves the configuration that will be automatically set up for accounts added to
+    /// the organization after the organization has onboarded to Amazon Security Lake. This
+    /// API does not take input parameters.
     /// </summary>
-    [Cmdlet("Get", "SLKDatalakeExceptionsExpiry")]
-    [OutputType("System.Int64")]
-    [AWSCmdlet("Calls the Amazon Security Lake GetDatalakeExceptionsExpiry API operation.", Operation = new[] {"GetDatalakeExceptionsExpiry"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse))]
-    [AWSCmdletOutput("System.Int64 or Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse",
-        "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SLKDataLakeOrganizationConfiguration")]
+    [OutputType("Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration")]
+    [AWSCmdlet("Calls the Amazon Security Lake GetDataLakeOrganizationConfiguration API operation.", Operation = new[] {"GetDataLakeOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration or Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse",
+        "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration objects.",
+        "The service call response (type Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSLKDatalakeExceptionsExpiryCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class GetSLKDataLakeOrganizationConfigurationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ExceptionMessageExpiry'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AutoEnableNewAccount'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ExceptionMessageExpiry";
+        public string Select { get; set; } = "AutoEnableNewAccount";
         #endregion
         
         protected override void ProcessRecord()
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse, GetSLKDatalakeExceptionsExpiryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse, GetSLKDataLakeOrganizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryRequest();
+            var request = new Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationRequest();
             
             
             CmdletOutput output;
@@ -117,15 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryRequest request)
+        private Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDatalakeExceptionsExpiry");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDataLakeOrganizationConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetDatalakeExceptionsExpiry(request);
+                return client.GetDataLakeOrganizationConfiguration(request);
                 #elif CORECLR
-                return client.GetDatalakeExceptionsExpiryAsync(request).GetAwaiter().GetResult();
+                return client.GetDataLakeOrganizationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.SecurityLake.Model.GetDatalakeExceptionsExpiryResponse, GetSLKDatalakeExceptionsExpiryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ExceptionMessageExpiry;
+            public System.Func<Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse, GetSLKDataLakeOrganizationConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AutoEnableNewAccount;
         }
         
     }

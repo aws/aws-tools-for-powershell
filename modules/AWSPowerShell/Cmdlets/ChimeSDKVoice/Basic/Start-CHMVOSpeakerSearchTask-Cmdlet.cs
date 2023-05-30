@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class StartCHMVOSpeakerSearchTaskCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        #region Parameter CallLeg
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which call leg to stream for speaker search.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKVoice.CallLegType")]
+        public Amazon.ChimeSDKVoice.CallLegType CallLeg { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -171,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 context.Select = (response, cmdlet) => this.TransactionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CallLeg = this.CallLeg;
             context.ClientRequestToken = this.ClientRequestToken;
             context.TransactionId = this.TransactionId;
             #if MODULAR
@@ -209,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             // create request
             var request = new Amazon.ChimeSDKVoice.Model.StartSpeakerSearchTaskRequest();
             
+            if (cmdletContext.CallLeg != null)
+            {
+                request.CallLeg = cmdletContext.CallLeg;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -286,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ChimeSDKVoice.CallLegType CallLeg { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String TransactionId { get; set; }
             public System.String VoiceConnectorId { get; set; }

@@ -28,55 +28,56 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Deletes the Amazon Security Lake delegated administrator account for the organization.
-    /// This API can only be called by the organization management account. The organization
-    /// management account cannot be the delegated administrator account.
+    /// When you disable Amazon Security Lake from your account, Security Lake is disabled
+    /// in all Amazon Web Services Regions and it stops collecting data from your sources.
+    /// Also, this API automatically takes steps to remove the account from Security Lake.
+    /// However, Security Lake retains all of your existing settings and the resources that
+    /// it created in your Amazon Web Services account in the current Amazon Web Services
+    /// Region.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>DeleteDataLake</code> operation does not delete the data that is stored
+    /// in your Amazon S3 bucket, which is owned by your Amazon Web Services account. For
+    /// more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html">Amazon
+    /// Security Lake User Guide</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "SLKDatalakeDelegatedAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SLKDataLake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Security Lake DeleteDatalakeDelegatedAdmin API operation.", Operation = new[] {"DeleteDatalakeDelegatedAdmin"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse",
+    [AWSCmdlet("Calls the Amazon Security Lake DeleteDataLake API operation.", Operation = new[] {"DeleteDataLake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteDataLakeResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteDataLakeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.DeleteDataLakeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSLKDatalakeDelegatedAdminCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class RemoveSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter Account
+        #region Parameter DataLakeRegions
         /// <summary>
         /// <para>
-        /// <para>The account ID the Security Lake delegated administrator.</para>
+        /// <para>The list of Regions where Security Lake is enabled.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Account { get; set; }
+        public System.String[] DataLakeRegions { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteDataLakeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Account parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Account' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Account' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -94,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Account), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKDatalakeDelegatedAdmin (DeleteDatalakeDelegatedAdmin)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataLakeRegions), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKDataLake (DeleteDataLake)"))
             {
                 return;
             }
@@ -105,26 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse, RemoveSLKDatalakeDelegatedAdminCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteDataLakeResponse, RemoveSLKDataLakeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.DataLakeRegions != null)
             {
-                context.Select = (response, cmdlet) => this.Account;
+                context.DataLakeRegions = new List<System.String>(this.DataLakeRegions);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Account = this.Account;
             #if MODULAR
-            if (this.Account == null && ParameterWasBound(nameof(this.Account)))
+            if (this.DataLakeRegions == null && ParameterWasBound(nameof(this.DataLakeRegions)))
             {
-                WriteWarning("You are passing $null as a value for parameter Account which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DataLakeRegions which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,11 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminRequest();
+            var request = new Amazon.SecurityLake.Model.DeleteDataLakeRequest();
             
-            if (cmdletContext.Account != null)
+            if (cmdletContext.DataLakeRegions != null)
             {
-                request.Account = cmdletContext.Account;
+                request.Regions = cmdletContext.DataLakeRegions;
             }
             
             CmdletOutput output;
@@ -180,15 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminRequest request)
+        private Amazon.SecurityLake.Model.DeleteDataLakeResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeleteDataLakeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeleteDatalakeDelegatedAdmin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeleteDataLake");
             try
             {
                 #if DESKTOP
-                return client.DeleteDatalakeDelegatedAdmin(request);
+                return client.DeleteDataLake(request);
                 #elif CORECLR
-                return client.DeleteDatalakeDelegatedAdminAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDataLakeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Account { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.DeleteDatalakeDelegatedAdminResponse, RemoveSLKDatalakeDelegatedAdminCmdlet, object> Select { get; set; } =
+            public List<System.String> DataLakeRegions { get; set; }
+            public System.Func<Amazon.SecurityLake.Model.DeleteDataLakeResponse, RemoveSLKDataLakeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

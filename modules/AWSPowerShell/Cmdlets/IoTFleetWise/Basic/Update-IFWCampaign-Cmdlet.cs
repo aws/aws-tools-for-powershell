@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para> Specifies how to update a campaign. The action can be one of the following:</para><ul><li><para><code>APPROVE</code> - To approve delivering a data collection scheme to vehicles.
-        /// </para></li><li><para><code>SUSPEND</code> - To suspend collecting signal data. </para></li><li><para><code>RESUME</code> - To resume collecting signal data. </para></li><li><para><code>UPDATE</code> - To update a campaign. </para></li></ul>
+        /// </para></li><li><para><code>SUSPEND</code> - To suspend collecting signal data. The campaign is deleted
+        /// from vehicles and all vehicles in the suspended campaign will stop sending data.</para></li><li><para><code>RESUME</code> - To reactivate the <code>SUSPEND</code> campaign. The campaign
+        /// is redeployed to all vehicles and the vehicles will resume sending data.</para></li><li><para><code>UPDATE</code> - To update a campaign. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

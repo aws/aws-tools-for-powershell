@@ -52,10 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         public System.String[] AccessType { get; set; }
         #endregion
         
-        #region Parameter AccountId
+        #region Parameter SubscriberIdentity_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID used to access your data.</para>
+        /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,15 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccountId { get; set; }
+        public System.String SubscriberIdentity_ExternalId { get; set; }
         #endregion
         
-        #region Parameter ExternalId
+        #region Parameter SubscriberIdentity_Principal
         /// <summary>
         /// <para>
-        /// <para>The external ID of the subscriber. This lets the user that is assuming the role assert
-        /// the circumstances in which they are operating. It also provides a way for the account
-        /// owner to permit the role to be assumed only under specific circumstances.</para>
+        /// <para>The AWS identity principal.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,10 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExternalId { get; set; }
+        public System.String SubscriberIdentity_Principal { get; set; }
         #endregion
         
-        #region Parameter SourceType
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The supported Amazon Web Services from which logs and events are collected. Security
@@ -103,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("SourceTypes")]
-        public Amazon.SecurityLake.Model.SourceType[] SourceType { get; set; }
+        [Alias("Sources")]
+        public Amazon.SecurityLake.Model.LogSourceResource[] Source { get; set; }
         #endregion
         
         #region Parameter SubscriberDescription
         /// <summary>
         /// <para>
-        /// <para>The description for your subscriber account in Security Lake. </para>
+        /// <para>The description for your subscriber account in Security Lake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubscriberIdentity_Principal), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SLKSubscriber (CreateSubscriber)"))
             {
                 return;
@@ -200,31 +198,31 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             {
                 context.AccessType = new List<System.String>(this.AccessType);
             }
-            context.AccountId = this.AccountId;
-            #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.Source != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ExternalId = this.ExternalId;
-            #if MODULAR
-            if (this.ExternalId == null && ParameterWasBound(nameof(this.ExternalId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExternalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.SourceType != null)
-            {
-                context.SourceType = new List<Amazon.SecurityLake.Model.SourceType>(this.SourceType);
+                context.Source = new List<Amazon.SecurityLake.Model.LogSourceResource>(this.Source);
             }
             #if MODULAR
-            if (this.SourceType == null && ParameterWasBound(nameof(this.SourceType)))
+            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
             {
-                WriteWarning("You are passing $null as a value for parameter SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.SubscriberDescription = this.SubscriberDescription;
+            context.SubscriberIdentity_ExternalId = this.SubscriberIdentity_ExternalId;
+            #if MODULAR
+            if (this.SubscriberIdentity_ExternalId == null && ParameterWasBound(nameof(this.SubscriberIdentity_ExternalId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SubscriberIdentity_ExternalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SubscriberIdentity_Principal = this.SubscriberIdentity_Principal;
+            #if MODULAR
+            if (this.SubscriberIdentity_Principal == null && ParameterWasBound(nameof(this.SubscriberIdentity_Principal)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SubscriberIdentity_Principal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SubscriberName = this.SubscriberName;
             #if MODULAR
             if (this.SubscriberName == null && ParameterWasBound(nameof(this.SubscriberName)))
@@ -252,21 +250,42 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             {
                 request.AccessTypes = cmdletContext.AccessType;
             }
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.Source != null)
             {
-                request.AccountId = cmdletContext.AccountId;
-            }
-            if (cmdletContext.ExternalId != null)
-            {
-                request.ExternalId = cmdletContext.ExternalId;
-            }
-            if (cmdletContext.SourceType != null)
-            {
-                request.SourceTypes = cmdletContext.SourceType;
+                request.Sources = cmdletContext.Source;
             }
             if (cmdletContext.SubscriberDescription != null)
             {
                 request.SubscriberDescription = cmdletContext.SubscriberDescription;
+            }
+            
+             // populate SubscriberIdentity
+            var requestSubscriberIdentityIsNull = true;
+            request.SubscriberIdentity = new Amazon.SecurityLake.Model.AwsIdentity();
+            System.String requestSubscriberIdentity_subscriberIdentity_ExternalId = null;
+            if (cmdletContext.SubscriberIdentity_ExternalId != null)
+            {
+                requestSubscriberIdentity_subscriberIdentity_ExternalId = cmdletContext.SubscriberIdentity_ExternalId;
+            }
+            if (requestSubscriberIdentity_subscriberIdentity_ExternalId != null)
+            {
+                request.SubscriberIdentity.ExternalId = requestSubscriberIdentity_subscriberIdentity_ExternalId;
+                requestSubscriberIdentityIsNull = false;
+            }
+            System.String requestSubscriberIdentity_subscriberIdentity_Principal = null;
+            if (cmdletContext.SubscriberIdentity_Principal != null)
+            {
+                requestSubscriberIdentity_subscriberIdentity_Principal = cmdletContext.SubscriberIdentity_Principal;
+            }
+            if (requestSubscriberIdentity_subscriberIdentity_Principal != null)
+            {
+                request.SubscriberIdentity.Principal = requestSubscriberIdentity_subscriberIdentity_Principal;
+                requestSubscriberIdentityIsNull = false;
+            }
+             // determine if request.SubscriberIdentity should be set to null
+            if (requestSubscriberIdentityIsNull)
+            {
+                request.SubscriberIdentity = null;
             }
             if (cmdletContext.SubscriberName != null)
             {
@@ -334,10 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AccessType { get; set; }
-            public System.String AccountId { get; set; }
-            public System.String ExternalId { get; set; }
-            public List<Amazon.SecurityLake.Model.SourceType> SourceType { get; set; }
+            public List<Amazon.SecurityLake.Model.LogSourceResource> Source { get; set; }
             public System.String SubscriberDescription { get; set; }
+            public System.String SubscriberIdentity_ExternalId { get; set; }
+            public System.String SubscriberIdentity_Principal { get; set; }
             public System.String SubscriberName { get; set; }
             public System.Func<Amazon.SecurityLake.Model.CreateSubscriberResponse, NewSLKSubscriberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

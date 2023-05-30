@@ -28,35 +28,50 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves the configuration that will be automatically set up for accounts added to
-    /// the organization after the organization has onboarded to Amazon Security Lake. This
-    /// API does not take input parameters.
+    /// Deletes the Amazon Security Lake delegated administrator account for the organization.
+    /// This API can only be called by the organization management account. The organization
+    /// management account cannot be the delegated administrator account.
     /// </summary>
-    [Cmdlet("Get", "SLKDatalakeAutoEnable")]
-    [OutputType("Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration")]
-    [AWSCmdlet("Calls the Amazon Security Lake GetDatalakeAutoEnable API operation.", Operation = new[] {"GetDatalakeAutoEnable"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse))]
-    [AWSCmdletOutput("Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration or Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse",
-        "This cmdlet returns a collection of Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration objects.",
-        "The service call response (type Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SLKDataLakeDelegatedAdministrator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Security Lake DeregisterDataLakeDelegatedAdministrator API operation.", Operation = new[] {"DeregisterDataLakeDelegatedAdministrator"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSLKDatalakeAutoEnableCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class RemoveSLKDataLakeDelegatedAdministratorCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AutoEnableNewAccounts'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AutoEnableNewAccounts";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKDataLakeDelegatedAdministrator (DeregisterDataLakeDelegatedAdministrator)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -65,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse, GetSLKDatalakeAutoEnableCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse, RemoveSLKDataLakeDelegatedAdministratorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -82,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.GetDatalakeAutoEnableRequest();
+            var request = new Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorRequest();
             
             
             CmdletOutput output;
@@ -117,15 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.GetDatalakeAutoEnableRequest request)
+        private Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "GetDatalakeAutoEnable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeregisterDataLakeDelegatedAdministrator");
             try
             {
                 #if DESKTOP
-                return client.GetDatalakeAutoEnable(request);
+                return client.DeregisterDataLakeDelegatedAdministrator(request);
                 #elif CORECLR
-                return client.GetDatalakeAutoEnableAsync(request).GetAwaiter().GetResult();
+                return client.DeregisterDataLakeDelegatedAdministratorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -145,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.SecurityLake.Model.GetDatalakeAutoEnableResponse, GetSLKDatalakeAutoEnableCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AutoEnableNewAccounts;
+            public System.Func<Amazon.SecurityLake.Model.DeregisterDataLakeDelegatedAdministratorResponse, RemoveSLKDataLakeDelegatedAdministratorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

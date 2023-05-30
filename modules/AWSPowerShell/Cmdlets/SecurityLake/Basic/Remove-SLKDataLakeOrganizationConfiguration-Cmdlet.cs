@@ -28,27 +28,27 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// <code>DeleteDatalakeAutoEnable</code> removes automatic enablement of configuration
-    /// settings for new member accounts (but keeps settings for the delegated administrator)
-    /// from Amazon Security Lake. You must run this API using credentials of the delegated
-    /// administrator. When you run this API, new member accounts that are added after the
-    /// organization enables Security Lake won't contribute to the data lake.
+    /// Removes automatic the enablement of configuration settings for new member accounts
+    /// (but retains the settings for the delegated administrator) from Amazon Security Lake.
+    /// You must run this API using the credentials of the delegated administrator. When you
+    /// run this API, new member accounts that are added after the organization enables Security
+    /// Lake won't contribute to the data lake.
     /// </summary>
-    [Cmdlet("Remove", "SLKDatalakeAutoEnable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SLKDataLakeOrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Security Lake DeleteDatalakeAutoEnable API operation.", Operation = new[] {"DeleteDatalakeAutoEnable"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse",
+    [AWSCmdlet("Calls the Amazon Security Lake DeleteDataLakeOrganizationConfiguration API operation.", Operation = new[] {"DeleteDataLakeOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSLKDatalakeAutoEnableCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class RemoveSLKDataLakeOrganizationConfigurationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter RemoveFromConfigurationForNewAccount
+        #region Parameter AutoEnableNewAccount
         /// <summary>
         /// <para>
-        /// <para>Remove automatic enablement of configuration settings for new member accounts in Security
-        /// Lake. </para>
+        /// <para>Removes the automatic enablement of configuration settings for new member accounts
+        /// in Security Lake.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,14 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("RemoveFromConfigurationForNewAccounts")]
-        public Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration[] RemoveFromConfigurationForNewAccount { get; set; }
+        public Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration[] AutoEnableNewAccount { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RemoveFromConfigurationForNewAccount), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKDatalakeAutoEnable (DeleteDatalakeAutoEnable)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AutoEnableNewAccount), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SLKDataLakeOrganizationConfiguration (DeleteDataLakeOrganizationConfiguration)"))
             {
                 return;
             }
@@ -101,17 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse, RemoveSLKDatalakeAutoEnableCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse, RemoveSLKDataLakeOrganizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.RemoveFromConfigurationForNewAccount != null)
+            if (this.AutoEnableNewAccount != null)
             {
-                context.RemoveFromConfigurationForNewAccount = new List<Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration>(this.RemoveFromConfigurationForNewAccount);
+                context.AutoEnableNewAccount = new List<Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration>(this.AutoEnableNewAccount);
             }
             #if MODULAR
-            if (this.RemoveFromConfigurationForNewAccount == null && ParameterWasBound(nameof(this.RemoveFromConfigurationForNewAccount)))
+            if (this.AutoEnableNewAccount == null && ParameterWasBound(nameof(this.AutoEnableNewAccount)))
             {
-                WriteWarning("You are passing $null as a value for parameter RemoveFromConfigurationForNewAccount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AutoEnableNewAccount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableRequest();
+            var request = new Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationRequest();
             
-            if (cmdletContext.RemoveFromConfigurationForNewAccount != null)
+            if (cmdletContext.AutoEnableNewAccount != null)
             {
-                request.RemoveFromConfigurationForNewAccounts = cmdletContext.RemoveFromConfigurationForNewAccount;
+                request.AutoEnableNewAccount = cmdletContext.AutoEnableNewAccount;
             }
             
             CmdletOutput output;
@@ -167,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableRequest request)
+        private Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeleteDatalakeAutoEnable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "DeleteDataLakeOrganizationConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DeleteDatalakeAutoEnable(request);
+                return client.DeleteDataLakeOrganizationConfiguration(request);
                 #elif CORECLR
-                return client.DeleteDatalakeAutoEnableAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDataLakeOrganizationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SecurityLake.Model.AutoEnableNewRegionConfiguration> RemoveFromConfigurationForNewAccount { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.DeleteDatalakeAutoEnableResponse, RemoveSLKDatalakeAutoEnableCmdlet, object> Select { get; set; } =
+            public List<Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration> AutoEnableNewAccount { get; set; }
+            public System.Func<Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse, RemoveSLKDataLakeOrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

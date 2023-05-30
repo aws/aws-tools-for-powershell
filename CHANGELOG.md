@@ -1,4 +1,47 @@
-﻿### 4.1.341 (2023-05-26 21:21Z)
+﻿### 4.1.342 (2023-05-30 21:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.557.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Voice
+    * Modified cmdlet Start-CHMVOSpeakerSearchTask: added parameter CallLeg.
+  * Amazon IoT FleetWise
+    * Modified cmdlet New-IFWCampaign: added parameter DataDestinationConfig.
+  * Amazon Location Service
+    * Modified cmdlet Edit-LOCMap: added parameter ConfigurationUpdate_PoliticalView.
+    * Modified cmdlet New-LOCMap: added parameter Configuration_PoliticalView.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSRecommender: added parameter TrainingDataConfig_ExcludedDatasetColumn.
+    * Modified cmdlet New-PERSSolution: added parameter TrainingDataConfig_ExcludedDatasetColumn.
+    * Modified cmdlet Update-PERSRecommender: added parameter TrainingDataConfig_ExcludedDatasetColumn.
+  * SLK
+    * [Breaking Change] Removed cmdlets Get-SLKDatalake, Get-SLKDatalakeAutoEnable, Get-SLKDatalakeExceptionList, Get-SLKDatalakeExceptionsExpiry, Get-SLKDatalakeExceptionsSubscription, Get-SLKDatalakeStatus, New-SLKDatalake, New-SLKDatalakeAutoEnable, New-SLKDatalakeDelegatedAdmin, New-SLKDatalakeExceptionsSubscription, New-SLKSubscriptionNotificationConfiguration, Remove-SLKDatalake, Remove-SLKDatalakeAutoEnable, Remove-SLKDatalakeDelegatedAdmin, Remove-SLKDatalakeExceptionsSubscription, Remove-SLKSubscriptionNotificationConfiguration, Update-SLKDatalake, Update-SLKDatalakeExceptionsExpiry, Update-SLKDatalakeExceptionsSubscription and Update-SLKSubscriptionNotificationConfiguration.
+    * Added cmdlet Get-SLKDataLakeExceptionList leveraging the ListDataLakeExceptions service API.
+    * Added cmdlet Get-SLKDataLakeExceptionSubscription leveraging the GetDataLakeExceptionSubscription service API.
+    * Added cmdlet Get-SLKDataLakeList leveraging the ListDataLakes service API.
+    * Added cmdlet Get-SLKDataLakeOrganizationConfiguration leveraging the GetDataLakeOrganizationConfiguration service API.
+    * Added cmdlet Get-SLKDataLakeSource leveraging the GetDataLakeSources service API.
+    * Added cmdlet New-SLKDataLake leveraging the CreateDataLake service API.
+    * Added cmdlet New-SLKDataLakeExceptionSubscription leveraging the CreateDataLakeExceptionSubscription service API.
+    * Added cmdlet New-SLKDataLakeOrganizationConfiguration leveraging the CreateDataLakeOrganizationConfiguration service API.
+    * Added cmdlet New-SLKSubscriberNotification leveraging the CreateSubscriberNotification service API.
+    * Added cmdlet Register-SLKDataLakeDelegatedAdministrator leveraging the RegisterDataLakeDelegatedAdministrator service API.
+    * Added cmdlet Remove-SLKDataLake leveraging the DeleteDataLake service API.
+    * Added cmdlet Remove-SLKDataLakeDelegatedAdministrator leveraging the DeregisterDataLakeDelegatedAdministrator service API.
+    * Added cmdlet Remove-SLKDataLakeExceptionSubscription leveraging the DeleteDataLakeExceptionSubscription service API.
+    * Added cmdlet Remove-SLKDataLakeOrganizationConfiguration leveraging the DeleteDataLakeOrganizationConfiguration service API.
+    * Added cmdlet Remove-SLKSubscriberNotification leveraging the DeleteSubscriberNotification service API.
+    * Added cmdlet Update-SLKDataLake leveraging the UpdateDataLake service API.
+    * Added cmdlet Update-SLKDataLakeExceptionSubscription leveraging the UpdateDataLakeExceptionSubscription service API.
+    * Added cmdlet Update-SLKSubscriberNotification leveraging the UpdateSubscriberNotification service API.
+    * [Breaking Change] Modified cmdlet Get-SLKLogSourceList: output changed from System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.List<System.String>>> to Amazon.SecurityLake.Model.LogSource; removed parameters InputOrder, ListAllDimension, ListSingleDimension and ListTwoDimension; added parameters Account, Source and SourceRegions.
+    * [Breaking Change] Modified cmdlet Get-SLKSubscriber: removed parameter Id; added parameter SubscriberId.
+    * [Breaking Change] Modified cmdlet New-SLKAwsLogSource: removed parameters EnableAllDimension, EnableSingleDimension, EnableTwoDimension and InputOrder; added parameter Source.
+    * [Breaking Change] Modified cmdlet New-SLKCustomLogSource: removed parameters CustomSourceName, GlueInvocationRoleArn and LogProviderAccountId; the type of parameter EventClass changed from Amazon.SecurityLake.OcsfEventClass to System.String[]; added parameters CrawlerConfiguration_RoleArn, ProviderIdentity_ExternalId, ProviderIdentity_Principal, SourceName and SourceVersion.
+    * [Breaking Change] Modified cmdlet New-SLKSubscriber: removed parameters AccountId, ExternalId and SourceType; added parameters Source, SubscriberIdentity_ExternalId and SubscriberIdentity_Principal.
+    * [Breaking Change] Modified cmdlet Remove-SLKAwsLogSource: removed parameters DisableAllDimension, DisableSingleDimension, DisableTwoDimension and InputOrder; added parameter Source.
+    * [Breaking Change] Modified cmdlet Remove-SLKCustomLogSource: output changed from System.String to None; removed parameter CustomSourceName; added parameters SourceName and SourceVersion.
+    * [Breaking Change] Modified cmdlet Remove-SLKSubscriber: removed parameter Id; added parameter SubscriberId.
+    * [Breaking Change] Modified cmdlet Update-SLKSubscriber: removed parameters ExternalId, Id and SourceType; added parameters Source, SubscriberId, SubscriberIdentity_ExternalId and SubscriberIdentity_Principal.
+
+### 4.1.341 (2023-05-26 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.556.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon IoT Wireless
     * Modified cmdlet New-IOTWNetworkAnalyzerConfiguration: added parameters MulticastGroup and TraceContent_MulticastFrameInfo.

@@ -28,55 +28,46 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Designates the Amazon Security Lake delegated administrator account for the organization.
-    /// This API can only be called by the organization management account. The organization
-    /// management account cannot be the delegated administrator account.
+    /// Specifies where to store your security data and for how long. You can add a rollup
+    /// Region to consolidate data from multiple Amazon Web Services Regions.
     /// </summary>
-    [Cmdlet("New", "SLKDatalakeDelegatedAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Security Lake CreateDatalakeDelegatedAdmin API operation.", Operation = new[] {"CreateDatalakeDelegatedAdmin"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SLKDataLake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityLake.Model.DataLakeResource")]
+    [AWSCmdlet("Calls the Amazon Security Lake UpdateDataLake API operation.", Operation = new[] {"UpdateDataLake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateDataLakeResponse))]
+    [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeResource or Amazon.SecurityLake.Model.UpdateDataLakeResponse",
+        "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeResource objects.",
+        "The service call response (type Amazon.SecurityLake.Model.UpdateDataLakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSLKDatalakeDelegatedAdminCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class UpdateSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter Account
+        #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the Security Lake delegated administrator.</para>
+        /// <para>Specify the Region or Regions that will contribute data to the rollup region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Account { get; set; }
+        [Alias("Configurations")]
+        public Amazon.SecurityLake.Model.DataLakeConfiguration[] Configuration { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataLakes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.UpdateDataLakeResponse).
+        /// Specifying the name of a property of type Amazon.SecurityLake.Model.UpdateDataLakeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Account parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Account' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Account' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "DataLakes";
         #endregion
         
         #region Parameter Force
@@ -94,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Account), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SLKDatalakeDelegatedAdmin (CreateDatalakeDelegatedAdmin)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Configuration), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SLKDataLake (UpdateDataLake)"))
             {
                 return;
             }
@@ -105,26 +96,19 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse, NewSLKDatalakeDelegatedAdminCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.UpdateDataLakeResponse, UpdateSLKDataLakeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.Configuration != null)
             {
-                context.Select = (response, cmdlet) => this.Account;
+                context.Configuration = new List<Amazon.SecurityLake.Model.DataLakeConfiguration>(this.Configuration);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Account = this.Account;
             #if MODULAR
-            if (this.Account == null && ParameterWasBound(nameof(this.Account)))
+            if (this.Configuration == null && ParameterWasBound(nameof(this.Configuration)))
             {
-                WriteWarning("You are passing $null as a value for parameter Account which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Configuration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminRequest();
+            var request = new Amazon.SecurityLake.Model.UpdateDataLakeRequest();
             
-            if (cmdletContext.Account != null)
+            if (cmdletContext.Configuration != null)
             {
-                request.Account = cmdletContext.Account;
+                request.Configurations = cmdletContext.Configuration;
             }
             
             CmdletOutput output;
@@ -180,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminRequest request)
+        private Amazon.SecurityLake.Model.UpdateDataLakeResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.UpdateDataLakeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "CreateDatalakeDelegatedAdmin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "UpdateDataLake");
             try
             {
                 #if DESKTOP
-                return client.CreateDatalakeDelegatedAdmin(request);
+                return client.UpdateDataLake(request);
                 #elif CORECLR
-                return client.CreateDatalakeDelegatedAdminAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDataLakeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Account { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.CreateDatalakeDelegatedAdminResponse, NewSLKDatalakeDelegatedAdminCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.SecurityLake.Model.DataLakeConfiguration> Configuration { get; set; }
+            public System.Func<Amazon.SecurityLake.Model.UpdateDataLakeResponse, UpdateSLKDataLakeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DataLakes;
         }
         
     }

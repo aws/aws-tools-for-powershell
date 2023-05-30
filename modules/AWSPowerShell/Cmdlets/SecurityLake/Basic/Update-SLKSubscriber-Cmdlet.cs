@@ -42,34 +42,27 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class UpdateSLKSubscriberCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter ExternalId
+        #region Parameter SubscriberIdentity_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID of the Security Lake account.</para>
+        /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ExternalId { get; set; }
+        public System.String SubscriberIdentity_ExternalId { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter SubscriberIdentity_Principal
         /// <summary>
         /// <para>
-        /// <para>A value created by Security Lake that uniquely identifies your subscription. </para>
+        /// <para>The AWS identity principal.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubscriberIdentity_Principal { get; set; }
         #endregion
         
-        #region Parameter SourceType
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The supported Amazon Web Services from which logs and events are collected. For the
@@ -77,16 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// Security Lake User Guide</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("SourceTypes")]
-        public Amazon.SecurityLake.Model.SourceType[] SourceType { get; set; }
+        [Alias("Sources")]
+        public Amazon.SecurityLake.Model.LogSourceResource[] Source { get; set; }
         #endregion
         
         #region Parameter SubscriberDescription
@@ -99,10 +85,27 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         public System.String SubscriberDescription { get; set; }
         #endregion
         
+        #region Parameter SubscriberId
+        /// <summary>
+        /// <para>
+        /// <para>A value created by Security Lake that uniquely identifies your subscription.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SubscriberId { get; set; }
+        #endregion
+        
         #region Parameter SubscriberName
         /// <summary>
         /// <para>
-        /// <para>The name of the Security Lake account subscriber. </para>
+        /// <para>The name of the Security Lake account subscriber.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,10 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SubscriberId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SubscriberId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SubscriberId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -145,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubscriberId), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SLKSubscriber (UpdateSubscriber)"))
             {
                 return;
@@ -168,28 +171,23 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.SubscriberId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ExternalId = this.ExternalId;
-            context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.Source != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Source = new List<Amazon.SecurityLake.Model.LogSourceResource>(this.Source);
             }
-            #endif
-            if (this.SourceType != null)
-            {
-                context.SourceType = new List<Amazon.SecurityLake.Model.SourceType>(this.SourceType);
-            }
-            #if MODULAR
-            if (this.SourceType == null && ParameterWasBound(nameof(this.SourceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SubscriberDescription = this.SubscriberDescription;
+            context.SubscriberId = this.SubscriberId;
+            #if MODULAR
+            if (this.SubscriberId == null && ParameterWasBound(nameof(this.SubscriberId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SubscriberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SubscriberIdentity_ExternalId = this.SubscriberIdentity_ExternalId;
+            context.SubscriberIdentity_Principal = this.SubscriberIdentity_Principal;
             context.SubscriberName = this.SubscriberName;
             
             // allow further manipulation of loaded context prior to processing
@@ -207,21 +205,46 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // create request
             var request = new Amazon.SecurityLake.Model.UpdateSubscriberRequest();
             
-            if (cmdletContext.ExternalId != null)
+            if (cmdletContext.Source != null)
             {
-                request.ExternalId = cmdletContext.ExternalId;
-            }
-            if (cmdletContext.Id != null)
-            {
-                request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.SourceType != null)
-            {
-                request.SourceTypes = cmdletContext.SourceType;
+                request.Sources = cmdletContext.Source;
             }
             if (cmdletContext.SubscriberDescription != null)
             {
                 request.SubscriberDescription = cmdletContext.SubscriberDescription;
+            }
+            if (cmdletContext.SubscriberId != null)
+            {
+                request.SubscriberId = cmdletContext.SubscriberId;
+            }
+            
+             // populate SubscriberIdentity
+            var requestSubscriberIdentityIsNull = true;
+            request.SubscriberIdentity = new Amazon.SecurityLake.Model.AwsIdentity();
+            System.String requestSubscriberIdentity_subscriberIdentity_ExternalId = null;
+            if (cmdletContext.SubscriberIdentity_ExternalId != null)
+            {
+                requestSubscriberIdentity_subscriberIdentity_ExternalId = cmdletContext.SubscriberIdentity_ExternalId;
+            }
+            if (requestSubscriberIdentity_subscriberIdentity_ExternalId != null)
+            {
+                request.SubscriberIdentity.ExternalId = requestSubscriberIdentity_subscriberIdentity_ExternalId;
+                requestSubscriberIdentityIsNull = false;
+            }
+            System.String requestSubscriberIdentity_subscriberIdentity_Principal = null;
+            if (cmdletContext.SubscriberIdentity_Principal != null)
+            {
+                requestSubscriberIdentity_subscriberIdentity_Principal = cmdletContext.SubscriberIdentity_Principal;
+            }
+            if (requestSubscriberIdentity_subscriberIdentity_Principal != null)
+            {
+                request.SubscriberIdentity.Principal = requestSubscriberIdentity_subscriberIdentity_Principal;
+                requestSubscriberIdentityIsNull = false;
+            }
+             // determine if request.SubscriberIdentity should be set to null
+            if (requestSubscriberIdentityIsNull)
+            {
+                request.SubscriberIdentity = null;
             }
             if (cmdletContext.SubscriberName != null)
             {
@@ -288,10 +311,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ExternalId { get; set; }
-            public System.String Id { get; set; }
-            public List<Amazon.SecurityLake.Model.SourceType> SourceType { get; set; }
+            public List<Amazon.SecurityLake.Model.LogSourceResource> Source { get; set; }
             public System.String SubscriberDescription { get; set; }
+            public System.String SubscriberId { get; set; }
+            public System.String SubscriberIdentity_ExternalId { get; set; }
+            public System.String SubscriberIdentity_Principal { get; set; }
             public System.String SubscriberName { get; set; }
             public System.Func<Amazon.SecurityLake.Model.UpdateSubscriberResponse, UpdateSLKSubscriberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Subscriber;
