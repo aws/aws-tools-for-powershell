@@ -13241,6 +13241,13 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RecordingStrategyType
+        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"
+        {
+            $v = "ALL_SUPPORTED_RESOURCE_TYPES","EXCLUSION_BY_RESOURCE_TYPES","INCLUSION_BY_RESOURCE_TYPES"
+            break
+        }
+
         # Amazon.ConfigService.ResourceConfigurationSchemaType
         "Start-CFGResourceEvaluation/ResourceDetails_ResourceConfigurationSchemaType"
         {
@@ -13296,6 +13303,7 @@ $CFG_map = @{
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
+    "ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"=@("Write-CFGConfigurationRecorder")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")
@@ -26922,6 +26930,13 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.HealthLake.AuthorizationStrategy
+        "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy"
+        {
+            $v = "AWS_AUTH","SMART_ON_FHIR_V1"
+            break
+        }
+
         # Amazon.HealthLake.CmkType
         "New-AHLFHIRDatastore/SseConfiguration_KmsEncryptionConfig_CmkType"
         {
@@ -26949,7 +26964,7 @@ $AHL_Completers = {
             ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
         }
         {
-            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
             break
         }
 
@@ -26971,6 +26986,7 @@ $AHL_Completers = {
 $AHL_map = @{
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
+    "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore")
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
     "SseConfiguration_KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
@@ -59970,12 +59986,14 @@ $WSW_SelectCompleters = {
 
 $WSW_SelectMap = @{
     "Select"=@("Register-WSWBrowserSetting",
+               "Register-WSWIpAccessSetting",
                "Register-WSWNetworkSetting",
                "Register-WSWTrustStore",
                "Register-WSWUserAccessLoggingSetting",
                "Register-WSWUserSetting",
                "New-WSWBrowserSetting",
                "New-WSWIdentityProvider",
+               "New-WSWIpAccessSetting",
                "New-WSWNetworkSetting",
                "New-WSWPortal",
                "New-WSWTrustStore",
@@ -59983,18 +60001,21 @@ $WSW_SelectMap = @{
                "New-WSWUserSetting",
                "Remove-WSWBrowserSetting",
                "Remove-WSWIdentityProvider",
+               "Remove-WSWIpAccessSetting",
                "Remove-WSWNetworkSetting",
                "Remove-WSWPortal",
                "Remove-WSWTrustStore",
                "Remove-WSWUserAccessLoggingSetting",
                "Remove-WSWUserSetting",
                "Unregister-WSWBrowserSetting",
+               "Unregister-WSWIpAccessSetting",
                "Unregister-WSWNetworkSetting",
                "Unregister-WSWTrustStore",
                "Unregister-WSWUserAccessLoggingSetting",
                "Unregister-WSWUserSetting",
                "Get-WSWBrowserSetting",
                "Get-WSWIdentityProvider",
+               "Get-WSWIpAccessSetting",
                "Get-WSWNetworkSetting",
                "Get-WSWPortal",
                "Get-WSWPortalServiceProviderMetadata",
@@ -60004,6 +60025,7 @@ $WSW_SelectMap = @{
                "Get-WSWUserSetting",
                "Get-WSWBrowserSettingList",
                "Get-WSWIdentityProviderList",
+               "Get-WSWIpAccessSettingList",
                "Get-WSWNetworkSettingList",
                "Get-WSWPortalList",
                "Get-WSWResourceTag",
@@ -60015,6 +60037,7 @@ $WSW_SelectMap = @{
                "Remove-WSWResourceTag",
                "Update-WSWBrowserSetting",
                "Update-WSWIdentityProvider",
+               "Update-WSWIpAccessSetting",
                "Update-WSWNetworkSetting",
                "Update-WSWPortal",
                "Update-WSWTrustStore",

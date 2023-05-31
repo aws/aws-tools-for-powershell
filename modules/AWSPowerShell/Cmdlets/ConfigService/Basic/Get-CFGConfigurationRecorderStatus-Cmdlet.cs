@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// with the account.
     /// 
     ///  <note><para>
-    /// Currently, you can specify only one configuration recorder per region in your account.
-    /// For a detailed status of recording events over time, add your Config events to Amazon
-    /// CloudWatch metrics and use CloudWatch metrics.
+    /// &gt;You can specify only one configuration recorder for each Amazon Web Services Region
+    /// for each account. For a detailed status of recording events over time, add your Config
+    /// events to Amazon CloudWatch metrics and use CloudWatch metrics.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorderStatus")]

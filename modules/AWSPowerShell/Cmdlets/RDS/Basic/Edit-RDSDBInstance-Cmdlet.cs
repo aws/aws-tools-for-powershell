@@ -379,6 +379,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnablePerformanceInsight { get; set; }
         #endregion
         
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>The target Oracle DB engine when you convert a non-CDB to a CDB. This intermediate
+        /// step is necessary to upgrade an Oracle Database 19c non-CDB to an Oracle Database
+        /// 21c CDB.</para><para>Note the following requirements:</para><ul><li><para>Make sure that you specify <code>oracle-ee-cdb</code> or <code>oracle-se2-cdb</code>.</para></li><li><para>Make sure that your DB engine runs Oracle Database 19c with an April 2021 or later
+        /// RU.</para></li></ul><para>Note the following limitations:</para><ul><li><para>You can't convert a CDB to a non-CDB.</para></li><li><para>You can't convert a replica database.</para></li><li><para>You can't convert a non-CDB to a CDB and upgrade the engine version in the same command.</para></li><li><para>You can't convert the existing custom parameter or option group when it has options
+        /// or parameters that are permanent or persistent. In this situation, the DB instance
+        /// reverts to the default option and parameter group. To avoid reverting to the default,
+        /// specify a new parameter group with <code>--db-parameter-group-name</code> and a new
+        /// option group with <code>--option-group-name</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -921,6 +938,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableCustomerOwnedIp = this.EnableCustomerOwnedIp;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
+            context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
             context.LicenseModel = this.LicenseModel;
@@ -1088,6 +1106,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnablePerformanceInsight != null)
             {
                 request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -1290,6 +1312,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableCustomerOwnedIp { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
+            public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }

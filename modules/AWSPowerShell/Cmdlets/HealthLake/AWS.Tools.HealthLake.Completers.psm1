@@ -80,6 +80,13 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.HealthLake.AuthorizationStrategy
+        "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy"
+        {
+            $v = "AWS_AUTH","SMART_ON_FHIR_V1"
+            break
+        }
+
         # Amazon.HealthLake.CmkType
         "New-AHLFHIRDatastore/SseConfiguration_KmsEncryptionConfig_CmkType"
         {
@@ -107,7 +114,7 @@ $AHL_Completers = {
             ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
         }
         {
-            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
             break
         }
 
@@ -129,6 +136,7 @@ $AHL_Completers = {
 $AHL_map = @{
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
+    "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore")
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
     "SseConfiguration_KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")

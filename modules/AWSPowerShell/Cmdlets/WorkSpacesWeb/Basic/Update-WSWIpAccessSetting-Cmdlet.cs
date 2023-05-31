@@ -22,40 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FraudDetector;
-using Amazon.FraudDetector.Model;
+using Amazon.WorkSpacesWeb;
+using Amazon.WorkSpacesWeb.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FD
+namespace Amazon.PowerShell.Cmdlets.WSW
 {
     /// <summary>
-    /// Creates or updates label. A label classifies an event as fraudulent or legitimate.
-    /// Labels are associated with event types and used to train supervised machine learning
-    /// models in Amazon Fraud Detector.
+    /// Updates IP access settings.
     /// </summary>
-    [Cmdlet("Write", "FDLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Fraud Detector PutLabel API operation.", Operation = new[] {"PutLabel"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.PutLabelResponse))]
-    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.PutLabelResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.PutLabelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "WSWIpAccessSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.WorkSpacesWeb.Model.IpAccessSettings")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces Web UpdateIpAccessSettings API operation.", Operation = new[] {"UpdateIpAccessSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse))]
+    [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.IpAccessSettings or Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse",
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.IpAccessSettings object.",
+        "The service call response (type Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteFDLabelCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
+    public partial class UpdateWSWIpAccessSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The label description.</para>
+        /// <para>The description of the IP access settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The label name.</para>
+        /// <para>The display name of the IP access settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter IpAccessSettingsArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IP access settings.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,36 +78,51 @@ namespace Amazon.PowerShell.Cmdlets.FD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String IpAccessSettingsArn { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter IpRule
         /// <summary>
         /// <para>
-        /// <para>A collection of key and value pairs.</para>
+        /// <para>The updated IP rules of the IP access settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        [Alias("IpRules")]
+        public Amazon.WorkSpacesWeb.Model.IpRule[] IpRule { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. Idempotency ensures that an API request completes only once. With an
+        /// idempotent request, if the original request completes successfully, subsequent retries
+        /// with the same client token return the result from the original successful request.
+        /// </para><para>If you do not specify a client token, one is automatically generated by the AWS SDK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.PutLabelResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpAccessSettings'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse).
+        /// Specifying the name of a property of type Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "IpAccessSettings";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IpAccessSettingsArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IpAccessSettingsArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpAccessSettingsArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-FDLabel (PutLabel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IpAccessSettingsArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WSWIpAccessSetting (UpdateIpAccessSettings)"))
             {
                 return;
             }
@@ -129,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.PutLabelResponse, WriteFDLabelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse, UpdateWSWIpAccessSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,20 +165,22 @@ namespace Amazon.PowerShell.Cmdlets.FD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.IpAccessSettingsArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
-            context.Name = this.Name;
+            context.DisplayName = this.DisplayName;
+            context.IpAccessSettingsArn = this.IpAccessSettingsArn;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.IpAccessSettingsArn == null && ParameterWasBound(nameof(this.IpAccessSettingsArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IpAccessSettingsArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.IpRule != null)
             {
-                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
+                context.IpRule = new List<Amazon.WorkSpacesWeb.Model.IpRule>(this.IpRule);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -167,19 +196,27 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FraudDetector.Model.PutLabelRequest();
+            var request = new Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.DisplayName != null)
             {
-                request.Name = cmdletContext.Name;
+                request.DisplayName = cmdletContext.DisplayName;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.IpAccessSettingsArn != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.IpAccessSettingsArn = cmdletContext.IpAccessSettingsArn;
+            }
+            if (cmdletContext.IpRule != null)
+            {
+                request.IpRules = cmdletContext.IpRule;
             }
             
             CmdletOutput output;
@@ -214,15 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         #region AWS Service Operation Call
         
-        private Amazon.FraudDetector.Model.PutLabelResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.PutLabelRequest request)
+        private Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse CallAWSServiceOperation(IAmazonWorkSpacesWeb client, Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "PutLabel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "UpdateIpAccessSettings");
             try
             {
                 #if DESKTOP
-                return client.PutLabel(request);
+                return client.UpdateIpAccessSettings(request);
                 #elif CORECLR
-                return client.PutLabelAsync(request).GetAwaiter().GetResult();
+                return client.UpdateIpAccessSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,11 +279,13 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.FraudDetector.Model.PutLabelResponse, WriteFDLabelCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String DisplayName { get; set; }
+            public System.String IpAccessSettingsArn { get; set; }
+            public List<Amazon.WorkSpacesWeb.Model.IpRule> IpRule { get; set; }
+            public System.Func<Amazon.WorkSpacesWeb.Model.UpdateIpAccessSettingsResponse, UpdateWSWIpAccessSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpAccessSettings;
         }
         
     }

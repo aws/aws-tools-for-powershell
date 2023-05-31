@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// associated with the account.
     /// 
     ///  <note><para>
-    /// Currently, you can specify only one configuration recorder per region in your account.
+    /// You can specify only one configuration recorder for each Amazon Web Services Region
+    /// for each account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorder")]

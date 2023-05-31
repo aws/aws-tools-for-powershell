@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateIpAccessSettings" OutputProperty="*" Verb="Register" Noun="IpAccessSetting" AnonymousShouldProcessTarget="true" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateNetworkSettings" OutputProperty="*" Verb="Register" Noun="NetworkSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdentityProvider" OutputProperty="IdentityProviderArn" Verb="New" Noun="IdentityProvider" ShouldProcessTarget="PortalArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpAccessSettings" OutputProperty="IpAccessSettingsArn" Verb="New" Noun="IpAccessSetting" ShouldProcessTarget="CustomerManagedKey" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -74,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpAccessSettings" Verb="Remove" Noun="IpAccessSetting" ShouldProcessTarget="IpAccessSettingsArn" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkSettings" Verb="Remove" Noun="NetworkSetting" ShouldProcessTarget="NetworkSettingsArn" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIpAccessSettings" Verb="Unregister" Noun="IpAccessSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateNetworkSettings" Verb="Unregister" Noun="NetworkSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -119,6 +135,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetIdentityProvider" OutputProperty="IdentityProvider" Verb="Get" Noun="IdentityProvider" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Get" Noun="IpAccessSetting" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +175,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviders" Verb="Get" Noun="IdentityProviderList" PipelineParameter="PortalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Get" Noun="IpAccessSettingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -199,6 +223,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdentityProvider" OutputProperty="IdentityProvider" Verb="Update" Noun="IdentityProvider" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Update" Noun="IpAccessSetting" ShouldProcessTarget="IpAccessSettingsArn" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

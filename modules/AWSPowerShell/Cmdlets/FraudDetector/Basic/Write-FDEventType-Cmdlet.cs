@@ -73,10 +73,20 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String[] EntityType { get; set; }
         #endregion
         
+        #region Parameter EventOrchestration_EventBridgeEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if event orchestration is enabled through Amazon EventBridge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EventOrchestration_EventBridgeEnabled { get; set; }
+        #endregion
+        
         #region Parameter EventIngestion
         /// <summary>
         /// <para>
-        /// <para>Specifies if ingenstion is enabled or disabled.</para>
+        /// <para>Specifies if ingestion is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             }
             #endif
             context.EventIngestion = this.EventIngestion;
+            context.EventOrchestration_EventBridgeEnabled = this.EventOrchestration_EventBridgeEnabled;
             if (this.EventVariable != null)
             {
                 context.EventVariable = new List<System.String>(this.EventVariable);
@@ -266,6 +277,25 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (cmdletContext.EventIngestion != null)
             {
                 request.EventIngestion = cmdletContext.EventIngestion;
+            }
+            
+             // populate EventOrchestration
+            var requestEventOrchestrationIsNull = true;
+            request.EventOrchestration = new Amazon.FraudDetector.Model.EventOrchestration();
+            System.Boolean? requestEventOrchestration_eventOrchestration_EventBridgeEnabled = null;
+            if (cmdletContext.EventOrchestration_EventBridgeEnabled != null)
+            {
+                requestEventOrchestration_eventOrchestration_EventBridgeEnabled = cmdletContext.EventOrchestration_EventBridgeEnabled.Value;
+            }
+            if (requestEventOrchestration_eventOrchestration_EventBridgeEnabled != null)
+            {
+                request.EventOrchestration.EventBridgeEnabled = requestEventOrchestration_eventOrchestration_EventBridgeEnabled.Value;
+                requestEventOrchestrationIsNull = false;
+            }
+             // determine if request.EventOrchestration should be set to null
+            if (requestEventOrchestrationIsNull)
+            {
+                request.EventOrchestration = null;
             }
             if (cmdletContext.EventVariable != null)
             {
@@ -347,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             public System.String Description { get; set; }
             public List<System.String> EntityType { get; set; }
             public Amazon.FraudDetector.EventIngestion EventIngestion { get; set; }
+            public System.Boolean? EventOrchestration_EventBridgeEnabled { get; set; }
             public List<System.String> EventVariable { get; set; }
             public List<System.String> Label { get; set; }
             public System.String Name { get; set; }

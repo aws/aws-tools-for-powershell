@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// If you use this API for <code>COMPLIANT</code> resources or resources that are <code>NOT_APPLICABLE</code>,
     /// a remediation exception will not be generated. For more information on the conditions
     /// that initiate the possible Config evaluation results, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#aws-config-rules">Concepts
-    /// | Config Rules</a> in the Config Developer Guide.
+    /// | Config Rules</a> in the <i>Config Developer Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGRemediationException", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

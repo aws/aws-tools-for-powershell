@@ -1,4 +1,25 @@
-﻿### 4.1.342 (2023-05-30 21:24Z)
+﻿### 4.1.343 (2023-05-31 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.558.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Config
+    * Modified cmdlet Write-CFGConfigurationRecorder: added parameters ExclusionByResourceTypes_ResourceType and RecordingStrategy_UseOnly.
+  * Amazon Fraud Detector
+    * Modified cmdlet Write-FDEventType: added parameter EventOrchestration_EventBridgeEnabled.
+  * Amazon HealthLake
+    * Modified cmdlet New-AHLFHIRDatastore: added parameters IdentityProviderConfiguration_AuthorizationStrategy, IdentityProviderConfiguration_FineGrainedAuthorizationEnabled, IdentityProviderConfiguration_IdpLambdaArn and IdentityProviderConfiguration_Metadata.
+  * Amazon M2
+    * Modified cmdlet New-AMMApplication: added parameter RoleArn.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBInstance: added parameter Engine.
+  * Amazon WorkSpaces Web
+    * Added cmdlet Get-WSWIpAccessSetting leveraging the GetIpAccessSettings service API.
+    * Added cmdlet Get-WSWIpAccessSettingList leveraging the ListIpAccessSettings service API.
+    * Added cmdlet New-WSWIpAccessSetting leveraging the CreateIpAccessSettings service API.
+    * Added cmdlet Register-WSWIpAccessSetting leveraging the AssociateIpAccessSettings service API.
+    * Added cmdlet Remove-WSWIpAccessSetting leveraging the DeleteIpAccessSettings service API.
+    * Added cmdlet Unregister-WSWIpAccessSetting leveraging the DisassociateIpAccessSettings service API.
+    * Added cmdlet Update-WSWIpAccessSetting leveraging the UpdateIpAccessSettings service API.
+
+### 4.1.342 (2023-05-30 21:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.557.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet Start-CHMVOSpeakerSearchTask: added parameter CallLeg.

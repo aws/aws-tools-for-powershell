@@ -25721,6 +25721,9 @@ Set-Alias -Name WKS-UpdateWorkspaceImagePermission -Value Update-WKSWorkspaceIma
 Set-Alias -Name Associate-WSWBrowserSettings -Value Register-WSWBrowserSetting
 Set-Alias -Name Associate-WSWBrowserSetting -Value Register-WSWBrowserSetting
 Set-Alias -Name WSW-AssociateBrowserSettings -Value Register-WSWBrowserSetting
+Set-Alias -Name Associate-WSWIpAccessSettings -Value Register-WSWIpAccessSetting
+Set-Alias -Name Associate-WSWIpAccessSetting -Value Register-WSWIpAccessSetting
+Set-Alias -Name WSW-AssociateIpAccessSettings -Value Register-WSWIpAccessSetting
 Set-Alias -Name Associate-WSWNetworkSettings -Value Register-WSWNetworkSetting
 Set-Alias -Name Associate-WSWNetworkSetting -Value Register-WSWNetworkSetting
 Set-Alias -Name WSW-AssociateNetworkSettings -Value Register-WSWNetworkSetting
@@ -25737,6 +25740,9 @@ Set-Alias -Name Create-WSWBrowserSetting -Value New-WSWBrowserSetting
 Set-Alias -Name WSW-CreateBrowserSettings -Value New-WSWBrowserSetting
 Set-Alias -Name Create-WSWIdentityProvider -Value New-WSWIdentityProvider
 Set-Alias -Name WSW-CreateIdentityProvider -Value New-WSWIdentityProvider
+Set-Alias -Name Create-WSWIpAccessSettings -Value New-WSWIpAccessSetting
+Set-Alias -Name Create-WSWIpAccessSetting -Value New-WSWIpAccessSetting
+Set-Alias -Name WSW-CreateIpAccessSettings -Value New-WSWIpAccessSetting
 Set-Alias -Name Create-WSWNetworkSettings -Value New-WSWNetworkSetting
 Set-Alias -Name Create-WSWNetworkSetting -Value New-WSWNetworkSetting
 Set-Alias -Name WSW-CreateNetworkSettings -Value New-WSWNetworkSetting
@@ -25755,6 +25761,9 @@ Set-Alias -Name Delete-WSWBrowserSetting -Value Remove-WSWBrowserSetting
 Set-Alias -Name WSW-DeleteBrowserSettings -Value Remove-WSWBrowserSetting
 Set-Alias -Name Delete-WSWIdentityProvider -Value Remove-WSWIdentityProvider
 Set-Alias -Name WSW-DeleteIdentityProvider -Value Remove-WSWIdentityProvider
+Set-Alias -Name Delete-WSWIpAccessSettings -Value Remove-WSWIpAccessSetting
+Set-Alias -Name Delete-WSWIpAccessSetting -Value Remove-WSWIpAccessSetting
+Set-Alias -Name WSW-DeleteIpAccessSettings -Value Remove-WSWIpAccessSetting
 Set-Alias -Name Delete-WSWNetworkSettings -Value Remove-WSWNetworkSetting
 Set-Alias -Name Delete-WSWNetworkSetting -Value Remove-WSWNetworkSetting
 Set-Alias -Name WSW-DeleteNetworkSettings -Value Remove-WSWNetworkSetting
@@ -25771,6 +25780,9 @@ Set-Alias -Name WSW-DeleteUserSettings -Value Remove-WSWUserSetting
 Set-Alias -Name Disassociate-WSWBrowserSettings -Value Unregister-WSWBrowserSetting
 Set-Alias -Name Disassociate-WSWBrowserSetting -Value Unregister-WSWBrowserSetting
 Set-Alias -Name WSW-DisassociateBrowserSettings -Value Unregister-WSWBrowserSetting
+Set-Alias -Name Disassociate-WSWIpAccessSettings -Value Unregister-WSWIpAccessSetting
+Set-Alias -Name Disassociate-WSWIpAccessSetting -Value Unregister-WSWIpAccessSetting
+Set-Alias -Name WSW-DisassociateIpAccessSettings -Value Unregister-WSWIpAccessSetting
 Set-Alias -Name Disassociate-WSWNetworkSettings -Value Unregister-WSWNetworkSetting
 Set-Alias -Name Disassociate-WSWNetworkSetting -Value Unregister-WSWNetworkSetting
 Set-Alias -Name WSW-DisassociateNetworkSettings -Value Unregister-WSWNetworkSetting
@@ -25785,6 +25797,8 @@ Set-Alias -Name WSW-DisassociateUserSettings -Value Unregister-WSWUserSetting
 Set-Alias -Name Get-WSWBrowserSettings -Value Get-WSWBrowserSetting
 Set-Alias -Name WSW-GetBrowserSettings -Value Get-WSWBrowserSetting
 Set-Alias -Name WSW-GetIdentityProvider -Value Get-WSWIdentityProvider
+Set-Alias -Name Get-WSWIpAccessSettings -Value Get-WSWIpAccessSetting
+Set-Alias -Name WSW-GetIpAccessSettings -Value Get-WSWIpAccessSetting
 Set-Alias -Name Get-WSWNetworkSettings -Value Get-WSWNetworkSetting
 Set-Alias -Name WSW-GetNetworkSettings -Value Get-WSWNetworkSetting
 Set-Alias -Name WSW-GetPortal -Value Get-WSWPortal
@@ -25801,6 +25815,9 @@ Set-Alias -Name WSW-ListBrowserSettings -Value Get-WSWBrowserSettingList
 Set-Alias -Name List-WSWIdentityProviders -Value Get-WSWIdentityProviderList
 Set-Alias -Name List-WSWIdentityProviderList -Value Get-WSWIdentityProviderList
 Set-Alias -Name WSW-ListIdentityProviders -Value Get-WSWIdentityProviderList
+Set-Alias -Name List-WSWIpAccessSettings -Value Get-WSWIpAccessSettingList
+Set-Alias -Name List-WSWIpAccessSettingList -Value Get-WSWIpAccessSettingList
+Set-Alias -Name WSW-ListIpAccessSettings -Value Get-WSWIpAccessSettingList
 Set-Alias -Name List-WSWNetworkSettings -Value Get-WSWNetworkSettingList
 Set-Alias -Name List-WSWNetworkSettingList -Value Get-WSWNetworkSettingList
 Set-Alias -Name WSW-ListNetworkSettings -Value Get-WSWNetworkSettingList
@@ -25825,6 +25842,8 @@ Set-Alias -Name WSW-UntagResource -Value Remove-WSWResourceTag
 Set-Alias -Name Update-WSWBrowserSettings -Value Update-WSWBrowserSetting
 Set-Alias -Name WSW-UpdateBrowserSettings -Value Update-WSWBrowserSetting
 Set-Alias -Name WSW-UpdateIdentityProvider -Value Update-WSWIdentityProvider
+Set-Alias -Name Update-WSWIpAccessSettings -Value Update-WSWIpAccessSetting
+Set-Alias -Name WSW-UpdateIpAccessSettings -Value Update-WSWIpAccessSetting
 Set-Alias -Name Update-WSWNetworkSettings -Value Update-WSWNetworkSetting
 Set-Alias -Name WSW-UpdateNetworkSettings -Value Update-WSWNetworkSetting
 Set-Alias -Name WSW-UpdatePortal -Value Update-WSWPortal

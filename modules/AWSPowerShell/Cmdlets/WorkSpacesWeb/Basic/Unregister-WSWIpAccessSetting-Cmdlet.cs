@@ -22,30 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.HealthLake;
-using Amazon.HealthLake.Model;
+using Amazon.WorkSpacesWeb;
+using Amazon.WorkSpacesWeb.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AHL
+namespace Amazon.PowerShell.Cmdlets.WSW
 {
     /// <summary>
-    /// Gets the properties associated with the FHIR Data Store, including the Data Store
-    /// ID, Data Store ARN, Data Store name, Data Store status, created at, Data Store type
-    /// version, and Data Store endpoint.
+    /// Disassociates IP access settings from a web portal.
     /// </summary>
-    [Cmdlet("Get", "AHLFHIRDatastore")]
-    [OutputType("Amazon.HealthLake.Model.DatastoreProperties")]
-    [AWSCmdlet("Calls the Amazon HealthLake DescribeFHIRDatastore API operation.", Operation = new[] {"DescribeFHIRDatastore"}, SelectReturnType = typeof(Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse))]
-    [AWSCmdletOutput("Amazon.HealthLake.Model.DatastoreProperties or Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse",
-        "This cmdlet returns an Amazon.HealthLake.Model.DatastoreProperties object.",
-        "The service call response (type Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "WSWIpAccessSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces Web DisassociateIpAccessSettings API operation.", Operation = new[] {"DisassociateIpAccessSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
+    public partial class UnregisterWSWIpAccessSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
-        #region Parameter DatastoreId
+        #region Parameter PortalArn
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated Data Store ID.</para>
+        /// <para>The ARN of the web portal.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,34 +54,49 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatastoreId { get; set; }
+        public System.String PortalArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DatastoreProperties'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse).
-        /// Specifying the name of a property of type Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DatastoreProperties";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatastoreId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatastoreId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PortalArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PortalArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatastoreId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PortalArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PortalArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-WSWIpAccessSetting (DisassociateIpAccessSettings)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -93,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse, GetAHLFHIRDatastoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse, UnregisterWSWIpAccessSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -102,14 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatastoreId;
+                context.Select = (response, cmdlet) => this.PortalArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatastoreId = this.DatastoreId;
+            context.PortalArn = this.PortalArn;
             #if MODULAR
-            if (this.DatastoreId == null && ParameterWasBound(nameof(this.DatastoreId)))
+            if (this.PortalArn == null && ParameterWasBound(nameof(this.PortalArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PortalArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.HealthLake.Model.DescribeFHIRDatastoreRequest();
+            var request = new Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsRequest();
             
-            if (cmdletContext.DatastoreId != null)
+            if (cmdletContext.PortalArn != null)
             {
-                request.DatastoreId = cmdletContext.DatastoreId;
+                request.PortalArn = cmdletContext.PortalArn;
             }
             
             CmdletOutput output;
@@ -165,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         #region AWS Service Operation Call
         
-        private Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse CallAWSServiceOperation(IAmazonHealthLake client, Amazon.HealthLake.Model.DescribeFHIRDatastoreRequest request)
+        private Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse CallAWSServiceOperation(IAmazonWorkSpacesWeb client, Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon HealthLake", "DescribeFHIRDatastore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "DisassociateIpAccessSettings");
             try
             {
                 #if DESKTOP
-                return client.DescribeFHIRDatastore(request);
+                return client.DisassociateIpAccessSettings(request);
                 #elif CORECLR
-                return client.DescribeFHIRDatastoreAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateIpAccessSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatastoreId { get; set; }
-            public System.Func<Amazon.HealthLake.Model.DescribeFHIRDatastoreResponse, GetAHLFHIRDatastoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DatastoreProperties;
+            public System.String PortalArn { get; set; }
+            public System.Func<Amazon.WorkSpacesWeb.Model.DisassociateIpAccessSettingsResponse, UnregisterWSWIpAccessSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

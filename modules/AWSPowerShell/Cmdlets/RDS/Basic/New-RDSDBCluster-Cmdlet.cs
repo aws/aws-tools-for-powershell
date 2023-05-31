@@ -761,7 +761,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter
         /// is required.</para><para>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters);
-        /// <code>io1</code> (Multi-AZ DB clusters)</para><para>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <code>io1</code> (Multi-AZ DB clusters)</para><para>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para><para>For more information on storage types for Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type">Storage
+        /// configurations for Amazon Aurora DB clusters</a>. For more information on storage
+        /// types for Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings">Settings
+        /// for creating Multi-AZ DB clusters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

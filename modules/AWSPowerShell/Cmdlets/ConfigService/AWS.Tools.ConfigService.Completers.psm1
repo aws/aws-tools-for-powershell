@@ -175,6 +175,13 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RecordingStrategyType
+        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"
+        {
+            $v = "ALL_SUPPORTED_RESOURCE_TYPES","EXCLUSION_BY_RESOURCE_TYPES","INCLUSION_BY_RESOURCE_TYPES"
+            break
+        }
+
         # Amazon.ConfigService.ResourceConfigurationSchemaType
         "Start-CFGResourceEvaluation/ResourceDetails_ResourceConfigurationSchemaType"
         {
@@ -230,6 +237,7 @@ $CFG_map = @{
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
+    "ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"=@("Write-CFGConfigurationRecorder")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")

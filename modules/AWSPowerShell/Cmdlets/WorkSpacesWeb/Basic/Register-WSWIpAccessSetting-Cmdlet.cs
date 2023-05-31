@@ -22,29 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.HealthLake;
-using Amazon.HealthLake.Model;
+using Amazon.WorkSpacesWeb;
+using Amazon.WorkSpacesWeb.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AHL
+namespace Amazon.PowerShell.Cmdlets.WSW
 {
     /// <summary>
-    /// Adds a user specified key and value tag to a Data Store.
+    /// Associates an IP access settings resource with a web portal.
     /// </summary>
-    [Cmdlet("Add", "AHLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon HealthLake TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.HealthLake.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.HealthLake.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.HealthLake.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "WSWIpAccessSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces Web AssociateIpAccessSettings API operation.", Operation = new[] {"AssociateIpAccessSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse))]
+    [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse",
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddAHLResourceTagCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
+    public partial class RegisterWSWIpAccessSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceARN
+        #region Parameter IpAccessSettingsArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name(ARN)that gives Amazon HealthLake access to the Data Store
-        /// which tags are being added to. </para>
+        /// <para>The ARN of the IP access settings.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,31 +53,31 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
+        public System.String IpAccessSettingsArn { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter PortalArn
         /// <summary>
         /// <para>
-        /// <para> The user specified key and value pair tags being added to a Data Store. </para>
+        /// <para>The ARN of the web portal.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.HealthLake.Model.Tag[] Tag { get; set; }
+        public System.String PortalArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.HealthLake.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse).
+        /// Specifying the name of a property of type Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IpAccessSettingsArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IpAccessSettingsArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpAccessSettingsArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-AHLResourceTag (TagResource)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-WSWIpAccessSetting (AssociateIpAccessSettings)"))
             {
                 return;
             }
@@ -125,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.HealthLake.Model.TagResourceResponse, AddAHLResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse, RegisterWSWIpAccessSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,24 +132,21 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.IpAccessSettingsArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
+            context.IpAccessSettingsArn = this.IpAccessSettingsArn;
             #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.IpAccessSettingsArn == null && ParameterWasBound(nameof(this.IpAccessSettingsArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IpAccessSettingsArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.HealthLake.Model.Tag>(this.Tag);
-            }
+            context.PortalArn = this.PortalArn;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.PortalArn == null && ParameterWasBound(nameof(this.PortalArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PortalArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.HealthLake.Model.TagResourceRequest();
+            var request = new Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.IpAccessSettingsArn != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.IpAccessSettingsArn = cmdletContext.IpAccessSettingsArn;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.PortalArn != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.PortalArn = cmdletContext.PortalArn;
             }
             
             CmdletOutput output;
@@ -211,15 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         #region AWS Service Operation Call
         
-        private Amazon.HealthLake.Model.TagResourceResponse CallAWSServiceOperation(IAmazonHealthLake client, Amazon.HealthLake.Model.TagResourceRequest request)
+        private Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse CallAWSServiceOperation(IAmazonWorkSpacesWeb client, Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon HealthLake", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "AssociateIpAccessSettings");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.AssociateIpAccessSettings(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.AssociateIpAccessSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,10 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public List<Amazon.HealthLake.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.HealthLake.Model.TagResourceResponse, AddAHLResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String IpAccessSettingsArn { get; set; }
+            public System.String PortalArn { get; set; }
+            public System.Func<Amazon.WorkSpacesWeb.Model.AssociateIpAccessSettingsResponse, RegisterWSWIpAccessSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

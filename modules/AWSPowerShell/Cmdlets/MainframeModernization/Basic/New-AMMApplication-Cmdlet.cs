@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the role associated with the application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Definition_S3Location
         /// <summary>
         /// <para>
@@ -221,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -294,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -366,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public Amazon.MainframeModernization.EngineType EngineType { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
+            public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.CreateApplicationResponse, NewAMMApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

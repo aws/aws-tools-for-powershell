@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     public partial class NewAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
         
+        #region Parameter IdentityProviderConfiguration_AuthorizationStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The authorization strategy that you selected when you created the Data Store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.HealthLake.AuthorizationStrategy")]
+        public Amazon.HealthLake.AuthorizationStrategy IdentityProviderConfiguration_AuthorizationStrategy { get; set; }
+        #endregion
+        
         #region Parameter KmsEncryptionConfig_CmkType
         /// <summary>
         /// <para>
@@ -79,6 +90,27 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }
         #endregion
         
+        #region Parameter IdentityProviderConfiguration_FineGrainedAuthorizationEnabled
+        /// <summary>
+        /// <para>
+        /// <para>If you enabled fine-grained authorization when you created the Data Store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IdentityProviderConfiguration_FineGrainedAuthorizationEnabled { get; set; }
+        #endregion
+        
+        #region Parameter IdentityProviderConfiguration_IdpLambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function that you want to use to decode
+        /// the access token created by the authorization server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderConfiguration_IdpLambdaArn { get; set; }
+        #endregion
+        
         #region Parameter KmsEncryptionConfig_KmsKeyId
         /// <summary>
         /// <para>
@@ -89,6 +121,24 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SseConfiguration_KmsEncryptionConfig_KmsKeyId")]
         public System.String KmsEncryptionConfig_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter IdentityProviderConfiguration_Metadata
+        /// <summary>
+        /// <para>
+        /// <para>The JSON metadata elements that you want to use in your identity provider configuration.
+        /// Required elements are listed based on the launch specification of the SMART application.
+        /// For more information on all possible elements, see <a href="https://build.fhir.org/ig/HL7/smart-app-launch/conformance.html#metadata">Metadata</a>
+        /// in SMART's App Launch specification.</para><para><code>authorization_endpoint</code>: The URL to the OAuth2 authorization endpoint.</para><para><code>grant_types_supported</code>: An array of grant types that are supported at
+        /// the token endpoint. You must provide at least one grant type option. Valid options
+        /// are <code>authorization_code</code> and <code>client_credentials</code>.</para><para><code>token_endpoint</code>: The URL to the OAuth2 token endpoint.</para><para><code>capabilities</code>: An array of strings of the SMART capabilities that the
+        /// authorization server supports.</para><para><code>code_challenge_methods_supported</code>: An array of strings of supported PKCE
+        /// code challenge methods. You must include the <code>S256</code> method in the array
+        /// of PKCE code challenge methods.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderConfiguration_Metadata { get; set; }
         #endregion
         
         #region Parameter PreloadDataConfig_PreloadDataType
@@ -194,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
                 WriteWarning("You are passing $null as a value for parameter DatastoreTypeVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdentityProviderConfiguration_AuthorizationStrategy = this.IdentityProviderConfiguration_AuthorizationStrategy;
+            context.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled = this.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled;
+            context.IdentityProviderConfiguration_IdpLambdaArn = this.IdentityProviderConfiguration_IdpLambdaArn;
+            context.IdentityProviderConfiguration_Metadata = this.IdentityProviderConfiguration_Metadata;
             context.PreloadDataConfig_PreloadDataType = this.PreloadDataConfig_PreloadDataType;
             context.KmsEncryptionConfig_CmkType = this.KmsEncryptionConfig_CmkType;
             context.KmsEncryptionConfig_KmsKeyId = this.KmsEncryptionConfig_KmsKeyId;
@@ -228,6 +282,55 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (cmdletContext.DatastoreTypeVersion != null)
             {
                 request.DatastoreTypeVersion = cmdletContext.DatastoreTypeVersion;
+            }
+            
+             // populate IdentityProviderConfiguration
+            var requestIdentityProviderConfigurationIsNull = true;
+            request.IdentityProviderConfiguration = new Amazon.HealthLake.Model.IdentityProviderConfiguration();
+            Amazon.HealthLake.AuthorizationStrategy requestIdentityProviderConfiguration_identityProviderConfiguration_AuthorizationStrategy = null;
+            if (cmdletContext.IdentityProviderConfiguration_AuthorizationStrategy != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_AuthorizationStrategy = cmdletContext.IdentityProviderConfiguration_AuthorizationStrategy;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_AuthorizationStrategy != null)
+            {
+                request.IdentityProviderConfiguration.AuthorizationStrategy = requestIdentityProviderConfiguration_identityProviderConfiguration_AuthorizationStrategy;
+                requestIdentityProviderConfigurationIsNull = false;
+            }
+            System.Boolean? requestIdentityProviderConfiguration_identityProviderConfiguration_FineGrainedAuthorizationEnabled = null;
+            if (cmdletContext.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_FineGrainedAuthorizationEnabled = cmdletContext.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled.Value;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_FineGrainedAuthorizationEnabled != null)
+            {
+                request.IdentityProviderConfiguration.FineGrainedAuthorizationEnabled = requestIdentityProviderConfiguration_identityProviderConfiguration_FineGrainedAuthorizationEnabled.Value;
+                requestIdentityProviderConfigurationIsNull = false;
+            }
+            System.String requestIdentityProviderConfiguration_identityProviderConfiguration_IdpLambdaArn = null;
+            if (cmdletContext.IdentityProviderConfiguration_IdpLambdaArn != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_IdpLambdaArn = cmdletContext.IdentityProviderConfiguration_IdpLambdaArn;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_IdpLambdaArn != null)
+            {
+                request.IdentityProviderConfiguration.IdpLambdaArn = requestIdentityProviderConfiguration_identityProviderConfiguration_IdpLambdaArn;
+                requestIdentityProviderConfigurationIsNull = false;
+            }
+            System.String requestIdentityProviderConfiguration_identityProviderConfiguration_Metadata = null;
+            if (cmdletContext.IdentityProviderConfiguration_Metadata != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_Metadata = cmdletContext.IdentityProviderConfiguration_Metadata;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_Metadata != null)
+            {
+                request.IdentityProviderConfiguration.Metadata = requestIdentityProviderConfiguration_identityProviderConfiguration_Metadata;
+                requestIdentityProviderConfigurationIsNull = false;
+            }
+             // determine if request.IdentityProviderConfiguration should be set to null
+            if (requestIdentityProviderConfigurationIsNull)
+            {
+                request.IdentityProviderConfiguration = null;
             }
             
              // populate PreloadDataConfig
@@ -360,6 +463,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String ClientToken { get; set; }
             public System.String DatastoreName { get; set; }
             public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }
+            public Amazon.HealthLake.AuthorizationStrategy IdentityProviderConfiguration_AuthorizationStrategy { get; set; }
+            public System.Boolean? IdentityProviderConfiguration_FineGrainedAuthorizationEnabled { get; set; }
+            public System.String IdentityProviderConfiguration_IdpLambdaArn { get; set; }
+            public System.String IdentityProviderConfiguration_Metadata { get; set; }
             public Amazon.HealthLake.PreloadDataType PreloadDataConfig_PreloadDataType { get; set; }
             public Amazon.HealthLake.CmkType KmsEncryptionConfig_CmkType { get; set; }
             public System.String KmsEncryptionConfig_KmsKeyId { get; set; }
