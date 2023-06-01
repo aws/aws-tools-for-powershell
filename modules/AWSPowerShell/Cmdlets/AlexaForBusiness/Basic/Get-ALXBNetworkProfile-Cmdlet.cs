@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Gets the network profile details by the network profile ARN.
+    /// Gets the network profile details by the network profile ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBNetworkProfile")]
     [OutputType("Amazon.AlexaForBusiness.Model.NetworkProfile")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.NetworkProfile object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetNetworkProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBNetworkProfileCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

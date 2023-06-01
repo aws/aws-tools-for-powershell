@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Initiates the discovery of any smart home appliances associated with the room.
+    /// Initiates the discovery of any smart home appliances associated with the room.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Start", "ALXBSmartHomeApplianceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.StartSmartHomeApplianceDiscoveryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class StartALXBSmartHomeApplianceDiscoveryCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

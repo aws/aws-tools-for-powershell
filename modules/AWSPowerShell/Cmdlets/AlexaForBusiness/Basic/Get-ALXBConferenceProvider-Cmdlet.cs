@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Gets details about a specific conference provider.
+    /// Gets details about a specific conference provider.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBConferenceProvider")]
     [OutputType("Amazon.AlexaForBusiness.Model.ConferenceProvider")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.ConferenceProvider object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetConferenceProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBConferenceProviderCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

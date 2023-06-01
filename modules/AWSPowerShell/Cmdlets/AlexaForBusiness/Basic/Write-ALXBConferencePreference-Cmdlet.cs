@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Sets the conference preferences on a specific conference provider at the account level.
+    /// Sets the conference preferences on a specific conference provider at the account level.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "ALXBConferencePreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.PutConferencePreferenceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class WriteALXBConferencePreferenceCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

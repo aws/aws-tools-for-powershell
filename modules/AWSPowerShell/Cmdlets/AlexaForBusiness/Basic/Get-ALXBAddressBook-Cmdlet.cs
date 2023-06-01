@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Gets address the book details by the address book ARN.
+    /// Gets address the book details by the address book ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBAddressBook")]
     [OutputType("Amazon.AlexaForBusiness.Model.AddressBook")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.AddressBook object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetAddressBookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBAddressBookCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

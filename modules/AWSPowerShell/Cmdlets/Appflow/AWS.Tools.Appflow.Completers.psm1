@@ -122,6 +122,16 @@ $AF_Completers = {
             break
         }
 
+        # Amazon.Appflow.DataTransferApiType
+        {
+            ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type") -Or
+            ($_ -eq "Update-AFFlow/SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type")
+        }
+        {
+            $v = "ASYNC","AUTOMATIC","SYNC"
+            break
+        }
+
         # Amazon.Appflow.S3InputFileType
         {
             ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType") -Or
@@ -165,6 +175,7 @@ $AF_map = @{
     "ConnectorProvisioningType"=@("Register-AFConnector")
     "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
+    "SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-AFFlow","Update-AFFlow")

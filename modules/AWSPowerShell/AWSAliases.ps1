@@ -5802,12 +5802,16 @@ Set-Alias -Name CUR-ModifyReportDefinition -Value Edit-CURReportDefinition
 Set-Alias -Name Put-CURReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CUR-PutReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CPF-AddProfileKey -Value Add-CPFProfileKey
+Set-Alias -Name Create-CPFCalculatedAttributeDefinition -Value New-CPFCalculatedAttributeDefinition
+Set-Alias -Name CPF-CreateCalculatedAttributeDefinition -Value New-CPFCalculatedAttributeDefinition
 Set-Alias -Name Create-CPFDomain -Value New-CPFDomain
 Set-Alias -Name CPF-CreateDomain -Value New-CPFDomain
 Set-Alias -Name Create-CPFIntegrationWorkflow -Value New-CPFIntegrationWorkflow
 Set-Alias -Name CPF-CreateIntegrationWorkflow -Value New-CPFIntegrationWorkflow
 Set-Alias -Name Create-CPFProfile -Value New-CPFProfile
 Set-Alias -Name CPF-CreateProfile -Value New-CPFProfile
+Set-Alias -Name Delete-CPFCalculatedAttributeDefinition -Value Remove-CPFCalculatedAttributeDefinition
+Set-Alias -Name CPF-DeleteCalculatedAttributeDefinition -Value Remove-CPFCalculatedAttributeDefinition
 Set-Alias -Name Delete-CPFDomain -Value Remove-CPFDomain
 Set-Alias -Name CPF-DeleteDomain -Value Remove-CPFDomain
 Set-Alias -Name Delete-CPFIntegration -Value Remove-CPFIntegration
@@ -5823,6 +5827,8 @@ Set-Alias -Name CPF-DeleteProfileObjectType -Value Remove-CPFProfileObjectType
 Set-Alias -Name Delete-CPFWorkflow -Value Remove-CPFWorkflow
 Set-Alias -Name CPF-DeleteWorkflow -Value Remove-CPFWorkflow
 Set-Alias -Name CPF-GetAutoMergingPreview -Value Get-CPFAutoMergingPreview
+Set-Alias -Name CPF-GetCalculatedAttributeDefinition -Value Get-CPFCalculatedAttributeDefinition
+Set-Alias -Name CPF-GetCalculatedAttributeForProfile -Value Get-CPFCalculatedAttributeForProfile
 Set-Alias -Name CPF-GetDomain -Value Get-CPFDomain
 Set-Alias -Name CPF-GetIdentityResolutionJob -Value Get-CPFIdentityResolutionJob
 Set-Alias -Name CPF-GetIntegration -Value Get-CPFIntegration
@@ -5836,6 +5842,12 @@ Set-Alias -Name CPF-GetWorkflowSteps -Value Get-CPFWorkflowStep
 Set-Alias -Name List-CPFAccountIntegrations -Value Get-CPFAccountIntegrationList
 Set-Alias -Name List-CPFAccountIntegrationList -Value Get-CPFAccountIntegrationList
 Set-Alias -Name CPF-ListAccountIntegrations -Value Get-CPFAccountIntegrationList
+Set-Alias -Name List-CPFCalculatedAttributeDefinitions -Value Get-CPFCalculatedAttributeDefinitionList
+Set-Alias -Name List-CPFCalculatedAttributeDefinitionList -Value Get-CPFCalculatedAttributeDefinitionList
+Set-Alias -Name CPF-ListCalculatedAttributeDefinitions -Value Get-CPFCalculatedAttributeDefinitionList
+Set-Alias -Name List-CPFCalculatedAttributesForProfile -Value Get-CPFCalculatedAttributesForProfileList
+Set-Alias -Name List-CPFCalculatedAttributesForProfileList -Value Get-CPFCalculatedAttributesForProfileList
+Set-Alias -Name CPF-ListCalculatedAttributesForProfile -Value Get-CPFCalculatedAttributesForProfileList
 Set-Alias -Name List-CPFDomains -Value Get-CPFDomainList
 Set-Alias -Name List-CPFDomainList -Value Get-CPFDomainList
 Set-Alias -Name CPF-ListDomains -Value Get-CPFDomainList
@@ -5870,6 +5882,7 @@ Set-Alias -Name Search-CPFProfiles -Value Search-CPFProfile
 Set-Alias -Name CPF-SearchProfiles -Value Search-CPFProfile
 Set-Alias -Name CPF-TagResource -Value Add-CPFResourceTag
 Set-Alias -Name CPF-UntagResource -Value Remove-CPFResourceTag
+Set-Alias -Name CPF-UpdateCalculatedAttributeDefinition -Value Update-CPFCalculatedAttributeDefinition
 Set-Alias -Name CPF-UpdateDomain -Value Update-CPFDomain
 Set-Alias -Name CPF-UpdateProfile -Value Update-CPFProfile
 Set-Alias -Name Batch-GDBDeleteRecipeVersion -Value Remove-GDBRecipeVersionBatch

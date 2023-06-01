@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Creates a contact with the specified details.
+    /// Creates a contact with the specified details.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "ALXBContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.CreateContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class NewALXBContactCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

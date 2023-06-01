@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Revokes an invitation and invalidates the enrollment URL.
+    /// Revokes an invitation and invalidates the enrollment URL.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Revoke", "ALXBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.RevokeInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RevokeALXBInvitationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

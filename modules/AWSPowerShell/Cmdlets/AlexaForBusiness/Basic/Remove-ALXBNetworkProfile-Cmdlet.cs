@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Deletes a network profile by the network profile ARN.
+    /// Deletes a network profile by the network profile ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ALXBNetworkProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.DeleteNetworkProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RemoveALXBNetworkProfileCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// <summary>
     /// Lists the details of the schedules that a user configured. A download URL of the report
     /// associated with each schedule is returned every time this action is called. A new
-    /// download URL is returned each time, and is valid for 24 hours.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// download URL is returned each time, and is valid for 24 hours.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBBusinessReportScheduleList")]
     [OutputType("Amazon.AlexaForBusiness.Model.BusinessReportSchedule")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a collection of Amazon.AlexaForBusiness.Model.BusinessReportSchedule objects.",
         "The service call response (type Amazon.AlexaForBusiness.Model.ListBusinessReportSchedulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBBusinessReportScheduleListCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

@@ -22,40 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AlexaForBusiness;
-using Amazon.AlexaForBusiness.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ALXB
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Updates the details of a gateway. If any optional field is not provided, the existing
-    /// corresponding value is left unmodified.<br/><br/>This operation is deprecated.
+    /// Retrieve a list of calculated attributes for a customer profile.
     /// </summary>
-    [Cmdlet("Update", "ALXBGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Alexa For Business UpdateGateway API operation.", Operation = new[] {"UpdateGateway"}, SelectReturnType = typeof(Amazon.AlexaForBusiness.Model.UpdateGatewayResponse))]
-    [AWSCmdletOutput("None or Amazon.AlexaForBusiness.Model.UpdateGatewayResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AlexaForBusiness.Model.UpdateGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CPFCalculatedAttributesForProfileList")]
+    [OutputType("Amazon.CustomerProfiles.Model.ListCalculatedAttributeForProfileItem")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListCalculatedAttributesForProfile API operation.", Operation = new[] {"ListCalculatedAttributesForProfile"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.ListCalculatedAttributeForProfileItem or Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse",
+        "This cmdlet returns a collection of Amazon.CustomerProfiles.Model.ListCalculatedAttributeForProfileItem objects.",
+        "The service call response (type Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
-    public partial class UpdateALXBGatewayCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
+    public partial class GetCPFCalculatedAttributesForProfileListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The updated description of the gateway.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter GatewayArn
+        #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the gateway to update.</para>
+        /// <para>The unique identifier of a customer profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,70 +71,55 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GatewayArn { get; set; }
+        public System.String ProfileId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The updated name of the gateway.</para>
+        /// <para>The maximum number of calculated attributes returned per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter SoftwareVersion
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The updated software version of the gateway. The gateway automatically updates its
-        /// software version during normal operation.</para>
+        /// <para>The pagination token from the previous call to ListCalculatedAttributesForProfile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SoftwareVersion { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AlexaForBusiness.Model.UpdateGatewayResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GatewayArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GatewayArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ProfileId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ProfileId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GatewayArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProfileId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GatewayArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ALXBGateway (UpdateGateway)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -139,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AlexaForBusiness.Model.UpdateGatewayResponse, UpdateALXBGatewayCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse, GetCPFCalculatedAttributesForProfileListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,19 +138,25 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GatewayArn;
+                context.Select = (response, cmdlet) => this.ProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.GatewayArn = this.GatewayArn;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.GatewayArn == null && ParameterWasBound(nameof(this.GatewayArn)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter GatewayArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            context.SoftwareVersion = this.SoftwareVersion;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.ProfileId = this.ProfileId;
+            #if MODULAR
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,23 +171,23 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AlexaForBusiness.Model.UpdateGatewayRequest();
+            var request = new Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.Description = cmdletContext.Description;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.GatewayArn != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.GatewayArn = cmdletContext.GatewayArn;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Name = cmdletContext.Name;
+                request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.SoftwareVersion != null)
+            if (cmdletContext.ProfileId != null)
             {
-                request.SoftwareVersion = cmdletContext.SoftwareVersion;
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -226,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         #region AWS Service Operation Call
         
-        private Amazon.AlexaForBusiness.Model.UpdateGatewayResponse CallAWSServiceOperation(IAmazonAlexaForBusiness client, Amazon.AlexaForBusiness.Model.UpdateGatewayRequest request)
+        private Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Alexa For Business", "UpdateGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "ListCalculatedAttributesForProfile");
             try
             {
                 #if DESKTOP
-                return client.UpdateGateway(request);
+                return client.ListCalculatedAttributesForProfile(request);
                 #elif CORECLR
-                return client.UpdateGatewayAsync(request).GetAwaiter().GetResult();
+                return client.ListCalculatedAttributesForProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,12 +250,12 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String GatewayArn { get; set; }
-            public System.String Name { get; set; }
-            public System.String SoftwareVersion { get; set; }
-            public System.Func<Amazon.AlexaForBusiness.Model.UpdateGatewayResponse, UpdateALXBGatewayCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String DomainName { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.ListCalculatedAttributesForProfileResponse, GetCPFCalculatedAttributesForProfileListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

@@ -22,29 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AlexaForBusiness;
-using Amazon.AlexaForBusiness.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ALXB
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Gets room skill parameter details by room, skill, and parameter key ARN.<br/><br/>This operation is deprecated.
+    /// Retrieve a calculated attribute for a customer profile.
     /// </summary>
-    [Cmdlet("Get", "ALXBRoomSkillParameter")]
-    [OutputType("Amazon.AlexaForBusiness.Model.RoomSkillParameter")]
-    [AWSCmdlet("Calls the Alexa For Business GetRoomSkillParameter API operation.", Operation = new[] {"GetRoomSkillParameter"}, SelectReturnType = typeof(Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse))]
-    [AWSCmdletOutput("Amazon.AlexaForBusiness.Model.RoomSkillParameter or Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse",
-        "This cmdlet returns an Amazon.AlexaForBusiness.Model.RoomSkillParameter object.",
-        "The service call response (type Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CPFCalculatedAttributeForProfile")]
+    [OutputType("Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetCalculatedAttributeForProfile API operation.", Operation = new[] {"GetCalculatedAttributeForProfile"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse",
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
-    public partial class GetALXBRoomSkillParameterCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
+    public partial class GetCPFCalculatedAttributeForProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
-        #region Parameter ParameterKey
+        #region Parameter CalculatedAttributeName
         /// <summary>
         /// <para>
-        /// <para>The room skill parameter key for which to get details. Required.</para>
+        /// <para>The unique name of the calculated attribute.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,23 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ParameterKey { get; set; }
+        public System.String CalculatedAttributeName { get; set; }
         #endregion
         
-        #region Parameter RoomArn
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The ARN of the room from which to get the room skill parameter details. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RoomArn { get; set; }
-        #endregion
-        
-        #region Parameter SkillId
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the skill from which to get the room skill parameter details. Required.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,26 +70,43 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SkillId { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter ProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of a customer profile.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProfileId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RoomSkillParameter'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse).
-        /// Specifying the name of a property of type Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RoomSkillParameter";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ParameterKey parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ParameterKey' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CalculatedAttributeName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CalculatedAttributeName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ParameterKey' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CalculatedAttributeName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse, GetALXBRoomSkillParameterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse, GetCPFCalculatedAttributeForProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,22 +133,28 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ParameterKey;
+                context.Select = (response, cmdlet) => this.CalculatedAttributeName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ParameterKey = this.ParameterKey;
+            context.CalculatedAttributeName = this.CalculatedAttributeName;
             #if MODULAR
-            if (this.ParameterKey == null && ParameterWasBound(nameof(this.ParameterKey)))
+            if (this.CalculatedAttributeName == null && ParameterWasBound(nameof(this.CalculatedAttributeName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ParameterKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CalculatedAttributeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoomArn = this.RoomArn;
-            context.SkillId = this.SkillId;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.SkillId == null && ParameterWasBound(nameof(this.SkillId)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter SkillId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ProfileId = this.ProfileId;
+            #if MODULAR
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -160,19 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AlexaForBusiness.Model.GetRoomSkillParameterRequest();
+            var request = new Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileRequest();
             
-            if (cmdletContext.ParameterKey != null)
+            if (cmdletContext.CalculatedAttributeName != null)
             {
-                request.ParameterKey = cmdletContext.ParameterKey;
+                request.CalculatedAttributeName = cmdletContext.CalculatedAttributeName;
             }
-            if (cmdletContext.RoomArn != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.RoomArn = cmdletContext.RoomArn;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.SkillId != null)
+            if (cmdletContext.ProfileId != null)
             {
-                request.SkillId = cmdletContext.SkillId;
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -207,15 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         #region AWS Service Operation Call
         
-        private Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse CallAWSServiceOperation(IAmazonAlexaForBusiness client, Amazon.AlexaForBusiness.Model.GetRoomSkillParameterRequest request)
+        private Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Alexa For Business", "GetRoomSkillParameter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "GetCalculatedAttributeForProfile");
             try
             {
                 #if DESKTOP
-                return client.GetRoomSkillParameter(request);
+                return client.GetCalculatedAttributeForProfile(request);
                 #elif CORECLR
-                return client.GetRoomSkillParameterAsync(request).GetAwaiter().GetResult();
+                return client.GetCalculatedAttributeForProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,11 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ParameterKey { get; set; }
-            public System.String RoomArn { get; set; }
-            public System.String SkillId { get; set; }
-            public System.Func<Amazon.AlexaForBusiness.Model.GetRoomSkillParameterResponse, GetALXBRoomSkillParameterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RoomSkillParameter;
+            public System.String CalculatedAttributeName { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.GetCalculatedAttributeForProfileResponse, GetCPFCalculatedAttributeForProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

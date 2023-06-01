@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Updates address book details by the address book ARN.
+    /// Updates address book details by the address book ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "ALXBAddressBook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.UpdateAddressBookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class UpdateALXBAddressBookCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

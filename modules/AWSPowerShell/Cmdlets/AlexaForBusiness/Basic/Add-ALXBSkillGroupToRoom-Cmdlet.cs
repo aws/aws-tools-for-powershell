@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Associates a skill group with a given room. This enables all skills in the associated
-    /// skill group on all devices in the room.
+    /// skill group on all devices in the room.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "ALXBSkillGroupToRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.AssociateSkillGroupWithRoomResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class AddALXBSkillGroupToRoomCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

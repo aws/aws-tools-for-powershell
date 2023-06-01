@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Deletes a skill group by skill group ARN.
+    /// Deletes a skill group by skill group ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ALXBSkillGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.DeleteSkillGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RemoveALXBSkillGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

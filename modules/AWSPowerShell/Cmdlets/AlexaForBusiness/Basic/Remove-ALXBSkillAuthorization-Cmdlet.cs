@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Unlinks a third-party account from a skill.
+    /// Unlinks a third-party account from a skill.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ALXBSkillAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.DeleteSkillAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RemoveALXBSkillAuthorizationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

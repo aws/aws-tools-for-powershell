@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// <summary>
     /// Links a user's account to a third-party skill provider. If this API operation is called
     /// by an assumed IAM role, the skill being linked must be a private skill. Also, the
-    /// skill must be owned by the AWS account that assumed the IAM role.
+    /// skill must be owned by the AWS account that assumed the IAM role.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "ALXBSkillAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.PutSkillAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class WriteALXBSkillAuthorizationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

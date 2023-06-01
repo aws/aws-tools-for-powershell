@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Retrieves the existing conference preferences.
+    /// Retrieves the existing conference preferences.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBConferencePreference")]
     [OutputType("Amazon.AlexaForBusiness.Model.ConferencePreference")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.ConferencePreference object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetConferencePreferenceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBConferencePreferenceCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

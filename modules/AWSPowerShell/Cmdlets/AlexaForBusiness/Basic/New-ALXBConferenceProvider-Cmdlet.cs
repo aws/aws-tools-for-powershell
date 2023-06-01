@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Adds a new conference provider under the user's AWS account.
+    /// Adds a new conference provider under the user's AWS account.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "ALXBConferenceProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.CreateConferenceProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class NewALXBConferenceProviderCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

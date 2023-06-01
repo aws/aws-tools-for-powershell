@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Updates the details of a gateway group. If any optional field is not provided, the
-    /// existing corresponding value is left unmodified.
+    /// existing corresponding value is left unmodified.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "ALXBGatewayGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.UpdateGatewayGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class UpdateALXBGatewayGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

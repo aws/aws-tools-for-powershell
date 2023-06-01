@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Gets the details of a room profile by profile ARN.
+    /// Gets the details of a room profile by profile ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBProfile")]
     [OutputType("Amazon.AlexaForBusiness.Model.Profile")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.Profile object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBProfileCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

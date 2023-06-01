@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Gets skill group details by skill group ARN.
+    /// Gets skill group details by skill group ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBSkillGroup")]
     [OutputType("Amazon.AlexaForBusiness.Model.SkillGroup")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.SkillGroup object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetSkillGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBSkillGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

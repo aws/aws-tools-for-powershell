@@ -327,6 +327,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.Boolean? Veeva_IncludeSourceFile { get; set; }
         #endregion
         
+        #region Parameter DataTransferApi_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the connector application API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Name")]
+        public System.String DataTransferApi_Name { get; set; }
+        #endregion
+        
         #region Parameter Amplitude_Object
         /// <summary>
         /// <para>
@@ -632,6 +643,20 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public Amazon.Appflow.TriggerType TriggerConfig_TriggerType { get; set; }
         #endregion
         
+        #region Parameter DataTransferApi_Type
+        /// <summary>
+        /// <para>
+        /// <para>You can specify one of the following types:</para><dl><dt>AUTOMATIC</dt><dd><para>The default. Optimizes a flow for datasets that fluctuate in size from small to large.
+        /// For each flow run, Amazon AppFlow chooses to use the SYNC or ASYNC API type based
+        /// on the amount of data that the run transfers.</para></dd><dt>SYNC</dt><dd><para>A synchronous API. This type of API optimizes a flow for small to medium-sized datasets.</para></dd><dt>ASYNC</dt><dd><para>An asynchronous API. This type of API optimizes a flow for large datasets.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type")]
+        [AWSConstantClassSource("Amazon.Appflow.DataTransferApiType")]
+        public Amazon.Appflow.DataTransferApiType DataTransferApi_Type { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -752,6 +777,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
                     context.CustomConnector_CustomProperty.Add((String)hashKey, (String)(this.CustomConnector_CustomProperty[hashKey]));
                 }
             }
+            context.DataTransferApi_Name = this.DataTransferApi_Name;
+            context.DataTransferApi_Type = this.DataTransferApi_Type;
             context.CustomConnector_EntityName = this.CustomConnector_EntityName;
             context.Datadog_Object = this.Datadog_Object;
             context.Dynatrace_Object = this.Dynatrace_Object;
@@ -1302,6 +1329,41 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector.EntityName = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_customConnector_EntityName;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull = false;
             }
+            Amazon.Appflow.Model.DataTransferApi requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi = null;
+            
+             // populate DataTransferApi
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApiIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi = new Amazon.Appflow.Model.DataTransferApi();
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Name = null;
+            if (cmdletContext.DataTransferApi_Name != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Name = cmdletContext.DataTransferApi_Name;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Name != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi.Name = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Name;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApiIsNull = false;
+            }
+            Amazon.Appflow.DataTransferApiType requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Type = null;
+            if (cmdletContext.DataTransferApi_Type != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Type = cmdletContext.DataTransferApi_Type;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Type != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi.Type = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_dataTransferApi_Type;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApiIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApiIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector.DataTransferApi = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector_sourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull = false;
+            }
              // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector should be set to null
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnectorIsNull)
             {
@@ -1714,6 +1776,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String IncrementalPullConfig_DatetimeTypeFieldName { get; set; }
             public System.String Amplitude_Object { get; set; }
             public Dictionary<System.String, System.String> CustomConnector_CustomProperty { get; set; }
+            public System.String DataTransferApi_Name { get; set; }
+            public Amazon.Appflow.DataTransferApiType DataTransferApi_Type { get; set; }
             public System.String CustomConnector_EntityName { get; set; }
             public System.String Datadog_Object { get; set; }
             public System.String Dynatrace_Object { get; set; }

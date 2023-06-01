@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Creates a new room profile with the specified details.
+    /// Creates a new room profile with the specified details.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "ALXBProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.CreateProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class NewALXBProfileCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
@@ -137,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MeetingRoomConfiguration_RequireCheckIn_Enabled")]
         public System.Boolean? RequireCheckIn_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ProactiveJoin_EnabledByMotion
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MeetingRoomConfiguration_ProactiveJoin_EnabledByMotion")]
+        public System.Boolean? ProactiveJoin_EnabledByMotion { get; set; }
         #endregion
         
         #region Parameter Locale
@@ -392,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             context.EndOfMeetingReminder_ReminderType = this.EndOfMeetingReminder_ReminderType;
             context.InstantBooking_DurationInMinute = this.InstantBooking_DurationInMinute;
             context.InstantBooking_Enabled = this.InstantBooking_Enabled;
+            context.ProactiveJoin_EnabledByMotion = this.ProactiveJoin_EnabledByMotion;
             context.RequireCheckIn_Enabled = this.RequireCheckIn_Enabled;
             context.RequireCheckIn_ReleaseAfterMinute = this.RequireCheckIn_ReleaseAfterMinute;
             context.MeetingRoomConfiguration_RoomUtilizationMetricsEnabled = this.MeetingRoomConfiguration_RoomUtilizationMetricsEnabled;
@@ -481,6 +494,31 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (requestMeetingRoomConfiguration_meetingRoomConfiguration_RoomUtilizationMetricsEnabled != null)
             {
                 request.MeetingRoomConfiguration.RoomUtilizationMetricsEnabled = requestMeetingRoomConfiguration_meetingRoomConfiguration_RoomUtilizationMetricsEnabled.Value;
+                requestMeetingRoomConfigurationIsNull = false;
+            }
+            Amazon.AlexaForBusiness.Model.CreateProactiveJoin requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin = null;
+            
+             // populate ProactiveJoin
+            var requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoinIsNull = true;
+            requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin = new Amazon.AlexaForBusiness.Model.CreateProactiveJoin();
+            System.Boolean? requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin_proactiveJoin_EnabledByMotion = null;
+            if (cmdletContext.ProactiveJoin_EnabledByMotion != null)
+            {
+                requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin_proactiveJoin_EnabledByMotion = cmdletContext.ProactiveJoin_EnabledByMotion.Value;
+            }
+            if (requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin_proactiveJoin_EnabledByMotion != null)
+            {
+                requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin.EnabledByMotion = requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin_proactiveJoin_EnabledByMotion.Value;
+                requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoinIsNull = false;
+            }
+             // determine if requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin should be set to null
+            if (requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoinIsNull)
+            {
+                requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin = null;
+            }
+            if (requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin != null)
+            {
+                request.MeetingRoomConfiguration.ProactiveJoin = requestMeetingRoomConfiguration_meetingRoomConfiguration_ProactiveJoin;
                 requestMeetingRoomConfigurationIsNull = false;
             }
             Amazon.AlexaForBusiness.Model.CreateInstantBooking requestMeetingRoomConfiguration_meetingRoomConfiguration_InstantBooking = null;
@@ -703,6 +741,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public Amazon.AlexaForBusiness.EndOfMeetingReminderType EndOfMeetingReminder_ReminderType { get; set; }
             public System.Int32? InstantBooking_DurationInMinute { get; set; }
             public System.Boolean? InstantBooking_Enabled { get; set; }
+            public System.Boolean? ProactiveJoin_EnabledByMotion { get; set; }
             public System.Boolean? RequireCheckIn_Enabled { get; set; }
             public System.Int32? RequireCheckIn_ReleaseAfterMinute { get; set; }
             public System.Boolean? MeetingRoomConfiguration_RoomUtilizationMetricsEnabled { get; set; }

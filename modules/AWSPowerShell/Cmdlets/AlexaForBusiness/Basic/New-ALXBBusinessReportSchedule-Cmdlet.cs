@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Creates a recurring schedule for usage reports to deliver to the specified S3 location
-    /// with a specified daily or weekly interval.
+    /// with a specified daily or weekly interval.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "ALXBBusinessReportSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.CreateBusinessReportScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class NewALXBBusinessReportScheduleCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

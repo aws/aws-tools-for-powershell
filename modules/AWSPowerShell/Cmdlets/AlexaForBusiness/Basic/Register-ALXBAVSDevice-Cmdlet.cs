@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
-    /// using Alexa Voice Service (AVS).
+    /// using Alexa Voice Service (AVS).<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Register", "ALXBAVSDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.RegisterAVSDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RegisterALXBAVSDeviceCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

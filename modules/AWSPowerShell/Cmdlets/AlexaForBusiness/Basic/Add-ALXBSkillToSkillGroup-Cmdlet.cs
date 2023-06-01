@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Associates a skill with a skill group.
+    /// Associates a skill with a skill group.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "ALXBSkillToSkillGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.AssociateSkillWithSkillGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class AddALXBSkillToSkillGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

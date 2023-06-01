@@ -96,7 +96,7 @@ $IVS_Completers = {
             ($_ -eq "Update-IVSChannel/Type")
         }
         {
-            $v = "BASIC","STANDARD"
+            $v = "ADVANCED_HD","ADVANCED_SD","BASIC","STANDARD"
             break
         }
 
@@ -114,6 +114,16 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.TranscodePreset
+        {
+            ($_ -eq "New-IVSChannel/Preset") -Or
+            ($_ -eq "Update-IVSChannel/Preset")
+        }
+        {
+            $v = "CONSTRAINED_BANDWIDTH_DELIVERY","HIGHER_BANDWIDTH_DELIVERY"
+            break
+        }
+
 
     }
 
@@ -125,6 +135,7 @@ $IVS_Completers = {
 $IVS_map = @{
     "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
+    "Preset"=@("New-IVSChannel","Update-IVSChannel")
     "ThumbnailConfiguration_RecordingMode"=@("New-IVSRecordingConfiguration")
     "Type"=@("New-IVSChannel","Update-IVSChannel")
 }

@@ -1,4 +1,24 @@
-﻿### 4.1.343 (2023-05-31 21:06Z)
+﻿### 4.1.344 (2023-06-01 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.559.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Alexa For Business
+    * Modified cmdlet New-ALXBProfile: added parameter ProactiveJoin_EnabledByMotion.
+    * Modified cmdlet Update-ALXBProfile: added parameter ProactiveJoin_EnabledByMotion.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameters DataTransferApi_Name and DataTransferApi_Type.
+    * Modified cmdlet Update-AFFlow: added parameters DataTransferApi_Name and DataTransferApi_Type.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFCalculatedAttributeDefinition leveraging the GetCalculatedAttributeDefinition service API.
+    * Added cmdlet Get-CPFCalculatedAttributeDefinitionList leveraging the ListCalculatedAttributeDefinitions service API.
+    * Added cmdlet Get-CPFCalculatedAttributeForProfile leveraging the GetCalculatedAttributeForProfile service API.
+    * Added cmdlet Get-CPFCalculatedAttributesForProfileList leveraging the ListCalculatedAttributesForProfile service API.
+    * Added cmdlet New-CPFCalculatedAttributeDefinition leveraging the CreateCalculatedAttributeDefinition service API.
+    * Added cmdlet Remove-CPFCalculatedAttributeDefinition leveraging the DeleteCalculatedAttributeDefinition service API.
+    * Added cmdlet Update-CPFCalculatedAttributeDefinition leveraging the UpdateCalculatedAttributeDefinition service API.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSChannel: added parameter Preset.
+    * Modified cmdlet Update-IVSChannel: added parameter Preset.
+
+### 4.1.343 (2023-05-31 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.558.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Config
     * Modified cmdlet Write-CFGConfigurationRecorder: added parameters ExclusionByResourceTypes_ResourceType and RecordingStrategy_UseOnly.

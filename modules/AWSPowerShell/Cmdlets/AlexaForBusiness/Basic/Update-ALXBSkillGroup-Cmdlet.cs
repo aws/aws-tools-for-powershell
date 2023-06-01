@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Updates skill group details by skill group ARN.
+    /// Updates skill group details by skill group ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "ALXBSkillGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.UpdateSkillGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class UpdateALXBSkillGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

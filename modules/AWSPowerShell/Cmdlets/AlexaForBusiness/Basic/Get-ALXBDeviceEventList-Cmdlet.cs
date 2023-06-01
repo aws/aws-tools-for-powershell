@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Lists the device event history, including device connection status, for up to 30 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the device event history, including device connection status, for up to 30 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBDeviceEventList")]
     [OutputType("Amazon.AlexaForBusiness.Model.DeviceEvent")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a collection of Amazon.AlexaForBusiness.Model.DeviceEvent objects.",
         "The service call response (type Amazon.AlexaForBusiness.Model.ListDeviceEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBDeviceEventListCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

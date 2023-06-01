@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// using a custom web service must be manually authorized. To get your skill authorized,
     /// contact AWS Support with your AWS account ID that queries the ResolveRoom API and
     /// skill ID. 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Resolve", "ALXBRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AlexaForBusiness.Model.ResolveRoomResponse")]
@@ -47,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     [AWSCmdletOutput("Amazon.AlexaForBusiness.Model.ResolveRoomResponse",
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.ResolveRoomResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class ResolveALXBRoomCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

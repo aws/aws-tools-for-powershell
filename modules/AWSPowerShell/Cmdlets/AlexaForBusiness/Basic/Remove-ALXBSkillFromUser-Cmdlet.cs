@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Makes a private skill unavailable for enrolled users and prevents them from enabling
-    /// it on their devices.
+    /// it on their devices.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ALXBSkillFromUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.DisassociateSkillFromUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RemoveALXBSkillFromUserCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

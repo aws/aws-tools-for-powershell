@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// <summary>
     /// Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
     /// gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
-    /// of gateways that are associated with that gateway group ARN.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// of gateways that are associated with that gateway group ARN.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBGatewayList")]
     [OutputType("Amazon.AlexaForBusiness.Model.GatewaySummary")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns a collection of Amazon.AlexaForBusiness.Model.GatewaySummary objects.",
         "The service call response (type Amazon.AlexaForBusiness.Model.ListGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBGatewayListCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

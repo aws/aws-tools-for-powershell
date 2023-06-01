@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCalculatedAttributeDefinition" OutputProperty="*" Verb="New" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +35,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCalculatedAttributeDefinition" Verb="Remove" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +71,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAutoMergingPreview" OutputProperty="*" Verb="Get" Noun="AutoMergingPreview" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCalculatedAttributeDefinition" OutputProperty="*" Verb="Get" Noun="CalculatedAttributeDefinition" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCalculatedAttributeForProfile" OutputProperty="*" Verb="Get" Noun="CalculatedAttributeForProfile" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +115,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAccountIntegrations" OutputProperty="Items" Verb="Get" Noun="AccountIntegrationList" PipelineParameter="Uri" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCalculatedAttributeDefinitions" OutputProperty="Items" Verb="Get" Noun="CalculatedAttributeDefinitionList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCalculatedAttributesForProfile" OutputProperty="Items" Verb="Get" Noun="CalculatedAttributesForProfileList" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -161,6 +185,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCalculatedAttributeDefinition" OutputProperty="*" Verb="Update" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

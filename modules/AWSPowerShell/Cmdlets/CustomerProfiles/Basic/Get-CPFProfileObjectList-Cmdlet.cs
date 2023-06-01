@@ -60,10 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter ObjectFilter_KeyName
         /// <summary>
         /// <para>
-        /// <para>A searchable identifier of a standard profile object. The predefined keys you can
-        /// use to search for _asset include: _assetId, _assetName, _serialNumber. The predefined
-        /// keys you can use to search for _case include: _caseId. The predefined keys you can
-        /// use to search for _order include: _orderId.</para>
+        /// <para>A searchable identifier of a profile object. The predefined keys you can use to search
+        /// for <code>_asset</code> include: <code>_assetId</code>, <code>_assetName</code>, and
+        /// <code>_serialNumber</code>. The predefined keys you can use to search for <code>_case</code>
+        /// include: <code>_caseId</code>. The predefined keys you can use to search for <code>_order</code>
+        /// include: <code>_orderId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

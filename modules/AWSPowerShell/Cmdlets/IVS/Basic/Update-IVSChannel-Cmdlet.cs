@@ -28,8 +28,9 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Updates a channel's configuration. This does not affect an ongoing stream of this
-    /// channel. You must stop and restart the stream for the changes to take effect.
+    /// Updates a channel's configuration. Live channels cannot be updated. You must stop
+    /// the ongoing stream, update the channel, and restart the stream for the changes to
+    /// take effect.
     /// </summary>
     [Cmdlet("Update", "IVSChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IVS.Model.Channel")]
@@ -102,6 +103,20 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Preset
+        /// <summary>
+        /// <para>
+        /// <para>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code>
+        /// and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code>
+        /// is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code>
+        /// and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>""</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IVS.TranscodePreset")]
+        public Amazon.IVS.TranscodePreset Preset { get; set; }
+        #endregion
+        
         #region Parameter RecordingConfigurationArn
         /// <summary>
         /// <para>
@@ -117,16 +132,35 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <summary>
         /// <para>
         /// <para>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed
-        /// the allowable resolution or bitrate, the stream probably will disconnect immediately</i>.
-        /// Valid values:</para><ul><li><para><code>STANDARD</code>: Video is transcoded: multiple qualities are generated from
+        /// the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i>
+        /// Some types generate multiple qualities (renditions) from the original input; this
+        /// automatically gives viewers the best experience for their devices and network conditions.
+        /// Some types provide transcoded video; transcoding allows higher playback quality across
+        /// a range of download speeds. Default: <code>STANDARD</code>. Valid values:</para><ul><li><para><code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input quality
+        /// to viewers. The viewer’s video-quality choice is limited to the original input. Input
+        /// resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to
+        /// 3.5 Mbps for resolutions between 480p and 1080p. Original audio is passed through.</para></li><li><para><code>STANDARD</code>: Video is transcoded: multiple qualities are generated from
         /// the original input, to automatically give viewers the best experience for their devices
         /// and network conditions. Transcoding allows higher playback quality across a range
         /// of download speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps.
         /// Audio is transcoded only for renditions 360p and below; above that, audio is passed
-        /// through. This is the default.</para></li><li><para><code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input to
-        /// viewers. The viewer’s video-quality choice is limited to the original input. Resolution
-        /// can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for
-        /// resolutions between 480p and 1080p.</para></li></ul>
+        /// through. This is the default when you create a channel.</para></li><li><para><code>ADVANCED_SD</code>: Video is transcoded; multiple qualities are generated from
+        /// the original input, to automatically give viewers the best experience for their devices
+        /// and network conditions. Input resolution can be up to 1080p and bitrate can be up
+        /// to 8.5 Mbps; output is capped at SD quality (480p). You can select an optional transcode
+        /// preset (see below). Audio for all renditions is transcoded, and an audio-only rendition
+        /// is available.</para></li><li><para><code>ADVANCED_HD</code>: Video is transcoded; multiple qualities are generated from
+        /// the original input, to automatically give viewers the best experience for their devices
+        /// and network conditions. Input resolution can be up to 1080p and bitrate can be up
+        /// to 8.5 Mbps; output is capped at HD quality (720p). You can select an optional transcode
+        /// preset (see below). Audio for all renditions is transcoded, and an audio-only rendition
+        /// is available.</para></li></ul><para>Optional <i>transcode presets</i> (available for the <code>ADVANCED</code> types)
+        /// allow you to trade off available download bandwidth and video quality, to optimize
+        /// the viewing experience. There are two presets:</para><ul><li><para><i>Constrained bandwidth delivery</i> uses a lower bitrate for each quality level.
+        /// Use it if you have low download bandwidth and/or simple video content (e.g., talking
+        /// heads)</para></li><li><para><i>Higher bandwidth delivery</i> uses a higher bitrate for each quality level. Use
+        /// it if you have high download bandwidth and/or complex video content (e.g., flashes
+        /// and quick scene changes).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             context.InsecureIngest = this.InsecureIngest;
             context.LatencyMode = this.LatencyMode;
             context.Name = this.Name;
+            context.Preset = this.Preset;
             context.RecordingConfigurationArn = this.RecordingConfigurationArn;
             context.Type = this.Type;
             
@@ -244,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Preset != null)
+            {
+                request.Preset = cmdletContext.Preset;
             }
             if (cmdletContext.RecordingConfigurationArn != null)
             {
@@ -319,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.Boolean? InsecureIngest { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.String Name { get; set; }
+            public Amazon.IVS.TranscodePreset Preset { get; set; }
             public System.String RecordingConfigurationArn { get; set; }
             public Amazon.IVS.ChannelType Type { get; set; }
             public System.Func<Amazon.IVS.Model.UpdateChannelResponse, UpdateIVSChannelCmdlet, object> Select { get; set; } =

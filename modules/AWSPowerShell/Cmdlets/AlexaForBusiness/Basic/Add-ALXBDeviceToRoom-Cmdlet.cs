@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// <summary>
     /// Associates a device with a given room. This applies all the settings from the room
     /// profile to the device, and all the skills in any skill groups added to that room.
-    /// This operation requires the device to be online, or else a manual sync is required.
+    /// This operation requires the device to be online, or else a manual sync is required.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "ALXBDeviceToRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.AssociateDeviceWithRoomResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class AddALXBDeviceToRoomCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

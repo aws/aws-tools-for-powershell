@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Configures the email template for the user enrollment invitation with the specified
-    /// attributes.
+    /// attributes.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "ALXBInvitationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.PutInvitationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class WriteALXBInvitationConfigurationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

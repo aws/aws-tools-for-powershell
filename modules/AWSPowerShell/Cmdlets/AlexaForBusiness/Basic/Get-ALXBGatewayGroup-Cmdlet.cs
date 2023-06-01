@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Retrieves the details of a gateway group.
+    /// Retrieves the details of a gateway group.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBGatewayGroup")]
     [OutputType("Amazon.AlexaForBusiness.Model.GatewayGroup")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.GatewayGroup object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetGatewayGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBGatewayGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

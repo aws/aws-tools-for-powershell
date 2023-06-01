@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// <summary>
     /// Disassociates a skill from the organization under a user's AWS account. If the skill
     /// is a private skill, it moves to an AcceptStatus of PENDING. Any private or public
-    /// skill that is rejected can be added later by calling the ApproveSkill API.
+    /// skill that is rejected can be added later by calling the ApproveSkill API.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Deny", "ALXBSkill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.RejectSkillResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class DenyALXBSkillCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

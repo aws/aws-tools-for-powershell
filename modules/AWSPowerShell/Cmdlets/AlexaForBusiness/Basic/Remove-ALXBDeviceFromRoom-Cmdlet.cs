@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// <summary>
     /// Disassociates a device from its current room. The device continues to be connected
     /// to the Wi-Fi network and is still registered to the account. The device settings and
-    /// skills are removed from the room.
+    /// skills are removed from the room.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ALXBDeviceFromRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.DisassociateDeviceFromRoomResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RemoveALXBDeviceFromRoomCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

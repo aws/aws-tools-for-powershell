@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Associates a skill with the organization under the customer's AWS account. If a skill
-    /// is private, the user implicitly accepts access to this skill during enablement.
+    /// is private, the user implicitly accepts access to this skill during enablement.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Approve", "ALXBSkill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.ApproveSkillResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class ApproveALXBSkillCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

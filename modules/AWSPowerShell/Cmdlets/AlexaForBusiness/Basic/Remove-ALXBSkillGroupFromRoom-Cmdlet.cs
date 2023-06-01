@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
     /// Disassociates a skill group from a specified room. This disables all skills in the
-    /// skill group on all devices in the room.
+    /// skill group on all devices in the room.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "ALXBSkillGroupFromRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.DisassociateSkillGroupFromRoomResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class RemoveALXBSkillGroupFromRoomCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

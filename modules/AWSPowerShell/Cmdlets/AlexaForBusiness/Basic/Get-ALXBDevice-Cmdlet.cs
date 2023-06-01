@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Gets the details of a device by device ARN.
+    /// Gets the details of a device by device ARN.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBDevice")]
     [OutputType("Amazon.AlexaForBusiness.Model.Device")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.Device object.",
         "The service call response (type Amazon.AlexaForBusiness.Model.GetDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBDeviceCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

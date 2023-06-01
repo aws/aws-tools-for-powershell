@@ -2286,6 +2286,16 @@ $AF_Completers = {
             break
         }
 
+        # Amazon.Appflow.DataTransferApiType
+        {
+            ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type") -Or
+            ($_ -eq "Update-AFFlow/SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type")
+        }
+        {
+            $v = "ASYNC","AUTOMATIC","SYNC"
+            break
+        }
+
         # Amazon.Appflow.S3InputFileType
         {
             ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType") -Or
@@ -2329,6 +2339,7 @@ $AF_map = @{
     "ConnectorProvisioningType"=@("Register-AFConnector")
     "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
+    "SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-AFFlow","Update-AFFlow")
@@ -14676,6 +14687,16 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.Operator
+        {
+            ($_ -eq "New-CPFCalculatedAttributeDefinition/Conditions_Threshold_Operator") -Or
+            ($_ -eq "Update-CPFCalculatedAttributeDefinition/Conditions_Threshold_Operator")
+        }
+        {
+            $v = "EQUAL_TO","GREATER_THAN","LESS_THAN","NOT_EQUAL_TO"
+            break
+        }
+
         # Amazon.CustomerProfiles.PartyType
         {
             ($_ -eq "New-CPFProfile/PartyType") -Or
@@ -14696,6 +14717,13 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.Statistic
+        "New-CPFCalculatedAttributeDefinition/Statistic"
+        {
+            $v = "AVERAGE","COUNT","FIRST_OCCURRENCE","LAST_OCCURRENCE","MAXIMUM","MAX_OCCURRENCE","MINIMUM","SUM"
+            break
+        }
+
         # Amazon.CustomerProfiles.Status
         "Get-CPFWorkflowList/Status"
         {
@@ -14710,6 +14738,16 @@ $CPF_Completers = {
         }
         {
             $v = "Event","OnDemand","Scheduled"
+            break
+        }
+
+        # Amazon.CustomerProfiles.Unit
+        {
+            ($_ -eq "New-CPFCalculatedAttributeDefinition/Conditions_Range_Unit") -Or
+            ($_ -eq "Update-CPFCalculatedAttributeDefinition/Conditions_Range_Unit")
+        }
+        {
+            $v = "DAYS"
             break
         }
 
@@ -14732,6 +14770,8 @@ $CPF_Completers = {
 }
 
 $CPF_map = @{
+    "Conditions_Range_Unit"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
+    "Conditions_Threshold_Operator"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
     "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview")
     "FlowDefinition_SourceFlowConfig_ConnectorType"=@("Write-CPFIntegration")
     "FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("Write-CPFIntegration")
@@ -14744,6 +14784,7 @@ $CPF_map = @{
     "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
+    "Statistic"=@("New-CPFCalculatedAttributeDefinition")
     "Status"=@("Get-CPFWorkflowList")
     "WorkflowType"=@("Get-CPFWorkflowList","New-CPFIntegrationWorkflow")
 }
@@ -14799,9 +14840,11 @@ $CPF_SelectCompleters = {
 
 $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
+               "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
+               "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
                "Remove-CPFIntegration",
                "Remove-CPFProfile",
@@ -14810,6 +14853,8 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileObjectType",
                "Remove-CPFWorkflow",
                "Get-CPFAutoMergingPreview",
+               "Get-CPFCalculatedAttributeDefinition",
+               "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
@@ -14819,6 +14864,8 @@ $CPF_SelectMap = @{
                "Get-CPFWorkflow",
                "Get-CPFWorkflowStep",
                "Get-CPFAccountIntegrationList",
+               "Get-CPFCalculatedAttributeDefinitionList",
+               "Get-CPFCalculatedAttributesForProfileList",
                "Get-CPFDomainList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
@@ -14834,6 +14881,7 @@ $CPF_SelectMap = @{
                "Search-CPFProfile",
                "Add-CPFResourceTag",
                "Remove-CPFResourceTag",
+               "Update-CPFCalculatedAttributeDefinition",
                "Update-CPFDomain",
                "Update-CPFProfile")
 }
@@ -31033,7 +31081,7 @@ $IVS_Completers = {
             ($_ -eq "Update-IVSChannel/Type")
         }
         {
-            $v = "BASIC","STANDARD"
+            $v = "ADVANCED_HD","ADVANCED_SD","BASIC","STANDARD"
             break
         }
 
@@ -31051,6 +31099,16 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.TranscodePreset
+        {
+            ($_ -eq "New-IVSChannel/Preset") -Or
+            ($_ -eq "Update-IVSChannel/Preset")
+        }
+        {
+            $v = "CONSTRAINED_BANDWIDTH_DELIVERY","HIGHER_BANDWIDTH_DELIVERY"
+            break
+        }
+
 
     }
 
@@ -31062,6 +31120,7 @@ $IVS_Completers = {
 $IVS_map = @{
     "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
+    "Preset"=@("New-IVSChannel","Update-IVSChannel")
     "ThumbnailConfiguration_RecordingMode"=@("New-IVSRecordingConfiguration")
     "Type"=@("New-IVSChannel","Update-IVSChannel")
 }

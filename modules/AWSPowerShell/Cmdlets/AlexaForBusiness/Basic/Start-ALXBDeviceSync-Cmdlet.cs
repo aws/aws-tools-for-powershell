@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     /// Settings - This internally syncs the room's profile (if the device is assigned to
     /// a room), contacts, address books, delegation access for account linking, and communications
     /// (if enabled on the room profile).
-    /// </para></li></ul>
+    /// </para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Start", "ALXBDeviceSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -52,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AlexaForBusiness.Model.StartDeviceSyncResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class StartALXBDeviceSyncCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         

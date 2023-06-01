@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Retrieves the configured values for the user enrollment invitation email template.
+    /// Retrieves the configured values for the user enrollment invitation email template.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ALXBInvitationConfiguration")]
     [OutputType("Amazon.AlexaForBusiness.Model.GetInvitationConfigurationResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     [AWSCmdletOutput("Amazon.AlexaForBusiness.Model.GetInvitationConfigurationResponse",
         "This cmdlet returns an Amazon.AlexaForBusiness.Model.GetInvitationConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Alexa For Business is no longer supported")]
     public partial class GetALXBInvitationConfigurationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
