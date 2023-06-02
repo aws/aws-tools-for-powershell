@@ -28,35 +28,17 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Provides high-level information for a managed rule group, including descriptions of
-    /// the rules.
+    /// Provides high-level information for the managed rule groups owned by a specific vendor.
     /// </summary>
-    [Cmdlet("Get", "WAF2ManagedRuleGroup")]
-    [OutputType("Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 DescribeManagedRuleGroup API operation.", Operation = new[] {"DescribeManagedRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse))]
-    [AWSCmdletOutput("Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse",
-        "This cmdlet returns an Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WAF2ManagedProductsByVendor")]
+    [OutputType("Amazon.WAFV2.Model.ManagedProductDescriptor")]
+    [AWSCmdlet("Calls the AWS WAF V2 DescribeManagedProductsByVendor API operation.", Operation = new[] {"DescribeManagedProductsByVendor"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse))]
+    [AWSCmdletOutput("Amazon.WAFV2.Model.ManagedProductDescriptor or Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse",
+        "This cmdlet returns a collection of Amazon.WAFV2.Model.ManagedProductDescriptor objects.",
+        "The service call response (type Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWAF2ManagedRuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
+    public partial class GetWAF2ManagedProductsByVendorCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the managed rule group. You use this, along with the vendor name, to identify
-        /// the rule group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
         
         #region Parameter Scope
         /// <summary>
@@ -98,36 +80,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String VendorName { get; set; }
         #endregion
         
-        #region Parameter VersionName
-        /// <summary>
-        /// <para>
-        /// <para>The version of the rule group. You can only use a version that is not scheduled for
-        /// expiration. If you don't provide this, WAF uses the vendor's default version. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionName { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse).
-        /// Specifying the name of a property of type Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ManagedProducts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse).
+        /// Specifying the name of a property of type Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "ManagedProducts";
         #endregion
         
         protected override void ProcessRecord()
@@ -140,28 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse, GetWAF2ManagedRuleGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse, GetWAF2ManagedProductsByVendorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Name;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Scope = this.Scope;
             #if MODULAR
             if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
@@ -176,7 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter VendorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,12 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WAFV2.Model.DescribeManagedRuleGroupRequest();
+            var request = new Amazon.WAFV2.Model.DescribeManagedProductsByVendorRequest();
             
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
             if (cmdletContext.Scope != null)
             {
                 request.Scope = cmdletContext.Scope;
@@ -204,10 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.VendorName != null)
             {
                 request.VendorName = cmdletContext.VendorName;
-            }
-            if (cmdletContext.VersionName != null)
-            {
-                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -242,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region AWS Service Operation Call
         
-        private Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DescribeManagedRuleGroupRequest request)
+        private Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DescribeManagedProductsByVendorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DescribeManagedRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DescribeManagedProductsByVendor");
             try
             {
                 #if DESKTOP
-                return client.DescribeManagedRuleGroup(request);
+                return client.DescribeManagedProductsByVendor(request);
                 #elif CORECLR
-                return client.DescribeManagedRuleGroupAsync(request).GetAwaiter().GetResult();
+                return client.DescribeManagedProductsByVendorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -270,12 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
             public System.String VendorName { get; set; }
-            public System.String VersionName { get; set; }
-            public System.Func<Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse, GetWAF2ManagedRuleGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.WAFV2.Model.DescribeManagedProductsByVendorResponse, GetWAF2ManagedProductsByVendorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ManagedProducts;
         }
         
     }

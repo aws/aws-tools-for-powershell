@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter MultiRegionEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether an event data store collects events from all regions, or only from
-        /// the region in which it was created.</para>
+        /// <para>Specifies whether an event data store collects events from all Regions, or only from
+        /// the Region in which it was created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

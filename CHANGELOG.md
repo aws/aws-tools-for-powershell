@@ -1,4 +1,18 @@
-﻿### 4.1.344 (2023-06-01 21:22Z)
+﻿### 4.1.345 (2023-06-02 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.561.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * Added cmdlet Remove-ATHCapacityReservation leveraging the DeleteCapacityReservation service API.
+  * Amazon CloudTrail
+    * Added cmdlet Start-CTEventDataStoreIngestion leveraging the StartEventDataStoreIngestion service API.
+    * Added cmdlet Stop-CTEventDataStoreIngestion leveraging the StopEventDataStoreIngestion service API.
+    * Modified cmdlet New-CTEventDataStore: added parameter StartIngestion.
+  * Amazon SageMaker Service
+    * Modified cmdlet Start-SMPipelineExecution: added parameters SelectiveExecutionConfig_SelectedStep and SelectiveExecutionConfig_SourcePipelineExecutionArn.
+  * Amazon WAF V2
+    * Added cmdlet Get-WAF2AllManagedProduct leveraging the DescribeAllManagedProducts service API.
+    * Added cmdlet Get-WAF2ManagedProductsByVendor leveraging the DescribeManagedProductsByVendor service API.
+
+### 4.1.344 (2023-06-01 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.559.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBProfile: added parameter ProactiveJoin_EnabledByMotion.

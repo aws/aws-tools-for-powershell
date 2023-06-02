@@ -232,6 +232,7 @@ $ATH_SelectMap = @{
                "New-ATHPreparedStatement",
                "New-ATHPresignedNotebookUrl",
                "New-ATHWorkGroup",
+               "Remove-ATHCapacityReservation",
                "Remove-ATHDataCatalog",
                "Remove-ATHNamedQuery",
                "Remove-ATHNotebook",

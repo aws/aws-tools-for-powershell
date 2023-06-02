@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_CloudWatchMetricsEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
-        /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
+        /// <para>Indicates whether the associated resource sends metrics to Amazon CloudWatch. For
+        /// the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
         /// Metrics</a> in the <i>WAF Developer Guide</i>.</para><para>For web ACLs, the metrics are for web requests that have the web ACL default action
         /// applied. WAF applies the default action to web requests that pass the inspection of
         /// all rules in the web ACL without being either allowed or blocked. For more information,
@@ -277,8 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_SampledRequestsEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean indicating whether WAF should store a sampling of the web requests that
-        /// match the rules. You can view the sampled requests through the WAF console. </para>
+        /// <para>Indicates whether WAF should store a sampling of the web requests that match the rules.
+        /// You can view the sampled requests through the WAF console. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

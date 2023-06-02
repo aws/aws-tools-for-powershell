@@ -28,29 +28,26 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Suspends the recording of Amazon Web Services API calls and log file delivery for
-    /// the specified trail. Under most circumstances, there is no need to use this action.
-    /// You can update a trail without stopping it first. This action is the only way to stop
-    /// recording. For a trail enabled in all Regions, this operation must be called from
-    /// the Region in which the trail was created, or an <code>InvalidHomeRegionException</code>
-    /// will occur. This operation cannot be called on the shadow trails (replicated trails
-    /// in other Regions) of a trail enabled in all Regions.
+    /// Starts the ingestion of live events on an event data store specified as either an
+    /// ARN or the ID portion of the ARN. To start ingestion, the event data store <code>Status</code>
+    /// must be <code>STOPPED_INGESTION</code> and the <code>eventCategory</code> must be
+    /// <code>Management</code>, <code>Data</code>, or <code>ConfigurationItem</code>.
     /// </summary>
-    [Cmdlet("Stop", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Start", "CTEventDataStoreIngestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS CloudTrail StopLogging API operation.", Operation = new[] {"StopLogging"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StopLoggingResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudTrail.Model.StopLoggingResponse",
+    [AWSCmdlet("Calls the AWS CloudTrail StartEventDataStoreIngestion API operation.", Operation = new[] {"StartEventDataStoreIngestion"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse))]
+    [AWSCmdletOutput("None or Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.StopLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class StartCTEventDataStoreIngestionCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter EventDataStore
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop
-        /// logging Amazon Web Services API calls. The following is the format of a trail ARN.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>The ARN (or ID suffix of the ARN) of the event data store for which you want to start
+        /// ingestion.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String EventDataStore { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.StopLoggingResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EventDataStore parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EventDataStore' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EventDataStore' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -99,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CTLogging (StopLogging)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EventDataStore), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CTEventDataStoreIngestion (StartEventDataStoreIngestion)"))
             {
                 return;
             }
@@ -113,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.StopLoggingResponse, StopCTLoggingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse, StartCTEventDataStoreIngestionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -122,14 +119,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.EventDataStore;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.EventDataStore = this.EventDataStore;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.EventDataStore == null && ParameterWasBound(nameof(this.EventDataStore)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EventDataStore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -146,11 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudTrail.Model.StopLoggingRequest();
+            var request = new Amazon.CloudTrail.Model.StartEventDataStoreIngestionRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.EventDataStore != null)
             {
-                request.Name = cmdletContext.Name;
+                request.EventDataStore = cmdletContext.EventDataStore;
             }
             
             CmdletOutput output;
@@ -185,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudTrail.Model.StopLoggingResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.StopLoggingRequest request)
+        private Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.StartEventDataStoreIngestionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "StopLogging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "StartEventDataStoreIngestion");
             try
             {
                 #if DESKTOP
-                return client.StopLogging(request);
+                return client.StartEventDataStoreIngestion(request);
                 #elif CORECLR
-                return client.StopLoggingAsync(request).GetAwaiter().GetResult();
+                return client.StartEventDataStoreIngestionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,8 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Func<Amazon.CloudTrail.Model.StopLoggingResponse, StopCTLoggingCmdlet, object> Select { get; set; } =
+            public System.String EventDataStore { get; set; }
+            public System.Func<Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse, StartCTEventDataStoreIngestionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

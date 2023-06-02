@@ -28,9 +28,9 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Deletes a trail. This operation must be called from the region in which the trail
+    /// Deletes a trail. This operation must be called from the Region in which the trail
     /// was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated
-    /// trails in other regions) of a trail that is enabled in all regions.
+    /// trails in other Regions) of a trail that is enabled in all Regions.
     /// </summary>
     [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

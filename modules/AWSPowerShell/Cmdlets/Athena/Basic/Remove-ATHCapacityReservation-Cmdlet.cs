@@ -22,29 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WAFV2;
-using Amazon.WAFV2.Model;
+using Amazon.Athena;
+using Amazon.Athena.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WAF2
+namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Provides high-level information for a managed rule group, including descriptions of
-    /// the rules.
+    /// Deletes a cancelled capacity reservation. A reservation must be cancelled before it
+    /// can be deleted. A deleted reservation is immediately removed from your account and
+    /// can no longer be referenced, including by its ARN. A deleted reservation cannot be
+    /// called by <code>GetCapacityReservation</code>, and deleted reservations do not appear
+    /// in the output of <code>ListCapacityReservations</code>.
     /// </summary>
-    [Cmdlet("Get", "WAF2ManagedRuleGroup")]
-    [OutputType("Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 DescribeManagedRuleGroup API operation.", Operation = new[] {"DescribeManagedRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse))]
-    [AWSCmdletOutput("Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse",
-        "This cmdlet returns an Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ATHCapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Athena DeleteCapacityReservation API operation.", Operation = new[] {"DeleteCapacityReservation"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteCapacityReservationResponse))]
+    [AWSCmdletOutput("None or Amazon.Athena.Model.DeleteCapacityReservationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Athena.Model.DeleteCapacityReservationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWAF2ManagedRuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
+    public partial class RemoveATHCapacityReservationCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the managed rule group. You use this, along with the vendor name, to identify
-        /// the rule group.</para>
+        /// <para>The name of the capacity reservation to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,62 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Scope
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
-        /// application. A regional application can be an Application Load Balancer (ALB), an
-        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.WAFV2.Scope")]
-        public Amazon.WAFV2.Scope Scope { get; set; }
-        #endregion
-        
-        #region Parameter VendorName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the managed rule group vendor. You use this, along with the rule group
-        /// name, to identify a rule group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VendorName { get; set; }
-        #endregion
-        
-        #region Parameter VersionName
-        /// <summary>
-        /// <para>
-        /// <para>The version of the rule group. You can only use a version that is not scheduled for
-        /// expiration. If you don't provide this, WAF uses the vendor's default version. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionName { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse).
-        /// Specifying the name of a property of type Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.DeleteCapacityReservationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,10 +81,26 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ATHCapacityReservation (DeleteCapacityReservation)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -143,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse, GetWAF2ManagedRuleGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Athena.Model.DeleteCapacityReservationResponse, RemoveATHCapacityReservationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -162,21 +129,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Scope = this.Scope;
-            #if MODULAR
-            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.VendorName = this.VendorName;
-            #if MODULAR
-            if (this.VendorName == null && ParameterWasBound(nameof(this.VendorName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VendorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,23 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WAFV2.Model.DescribeManagedRuleGroupRequest();
+            var request = new Amazon.Athena.Model.DeleteCapacityReservationRequest();
             
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Scope != null)
-            {
-                request.Scope = cmdletContext.Scope;
-            }
-            if (cmdletContext.VendorName != null)
-            {
-                request.VendorName = cmdletContext.VendorName;
-            }
-            if (cmdletContext.VersionName != null)
-            {
-                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -242,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region AWS Service Operation Call
         
-        private Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DescribeManagedRuleGroupRequest request)
+        private Amazon.Athena.Model.DeleteCapacityReservationResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.DeleteCapacityReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DescribeManagedRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "DeleteCapacityReservation");
             try
             {
                 #if DESKTOP
-                return client.DescribeManagedRuleGroup(request);
+                return client.DeleteCapacityReservation(request);
                 #elif CORECLR
-                return client.DescribeManagedRuleGroupAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCapacityReservationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -271,11 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
-            public Amazon.WAFV2.Scope Scope { get; set; }
-            public System.String VendorName { get; set; }
-            public System.String VersionName { get; set; }
-            public System.Func<Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse, GetWAF2ManagedRuleGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Athena.Model.DeleteCapacityReservationResponse, RemoveATHCapacityReservationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

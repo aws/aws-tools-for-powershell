@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// signed with its corresponding private key.
     /// 
     ///  <note><para>
-    /// CloudTrail uses different private and public key pairs per region. Each digest file
-    /// is signed with a private key unique to its region. When you validate a digest file
-    /// from a specific region, you must look in the same region for its corresponding public
+    /// CloudTrail uses different private and public key pairs per Region. Each digest file
+    /// is signed with a private key unique to its Region. When you validate a digest file
+    /// from a specific Region, you must look in the same Region for its corresponding public
     /// key.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

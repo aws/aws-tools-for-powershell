@@ -173,6 +173,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartEventDataStoreIngestion" Verb="Start" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="Destinations" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -182,6 +186,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="QueryStatement" PipelineParameter="QueryStatement" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEventDataStoreIngestion" Verb="Stop" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

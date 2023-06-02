@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-WAF2ResourceTag', 
         'Add-WAF2WebACLToResource', 
+        'Get-WAF2AllManagedProduct', 
         'Get-WAF2APIKeyList', 
         'Get-WAF2AvailableManagedRuleGroupList', 
         'Get-WAF2AvailableManagedRuleGroupVersionList', 
@@ -96,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WAF2IPSetList', 
         'Get-WAF2LoggingConfiguration', 
         'Get-WAF2LoggingConfigurationList', 
+        'Get-WAF2ManagedProductsByVendor', 
         'Get-WAF2ManagedRuleGroup', 
         'Get-WAF2ManagedRuleSet', 
         'Get-WAF2ManagedRuleSetList', 

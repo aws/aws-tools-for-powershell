@@ -1477,6 +1477,8 @@ Set-Alias -Name Create-ATHPresignedNotebookUrl -Value New-ATHPresignedNotebookUr
 Set-Alias -Name ATH-CreatePresignedNotebookUrl -Value New-ATHPresignedNotebookUrl
 Set-Alias -Name Create-ATHWorkGroup -Value New-ATHWorkGroup
 Set-Alias -Name ATH-CreateWorkGroup -Value New-ATHWorkGroup
+Set-Alias -Name Delete-ATHCapacityReservation -Value Remove-ATHCapacityReservation
+Set-Alias -Name ATH-DeleteCapacityReservation -Value Remove-ATHCapacityReservation
 Set-Alias -Name Delete-ATHDataCatalog -Value Remove-ATHDataCatalog
 Set-Alias -Name ATH-DeleteDataCatalog -Value Remove-ATHDataCatalog
 Set-Alias -Name Delete-ATHNamedQuery -Value Remove-ATHNamedQuery
@@ -3903,9 +3905,11 @@ Set-Alias -Name CT-RegisterOrganizationDelegatedAdmin -Value Register-CTOrganiza
 Set-Alias -Name Remove-CTTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RemoveTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RestoreEventDataStore -Value Restore-CTEventDataStore
+Set-Alias -Name CT-StartEventDataStoreIngestion -Value Start-CTEventDataStoreIngestion
 Set-Alias -Name CT-StartImport -Value Start-CTImport
 Set-Alias -Name CT-StartLogging -Value Start-CTLogging
 Set-Alias -Name CT-StartQuery -Value Start-CTQuery
+Set-Alias -Name CT-StopEventDataStoreIngestion -Value Stop-CTEventDataStoreIngestion
 Set-Alias -Name CT-StopImport -Value Stop-CTImport
 Set-Alias -Name CT-StopLogging -Value Stop-CTLogging
 Set-Alias -Name CT-UpdateChannel -Value Update-CTChannel
@@ -25065,6 +25069,11 @@ Set-Alias -Name Delete-WAF2RuleGroup -Value Remove-WAF2RuleGroup
 Set-Alias -Name WAF2-DeleteRuleGroup -Value Remove-WAF2RuleGroup
 Set-Alias -Name Delete-WAF2WebACL -Value Remove-WAF2WebACL
 Set-Alias -Name WAF2-DeleteWebACL -Value Remove-WAF2WebACL
+Set-Alias -Name Describe-WAF2AllManagedProducts -Value Get-WAF2AllManagedProduct
+Set-Alias -Name Describe-WAF2AllManagedProduct -Value Get-WAF2AllManagedProduct
+Set-Alias -Name WAF2-DescribeAllManagedProducts -Value Get-WAF2AllManagedProduct
+Set-Alias -Name Describe-WAF2ManagedProductsByVendor -Value Get-WAF2ManagedProductsByVendor
+Set-Alias -Name WAF2-DescribeManagedProductsByVendor -Value Get-WAF2ManagedProductsByVendor
 Set-Alias -Name Describe-WAF2ManagedRuleGroup -Value Get-WAF2ManagedRuleGroup
 Set-Alias -Name WAF2-DescribeManagedRuleGroup -Value Get-WAF2ManagedRuleGroup
 Set-Alias -Name Disassociate-WAF2WebACL -Value Remove-WAF2WebACLFromResource

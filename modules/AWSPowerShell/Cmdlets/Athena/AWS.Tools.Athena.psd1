@@ -132,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ATHPreparedStatement', 
         'New-ATHPresignedNotebookUrl', 
         'New-ATHWorkGroup', 
+        'Remove-ATHCapacityReservation', 
         'Remove-ATHDataCatalog', 
         'Remove-ATHNamedQuery', 
         'Remove-ATHNotebook', 

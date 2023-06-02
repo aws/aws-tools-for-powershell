@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter IsMultiRegionTrail
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the trail is created in the current region or in all regions. The
-        /// default is false, which creates a trail only in the region where you are signed in.
-        /// As a best practice, consider creating trails that log events in all regions.</para>
+        /// <para>Specifies whether the trail is created in the current Region or in all Regions. The
+        /// default is false, which creates a trail only in the Region where you are signed in.
+        /// As a best practice, consider creating trails that log events in all Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

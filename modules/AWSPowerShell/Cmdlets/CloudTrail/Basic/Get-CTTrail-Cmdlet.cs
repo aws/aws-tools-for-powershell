@@ -28,7 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Retrieves settings for one or more trails associated with the current region for your
+    /// Retrieves settings for one or more trails associated with the current Region for your
     /// account.
     /// </summary>
     [Cmdlet("Get", "CTTrail")]
@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies whether to include shadow trails in the response. A shadow trail is the
-        /// replication in a region of a trail that was created in a different region, or in the
+        /// replication in a Region of a trail that was created in a different Region, or in the
         /// case of an organization trail, the replication of an organization trail in member
         /// accounts. If you do not include shadow trails, organization trails in a member account
-        /// and region replication trails will not be returned. The default is true.</para>
+        /// and Region replication trails will not be returned. The default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -60,13 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The
-        /// format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para><para>If an empty list is specified, information for the trail in the current region is
+        /// format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para><para>If an empty list is specified, information for the trail in the current Region is
         /// returned.</para><ul><li><para>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then
-        /// information for all trails in the current region is returned.</para></li><li><para>If an empty list is specified and IncludeShadowTrails is null or true, then information
-        /// for all trails in the current region and any associated shadow trails in other regions
+        /// information for all trails in the current Region is returned.</para></li><li><para>If an empty list is specified and IncludeShadowTrails is null or true, then information
+        /// for all trails in the current Region and any associated shadow trails in other Regions
         /// is returned.</para></li></ul><note><para>If one or more trail names are specified, information is returned only if the names
-        /// match the names of trails belonging only to the current region and current account.
-        /// To return information about a trail in another region, you must specify its trail
+        /// match the names of trails belonging only to the current Region and current account.
+        /// To return information about a trail in another Region, you must specify its trail
         /// ARN.</para></note>
         /// </para>
         /// </summary>

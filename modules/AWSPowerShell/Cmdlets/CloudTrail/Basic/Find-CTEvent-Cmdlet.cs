@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management
     /// events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail
     /// Insights events</a> that are captured by CloudTrail. You can look up events that occurred
-    /// in a region within the last 90 days. Lookup supports the following attributes for
+    /// in a Region within the last 90 days. Lookup supports the following attributes for
     /// management events:
     /// 
     ///  <ul><li><para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// maximum of 50 possible. The response includes a token that you can use to get the
     /// next page of results.
     /// </para><important><para>
-    /// The rate of lookup requests is limited to two per second, per account, per region.
+    /// The rate of lookup requests is limited to two per second, per account, per Region.
     /// If this limit is exceeded, a throttling error occurs.
     /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

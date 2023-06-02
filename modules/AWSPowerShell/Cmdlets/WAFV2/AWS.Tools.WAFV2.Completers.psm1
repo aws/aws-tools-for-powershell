@@ -114,6 +114,7 @@ $WAF2_Completers = {
 
         # Amazon.WAFV2.Scope
         {
+            ($_ -eq "Get-WAF2AllManagedProduct/Scope") -Or
             ($_ -eq "Get-WAF2APIKeyList/Scope") -Or
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupList/Scope") -Or
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupVersionList/Scope") -Or
@@ -121,6 +122,7 @@ $WAF2_Completers = {
             ($_ -eq "Get-WAF2IPSet/Scope") -Or
             ($_ -eq "Get-WAF2IPSetList/Scope") -Or
             ($_ -eq "Get-WAF2LoggingConfigurationList/Scope") -Or
+            ($_ -eq "Get-WAF2ManagedProductsByVendor/Scope") -Or
             ($_ -eq "Get-WAF2ManagedRuleGroup/Scope") -Or
             ($_ -eq "Get-WAF2ManagedRuleSet/Scope") -Or
             ($_ -eq "Get-WAF2ManagedRuleSetList/Scope") -Or
@@ -167,7 +169,7 @@ $WAF2_map = @{
     "LoggingConfiguration_LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "Platform"=@("Get-WAF2MobileSdkRelease","Get-WAF2MobileSdkReleaseList","New-WAF2MobileSdkReleaseUrl")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
-    "Scope"=@("Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
+    "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
 }
 
 _awsArgumentCompleterRegistration $WAF2_Completers $WAF2_map
@@ -234,6 +236,8 @@ $WAF2_SelectMap = @{
                "Remove-WAF2RegexPatternSet",
                "Remove-WAF2RuleGroup",
                "Remove-WAF2WebACL",
+               "Get-WAF2AllManagedProduct",
+               "Get-WAF2ManagedProductsByVendor",
                "Get-WAF2ManagedRuleGroup",
                "Remove-WAF2WebACLFromResource",
                "New-WAF2MobileSdkReleaseUrl",

@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter MultiRegionEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the event data store includes events from all regions, or only from
-        /// the region in which the event data store is created.</para>
+        /// <para>Specifies whether the event data store includes events from all Regions, or only from
+        /// the Region in which the event data store is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RetentionPeriod { get; set; }
+        #endregion
+        
+        #region Parameter StartIngestion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the event data store should start ingesting live events. The default
+        /// is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StartIngestion { get; set; }
         #endregion
         
         #region Parameter TagsList
@@ -226,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #endif
             context.OrganizationEnabled = this.OrganizationEnabled;
             context.RetentionPeriod = this.RetentionPeriod;
+            context.StartIngestion = this.StartIngestion;
             if (this.TagsList != null)
             {
                 context.TagsList = new List<Amazon.CloudTrail.Model.Tag>(this.TagsList);
@@ -270,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.RetentionPeriod != null)
             {
                 request.RetentionPeriod = cmdletContext.RetentionPeriod.Value;
+            }
+            if (cmdletContext.StartIngestion != null)
+            {
+                request.StartIngestion = cmdletContext.StartIngestion.Value;
             }
             if (cmdletContext.TagsList != null)
             {
@@ -346,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             public System.String Name { get; set; }
             public System.Boolean? OrganizationEnabled { get; set; }
             public System.Int32? RetentionPeriod { get; set; }
+            public System.Boolean? StartIngestion { get; set; }
             public List<Amazon.CloudTrail.Model.Tag> TagsList { get; set; }
             public System.Boolean? TerminationProtectionEnabled { get; set; }
             public System.Func<Amazon.CloudTrail.Model.CreateEventDataStoreResponse, NewCTEventDataStoreCmdlet, object> Select { get; set; } =

@@ -81,6 +81,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAllManagedProducts" OutputProperty="ManagedProducts" Verb="Get" Noun="AllManagedProduct" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeManagedProductsByVendor" OutputProperty="ManagedProducts" Verb="Get" Noun="ManagedProductsByVendor" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeManagedRuleGroup" OutputProperty="*" Verb="Get" Noun="ManagedRuleGroup" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

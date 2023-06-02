@@ -110,6 +110,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Parameter[] PipelineParameter { get; set; }
         #endregion
         
+        #region Parameter SelectiveExecutionConfig_SelectedStep
+        /// <summary>
+        /// <para>
+        /// <para>A list of pipeline steps to run. All step(s) in all path(s) between two selected steps
+        /// should be included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SelectiveExecutionConfig_SelectedSteps")]
+        public Amazon.SageMaker.Model.SelectedStep[] SelectiveExecutionConfig_SelectedStep { get; set; }
+        #endregion
+        
+        #region Parameter SelectiveExecutionConfig_SourcePipelineExecutionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN from a reference execution of the current pipeline. Used to copy input collaterals
+        /// needed for the selected steps to run. The execution status of the pipeline can be
+        /// either <code>Failed</code> or <code>Success</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SelectiveExecutionConfig_SourcePipelineExecutionArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'PipelineExecutionArn'.
@@ -187,6 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.PipelineParameter = new List<Amazon.SageMaker.Model.Parameter>(this.PipelineParameter);
             }
+            if (this.SelectiveExecutionConfig_SelectedStep != null)
+            {
+                context.SelectiveExecutionConfig_SelectedStep = new List<Amazon.SageMaker.Model.SelectedStep>(this.SelectiveExecutionConfig_SelectedStep);
+            }
+            context.SelectiveExecutionConfig_SourcePipelineExecutionArn = this.SelectiveExecutionConfig_SourcePipelineExecutionArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -241,6 +270,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.PipelineParameter != null)
             {
                 request.PipelineParameters = cmdletContext.PipelineParameter;
+            }
+            
+             // populate SelectiveExecutionConfig
+            var requestSelectiveExecutionConfigIsNull = true;
+            request.SelectiveExecutionConfig = new Amazon.SageMaker.Model.SelectiveExecutionConfig();
+            List<Amazon.SageMaker.Model.SelectedStep> requestSelectiveExecutionConfig_selectiveExecutionConfig_SelectedStep = null;
+            if (cmdletContext.SelectiveExecutionConfig_SelectedStep != null)
+            {
+                requestSelectiveExecutionConfig_selectiveExecutionConfig_SelectedStep = cmdletContext.SelectiveExecutionConfig_SelectedStep;
+            }
+            if (requestSelectiveExecutionConfig_selectiveExecutionConfig_SelectedStep != null)
+            {
+                request.SelectiveExecutionConfig.SelectedSteps = requestSelectiveExecutionConfig_selectiveExecutionConfig_SelectedStep;
+                requestSelectiveExecutionConfigIsNull = false;
+            }
+            System.String requestSelectiveExecutionConfig_selectiveExecutionConfig_SourcePipelineExecutionArn = null;
+            if (cmdletContext.SelectiveExecutionConfig_SourcePipelineExecutionArn != null)
+            {
+                requestSelectiveExecutionConfig_selectiveExecutionConfig_SourcePipelineExecutionArn = cmdletContext.SelectiveExecutionConfig_SourcePipelineExecutionArn;
+            }
+            if (requestSelectiveExecutionConfig_selectiveExecutionConfig_SourcePipelineExecutionArn != null)
+            {
+                request.SelectiveExecutionConfig.SourcePipelineExecutionArn = requestSelectiveExecutionConfig_selectiveExecutionConfig_SourcePipelineExecutionArn;
+                requestSelectiveExecutionConfigIsNull = false;
+            }
+             // determine if request.SelectiveExecutionConfig should be set to null
+            if (requestSelectiveExecutionConfigIsNull)
+            {
+                request.SelectiveExecutionConfig = null;
             }
             
             CmdletOutput output;
@@ -309,6 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String PipelineExecutionDisplayName { get; set; }
             public System.String PipelineName { get; set; }
             public List<Amazon.SageMaker.Model.Parameter> PipelineParameter { get; set; }
+            public List<Amazon.SageMaker.Model.SelectedStep> SelectiveExecutionConfig_SelectedStep { get; set; }
+            public System.String SelectiveExecutionConfig_SourcePipelineExecutionArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.StartPipelineExecutionResponse, StartSMPipelineExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PipelineExecutionArn;
         }

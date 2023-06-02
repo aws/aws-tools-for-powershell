@@ -28,7 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Returns information about all event data stores in the account, in the current region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about all event data stores in the account, in the current Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTEventDataStoreSummary")]
     [OutputType("Amazon.CloudTrail.Model.EventDataStore")]

@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter S3_S3BucketRegion
         /// <summary>
         /// <para>
-        /// <para> The region associated with the source S3 bucket. </para>
+        /// <para> The Region associated with the source S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

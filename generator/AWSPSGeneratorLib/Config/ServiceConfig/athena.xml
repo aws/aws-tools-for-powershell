@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCapacityReservation" Verb="Remove" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataCatalog" Verb="Remove" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

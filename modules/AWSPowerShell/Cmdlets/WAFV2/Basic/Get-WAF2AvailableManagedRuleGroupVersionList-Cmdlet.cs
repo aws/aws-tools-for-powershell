@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The name of the managed rule group vendor. You use this, along with the rule group
-        /// name, to identify the rule group.</para>
+        /// name, to identify a rule group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

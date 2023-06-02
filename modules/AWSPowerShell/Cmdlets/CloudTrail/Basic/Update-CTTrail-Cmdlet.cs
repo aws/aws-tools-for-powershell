@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// log files. Changes to a trail do not require stopping the CloudTrail service. Use
     /// this action to designate an existing bucket for log delivery. If the existing bucket
     /// has previously been a target for CloudTrail log files, an IAM policy exists for the
-    /// bucket. <code>UpdateTrail</code> must be called from the region in which the trail
+    /// bucket. <code>UpdateTrail</code> must be called from the Region in which the trail
     /// was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.
     /// </summary>
     [Cmdlet("Update", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -98,13 +98,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter IsMultiRegionTrail
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the trail applies only to the current region or to all regions.
-        /// The default is false. If the trail exists only in the current region and this value
+        /// <para>Specifies whether the trail applies only to the current Region or to all Regions.
+        /// The default is false. If the trail exists only in the current Region and this value
         /// is set to true, shadow trails (replications of the trail) will be created in the other
-        /// regions. If the trail exists in all regions and this value is set to false, the trail
-        /// will remain in the region where it was created, and its shadow trails in other regions
+        /// Regions. If the trail exists in all Regions and this value is set to false, the trail
+        /// will remain in the Region where it was created, and its shadow trails in other Regions
         /// will be deleted. As a best practice, consider using trails that log events in all
-        /// regions.</para>
+        /// Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
