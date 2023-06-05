@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The category of extensions to return.</para><ul><li><para><code>REGISTERED</code>: Private extensions that have been registered for this account
-        /// and region.</para></li><li><para><code>ACTIVATED</code>: Public extensions that have been activated for this account
-        /// and region.</para></li><li><para><code>THIRD_PARTY</code>: Extensions available for use from publishers other than
+        /// and Region.</para></li><li><para><code>ACTIVATED</code>: Public extensions that have been activated for this account
+        /// and Region.</para></li><li><para><code>THIRD_PARTY</code>: Extensions available for use from publishers other than
         /// Amazon. This includes:</para><ul><li><para>Private extensions registered in the account.</para></li><li><para>Public extensions from publishers other than Amazon, whether activated or not.</para></li></ul></li><li><para><code>AWS_TYPES</code>: Extensions available for use from Amazon.</para></li></ul>
         /// </para>
         /// </summary>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The scope at which the extensions are visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: Extensions that are visible and usable within this account
-        /// and region. This includes:</para><ul><li><para>Private extensions you have registered in this account and region.</para></li><li><para>Public extensions that you have activated in this account and region.</para></li></ul></li><li><para><code>PUBLIC</code>: Extensions that are publicly visible and available to be activated
+        /// and Region. This includes:</para><ul><li><para>Private extensions you have registered in this account and Region.</para></li><li><para>Public extensions that you have activated in this account and Region.</para></li></ul></li><li><para><code>PUBLIC</code>: Extensions that are publicly visible and available to be activated
         /// within any Amazon Web Services account. This includes extensions from Amazon Web Services,
         /// in addition to third-party publishers.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
         /// </para>

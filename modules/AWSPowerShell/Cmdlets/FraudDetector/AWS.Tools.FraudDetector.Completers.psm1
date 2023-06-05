@@ -90,7 +90,7 @@ $FD_Completers = {
         # Amazon.FraudDetector.DataType
         "New-FDVariable/DataType"
         {
-            $v = "BOOLEAN","FLOAT","INTEGER","STRING"
+            $v = "BOOLEAN","DATETIME","FLOAT","INTEGER","STRING"
             break
         }
 

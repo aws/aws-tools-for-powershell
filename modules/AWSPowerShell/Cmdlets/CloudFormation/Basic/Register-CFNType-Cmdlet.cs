@@ -44,14 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Resource Providers</a> in the <i>CloudFormation CLI User Guide</i>.
     /// </para><para>
     /// You can have a maximum of 50 resource extension versions registered at a time. This
-    /// maximum is per account and per region. Use <a href="AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a>
+    /// maximum is per account and per Region. Use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a>
     /// to deregister specific extension versions if necessary.
     /// </para><para>
     /// Once you have initiated a registration request using <code><a>RegisterType</a></code>,
     /// you can use <code><a>DescribeTypeRegistration</a></code> to monitor the progress
     /// of the registration request.
     /// </para><para>
-    /// Once you have registered a private extension in your account and region, use <a href="AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>
+    /// Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>
     /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking
         /// the extension.</para><para>For CloudFormation to assume the specified execution role, the role must contain a
         /// trust relationship with the CloudFormation service principle (<code>resources.cloudformation.amazonaws.com</code>).
-        /// For more information about adding trust relationships, see <a href="IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
+        /// For more information about adding trust relationships, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
         /// a role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</para><para>If your extension calls Amazon Web Services APIs in any of its handlers, you must
         /// create an <i><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
         /// execution role</a></i> that includes the necessary permissions to call those Amazon

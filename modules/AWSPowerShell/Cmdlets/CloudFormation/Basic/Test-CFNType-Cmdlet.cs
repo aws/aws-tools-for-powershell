@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// your public extension prior to publishing</a> in the <i>CloudFormation CLI User Guide</i>.
     /// </para><para>
     /// If you don't specify a version, CloudFormation uses the default version of the extension
-    /// in your account and region for testing.
+    /// in your account and Region for testing.
     /// </para><para>
     /// To perform testing, CloudFormation assumes the execution role specified when the type
-    /// was registered. For more information, see <a href="AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.
+    /// was registered. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.
     /// </para><para>
     /// Once you've initiated testing on an extension using <code>TestType</code>, you can
     /// pass the returned <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The version of the extension to test.</para><para>You can specify the version id with either <code>Arn</code>, or with <code>TypeName</code>
         /// and <code>Type</code>.</para><para>If you don't specify a version, CloudFormation uses the default version of the extension
-        /// in this account and region for testing.</para>
+        /// in this account and Region for testing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

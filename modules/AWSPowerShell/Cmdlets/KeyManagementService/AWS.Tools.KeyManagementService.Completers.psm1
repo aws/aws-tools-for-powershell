@@ -83,7 +83,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.AlgorithmSpec
         "Get-KMSParametersForImport/WrappingAlgorithm"
         {
-            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","RSAES_PKCS1_V1_5"
+            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","RSAES_PKCS1_V1_5","RSA_AES_KEY_WRAP_SHA_1","RSA_AES_KEY_WRAP_SHA_256"
             break
         }
 
@@ -206,7 +206,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.WrappingKeySpec
         "Get-KMSParametersForImport/WrappingKeySpec"
         {
-            $v = "RSA_2048"
+            $v = "RSA_2048","RSA_3072","RSA_4096"
             break
         }
 

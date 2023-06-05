@@ -8484,6 +8484,7 @@ $CFN_Completers = {
 
         # Amazon.CloudFormation.CallAs
         {
+            ($_ -eq "Get-CFNOrganizationsAccess/CallAs") -Or
             ($_ -eq "Get-CFNStackInstance/CallAs") -Or
             ($_ -eq "Get-CFNStackInstanceList/CallAs") -Or
             ($_ -eq "Get-CFNStackSet/CallAs") -Or
@@ -8661,7 +8662,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
@@ -8730,7 +8731,8 @@ $CFN_SelectCompleters = {
 }
 
 $CFN_SelectMap = @{
-    "Select"=@("Enable-CFNType",
+    "Select"=@("Enable-CFNOrganizationsAccess",
+               "Enable-CFNType",
                "Get-CFNDescribeTypeConfiguration",
                "Stop-CFNUpdateStack",
                "Resume-CFNUpdateRollback",
@@ -8738,6 +8740,7 @@ $CFN_SelectMap = @{
                "New-CFNStack",
                "New-CFNStackInstance",
                "New-CFNStackSet",
+               "Disable-CFNOrganizationsAccess",
                "Disable-CFNType",
                "Remove-CFNChangeSet",
                "Remove-CFNStack",
@@ -8747,6 +8750,7 @@ $CFN_SelectMap = @{
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
                "Get-CFNChangeSetHook",
+               "Get-CFNOrganizationsAccess",
                "Get-CFNPublisher",
                "Get-CFNStackDriftDetectionStatus",
                "Get-CFNStackEvent",
@@ -23281,6 +23285,13 @@ $FINSP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Finspace.AutoScalingMetric
+        "New-FINSPKxCluster/AutoScalingConfiguration_AutoScalingMetric"
+        {
+            $v = "CPU_UTILIZATION_PERCENTAGE"
+            break
+        }
+
         # Amazon.Finspace.FederationMode
         {
             ($_ -eq "New-FINSPEnvironment/FederationMode") -Or
@@ -23288,6 +23299,37 @@ $FINSP_Completers = {
         }
         {
             $v = "FEDERATED","LOCAL"
+            break
+        }
+
+        # Amazon.Finspace.IPAddressType
+        "New-FINSPKxCluster/VpcConfiguration_IpAddressType"
+        {
+            $v = "IP_V4"
+            break
+        }
+
+        # Amazon.Finspace.KxAzMode
+        "New-FINSPKxCluster/AzMode"
+        {
+            $v = "MULTI","SINGLE"
+            break
+        }
+
+        # Amazon.Finspace.KxClusterType
+        {
+            ($_ -eq "Get-FINSPKxClusterList/ClusterType") -Or
+            ($_ -eq "New-FINSPKxCluster/ClusterType")
+        }
+        {
+            $v = "GATEWAY","HDB","RDB"
+            break
+        }
+
+        # Amazon.Finspace.KxSavedownStorageType
+        "New-FINSPKxCluster/SavedownStorageConfiguration_Type"
+        {
+            $v = "SDS01"
             break
         }
 
@@ -23300,7 +23342,12 @@ $FINSP_Completers = {
 }
 
 $FINSP_map = @{
+    "AutoScalingConfiguration_AutoScalingMetric"=@("New-FINSPKxCluster")
+    "AzMode"=@("New-FINSPKxCluster")
+    "ClusterType"=@("Get-FINSPKxClusterList","New-FINSPKxCluster")
     "FederationMode"=@("New-FINSPEnvironment","Update-FINSPEnvironment")
+    "SavedownStorageConfiguration_Type"=@("New-FINSPKxCluster")
+    "VpcConfiguration_IpAddressType"=@("New-FINSPKxCluster")
 }
 
 _awsArgumentCompleterRegistration $FINSP_Completers $FINSP_map
@@ -23354,13 +23401,39 @@ $FINSP_SelectCompleters = {
 
 $FINSP_SelectMap = @{
     "Select"=@("New-FINSPEnvironment",
+               "New-FINSPKxChangeset",
+               "New-FINSPKxCluster",
+               "New-FINSPKxDatabase",
+               "New-FINSPKxEnvironment",
+               "New-FINSPKxUser",
                "Remove-FINSPEnvironment",
+               "Remove-FINSPKxCluster",
+               "Remove-FINSPKxDatabase",
+               "Remove-FINSPKxEnvironment",
+               "Remove-FINSPKxUser",
                "Get-FINSPEnvironment",
+               "Get-FINSPKxChangeset",
+               "Get-FINSPKxCluster",
+               "Get-FINSPKxConnectionString",
+               "Get-FINSPKxDatabase",
+               "Get-FINSPKxEnvironment",
+               "Get-FINSPKxUser",
                "Get-FINSPEnvironmentList",
+               "Get-FINSPKxChangesetList",
+               "Get-FINSPKxClusterNodeList",
+               "Get-FINSPKxClusterList",
+               "Get-FINSPKxDatabasisList",
+               "Get-FINSPKxEnvironmentList",
+               "Get-FINSPKxUserList",
                "Get-FINSPResourceTag",
                "Add-FINSPResourceTag",
                "Remove-FINSPResourceTag",
-               "Update-FINSPEnvironment")
+               "Update-FINSPEnvironment",
+               "Update-FINSPKxClusterDatabasis",
+               "Update-FINSPKxDatabase",
+               "Update-FINSPKxEnvironment",
+               "Update-FINSPKxEnvironmentNetwork",
+               "Update-FINSPKxUser")
 }
 
 _awsArgumentCompleterRegistration $FINSP_SelectCompleters $FINSP_SelectMap
@@ -24194,7 +24267,7 @@ $FD_Completers = {
         # Amazon.FraudDetector.DataType
         "New-FDVariable/DataType"
         {
-            $v = "BOOLEAN","FLOAT","INTEGER","STRING"
+            $v = "BOOLEAN","DATETIME","FLOAT","INTEGER","STRING"
             break
         }
 
@@ -32037,6 +32110,13 @@ $KS_Completers = {
             break
         }
 
+        # Amazon.Keyspaces.Rs
+        "New-KSKeyspace/ReplicationSpecification_ReplicationStrategy"
+        {
+            $v = "MULTI_REGION","SINGLE_REGION"
+            break
+        }
+
         # Amazon.Keyspaces.ThroughputMode
         {
             ($_ -eq "New-KSTable/CapacitySpecification_ThroughputMode") -Or
@@ -32074,6 +32154,7 @@ $KS_map = @{
     "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")
     "PointInTimeRecovery_Status"=@("New-KSTable","Update-KSTable")
     "PointInTimeRecoveryOverride_Status"=@("Restore-KSTable")
+    "ReplicationSpecification_ReplicationStrategy"=@("New-KSKeyspace")
     "Ttl_Status"=@("New-KSTable","Update-KSTable")
 }
 
@@ -32925,7 +33006,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.AlgorithmSpec
         "Get-KMSParametersForImport/WrappingAlgorithm"
         {
-            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","RSAES_PKCS1_V1_5"
+            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","RSAES_PKCS1_V1_5","RSA_AES_KEY_WRAP_SHA_1","RSA_AES_KEY_WRAP_SHA_256"
             break
         }
 
@@ -33048,7 +33129,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.WrappingKeySpec
         "Get-KMSParametersForImport/WrappingKeySpec"
         {
-            $v = "RSA_2048"
+            $v = "RSA_2048","RSA_3072","RSA_4096"
             break
         }
 
@@ -33478,7 +33559,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
             break
         }
 

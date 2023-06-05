@@ -112,6 +112,13 @@ $KS_Completers = {
             break
         }
 
+        # Amazon.Keyspaces.Rs
+        "New-KSKeyspace/ReplicationSpecification_ReplicationStrategy"
+        {
+            $v = "MULTI_REGION","SINGLE_REGION"
+            break
+        }
+
         # Amazon.Keyspaces.ThroughputMode
         {
             ($_ -eq "New-KSTable/CapacitySpecification_ThroughputMode") -Or
@@ -149,6 +156,7 @@ $KS_map = @{
     "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")
     "PointInTimeRecovery_Status"=@("New-KSTable","Update-KSTable")
     "PointInTimeRecoveryOverride_Status"=@("Restore-KSTable")
+    "ReplicationSpecification_ReplicationStrategy"=@("New-KSKeyspace")
     "Ttl_Status"=@("New-KSTable","Update-KSTable")
 }
 

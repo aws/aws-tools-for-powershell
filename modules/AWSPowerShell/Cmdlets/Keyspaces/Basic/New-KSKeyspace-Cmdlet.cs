@@ -66,6 +66,29 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public System.String KeyspaceName { get; set; }
         #endregion
         
+        #region Parameter ReplicationSpecification_RegionList
+        /// <summary>
+        /// <para>
+        /// <para> The <code>regionList</code> can contain up to six Amazon Web Services Regions where
+        /// the keyspace is replicated in. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ReplicationSpecification_RegionList { get; set; }
+        #endregion
+        
+        #region Parameter ReplicationSpecification_ReplicationStrategy
+        /// <summary>
+        /// <para>
+        /// <para> The <code>replicationStrategy</code> of a keyspace, the required value is <code>SINGLE_REGION</code>
+        /// or <code>MULTI_REGION</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Keyspaces.Rs")]
+        public Amazon.Keyspaces.Rs ReplicationSpecification_ReplicationStrategy { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -148,6 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
                 WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ReplicationSpecification_RegionList != null)
+            {
+                context.ReplicationSpecification_RegionList = new List<System.String>(this.ReplicationSpecification_RegionList);
+            }
+            context.ReplicationSpecification_ReplicationStrategy = this.ReplicationSpecification_ReplicationStrategy;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Keyspaces.Model.Tag>(this.Tag);
@@ -171,6 +199,35 @@ namespace Amazon.PowerShell.Cmdlets.KS
             if (cmdletContext.KeyspaceName != null)
             {
                 request.KeyspaceName = cmdletContext.KeyspaceName;
+            }
+            
+             // populate ReplicationSpecification
+            var requestReplicationSpecificationIsNull = true;
+            request.ReplicationSpecification = new Amazon.Keyspaces.Model.ReplicationSpecification();
+            List<System.String> requestReplicationSpecification_replicationSpecification_RegionList = null;
+            if (cmdletContext.ReplicationSpecification_RegionList != null)
+            {
+                requestReplicationSpecification_replicationSpecification_RegionList = cmdletContext.ReplicationSpecification_RegionList;
+            }
+            if (requestReplicationSpecification_replicationSpecification_RegionList != null)
+            {
+                request.ReplicationSpecification.RegionList = requestReplicationSpecification_replicationSpecification_RegionList;
+                requestReplicationSpecificationIsNull = false;
+            }
+            Amazon.Keyspaces.Rs requestReplicationSpecification_replicationSpecification_ReplicationStrategy = null;
+            if (cmdletContext.ReplicationSpecification_ReplicationStrategy != null)
+            {
+                requestReplicationSpecification_replicationSpecification_ReplicationStrategy = cmdletContext.ReplicationSpecification_ReplicationStrategy;
+            }
+            if (requestReplicationSpecification_replicationSpecification_ReplicationStrategy != null)
+            {
+                request.ReplicationSpecification.ReplicationStrategy = requestReplicationSpecification_replicationSpecification_ReplicationStrategy;
+                requestReplicationSpecificationIsNull = false;
+            }
+             // determine if request.ReplicationSpecification should be set to null
+            if (requestReplicationSpecificationIsNull)
+            {
+                request.ReplicationSpecification = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -238,6 +295,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyspaceName { get; set; }
+            public List<System.String> ReplicationSpecification_RegionList { get; set; }
+            public Amazon.Keyspaces.Rs ReplicationSpecification_ReplicationStrategy { get; set; }
             public List<Amazon.Keyspaces.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Keyspaces.Model.CreateKeyspaceResponse, NewKSKeyspaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceArn;

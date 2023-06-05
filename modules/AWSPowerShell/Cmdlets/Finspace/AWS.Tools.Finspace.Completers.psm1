@@ -80,6 +80,13 @@ $FINSP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Finspace.AutoScalingMetric
+        "New-FINSPKxCluster/AutoScalingConfiguration_AutoScalingMetric"
+        {
+            $v = "CPU_UTILIZATION_PERCENTAGE"
+            break
+        }
+
         # Amazon.Finspace.FederationMode
         {
             ($_ -eq "New-FINSPEnvironment/FederationMode") -Or
@@ -87,6 +94,37 @@ $FINSP_Completers = {
         }
         {
             $v = "FEDERATED","LOCAL"
+            break
+        }
+
+        # Amazon.Finspace.IPAddressType
+        "New-FINSPKxCluster/VpcConfiguration_IpAddressType"
+        {
+            $v = "IP_V4"
+            break
+        }
+
+        # Amazon.Finspace.KxAzMode
+        "New-FINSPKxCluster/AzMode"
+        {
+            $v = "MULTI","SINGLE"
+            break
+        }
+
+        # Amazon.Finspace.KxClusterType
+        {
+            ($_ -eq "Get-FINSPKxClusterList/ClusterType") -Or
+            ($_ -eq "New-FINSPKxCluster/ClusterType")
+        }
+        {
+            $v = "GATEWAY","HDB","RDB"
+            break
+        }
+
+        # Amazon.Finspace.KxSavedownStorageType
+        "New-FINSPKxCluster/SavedownStorageConfiguration_Type"
+        {
+            $v = "SDS01"
             break
         }
 
@@ -99,7 +137,12 @@ $FINSP_Completers = {
 }
 
 $FINSP_map = @{
+    "AutoScalingConfiguration_AutoScalingMetric"=@("New-FINSPKxCluster")
+    "AzMode"=@("New-FINSPKxCluster")
+    "ClusterType"=@("Get-FINSPKxClusterList","New-FINSPKxCluster")
     "FederationMode"=@("New-FINSPEnvironment","Update-FINSPEnvironment")
+    "SavedownStorageConfiguration_Type"=@("New-FINSPKxCluster")
+    "VpcConfiguration_IpAddressType"=@("New-FINSPKxCluster")
 }
 
 _awsArgumentCompleterRegistration $FINSP_Completers $FINSP_map
@@ -153,13 +196,39 @@ $FINSP_SelectCompleters = {
 
 $FINSP_SelectMap = @{
     "Select"=@("New-FINSPEnvironment",
+               "New-FINSPKxChangeset",
+               "New-FINSPKxCluster",
+               "New-FINSPKxDatabase",
+               "New-FINSPKxEnvironment",
+               "New-FINSPKxUser",
                "Remove-FINSPEnvironment",
+               "Remove-FINSPKxCluster",
+               "Remove-FINSPKxDatabase",
+               "Remove-FINSPKxEnvironment",
+               "Remove-FINSPKxUser",
                "Get-FINSPEnvironment",
+               "Get-FINSPKxChangeset",
+               "Get-FINSPKxCluster",
+               "Get-FINSPKxConnectionString",
+               "Get-FINSPKxDatabase",
+               "Get-FINSPKxEnvironment",
+               "Get-FINSPKxUser",
                "Get-FINSPEnvironmentList",
+               "Get-FINSPKxChangesetList",
+               "Get-FINSPKxClusterNodeList",
+               "Get-FINSPKxClusterList",
+               "Get-FINSPKxDatabasisList",
+               "Get-FINSPKxEnvironmentList",
+               "Get-FINSPKxUserList",
                "Get-FINSPResourceTag",
                "Add-FINSPResourceTag",
                "Remove-FINSPResourceTag",
-               "Update-FINSPEnvironment")
+               "Update-FINSPEnvironment",
+               "Update-FINSPKxClusterDatabasis",
+               "Update-FINSPKxDatabase",
+               "Update-FINSPKxEnvironment",
+               "Update-FINSPKxEnvironmentNetwork",
+               "Update-FINSPKxUser")
 }
 
 _awsArgumentCompleterRegistration $FINSP_SelectCompleters $FINSP_SelectMap

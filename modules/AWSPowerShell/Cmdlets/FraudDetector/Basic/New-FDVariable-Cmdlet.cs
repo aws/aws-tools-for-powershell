@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter DataType
         /// <summary>
         /// <para>
-        /// <para>The data type.</para>
+        /// <para>The data type of the variable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

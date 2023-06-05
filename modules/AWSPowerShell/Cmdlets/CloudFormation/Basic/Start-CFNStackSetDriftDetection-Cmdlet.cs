@@ -100,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationPreference
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The user-specified preferences for how CloudFormation performs a stack set operation.</para><para>For more information about maximum concurrent accounts and failure tolerance, see
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack
+        /// set operation options</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

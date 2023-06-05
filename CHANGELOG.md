@@ -1,4 +1,40 @@
-﻿### 4.1.345 (2023-06-02 21:07Z)
+﻿### 4.1.346 (2023-06-05 22:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.562.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Added cmdlet Disable-CFNOrganizationsAccess leveraging the DeactivateOrganizationsAccess service API.
+    * Added cmdlet Enable-CFNOrganizationsAccess leveraging the ActivateOrganizationsAccess service API.
+    * Added cmdlet Get-CFNOrganizationsAccess leveraging the DescribeOrganizationsAccess service API.
+  * Amazon FinSpace User Environment Management Service
+    * Added cmdlet Get-FINSPKxChangeset leveraging the GetKxChangeset service API.
+    * Added cmdlet Get-FINSPKxChangesetList leveraging the ListKxChangesets service API.
+    * Added cmdlet Get-FINSPKxCluster leveraging the GetKxCluster service API.
+    * Added cmdlet Get-FINSPKxClusterList leveraging the ListKxClusters service API.
+    * Added cmdlet Get-FINSPKxClusterNodeList leveraging the ListKxClusterNodes service API.
+    * Added cmdlet Get-FINSPKxConnectionString leveraging the GetKxConnectionString service API.
+    * Added cmdlet Get-FINSPKxDatabase leveraging the GetKxDatabase service API.
+    * Added cmdlet Get-FINSPKxDatabasisList leveraging the ListKxDatabases service API.
+    * Added cmdlet Get-FINSPKxEnvironment leveraging the GetKxEnvironment service API.
+    * Added cmdlet Get-FINSPKxEnvironmentList leveraging the ListKxEnvironments service API.
+    * Added cmdlet Get-FINSPKxUser leveraging the GetKxUser service API.
+    * Added cmdlet Get-FINSPKxUserList leveraging the ListKxUsers service API.
+    * Added cmdlet New-FINSPKxChangeset leveraging the CreateKxChangeset service API.
+    * Added cmdlet New-FINSPKxCluster leveraging the CreateKxCluster service API.
+    * Added cmdlet New-FINSPKxDatabase leveraging the CreateKxDatabase service API.
+    * Added cmdlet New-FINSPKxEnvironment leveraging the CreateKxEnvironment service API.
+    * Added cmdlet New-FINSPKxUser leveraging the CreateKxUser service API.
+    * Added cmdlet Remove-FINSPKxCluster leveraging the DeleteKxCluster service API.
+    * Added cmdlet Remove-FINSPKxDatabase leveraging the DeleteKxDatabase service API.
+    * Added cmdlet Remove-FINSPKxEnvironment leveraging the DeleteKxEnvironment service API.
+    * Added cmdlet Remove-FINSPKxUser leveraging the DeleteKxUser service API.
+    * Added cmdlet Update-FINSPKxClusterDatabasis leveraging the UpdateKxClusterDatabases service API.
+    * Added cmdlet Update-FINSPKxDatabase leveraging the UpdateKxDatabase service API.
+    * Added cmdlet Update-FINSPKxEnvironment leveraging the UpdateKxEnvironment service API.
+    * Added cmdlet Update-FINSPKxEnvironmentNetwork leveraging the UpdateKxEnvironmentNetwork service API.
+    * Added cmdlet Update-FINSPKxUser leveraging the UpdateKxUser service API.
+  * Amazon Keyspaces
+    * Modified cmdlet New-KSKeyspace: added parameters ReplicationSpecification_RegionList and ReplicationSpecification_ReplicationStrategy.
+
+### 4.1.345 (2023-06-02 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.561.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Added cmdlet Remove-ATHCapacityReservation leveraging the DeleteCapacityReservation service API.

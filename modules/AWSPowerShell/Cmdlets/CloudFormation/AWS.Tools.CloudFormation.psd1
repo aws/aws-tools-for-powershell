@@ -86,7 +86,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Disable-CFNOrganizationsAccess', 
         'Disable-CFNType', 
+        'Enable-CFNOrganizationsAccess', 
         'Enable-CFNType', 
         'Get-CFNAccountLimit', 
         'Get-CFNChangeSet', 
@@ -96,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFNDetectedStackResourceDrift', 
         'Get-CFNExport', 
         'Get-CFNImportList', 
+        'Get-CFNOrganizationsAccess', 
         'Get-CFNPublisher', 
         'Get-CFNStack', 
         'Get-CFNStackDriftDetectionStatus', 

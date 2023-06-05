@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns configuration data for the specified CloudFormation extensions, from the CloudFormation
-    /// registry for the account and region.
+    /// registry for the account and Region.
     /// 
     ///  
     /// <para>

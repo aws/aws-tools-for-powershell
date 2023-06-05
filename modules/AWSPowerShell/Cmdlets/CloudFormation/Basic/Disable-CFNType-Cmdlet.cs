@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Deactivates a public extension that was previously activated in this account and region.
+    /// Deactivates a public extension that was previously activated in this account and Region.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the extension, in this account and region.</para><para>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and
+        /// <para>The Amazon Resource Name (ARN) for the extension, in this account and Region.</para><para>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and
         /// <code>Type</code>.</para>
         /// </para>
         /// </summary>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The type name of the extension, in this account and region. If you specified a type
+        /// <para>The type name of the extension, in this account and Region. If you specified a type
         /// name alias when enabling the extension, use the type name alias.</para><para>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and
         /// <code>Type</code>.</para>
         /// </para>

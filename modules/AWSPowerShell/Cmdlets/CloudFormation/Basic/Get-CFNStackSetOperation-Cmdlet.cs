@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns the description of the specified stack set operation.
+    /// Returns the description of the specified StackSet operation.
     /// </summary>
     [Cmdlet("Get", "CFNStackSetOperation")]
     [OutputType("Amazon.CloudFormation.Model.StackSetOperation")]

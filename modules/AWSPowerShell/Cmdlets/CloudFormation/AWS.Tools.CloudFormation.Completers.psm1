@@ -94,6 +94,7 @@ $CFN_Completers = {
 
         # Amazon.CloudFormation.CallAs
         {
+            ($_ -eq "Get-CFNOrganizationsAccess/CallAs") -Or
             ($_ -eq "Get-CFNStackInstance/CallAs") -Or
             ($_ -eq "Get-CFNStackInstanceList/CallAs") -Or
             ($_ -eq "Get-CFNStackSet/CallAs") -Or
@@ -271,7 +272,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
@@ -340,7 +341,8 @@ $CFN_SelectCompleters = {
 }
 
 $CFN_SelectMap = @{
-    "Select"=@("Enable-CFNType",
+    "Select"=@("Enable-CFNOrganizationsAccess",
+               "Enable-CFNType",
                "Get-CFNDescribeTypeConfiguration",
                "Stop-CFNUpdateStack",
                "Resume-CFNUpdateRollback",
@@ -348,6 +350,7 @@ $CFN_SelectMap = @{
                "New-CFNStack",
                "New-CFNStackInstance",
                "New-CFNStackSet",
+               "Disable-CFNOrganizationsAccess",
                "Disable-CFNType",
                "Remove-CFNChangeSet",
                "Remove-CFNStack",
@@ -357,6 +360,7 @@ $CFN_SelectMap = @{
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
                "Get-CFNChangeSetHook",
+               "Get-CFNOrganizationsAccess",
                "Get-CFNPublisher",
                "Get-CFNStackDriftDetectionStatus",
                "Get-CFNStackEvent",

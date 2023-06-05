@@ -28,12 +28,12 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns the stack instance that's associated with the specified stack set, Amazon
-    /// Web Services account, and Region.
+    /// Returns the stack instance that's associated with the specified StackSet, Amazon Web
+    /// Services account, and Amazon Web Services Region.
     /// 
     ///  
     /// <para>
-    /// For a list of stack instances that are associated with a specific stack set, use <a>ListStackInstances</a>.
+    /// For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNStackInstance")]
