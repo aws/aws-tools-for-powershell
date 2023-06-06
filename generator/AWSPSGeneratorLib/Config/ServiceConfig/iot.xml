@@ -158,6 +158,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePackage" OutputProperty="*" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePackageVersion" OutputProperty="*" Verb="New" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -286,6 +294,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOTAUpdate" Verb="Remove" Noun="OTAUpdate" ShouldProcessTarget="OtaUpdateId" PipelineParameter="OtaUpdateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackage" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackageVersion" Verb="Remove" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -541,6 +557,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPackage" OutputProperty="*" Verb="Get" Noun="Package" PipelineParameter="PackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPackageConfiguration" OutputProperty="*" Verb="Get" Noun="PackageConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPackageVersion" OutputProperty="*" Verb="Get" Noun="PackageVersion" PipelineParameter="VersionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPercentiles" OutputProperty="Percentiles" Verb="Get" Noun="Percentile" PipelineParameter="QueryString" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -704,6 +732,14 @@
         <ServiceOperation MethodName="ListOutgoingCertificates" OutputProperty="OutgoingCertificates" Verb="Get" Noun="OutgoingCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackages" OutputProperty="PackageSummaries" Verb="Get" Noun="PackageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackageVersions" OutputProperty="PackageVersionSummaries" Verb="Get" Noun="PackageVersionList" PipelineParameter="PackageName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
@@ -1014,6 +1050,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMitigationAction" OutputProperty="*" Verb="Update" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePackage" Verb="Update" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePackageConfiguration" Verb="Update" Noun="PackageConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePackageVersion" Verb="Update" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

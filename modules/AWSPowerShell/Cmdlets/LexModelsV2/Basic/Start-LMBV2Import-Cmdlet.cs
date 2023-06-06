@@ -133,13 +133,24 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// part, to children under age 13, you must obtain any required verifiable parental consent
         /// under COPPA. For information regarding the use of Amazon Lex in connection with websites,
         /// programs, or other applications that are directed or targeted, in whole or in part,
-        /// to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon
+        /// to children under age 13, see the <a href="http://aws.amazon.com/lex/faqs#data-security">Amazon
         /// Lex FAQ</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotImportSpecification_DataPrivacy_ChildDirected")]
         public System.Boolean? DataPrivacy_ChildDirected { get; set; }
+        #endregion
+        
+        #region Parameter TestSetImportResourceSpecification_Description
+        /// <summary>
+        /// <para>
+        /// <para>The description of the test set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_Description")]
+        public System.String TestSetImportResourceSpecification_Description { get; set; }
         #endregion
         
         #region Parameter VoiceSettings_Engine
@@ -200,6 +211,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String ImportId { get; set; }
         #endregion
         
+        #region Parameter StorageLocation_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an Amazon Web Services Key Management Service (KMS)
+        /// key for encrypting the test set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_StorageLocation_KmsKeyArn")]
+        public System.String StorageLocation_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter BotLocaleImportSpecification_LocaleId
         /// <summary>
         /// <para>
@@ -245,6 +268,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.MergeStrategy MergeStrategy { get; set; }
         #endregion
         
+        #region Parameter TestSetImportResourceSpecification_Modality
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the test-set being imported contains written or spoken data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_Modality")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.TestSetModality")]
+        public Amazon.LexModelsV2.TestSetModality TestSetImportResourceSpecification_Modality { get; set; }
+        #endregion
+        
         #region Parameter BotLocaleImportSpecification_NluIntentConfidenceThreshold
         /// <summary>
         /// <para>
@@ -273,6 +308,62 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotImportSpecification_RoleArn { get; set; }
         #endregion
         
+        #region Parameter TestSetImportResourceSpecification_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has permission to access the test
+        /// set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_RoleArn")]
+        public System.String TestSetImportResourceSpecification_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ImportInputLocation_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_S3BucketName")]
+        public System.String ImportInputLocation_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter StorageLocation_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon S3 bucket in which the test set is stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_StorageLocation_S3BucketName")]
+        public System.String StorageLocation_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ImportInputLocation_S3Path
+        /// <summary>
+        /// <para>
+        /// <para>The path inside the Amazon S3 bucket pointing to the test-set CSV file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_S3Path")]
+        public System.String ImportInputLocation_S3Path { get; set; }
+        #endregion
+        
+        #region Parameter StorageLocation_S3Path
+        /// <summary>
+        /// <para>
+        /// <para>The path inside the Amazon S3 bucket where the test set is stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_StorageLocation_S3Path")]
+        public System.String StorageLocation_S3Path { get; set; }
+        #endregion
+        
         #region Parameter BotImportSpecification_TestBotAliasTag
         /// <summary>
         /// <para>
@@ -284,6 +375,30 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_BotImportSpecification_TestBotAliasTags")]
         public System.Collections.Hashtable BotImportSpecification_TestBotAliasTag { get; set; }
+        #endregion
+        
+        #region Parameter TestSetImportResourceSpecification_TestSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the test set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_TestSetName")]
+        public System.String TestSetImportResourceSpecification_TestSetName { get; set; }
+        #endregion
+        
+        #region Parameter TestSetImportResourceSpecification_TestSetTag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to add to the test set. You can only add tags when you import/generate
+        /// a new test set. You can't use the <code>UpdateTestSet</code> operation to update tags.
+        /// To update tags, use the <code>TagResource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetImportResourceSpecification_TestSetTags")]
+        public System.Collections.Hashtable TestSetImportResourceSpecification_TestSetTag { get; set; }
         #endregion
         
         #region Parameter VoiceSettings_VoiceId
@@ -403,6 +518,23 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.CustomVocabularyImportSpecification_BotId = this.CustomVocabularyImportSpecification_BotId;
             context.CustomVocabularyImportSpecification_BotVersion = this.CustomVocabularyImportSpecification_BotVersion;
             context.CustomVocabularyImportSpecification_LocaleId = this.CustomVocabularyImportSpecification_LocaleId;
+            context.TestSetImportResourceSpecification_Description = this.TestSetImportResourceSpecification_Description;
+            context.ImportInputLocation_S3BucketName = this.ImportInputLocation_S3BucketName;
+            context.ImportInputLocation_S3Path = this.ImportInputLocation_S3Path;
+            context.TestSetImportResourceSpecification_Modality = this.TestSetImportResourceSpecification_Modality;
+            context.TestSetImportResourceSpecification_RoleArn = this.TestSetImportResourceSpecification_RoleArn;
+            context.StorageLocation_KmsKeyArn = this.StorageLocation_KmsKeyArn;
+            context.StorageLocation_S3BucketName = this.StorageLocation_S3BucketName;
+            context.StorageLocation_S3Path = this.StorageLocation_S3Path;
+            context.TestSetImportResourceSpecification_TestSetName = this.TestSetImportResourceSpecification_TestSetName;
+            if (this.TestSetImportResourceSpecification_TestSetTag != null)
+            {
+                context.TestSetImportResourceSpecification_TestSetTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TestSetImportResourceSpecification_TestSetTag.Keys)
+                {
+                    context.TestSetImportResourceSpecification_TestSetTag.Add((String)hashKey, (String)(this.TestSetImportResourceSpecification_TestSetTag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -660,6 +792,151 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.ResourceSpecification.BotImportSpecification = requestResourceSpecification_resourceSpecification_BotImportSpecification;
                 requestResourceSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.Model.TestSetImportResourceSpecification requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification = null;
+            
+             // populate TestSetImportResourceSpecification
+            var requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = true;
+            requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification = new Amazon.LexModelsV2.Model.TestSetImportResourceSpecification();
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Description = null;
+            if (cmdletContext.TestSetImportResourceSpecification_Description != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Description = cmdletContext.TestSetImportResourceSpecification_Description;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Description != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.Description = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Description;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.TestSetModality requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Modality = null;
+            if (cmdletContext.TestSetImportResourceSpecification_Modality != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Modality = cmdletContext.TestSetImportResourceSpecification_Modality;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Modality != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.Modality = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_Modality;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_RoleArn = null;
+            if (cmdletContext.TestSetImportResourceSpecification_RoleArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_RoleArn = cmdletContext.TestSetImportResourceSpecification_RoleArn;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_RoleArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.RoleArn = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_RoleArn;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetName = null;
+            if (cmdletContext.TestSetImportResourceSpecification_TestSetName != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetName = cmdletContext.TestSetImportResourceSpecification_TestSetName;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetName != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.TestSetName = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetName;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetTag = null;
+            if (cmdletContext.TestSetImportResourceSpecification_TestSetTag != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetTag = cmdletContext.TestSetImportResourceSpecification_TestSetTag;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetTag != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.TestSetTags = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_testSetImportResourceSpecification_TestSetTag;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.TestSetImportInputLocation requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation = null;
+            
+             // populate ImportInputLocation
+            var requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocationIsNull = true;
+            requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation = new Amazon.LexModelsV2.Model.TestSetImportInputLocation();
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3BucketName = null;
+            if (cmdletContext.ImportInputLocation_S3BucketName != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3BucketName = cmdletContext.ImportInputLocation_S3BucketName;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3BucketName != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation.S3BucketName = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3BucketName;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3Path = null;
+            if (cmdletContext.ImportInputLocation_S3Path != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3Path = cmdletContext.ImportInputLocation_S3Path;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3Path != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation.S3Path = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation_importInputLocation_S3Path;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation should be set to null
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.ImportInputLocation = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_ImportInputLocation;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.TestSetStorageLocation requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation = null;
+            
+             // populate StorageLocation
+            var requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocationIsNull = true;
+            requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation = new Amazon.LexModelsV2.Model.TestSetStorageLocation();
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_KmsKeyArn = null;
+            if (cmdletContext.StorageLocation_KmsKeyArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_KmsKeyArn = cmdletContext.StorageLocation_KmsKeyArn;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_KmsKeyArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation.KmsKeyArn = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_KmsKeyArn;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3BucketName = null;
+            if (cmdletContext.StorageLocation_S3BucketName != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3BucketName = cmdletContext.StorageLocation_S3BucketName;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3BucketName != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation.S3BucketName = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3BucketName;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3Path = null;
+            if (cmdletContext.StorageLocation_S3Path != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3Path = cmdletContext.StorageLocation_S3Path;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3Path != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation.S3Path = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation_storageLocation_S3Path;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation should be set to null
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification.StorageLocation = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_resourceSpecification_TestSetImportResourceSpecification_StorageLocation;
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification should be set to null
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecificationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification != null)
+            {
+                request.ResourceSpecification.TestSetImportResourceSpecification = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification;
+                requestResourceSpecificationIsNull = false;
+            }
              // determine if request.ResourceSpecification should be set to null
             if (requestResourceSpecificationIsNull)
             {
@@ -744,6 +1021,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String CustomVocabularyImportSpecification_BotId { get; set; }
             public System.String CustomVocabularyImportSpecification_BotVersion { get; set; }
             public System.String CustomVocabularyImportSpecification_LocaleId { get; set; }
+            public System.String TestSetImportResourceSpecification_Description { get; set; }
+            public System.String ImportInputLocation_S3BucketName { get; set; }
+            public System.String ImportInputLocation_S3Path { get; set; }
+            public Amazon.LexModelsV2.TestSetModality TestSetImportResourceSpecification_Modality { get; set; }
+            public System.String TestSetImportResourceSpecification_RoleArn { get; set; }
+            public System.String StorageLocation_KmsKeyArn { get; set; }
+            public System.String StorageLocation_S3BucketName { get; set; }
+            public System.String StorageLocation_S3Path { get; set; }
+            public System.String TestSetImportResourceSpecification_TestSetName { get; set; }
+            public Dictionary<System.String, System.String> TestSetImportResourceSpecification_TestSetTag { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.StartImportResponse, StartLMBV2ImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

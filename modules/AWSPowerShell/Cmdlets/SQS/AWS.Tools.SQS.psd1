@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-SQSMessageVisibility', 
         'Edit-SQSMessageVisibilityBatch', 
         'Get-SQSDeadLetterSourceQueue', 
+        'Get-SQSMessageMoveTask', 
         'Get-SQSQueue', 
         'Get-SQSQueueAttribute', 
         'Get-SQSQueueUrl', 
@@ -105,7 +106,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SQSResourceTag', 
         'Send-SQSMessage', 
         'Send-SQSMessageBatch', 
-        'Set-SQSQueueAttribute')
+        'Set-SQSQueueAttribute', 
+        'Start-SQSMessageMoveTask', 
+        'Stop-SQSMessageMoveTask')
 
     # Variables to export from this module
     VariablesToExport = '*'

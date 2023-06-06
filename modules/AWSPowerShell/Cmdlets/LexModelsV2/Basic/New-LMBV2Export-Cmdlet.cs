@@ -170,6 +170,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String CustomVocabularyExportSpecification_LocaleId { get; set; }
         #endregion
         
+        #region Parameter TestSetExportSpecification_TestSetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the test set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_TestSetExportSpecification_TestSetId")]
+        public System.String TestSetExportSpecification_TestSetId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -248,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.CustomVocabularyExportSpecification_BotId = this.CustomVocabularyExportSpecification_BotId;
             context.CustomVocabularyExportSpecification_BotVersion = this.CustomVocabularyExportSpecification_BotVersion;
             context.CustomVocabularyExportSpecification_LocaleId = this.CustomVocabularyExportSpecification_LocaleId;
+            context.TestSetExportSpecification_TestSetId = this.TestSetExportSpecification_TestSetId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -276,6 +288,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate ResourceSpecification
             var requestResourceSpecificationIsNull = true;
             request.ResourceSpecification = new Amazon.LexModelsV2.Model.ExportResourceSpecification();
+            Amazon.LexModelsV2.Model.TestSetExportSpecification requestResourceSpecification_resourceSpecification_TestSetExportSpecification = null;
+            
+             // populate TestSetExportSpecification
+            var requestResourceSpecification_resourceSpecification_TestSetExportSpecificationIsNull = true;
+            requestResourceSpecification_resourceSpecification_TestSetExportSpecification = new Amazon.LexModelsV2.Model.TestSetExportSpecification();
+            System.String requestResourceSpecification_resourceSpecification_TestSetExportSpecification_testSetExportSpecification_TestSetId = null;
+            if (cmdletContext.TestSetExportSpecification_TestSetId != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetExportSpecification_testSetExportSpecification_TestSetId = cmdletContext.TestSetExportSpecification_TestSetId;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetExportSpecification_testSetExportSpecification_TestSetId != null)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetExportSpecification.TestSetId = requestResourceSpecification_resourceSpecification_TestSetExportSpecification_testSetExportSpecification_TestSetId;
+                requestResourceSpecification_resourceSpecification_TestSetExportSpecificationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_TestSetExportSpecification should be set to null
+            if (requestResourceSpecification_resourceSpecification_TestSetExportSpecificationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_TestSetExportSpecification = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_TestSetExportSpecification != null)
+            {
+                request.ResourceSpecification.TestSetExportSpecification = requestResourceSpecification_resourceSpecification_TestSetExportSpecification;
+                requestResourceSpecificationIsNull = false;
+            }
             Amazon.LexModelsV2.Model.BotExportSpecification requestResourceSpecification_resourceSpecification_BotExportSpecification = null;
             
              // populate BotExportSpecification
@@ -477,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String CustomVocabularyExportSpecification_BotId { get; set; }
             public System.String CustomVocabularyExportSpecification_BotVersion { get; set; }
             public System.String CustomVocabularyExportSpecification_LocaleId { get; set; }
+            public System.String TestSetExportSpecification_TestSetId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.CreateExportResponse, NewLMBV2ExportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

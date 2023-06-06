@@ -1,4 +1,46 @@
-﻿### 4.1.346 (2023-06-05 22:44Z)
+﻿### 4.1.347 (2023-06-06 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.563.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Inspector2
+    * Modified cmdlet Get-INS2CoverageList: added parameter FilterCriteria_LastScannedAt.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameter FilterCriteria_LastScannedAt.
+  * Amazon IoT
+    * Added cmdlet Get-IOTPackage leveraging the GetPackage service API.
+    * Added cmdlet Get-IOTPackageConfiguration leveraging the GetPackageConfiguration service API.
+    * Added cmdlet Get-IOTPackageList leveraging the ListPackages service API.
+    * Added cmdlet Get-IOTPackageVersion leveraging the GetPackageVersion service API.
+    * Added cmdlet Get-IOTPackageVersionList leveraging the ListPackageVersions service API.
+    * Added cmdlet New-IOTPackage leveraging the CreatePackage service API.
+    * Added cmdlet New-IOTPackageVersion leveraging the CreatePackageVersion service API.
+    * Added cmdlet Remove-IOTPackage leveraging the DeletePackage service API.
+    * Added cmdlet Remove-IOTPackageVersion leveraging the DeletePackageVersion service API.
+    * Added cmdlet Update-IOTPackage leveraging the UpdatePackage service API.
+    * Added cmdlet Update-IOTPackageConfiguration leveraging the UpdatePackageConfiguration service API.
+    * Added cmdlet Update-IOTPackageVersion leveraging the UpdatePackageVersion service API.
+    * Modified cmdlet New-IOTJob: added parameter DestinationPackageVersion.
+    * Modified cmdlet New-IOTJobTemplate: added parameter DestinationPackageVersion.
+  * Amazon Lex Model Building V2
+    * Added cmdlet Get-LMBV2TestExecution leveraging the DescribeTestExecution service API.
+    * Added cmdlet Get-LMBV2TestExecutionArtifactsUrl leveraging the GetTestExecutionArtifactsUrl service API.
+    * Added cmdlet Get-LMBV2TestExecutionList leveraging the ListTestExecutions service API.
+    * Added cmdlet Get-LMBV2TestExecutionResultItemList leveraging the ListTestExecutionResultItems service API.
+    * Added cmdlet Get-LMBV2TestSet leveraging the DescribeTestSet service API.
+    * Added cmdlet Get-LMBV2TestSetDiscrepancyReport leveraging the DescribeTestSetDiscrepancyReport service API.
+    * Added cmdlet Get-LMBV2TestSetGeneration leveraging the DescribeTestSetGeneration service API.
+    * Added cmdlet Get-LMBV2TestSetList leveraging the ListTestSets service API.
+    * Added cmdlet Get-LMBV2TestSetRecordList leveraging the ListTestSetRecords service API.
+    * Added cmdlet New-LMBV2TestSetDiscrepancyReport leveraging the CreateTestSetDiscrepancyReport service API.
+    * Added cmdlet Remove-LMBV2TestSet leveraging the DeleteTestSet service API.
+    * Added cmdlet Start-LMBV2TestExecution leveraging the StartTestExecution service API.
+    * Added cmdlet Start-LMBV2TestSetGeneration leveraging the StartTestSetGeneration service API.
+    * Added cmdlet Update-LMBV2TestSet leveraging the UpdateTestSet service API.
+    * Modified cmdlet New-LMBV2Export: added parameter TestSetExportSpecification_TestSetId.
+    * Modified cmdlet Start-LMBV2Import: added parameters ImportInputLocation_S3BucketName, ImportInputLocation_S3Path, StorageLocation_KmsKeyArn, StorageLocation_S3BucketName, StorageLocation_S3Path, TestSetImportResourceSpecification_Description, TestSetImportResourceSpecification_Modality, TestSetImportResourceSpecification_RoleArn, TestSetImportResourceSpecification_TestSetName and TestSetImportResourceSpecification_TestSetTag.
+  * Amazon Simple Queue Service (SQS)
+    * Added cmdlet Get-SQSMessageMoveTask leveraging the ListMessageMoveTasks service API.
+    * Added cmdlet Start-SQSMessageMoveTask leveraging the StartMessageMoveTask service API.
+    * Added cmdlet Stop-SQSMessageMoveTask leveraging the CancelMessageMoveTask service API.
+
+### 4.1.346 (2023-06-05 22:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.562.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Added cmdlet Disable-CFNOrganizationsAccess leveraging the DeactivateOrganizationsAccess service API.

@@ -392,6 +392,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTestSetDiscrepancyReport" OutputProperty="*" Verb="New" Noun="TestSetDiscrepancyReport" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUploadUrl" OutputProperty="*" Verb="New" Noun="UploadUrl" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -444,6 +448,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTestSet" Verb="Remove" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUtterances" Verb="Remove" Noun="Utterance" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -493,6 +501,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSlotType" OutputProperty="*" Verb="Get" Noun="SlotType" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTestExecution" OutputProperty="*" Verb="Get" Noun="TestExecution" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTestSet" OutputProperty="*" Verb="Get" Noun="TestSet" PipelineParameter="TestSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTestSetDiscrepancyReport" OutputProperty="*" Verb="Get" Noun="TestSetDiscrepancyReport" PipelineParameter="TestSetDiscrepancyReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTestSetGeneration" OutputProperty="*" Verb="Get" Noun="TestSetGeneration" PipelineParameter="TestSetGenerationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTestExecutionArtifactsUrl" OutputProperty="*" Verb="Get" Noun="TestExecutionArtifactsUrl" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -560,6 +588,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTestExecutionResultItems" OutputProperty="TestExecutionResults" Verb="Get" Noun="TestExecutionResultItemList" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestExecutions" OutputProperty="TestExecutions" Verb="Get" Noun="TestExecutionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestSetRecords" OutputProperty="TestSetRecords" Verb="Get" Noun="TestSetRecordList" PipelineParameter="TestSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestSets" OutputProperty="TestSets" Verb="Get" Noun="TestSetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchAssociatedTranscripts" OutputProperty="*" Verb="Search" Noun="AssociatedTranscript" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -569,6 +613,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTestExecution" OutputProperty="*" Verb="Start" Noun="TestExecution" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTestSetGeneration" OutputProperty="*" Verb="Start" Noun="TestSetGeneration" ShouldProcessTarget="TestSetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -932,6 +984,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSlotType" OutputProperty="*" Verb="Update" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTestSet" OutputProperty="*" Verb="Update" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

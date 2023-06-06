@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Deletes the specified Amazon Web Services account alias. For information about using
-    /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-    /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+    /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+    /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+    /// Services Sign-In User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IAMAccountAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

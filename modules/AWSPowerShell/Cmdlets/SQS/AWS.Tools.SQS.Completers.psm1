@@ -124,6 +124,7 @@ $SQS_SelectCompleters = {
 
 $SQS_SelectMap = @{
     "Select"=@("Add-SQSPermission",
+               "Stop-SQSMessageMoveTask",
                "Edit-SQSMessageVisibility",
                "Edit-SQSMessageVisibilityBatch",
                "New-SQSQueue",
@@ -133,6 +134,7 @@ $SQS_SelectMap = @{
                "Get-SQSQueueAttribute",
                "Get-SQSQueueUrl",
                "Get-SQSDeadLetterSourceQueue",
+               "Get-SQSMessageMoveTask",
                "Get-SQSQueue",
                "Get-SQSResourceTag",
                "Clear-SQSQueue",
@@ -141,6 +143,7 @@ $SQS_SelectMap = @{
                "Send-SQSMessage",
                "Send-SQSMessageBatch",
                "Set-SQSQueueAttribute",
+               "Start-SQSMessageMoveTask",
                "Add-SQSResourceTag",
                "Remove-SQSResourceTag")
 }

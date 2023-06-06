@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// 
     ///  <note><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-    /// cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer
+    /// cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer
     /// Guide</i>.
     /// </para></note>
     /// </summary>

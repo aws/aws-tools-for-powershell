@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// part, to children under age 13, you must obtain any required verifiable parental consent
         /// under COPPA. For information regarding the use of Amazon Lex in connection with websites,
         /// programs, or other applications that are directed or targeted, in whole or in part,
-        /// to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon
+        /// to children under age 13, see the <a href="http://aws.amazon.com/lex/faqs#data-security">Amazon
         /// Lex FAQ</a>.</para>
         /// </para>
         /// </summary>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>sqs</C2jFilename>
     <AssemblyName>SQS</AssemblyName>
@@ -18,7 +19,6 @@
         <Map From="Queues" To="Queue" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -31,6 +31,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AuthorizeS3ToSendMessage" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelMessageMoveTask" OutputProperty="ApproximateNumberOfMessagesMoved" Verb="Stop" Noun="MessageMoveTask" ShouldProcessTarget="TaskHandle" PipelineParameter="TaskHandle" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +76,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMessageMoveTasks" OutputProperty="Results" Verb="Get" Noun="MessageMoveTask" PipelineParameter="SourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListQueues" OutputProperty="QueueUrls" Verb="Get" Noun="Queue" PipelineParameter="QueueNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -109,6 +117,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMessageMoveTask" OutputProperty="TaskHandle" Verb="Start" Noun="MessageMoveTask" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagQueue" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -118,7 +130,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

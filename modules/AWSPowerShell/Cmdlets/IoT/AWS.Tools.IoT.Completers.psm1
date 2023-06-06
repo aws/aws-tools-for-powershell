@@ -357,6 +357,20 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.PackageVersionAction
+        "Update-IOTPackageVersion/Action"
+        {
+            $v = "DEPRECATE","PUBLISH"
+            break
+        }
+
+        # Amazon.IoT.PackageVersionStatus
+        "Get-IOTPackageVersionList/Status"
+        {
+            $v = "DEPRECATED","DRAFT","PUBLISHED"
+            break
+        }
+
         # Amazon.IoT.PolicyTemplateName
         {
             ($_ -eq "New-IOTMitigationAction/ActionParams_ReplaceDefaultPolicyVersionParams_TemplateName") -Or
@@ -457,6 +471,7 @@ $IOT_Completers = {
 }
 
 $IOT_map = @{
+    "Action"=@("Update-IOTPackageVersion")
     "ActionParams_EnableIoTLoggingParams_LogLevel"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ActionParams_ReplaceDefaultPolicyVersionParams_TemplateName"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ActionParams_UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
@@ -481,7 +496,7 @@ $IOT_map = @{
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
     "SchedulingConfig_EndBehavior"=@("New-IOTJob")
     "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
-    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
+    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTPackageVersionList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTAuditMitigationActionsTaskList","Get-IOTTaskList")
@@ -580,6 +595,8 @@ $IOT_SelectMap = @{
                "New-IOTKeysAndCertificate",
                "New-IOTMitigationAction",
                "New-IOTOTAUpdate",
+               "New-IOTPackage",
+               "New-IOTPackageVersion",
                "New-IOTPolicy",
                "New-IOTPolicyVersion",
                "New-IOTProvisioningClaim",
@@ -610,6 +627,8 @@ $IOT_SelectMap = @{
                "Remove-IOTJobTemplate",
                "Remove-IOTMitigationAction",
                "Remove-IOTOTAUpdate",
+               "Remove-IOTPackage",
+               "Remove-IOTPackageVersion",
                "Remove-IOTPolicy",
                "Remove-IOTPolicyVersion",
                "Remove-IOTProvisioningTemplate",
@@ -673,6 +692,9 @@ $IOT_SelectMap = @{
                "Get-IOTJobDocument",
                "Get-IOTLoggingOption",
                "Get-IOTOTAUpdate",
+               "Get-IOTPackage",
+               "Get-IOTPackageConfiguration",
+               "Get-IOTPackageVersion",
                "Get-IOTPercentile",
                "Get-IOTPolicy",
                "Get-IOTPolicyVersion",
@@ -709,6 +731,8 @@ $IOT_SelectMap = @{
                "Get-IOTMitigationActionList",
                "Get-IOTOTAUpdateList",
                "Get-IOTOutgoingCertificate",
+               "Get-IOTPackageList",
+               "Get-IOTPackageVersionList",
                "Get-IOTPolicyList",
                "Get-IOTPolicyPrincipalList",
                "Get-IOTPolicyVersionList",
@@ -778,6 +802,9 @@ $IOT_SelectMap = @{
                "Update-IOTIndexingConfiguration",
                "Update-IOTJob",
                "Update-IOTMitigationAction",
+               "Update-IOTPackage",
+               "Update-IOTPackageConfiguration",
+               "Update-IOTPackageVersion",
                "Update-IOTProvisioningTemplate",
                "Update-IOTRoleAlias",
                "Update-IOTScheduledAudit",

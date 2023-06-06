@@ -633,7 +633,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The identifier of the version of the bot associated with this intent.</para>
+        /// <para>The version of the bot associated with this intent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -975,7 +975,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter KendraConfiguration_KendraIndex
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the <code>AMAZON.KendraSearchIntent</code>
         /// intent to search. The index must be in the same account and Region as the Amazon Lex
         /// bot.</para>
         /// </para>
@@ -1019,8 +1019,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter StartResponse_MessageGroup
         /// <summary>
         /// <para>
-        /// <para>One to 5 message groups that contain start messages. Amazon Lex chooses one of the
-        /// messages to play to the user.</para>
+        /// <para>1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages
+        /// to play to the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1031,8 +1031,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter UpdateResponse_MessageGroup
         /// <summary>
         /// <para>
-        /// <para>One to 5 message groups that contain update messages. Amazon Lex chooses one of the
-        /// messages to play to the user.</para>
+        /// <para>1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages
+        /// to play to the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1711,8 +1711,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter KendraConfiguration_QueryFilterStringEnabled
         /// <summary>
         /// <para>
-        /// <para>Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string
-        /// to query the Amazon Kendra index.</para>
+        /// <para>Determines whether the <code>AMAZON.KendraSearchIntent</code> intent uses a custom
+        /// query string to query the Amazon Kendra index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2046,7 +2046,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2057,7 +2057,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2068,7 +2068,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2079,7 +2079,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2090,7 +2090,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2101,7 +2101,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2112,7 +2112,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2123,7 +2123,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2134,7 +2134,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2145,7 +2145,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2156,7 +2156,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2167,7 +2167,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2178,7 +2178,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2189,7 +2189,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2200,7 +2200,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2211,7 +2211,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2222,7 +2222,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2233,7 +2233,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2244,7 +2244,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2255,7 +2255,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2266,7 +2266,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2277,7 +2277,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2288,7 +2288,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2299,7 +2299,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2310,7 +2310,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2321,7 +2321,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2332,7 +2332,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2343,7 +2343,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.,</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

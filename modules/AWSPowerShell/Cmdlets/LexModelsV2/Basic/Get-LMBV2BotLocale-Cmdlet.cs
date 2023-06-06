@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The identifier of the version of the bot associated with the locale.</para>
+        /// <para>The version of the bot associated with the locale.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

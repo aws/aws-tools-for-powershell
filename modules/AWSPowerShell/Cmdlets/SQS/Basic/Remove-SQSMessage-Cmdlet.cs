@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// a message. If you receive a message more than once, the <code>ReceiptHandle</code>
     /// is different each time you receive a message. When you use the <code>DeleteMessage</code>
     /// action, you must provide the most recently received <code>ReceiptHandle</code> for
-    /// the message (otherwise, the request succeeds, but the message might not be deleted).
+    /// the message (otherwise, the request succeeds, but the message will not be deleted).
     /// </para><para>
     /// For standard queues, it is possible to receive a message even after you delete it.
     /// This might happen on rare occasions if one of the servers which stores a copy of the

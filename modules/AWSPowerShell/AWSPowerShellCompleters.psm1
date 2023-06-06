@@ -21835,7 +21835,7 @@ $EMR_Completers = {
         # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
         "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"
         {
-            $v = "capacity-optimized"
+            $v = "capacity-optimized","diversified","lowest-price","price-capacity-optimized"
             break
         }
 
@@ -28833,6 +28833,20 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.PackageVersionAction
+        "Update-IOTPackageVersion/Action"
+        {
+            $v = "DEPRECATE","PUBLISH"
+            break
+        }
+
+        # Amazon.IoT.PackageVersionStatus
+        "Get-IOTPackageVersionList/Status"
+        {
+            $v = "DEPRECATED","DRAFT","PUBLISHED"
+            break
+        }
+
         # Amazon.IoT.PolicyTemplateName
         {
             ($_ -eq "New-IOTMitigationAction/ActionParams_ReplaceDefaultPolicyVersionParams_TemplateName") -Or
@@ -28933,6 +28947,7 @@ $IOT_Completers = {
 }
 
 $IOT_map = @{
+    "Action"=@("Update-IOTPackageVersion")
     "ActionParams_EnableIoTLoggingParams_LogLevel"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ActionParams_ReplaceDefaultPolicyVersionParams_TemplateName"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ActionParams_UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
@@ -28957,7 +28972,7 @@ $IOT_map = @{
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
     "SchedulingConfig_EndBehavior"=@("New-IOTJob")
     "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
-    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
+    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTPackageVersionList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTAuditMitigationActionsTaskList","Get-IOTTaskList")
@@ -29056,6 +29071,8 @@ $IOT_SelectMap = @{
                "New-IOTKeysAndCertificate",
                "New-IOTMitigationAction",
                "New-IOTOTAUpdate",
+               "New-IOTPackage",
+               "New-IOTPackageVersion",
                "New-IOTPolicy",
                "New-IOTPolicyVersion",
                "New-IOTProvisioningClaim",
@@ -29086,6 +29103,8 @@ $IOT_SelectMap = @{
                "Remove-IOTJobTemplate",
                "Remove-IOTMitigationAction",
                "Remove-IOTOTAUpdate",
+               "Remove-IOTPackage",
+               "Remove-IOTPackageVersion",
                "Remove-IOTPolicy",
                "Remove-IOTPolicyVersion",
                "Remove-IOTProvisioningTemplate",
@@ -29149,6 +29168,9 @@ $IOT_SelectMap = @{
                "Get-IOTJobDocument",
                "Get-IOTLoggingOption",
                "Get-IOTOTAUpdate",
+               "Get-IOTPackage",
+               "Get-IOTPackageConfiguration",
+               "Get-IOTPackageVersion",
                "Get-IOTPercentile",
                "Get-IOTPolicy",
                "Get-IOTPolicyVersion",
@@ -29185,6 +29207,8 @@ $IOT_SelectMap = @{
                "Get-IOTMitigationActionList",
                "Get-IOTOTAUpdateList",
                "Get-IOTOutgoingCertificate",
+               "Get-IOTPackageList",
+               "Get-IOTPackageVersionList",
                "Get-IOTPolicyList",
                "Get-IOTPolicyPrincipalList",
                "Get-IOTPolicyVersionList",
@@ -29254,6 +29278,9 @@ $IOT_SelectMap = @{
                "Update-IOTIndexingConfiguration",
                "Update-IOTJob",
                "Update-IOTMitigationAction",
+               "Update-IOTPackage",
+               "Update-IOTPackageConfiguration",
+               "Update-IOTPackageVersion",
                "Update-IOTProvisioningTemplate",
                "Update-IOTRoleAlias",
                "Update-IOTScheduledAudit",
@@ -39330,6 +39357,13 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.ConversationLogsInputModeFilter
+        "Start-LMBV2TestSetGeneration/GenerationDataSource_ConversationLogsDataSource_Filter_InputMode"
+        {
+            $v = "Speech","Text"
+            break
+        }
+
         # Amazon.LexModelsV2.DialogActionType
         {
             ($_ -eq "New-LMBV2Intent/FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type") -Or
@@ -39431,7 +39465,7 @@ $LMBV2_Completers = {
         # Amazon.LexModelsV2.ImportExportFileFormat
         "New-LMBV2Export/FileFormat"
         {
-            $v = "LexJson","TSV"
+            $v = "CSV","LexJson","TSV"
             break
         }
 
@@ -39531,10 +39565,61 @@ $LMBV2_Completers = {
             ($_ -eq "Get-LMBV2ImportList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2IntentList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2SlotList/SortBy_Order") -Or
-            ($_ -eq "Get-LMBV2SlotTypeList/SortBy_Order")
+            ($_ -eq "Get-LMBV2SlotTypeList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2TestExecutionList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2TestSetList/SortBy_Order")
         }
         {
             $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestExecutionApiMode
+        "Start-LMBV2TestExecution/ApiMode"
+        {
+            $v = "NonStreaming","Streaming"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestExecutionModality
+        "Start-LMBV2TestExecution/TestExecutionModality"
+        {
+            $v = "Audio","Text"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestExecutionSortAttribute
+        "Get-LMBV2TestExecutionList/SortBy_Attribute"
+        {
+            $v = "CreationDateTime","TestSetName"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestResultMatchStatus
+        "Get-LMBV2TestExecutionResultItemList/ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult"
+        {
+            $v = "ExecutionError","Matched","Mismatched"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestResultTypeFilter
+        "Get-LMBV2TestExecutionResultItemList/ResultFilterBy_ResultTypeFilter"
+        {
+            $v = "ConversationLevelTestResults","IntentClassificationTestResults","OverallTestResults","SlotResolutionTestResults","UtteranceLevelResults"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestSetModality
+        "Start-LMBV2Import/ResourceSpecification_TestSetImportResourceSpecification_Modality"
+        {
+            $v = "Audio","Text"
+            break
+        }
+
+        # Amazon.LexModelsV2.TestSetSortAttribute
+        "Get-LMBV2TestSetList/SortBy_Attribute"
+        {
+            $v = "LastUpdatedDateTime","TestSetName"
             break
         }
 
@@ -39573,6 +39658,7 @@ $LMBV2_Completers = {
 
 $LMBV2_map = @{
     "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
+    "ApiMode"=@("Start-LMBV2TestExecution")
     "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
@@ -39582,6 +39668,7 @@ $LMBV2_map = @{
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "GenerationDataSource_ConversationLogsDataSource_Filter_InputMode"=@("Start-LMBV2TestSetGeneration")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
@@ -39608,9 +39695,13 @@ $LMBV2_map = @{
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine"=@("Start-LMBV2Import")
+    "ResourceSpecification_TestSetImportResourceSpecification_Modality"=@("Start-LMBV2Import")
+    "ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
+    "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
-    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
-    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
+    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
+    "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -39693,6 +39784,7 @@ $LMBV2_SelectMap = @{
                "New-LMBV2ResourcePolicyStatement",
                "New-LMBV2Slot",
                "New-LMBV2SlotType",
+               "New-LMBV2TestSetDiscrepancyReport",
                "New-LMBV2UploadUrl",
                "Remove-LMBV2Bot",
                "Remove-LMBV2BotAlias",
@@ -39706,6 +39798,7 @@ $LMBV2_SelectMap = @{
                "Remove-LMBV2ResourcePolicyStatement",
                "Remove-LMBV2Slot",
                "Remove-LMBV2SlotType",
+               "Remove-LMBV2TestSet",
                "Remove-LMBV2Utterance",
                "Get-LMBV2Bot",
                "Get-LMBV2BotAlias",
@@ -39719,6 +39812,11 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2ResourcePolicy",
                "Get-LMBV2Slot",
                "Get-LMBV2SlotType",
+               "Get-LMBV2TestExecution",
+               "Get-LMBV2TestSet",
+               "Get-LMBV2TestSetDiscrepancyReport",
+               "Get-LMBV2TestSetGeneration",
+               "Get-LMBV2TestExecutionArtifactsUrl",
                "Get-LMBV2AggregatedUtteranceList",
                "Get-LMBV2BotAliasList",
                "Get-LMBV2BotLocaleList",
@@ -39735,9 +39833,15 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2SlotList",
                "Get-LMBV2SlotTypeList",
                "Get-LMBV2ResourceTag",
+               "Get-LMBV2TestExecutionResultItemList",
+               "Get-LMBV2TestExecutionList",
+               "Get-LMBV2TestSetRecordList",
+               "Get-LMBV2TestSetList",
                "Search-LMBV2AssociatedTranscript",
                "Start-LMBV2BotRecommendation",
                "Start-LMBV2Import",
+               "Start-LMBV2TestExecution",
+               "Start-LMBV2TestSetGeneration",
                "Stop-LMBV2BotRecommendation",
                "Add-LMBV2ResourceTag",
                "Remove-LMBV2ResourceTag",
@@ -39749,7 +39853,8 @@ $LMBV2_SelectMap = @{
                "Update-LMBV2Intent",
                "Update-LMBV2ResourcePolicy",
                "Update-LMBV2Slot",
-               "Update-LMBV2SlotType")
+               "Update-LMBV2SlotType",
+               "Update-LMBV2TestSet")
 }
 
 _awsArgumentCompleterRegistration $LMBV2_SelectCompleters $LMBV2_SelectMap
@@ -54687,6 +54792,7 @@ $SQS_SelectCompleters = {
 
 $SQS_SelectMap = @{
     "Select"=@("Add-SQSPermission",
+               "Stop-SQSMessageMoveTask",
                "Edit-SQSMessageVisibility",
                "Edit-SQSMessageVisibilityBatch",
                "New-SQSQueue",
@@ -54696,6 +54802,7 @@ $SQS_SelectMap = @{
                "Get-SQSQueueAttribute",
                "Get-SQSQueueUrl",
                "Get-SQSDeadLetterSourceQueue",
+               "Get-SQSMessageMoveTask",
                "Get-SQSQueue",
                "Get-SQSResourceTag",
                "Clear-SQSQueue",
@@ -54704,6 +54811,7 @@ $SQS_SelectMap = @{
                "Send-SQSMessage",
                "Send-SQSMessageBatch",
                "Set-SQSQueueAttribute",
+               "Start-SQSMessageMoveTask",
                "Add-SQSResourceTag",
                "Remove-SQSResourceTag")
 }

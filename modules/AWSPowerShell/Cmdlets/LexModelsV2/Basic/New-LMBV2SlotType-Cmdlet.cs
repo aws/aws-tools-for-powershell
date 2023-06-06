@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter Source_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon KMS key required to decrypt the contents of the grammar, if any.</para>
+        /// <para>The KMS key required to decrypt the contents of the grammar, if any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A regular expression used to validate the value of a slot.</para><para> Use a standard regular expression. Amazon Lex supports the following characters in
-        /// the regular expression: </para><ul><li><para>A-Z, a-z</para></li><li><para>0-9</para></li><li><para>Unicode characters ("\ u&lt;Unicode&gt;")</para></li></ul><para> Represent Unicode characters with four digits, for example "\u0041" or "\u005A".
+        /// the regular expression: </para><ul><li><para>A-Z, a-z</para></li><li><para>0-9</para></li><li><para>Unicode characters ("\⁠u&lt;Unicode&gt;")</para></li></ul><para> Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A".
         /// </para><para> The following regular expression operators are not supported: </para><ul><li><para>Infinite repeaters: *, +, or {x,} with no upper bound.</para></li><li><para>Wild card (.)</para></li></ul>
         /// </para>
         /// </summary>
@@ -161,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-        /// The field can be set to one of the following values:</para><ul><li><para>OriginalValue - Returns the value entered by the user, if the user value is similar
-        /// to the slot value.</para></li><li><para>TopResolution - If there is a resolution list for the slot, return the first value
-        /// in the resolution list as the slot type value. If there is no resolution list, null
-        /// is returned.</para></li></ul><para>If you don't specify the valueSelectionStrategy, the default is OriginalValue. </para>
+        /// The field can be set to one of the following values:</para><ul><li><para><code>ORIGINAL_VALUE</code> - Returns the value entered by the user, if the user
+        /// value is similar to the slot value.</para></li><li><para><code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return
+        /// the first value in the resolution list as the slot type value. If there is no resolution
+        /// list, null is returned.</para></li></ul><para>If you don't specify the <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter Source_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket that contains the grammar source.</para>
+        /// <para>The name of the Amazon S3 bucket that contains the grammar source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter Source_S3ObjectKey
         /// <summary>
         /// <para>
-        /// <para>The path to the grammar in the S3 bucket.</para>
+        /// <para>The path to the grammar in the Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter SlotTypeName
         /// <summary>
         /// <para>
-        /// <para>The name for the slot. A slot type name must be unique within the account.</para>
+        /// <para>The name for the slot. A slot type name must be unique within the intent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

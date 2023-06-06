@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.CoverageMapFilter[] FilterCriteria_LambdaFunctionTag { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_LastScannedAt
+        /// <summary>
+        /// <para>
+        /// <para>Filters Amazon Web Services resources based on whether Amazon Inspector has checked
+        /// them for vulnerabilities within the specified time range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageDateFilter[] FilterCriteria_LastScannedAt { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_ResourceId
         /// <summary>
         /// <para>
@@ -127,7 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>An array of Amazon Web Services resource types to return coverage statistics for.
-        /// The values can be <code>AWS_EC2_INSTANCE</code> or <code>AWS_ECR_REPOSITORY</code>.</para>
+        /// The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>
+        /// or <code>AWS_ECR_REPOSITORY</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_LambdaFunctionTag = new List<Amazon.Inspector2.Model.CoverageMapFilter>(this.FilterCriteria_LambdaFunctionTag);
             }
+            if (this.FilterCriteria_LastScannedAt != null)
+            {
+                context.FilterCriteria_LastScannedAt = new List<Amazon.Inspector2.Model.CoverageDateFilter>(this.FilterCriteria_LastScannedAt);
+            }
             if (this.FilterCriteria_ResourceId != null)
             {
                 context.FilterCriteria_ResourceId = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_ResourceId);
@@ -352,6 +368,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LambdaFunctionTag != null)
             {
                 request.FilterCriteria.LambdaFunctionTags = requestFilterCriteria_filterCriteria_LambdaFunctionTag;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageDateFilter> requestFilterCriteria_filterCriteria_LastScannedAt = null;
+            if (cmdletContext.FilterCriteria_LastScannedAt != null)
+            {
+                requestFilterCriteria_filterCriteria_LastScannedAt = cmdletContext.FilterCriteria_LastScannedAt;
+            }
+            if (requestFilterCriteria_filterCriteria_LastScannedAt != null)
+            {
+                request.FilterCriteria.LastScannedAt = requestFilterCriteria_filterCriteria_LastScannedAt;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_ResourceId = null;
@@ -485,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionName { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionRuntime { get; set; }
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_LambdaFunctionTag { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_LastScannedAt { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceType { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanStatusCode { get; set; }

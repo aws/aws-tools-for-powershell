@@ -116,6 +116,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMBV2SlotList', 
         'Get-LMBV2SlotType', 
         'Get-LMBV2SlotTypeList', 
+        'Get-LMBV2TestExecution', 
+        'Get-LMBV2TestExecutionArtifactsUrl', 
+        'Get-LMBV2TestExecutionList', 
+        'Get-LMBV2TestExecutionResultItemList', 
+        'Get-LMBV2TestSet', 
+        'Get-LMBV2TestSetDiscrepancyReport', 
+        'Get-LMBV2TestSetGeneration', 
+        'Get-LMBV2TestSetList', 
+        'Get-LMBV2TestSetRecordList', 
         'Invoke-LMBV2BuildBotLocale', 
         'New-LMBV2Bot', 
         'New-LMBV2BotAlias', 
@@ -128,6 +137,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-LMBV2ResourcePolicyStatement', 
         'New-LMBV2Slot', 
         'New-LMBV2SlotType', 
+        'New-LMBV2TestSetDiscrepancyReport', 
         'New-LMBV2UploadUrl', 
         'Remove-LMBV2Bot', 
         'Remove-LMBV2BotAlias', 
@@ -143,10 +153,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMBV2ResourceTag', 
         'Remove-LMBV2Slot', 
         'Remove-LMBV2SlotType', 
+        'Remove-LMBV2TestSet', 
         'Remove-LMBV2Utterance', 
         'Search-LMBV2AssociatedTranscript', 
         'Start-LMBV2BotRecommendation', 
         'Start-LMBV2Import', 
+        'Start-LMBV2TestExecution', 
+        'Start-LMBV2TestSetGeneration', 
         'Stop-LMBV2BotRecommendation', 
         'Update-LMBV2Bot', 
         'Update-LMBV2BotAlias', 
@@ -156,7 +169,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-LMBV2Intent', 
         'Update-LMBV2ResourcePolicy', 
         'Update-LMBV2Slot', 
-        'Update-LMBV2SlotType')
+        'Update-LMBV2SlotType', 
+        'Update-LMBV2TestSet')
 
     # Variables to export from this module
     VariablesToExport = '*'

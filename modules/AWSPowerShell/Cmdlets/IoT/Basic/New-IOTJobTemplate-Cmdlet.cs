@@ -83,6 +83,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DestinationPackageVersion
+        /// <summary>
+        /// <para>
+        /// <para>The package version Amazon Resource Names (ARNs) that are installed on the device
+        /// when the job successfully completes. </para><para><b>Note:</b>The following Length Constraints relates to a single string. Up to five
+        /// strings are allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationPackageVersions")]
+        public System.String[] DestinationPackageVersion { get; set; }
+        #endregion
+        
         #region Parameter Document
         /// <summary>
         /// <para>
@@ -293,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.DestinationPackageVersion != null)
+            {
+                context.DestinationPackageVersion = new List<System.String>(this.DestinationPackageVersion);
+            }
             context.Document = this.Document;
             context.DocumentSource = this.DocumentSource;
             context.JobArn = this.JobArn;
@@ -358,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DestinationPackageVersion != null)
+            {
+                request.DestinationPackageVersions = cmdletContext.DestinationPackageVersion;
             }
             if (cmdletContext.Document != null)
             {
@@ -542,6 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public List<Amazon.IoT.Model.AbortCriteria> AbortConfig_CriteriaList { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> DestinationPackageVersion { get; set; }
             public System.String Document { get; set; }
             public System.String DocumentSource { get; set; }
             public System.String JobArn { get; set; }
