@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Creates a stack as specified in the template. After the call completes successfully,
-    /// the stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a>operation.
+    /// the stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a>
+    /// operation.
     /// </summary>
     [Cmdlet("New", "CFNStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

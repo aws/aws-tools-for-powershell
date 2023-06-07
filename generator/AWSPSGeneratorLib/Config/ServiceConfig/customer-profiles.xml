@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventStream" OutputProperty="EventStreamArn" Verb="New" Noun="EventStream" ShouldProcessTarget="DomainName" PipelineParameter="Uri" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegrationWorkflow" OutputProperty="*" Verb="New" Noun="IntegrationWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDomain" OutputProperty="Message" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventStream" Verb="Remove" Noun="EventStream" ShouldProcessTarget="EventStreamName" PipelineParameter="EventStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +91,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventStream" OutputProperty="*" Verb="Get" Noun="EventStream" PipelineParameter="EventStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,6 +139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDomains" OutputProperty="Items" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventStreams" OutputProperty="Items" Verb="Get" Noun="EventStreamList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

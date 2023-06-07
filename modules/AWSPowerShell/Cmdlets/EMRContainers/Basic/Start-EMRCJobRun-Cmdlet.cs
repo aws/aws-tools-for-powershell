@@ -160,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.Int32? RetryPolicyConfiguration_MaxAttempt { get; set; }
         #endregion
         
+        #region Parameter ContainerLogRotationConfiguration_MaxFilesToKeep
+        /// <summary>
+        /// <para>
+        /// <para>The number of files to keep in container after rotation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_MaxFilesToKeep")]
+        public System.Int32? ContainerLogRotationConfiguration_MaxFilesToKeep { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -190,6 +201,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReleaseLabel { get; set; }
+        #endregion
+        
+        #region Parameter ContainerLogRotationConfiguration_RotationSize
+        /// <summary>
+        /// <para>
+        /// <para>The file size at which to rotate logs. Minimum of 2KB, Maximum of 2GB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_RotationSize")]
+        public System.String ContainerLogRotationConfiguration_RotationSize { get; set; }
         #endregion
         
         #region Parameter SparkSqlJobDriver_SparkSqlParameter
@@ -321,6 +343,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             }
             context.CloudWatchMonitoringConfiguration_LogGroupName = this.CloudWatchMonitoringConfiguration_LogGroupName;
             context.CloudWatchMonitoringConfiguration_LogStreamNamePrefix = this.CloudWatchMonitoringConfiguration_LogStreamNamePrefix;
+            context.ContainerLogRotationConfiguration_MaxFilesToKeep = this.ContainerLogRotationConfiguration_MaxFilesToKeep;
+            context.ContainerLogRotationConfiguration_RotationSize = this.ContainerLogRotationConfiguration_RotationSize;
             context.MonitoringConfiguration_PersistentAppUI = this.MonitoringConfiguration_PersistentAppUI;
             context.S3MonitoringConfiguration_LogUri = this.S3MonitoringConfiguration_LogUri;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
@@ -466,6 +490,41 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchMonitoringConfiguration != null)
             {
                 requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration.CloudWatchMonitoringConfiguration = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchMonitoringConfiguration;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfigurationIsNull = false;
+            }
+            Amazon.EMRContainers.Model.ContainerLogRotationConfiguration requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration = null;
+            
+             // populate ContainerLogRotationConfiguration
+            var requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfigurationIsNull = true;
+            requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration = new Amazon.EMRContainers.Model.ContainerLogRotationConfiguration();
+            System.Int32? requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_MaxFilesToKeep = null;
+            if (cmdletContext.ContainerLogRotationConfiguration_MaxFilesToKeep != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_MaxFilesToKeep = cmdletContext.ContainerLogRotationConfiguration_MaxFilesToKeep.Value;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_MaxFilesToKeep != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration.MaxFilesToKeep = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_MaxFilesToKeep.Value;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfigurationIsNull = false;
+            }
+            System.String requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_RotationSize = null;
+            if (cmdletContext.ContainerLogRotationConfiguration_RotationSize != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_RotationSize = cmdletContext.ContainerLogRotationConfiguration_RotationSize;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_RotationSize != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration.RotationSize = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration_containerLogRotationConfiguration_RotationSize;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration should be set to null
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfigurationIsNull)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration = null;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration.ContainerLogRotationConfiguration = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_ContainerLogRotationConfiguration;
                 requestConfigurationOverrides_configurationOverrides_MonitoringConfigurationIsNull = false;
             }
              // determine if requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration should be set to null
@@ -684,6 +743,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public List<Amazon.EMRContainers.Model.Configuration> ConfigurationOverrides_ApplicationConfiguration { get; set; }
             public System.String CloudWatchMonitoringConfiguration_LogGroupName { get; set; }
             public System.String CloudWatchMonitoringConfiguration_LogStreamNamePrefix { get; set; }
+            public System.Int32? ContainerLogRotationConfiguration_MaxFilesToKeep { get; set; }
+            public System.String ContainerLogRotationConfiguration_RotationSize { get; set; }
             public Amazon.EMRContainers.PersistentAppUI MonitoringConfiguration_PersistentAppUI { get; set; }
             public System.String S3MonitoringConfiguration_LogUri { get; set; }
             public System.String ExecutionRoleArn { get; set; }

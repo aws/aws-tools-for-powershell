@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// are updating an existing filter, you must specify the correct name in <code>filterName</code>.
     /// 
     /// </para><para>
-    /// To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
-    /// <code>iam:PassRole</code> permission.
+    /// To perform a <code>PutSubscriptionFilter</code> operation for any destination except
+    /// a Lambda function, you must also have the <code>iam:PassRole</code> permission.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -1,4 +1,19 @@
-﻿### 4.1.347 (2023-06-06 21:17Z)
+﻿### 4.1.348 (2023-06-07 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.564.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLAccountPolicy leveraging the DescribeAccountPolicies service API.
+    * Added cmdlet Remove-CWLAccountPolicy leveraging the DeleteAccountPolicy service API.
+    * Added cmdlet Write-CWLAccountPolicy leveraging the PutAccountPolicy service API.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFEventStream leveraging the GetEventStream service API.
+    * Added cmdlet Get-CPFEventStreamList leveraging the ListEventStreams service API.
+    * Added cmdlet New-CPFEventStream leveraging the CreateEventStream service API.
+    * Added cmdlet Remove-CPFEventStream leveraging the DeleteEventStream service API.
+  * Amazon EMR Containers
+    * Modified cmdlet New-EMRCManagedEndpoint: added parameters ContainerLogRotationConfiguration_MaxFilesToKeep and ContainerLogRotationConfiguration_RotationSize.
+    * Modified cmdlet Start-EMRCJobRun: added parameters ContainerLogRotationConfiguration_MaxFilesToKeep and ContainerLogRotationConfiguration_RotationSize.
+
+### 4.1.347 (2023-06-06 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.563.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Inspector2
     * Modified cmdlet Get-INS2CoverageList: added parameter FilterCriteria_LastScannedAt.

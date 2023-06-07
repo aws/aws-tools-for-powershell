@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// maximum is per account and per Region. Use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a>
     /// to deregister specific extension versions if necessary.
     /// </para><para>
-    /// Once you have initiated a registration request using <code><a>RegisterType</a></code>,
-    /// you can use <code><a>DescribeTypeRegistration</a></code> to monitor the progress
-    /// of the registration request.
+    /// Once you have initiated a registration request using <a>RegisterType</a>, you can
+    /// use <a>DescribeTypeRegistration</a> to monitor the progress of the registration request.
     /// </para><para>
     /// Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>
     /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.
+    /// You must have the <code>logs:FilterLogEvents</code> permission to perform this operation.
     /// </para><para>
     /// You can specify the log group to search by using either <code>logGroupIdentifier</code>
     /// or <code>logGroupName</code>. You must include one of these two parameters, but you

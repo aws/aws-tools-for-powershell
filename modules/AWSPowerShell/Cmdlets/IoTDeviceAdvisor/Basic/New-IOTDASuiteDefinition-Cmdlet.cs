@@ -107,7 +107,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_RootGroup
         /// <summary>
         /// <para>
-        /// <para>Gets the test suite root group. This is a required parameter.</para>
+        /// <para>Gets the test suite root group. This is a required parameter. For updating or creating
+        /// the latest qualification suite, if <code>intendedForQualification</code> is set to
+        /// true, <code>rootGroup</code> can be an empty string. If <code>intendedForQualification</code>
+        /// is false, <code>rootGroup</code> cannot be an empty string. If <code>rootGroup</code>
+        /// is empty, and <code>intendedForQualification</code> is set to true, all the qualification
+        /// tests are included, and the configuration is default.</para><para> For a qualification suite, the minimum length is 0, and the maximum is 2048. For
+        /// a non-qualification suite, the minimum length is 1, and the maximum is 2048. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

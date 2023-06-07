@@ -14849,10 +14849,12 @@ $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
+               "New-CPFEventStream",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
+               "Remove-CPFEventStream",
                "Remove-CPFIntegration",
                "Remove-CPFProfile",
                "Remove-CPFProfileKey",
@@ -14863,6 +14865,7 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeDefinition",
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
+               "Get-CPFEventStream",
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
@@ -14874,6 +14877,7 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeDefinitionList",
                "Get-CPFCalculatedAttributesForProfileList",
                "Get-CPFDomainList",
+               "Get-CPFEventStreamList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
                "Get-CPFProfileObjectList",
@@ -35104,10 +35108,28 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.PolicyType
+        {
+            ($_ -eq "Get-CWLAccountPolicy/PolicyType") -Or
+            ($_ -eq "Remove-CWLAccountPolicy/PolicyType") -Or
+            ($_ -eq "Write-CWLAccountPolicy/PolicyType")
+        }
+        {
+            $v = "DATA_PROTECTION_POLICY"
+            break
+        }
+
         # Amazon.CloudWatchLogs.QueryStatus
         "Get-CWLQuery/Status"
         {
             $v = "Cancelled","Complete","Failed","Running","Scheduled","Timeout","Unknown"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.Scope
+        "Write-CWLAccountPolicy/Scope"
+        {
+            $v = "ALL"
             break
         }
 
@@ -35122,6 +35144,8 @@ $CWL_Completers = {
 $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "OrderBy"=@("Get-CWLLogStream")
+    "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
+    "Scope"=@("Write-CWLAccountPolicy")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
 }
@@ -35181,6 +35205,7 @@ $CWL_SelectMap = @{
                "New-CWLExportTask",
                "New-CWLLogGroup",
                "New-CWLLogStream",
+               "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
                "Remove-CWLDestination",
                "Remove-CWLLogGroup",
@@ -35190,6 +35215,7 @@ $CWL_SelectMap = @{
                "Remove-CWLResourcePolicy",
                "Remove-CWLRetentionPolicy",
                "Remove-CWLSubscriptionFilter",
+               "Get-CWLAccountPolicy",
                "Get-CWLDestination",
                "Get-CWLExportTask",
                "Get-CWLLogGroup",
@@ -35208,6 +35234,7 @@ $CWL_SelectMap = @{
                "Get-CWLQueryResult",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
+               "Write-CWLAccountPolicy",
                "Write-CWLDataProtectionPolicy",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",

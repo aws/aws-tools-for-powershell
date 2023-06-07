@@ -28,15 +28,22 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a data protection policy for the specified log group. A data protection policy
-    /// can help safeguard sensitive data that's ingested by the log group by auditing and
-    /// masking the sensitive log data.
+    /// Creates an account-level data protection policy that applies to all log groups in
+    /// the account. A data protection policy can help safeguard sensitive data that's ingested
+    /// by your log groups by auditing and masking the sensitive log data. Each account can
+    /// have only one account-level policy.
     /// 
     ///  <important><para>
-    /// Sensitive data is detected and masked when it is ingested into the log group. When
-    /// you set a data protection policy, log events ingested into the log group before that
+    /// Sensitive data is detected and masked when it is ingested into a log group. When you
+    /// set a data protection policy, log events ingested into the log groups before that
     /// time are not masked.
     /// </para></important><para>
+    /// If you use <code>PutAccountPolicy</code> to create a data protection policy for your
+    /// whole account, it applies to both existing log groups and all log groups that are
+    /// created later in this account. The account policy is applied to existing log groups
+    /// with eventual consistency. It might take up to 5 minutes before sensitive data in
+    /// existing log groups begins to be masked.
+    /// </para><para>
     /// By default, when a user views a log event that includes masked data, the sensitive
     /// data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission
     /// can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a>
@@ -50,40 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect
     /// sensitive log data with masking</a>.
     /// </para><para>
-    /// The <code>PutDataProtectionPolicy</code> operation applies to only the specified log
-    /// group. You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>
-    /// to create an account-level data protection policy that applies to all log groups in
-    /// the account, including both existing log groups and log groups that are created level.
-    /// If a log group has its own data protection policy and the account also has an account-level
-    /// data protection policy, then the two policies are cumulative. Any sensitive term specified
+    /// To use the <code>PutAccountPolicy</code> operation, you must be signed on with the
+    /// <code>logs:PutDataProtectionPolicy</code> and <code>logs:PutAccountPolicy</code> permissions.
+    /// </para><para>
+    /// The <code>PutAccountPolicy</code> operation applies to all log groups in the account.
+    /// You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>
+    /// to create a data protection policy that applies to just one log group. If a log group
+    /// has its own data protection policy and the account also has an account-level data
+    /// protection policy, then the two policies are cumulative. Any sensitive term specified
     /// in either policy is masked.
     /// </para>
     /// </summary>
-    [Cmdlet("Write", "CWLDataProtectionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs PutDataProtectionPolicy API operation.", Operation = new[] {"PutDataProtectionPolicy"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudWatchLogs.Model.AccountPolicy")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs PutAccountPolicy API operation.", Operation = new[] {"PutAccountPolicy"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.AccountPolicy or Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse",
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.AccountPolicy object.",
+        "The service call response (type Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteCWLDataProtectionPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class WriteCWLAccountPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
-        
-        #region Parameter LogGroupIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>Specify either the log group name or log group ARN.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LogGroupIdentifier { get; set; }
-        #endregion
         
         #region Parameter PolicyDocument
         /// <summary>
@@ -103,8 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// actually masks the data, and it must contain the <code> "MaskConfig": {}</code> object.
         /// The <code> "MaskConfig": {}</code> object must be empty.</para></li></ul><para>For an example data protection policy, see the <b>Examples</b> section on this page.</para><important><para>The contents of the two <code>DataIdentifer</code> arrays must match exactly.</para></important><para>In addition to the two JSON blocks, the <code>policyDocument</code> can also include
         /// <code>Name</code>, <code>Description</code>, and <code>Version</code> fields. The
-        /// <code>Name</code> is used as a dimension when CloudWatch Logs reports audit findings
-        /// metrics to CloudWatch.</para><para>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</para>
+        /// <code>Name</code> is different than the operation's <code>policyName</code> parameter,
+        /// and is used as a dimension when CloudWatch Logs reports audit findings metrics to
+        /// CloudWatch.</para><para>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,25 +112,62 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String PolicyDocument { get; set; }
         #endregion
         
+        #region Parameter PolicyName
+        /// <summary>
+        /// <para>
+        /// <para>A name for the policy. This must be unique within the account.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PolicyName { get; set; }
+        #endregion
+        
+        #region Parameter PolicyType
+        /// <summary>
+        /// <para>
+        /// <para>Currently the only valid value for this parameter is <code>DATA_PROTECTION_POLICY</code>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.PolicyType")]
+        public Amazon.CloudWatchLogs.PolicyType PolicyType { get; set; }
+        #endregion
+        
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>Currently the only valid value for this parameter is <code>GLOBAL</code>, which specifies
+        /// that the data protection policy applies to all log groups in the account. If you omit
+        /// this parameter, the default of <code>GLOBAL</code> is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.Scope")]
+        public Amazon.CloudWatchLogs.Scope Scope { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountPolicy'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LogGroupIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LogGroupIdentifier' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LogGroupIdentifier' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "AccountPolicy";
         #endregion
         
         #region Parameter Force
@@ -154,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LogGroupIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWLDataProtectionPolicy (PutDataProtectionPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWLAccountPolicy (PutAccountPolicy)"))
             {
                 return;
             }
@@ -165,28 +196,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse, WriteCWLDataProtectionPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse, WriteCWLAccountPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.LogGroupIdentifier;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LogGroupIdentifier = this.LogGroupIdentifier;
-            #if MODULAR
-            if (this.LogGroupIdentifier == null && ParameterWasBound(nameof(this.LogGroupIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LogGroupIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PolicyDocument = this.PolicyDocument;
             #if MODULAR
             if (this.PolicyDocument == null && ParameterWasBound(nameof(this.PolicyDocument)))
@@ -194,6 +208,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter PolicyDocument which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PolicyName = this.PolicyName;
+            #if MODULAR
+            if (this.PolicyName == null && ParameterWasBound(nameof(this.PolicyName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PolicyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PolicyType = this.PolicyType;
+            #if MODULAR
+            if (this.PolicyType == null && ParameterWasBound(nameof(this.PolicyType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PolicyType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Scope = this.Scope;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,15 +237,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyRequest();
+            var request = new Amazon.CloudWatchLogs.Model.PutAccountPolicyRequest();
             
-            if (cmdletContext.LogGroupIdentifier != null)
-            {
-                request.LogGroupIdentifier = cmdletContext.LogGroupIdentifier;
-            }
             if (cmdletContext.PolicyDocument != null)
             {
                 request.PolicyDocument = cmdletContext.PolicyDocument;
+            }
+            if (cmdletContext.PolicyName != null)
+            {
+                request.PolicyName = cmdletContext.PolicyName;
+            }
+            if (cmdletContext.PolicyType != null)
+            {
+                request.PolicyType = cmdletContext.PolicyType;
+            }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
             }
             
             CmdletOutput output;
@@ -251,15 +288,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyRequest request)
+        private Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutAccountPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "PutDataProtectionPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "PutAccountPolicy");
             try
             {
                 #if DESKTOP
-                return client.PutDataProtectionPolicy(request);
+                return client.PutAccountPolicy(request);
                 #elif CORECLR
-                return client.PutDataProtectionPolicyAsync(request).GetAwaiter().GetResult();
+                return client.PutAccountPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -279,10 +316,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LogGroupIdentifier { get; set; }
             public System.String PolicyDocument { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.PutDataProtectionPolicyResponse, WriteCWLDataProtectionPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String PolicyName { get; set; }
+            public Amazon.CloudWatchLogs.PolicyType PolicyType { get; set; }
+            public Amazon.CloudWatchLogs.Scope Scope { get; set; }
+            public System.Func<Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse, WriteCWLAccountPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccountPolicy;
         }
         
     }

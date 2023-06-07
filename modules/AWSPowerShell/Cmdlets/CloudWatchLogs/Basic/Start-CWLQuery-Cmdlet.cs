@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
     /// Logs Insights Query Syntax</a>.
     /// </para><para>
-    /// Queries time out after 15 minutes of runtime. If your queries are timing out, reduce
+    /// Queries time out after 60 minutes of runtime. If your queries are timing out, reduce
     /// the time range being searched or partition your query into a number of queries.
     /// </para><para>
     /// If you are using CloudWatch cross-account observability, you can use this operation
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// cross-account observability</a>. For a cross-account <code>StartQuery</code> operation,
     /// the query definition must be defined in the monitoring account.
     /// </para><para>
-    /// You can have up to 20 concurrent CloudWatch Logs insights queries, including queries
+    /// You can have up to 30 concurrent CloudWatch Logs insights queries, including queries
     /// that have been added to dashboards. 
     /// </para>
     /// </summary>

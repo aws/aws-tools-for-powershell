@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.563.0",
+    "ProductVersion" : "3.7.564.0",
     "CoreVersion"    : "3.7.107.3",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -30,7 +30,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.106.1",
+            "Version" : "3.7.107.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.3"
@@ -86,7 +86,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "3.7.104.86",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.3"
@@ -136,7 +136,7 @@
             "InPreview"               : false
         },
         "DirectConnect"     : {
-            "Version" : "3.7.100.142",
+            "Version" : "3.7.100.143",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.3"
@@ -1962,7 +1962,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "3.7.104.4",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.3"
@@ -1970,7 +1970,7 @@
             "InPreview"               : false
         },
         "EMRContainers"                   : {
-            "Version" : "3.7.103.21",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.3"
@@ -2034,7 +2034,7 @@
             "InPreview"               : false
         },
         "IoTDeviceAdvisor"                : {
-            "Version" : "3.7.102.21",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.3"

@@ -75,9 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// return log groups in the accounts listed in <code>accountIdentifiers</code>.</para><para>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code>
         /// contains a null value, the operation returns all log groups in the monitoring account
         /// and all log groups in all source accounts that are linked to the monitoring account.
-        /// </para><note><para> If you specify <code>includeLinkedAccounts</code> in your request, then <code>metricFilterCount</code>,
-        /// <code>retentionInDays</code>, and <code>storedBytes</code> are not included in the
-        /// response. </para></note>
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// that have names that match the string based on a case-sensitive substring search.
         /// For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>,
         /// <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>,
-        /// <code>F/o/o</code> and <code>Froo</code> would not match.</para><note><para><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually
+        /// <code>F/o/o</code> and <code>Froo</code> would not match.</para><para>If you specify <code>logGroupNamePattern</code> in your request, then only <code>arn</code>,
+        /// <code>creationTime</code>, and <code>logGroupName</code> are included in the response.
+        /// </para><note><para><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually
         /// exclusive. Only one of these parameters can be passed. </para></note>
         /// </para>
         /// </summary>

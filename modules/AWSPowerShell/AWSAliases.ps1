@@ -5816,6 +5816,8 @@ Set-Alias -Name Create-CPFCalculatedAttributeDefinition -Value New-CPFCalculated
 Set-Alias -Name CPF-CreateCalculatedAttributeDefinition -Value New-CPFCalculatedAttributeDefinition
 Set-Alias -Name Create-CPFDomain -Value New-CPFDomain
 Set-Alias -Name CPF-CreateDomain -Value New-CPFDomain
+Set-Alias -Name Create-CPFEventStream -Value New-CPFEventStream
+Set-Alias -Name CPF-CreateEventStream -Value New-CPFEventStream
 Set-Alias -Name Create-CPFIntegrationWorkflow -Value New-CPFIntegrationWorkflow
 Set-Alias -Name CPF-CreateIntegrationWorkflow -Value New-CPFIntegrationWorkflow
 Set-Alias -Name Create-CPFProfile -Value New-CPFProfile
@@ -5824,6 +5826,8 @@ Set-Alias -Name Delete-CPFCalculatedAttributeDefinition -Value Remove-CPFCalcula
 Set-Alias -Name CPF-DeleteCalculatedAttributeDefinition -Value Remove-CPFCalculatedAttributeDefinition
 Set-Alias -Name Delete-CPFDomain -Value Remove-CPFDomain
 Set-Alias -Name CPF-DeleteDomain -Value Remove-CPFDomain
+Set-Alias -Name Delete-CPFEventStream -Value Remove-CPFEventStream
+Set-Alias -Name CPF-DeleteEventStream -Value Remove-CPFEventStream
 Set-Alias -Name Delete-CPFIntegration -Value Remove-CPFIntegration
 Set-Alias -Name CPF-DeleteIntegration -Value Remove-CPFIntegration
 Set-Alias -Name Delete-CPFProfile -Value Remove-CPFProfile
@@ -5840,6 +5844,7 @@ Set-Alias -Name CPF-GetAutoMergingPreview -Value Get-CPFAutoMergingPreview
 Set-Alias -Name CPF-GetCalculatedAttributeDefinition -Value Get-CPFCalculatedAttributeDefinition
 Set-Alias -Name CPF-GetCalculatedAttributeForProfile -Value Get-CPFCalculatedAttributeForProfile
 Set-Alias -Name CPF-GetDomain -Value Get-CPFDomain
+Set-Alias -Name CPF-GetEventStream -Value Get-CPFEventStream
 Set-Alias -Name CPF-GetIdentityResolutionJob -Value Get-CPFIdentityResolutionJob
 Set-Alias -Name CPF-GetIntegration -Value Get-CPFIntegration
 Set-Alias -Name Get-CPFMatches -Value Get-CPFMatch
@@ -5861,6 +5866,9 @@ Set-Alias -Name CPF-ListCalculatedAttributesForProfile -Value Get-CPFCalculatedA
 Set-Alias -Name List-CPFDomains -Value Get-CPFDomainList
 Set-Alias -Name List-CPFDomainList -Value Get-CPFDomainList
 Set-Alias -Name CPF-ListDomains -Value Get-CPFDomainList
+Set-Alias -Name List-CPFEventStreams -Value Get-CPFEventStreamList
+Set-Alias -Name List-CPFEventStreamList -Value Get-CPFEventStreamList
+Set-Alias -Name CPF-ListEventStreams -Value Get-CPFEventStreamList
 Set-Alias -Name List-CPFIdentityResolutionJobs -Value Get-CPFIdentityResolutionJobList
 Set-Alias -Name List-CPFIdentityResolutionJobList -Value Get-CPFIdentityResolutionJobList
 Set-Alias -Name CPF-ListIdentityResolutionJobs -Value Get-CPFIdentityResolutionJobList
@@ -15378,6 +15386,8 @@ Set-Alias -Name Create-CWLLogGroup -Value New-CWLLogGroup
 Set-Alias -Name CWL-CreateLogGroup -Value New-CWLLogGroup
 Set-Alias -Name Create-CWLLogStream -Value New-CWLLogStream
 Set-Alias -Name CWL-CreateLogStream -Value New-CWLLogStream
+Set-Alias -Name Delete-CWLAccountPolicy -Value Remove-CWLAccountPolicy
+Set-Alias -Name CWL-DeleteAccountPolicy -Value Remove-CWLAccountPolicy
 Set-Alias -Name Delete-CWLDataProtectionPolicy -Value Remove-CWLDataProtectionPolicy
 Set-Alias -Name CWL-DeleteDataProtectionPolicy -Value Remove-CWLDataProtectionPolicy
 Set-Alias -Name Delete-CWLDestination -Value Remove-CWLDestination
@@ -15396,6 +15406,9 @@ Set-Alias -Name Delete-CWLRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name CWL-DeleteRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
+Set-Alias -Name Describe-CWLAccountPolicies -Value Get-CWLAccountPolicy
+Set-Alias -Name Describe-CWLAccountPolicy -Value Get-CWLAccountPolicy
+Set-Alias -Name CWL-DescribeAccountPolicies -Value Get-CWLAccountPolicy
 Set-Alias -Name Describe-CWLDestinations -Value Get-CWLDestination
 Set-Alias -Name Describe-CWLDestination -Value Get-CWLDestination
 Set-Alias -Name CWL-DescribeDestinations -Value Get-CWLDestination
@@ -15440,6 +15453,8 @@ Set-Alias -Name CWL-ListTagsForResource -Value Get-CWLResourceTag
 Set-Alias -Name List-CWLTagsLogGroup -Value Get-CWLLogGroupTag
 Set-Alias -Name List-CWLLogGroupTag -Value Get-CWLLogGroupTag
 Set-Alias -Name CWL-ListTagsLogGroup -Value Get-CWLLogGroupTag
+Set-Alias -Name Put-CWLAccountPolicy -Value Write-CWLAccountPolicy
+Set-Alias -Name CWL-PutAccountPolicy -Value Write-CWLAccountPolicy
 Set-Alias -Name Put-CWLDataProtectionPolicy -Value Write-CWLDataProtectionPolicy
 Set-Alias -Name CWL-PutDataProtectionPolicy -Value Write-CWLDataProtectionPolicy
 Set-Alias -Name Put-CWLDestination -Value Write-CWLDestination

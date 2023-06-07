@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data
     /// whenever it is requested.
     /// </para><para>
-    /// If you attempt to associate a KMS key with the log group but the KMS keydoes not exist
-    /// or the KMS key is disabled, you receive an <code>InvalidParameterException</code>
+    /// If you attempt to associate a KMS key with the log group but the KMS key does not
+    /// exist or the KMS key is disabled, you receive an <code>InvalidParameterException</code>
     /// error. 
     /// </para><important><para>
     /// CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS
