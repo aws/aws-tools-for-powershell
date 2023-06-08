@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration
         /// <summary>
         /// <para>
-        /// <para>Removes content encryption configuration for a workgroup.</para>
+        /// <para>Removes content encryption configuration from an Apache Spark-enabled Athena workgroup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

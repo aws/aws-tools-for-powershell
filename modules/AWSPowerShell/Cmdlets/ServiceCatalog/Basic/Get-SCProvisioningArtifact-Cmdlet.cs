@@ -50,6 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter IncludeProvisioningArtifactParameter
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the API call response does or does not include additional details about
+        /// the provisioning parameters. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeProvisioningArtifactParameters")]
+        public System.Boolean? IncludeProvisioningArtifactParameter { get; set; }
+        #endregion
+        
         #region Parameter ProductId
         /// <summary>
         /// <para>
@@ -147,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
+            context.IncludeProvisioningArtifactParameter = this.IncludeProvisioningArtifactParameter;
             context.ProductId = this.ProductId;
             context.ProductName = this.ProductName;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
@@ -171,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            if (cmdletContext.IncludeProvisioningArtifactParameter != null)
+            {
+                request.IncludeProvisioningArtifactParameters = cmdletContext.IncludeProvisioningArtifactParameter.Value;
             }
             if (cmdletContext.ProductId != null)
             {
@@ -254,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public System.Boolean? IncludeProvisioningArtifactParameter { get; set; }
             public System.String ProductId { get; set; }
             public System.String ProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }

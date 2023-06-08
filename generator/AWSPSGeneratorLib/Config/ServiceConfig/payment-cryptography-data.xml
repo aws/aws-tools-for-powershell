@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>payment-cryptography-data</C2jFilename>
+    <AssemblyName>PaymentCryptographyData</AssemblyName>
+    <ServiceNounPrefix>PAYCD</ServiceNounPrefix>
+    <ServiceName>Payment Cryptography Data</ServiceName>
+    <ServiceClientInterface>IAmazonPaymentCryptographyData</ServiceClientInterface>
+    <ServiceClient>AmazonPaymentCryptographyDataClient</ServiceClient>
+    <ServiceModuleGuid>83f056ce-414a-4e58-bede-b4f08ae528b7</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DecryptData" OutputProperty="*" Verb="Unprotect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EncryptData" OutputProperty="*" Verb="Protect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateCardValidationData" OutputProperty="*" Verb="New" Noun="CardValidationData" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GeneratePinData" OutputProperty="*" Verb="New" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="GenerationKeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReEncryptData" OutputProperty="*" Verb="Update" Noun="EncryptData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType" NewName="IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType" />
+                <Param Name="OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType" NewName="OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType" />
+                <Param Name="IncomingEncryptionAttributes_Dukpt_DukptKeyVariant" NewName="IncomingEncryptionAttributes_Dukpt_DukptKeyVariant" />
+                <Param Name="OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant" NewName="OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant" />
+                <Param Name="IncomingEncryptionAttributes_Dukpt_InitializationVector" NewName="IncomingEncryptionAttributes_Dukpt_InitializationVector" />
+                <Param Name="OutgoingEncryptionAttributes_Dukpt_InitializationVector" NewName="OutgoingEncryptionAttributes_Dukpt_InitializationVector" />
+                <Param Name="IncomingEncryptionAttributes_Dukpt_KeySerialNumber" NewName="IncomingEncryptionAttributes_Dukpt_KeySerialNumber" />
+                <Param Name="OutgoingEncryptionAttributes_Dukpt_KeySerialNumber" NewName="OutgoingEncryptionAttributes_Dukpt_KeySerialNumber" />
+                <Param Name="IncomingEncryptionAttributes_Dukpt_Mode" NewName="IncomingEncryptionAttributes_Dukpt_Mode" />
+                <Param Name="OutgoingEncryptionAttributes_Dukpt_Mode" NewName="OutgoingEncryptionAttributes_Dukpt_Mode" />
+                <Param Name="IncomingEncryptionAttributes_Symmetric_InitializationVector" NewName="IncomingEncryptionAttributes_Symmetric_InitializationVector" />
+                <Param Name="OutgoingEncryptionAttributes_Symmetric_InitializationVector" NewName="OutgoingEncryptionAttributes_Symmetric_InitializationVector" />
+                <Param Name="IncomingEncryptionAttributes_Symmetric_Mode" NewName="IncomingEncryptionAttributes_Symmetric_Mode" />
+                <Param Name="OutgoingEncryptionAttributes_Symmetric_Mode" NewName="OutgoingEncryptionAttributes_Symmetric_Mode" />
+                <Param Name="IncomingEncryptionAttributes_Symmetric_PaddingType" NewName="IncomingEncryptionAttributes_Symmetric_PaddingType" />
+                <Param Name="OutgoingEncryptionAttributes_Symmetric_PaddingType" NewName="OutgoingEncryptionAttributes_Symmetric_PaddingType" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TranslatePinData" OutputProperty="*" Verb="Convert" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" />
+                <Param Name="OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" />
+                <Param Name="IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" />
+                <Param Name="OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" />
+                <Param Name="IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" />
+                <Param Name="OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyAuthRequestCryptogram" OutputProperty="*" Verb="Test" Noun="AuthRequestCryptogram" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyCardValidationData" OutputProperty="*" Verb="Test" Noun="CardValidationData" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyPinData" OutputProperty="*" Verb="Test" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="VerificationKeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

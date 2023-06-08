@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>payment-cryptography</C2jFilename>
+    <AssemblyName>PaymentCryptography</AssemblyName>
+    <ServiceNounPrefix>PAYCC</ServiceNounPrefix>
+    <ServiceName>Payment Cryptography Control Plane</ServiceName>
+    <ServiceClientInterface>IAmazonPaymentCryptography</ServiceClientInterface>
+    <ServiceClient>AmazonPaymentCryptographyClient</ServiceClient>
+    <ServiceModuleGuid>dd3f0f39-ead7-4de4-aba4-e078c92457c1</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAlias" OutputProperty="Alias" Verb="New" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKey" OutputProperty="Key" Verb="New" Noun="Key" ShouldProcessTarget="Exportable" PipelineParameter="Exportable" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKey" OutputProperty="Key" Verb="Remove" Noun="Key" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportKey" OutputProperty="WrappedKey" Verb="Export" Noun="Key" ShouldProcessTarget="ExportKeyIdentifier" PipelineParameter="ExportKeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAlias" OutputProperty="Alias" Verb="Get" Noun="Alias" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKey" OutputProperty="Key" Verb="Get" Noun="Key" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParametersForExport" OutputProperty="*" Verb="Get" Noun="ParametersForExport" PipelineParameter="KeyMaterialType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParametersForImport" OutputProperty="*" Verb="Get" Noun="ParametersForImport" PipelineParameter="KeyMaterialType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPublicKeyCertificate" OutputProperty="*" Verb="Get" Noun="PublicKeyCertificate" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportKey" OutputProperty="Key" Verb="Import" Noun="Key" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify" />
+                <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Keys" Verb="Get" Noun="KeyList" PipelineParameter="KeyState" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreKey" OutputProperty="Key" Verb="Restore" Noun="Key" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartKeyUsage" OutputProperty="Key" Verb="Start" Noun="KeyUsage" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopKeyUsage" OutputProperty="Key" Verb="Stop" Noun="KeyUsage" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlias" OutputProperty="Alias" Verb="Update" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

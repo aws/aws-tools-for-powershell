@@ -43027,6 +43027,435 @@ $PAN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PAN_SelectCompleters $PAN_SelectMap
+# Argument completions for service Payment Cryptography Control Plane
+
+
+$PAYCC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PaymentCryptography.KeyAlgorithm
+        {
+            ($_ -eq "New-PAYCCKey/KeyAttributes_KeyAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyAlgorithm") -Or
+            ($_ -eq "Get-PAYCCParametersForExport/SigningKeyAlgorithm") -Or
+            ($_ -eq "Get-PAYCCParametersForImport/WrappingKeyAlgorithm")
+        }
+        {
+            $v = "AES_128","AES_192","AES_256","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyCheckValueAlgorithm
+        {
+            ($_ -eq "Import-PAYCCKey/KeyCheckValueAlgorithm") -Or
+            ($_ -eq "New-PAYCCKey/KeyCheckValueAlgorithm")
+        }
+        {
+            $v = "ANSI_X9_24","CMAC"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyClass
+        {
+            ($_ -eq "New-PAYCCKey/KeyAttributes_KeyClass") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyClass")
+        }
+        {
+            $v = "ASYMMETRIC_KEY_PAIR","PRIVATE_KEY","PUBLIC_KEY","SYMMETRIC_KEY"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyMaterialType
+        {
+            ($_ -eq "Get-PAYCCParametersForExport/KeyMaterialType") -Or
+            ($_ -eq "Get-PAYCCParametersForImport/KeyMaterialType")
+        }
+        {
+            $v = "ROOT_PUBLIC_KEY_CERTIFICATE","TR31_KEY_BLOCK","TR34_KEY_BLOCK","TRUSTED_PUBLIC_KEY_CERTIFICATE"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyState
+        "Get-PAYCCKeyList/KeyState"
+        {
+            $v = "CREATE_COMPLETE","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_PENDING"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyUsage
+        {
+            ($_ -eq "New-PAYCCKey/KeyAttributes_KeyUsage") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyUsage")
+        }
+        {
+            $v = "TR31_B0_BASE_DERIVATION_KEY","TR31_C0_CARD_VERIFICATION_KEY","TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY","TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION","TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS","TR31_E1_EMV_MKEY_CONFIDENTIALITY","TR31_E2_EMV_MKEY_INTEGRITY","TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS","TR31_E5_EMV_MKEY_CARD_PERSONALIZATION","TR31_E6_EMV_MKEY_OTHER","TR31_K0_KEY_ENCRYPTION_KEY","TR31_K1_KEY_BLOCK_PROTECTION_KEY","TR31_K2_TR34_ASYMMETRIC_KEY","TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT","TR31_M3_ISO_9797_3_MAC_KEY","TR31_M6_ISO_9797_5_CMAC_KEY","TR31_M7_HMAC_KEY","TR31_P0_PIN_ENCRYPTION_KEY","TR31_P1_PIN_GENERATION_KEY","TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE","TR31_V1_IBM3624_PIN_VERIFICATION_KEY","TR31_V2_VISA_PIN_VERIFICATION_KEY"
+            break
+        }
+
+        # Amazon.PaymentCryptography.Tr34KeyBlockFormat
+        {
+            ($_ -eq "Export-PAYCCKey/KeyMaterial_Tr34KeyBlock_KeyBlockFormat") -Or
+            ($_ -eq "Import-PAYCCKey/KeyMaterial_Tr34KeyBlock_KeyBlockFormat")
+        }
+        {
+            $v = "X9_TR34_2012"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PAYCC_map = @{
+    "KeyAttributes_KeyAlgorithm"=@("New-PAYCCKey")
+    "KeyAttributes_KeyClass"=@("New-PAYCCKey")
+    "KeyAttributes_KeyUsage"=@("New-PAYCCKey")
+    "KeyCheckValueAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
+    "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
+    "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
+    "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage"=@("Import-PAYCCKey")
+    "KeyMaterial_Tr34KeyBlock_KeyBlockFormat"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
+    "KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
+    "KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyUsage"=@("Import-PAYCCKey")
+    "KeyMaterialType"=@("Get-PAYCCParametersForExport","Get-PAYCCParametersForImport")
+    "KeyState"=@("Get-PAYCCKeyList")
+    "SigningKeyAlgorithm"=@("Get-PAYCCParametersForExport")
+    "WrappingKeyAlgorithm"=@("Get-PAYCCParametersForImport")
+}
+
+_awsArgumentCompleterRegistration $PAYCC_Completers $PAYCC_map
+
+$PAYCC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PAYCC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PAYCC_SelectMap = @{
+    "Select"=@("New-PAYCCAlias",
+               "New-PAYCCKey",
+               "Remove-PAYCCAlias",
+               "Remove-PAYCCKey",
+               "Export-PAYCCKey",
+               "Get-PAYCCAlias",
+               "Get-PAYCCKey",
+               "Get-PAYCCParametersForExport",
+               "Get-PAYCCParametersForImport",
+               "Get-PAYCCPublicKeyCertificate",
+               "Import-PAYCCKey",
+               "Get-PAYCCAliasList",
+               "Get-PAYCCKeyList",
+               "Get-PAYCCResourceTag",
+               "Restore-PAYCCKey",
+               "Start-PAYCCKeyUsage",
+               "Stop-PAYCCKeyUsage",
+               "Add-PAYCCResourceTag",
+               "Remove-PAYCCResourceTag",
+               "Update-PAYCCAlias")
+}
+
+_awsArgumentCompleterRegistration $PAYCC_SelectCompleters $PAYCC_SelectMap
+# Argument completions for service Payment Cryptography Data
+
+
+$PAYCD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PaymentCryptographyData.DukptDerivationType
+        {
+            ($_ -eq "Unprotect-PAYCDData/DecryptionAttributes_Dukpt_DukptKeyDerivationType") -Or
+            ($_ -eq "Test-PAYCDPinData/DukptAttributes_DukptDerivationType") -Or
+            ($_ -eq "Protect-PAYCDData/EncryptionAttributes_Dukpt_DukptKeyDerivationType") -Or
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_DukptCmac_DukptDerivationType") -Or
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_DukptIso9797Algorithm1_DukptDerivationType") -Or
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_DukptIso9797Algorithm3_DukptDerivationType") -Or
+            ($_ -eq "Convert-PAYCDPinData/IncomingDukptAttributes_DukptKeyDerivationType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType") -Or
+            ($_ -eq "Convert-PAYCDPinData/OutgoingDukptAttributes_DukptKeyDerivationType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_DukptCmac_DukptDerivationType") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_DukptIso9797Algorithm1_DukptDerivationType") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_DukptIso9797Algorithm3_DukptDerivationType")
+        }
+        {
+            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.DukptEncryptionMode
+        {
+            ($_ -eq "Unprotect-PAYCDData/DecryptionAttributes_Dukpt_Mode") -Or
+            ($_ -eq "Protect-PAYCDData/EncryptionAttributes_Dukpt_Mode") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Dukpt_Mode") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Dukpt_Mode")
+        }
+        {
+            $v = "CBC","ECB"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.DukptKeyVariant
+        {
+            ($_ -eq "Unprotect-PAYCDData/DecryptionAttributes_Dukpt_DukptKeyVariant") -Or
+            ($_ -eq "Protect-PAYCDData/EncryptionAttributes_Dukpt_DukptKeyVariant") -Or
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_DukptCmac_DukptKeyVariant") -Or
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_DukptIso9797Algorithm1_DukptKeyVariant") -Or
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_DukptIso9797Algorithm3_DukptKeyVariant") -Or
+            ($_ -eq "Convert-PAYCDPinData/IncomingDukptAttributes_DukptKeyVariant") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Dukpt_DukptKeyVariant") -Or
+            ($_ -eq "Convert-PAYCDPinData/OutgoingDukptAttributes_DukptKeyVariant") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_DukptCmac_DukptKeyVariant") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_DukptIso9797Algorithm1_DukptKeyVariant") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_DukptIso9797Algorithm3_DukptKeyVariant")
+        }
+        {
+            $v = "BIDIRECTIONAL","REQUEST","RESPONSE"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.EncryptionMode
+        {
+            ($_ -eq "Unprotect-PAYCDData/DecryptionAttributes_Symmetric_Mode") -Or
+            ($_ -eq "Protect-PAYCDData/EncryptionAttributes_Symmetric_Mode") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Symmetric_Mode") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Symmetric_Mode")
+        }
+        {
+            $v = "CBC","CFB","CFB1","CFB128","CFB64","CFB8","ECB","OFB"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.MacAlgorithm
+        {
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_Algorithm") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_Algorithm")
+        }
+        {
+            $v = "CMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.MajorKeyDerivationMode
+        {
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_EmvMac_MajorKeyDerivationMode") -Or
+            ($_ -eq "Test-PAYCDAuthRequestCryptogram/MajorKeyDerivationMode") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_EmvMac_MajorKeyDerivationMode")
+        }
+        {
+            $v = "EMV_OPTION_A","EMV_OPTION_B"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.PaddingType
+        {
+            ($_ -eq "Unprotect-PAYCDData/DecryptionAttributes_Asymmetric_PaddingType") -Or
+            ($_ -eq "Unprotect-PAYCDData/DecryptionAttributes_Symmetric_PaddingType") -Or
+            ($_ -eq "Protect-PAYCDData/EncryptionAttributes_Asymmetric_PaddingType") -Or
+            ($_ -eq "Protect-PAYCDData/EncryptionAttributes_Symmetric_PaddingType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Symmetric_PaddingType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Symmetric_PaddingType")
+        }
+        {
+            $v = "OAEP_SHA1","OAEP_SHA256","OAEP_SHA512","PKCS1"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.PinBlockFormatForPinData
+        {
+            ($_ -eq "New-PAYCDPinData/PinBlockFormat") -Or
+            ($_ -eq "Test-PAYCDPinData/PinBlockFormat")
+        }
+        {
+            $v = "ISO_FORMAT_0","ISO_FORMAT_3"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.SessionKeyDerivationMode
+        {
+            ($_ -eq "New-PAYCDMac/GenerationAttributes_EmvMac_SessionKeyDerivationMode") -Or
+            ($_ -eq "Test-PAYCDMac/VerificationAttributes_EmvMac_SessionKeyDerivationMode")
+        }
+        {
+            $v = "AMEX","EMV2000","EMV_COMMON_SESSION_KEY","MASTERCARD_SESSION_KEY","VISA"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PAYCD_map = @{
+    "DecryptionAttributes_Asymmetric_PaddingType"=@("Unprotect-PAYCDData")
+    "DecryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Unprotect-PAYCDData")
+    "DecryptionAttributes_Dukpt_DukptKeyVariant"=@("Unprotect-PAYCDData")
+    "DecryptionAttributes_Dukpt_Mode"=@("Unprotect-PAYCDData")
+    "DecryptionAttributes_Symmetric_Mode"=@("Unprotect-PAYCDData")
+    "DecryptionAttributes_Symmetric_PaddingType"=@("Unprotect-PAYCDData")
+    "DukptAttributes_DukptDerivationType"=@("Test-PAYCDPinData")
+    "EncryptionAttributes_Asymmetric_PaddingType"=@("Protect-PAYCDData")
+    "EncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Protect-PAYCDData")
+    "EncryptionAttributes_Dukpt_DukptKeyVariant"=@("Protect-PAYCDData")
+    "EncryptionAttributes_Dukpt_Mode"=@("Protect-PAYCDData")
+    "EncryptionAttributes_Symmetric_Mode"=@("Protect-PAYCDData")
+    "EncryptionAttributes_Symmetric_PaddingType"=@("Protect-PAYCDData")
+    "GenerationAttributes_Algorithm"=@("New-PAYCDMac")
+    "GenerationAttributes_DukptCmac_DukptDerivationType"=@("New-PAYCDMac")
+    "GenerationAttributes_DukptCmac_DukptKeyVariant"=@("New-PAYCDMac")
+    "GenerationAttributes_DukptIso9797Algorithm1_DukptDerivationType"=@("New-PAYCDMac")
+    "GenerationAttributes_DukptIso9797Algorithm1_DukptKeyVariant"=@("New-PAYCDMac")
+    "GenerationAttributes_DukptIso9797Algorithm3_DukptDerivationType"=@("New-PAYCDMac")
+    "GenerationAttributes_DukptIso9797Algorithm3_DukptKeyVariant"=@("New-PAYCDMac")
+    "GenerationAttributes_EmvMac_MajorKeyDerivationMode"=@("New-PAYCDMac")
+    "GenerationAttributes_EmvMac_SessionKeyDerivationMode"=@("New-PAYCDMac")
+    "IncomingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
+    "IncomingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
+    "IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
+    "IncomingEncryptionAttributes_Dukpt_DukptKeyVariant"=@("Update-PAYCDEncryptData")
+    "IncomingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
+    "IncomingEncryptionAttributes_Symmetric_Mode"=@("Update-PAYCDEncryptData")
+    "IncomingEncryptionAttributes_Symmetric_PaddingType"=@("Update-PAYCDEncryptData")
+    "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
+    "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
+    "OutgoingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
+    "OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
+    "OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant"=@("Update-PAYCDEncryptData")
+    "OutgoingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
+    "OutgoingEncryptionAttributes_Symmetric_Mode"=@("Update-PAYCDEncryptData")
+    "OutgoingEncryptionAttributes_Symmetric_PaddingType"=@("Update-PAYCDEncryptData")
+    "PinBlockFormat"=@("New-PAYCDPinData","Test-PAYCDPinData")
+    "VerificationAttributes_Algorithm"=@("Test-PAYCDMac")
+    "VerificationAttributes_DukptCmac_DukptDerivationType"=@("Test-PAYCDMac")
+    "VerificationAttributes_DukptCmac_DukptKeyVariant"=@("Test-PAYCDMac")
+    "VerificationAttributes_DukptIso9797Algorithm1_DukptDerivationType"=@("Test-PAYCDMac")
+    "VerificationAttributes_DukptIso9797Algorithm1_DukptKeyVariant"=@("Test-PAYCDMac")
+    "VerificationAttributes_DukptIso9797Algorithm3_DukptDerivationType"=@("Test-PAYCDMac")
+    "VerificationAttributes_DukptIso9797Algorithm3_DukptKeyVariant"=@("Test-PAYCDMac")
+    "VerificationAttributes_EmvMac_MajorKeyDerivationMode"=@("Test-PAYCDMac")
+    "VerificationAttributes_EmvMac_SessionKeyDerivationMode"=@("Test-PAYCDMac")
+}
+
+_awsArgumentCompleterRegistration $PAYCD_Completers $PAYCD_map
+
+$PAYCD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PAYCD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PAYCD_SelectMap = @{
+    "Select"=@("Unprotect-PAYCDData",
+               "Protect-PAYCDData",
+               "New-PAYCDCardValidationData",
+               "New-PAYCDMac",
+               "New-PAYCDPinData",
+               "Update-PAYCDEncryptData",
+               "Convert-PAYCDPinData",
+               "Test-PAYCDAuthRequestCryptogram",
+               "Test-PAYCDCardValidationData",
+               "Test-PAYCDMac",
+               "Test-PAYCDPinData")
+}
+
+_awsArgumentCompleterRegistration $PAYCD_SelectCompleters $PAYCD_SelectMap
 # Argument completions for service AWS Personalize
 
 

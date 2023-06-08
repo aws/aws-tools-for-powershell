@@ -62,6 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         public System.String S3Configuration_BucketName { get; set; }
         #endregion
         
+        #region Parameter Schema_CompositePartitionKey
+        /// <summary>
+        /// <para>
+        /// <para>A non-empty list of partition keys defining the attributes used to partition the table
+        /// data. The order of the list determines the partition hierarchy. The name and type
+        /// of each partition key as well as the partition key order cannot be changed after the
+        /// table is created. However, the enforcement level of each partition key can be changed.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.TimestreamWrite.Model.PartitionKey[] Schema_CompositePartitionKey { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -221,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             context.S3Configuration_ObjectKeyPrefix = this.S3Configuration_ObjectKeyPrefix;
             context.RetentionProperties_MagneticStoreRetentionPeriodInDay = this.RetentionProperties_MagneticStoreRetentionPeriodInDay;
             context.RetentionProperties_MemoryStoreRetentionPeriodInHour = this.RetentionProperties_MemoryStoreRetentionPeriodInHour;
+            if (this.Schema_CompositePartitionKey != null)
+            {
+                context.Schema_CompositePartitionKey = new List<Amazon.TimestreamWrite.Model.PartitionKey>(this.Schema_CompositePartitionKey);
+            }
             context.TableName = this.TableName;
             #if MODULAR
             if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
@@ -366,6 +384,25 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             {
                 request.RetentionProperties = null;
             }
+            
+             // populate Schema
+            var requestSchemaIsNull = true;
+            request.Schema = new Amazon.TimestreamWrite.Model.Schema();
+            List<Amazon.TimestreamWrite.Model.PartitionKey> requestSchema_schema_CompositePartitionKey = null;
+            if (cmdletContext.Schema_CompositePartitionKey != null)
+            {
+                requestSchema_schema_CompositePartitionKey = cmdletContext.Schema_CompositePartitionKey;
+            }
+            if (requestSchema_schema_CompositePartitionKey != null)
+            {
+                request.Schema.CompositePartitionKey = requestSchema_schema_CompositePartitionKey;
+                requestSchemaIsNull = false;
+            }
+             // determine if request.Schema should be set to null
+            if (requestSchemaIsNull)
+            {
+                request.Schema = null;
+            }
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
@@ -439,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             public System.String S3Configuration_ObjectKeyPrefix { get; set; }
             public System.Int64? RetentionProperties_MagneticStoreRetentionPeriodInDay { get; set; }
             public System.Int64? RetentionProperties_MemoryStoreRetentionPeriodInHour { get; set; }
+            public List<Amazon.TimestreamWrite.Model.PartitionKey> Schema_CompositePartitionKey { get; set; }
             public System.String TableName { get; set; }
             public System.Func<Amazon.TimestreamWrite.Model.UpdateTableResponse, UpdateTSWTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Table;

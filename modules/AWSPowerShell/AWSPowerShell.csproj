@@ -781,6 +781,12 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PaymentCryptography">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PaymentCryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PaymentCryptographyData">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PaymentCryptographyData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Personalize.dll</HintPath>
     </Reference>
@@ -1796,6 +1802,12 @@
     </Reference>
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PaymentCryptography">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PaymentCryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PaymentCryptographyData">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PaymentCryptographyData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Personalize.dll</HintPath>

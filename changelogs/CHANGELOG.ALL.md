@@ -1,3 +1,15 @@
+﻿### 4.1.349 (2023-06-08 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.565.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * Modified cmdlet Start-ATHSession: added parameter EngineConfiguration_SparkProperty.
+  * Amazon Payment Cryptography Control Plane. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PAYCC and can be listed using the command 'Get-AWSCmdletName -Service PAYCC'.
+  * Amazon Payment Cryptography Data. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PAYCD and can be listed using the command 'Get-AWSCmdletName -Service PAYCD'.
+  * Amazon Service Catalog
+    * Modified cmdlet Get-SCProvisioningArtifact: added parameter IncludeProvisioningArtifactParameter.
+  * Amazon Timestream Write
+    * Modified cmdlet New-TSWTable: added parameter Schema_CompositePartitionKey.
+    * Modified cmdlet Update-TSWTable: added parameter Schema_CompositePartitionKey.
+
 ### 4.1.348 (2023-06-07 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.564.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs

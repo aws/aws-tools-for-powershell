@@ -148,7 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para> Contains the data type of the measure value for the time-series data point. Default
-        /// type is <code>DOUBLE</code>. </para>
+        /// type is <code>DOUBLE</code>. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types">Data
+        /// types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
