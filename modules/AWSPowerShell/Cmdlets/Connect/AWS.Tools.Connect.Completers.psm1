@@ -292,7 +292,10 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNHoursOfOperation/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNPrompt/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNQueue/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNQuickConnect/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNRoutingProfile/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNSecurityProfile/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType")
@@ -381,7 +384,7 @@ $CONN_map = @{
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNQueue","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
@@ -577,7 +580,10 @@ $CONN_SelectMap = @{
                "Copy-CONNInstance",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNHoursOfOperation",
+               "Search-CONNPrompt",
                "Search-CONNQueue",
+               "Search-CONNQuickConnect",
                "Search-CONNRoutingProfile",
                "Search-CONNSecurityProfile",
                "Search-CONNUser",

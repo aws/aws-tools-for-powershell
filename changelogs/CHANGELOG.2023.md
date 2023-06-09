@@ -1,4 +1,11 @@
-﻿### 4.1.349 (2023-06-08 21:18Z)
+﻿### 4.1.350 (2023-06-09 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.566.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNHoursOfOperation leveraging the SearchHoursOfOperations service API.
+    * Added cmdlet Search-CONNPrompt leveraging the SearchPrompts service API.
+    * Added cmdlet Search-CONNQuickConnect leveraging the SearchQuickConnects service API.
+
+### 4.1.349 (2023-06-08 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.565.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Start-ATHSession: added parameter EngineConfiguration_SparkProperty.

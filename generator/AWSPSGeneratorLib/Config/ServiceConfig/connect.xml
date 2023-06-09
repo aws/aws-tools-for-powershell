@@ -552,7 +552,40 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchHoursOfOperations" OutputProperty="*" Verb="Search" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
+                <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
+                <Param Name="SearchCriteria_TagCondition_TagValue" NewName="SearchCriteria_TagCondition_TagValue" Alias="SC_TagCondition_TagValue" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchPrompts" OutputProperty="*" Verb="Search" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
+                <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
+                <Param Name="SearchCriteria_TagCondition_TagValue" NewName="SearchCriteria_TagCondition_TagValue" Alias="SC_TagCondition_TagValue" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchQueues" OutputProperty="*" Verb="Search" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
+                <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
+                <Param Name="SearchCriteria_TagCondition_TagValue" NewName="SearchCriteria_TagCondition_TagValue" Alias="SC_TagCondition_TagValue" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchQuickConnects" OutputProperty="*" Verb="Search" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />

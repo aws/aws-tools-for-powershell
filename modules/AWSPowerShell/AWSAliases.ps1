@@ -5630,8 +5630,14 @@ Set-Alias -Name CONN-ReplicateInstance -Value Copy-CONNInstance
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
+Set-Alias -Name CONN-SearchHoursOfOperations -Value Search-CONNHoursOfOperation
+Set-Alias -Name Search-CONNPrompts -Value Search-CONNPrompt
+Set-Alias -Name CONN-SearchPrompts -Value Search-CONNPrompt
 Set-Alias -Name Search-CONNQueues -Value Search-CONNQueue
 Set-Alias -Name CONN-SearchQueues -Value Search-CONNQueue
+Set-Alias -Name Search-CONNQuickConnects -Value Search-CONNQuickConnect
+Set-Alias -Name CONN-SearchQuickConnects -Value Search-CONNQuickConnect
 Set-Alias -Name Search-CONNRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name CONN-SearchRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile

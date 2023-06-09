@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.565.0",
+    "ProductVersion" : "3.7.566.0",
     "CoreVersion"    : "3.7.107.4",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.126.7",
+            "Version" : "3.7.127.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.4"
@@ -1082,7 +1082,7 @@
             "InPreview"               : false
         },
         "ACMPCA"                          : {
-            "Version" : "3.7.102.93",
+            "Version" : "3.7.102.94",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.4"
