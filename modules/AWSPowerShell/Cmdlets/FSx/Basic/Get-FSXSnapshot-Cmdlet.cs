@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class GetFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

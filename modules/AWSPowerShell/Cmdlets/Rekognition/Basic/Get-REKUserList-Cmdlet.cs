@@ -28,30 +28,26 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Returns metadata for faces in the specified collection. This metadata includes information
-    /// such as the bounding box coordinates, the confidence (that the bounding box contains
-    /// a face), and face ID. For an example, see Listing Faces in a Collection in the Amazon
-    /// Rekognition Developer Guide.
-    /// 
-    ///  
-    /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:ListFaces</code>
-    /// action.
-    /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns metadata of the User such as <code>UserID</code> in the specified collection.
+    /// Anonymous User (to reserve faces without any identity) is not returned as part of
+    /// this request. The results are sorted by system generated primary key ID. If the response
+    /// is truncated, <code>NextToken</code> is returned in the response that can be used
+    /// in the subsequent request to retrieve the next set of identities.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "REKFaceList")]
-    [OutputType("Amazon.Rekognition.Model.ListFacesResponse")]
-    [AWSCmdlet("Calls the Amazon Rekognition ListFaces API operation.", Operation = new[] {"ListFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.ListFacesResponse))]
-    [AWSCmdletOutput("Amazon.Rekognition.Model.ListFacesResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.ListFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "REKUserList")]
+    [OutputType("Amazon.Rekognition.Model.User")]
+    [AWSCmdlet("Calls the Amazon Rekognition ListUsers API operation.", Operation = new[] {"ListUsers"}, SelectReturnType = typeof(Amazon.Rekognition.Model.ListUsersResponse))]
+    [AWSCmdletOutput("Amazon.Rekognition.Model.User or Amazon.Rekognition.Model.ListUsersResponse",
+        "This cmdlet returns a collection of Amazon.Rekognition.Model.User objects.",
+        "The service call response (type Amazon.Rekognition.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetREKFaceListCmdlet : AmazonRekognitionClientCmdlet, IExecutor
+    public partial class GetREKUserListCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
         #region Parameter CollectionId
         /// <summary>
         /// <para>
-        /// <para>ID of the collection from which to list the faces.</para>
+        /// <para>The ID of an existing collection.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,31 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String CollectionId { get; set; }
         #endregion
         
-        #region Parameter FaceId
-        /// <summary>
-        /// <para>
-        /// <para>An array of face IDs to match when listing faces in a collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("FaceIds")]
-        public System.String[] FaceId { get; set; }
-        #endregion
-        
-        #region Parameter UserId
-        /// <summary>
-        /// <para>
-        /// <para>An array of user IDs to match when listing faces in a collection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String UserId { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of faces to return.</para>
+        /// <para>Maximum number of UsersID to return. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,12 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous response was incomplete (because there is more data to retrieve),
-        /// Amazon Rekognition returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of faces.</para>
+        /// <para>Pagingation token to receive the next set of UsersID.</para>
         /// </para>
         /// <para>
-        /// <br/><b>Note:</b> In the AWS.Tools.Rekognition module, this parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
         /// </para>
         /// </summary>
@@ -115,13 +88,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.ListFacesResponse).
-        /// Specifying the name of a property of type Amazon.Rekognition.Model.ListFacesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Users'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.ListUsersResponse).
+        /// Specifying the name of a property of type Amazon.Rekognition.Model.ListUsersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Users";
         #endregion
         
         #region Parameter PassThru
@@ -135,7 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #endregion
         
         #region Parameter NoAutoIteration
-        #if MODULAR
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
@@ -143,7 +115,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
-        #endif
         #endregion
         
         protected override void ProcessRecord()
@@ -159,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.ListFacesResponse, GetREKFaceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.ListUsersResponse, GetREKUserListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -178,13 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 WriteWarning("You are passing $null as a value for parameter CollectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.FaceId != null)
-            {
-                context.FaceId = new List<System.String>(this.FaceId);
-            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.UserId = this.UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,7 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
@@ -204,23 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Rekognition.Model.ListFacesRequest();
+            var request = new Amazon.Rekognition.Model.ListUsersRequest();
             
             if (cmdletContext.CollectionId != null)
             {
                 request.CollectionId = cmdletContext.CollectionId;
             }
-            if (cmdletContext.FaceId != null)
-            {
-                request.FaceIds = cmdletContext.FaceId;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
             }
             
             // Initialize loop variant and commence piping
@@ -269,57 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.Rekognition.Model.ListFacesRequest();
-            
-            if (cmdletContext.CollectionId != null)
-            {
-                request.CollectionId = cmdletContext.CollectionId;
-            }
-            if (cmdletContext.FaceId != null)
-            {
-                request.FaceIds = cmdletContext.FaceId;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
-            {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
-                {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
-            {
-                output = new CmdletOutput { ErrorResponse = e };
-            }
-            
-            return output;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -330,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private Amazon.Rekognition.Model.ListFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.ListFacesRequest request)
+        private Amazon.Rekognition.Model.ListUsersResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.ListUsersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "ListFaces");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "ListUsers");
             try
             {
                 #if DESKTOP
-                return client.ListFaces(request);
+                return client.ListUsers(request);
                 #elif CORECLR
-                return client.ListFacesAsync(request).GetAwaiter().GetResult();
+                return client.ListUsersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -359,12 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CollectionId { get; set; }
-            public List<System.String> FaceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String UserId { get; set; }
-            public System.Func<Amazon.Rekognition.Model.ListFacesResponse, GetREKFaceListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Rekognition.Model.ListUsersResponse, GetREKUserListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Users;
         }
         
     }

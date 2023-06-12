@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class UpdateFSXVolumeCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

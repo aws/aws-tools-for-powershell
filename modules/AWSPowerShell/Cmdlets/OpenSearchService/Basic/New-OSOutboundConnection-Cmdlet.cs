@@ -89,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String RemoteDomainInfo_AWSDomainInformation_DomainName { get; set; }
         #endregion
         
+        #region Parameter ConnectionProperties_Endpoint
+        /// <summary>
+        /// <para>
+        /// <important><para>The Endpoint attribute cannot be modified. </para></important><para>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectionProperties_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter LocalDomainInfo_AWSDomainInformation_OwnerId
         /// <summary>
         /// <para>
@@ -127,6 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RemoteDomainInfo_AWSDomainInformation_Region { get; set; }
+        #endregion
+        
+        #region Parameter CrossClusterSearch_SkipUnavailable
+        /// <summary>
+        /// <para>
+        /// <para>Status of SkipUnavailable param for outbound connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConnectionProperties_CrossClusterSearch_SkipUnavailable")]
+        [AWSConstantClassSource("Amazon.OpenSearchService.SkipUnavailableStatus")]
+        public Amazon.OpenSearchService.SkipUnavailableStatus CrossClusterSearch_SkipUnavailable { get; set; }
         #endregion
         
         #region Parameter Select
@@ -199,6 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #endif
             context.ConnectionMode = this.ConnectionMode;
+            context.CrossClusterSearch_SkipUnavailable = this.CrossClusterSearch_SkipUnavailable;
+            context.ConnectionProperties_Endpoint = this.ConnectionProperties_Endpoint;
             context.LocalDomainInfo_AWSDomainInformation_DomainName = this.LocalDomainInfo_AWSDomainInformation_DomainName;
             context.LocalDomainInfo_AWSDomainInformation_OwnerId = this.LocalDomainInfo_AWSDomainInformation_OwnerId;
             context.LocalDomainInfo_AWSDomainInformation_Region = this.LocalDomainInfo_AWSDomainInformation_Region;
@@ -228,6 +252,50 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.ConnectionMode != null)
             {
                 request.ConnectionMode = cmdletContext.ConnectionMode;
+            }
+            
+             // populate ConnectionProperties
+            var requestConnectionPropertiesIsNull = true;
+            request.ConnectionProperties = new Amazon.OpenSearchService.Model.ConnectionProperties();
+            System.String requestConnectionProperties_connectionProperties_Endpoint = null;
+            if (cmdletContext.ConnectionProperties_Endpoint != null)
+            {
+                requestConnectionProperties_connectionProperties_Endpoint = cmdletContext.ConnectionProperties_Endpoint;
+            }
+            if (requestConnectionProperties_connectionProperties_Endpoint != null)
+            {
+                request.ConnectionProperties.Endpoint = requestConnectionProperties_connectionProperties_Endpoint;
+                requestConnectionPropertiesIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.CrossClusterSearchConnectionProperties requestConnectionProperties_connectionProperties_CrossClusterSearch = null;
+            
+             // populate CrossClusterSearch
+            var requestConnectionProperties_connectionProperties_CrossClusterSearchIsNull = true;
+            requestConnectionProperties_connectionProperties_CrossClusterSearch = new Amazon.OpenSearchService.Model.CrossClusterSearchConnectionProperties();
+            Amazon.OpenSearchService.SkipUnavailableStatus requestConnectionProperties_connectionProperties_CrossClusterSearch_crossClusterSearch_SkipUnavailable = null;
+            if (cmdletContext.CrossClusterSearch_SkipUnavailable != null)
+            {
+                requestConnectionProperties_connectionProperties_CrossClusterSearch_crossClusterSearch_SkipUnavailable = cmdletContext.CrossClusterSearch_SkipUnavailable;
+            }
+            if (requestConnectionProperties_connectionProperties_CrossClusterSearch_crossClusterSearch_SkipUnavailable != null)
+            {
+                requestConnectionProperties_connectionProperties_CrossClusterSearch.SkipUnavailable = requestConnectionProperties_connectionProperties_CrossClusterSearch_crossClusterSearch_SkipUnavailable;
+                requestConnectionProperties_connectionProperties_CrossClusterSearchIsNull = false;
+            }
+             // determine if requestConnectionProperties_connectionProperties_CrossClusterSearch should be set to null
+            if (requestConnectionProperties_connectionProperties_CrossClusterSearchIsNull)
+            {
+                requestConnectionProperties_connectionProperties_CrossClusterSearch = null;
+            }
+            if (requestConnectionProperties_connectionProperties_CrossClusterSearch != null)
+            {
+                request.ConnectionProperties.CrossClusterSearch = requestConnectionProperties_connectionProperties_CrossClusterSearch;
+                requestConnectionPropertiesIsNull = false;
+            }
+             // determine if request.ConnectionProperties should be set to null
+            if (requestConnectionPropertiesIsNull)
+            {
+                request.ConnectionProperties = null;
             }
             
              // populate LocalDomainInfo
@@ -400,6 +468,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             public System.String ConnectionAlias { get; set; }
             public Amazon.OpenSearchService.ConnectionMode ConnectionMode { get; set; }
+            public Amazon.OpenSearchService.SkipUnavailableStatus CrossClusterSearch_SkipUnavailable { get; set; }
+            public System.String ConnectionProperties_Endpoint { get; set; }
             public System.String LocalDomainInfo_AWSDomainInformation_DomainName { get; set; }
             public System.String LocalDomainInfo_AWSDomainInformation_OwnerId { get; set; }
             public System.String LocalDomainInfo_AWSDomainInformation_Region { get; set; }

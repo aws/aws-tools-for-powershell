@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
     /// Updates the configuration of an existing data repository association on an Amazon
-    /// FSx for Lustre file system. Data repository associations are supported for all file
-    /// systems except for <code>Scratch_1</code> deployment type.
+    /// FSx for Lustre file system. Data repository associations are supported on all FSx
+    /// for Lustre 2.12 and newer file systems, excluding <code>scratch_1</code> deployment
+    /// type.
     /// </summary>
     [Cmdlet("Update", "FSXDataRepositoryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.DataRepositoryAssociation")]

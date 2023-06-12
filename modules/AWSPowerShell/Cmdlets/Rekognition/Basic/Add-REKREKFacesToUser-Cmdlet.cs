@@ -28,30 +28,62 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Returns metadata for faces in the specified collection. This metadata includes information
-    /// such as the bounding box coordinates, the confidence (that the bounding box contains
-    /// a face), and face ID. For an example, see Listing Faces in a Collection in the Amazon
-    /// Rekognition Developer Guide.
+    /// Associates one or more faces with an existing UserID. Takes an array of <code>FaceIds</code>.
+    /// Each <code>FaceId</code> that are present in the <code>FaceIds</code> list is associated
+    /// with the provided UserID. The maximum number of total <code>FaceIds</code> per UserID
+    /// is 100. 
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:ListFaces</code>
-    /// action.
-    /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The <code>UserMatchThreshold</code> parameter specifies the minimum user match confidence
+    /// required for the face to be associated with a UserID that has at least one <code>FaceID</code>
+    /// already associated. This ensures that the <code>FaceIds</code> are associated with
+    /// the right UserID. The value ranges from 0-100 and default value is 75. 
+    /// </para><para>
+    /// If successful, an array of <code>AssociatedFace</code> objects containing the associated
+    /// <code>FaceIds</code> is returned. If a given face is already associated with the given
+    /// <code>UserID</code>, it will be ignored and will not be returned in the response.
+    /// If a given face is already associated to a different <code>UserID</code>, isn't found
+    /// in the collection, doesn’t meet the <code>UserMatchThreshold</code>, or there are
+    /// already 100 faces associated with the <code>UserID</code>, it will be returned as
+    /// part of an array of <code>UnsuccessfulFaceAssociations.</code></para><para>
+    /// The <code>UserStatus</code> reflects the status of an operation which updates a UserID
+    /// representation with a list of given faces. The <code>UserStatus</code> can be: 
+    /// </para><ul><li><para>
+    /// ACTIVE - All associations or disassociations of FaceID(s) for a UserID are complete.
+    /// </para></li><li><para>
+    /// CREATED - A UserID has been created, but has no FaceID(s) associated with it.
+    /// </para></li><li><para>
+    /// UPDATING - A UserID is being updated and there are current associations or disassociations
+    /// of FaceID(s) taking place.
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "REKFaceList")]
-    [OutputType("Amazon.Rekognition.Model.ListFacesResponse")]
-    [AWSCmdlet("Calls the Amazon Rekognition ListFaces API operation.", Operation = new[] {"ListFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.ListFacesResponse))]
-    [AWSCmdletOutput("Amazon.Rekognition.Model.ListFacesResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.ListFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "REKREKFacesToUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Rekognition.Model.AssociateFacesResponse")]
+    [AWSCmdlet("Calls the Amazon Rekognition AssociateFaces API operation.", Operation = new[] {"AssociateFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.AssociateFacesResponse))]
+    [AWSCmdletOutput("Amazon.Rekognition.Model.AssociateFacesResponse",
+        "This cmdlet returns an Amazon.Rekognition.Model.AssociateFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetREKFaceListCmdlet : AmazonRekognitionClientCmdlet, IExecutor
+    public partial class AddREKREKFacesToUserCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>Idempotent token used to identify the request to <code>AssociateFaces</code>. If you
+        /// use the same token with multiple <code>AssociateFaces</code> requests, the same response
+        /// is returned. Use ClientRequestToken to prevent the same request from being processed
+        /// more than once.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
         
         #region Parameter CollectionId
         /// <summary>
         /// <para>
-        /// <para>ID of the collection from which to list the faces.</para>
+        /// <para>The ID of an existing collection containing the UserID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,10 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter FaceId
         /// <summary>
         /// <para>
-        /// <para>An array of face IDs to match when listing faces in a collection.</para>
+        /// <para>An array of FaceIDs to associate with the UserID.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("FaceIds")]
         public System.String[] FaceId { get; set; }
         #endregion
@@ -79,45 +118,36 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>An array of user IDs to match when listing faces in a collection.</para>
+        /// <para>The ID for the existing UserID.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter UserMatchThreshold
         /// <summary>
         /// <para>
-        /// <para>Maximum number of faces to return.</para>
+        /// <para>An optional value specifying the minimum confidence in the UserID match to return.
+        /// The default value is 75.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>If the previous response was incomplete (because there is more data to retrieve),
-        /// Amazon Rekognition returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of faces.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In the AWS.Tools.Rekognition module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.Single? UserMatchThreshold { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.ListFacesResponse).
-        /// Specifying the name of a property of type Amazon.Rekognition.Model.ListFacesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.AssociateFacesResponse).
+        /// Specifying the name of a property of type Amazon.Rekognition.Model.AssociateFacesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,22 +164,26 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter NoAutoIteration
-        #if MODULAR
+        #region Parameter Force
         /// <summary>
-        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
-        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
-        /// as the start point.
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter NoAutoIteration { get; set; }
-        #endif
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CollectionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-REKREKFacesToUser (AssociateFaces)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -159,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.ListFacesResponse, GetREKFaceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.AssociateFacesResponse, AddREKREKFacesToUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -171,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = (response, cmdlet) => this.CollectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientRequestToken = this.ClientRequestToken;
             context.CollectionId = this.CollectionId;
             #if MODULAR
             if (this.CollectionId == null && ParameterWasBound(nameof(this.CollectionId)))
@@ -182,9 +217,20 @@ namespace Amazon.PowerShell.Cmdlets.REK
             {
                 context.FaceId = new List<System.String>(this.FaceId);
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
+            #if MODULAR
+            if (this.FaceId == null && ParameterWasBound(nameof(this.FaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.UserId = this.UserId;
+            #if MODULAR
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UserMatchThreshold = this.UserMatchThreshold;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,87 +241,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region IExecutor Members
         
-        #if MODULAR
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            
-            // create request and set iteration invariants
-            var request = new Amazon.Rekognition.Model.ListFacesRequest();
-            
-            if (cmdletContext.CollectionId != null)
-            {
-                request.CollectionId = cmdletContext.CollectionId;
-            }
-            if (cmdletContext.FaceId != null)
-            {
-                request.FaceIds = cmdletContext.FaceId;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
-            }
-            
-            // Initialize loop variant and commence piping
-            var _nextToken = cmdletContext.NextToken;
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    
-                    _nextToken = response.NextToken;
-                }
-                catch (Exception e)
-                {
-                    output = new CmdletOutput { ErrorResponse = e };
-                }
-                
-                ProcessOutput(output);
-                
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
-            
-            if (useParameterSelect)
-            {
-                WriteObject(cmdletContext.Select(null, this));
-            }
-            
-            
-            return null;
-        }
-        #else
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Rekognition.Model.ListFacesRequest();
+            var request = new Amazon.Rekognition.Model.AssociateFacesRequest();
             
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
             if (cmdletContext.CollectionId != null)
             {
                 request.CollectionId = cmdletContext.CollectionId;
@@ -284,17 +259,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
             {
                 request.FaceIds = cmdletContext.FaceId;
             }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             if (cmdletContext.UserId != null)
             {
                 request.UserId = cmdletContext.UserId;
+            }
+            if (cmdletContext.UserMatchThreshold != null)
+            {
+                request.UserMatchThreshold = cmdletContext.UserMatchThreshold.Value;
             }
             
             CmdletOutput output;
@@ -319,7 +290,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             
             return output;
         }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -330,15 +300,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private Amazon.Rekognition.Model.ListFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.ListFacesRequest request)
+        private Amazon.Rekognition.Model.AssociateFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.AssociateFacesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "ListFaces");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "AssociateFaces");
             try
             {
                 #if DESKTOP
-                return client.ListFaces(request);
+                return client.AssociateFaces(request);
                 #elif CORECLR
-                return client.ListFacesAsync(request).GetAwaiter().GetResult();
+                return client.AssociateFacesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -358,12 +328,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientRequestToken { get; set; }
             public System.String CollectionId { get; set; }
             public List<System.String> FaceId { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
             public System.String UserId { get; set; }
-            public System.Func<Amazon.Rekognition.Model.ListFacesResponse, GetREKFaceListCmdlet, object> Select { get; set; } =
+            public System.Single? UserMatchThreshold { get; set; }
+            public System.Func<Amazon.Rekognition.Model.AssociateFacesResponse, AddREKREKFacesToUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

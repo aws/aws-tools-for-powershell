@@ -1193,7 +1193,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
+            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_inf2","ml_m4","ml_m5","ml_p2","ml_p3","ml_trn1","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
             break
         }
 

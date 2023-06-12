@@ -22,40 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.Rekognition;
+using Amazon.Rekognition.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Releases the file system lock from an Amazon FSx for OpenZFS file system.
+    /// Deletes the specified UserID within the collection. Faces that are associated with
+    /// the UserID are disassociated from the UserID before deleting the specified UserID.
+    /// If the specified <code>Collection</code> or <code>UserID</code> is already deleted
+    /// or not found, a <code>ResourceNotFoundException</code> will be thrown. If the action
+    /// is successful with a 200 response, an empty HTTP body is returned.
     /// </summary>
-    [Cmdlet("Clear", "FSXFileSystemNfsV3Lock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.FSx.Model.FileSystem")]
-    [AWSCmdlet("Calls the Amazon FSx ReleaseFileSystemNfsV3Locks API operation.", Operation = new[] {"ReleaseFileSystemNfsV3Locks"}, SelectReturnType = typeof(Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse))]
-    [AWSCmdletOutput("Amazon.FSx.Model.FileSystem or Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse",
-        "This cmdlet returns an Amazon.FSx.Model.FileSystem object.",
-        "The service call response (type Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "REKUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Rekognition DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteUserResponse))]
+    [AWSCmdletOutput("None or Amazon.Rekognition.Model.DeleteUserResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Rekognition.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ClearFSXFileSystemNfsV3LockCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class RemoveREKUserCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Idempotent token used to identify the request to <code>DeleteUser</code>. If you use
+        /// the same token with multiple <code>DeleteUser </code>requests, the same response is
+        /// returned. Use ClientRequestToken to prevent the same request from being processed
+        /// more than once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
         #endregion
         
-        #region Parameter FileSystemId
+        #region Parameter CollectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of an existing collection from which the UserID needs to be deleted. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +71,42 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileSystemId { get; set; }
+        public System.String CollectionId { get; set; }
+        #endregion
+        
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the UserID to be deleted. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'FileSystem'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse).
-        /// Specifying the name of a property of type Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.DeleteUserResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "FileSystem";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FileSystemId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CollectionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CollectionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollectionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -105,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileSystemId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Clear-FSXFileSystemNfsV3Lock (ReleaseFileSystemNfsV3Locks)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CollectionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-REKUser (DeleteUser)"))
             {
                 return;
             }
@@ -119,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse, ClearFSXFileSystemNfsV3LockCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DeleteUserResponse, RemoveREKUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,15 +149,22 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FileSystemId;
+                context.Select = (response, cmdlet) => this.CollectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
-            context.FileSystemId = this.FileSystemId;
+            context.CollectionId = this.CollectionId;
             #if MODULAR
-            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
+            if (this.CollectionId == null && ParameterWasBound(nameof(this.CollectionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CollectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UserId = this.UserId;
+            #if MODULAR
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,15 +181,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksRequest();
+            var request = new Amazon.Rekognition.Model.DeleteUserRequest();
             
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
-            if (cmdletContext.FileSystemId != null)
+            if (cmdletContext.CollectionId != null)
             {
-                request.FileSystemId = cmdletContext.FileSystemId;
+                request.CollectionId = cmdletContext.CollectionId;
+            }
+            if (cmdletContext.UserId != null)
+            {
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -196,15 +228,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksRequest request)
+        private Amazon.Rekognition.Model.DeleteUserResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteUserRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "ReleaseFileSystemNfsV3Locks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DeleteUser");
             try
             {
                 #if DESKTOP
-                return client.ReleaseFileSystemNfsV3Locks(request);
+                return client.DeleteUser(request);
                 #elif CORECLR
-                return client.ReleaseFileSystemNfsV3LocksAsync(request).GetAwaiter().GetResult();
+                return client.DeleteUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,9 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
-            public System.String FileSystemId { get; set; }
-            public System.Func<Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse, ClearFSXFileSystemNfsV3LockCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.FileSystem;
+            public System.String CollectionId { get; set; }
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.Rekognition.Model.DeleteUserResponse, RemoveREKUserCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

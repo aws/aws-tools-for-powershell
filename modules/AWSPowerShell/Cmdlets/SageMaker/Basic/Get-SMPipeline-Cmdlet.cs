@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PipelineName
         /// <summary>
         /// <para>
-        /// <para>The name of the pipeline to describe.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the pipeline to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

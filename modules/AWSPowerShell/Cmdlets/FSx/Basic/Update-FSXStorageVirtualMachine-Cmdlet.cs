@@ -28,7 +28,7 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Updates an Amazon FSx for ONTAP storage virtual machine (SVM).
+    /// Updates an FSx for ONTAP storage virtual machine (SVM).
     /// </summary>
     [Cmdlet("Update", "FSXStorageVirtualMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.StorageVirtualMachine")]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_DnsIp
         /// <summary>
         /// <para>
-        /// <para>A list of up to three IP addresses of DNS servers or domain controllers in the self-managed
-        /// AD directory.</para>
+        /// <para>A list of up to three DNS server or domain controller IP addresses in your self-managed
+        /// AD domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,11 +64,57 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] SelfManagedActiveDirectoryConfiguration_DnsIp { get; set; }
         #endregion
         
+        #region Parameter SelfManagedActiveDirectoryConfiguration_DomainName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an updated fully qualified domain name of your self-managed AD configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DomainName")]
+        public System.String SelfManagedActiveDirectoryConfiguration_DomainName { get; set; }
+        #endregion
+        
+        #region Parameter SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the updated name of the self-managed AD domain group whose members are granted
+        /// administrative privileges for the Amazon FSx resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup")]
+        public System.String SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup { get; set; }
+        #endregion
+        
+        #region Parameter ActiveDirectoryConfiguration_NetBiosName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an updated NetBIOS name of the AD computer object <code>NetBiosName</code>
+        /// to which an SVM is joined.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ActiveDirectoryConfiguration_NetBiosName { get; set; }
+        #endregion
+        
+        #region Parameter SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an updated fully qualified distinguished name of the organization unit within
+        /// your self-managed AD.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName")]
+        public System.String SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName { get; set; }
+        #endregion
+        
         #region Parameter SelfManagedActiveDirectoryConfiguration_Password
         /// <summary>
         /// <para>
-        /// <para>The password for the service account on your self-managed AD domain that Amazon FSx
-        /// will use to join to your AD domain.</para>
+        /// <para>Specifies the updated password for the service account on your self-managed AD domain.
+        /// Amazon FSx uses this account to join to your self-managed AD domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SvmAdminPassword
         /// <summary>
         /// <para>
-        /// <para>Enter a new SvmAdminPassword if you are updating it.</para>
+        /// <para>Specifies a new SvmAdminPassword.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_UserName
         /// <summary>
         /// <para>
-        /// <para>The user name for the service account on your self-managed AD domain that Amazon FSx
-        /// will use to join to your AD domain. This account must have the permission to join
-        /// computers to the domain in the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>.</para>
+        /// <para>Specifies the updated user name for the service account on your self-managed AD domain.
+        /// Amazon FSx uses this account to join to your self-managed AD domain.</para><para>This account must have the permissions required to join computers to the domain in
+        /// the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,10 +224,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.Select = (response, cmdlet) => this.StorageVirtualMachineId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ActiveDirectoryConfiguration_NetBiosName = this.ActiveDirectoryConfiguration_NetBiosName;
             if (this.SelfManagedActiveDirectoryConfiguration_DnsIp != null)
             {
                 context.SelfManagedActiveDirectoryConfiguration_DnsIp = new List<System.String>(this.SelfManagedActiveDirectoryConfiguration_DnsIp);
             }
+            context.SelfManagedActiveDirectoryConfiguration_DomainName = this.SelfManagedActiveDirectoryConfiguration_DomainName;
+            context.SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup = this.SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup;
+            context.SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName = this.SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName;
             context.SelfManagedActiveDirectoryConfiguration_Password = this.SelfManagedActiveDirectoryConfiguration_Password;
             context.SelfManagedActiveDirectoryConfiguration_UserName = this.SelfManagedActiveDirectoryConfiguration_UserName;
             context.ClientRequestToken = this.ClientRequestToken;
@@ -213,6 +263,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate ActiveDirectoryConfiguration
             var requestActiveDirectoryConfigurationIsNull = true;
             request.ActiveDirectoryConfiguration = new Amazon.FSx.Model.UpdateSvmActiveDirectoryConfiguration();
+            System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_NetBiosName = null;
+            if (cmdletContext.ActiveDirectoryConfiguration_NetBiosName != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_NetBiosName = cmdletContext.ActiveDirectoryConfiguration_NetBiosName;
+            }
+            if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_NetBiosName != null)
+            {
+                request.ActiveDirectoryConfiguration.NetBiosName = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_NetBiosName;
+                requestActiveDirectoryConfigurationIsNull = false;
+            }
             Amazon.FSx.Model.SelfManagedActiveDirectoryConfigurationUpdates requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration = null;
             
              // populate SelfManagedActiveDirectoryConfiguration
@@ -226,6 +286,36 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DnsIp != null)
             {
                 requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration.DnsIps = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DnsIp;
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfigurationIsNull = false;
+            }
+            System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainName = null;
+            if (cmdletContext.SelfManagedActiveDirectoryConfiguration_DomainName != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainName = cmdletContext.SelfManagedActiveDirectoryConfiguration_DomainName;
+            }
+            if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainName != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration.DomainName = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainName;
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfigurationIsNull = false;
+            }
+            System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup = null;
+            if (cmdletContext.SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup = cmdletContext.SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup;
+            }
+            if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration.FileSystemAdministratorsGroup = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup;
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfigurationIsNull = false;
+            }
+            System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName = null;
+            if (cmdletContext.SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName = cmdletContext.SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName;
+            }
+            if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration.OrganizationalUnitDistinguishedName = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName;
                 requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfigurationIsNull = false;
             }
             System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_Password = null;
@@ -336,7 +426,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ActiveDirectoryConfiguration_NetBiosName { get; set; }
             public List<System.String> SelfManagedActiveDirectoryConfiguration_DnsIp { get; set; }
+            public System.String SelfManagedActiveDirectoryConfiguration_DomainName { get; set; }
+            public System.String SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup { get; set; }
+            public System.String SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName { get; set; }
             public System.String SelfManagedActiveDirectoryConfiguration_Password { get; set; }
             public System.String SelfManagedActiveDirectoryConfiguration_UserName { get; set; }
             public System.String ClientRequestToken { get; set; }

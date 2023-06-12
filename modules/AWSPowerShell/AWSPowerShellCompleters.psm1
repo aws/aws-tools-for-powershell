@@ -1281,6 +1281,13 @@ $AMPUI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AmplifyUIBuilder.CodegenJobGenericDataSourceType
+        "New-AMPUICodegenJob/CodegenJobToCreate_GenericDataSchema_DataSourceType"
+        {
+            $v = "DataStore"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.FixedPosition
         {
             ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Cancel_Position_Fixed") -Or
@@ -1325,6 +1332,27 @@ $AMPUI_Completers = {
             break
         }
 
+        # Amazon.AmplifyUIBuilder.JSModule
+        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Module"
+        {
+            $v = "es2020","esnext"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.JSScript
+        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Script"
+        {
+            $v = "js","jsx","tsx"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.JSTarget
+        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Target"
+        {
+            $v = "es2015","es2020"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.LabelDecorator
         {
             ($_ -eq "New-AMPUIForm/FormToCreate_LabelDecorator") -Or
@@ -1354,6 +1382,10 @@ $AMPUI_Completers = {
 }
 
 $AMPUI_map = @{
+    "CodegenJobToCreate_GenericDataSchema_DataSourceType"=@("New-AMPUICodegenJob")
+    "CodegenJobToCreate_RenderConfig_React_Module"=@("New-AMPUICodegenJob")
+    "CodegenJobToCreate_RenderConfig_React_Script"=@("New-AMPUICodegenJob")
+    "CodegenJobToCreate_RenderConfig_React_Target"=@("New-AMPUICodegenJob")
     "FormToCreate_Cta_Cancel_Position_Fixed"=@("New-AMPUIForm")
     "FormToCreate_Cta_Clear_Position_Fixed"=@("New-AMPUIForm")
     "FormToCreate_Cta_Position"=@("New-AMPUIForm")
@@ -1431,15 +1463,18 @@ $AMPUI_SelectMap = @{
                "Export-AMPUIComponent",
                "Export-AMPUIForm",
                "Export-AMPUITheme",
+               "Get-AMPUICodegenJob",
                "Get-AMPUIComponent",
                "Get-AMPUIForm",
                "Get-AMPUIMetadata",
                "Get-AMPUITheme",
+               "Get-AMPUICodegenJobList",
                "Get-AMPUIComponentList",
                "Get-AMPUIFormList",
                "Get-AMPUIThemeList",
                "Write-AMPUIMetadataFlag",
                "Update-AMPUIToken",
+               "New-AMPUICodegenJob",
                "Update-AMPUIComponent",
                "Update-AMPUIForm",
                "Update-AMPUITheme")
@@ -41725,6 +41760,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.SkipUnavailableStatus
+        "New-OSOutboundConnection/ConnectionProperties_CrossClusterSearch_SkipUnavailable"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchService.TLSSecurityPolicy
         {
             ($_ -eq "New-OSDomain/DomainEndpointOptions_TLSSecurityPolicy") -Or
@@ -41761,6 +41803,7 @@ $OS_map = @{
     "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "ConnectionMode"=@("New-OSOutboundConnection")
+    "ConnectionProperties_CrossClusterSearch_SkipUnavailable"=@("New-OSOutboundConnection")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
@@ -47492,7 +47535,8 @@ $REK_Completers = {
         {
             ($_ -eq "Add-REKDetectedFacesToCollection/QualityFilter") -Or
             ($_ -eq "Compare-REKFace/QualityFilter") -Or
-            ($_ -eq "Search-REKFacesByImage/QualityFilter")
+            ($_ -eq "Search-REKFacesByImage/QualityFilter") -Or
+            ($_ -eq "Search-REKUsersByImage/QualityFilter")
         }
         {
             $v = "AUTO","HIGH","LOW","MEDIUM","NONE"
@@ -47511,7 +47555,7 @@ $REK_map = @{
     "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
-    "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")
+    "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage","Search-REKUsersByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
 }
 
@@ -47565,7 +47609,8 @@ $REK_SelectCompleters = {
 }
 
 $REK_SelectMap = @{
-    "Select"=@("Compare-REKFace",
+    "Select"=@("Add-REKREKFacesToUser",
+               "Compare-REKFace",
                "Copy-REKProjectVersion",
                "New-REKCollection",
                "New-REKDataset",
@@ -47573,6 +47618,7 @@ $REK_SelectMap = @{
                "New-REKProject",
                "New-REKProjectVersion",
                "New-REKStreamProcessor",
+               "New-REKUser",
                "Remove-REKCollection",
                "Remove-REKDataset",
                "Remove-REKFace",
@@ -47580,6 +47626,7 @@ $REK_SelectMap = @{
                "Remove-REKProjectPolicy",
                "Remove-REKProjectVersion",
                "Remove-REKStreamProcessor",
+               "Remove-REKUser",
                "Get-REKCollection",
                "Get-REKDataset",
                "Get-REKProject",
@@ -47591,6 +47638,7 @@ $REK_SelectMap = @{
                "Find-REKModerationLabel",
                "Find-REKProtectiveEquipment",
                "Find-REKText",
+               "Remove-REKREKFacesFromUser",
                "Invoke-REKDistributeDatasetEntry",
                "Get-REKCelebrityInfo",
                "Get-REKCelebrityRecognition",
@@ -47610,10 +47658,13 @@ $REK_SelectMap = @{
                "Get-REKProjectPolicyList",
                "Get-REKStreamProcessorList",
                "Get-REKResourceTag",
+               "Get-REKUserList",
                "Write-REKProjectPolicy",
                "Find-REKCelebrity",
                "Search-REKFace",
                "Search-REKFacesByImage",
+               "Search-REKUser",
+               "Search-REKUsersByImage",
                "Start-REKCelebrityRecognition",
                "Start-REKContentModeration",
                "Start-REKFaceDetection",
@@ -51570,7 +51621,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
+            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_inf2","ml_m4","ml_m5","ml_p2","ml_p3","ml_trn1","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
             break
         }
 

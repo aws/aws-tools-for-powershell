@@ -1,4 +1,24 @@
-﻿### 4.1.350 (2023-06-09 21:01Z)
+﻿### 4.1.351 (2023-06-12 22:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.567.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify UI Builder
+    * Added cmdlet Get-AMPUICodegenJob leveraging the GetCodegenJob service API.
+    * Added cmdlet Get-AMPUICodegenJobList leveraging the ListCodegenJobs service API.
+    * Added cmdlet New-AMPUICodegenJob leveraging the StartCodegenJob service API.
+  * Amazon FSx
+    * Modified cmdlet Update-FSXStorageVirtualMachine: added parameters ActiveDirectoryConfiguration_NetBiosName, SelfManagedActiveDirectoryConfiguration_DomainName, SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup and SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSOutboundConnection: added parameters ConnectionProperties_Endpoint and CrossClusterSearch_SkipUnavailable.
+  * Amazon Rekognition
+    * Added cmdlet Add-REKREKFacesToUser leveraging the AssociateFaces service API.
+    * Added cmdlet Get-REKUserList leveraging the ListUsers service API.
+    * Added cmdlet New-REKUser leveraging the CreateUser service API.
+    * Added cmdlet Remove-REKREKFacesFromUser leveraging the DisassociateFaces service API.
+    * Added cmdlet Remove-REKUser leveraging the DeleteUser service API.
+    * Added cmdlet Search-REKUser leveraging the SearchUsers service API.
+    * Added cmdlet Search-REKUsersByImage leveraging the SearchUsersByImage service API.
+    * Modified cmdlet Get-REKFaceList: added parameters FaceId and UserId.
+
+### 4.1.350 (2023-06-09 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.566.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNHoursOfOperation leveraging the SearchHoursOfOperations service API.

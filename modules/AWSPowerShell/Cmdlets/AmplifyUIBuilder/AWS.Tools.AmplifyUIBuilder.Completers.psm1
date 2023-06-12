@@ -80,6 +80,13 @@ $AMPUI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AmplifyUIBuilder.CodegenJobGenericDataSourceType
+        "New-AMPUICodegenJob/CodegenJobToCreate_GenericDataSchema_DataSourceType"
+        {
+            $v = "DataStore"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.FixedPosition
         {
             ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Cancel_Position_Fixed") -Or
@@ -124,6 +131,27 @@ $AMPUI_Completers = {
             break
         }
 
+        # Amazon.AmplifyUIBuilder.JSModule
+        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Module"
+        {
+            $v = "es2020","esnext"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.JSScript
+        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Script"
+        {
+            $v = "js","jsx","tsx"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.JSTarget
+        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Target"
+        {
+            $v = "es2015","es2020"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.LabelDecorator
         {
             ($_ -eq "New-AMPUIForm/FormToCreate_LabelDecorator") -Or
@@ -153,6 +181,10 @@ $AMPUI_Completers = {
 }
 
 $AMPUI_map = @{
+    "CodegenJobToCreate_GenericDataSchema_DataSourceType"=@("New-AMPUICodegenJob")
+    "CodegenJobToCreate_RenderConfig_React_Module"=@("New-AMPUICodegenJob")
+    "CodegenJobToCreate_RenderConfig_React_Script"=@("New-AMPUICodegenJob")
+    "CodegenJobToCreate_RenderConfig_React_Target"=@("New-AMPUICodegenJob")
     "FormToCreate_Cta_Cancel_Position_Fixed"=@("New-AMPUIForm")
     "FormToCreate_Cta_Clear_Position_Fixed"=@("New-AMPUIForm")
     "FormToCreate_Cta_Position"=@("New-AMPUIForm")
@@ -230,15 +262,18 @@ $AMPUI_SelectMap = @{
                "Export-AMPUIComponent",
                "Export-AMPUIForm",
                "Export-AMPUITheme",
+               "Get-AMPUICodegenJob",
                "Get-AMPUIComponent",
                "Get-AMPUIForm",
                "Get-AMPUIMetadata",
                "Get-AMPUITheme",
+               "Get-AMPUICodegenJobList",
                "Get-AMPUIComponentList",
                "Get-AMPUIFormList",
                "Get-AMPUIThemeList",
                "Write-AMPUIMetadataFlag",
                "Update-AMPUIToken",
+               "New-AMPUICodegenJob",
                "Update-AMPUIComponent",
                "Update-AMPUIForm",
                "Update-AMPUITheme")

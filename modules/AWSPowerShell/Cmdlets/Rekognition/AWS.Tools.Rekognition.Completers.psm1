@@ -147,7 +147,8 @@ $REK_Completers = {
         {
             ($_ -eq "Add-REKDetectedFacesToCollection/QualityFilter") -Or
             ($_ -eq "Compare-REKFace/QualityFilter") -Or
-            ($_ -eq "Search-REKFacesByImage/QualityFilter")
+            ($_ -eq "Search-REKFacesByImage/QualityFilter") -Or
+            ($_ -eq "Search-REKUsersByImage/QualityFilter")
         }
         {
             $v = "AUTO","HIGH","LOW","MEDIUM","NONE"
@@ -166,7 +167,7 @@ $REK_map = @{
     "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
-    "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")
+    "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage","Search-REKUsersByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
 }
 
@@ -220,7 +221,8 @@ $REK_SelectCompleters = {
 }
 
 $REK_SelectMap = @{
-    "Select"=@("Compare-REKFace",
+    "Select"=@("Add-REKREKFacesToUser",
+               "Compare-REKFace",
                "Copy-REKProjectVersion",
                "New-REKCollection",
                "New-REKDataset",
@@ -228,6 +230,7 @@ $REK_SelectMap = @{
                "New-REKProject",
                "New-REKProjectVersion",
                "New-REKStreamProcessor",
+               "New-REKUser",
                "Remove-REKCollection",
                "Remove-REKDataset",
                "Remove-REKFace",
@@ -235,6 +238,7 @@ $REK_SelectMap = @{
                "Remove-REKProjectPolicy",
                "Remove-REKProjectVersion",
                "Remove-REKStreamProcessor",
+               "Remove-REKUser",
                "Get-REKCollection",
                "Get-REKDataset",
                "Get-REKProject",
@@ -246,6 +250,7 @@ $REK_SelectMap = @{
                "Find-REKModerationLabel",
                "Find-REKProtectiveEquipment",
                "Find-REKText",
+               "Remove-REKREKFacesFromUser",
                "Invoke-REKDistributeDatasetEntry",
                "Get-REKCelebrityInfo",
                "Get-REKCelebrityRecognition",
@@ -265,10 +270,13 @@ $REK_SelectMap = @{
                "Get-REKProjectPolicyList",
                "Get-REKStreamProcessorList",
                "Get-REKResourceTag",
+               "Get-REKUserList",
                "Write-REKProjectPolicy",
                "Find-REKCelebrity",
                "Search-REKFace",
                "Search-REKFacesByImage",
+               "Search-REKUser",
+               "Search-REKUsersByImage",
                "Start-REKCelebrityRecognition",
                "Start-REKContentModeration",
                "Start-REKFaceDetection",

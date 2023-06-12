@@ -165,6 +165,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.SkipUnavailableStatus
+        "New-OSOutboundConnection/ConnectionProperties_CrossClusterSearch_SkipUnavailable"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchService.TLSSecurityPolicy
         {
             ($_ -eq "New-OSDomain/DomainEndpointOptions_TLSSecurityPolicy") -Or
@@ -201,6 +208,7 @@ $OS_map = @{
     "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "ConnectionMode"=@("New-OSOutboundConnection")
+    "ConnectionProperties_CrossClusterSearch_SkipUnavailable"=@("New-OSOutboundConnection")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")

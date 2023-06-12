@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class GetFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter FileSystemId
         /// <summary>
         /// <para>

@@ -21,6 +21,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateFaces" OutputProperty="*" Verb="Add" Noun="REKFacesToUser" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CompareFaces" OutputProperty="*" Verb="Compare" Noun="Face" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="SourceImage_S3Object_Bucket" NewName="SourceImageBucket" AutoApplyAlias="false" />
@@ -62,6 +66,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCollection" OutputProperty="StatusCode" Verb="Remove" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStreamProcessor" Verb="Remove" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -152,6 +164,10 @@
                 <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
                 <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFaces" OutputProperty="*" Verb="Remove" Noun="REKFacesFromUser" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DistributeDatasetEntries" Verb="Invoke" Noun="DistributeDatasetEntry" ShouldProcessTarget="Datasets" PipelineParameter="" NoPipelineParameter="false">
@@ -235,6 +251,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutProjectPolicy" OutputProperty="PolicyRevisionId" Verb="Write" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -259,6 +279,14 @@
                 <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
                 <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchUsersByImage" OutputProperty="*" Verb="Search" Noun="UsersByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCelebrityRecognition" OutputProperty="JobId" Verb="Start" Noun="CelebrityRecognition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">

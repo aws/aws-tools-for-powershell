@@ -74,6 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter OpenZFSConfiguration_AutomaticBackupRetentionDay
         /// <summary>
         /// <para>
@@ -197,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Specifies the file system deployment type. Single AZ deployment types are configured
         /// for redundancy within a single Availability Zone in an Amazon Web Services Region
         /// . Valid values are the following:</para><ul><li><para><code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities
-        /// of 64 - 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services
+        /// of 64 - 4,096 MBps. <code>Single_AZ_1</code> is available in all Amazon Web Services
         /// Regions where Amazon FSx for OpenZFS is available, except US West (Oregon).</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
-        /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
+        /// - 10,240 MBps using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
         /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)
         /// Amazon Web Services Regions.</para></li></ul><para>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
         /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File
@@ -259,8 +261,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the number of IOPS for the file system is using the system default
-        /// (<code>AUTOMATIC</code>) or was provisioned by the customer (<code>USER_PROVISIONED</code>).</para>
+        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
+        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
+        /// value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,9 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes
-        /// per second (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
-        /// or 4096 MB/s.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
-        /// 7680, or 10240 MB/s.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
+        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
+        /// or 4096 MBps.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
+        /// 7680, or 10240 MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

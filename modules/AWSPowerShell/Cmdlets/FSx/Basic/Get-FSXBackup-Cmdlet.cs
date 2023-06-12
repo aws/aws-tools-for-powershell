@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class GetFSXBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BackupId
         /// <summary>
         /// <para>

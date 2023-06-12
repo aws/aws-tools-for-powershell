@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter OntapConfiguration_AddRouteTableId
         /// <summary>
         /// <para>
@@ -173,7 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_FsxAdminPassword
         /// <summary>
         /// <para>
-        /// <para>The ONTAP administrative password for the <code>fsxadmin</code> user.</para>
+        /// <para>Update the password for the <code>fsxadmin</code> user by entering a new password.
+        /// You use the <code>fsxadmin</code> user to access the NetApp ONTAP CLI and REST API
+        /// to manage your file system resources. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing
+        /// resources using NetApp Applicaton</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,8 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the number of IOPS for the file system is using the system default
-        /// (<code>AUTOMATIC</code>) or was provisioned by the customer (<code>USER_PROVISIONED</code>).</para>
+        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
+        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
+        /// value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,8 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the number of IOPS for the file system is using the system default
-        /// (<code>AUTOMATIC</code>) or was provisioned by the customer (<code>USER_PROVISIONED</code>).</para>
+        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
+        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
+        /// value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// greater than the current storage capacity value. To increase storage capacity, the
         /// file system must have at least 16 MBps of throughput capacity. For more information,
         /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
-        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>.</para><para>For ONTAP file systems, the storage capacity target value must be at least 10 percent
+        /// storage capacity</a> in the <i>Amazon FSxfor Windows File Server User Guide</i>.</para><para>For ONTAP file systems, the storage capacity target value must be at least 10 percent
         /// greater than the current storage capacity value. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing
         /// storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
         /// Guide</i>.</para>
@@ -280,8 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_ThroughputCapacity
         /// <summary>
         /// <para>
-        /// <para>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes
-        /// per second (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps.</para>
+        /// <para>Enter a new value to change the amount of throughput capacity for the file system.
+        /// Throughput capacity is measured in megabytes per second (MBps). Valid values are 128,
+        /// 256, 512, 1024, 2048, and 4096 MBps. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing
+        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

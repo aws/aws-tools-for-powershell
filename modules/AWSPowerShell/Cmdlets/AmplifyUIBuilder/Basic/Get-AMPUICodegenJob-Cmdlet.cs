@@ -22,40 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.AmplifyUIBuilder;
+using Amazon.AmplifyUIBuilder.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
-    /// Updates the name of an Amazon FSx for OpenZFS snapshot.
+    /// Returns an existing code generation job.
     /// </summary>
-    [Cmdlet("Update", "FSXSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.FSx.Model.Snapshot")]
-    [AWSCmdlet("Calls the Amazon FSx UpdateSnapshot API operation.", Operation = new[] {"UpdateSnapshot"}, SelectReturnType = typeof(Amazon.FSx.Model.UpdateSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.FSx.Model.Snapshot or Amazon.FSx.Model.UpdateSnapshotResponse",
-        "This cmdlet returns an Amazon.FSx.Model.Snapshot object.",
-        "The service call response (type Amazon.FSx.Model.UpdateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AMPUICodegenJob")]
+    [OutputType("Amazon.AmplifyUIBuilder.Model.CodegenJob")]
+    [AWSCmdlet("Calls the AWS Amplify UI Builder GetCodegenJob API operation.", Operation = new[] {"GetCodegenJob"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse))]
+    [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.CodegenJob or Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse",
+        "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.CodegenJob object.",
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class GetAMPUICodegenJobCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter ClientRequestToken
+        #region Parameter AppId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the snapshot to update.</para>
+        /// <para>The unique ID of the Amplify app associated with the code generation job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,13 +54,31 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String AppId { get; set; }
         #endregion
         
-        #region Parameter SnapshotId
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The ID of the snapshot that you want to update, in the format <code>fsvolsnap-0123456789abcdef0</code>.</para>
+        /// <para>The name of the backend environment that is a part of the Amplify app associated with
+        /// the code generation job.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EnvironmentName { get; set; }
+        #endregion
+        
+        #region Parameter Id
+        /// <summary>
+        /// <para>
+        /// <para>The unique ID of the code generation job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,50 +89,34 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SnapshotId { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Snapshot'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.UpdateSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.FSx.Model.UpdateSnapshotResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Job'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse).
+        /// Specifying the name of a property of type Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Snapshot";
+        public string Select { get; set; } = "Job";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SnapshotId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SnapshotId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FSXSnapshot (UpdateSnapshot)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -136,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FSx.Model.UpdateSnapshotResponse, UpdateFSXSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse, GetAMPUICodegenJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,22 +135,28 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SnapshotId;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientRequestToken = this.ClientRequestToken;
-            context.Name = this.Name;
+            context.AppId = this.AppId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.AppId == null && ParameterWasBound(nameof(this.AppId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SnapshotId = this.SnapshotId;
+            context.EnvironmentName = this.EnvironmentName;
             #if MODULAR
-            if (this.SnapshotId == null && ParameterWasBound(nameof(this.SnapshotId)))
+            if (this.EnvironmentName == null && ParameterWasBound(nameof(this.EnvironmentName)))
             {
-                WriteWarning("You are passing $null as a value for parameter SnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Id = this.Id;
+            #if MODULAR
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -177,19 +173,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FSx.Model.UpdateSnapshotRequest();
+            var request = new Amazon.AmplifyUIBuilder.Model.GetCodegenJobRequest();
             
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.AppId != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.AppId = cmdletContext.AppId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.EnvironmentName != null)
             {
-                request.Name = cmdletContext.Name;
+                request.EnvironmentName = cmdletContext.EnvironmentName;
             }
-            if (cmdletContext.SnapshotId != null)
+            if (cmdletContext.Id != null)
             {
-                request.SnapshotId = cmdletContext.SnapshotId;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -224,15 +220,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.UpdateSnapshotResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.UpdateSnapshotRequest request)
+        private Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse CallAWSServiceOperation(IAmazonAmplifyUIBuilder client, Amazon.AmplifyUIBuilder.Model.GetCodegenJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "UpdateSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Amplify UI Builder", "GetCodegenJob");
             try
             {
                 #if DESKTOP
-                return client.UpdateSnapshot(request);
+                return client.GetCodegenJob(request);
                 #elif CORECLR
-                return client.UpdateSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.GetCodegenJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +248,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientRequestToken { get; set; }
-            public System.String Name { get; set; }
-            public System.String SnapshotId { get; set; }
-            public System.Func<Amazon.FSx.Model.UpdateSnapshotResponse, UpdateFSXSnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Snapshot;
+            public System.String AppId { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public System.String Id { get; set; }
+            public System.Func<Amazon.AmplifyUIBuilder.Model.GetCodegenJobResponse, GetAMPUICodegenJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Job;
         }
         
     }

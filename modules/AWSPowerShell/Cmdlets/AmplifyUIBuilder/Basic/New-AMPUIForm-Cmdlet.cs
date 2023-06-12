@@ -28,7 +28,7 @@ using Amazon.AmplifyUIBuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
-    /// Creates a new form for an Amplify app.
+    /// Creates a new form for an Amplify.
     /// </summary>
     [Cmdlet("New", "AMPUIForm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AmplifyUIBuilder.Model.Form")]

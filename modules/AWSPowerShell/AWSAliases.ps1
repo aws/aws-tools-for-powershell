@@ -446,10 +446,14 @@ Set-Alias -Name Export-AMPUIForms -Value Export-AMPUIForm
 Set-Alias -Name AMPUI-ExportForms -Value Export-AMPUIForm
 Set-Alias -Name Export-AMPUIThemes -Value Export-AMPUITheme
 Set-Alias -Name AMPUI-ExportThemes -Value Export-AMPUITheme
+Set-Alias -Name AMPUI-GetCodegenJob -Value Get-AMPUICodegenJob
 Set-Alias -Name AMPUI-GetComponent -Value Get-AMPUIComponent
 Set-Alias -Name AMPUI-GetForm -Value Get-AMPUIForm
 Set-Alias -Name AMPUI-GetMetadata -Value Get-AMPUIMetadata
 Set-Alias -Name AMPUI-GetTheme -Value Get-AMPUITheme
+Set-Alias -Name List-AMPUICodegenJobs -Value Get-AMPUICodegenJobList
+Set-Alias -Name List-AMPUICodegenJobList -Value Get-AMPUICodegenJobList
+Set-Alias -Name AMPUI-ListCodegenJobs -Value Get-AMPUICodegenJobList
 Set-Alias -Name List-AMPUIComponents -Value Get-AMPUIComponentList
 Set-Alias -Name List-AMPUIComponentList -Value Get-AMPUIComponentList
 Set-Alias -Name AMPUI-ListComponents -Value Get-AMPUIComponentList
@@ -463,6 +467,8 @@ Set-Alias -Name Put-AMPUIMetadataFlag -Value Write-AMPUIMetadataFlag
 Set-Alias -Name AMPUI-PutMetadataFlag -Value Write-AMPUIMetadataFlag
 Set-Alias -Name Refresh-AMPUIToken -Value Update-AMPUIToken
 Set-Alias -Name AMPUI-RefreshToken -Value Update-AMPUIToken
+Set-Alias -Name Start-AMPUICodegenJob -Value New-AMPUICodegenJob
+Set-Alias -Name AMPUI-StartCodegenJob -Value New-AMPUICodegenJob
 Set-Alias -Name AMPUI-UpdateComponent -Value Update-AMPUIComponent
 Set-Alias -Name AMPUI-UpdateForm -Value Update-AMPUIForm
 Set-Alias -Name AMPUI-UpdateTheme -Value Update-AMPUITheme
@@ -20487,6 +20493,9 @@ Set-Alias -Name RSS-UpdateNamespace -Value Update-RSSNamespace
 Set-Alias -Name RSS-UpdateSnapshot -Value Update-RSSSnapshot
 Set-Alias -Name RSS-UpdateUsageLimit -Value Update-RSSUsageLimit
 Set-Alias -Name RSS-UpdateWorkgroup -Value Update-RSSWorkgroup
+Set-Alias -Name Associate-REKFaces -Value Add-REKREKFacesToUser
+Set-Alias -Name Associate-REKREKFacesToUser -Value Add-REKREKFacesToUser
+Set-Alias -Name REK-AssociateFaces -Value Add-REKREKFacesToUser
 Set-Alias -Name Compare-REKFaces -Value Compare-REKFace
 Set-Alias -Name REK-CompareFaces -Value Compare-REKFace
 Set-Alias -Name REK-CopyProjectVersion -Value Copy-REKProjectVersion
@@ -20502,6 +20511,8 @@ Set-Alias -Name Create-REKProjectVersion -Value New-REKProjectVersion
 Set-Alias -Name REK-CreateProjectVersion -Value New-REKProjectVersion
 Set-Alias -Name Create-REKStreamProcessor -Value New-REKStreamProcessor
 Set-Alias -Name REK-CreateStreamProcessor -Value New-REKStreamProcessor
+Set-Alias -Name Create-REKUser -Value New-REKUser
+Set-Alias -Name REK-CreateUser -Value New-REKUser
 Set-Alias -Name Delete-REKCollection -Value Remove-REKCollection
 Set-Alias -Name REK-DeleteCollection -Value Remove-REKCollection
 Set-Alias -Name Delete-REKDataset -Value Remove-REKDataset
@@ -20517,6 +20528,8 @@ Set-Alias -Name Delete-REKProjectVersion -Value Remove-REKProjectVersion
 Set-Alias -Name REK-DeleteProjectVersion -Value Remove-REKProjectVersion
 Set-Alias -Name Delete-REKStreamProcessor -Value Remove-REKStreamProcessor
 Set-Alias -Name REK-DeleteStreamProcessor -Value Remove-REKStreamProcessor
+Set-Alias -Name Delete-REKUser -Value Remove-REKUser
+Set-Alias -Name REK-DeleteUser -Value Remove-REKUser
 Set-Alias -Name Describe-REKCollection -Value Get-REKCollection
 Set-Alias -Name REK-DescribeCollection -Value Get-REKCollection
 Set-Alias -Name Describe-REKDataset -Value Get-REKDataset
@@ -20545,6 +20558,9 @@ Set-Alias -Name Detect-REKProtectiveEquipment -Value Find-REKProtectiveEquipment
 Set-Alias -Name REK-DetectProtectiveEquipment -Value Find-REKProtectiveEquipment
 Set-Alias -Name Detect-REKText -Value Find-REKText
 Set-Alias -Name REK-DetectText -Value Find-REKText
+Set-Alias -Name Disassociate-REKFaces -Value Remove-REKREKFacesFromUser
+Set-Alias -Name Disassociate-REKREKFacesFromUser -Value Remove-REKREKFacesFromUser
+Set-Alias -Name REK-DisassociateFaces -Value Remove-REKREKFacesFromUser
 Set-Alias -Name Distribute-REKDatasetEntries -Value Invoke-REKDistributeDatasetEntry
 Set-Alias -Name Distribute-REKDistributeDatasetEntry -Value Invoke-REKDistributeDatasetEntry
 Set-Alias -Name REK-DistributeDatasetEntries -Value Invoke-REKDistributeDatasetEntry
@@ -20581,6 +20597,9 @@ Set-Alias -Name List-REKStreamProcessors -Value Get-REKStreamProcessorList
 Set-Alias -Name List-REKStreamProcessorList -Value Get-REKStreamProcessorList
 Set-Alias -Name REK-ListStreamProcessors -Value Get-REKStreamProcessorList
 Set-Alias -Name REK-ListTagsForResource -Value Get-REKResourceTag
+Set-Alias -Name List-REKUsers -Value Get-REKUserList
+Set-Alias -Name List-REKUserList -Value Get-REKUserList
+Set-Alias -Name REK-ListUsers -Value Get-REKUserList
 Set-Alias -Name Put-REKProjectPolicy -Value Write-REKProjectPolicy
 Set-Alias -Name REK-PutProjectPolicy -Value Write-REKProjectPolicy
 Set-Alias -Name Recognize-REKCelebrities -Value Find-REKCelebrity
@@ -20589,6 +20608,9 @@ Set-Alias -Name REK-RecognizeCelebrities -Value Find-REKCelebrity
 Set-Alias -Name Search-REKFaces -Value Search-REKFace
 Set-Alias -Name REK-SearchFaces -Value Search-REKFace
 Set-Alias -Name REK-SearchFacesByImage -Value Search-REKFacesByImage
+Set-Alias -Name Search-REKUsers -Value Search-REKUser
+Set-Alias -Name REK-SearchUsers -Value Search-REKUser
+Set-Alias -Name REK-SearchUsersByImage -Value Search-REKUsersByImage
 Set-Alias -Name REK-StartCelebrityRecognition -Value Start-REKCelebrityRecognition
 Set-Alias -Name REK-StartContentModeration -Value Start-REKContentModeration
 Set-Alias -Name REK-StartFaceDetection -Value Start-REKFaceDetection

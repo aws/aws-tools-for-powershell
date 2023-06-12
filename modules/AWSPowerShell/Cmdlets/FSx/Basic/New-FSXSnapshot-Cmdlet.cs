@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
