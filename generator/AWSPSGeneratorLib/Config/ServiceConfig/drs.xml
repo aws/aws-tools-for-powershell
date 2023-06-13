@@ -10,7 +10,9 @@
     <ServiceClient>AmazonDrsClient</ServiceClient>
     <ServiceModuleGuid>b4c9a30d-b1fd-4203-ade9-d69bcdd5da9e</ServiceModuleGuid>
     <PipelineParameter />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Associate" To="Register" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -18,6 +20,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateSourceNetworkStack" OutputProperty="Job" Verb="Register" Noun="SourceNetworkStack" ShouldProcessTarget="CfnStackName" PipelineParameter="SourceNetworkID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateExtendedSourceServer" OutputProperty="SourceServer" Verb="New" Noun="ExtendedSourceServer" ShouldProcessTarget="SourceServerArn" PipelineParameter="SourceServerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -27,6 +33,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="StagingAreaSubnetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSourceNetwork" OutputProperty="SourceNetworkID" Verb="New" Noun="SourceNetwork" ShouldProcessTarget="VpcID" PipelineParameter="VpcID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,6 +53,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteReplicationConfigurationTemplate" Verb="Remove" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="ReplicationConfigurationTemplateID" PipelineParameter="ReplicationConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSourceNetwork" Verb="Remove" Noun="SourceNetwork" ShouldProcessTarget="SourceNetworkID" PipelineParameter="SourceNetworkID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -74,6 +88,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSourceNetworks" OutputProperty="Items" Verb="Get" Noun="SourceNetwork" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSourceServers" OutputProperty="Items" Verb="Get" Noun="SourceServer" PipelineParameter="Filters_HardwareId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +101,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisconnectSourceServer" OutputProperty="*" Verb="Disconnect" Noun="SourceServer" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportSourceNetworkCfnTemplate" OutputProperty="S3DestinationUrl" Verb="Export" Noun="SourceNetworkCfnTemplate" ShouldProcessTarget="SourceNetworkID" PipelineParameter="SourceNetworkID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -134,11 +156,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartSourceNetworkRecovery" OutputProperty="Job" Verb="Start" Noun="SourceNetworkRecovery" ShouldProcessTarget="DeployAsNew" PipelineParameter="DeployAsNew" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSourceNetworkReplication" OutputProperty="SourceNetwork" Verb="Start" Noun="SourceNetworkReplication" ShouldProcessTarget="SourceNetworkID" PipelineParameter="SourceNetworkID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopFailback" Verb="Stop" Noun="Failback" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopReplication" OutputProperty="SourceServer" Verb="Stop" Noun="Replication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopSourceNetworkReplication" OutputProperty="SourceNetwork" Verb="Stop" Noun="SourceNetworkReplication" ShouldProcessTarget="SourceNetworkID" PipelineParameter="SourceNetworkID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

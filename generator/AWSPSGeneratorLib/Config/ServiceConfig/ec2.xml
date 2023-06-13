@@ -354,6 +354,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceConnectEndpoint" OutputProperty="InstanceConnectEndpoint" Verb="New" Noun="InstanceConnectEndpoint" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInstanceEventWindow" OutputProperty="InstanceEventWindow" Verb="New" Noun="InstanceEventWindow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -679,6 +683,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFpgaImage" OutputProperty="Return" Verb="Remove" Noun="FpgaImage" ShouldProcessTarget="FpgaImageId" PipelineParameter="FpgaImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstanceConnectEndpoint" OutputProperty="InstanceConnectEndpoint" Verb="Remove" Noun="InstanceConnectEndpoint" ShouldProcessTarget="InstanceConnectEndpointId" PipelineParameter="InstanceConnectEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1150,6 +1158,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceAttribute" OutputProperty="InstanceAttribute" Verb="Get" Noun="InstanceAttribute" PositionalParameters="Attribute" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceConnectEndpoints" OutputProperty="InstanceConnectEndpoints" Verb="Get" Noun="InstanceConnectEndpoint" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

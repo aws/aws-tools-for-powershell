@@ -29,8 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Returns metadata about a query, including query run time in milliseconds, number of
-    /// events scanned and matched, and query status. You must specify an ARN for <code>EventDataStore</code>,
-    /// and a value for <code>QueryID</code>.
+    /// events scanned and matched, and query status. If the query results were delivered
+    /// to an S3 bucket, the response also provides the S3 URI and the delivery status.
+    /// 
+    ///  
+    /// <para>
+    /// You must specify either a <code>QueryID</code> or a <code>QueryAlias</code>. Specifying
+    /// the <code>QueryAlias</code> parameter returns information about the last query run
+    /// for the alias.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CTQuery")]
     [OutputType("Amazon.CloudTrail.Model.DescribeQueryResponse")]
@@ -41,20 +48,23 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        #region Parameter QueryAlias
+        /// <summary>
+        /// <para>
+        /// <para> The alias that identifies a query template. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryAlias { get; set; }
+        #endregion
+        
         #region Parameter QueryId
         /// <summary>
         /// <para>
         /// <para>The query ID.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryId { get; set; }
         #endregion
         
@@ -120,13 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.QueryAlias = this.QueryAlias;
             context.QueryId = this.QueryId;
-            #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.QueryAlias != null)
+            {
+                request.QueryAlias = cmdletContext.QueryAlias;
+            }
             if (cmdletContext.QueryId != null)
             {
                 request.QueryId = cmdletContext.QueryId;
@@ -216,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             [System.ObsoleteAttribute]
             public System.String EventDataStore { get; set; }
+            public System.String QueryAlias { get; set; }
             public System.String QueryId { get; set; }
             public System.Func<Amazon.CloudTrail.Model.DescribeQueryResponse, GetCTQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

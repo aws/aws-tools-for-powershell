@@ -111,6 +111,13 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.RuleStatus
+        "New-SHUBAutomationRule/RuleStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SecurityHub.SeverityLabel
         "Update-SHUBFindingsBatch/Severity_Label"
         {
@@ -145,6 +152,7 @@ $SHUB_map = @{
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
     "RecordState"=@("Update-SHUBFinding")
+    "RuleStatus"=@("New-SHUBAutomationRule")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
     "VerificationState"=@("Update-SHUBFindingsBatch")
     "Workflow_Status"=@("Update-SHUBFindingsBatch")
@@ -202,14 +210,18 @@ $SHUB_SelectCompleters = {
 $SHUB_SelectMap = @{
     "Select"=@("Confirm-SHUBAdministratorInvitation",
                "Confirm-SHUBInvitation",
+               "Remove-SHUBDeleteAutomationRule",
                "Disable-SHUBStandardsBatch",
                "Enable-SHUBStandardsBatch",
+               "Get-SHUBGetAutomationRule",
                "Get-SHUBGetSecurityControl",
                "Get-SHUBGetStandardsControlAssociation",
                "Import-SHUBFindingsBatch",
+               "Edit-SHUBUpdateAutomationRule",
                "Update-SHUBFindingsBatch",
                "Edit-SHUBUpdateStandardsControlAssociation",
                "New-SHUBActionTarget",
+               "New-SHUBAutomationRule",
                "New-SHUBFindingAggregator",
                "New-SHUBInsight",
                "New-SHUBMember",
@@ -245,6 +257,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
                "Send-SHUBMemberInvitation",
+               "Get-SHUBAutomationRuleList",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBInvitationList",

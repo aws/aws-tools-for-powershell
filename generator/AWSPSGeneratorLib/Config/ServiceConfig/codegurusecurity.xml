@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codegurusecurity</C2jFilename>
+    <AssemblyName>CodeGuruSecurity</AssemblyName>
+    <ServiceNounPrefix>CGS</ServiceNounPrefix>
+    <ServiceName>Amazon CodeGuru Security</ServiceName>
+    <ServiceClientInterface>IAmazonCodeGuruSecurity</ServiceClientInterface>
+    <ServiceClient>AmazonCodeGuruSecurityClient</ServiceClient>
+    <ServiceModuleGuid>0ec4c22a-773d-48f8-a24d-35ed83758d47</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetFindings" OutputProperty="*" Verb="Get" Noun="GetFinding" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateScan" OutputProperty="*" Verb="New" Noun="Scan" ShouldProcessTarget="ScanName" PipelineParameter="ScanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUploadUrl" OutputProperty="*" Verb="New" Noun="UploadUrl" ShouldProcessTarget="ScanName" PipelineParameter="ScanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountConfiguration" OutputProperty="EncryptionConfig" Verb="Get" Noun="AccountConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFindings" OutputProperty="Findings" Verb="Get" Noun="Finding" PipelineParameter="ScanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricsSummary" OutputProperty="MetricsSummary" Verb="Get" Noun="MetricsSummary" PipelineParameter="Date" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetScan" OutputProperty="*" Verb="Get" Noun="Scan" PipelineParameter="ScanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFindingsMetrics" OutputProperty="FindingsMetrics" Verb="Get" Noun="FindingsMetricList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScans" OutputProperty="Summaries" Verb="Get" Noun="ScanList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountConfiguration" OutputProperty="EncryptionConfig" Verb="Update" Noun="AccountConfiguration" ShouldProcessTarget="EncryptionConfig_KmsKeyArn" PipelineParameter="EncryptionConfig_KmsKeyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String PillarId { get; set; }
         #endregion
         
+        #region Parameter QuestionPriority
+        /// <summary>
+        /// <para>
+        /// <para>The priority of the question.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.QuestionPriority")]
+        public Amazon.WellArchitected.QuestionPriority QuestionPriority { get; set; }
+        #endregion
+        
         #region Parameter WorkloadId
         /// <summary>
         /// <para>
@@ -171,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             context.MilestoneNumber = this.MilestoneNumber;
             context.NextToken = this.NextToken;
             context.PillarId = this.PillarId;
+            context.QuestionPriority = this.QuestionPriority;
             context.WorkloadId = this.WorkloadId;
             #if MODULAR
             if (this.WorkloadId == null && ParameterWasBound(nameof(this.WorkloadId)))
@@ -213,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.PillarId != null)
             {
                 request.PillarId = cmdletContext.PillarId;
+            }
+            if (cmdletContext.QuestionPriority != null)
+            {
+                request.QuestionPriority = cmdletContext.QuestionPriority;
             }
             if (cmdletContext.WorkloadId != null)
             {
@@ -284,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public System.Int32? MilestoneNumber { get; set; }
             public System.String NextToken { get; set; }
             public System.String PillarId { get; set; }
+            public Amazon.WellArchitected.QuestionPriority QuestionPriority { get; set; }
             public System.String WorkloadId { get; set; }
             public System.Func<Amazon.WellArchitected.Model.ListLensReviewImprovementsResponse, GetWATLensReviewImprovementListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

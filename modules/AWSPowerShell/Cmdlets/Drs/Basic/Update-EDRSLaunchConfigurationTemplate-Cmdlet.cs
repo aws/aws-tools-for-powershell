@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? CopyTag { get; set; }
         #endregion
         
+        #region Parameter ExportBucketArn
+        /// <summary>
+        /// <para>
+        /// <para>S3 bucket ARN to export Source Network templates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExportBucketArn { get; set; }
+        #endregion
+        
         #region Parameter LaunchConfigurationTemplateID
         /// <summary>
         /// <para>
@@ -176,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CopyPrivateIp = this.CopyPrivateIp;
             context.CopyTag = this.CopyTag;
+            context.ExportBucketArn = this.ExportBucketArn;
             context.LaunchConfigurationTemplateID = this.LaunchConfigurationTemplateID;
             #if MODULAR
             if (this.LaunchConfigurationTemplateID == null && ParameterWasBound(nameof(this.LaunchConfigurationTemplateID)))
@@ -209,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.CopyTag != null)
             {
                 request.CopyTags = cmdletContext.CopyTag.Value;
+            }
+            if (cmdletContext.ExportBucketArn != null)
+            {
+                request.ExportBucketArn = cmdletContext.ExportBucketArn;
             }
             if (cmdletContext.LaunchConfigurationTemplateID != null)
             {
@@ -304,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             public System.Boolean? CopyPrivateIp { get; set; }
             public System.Boolean? CopyTag { get; set; }
+            public System.String ExportBucketArn { get; set; }
             public System.String LaunchConfigurationTemplateID { get; set; }
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }

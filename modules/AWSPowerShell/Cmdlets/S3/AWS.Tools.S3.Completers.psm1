@@ -308,7 +308,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
         }
         {
-            $v = "","AES256","aws:kms"
+            $v = "","AES256","aws:kms","aws:kms:dsse"
             break
         }
 

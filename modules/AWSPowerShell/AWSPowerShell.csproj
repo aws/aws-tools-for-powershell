@@ -271,6 +271,9 @@
     <Reference Include="AWSSDK.CodeGuruReviewer">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeGuruReviewer.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeGuruSecurity">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeGuruSecurity.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
@@ -1036,6 +1039,9 @@
     <Reference Include="AWSSDK.Translate">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Translate.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.VerifiedPermissions">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VerifiedPermissions.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.VoiceID">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VoiceID.dll</HintPath>
     </Reference>
@@ -1292,6 +1298,9 @@
     </Reference>
     <Reference Include="AWSSDK.CodeGuruReviewer">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeGuruReviewer.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeGuruSecurity">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeGuruSecurity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodePipeline.dll</HintPath>
@@ -2057,6 +2066,9 @@
     </Reference>
     <Reference Include="AWSSDK.Translate">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Translate.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.VerifiedPermissions">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.VerifiedPermissions.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.VoiceID">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.VoiceID.dll</HintPath>

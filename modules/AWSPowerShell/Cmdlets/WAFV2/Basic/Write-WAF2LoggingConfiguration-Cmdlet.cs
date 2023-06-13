@@ -139,10 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingConfiguration_RedactedField
         /// <summary>
         /// <para>
-        /// <para>The parts of the request that you want to keep out of the logs. For example, if you
-        /// redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the logs
-        /// will be <code>REDACTED</code>. </para><note><para>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>,
-        /// <code>SingleHeader</code>, <code>Method</code>, and <code>JsonBody</code>.</para></note>
+        /// <para>The parts of the request that you want to keep out of the logs.</para><para>For example, if you redact the <code>SingleHeader</code> field, the <code>HEADER</code>
+        /// field in the logs will be <code>REDACTED</code> for all rules that use the <code>SingleHeader</code><code>FieldToMatch</code> setting. </para><para>Redaction applies only to the component that's specified in the rule's <code>FieldToMatch</code>
+        /// setting, so the <code>SingleHeader</code> redaction doesn't apply to rules that use
+        /// the <code>Headers</code><code>FieldToMatch</code>.</para><note><para>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>,
+        /// <code>SingleHeader</code>, and <code>Method</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

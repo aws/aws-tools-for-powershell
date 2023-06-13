@@ -127,7 +127,7 @@ $EDRS_Completers = {
             ($_ -eq "Update-EDRSReplicationConfigurationTemplate/EbsEncryption")
         }
         {
-            $v = "CUSTOM","DEFAULT"
+            $v = "CUSTOM","DEFAULT","NONE"
             break
         }
 
@@ -209,13 +209,16 @@ $EDRS_SelectCompleters = {
 }
 
 $EDRS_SelectMap = @{
-    "Select"=@("New-EDRSExtendedSourceServer",
+    "Select"=@("Register-EDRSSourceNetworkStack",
+               "New-EDRSExtendedSourceServer",
                "New-EDRSLaunchConfigurationTemplate",
                "New-EDRSReplicationConfigurationTemplate",
+               "New-EDRSSourceNetwork",
                "Remove-EDRSJob",
                "Remove-EDRSLaunchConfigurationTemplate",
                "Remove-EDRSRecoveryInstance",
                "Remove-EDRSReplicationConfigurationTemplate",
+               "Remove-EDRSSourceNetwork",
                "Remove-EDRSSourceServer",
                "Get-EDRSJobLogItem",
                "Get-EDRSJob",
@@ -223,9 +226,11 @@ $EDRS_SelectMap = @{
                "Get-EDRSRecoveryInstance",
                "Get-EDRSRecoverySnapshot",
                "Get-EDRSReplicationConfigurationTemplate",
+               "Get-EDRSSourceNetwork",
                "Get-EDRSSourceServer",
                "Disconnect-EDRSRecoveryInstance",
                "Disconnect-EDRSSourceServer",
+               "Export-EDRSSourceNetworkCfnTemplate",
                "Get-EDRSFailbackReplicationConfiguration",
                "Get-EDRSLaunchConfiguration",
                "Get-EDRSReplicationConfiguration",
@@ -238,8 +243,11 @@ $EDRS_SelectMap = @{
                "Start-EDRSFailbackLaunch",
                "Start-EDRSRecovery",
                "Start-EDRSReplication",
+               "Start-EDRSSourceNetworkRecovery",
+               "Start-EDRSSourceNetworkReplication",
                "Stop-EDRSFailback",
                "Stop-EDRSReplication",
+               "Stop-EDRSSourceNetworkReplication",
                "Add-EDRSResourceTag",
                "Stop-EDRSRecoveryInstance",
                "Remove-EDRSResourceTag",

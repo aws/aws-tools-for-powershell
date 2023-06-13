@@ -41,27 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
     /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
-    /// cannot recover an Elastic IP address that you released after it is allocated to another
-    /// Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic.
-    /// To attempt to recover an Elastic IP address that you released, specify it in this
-    /// operation.
-    /// </para><para>
-    /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-    /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
-    /// Elastic IP addresses for EC2-VPC per Region.
+    /// If you release an Elastic IP address, you might be able to recover it. You cannot
+    /// recover an Elastic IP address that you released after it is allocated to another Amazon
+    /// Web Services account. To attempt to recover an Elastic IP address that you released,
+    /// specify it in this operation.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// You can allocate a carrier IP address which is a public IP address from a telecommunication
     /// carrier, to a network interface which resides in a subnet in a Wavelength Zone (for
-    /// example an EC2 instance). 
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// example an EC2 instance).
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AllocateAddressResponse")]
@@ -75,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Address
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.</para>
+        /// <para>The Elastic IP address to recover or an IPv4 address from an address pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the Elastic IP address is for use with instances in a VPC or instances
-        /// in EC2-Classic.</para><para>Default: If the Region supports EC2-Classic, the default is <code>standard</code>.
-        /// Otherwise, the default is <code>vpc</code>.</para>
+        /// <para>The network (<code>vpc</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

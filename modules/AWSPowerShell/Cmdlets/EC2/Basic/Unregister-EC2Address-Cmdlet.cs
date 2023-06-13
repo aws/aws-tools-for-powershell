@@ -33,14 +33,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-    /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note><para>
     /// This is an idempotent operation. If you perform the operation more than once, Amazon
     /// EC2 doesn't return an error.
     /// </para>
@@ -58,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AssociationId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The association ID. Required for EC2-VPC.</para>
+        /// <para>The association ID. This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -68,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PublicIp
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</para>
+        /// <para>Deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

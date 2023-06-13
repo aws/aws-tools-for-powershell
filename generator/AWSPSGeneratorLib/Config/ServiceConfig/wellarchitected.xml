@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateProfiles" Verb="Register" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLensShare" OutputProperty="ShareId" Verb="New" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +35,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMilestone" OutputProperty="*" Verb="New" Noun="Milestone" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="*" Verb="New" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ProfileName" NewName="Name" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProfileShare" OutputProperty="*" Verb="New" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,6 +64,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProfileShare" Verb="Remove" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkload" Verb="Remove" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -59,6 +81,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateLenses" Verb="Unregister" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Remove-WATLense">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateProfiles" Verb="Unregister" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +117,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMilestone" OutputProperty="*" Verb="Get" Noun="Milestone" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileTemplate" OutputProperty="ProfileTemplate" Verb="Get" Noun="ProfileTemplate" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,6 +172,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileNotifications" OutputProperty="NotificationSummaries" Verb="Get" Noun="ProfileNotificationList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileShares" OutputProperty="ProfileShareSummaries" Verb="Get" Noun="ProfileShareList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListShareInvitations" OutputProperty="ShareInvitationSummaries" Verb="Get" Noun="ShareInvitationList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -174,6 +220,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfile" OutputProperty="Profile" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateShareInvitation" OutputProperty="ShareInvitation" Verb="Update" Noun="ShareInvitation" ShouldProcessTarget="ShareInvitationId" PipelineParameter="ShareInvitationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -187,6 +237,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpgradeLensReview" Verb="Convert" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradeProfileVersion" Verb="Update" Noun="ProfileVersion" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

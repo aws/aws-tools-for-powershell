@@ -1,0 +1,3 @@
+﻿# VerifiedPermissions
+
+Export-ModuleMember -Alias *

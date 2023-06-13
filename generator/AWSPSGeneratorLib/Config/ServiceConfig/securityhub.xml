@@ -27,11 +27,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteAutomationRules" OutputProperty="*" Verb="Remove" Noun="DeleteAutomationRule" ShouldProcessTarget="AutomationRulesArns" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDisableStandards" OutputProperty="StandardsSubscriptions" Verb="Disable" Noun="StandardsBatch" ShouldProcessTarget="StandardsSubscriptionArns" PipelineParameter="StandardsSubscriptionArns" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchEnableStandards" OutputProperty="StandardsSubscriptions" Verb="Enable" Noun="StandardsBatch" ShouldProcessTarget="StandardsSubscriptionRequests" PipelineParameter="StandardsSubscriptionRequests" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAutomationRules" OutputProperty="*" Verb="Get" Noun="GetAutomationRule" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateAutomationRules" OutputProperty="*" Verb="Edit" Noun="UpdateAutomationRule" ShouldProcessTarget="UpdateAutomationRulesRequestItems" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdateFindings" OutputProperty="*" Verb="Update" Noun="FindingsBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateActionTarget" OutputProperty="ActionTargetArn" Verb="New" Noun="ActionTarget" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutomationRule" OutputProperty="RuleArn" Verb="New" Noun="AutomationRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -198,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InviteMembers" OutputProperty="UnprocessedAccounts" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationRules" OutputProperty="AutomationRulesMetadata" Verb="Get" Noun="AutomationRuleList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

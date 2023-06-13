@@ -128,6 +128,23 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.ProfileOwnerType
+        "Get-WATProfileList/ProfileOwnerType"
+        {
+            $v = "SELF","SHARED"
+            break
+        }
+
+        # Amazon.WellArchitected.QuestionPriority
+        {
+            ($_ -eq "Get-WATAnswerList/QuestionPriority") -Or
+            ($_ -eq "Get-WATLensReviewImprovementList/QuestionPriority")
+        }
+        {
+            $v = "NONE","PRIORITIZED"
+            break
+        }
+
         # Amazon.WellArchitected.ReportFormat
         "Get-WATConsolidatedReport/Format"
         {
@@ -145,13 +162,14 @@ $WAT_Completers = {
         # Amazon.WellArchitected.ShareResourceType
         "Get-WATShareInvitationList/ShareResourceType"
         {
-            $v = "LENS","WORKLOAD"
+            $v = "LENS","PROFILE","WORKLOAD"
             break
         }
 
         # Amazon.WellArchitected.ShareStatus
         {
             ($_ -eq "Get-WATLensShareList/Status") -Or
+            ($_ -eq "Get-WATProfileShareList/Status") -Or
             ($_ -eq "Get-WATWorkloadShareList/Status")
         }
         {
@@ -204,10 +222,12 @@ $WAT_map = @{
     "LensType"=@("Get-WATLensList")
     "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
+    "ProfileOwnerType"=@("Get-WATProfileList")
+    "QuestionPriority"=@("Get-WATAnswerList","Get-WATLensReviewImprovementList")
     "Reason"=@("Update-WATAnswer")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
     "ShareResourceType"=@("Get-WATShareInvitationList")
-    "Status"=@("Get-WATLensShareList","Get-WATWorkloadShareList")
+    "Status"=@("Get-WATLensShareList","Get-WATProfileShareList","Get-WATWorkloadShareList")
 }
 
 _awsArgumentCompleterRegistration $WAT_Completers $WAT_map
@@ -261,16 +281,22 @@ $WAT_SelectCompleters = {
 
 $WAT_SelectMap = @{
     "Select"=@("Register-WATLens",
+               "Register-WATProfile",
                "New-WATLensShare",
                "New-WATLensVersion",
                "New-WATMilestone",
+               "New-WATProfile",
+               "New-WATProfileShare",
                "New-WATWorkload",
                "New-WATWorkloadShare",
                "Remove-WATLens",
                "Remove-WATLensShare",
+               "Remove-WATProfile",
+               "Remove-WATProfileShare",
                "Remove-WATWorkload",
                "Remove-WATWorkloadShare",
                "Unregister-WATLens",
+               "Unregister-WATProfile",
                "Export-WATLens",
                "Get-WATAnswer",
                "Get-WATConsolidatedReport",
@@ -279,6 +305,8 @@ $WAT_SelectMap = @{
                "Get-WATLensReviewReport",
                "Get-WATLensVersionDifference",
                "Get-WATMilestone",
+               "Get-WATProfile",
+               "Get-WATProfileTemplate",
                "Get-WATWorkload",
                "Import-WATLens",
                "Get-WATAnswerList",
@@ -290,6 +318,9 @@ $WAT_SelectMap = @{
                "Get-WATLensShareList",
                "Get-WATMilestoneList",
                "Get-WATNotificationList",
+               "Get-WATProfileNotificationList",
+               "Get-WATProfileList",
+               "Get-WATProfileShareList",
                "Get-WATShareInvitationList",
                "Get-WATResourceTag",
                "Get-WATWorkloadList",
@@ -299,10 +330,12 @@ $WAT_SelectMap = @{
                "Update-WATAnswer",
                "Update-WATGlobalSetting",
                "Update-WATLensReview",
+               "Update-WATProfile",
                "Update-WATShareInvitation",
                "Update-WATWorkload",
                "Update-WATWorkloadShare",
-               "Convert-WATLensReview")
+               "Convert-WATLensReview",
+               "Update-WATProfileVersion")
 }
 
 _awsArgumentCompleterRegistration $WAT_SelectCompleters $WAT_SelectMap

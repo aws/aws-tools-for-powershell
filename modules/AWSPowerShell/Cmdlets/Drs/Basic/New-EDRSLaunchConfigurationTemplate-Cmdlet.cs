@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? CopyTag { get; set; }
         #endregion
         
+        #region Parameter ExportBucketArn
+        /// <summary>
+        /// <para>
+        /// <para>S3 bucket ARN to export Source Network templates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExportBucketArn { get; set; }
+        #endregion
+        
         #region Parameter LaunchDisposition
         /// <summary>
         /// <para>
@@ -152,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             }
             context.CopyPrivateIp = this.CopyPrivateIp;
             context.CopyTag = this.CopyTag;
+            context.ExportBucketArn = this.ExportBucketArn;
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
             if (this.Tag != null)
@@ -186,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.CopyTag != null)
             {
                 request.CopyTags = cmdletContext.CopyTag.Value;
+            }
+            if (cmdletContext.ExportBucketArn != null)
+            {
+                request.ExportBucketArn = cmdletContext.ExportBucketArn;
             }
             if (cmdletContext.LaunchDisposition != null)
             {
@@ -281,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             public System.Boolean? CopyPrivateIp { get; set; }
             public System.Boolean? CopyTag { get; set; }
+            public System.String ExportBucketArn { get; set; }
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

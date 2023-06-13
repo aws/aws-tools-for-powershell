@@ -34,21 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-    /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para><para>
-    /// [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already
-    /// associated with a different instance, it is disassociated from that instance and associated
-    /// with the specified instance. If you associate an Elastic IP address with an instance
-    /// that has an existing Elastic IP address, the existing address is disassociated from
-    /// the instance, but remains allocated to your account.
-    /// </para><para>
-    /// [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic
-    /// IP address is associated with the primary IP address. If the Elastic IP address is
-    /// already associated with a different instance or a network interface, you get an error
-    /// unless you allow reassociation. You cannot associate an Elastic IP address with an
-    /// instance or network interface that has an existing Elastic IP address.
+    /// If the Elastic IP address is already associated with a different instance, it is disassociated
+    /// from that instance and associated with the specified instance. If you associate an
+    /// Elastic IP address with an instance that has an existing Elastic IP address, the existing
+    /// address is disassociated from the instance, but remains allocated to your account.
     /// </para><para>
     /// [Subnets in Wavelength Zones] You can associate an IP address from the telecommunication
     /// carrier to the instance or network interface. 
@@ -60,11 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EC2 doesn't return an error, and you may be charged for each time the Elastic IP address
     /// is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i>
     /// section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2 Pricing</a>.
-    /// </para></important><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// </para></important>
     /// </summary>
     [Cmdlet("Register", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -79,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AllocationId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</para>
+        /// <para>The allocation ID. This is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -89,12 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AllowReassociation
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP
-        /// address that is already associated with an instance or network interface to be reassociated
-        /// with the specified instance or network interface. Otherwise, the operation fails.
-        /// In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can
-        /// specify false to ensure the operation fails if the Elastic IP address is already associated
-        /// with another resource.</para>
+        /// <para>Reassociation is automatic, but you can specify false to ensure the operation fails
+        /// if the Elastic IP address is already associated with another resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,9 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the instance. The instance must have exactly one attached network interface.
-        /// For EC2-VPC, you can specify either the instance ID or the network interface ID, but
-        /// not both. For EC2-Classic, you must specify an instance ID and the instance must be
-        /// in the running state.</para>
+        /// You can specify either the instance ID or the network interface ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -117,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The ID of the network interface. If the instance has more than one network
-        /// interface, you must specify a network interface ID.</para><para>For EC2-VPC, you can specify either the instance ID or the network interface ID, but
-        /// not both. </para>
+        /// <para>The ID of the network interface. If the instance has more than one network interface,
+        /// you must specify a network interface ID.</para><para>You can specify either the instance ID or the network interface ID, but not both.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -129,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The primary or secondary private IP address to associate with the Elastic
-        /// IP address. If no private IP address is specified, the Elastic IP address is associated
-        /// with the primary private IP address.</para>
+        /// <para>The primary or secondary private IP address to associate with the Elastic IP address.
+        /// If no private IP address is specified, the Elastic IP address is associated with the
+        /// primary private IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PublicIp
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic] The Elastic IP address to associate with the instance. This is required
-        /// for EC2-Classic.</para>
+        /// <para>Deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

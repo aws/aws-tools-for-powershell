@@ -1,4 +1,53 @@
-﻿### 4.1.351 (2023-06-12 22:10Z)
+﻿### 4.1.352 (2023-06-13 23:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.568.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudTrail
+    * Modified cmdlet Get-CTQuery: added parameter QueryAlias.
+    * Modified cmdlet Start-CTQuery: added parameters QueryAlias and QueryParameter.
+  * Amazon CodeGuru Security. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CGS and can be listed using the command 'Get-AWSCmdletName -Service CGS'.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2InstanceConnectEndpoint leveraging the DescribeInstanceConnectEndpoints service API.
+    * Added cmdlet New-EC2InstanceConnectEndpoint leveraging the CreateInstanceConnectEndpoint service API.
+    * Added cmdlet Remove-EC2InstanceConnectEndpoint leveraging the DeleteInstanceConnectEndpoint service API.
+  * Amazon Elastic Disaster Recovery Service
+    * Added cmdlet Export-EDRSSourceNetworkCfnTemplate leveraging the ExportSourceNetworkCfnTemplate service API.
+    * Added cmdlet Get-EDRSSourceNetwork leveraging the DescribeSourceNetworks service API.
+    * Added cmdlet New-EDRSSourceNetwork leveraging the CreateSourceNetwork service API.
+    * Added cmdlet Register-EDRSSourceNetworkStack leveraging the AssociateSourceNetworkStack service API.
+    * Added cmdlet Remove-EDRSSourceNetwork leveraging the DeleteSourceNetwork service API.
+    * Added cmdlet Start-EDRSSourceNetworkRecovery leveraging the StartSourceNetworkRecovery service API.
+    * Added cmdlet Start-EDRSSourceNetworkReplication leveraging the StartSourceNetworkReplication service API.
+    * Added cmdlet Stop-EDRSSourceNetworkReplication leveraging the StopSourceNetworkReplication service API.
+    * Modified cmdlet New-EDRSLaunchConfigurationTemplate: added parameter ExportBucketArn.
+    * Modified cmdlet Update-EDRSLaunchConfigurationTemplate: added parameter ExportBucketArn.
+  * Amazon Lightsail
+    * Modified cmdlet Get-LSCertificate: added parameters NoAutoIteration and PageToken.
+  * Amazon Security Hub
+    * Added cmdlet Edit-SHUBUpdateAutomationRule leveraging the BatchUpdateAutomationRules service API.
+    * Added cmdlet Get-SHUBAutomationRuleList leveraging the ListAutomationRules service API.
+    * Added cmdlet Get-SHUBGetAutomationRule leveraging the BatchGetAutomationRules service API.
+    * Added cmdlet New-SHUBAutomationRule leveraging the CreateAutomationRule service API.
+    * Added cmdlet Remove-SHUBDeleteAutomationRule leveraging the BatchDeleteAutomationRules service API.
+  * Amazon Verified Permissions. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AVP and can be listed using the command 'Get-AWSCmdletName -Service AVP'.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Get-WATProfile leveraging the GetProfile service API.
+    * Added cmdlet Get-WATProfileList leveraging the ListProfiles service API.
+    * Added cmdlet Get-WATProfileNotificationList leveraging the ListProfileNotifications service API.
+    * Added cmdlet Get-WATProfileShareList leveraging the ListProfileShares service API.
+    * Added cmdlet Get-WATProfileTemplate leveraging the GetProfileTemplate service API.
+    * Added cmdlet New-WATProfile leveraging the CreateProfile service API.
+    * Added cmdlet New-WATProfileShare leveraging the CreateProfileShare service API.
+    * Added cmdlet Register-WATProfile leveraging the AssociateProfiles service API.
+    * Added cmdlet Remove-WATProfile leveraging the DeleteProfile service API.
+    * Added cmdlet Remove-WATProfileShare leveraging the DeleteProfileShare service API.
+    * Added cmdlet Unregister-WATProfile leveraging the DisassociateProfiles service API.
+    * Added cmdlet Update-WATProfile leveraging the UpdateProfile service API.
+    * Added cmdlet Update-WATProfileVersion leveraging the UpgradeProfileVersion service API.
+    * Modified cmdlet Get-WATAnswerList: added parameter QuestionPriority.
+    * Modified cmdlet Get-WATLensReviewImprovementList: added parameter QuestionPriority.
+    * Modified cmdlet Get-WATShareInvitationList: added parameter ProfileNamePrefix.
+    * Modified cmdlet New-WATWorkload: added parameter ProfileArn.
+
+### 4.1.351 (2023-06-12 22:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.567.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify UI Builder
     * Added cmdlet Get-AMPUICodegenJob leveraging the GetCodegenJob service API.

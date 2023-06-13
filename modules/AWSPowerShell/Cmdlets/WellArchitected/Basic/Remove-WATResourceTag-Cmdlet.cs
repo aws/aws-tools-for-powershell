@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// Deletes specified tags from a resource.
     /// 
     ///  <note><para>
-    /// The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+    /// The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile ARN.
     /// </para></note><para>
     /// To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:
     /// </para><para><code>DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2</code></para>

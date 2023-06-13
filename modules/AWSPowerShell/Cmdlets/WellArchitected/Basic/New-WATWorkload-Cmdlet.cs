@@ -213,6 +213,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String[] PillarPriority { get; set; }
         #endregion
         
+        #region Parameter ProfileArn
+        /// <summary>
+        /// <para>
+        /// <para>The list of profile ARNs associated with the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProfileArns")]
+        public System.String[] ProfileArn { get; set; }
+        #endregion
+        
         #region Parameter ReviewOwner
         /// <summary>
         /// <para>
@@ -368,6 +379,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 context.PillarPriority = new List<System.String>(this.PillarPriority);
             }
+            if (this.ProfileArn != null)
+            {
+                context.ProfileArn = new List<System.String>(this.ProfileArn);
+            }
             context.ReviewOwner = this.ReviewOwner;
             if (this.Tag != null)
             {
@@ -481,6 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 request.PillarPriorities = cmdletContext.PillarPriority;
             }
+            if (cmdletContext.ProfileArn != null)
+            {
+                request.ProfileArns = cmdletContext.ProfileArn;
+            }
             if (cmdletContext.ReviewOwner != null)
             {
                 request.ReviewOwner = cmdletContext.ReviewOwner;
@@ -569,6 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public List<System.String> NonAwsRegion { get; set; }
             public System.String Note { get; set; }
             public List<System.String> PillarPriority { get; set; }
+            public List<System.String> ProfileArn { get; set; }
             public System.String ReviewOwner { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkloadName { get; set; }

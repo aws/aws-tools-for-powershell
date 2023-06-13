@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String LensNamePrefix { get; set; }
         #endregion
         
+        #region Parameter ProfileNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>Profile name prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProfileNamePrefix { get; set; }
+        #endregion
+        
         #region Parameter ShareResourceType
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             context.LensNamePrefix = this.LensNamePrefix;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ProfileNamePrefix = this.ProfileNamePrefix;
             context.ShareResourceType = this.ShareResourceType;
             context.WorkloadNamePrefix = this.WorkloadNamePrefix;
             
@@ -170,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ProfileNamePrefix != null)
+            {
+                request.ProfileNamePrefix = cmdletContext.ProfileNamePrefix;
             }
             if (cmdletContext.ShareResourceType != null)
             {
@@ -243,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public System.String LensNamePrefix { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ProfileNamePrefix { get; set; }
             public Amazon.WellArchitected.ShareResourceType ShareResourceType { get; set; }
             public System.String WorkloadNamePrefix { get; set; }
             public System.Func<Amazon.WellArchitected.Model.ListShareInvitationsResponse, GetWATShareInvitationListCmdlet, object> Select { get; set; } =

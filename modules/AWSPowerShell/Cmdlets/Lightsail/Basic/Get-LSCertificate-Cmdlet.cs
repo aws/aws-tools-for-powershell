@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Returns information about one or more Amazon Lightsail SSL/TLS certificates.
     /// 
     ///  <note><para>
-    /// To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
+    /// To get a summary of a certificate, omit <code>includeCertificateDetails</code> from
     /// your request. The response will include only the certificate Amazon Resource Name
     /// (ARN), certificate name, domain name, and tags.
-    /// </para></note>
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSCertificate")]
     [OutputType("Amazon.Lightsail.Model.CertificateSummary")]
@@ -82,6 +82,23 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Boolean? IncludeCertificateDetail { get; set; }
         #endregion
         
+        #region Parameter PageToken
+        /// <summary>
+        /// <para>
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetCertificates</code> request. If your
+        /// results are paginated, the response will return a next page token that you can specify
+        /// as the page token in a subsequent request.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.NextPageToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NextToken")]
+        public System.String PageToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Certificates'.
@@ -101,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CertificateName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of PageToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -134,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.CertificateStatus = new List<System.String>(this.CertificateStatus);
             }
             context.IncludeCertificateDetail = this.IncludeCertificateDetail;
+            context.PageToken = this.PageToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
             var request = new Amazon.Lightsail.Model.GetCertificatesRequest();
             
             if (cmdletContext.CertificateName != null)
@@ -163,27 +195,51 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 request.IncludeCertificateDetails = cmdletContext.IncludeCertificateDetail.Value;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.PageToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.PageToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.PageToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextPageToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -226,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String CertificateName { get; set; }
             public List<System.String> CertificateStatus { get; set; }
             public System.Boolean? IncludeCertificateDetail { get; set; }
+            public System.String PageToken { get; set; }
             public System.Func<Amazon.Lightsail.Model.GetCertificatesResponse, GetLSCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Certificates;
         }

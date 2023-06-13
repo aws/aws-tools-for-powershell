@@ -28,9 +28,16 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts a CloudTrail Lake query. The required <code>QueryStatement</code> parameter
-    /// provides your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code>
+    /// Starts a CloudTrail Lake query. Use the <code>QueryStatement</code> parameter to provide
+    /// your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code>
     /// parameter to deliver the query results to an S3 bucket.
+    /// 
+    ///  
+    /// <para><code>StartQuery</code> requires you specify either the <code>QueryStatement</code>
+    /// parameter, or a <code>QueryAlias</code> and any <code>QueryParameters</code>. In the
+    /// current release, the <code>QueryAlias</code> and <code>QueryParameters</code> parameters
+    /// are used only for the queries that populate the CloudTrail Lake dashboards.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -52,20 +59,34 @@ namespace Amazon.PowerShell.Cmdlets.CT
         public System.String DeliveryS3Uri { get; set; }
         #endregion
         
+        #region Parameter QueryAlias
+        /// <summary>
+        /// <para>
+        /// <para> The alias that identifies a query template. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryAlias { get; set; }
+        #endregion
+        
+        #region Parameter QueryParameter
+        /// <summary>
+        /// <para>
+        /// <para> The query parameters for the specified <code>QueryAlias</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryParameters")]
+        public System.String[] QueryParameter { get; set; }
+        #endregion
+        
         #region Parameter QueryStatement
         /// <summary>
         /// <para>
         /// <para>The SQL code of your query.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryStatement { get; set; }
         #endregion
         
@@ -132,13 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeliveryS3Uri = this.DeliveryS3Uri;
-            context.QueryStatement = this.QueryStatement;
-            #if MODULAR
-            if (this.QueryStatement == null && ParameterWasBound(nameof(this.QueryStatement)))
+            context.QueryAlias = this.QueryAlias;
+            if (this.QueryParameter != null)
             {
-                WriteWarning("You are passing $null as a value for parameter QueryStatement which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.QueryParameter = new List<System.String>(this.QueryParameter);
             }
-            #endif
+            context.QueryStatement = this.QueryStatement;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,6 +178,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.DeliveryS3Uri != null)
             {
                 request.DeliveryS3Uri = cmdletContext.DeliveryS3Uri;
+            }
+            if (cmdletContext.QueryAlias != null)
+            {
+                request.QueryAlias = cmdletContext.QueryAlias;
+            }
+            if (cmdletContext.QueryParameter != null)
+            {
+                request.QueryParameters = cmdletContext.QueryParameter;
             }
             if (cmdletContext.QueryStatement != null)
             {
@@ -225,6 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeliveryS3Uri { get; set; }
+            public System.String QueryAlias { get; set; }
+            public List<System.String> QueryParameter { get; set; }
             public System.String QueryStatement { get; set; }
             public System.Func<Amazon.CloudTrail.Model.StartQueryResponse, StartCTQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueryId;

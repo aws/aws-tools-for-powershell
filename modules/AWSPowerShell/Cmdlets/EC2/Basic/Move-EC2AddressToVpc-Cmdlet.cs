@@ -28,6 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <note><para>
+    /// This action is deprecated.
+    /// </para></note><para>
     /// Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform.
     /// The Elastic IP address must be allocated to your account for more than 24 hours, and
     /// it must not be associated with an instance. After the Elastic IP address is moved,
@@ -35,12 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// back using the <a>RestoreAddressToClassic</a> request. You cannot move an Elastic
     /// IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic
     /// platform.
-    /// 
-    ///  <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Move", "EC2AddressToVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]

@@ -29,7 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
-    /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// When you transfer an Elastic IP address, there is a two-step handshake between the
+    /// source and transfer Amazon Web Services accounts. When the source account starts the
+    /// transfer, the transfer account has seven days to accept the Elastic IP address transfer.
+    /// During those seven days, the source account can view the pending transfer by using
+    /// this action. After seven days, the transfer expires and ownership of the Elastic IP
+    /// address returns to the source account. Accepted transfers are visible to the source
+    /// account for three days after the transfers have been accepted.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2AddressTransfer")]
     [OutputType("Amazon.EC2.Model.AddressTransfer")]

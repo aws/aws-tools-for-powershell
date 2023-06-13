@@ -32,14 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates
-    /// it from any instance that it's associated with. To disassociate an Elastic IP address
-    /// without releasing it, use <a>DisassociateAddress</a>.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note><para>
+    /// [Default VPC] Releasing an Elastic IP address automatically disassociates it from
+    /// any instance that it's associated with. To disassociate an Elastic IP address without
+    /// releasing it, use <a>DisassociateAddress</a>.
+    /// </para><para>
     /// [Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic
     /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).
     /// </para><para>
@@ -49,11 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// get an <code>AuthFailure</code> error if the address is already allocated to another
     /// Amazon Web Services account.
     /// </para><para>
-    /// [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able
-    /// to recover it. For more information, see <a>AllocateAddress</a>.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-    /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// After you release an Elastic IP address, you might be able to recover it. For more
+    /// information, see <a>AllocateAddress</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -69,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AllocationId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The allocation ID. Required for EC2-VPC.</para>
+        /// <para>The allocation ID. This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -92,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PublicIp
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</para>
+        /// <para>Deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

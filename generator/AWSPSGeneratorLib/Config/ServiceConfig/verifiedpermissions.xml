@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>verifiedpermissions</C2jFilename>
+    <AssemblyName>VerifiedPermissions</AssemblyName>
+    <ServiceNounPrefix>AVP</ServiceNounPrefix>
+    <ServiceName>Amazon Verified Permissions</ServiceName>
+    <ServiceClientInterface>IAmazonVerifiedPermissions</ServiceClientInterface>
+    <ServiceClient>AmazonVerifiedPermissionsClient</ServiceClient>
+    <ServiceModuleGuid>a10b28a4-fd30-48fa-9ec0-535c05dc50d6</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateIdentitySource" OutputProperty="*" Verb="New" Noun="IdentitySource" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicyStore" OutputProperty="*" Verb="New" Noun="PolicyStore" ShouldProcessTarget="ValidationSettings_Mode" PipelineParameter="ValidationSettings_Mode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicyTemplate" OutputProperty="*" Verb="New" Noun="PolicyTemplate" ShouldProcessTarget="PolicyStoreId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentitySource" Verb="Remove" Noun="IdentitySource" ShouldProcessTarget="IdentitySourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyStore" Verb="Remove" Noun="PolicyStore" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyTemplate" Verb="Remove" Noun="PolicyTemplate" ShouldProcessTarget="PolicyTemplateId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentitySource" OutputProperty="*" Verb="Get" Noun="IdentitySource" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyStore" OutputProperty="*" Verb="Get" Noun="PolicyStore" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyTemplate" OutputProperty="*" Verb="Get" Noun="PolicyTemplate" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchema" OutputProperty="*" Verb="Get" Noun="Schema" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IsAuthorized" OutputProperty="*" Verb="Test" Noun="Authorization" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IsAuthorizedWithToken" OutputProperty="*" Verb="Test" Noun="TokenAuthorization" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentitySources" OutputProperty="IdentitySources" Verb="Get" Noun="IdentitySourceList" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Filter_Principal_Identifier_EntityId" NewName="Filter_Principal_Identifier_EntityId" Alias="Principal_EntityId" />
+                <Param Name="Filter_Resource_Identifier_EntityId" NewName="Filter_Resource_Identifier_EntityId" Alias="Resource_EntityId" />
+                <Param Name="Filter_Principal_Identifier_EntityType" NewName="Filter_Principal_Identifier_EntityType" Alias="Principal_EntityType" />
+                <Param Name="Filter_Resource_Identifier_EntityType" NewName="Filter_Resource_Identifier_EntityType" Alias="Resource_EntityType" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyStores" OutputProperty="PolicyStores" Verb="Get" Noun="PolicyStoreList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyTemplates" OutputProperty="PolicyTemplates" Verb="Get" Noun="PolicyTemplateList" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSchema" OutputProperty="*" Verb="Write" Noun="Schema" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdentitySource" OutputProperty="*" Verb="Update" Noun="IdentitySource" ShouldProcessTarget="IdentitySourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicyStore" OutputProperty="*" Verb="Update" Noun="PolicyStore" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicyTemplate" OutputProperty="*" Verb="Update" Noun="PolicyTemplate" ShouldProcessTarget="PolicyTemplateId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
