@@ -4333,6 +4333,13 @@ $AUDM_Completers = {
             break
         }
 
+        # Amazon.AuditManager.ExportDestinationType
+        "Edit-AUDMSetting/DefaultExportDestination_DestinationType"
+        {
+            $v = "S3"
+            break
+        }
+
         # Amazon.AuditManager.FrameworkType
         "Get-AUDMAssessmentFrameworkList/FrameworkType"
         {
@@ -4343,7 +4350,7 @@ $AUDM_Completers = {
         # Amazon.AuditManager.SettingAttribute
         "Get-AUDMSetting/Attribute"
         {
-            $v = "ALL","DEFAULT_ASSESSMENT_REPORTS_DESTINATION","DEFAULT_PROCESS_OWNERS","DEREGISTRATION_POLICY","EVIDENCE_FINDER_ENABLEMENT","IS_AWS_ORG_ENABLED","SNS_TOPIC"
+            $v = "ALL","DEFAULT_ASSESSMENT_REPORTS_DESTINATION","DEFAULT_EXPORT_DESTINATION","DEFAULT_PROCESS_OWNERS","DEREGISTRATION_POLICY","EVIDENCE_FINDER_ENABLEMENT","IS_AWS_ORG_ENABLED","SNS_TOPIC"
             break
         }
 
@@ -4387,6 +4394,7 @@ $AUDM_map = @{
     "ControlStatus"=@("Edit-AUDMAssessmentControl")
     "ControlType"=@("Get-AUDMControlList")
     "DefaultAssessmentReportsDestination_DestinationType"=@("Edit-AUDMSetting")
+    "DefaultExportDestination_DestinationType"=@("Edit-AUDMSetting")
     "DeregistrationPolicy_DeleteResources"=@("Edit-AUDMSetting")
     "FrameworkType"=@("Get-AUDMAssessmentFrameworkList")
     "RequestType"=@("Get-AUDMAssessmentFrameworkShareRequestList","Remove-AUDMAssessmentFrameworkShare","Update-AUDMAssessmentFrameworkShare")
@@ -4471,6 +4479,7 @@ $AUDM_SelectMap = @{
                "Get-AUDMDelegation",
                "Get-AUDMEvidence",
                "Get-AUDMEvidenceByEvidenceFolder",
+               "Get-AUDMEvidenceFileUploadUrl",
                "Get-AUDMEvidenceFolder",
                "Get-AUDMEvidenceFolderByAssessment",
                "Get-AUDMEvidenceFolderByAssessmentControl",

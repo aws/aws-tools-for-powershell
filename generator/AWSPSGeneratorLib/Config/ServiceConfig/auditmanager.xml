@@ -127,6 +127,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEvidenceFileUploadUrl" OutputProperty="*" Verb="Get" Noun="EvidenceFileUploadUrl" PipelineParameter="FileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEvidenceFolder" OutputProperty="EvidenceFolder" Verb="Get" Noun="EvidenceFolder" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

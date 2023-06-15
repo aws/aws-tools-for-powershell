@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String GeofenceId { get; set; }
         #endregion
         
+        #region Parameter GeofenceProperty
+        /// <summary>
+        /// <para>
+        /// <para>Specifies additional user-defined properties to store with the Geofence. An array
+        /// of key-value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GeofenceProperties")]
+        public System.Collections.Hashtable GeofenceProperty { get; set; }
+        #endregion
+        
         #region Parameter Geometry_Polygon
         /// <summary>
         /// <para>
@@ -193,6 +205,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter GeofenceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.GeofenceProperty != null)
+            {
+                context.GeofenceProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.GeofenceProperty.Keys)
+                {
+                    context.GeofenceProperty.Add((String)hashKey, (String)(this.GeofenceProperty[hashKey]));
+                }
+            }
             if (this.Geometry_Polygon != null)
             {
                 context.Geometry_Polygon = new List<List<List<System.Double>>>();
@@ -235,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.GeofenceId != null)
             {
                 request.GeofenceId = cmdletContext.GeofenceId;
+            }
+            if (cmdletContext.GeofenceProperty != null)
+            {
+                request.GeofenceProperties = cmdletContext.GeofenceProperty;
             }
             
              // populate Geometry
@@ -353,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String CollectionName { get; set; }
             public System.String GeofenceId { get; set; }
+            public Dictionary<System.String, System.String> GeofenceProperty { get; set; }
             public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
             public List<System.Double> Circle_Center { get; set; }
             public System.Double? Circle_Radius { get; set; }

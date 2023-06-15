@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of delegations from an audit owner to a delegate.
+    /// Gets a list of delegations from an audit owner to a delegate.
     /// </summary>
     [Cmdlet("Get", "AUDMDelegation")]
     [OutputType("Amazon.AuditManager.Model.DelegationMetadata")]

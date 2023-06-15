@@ -28,9 +28,10 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Uploads position update data for one or more devices to a tracker resource. Amazon
-    /// Location uses the data when it reports the last known device position and position
-    /// history. Amazon Location retains location data for 30 days.
+    /// Uploads position update data for one or more devices to a tracker resource (up to
+    /// 10 devices per batch). Amazon Location uses the data when it reports the last known
+    /// device position and position history. Amazon Location retains location data for 30
+    /// days.
     /// 
     ///  <note><para>
     /// Position updates are handled based on the <code>PositionFiltering</code> property
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>Contains the position update details for each device.</para>
+        /// <para>Contains the position update details for each device, up to 10 devices.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

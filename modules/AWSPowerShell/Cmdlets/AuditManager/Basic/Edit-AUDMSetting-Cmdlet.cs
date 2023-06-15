@@ -70,11 +70,21 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter DefaultAssessmentReportsDestination_Destination
         /// <summary>
         /// <para>
-        /// <para> The destination of the assessment report. </para>
+        /// <para> The destination bucket where Audit Manager stores assessment reports. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DefaultAssessmentReportsDestination_Destination { get; set; }
+        #endregion
+        
+        #region Parameter DefaultExportDestination_Destination
+        /// <summary>
+        /// <para>
+        /// <para>The destination bucket where Audit Manager stores exported files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultExportDestination_Destination { get; set; }
         #endregion
         
         #region Parameter DefaultAssessmentReportsDestination_DestinationType
@@ -86,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.AuditManager.AssessmentReportDestinationType")]
         public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
+        #endregion
+        
+        #region Parameter DefaultExportDestination_DestinationType
+        /// <summary>
+        /// <para>
+        /// <para>The destination type, such as Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AuditManager.ExportDestinationType")]
+        public Amazon.AuditManager.ExportDestinationType DefaultExportDestination_DestinationType { get; set; }
         #endregion
         
         #region Parameter EvidenceFinderEnabled
@@ -168,6 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             }
             context.DefaultAssessmentReportsDestination_Destination = this.DefaultAssessmentReportsDestination_Destination;
             context.DefaultAssessmentReportsDestination_DestinationType = this.DefaultAssessmentReportsDestination_DestinationType;
+            context.DefaultExportDestination_Destination = this.DefaultExportDestination_Destination;
+            context.DefaultExportDestination_DestinationType = this.DefaultExportDestination_DestinationType;
             if (this.DefaultProcessOwner != null)
             {
                 context.DefaultProcessOwner = new List<Amazon.AuditManager.Model.Role>(this.DefaultProcessOwner);
@@ -220,6 +243,35 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             if (requestDefaultAssessmentReportsDestinationIsNull)
             {
                 request.DefaultAssessmentReportsDestination = null;
+            }
+            
+             // populate DefaultExportDestination
+            var requestDefaultExportDestinationIsNull = true;
+            request.DefaultExportDestination = new Amazon.AuditManager.Model.DefaultExportDestination();
+            System.String requestDefaultExportDestination_defaultExportDestination_Destination = null;
+            if (cmdletContext.DefaultExportDestination_Destination != null)
+            {
+                requestDefaultExportDestination_defaultExportDestination_Destination = cmdletContext.DefaultExportDestination_Destination;
+            }
+            if (requestDefaultExportDestination_defaultExportDestination_Destination != null)
+            {
+                request.DefaultExportDestination.Destination = requestDefaultExportDestination_defaultExportDestination_Destination;
+                requestDefaultExportDestinationIsNull = false;
+            }
+            Amazon.AuditManager.ExportDestinationType requestDefaultExportDestination_defaultExportDestination_DestinationType = null;
+            if (cmdletContext.DefaultExportDestination_DestinationType != null)
+            {
+                requestDefaultExportDestination_defaultExportDestination_DestinationType = cmdletContext.DefaultExportDestination_DestinationType;
+            }
+            if (requestDefaultExportDestination_defaultExportDestination_DestinationType != null)
+            {
+                request.DefaultExportDestination.DestinationType = requestDefaultExportDestination_defaultExportDestination_DestinationType;
+                requestDefaultExportDestinationIsNull = false;
+            }
+             // determine if request.DefaultExportDestination should be set to null
+            if (requestDefaultExportDestinationIsNull)
+            {
+                request.DefaultExportDestination = null;
             }
             if (cmdletContext.DefaultProcessOwner != null)
             {
@@ -319,6 +371,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         {
             public System.String DefaultAssessmentReportsDestination_Destination { get; set; }
             public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
+            public System.String DefaultExportDestination_Destination { get; set; }
+            public Amazon.AuditManager.ExportDestinationType DefaultExportDestination_DestinationType { get; set; }
             public List<Amazon.AuditManager.Model.Role> DefaultProcessOwner { get; set; }
             public Amazon.AuditManager.DeleteResources DeregistrationPolicy_DeleteResource { get; set; }
             public System.Boolean? EvidenceFinderEnabled { get; set; }

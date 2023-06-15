@@ -116,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AUDMDelegation', 
         'Get-AUDMEvidence', 
         'Get-AUDMEvidenceByEvidenceFolder', 
+        'Get-AUDMEvidenceFileUploadUrl', 
         'Get-AUDMEvidenceFolder', 
         'Get-AUDMEvidenceFolderByAssessment', 
         'Get-AUDMEvidenceFolderByAssessmentControl', 

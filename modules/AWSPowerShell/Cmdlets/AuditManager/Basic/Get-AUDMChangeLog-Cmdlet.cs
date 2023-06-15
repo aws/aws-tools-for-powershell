@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of changelogs from Audit Manager.
+    /// Gets a list of changelogs from Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMChangeLog")]
     [OutputType("Amazon.AuditManager.Model.ChangeLog")]

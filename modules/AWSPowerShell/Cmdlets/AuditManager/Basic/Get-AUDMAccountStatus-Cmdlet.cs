@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns the registration status of an account in Audit Manager.
+    /// Gets the registration status of an account in Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMAccountStatus")]
     [OutputType("Amazon.AuditManager.AccountStatus")]

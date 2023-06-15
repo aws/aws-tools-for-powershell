@@ -34,13 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// 
     ///  
     /// <para>
-    /// When using <code>Create Members</code> as an organizations delegated administrator
-    /// this action will enable GuardDuty in the added member accounts, with the exception
-    /// of the organization delegated administrator account, which must enable GuardDuty prior
-    /// to being added as a member.
+    /// As a delegated administrator, using <code>CreateMembers</code> will enable GuardDuty
+    /// in the added member accounts, with the exception of the organization delegated administrator
+    /// account. A delegated administrator must enable GuardDuty prior to being added as a
+    /// member.
     /// </para><para>
-    /// If you are adding accounts by invitation, use this action after GuardDuty has bee
-    /// enabled in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.
+    /// If you are adding accounts by invitation, before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>,
+    /// use <code>CreateMembers</code> after GuardDuty has been enabled in potential member
+    /// accounts.
+    /// </para><para>
+    /// If you disassociate a member from a GuardDuty delegated administrator, the member
+    /// account details obtained from this API, including the associated email addresses,
+    /// will be retained. This is done so that the delegated administrator can invoke the
+    /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+    /// API without the need to invoke the CreateMembers API again. To remove the details
+    /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
+    /// API. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

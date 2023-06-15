@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter AssessmentReportsDestination_Destination
         /// <summary>
         /// <para>
-        /// <para> The destination of the assessment report. </para>
+        /// <para> The destination bucket where Audit Manager stores assessment reports. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

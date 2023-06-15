@@ -28,22 +28,38 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Gets the evidence folders from a specified assessment in Audit Manager.
+    /// Creates a presigned Amazon S3 URL that can be used to upload a file as manual evidence.
+    /// For instructions on how to use this operation, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files">Upload
+    /// a file from your browser </a> in the <i>Audit Manager User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// The following restrictions apply to this operation:
+    /// </para><ul><li><para>
+    /// Maximum size of an individual evidence file: 100 MB
+    /// </para></li><li><para>
+    /// Number of daily manual evidence uploads per control: 100
+    /// </para></li><li><para>
+    /// Supported file formats: See <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported
+    /// file types for manual evidence</a> in the <i>Audit Manager User Guide</i></para></li></ul><para>
+    /// For more information about Audit Manager service restrictions, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas
+    /// and restrictions for Audit Manager</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "AUDMEvidenceFolderByAssessment")]
-    [OutputType("Amazon.AuditManager.Model.AssessmentEvidenceFolder")]
-    [AWSCmdlet("Calls the AWS Audit Manager GetEvidenceFoldersByAssessment API operation.", Operation = new[] {"GetEvidenceFoldersByAssessment"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse))]
-    [AWSCmdletOutput("Amazon.AuditManager.Model.AssessmentEvidenceFolder or Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse",
-        "This cmdlet returns a collection of Amazon.AuditManager.Model.AssessmentEvidenceFolder objects.",
-        "The service call response (type Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AUDMEvidenceFileUploadUrl")]
+    [OutputType("Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse")]
+    [AWSCmdlet("Calls the AWS Audit Manager GetEvidenceFileUploadUrl API operation.", Operation = new[] {"GetEvidenceFileUploadUrl"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse))]
+    [AWSCmdletOutput("Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse",
+        "This cmdlet returns an Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAUDMEvidenceFolderByAssessmentCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
+    public partial class GetAUDMEvidenceFileUploadUrlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
-        #region Parameter AssessmentId
+        #region Parameter FileName
         /// <summary>
         /// <para>
-        /// <para> The unique identifier for the assessment. </para>
+        /// <para>The file that you want to upload. For a list of supported file formats, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported
+        /// file types for manual evidence</a> in the <i>Audit Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,47 +70,26 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssessmentId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para> Represents the maximum number of results on a page or for an API request call. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para> The pagination token that's used to fetch the next set of results. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String FileName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EvidenceFolders'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse).
-        /// Specifying the name of a property of type Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse).
+        /// Specifying the name of a property of type Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EvidenceFolders";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AssessmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AssessmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FileName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FileName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssessmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse, GetAUDMEvidenceFolderByAssessmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse, GetAUDMEvidenceFileUploadUrlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,18 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AssessmentId;
+                context.Select = (response, cmdlet) => this.FileName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AssessmentId = this.AssessmentId;
+            context.FileName = this.FileName;
             #if MODULAR
-            if (this.AssessmentId == null && ParameterWasBound(nameof(this.AssessmentId)))
+            if (this.FileName == null && ParameterWasBound(nameof(this.FileName)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssessmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FileName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,19 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentRequest();
+            var request = new Amazon.AuditManager.Model.GetEvidenceFileUploadUrlRequest();
             
-            if (cmdletContext.AssessmentId != null)
+            if (cmdletContext.FileName != null)
             {
-                request.AssessmentId = cmdletContext.AssessmentId;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.FileName = cmdletContext.FileName;
             }
             
             CmdletOutput output;
@@ -194,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         #region AWS Service Operation Call
         
-        private Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse CallAWSServiceOperation(IAmazonAuditManager client, Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentRequest request)
+        private Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse CallAWSServiceOperation(IAmazonAuditManager client, Amazon.AuditManager.Model.GetEvidenceFileUploadUrlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Audit Manager", "GetEvidenceFoldersByAssessment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Audit Manager", "GetEvidenceFileUploadUrl");
             try
             {
                 #if DESKTOP
-                return client.GetEvidenceFoldersByAssessment(request);
+                return client.GetEvidenceFileUploadUrl(request);
                 #elif CORECLR
-                return client.GetEvidenceFoldersByAssessmentAsync(request).GetAwaiter().GetResult();
+                return client.GetEvidenceFileUploadUrlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssessmentId { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentResponse, GetAUDMEvidenceFolderByAssessmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EvidenceFolders;
+            public System.String FileName { get; set; }
+            public System.Func<Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse, GetAUDMEvidenceFileUploadUrlCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

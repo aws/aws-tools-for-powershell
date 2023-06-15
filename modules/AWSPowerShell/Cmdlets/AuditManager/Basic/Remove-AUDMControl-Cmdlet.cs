@@ -28,7 +28,14 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deletes a custom control in Audit Manager.
+    /// Deletes a custom control in Audit Manager. 
+    /// 
+    ///  <important><para>
+    /// When you invoke this operation, the custom control is deleted from any frameworks
+    /// or assessments that it’s currently part of. As a result, Audit Manager will stop collecting
+    /// evidence for that custom control in all of your assessments. This includes assessments
+    /// that you previously created before you deleted the custom control.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "AUDMControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

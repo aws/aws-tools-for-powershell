@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns an assessment from Audit Manager.
+    /// Gets information about a specified assessment.
     /// </summary>
     [Cmdlet("Get", "AUDMAssessment")]
     [OutputType("Amazon.AuditManager.Model.Assessment")]

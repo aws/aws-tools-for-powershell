@@ -1,4 +1,14 @@
-﻿### 4.1.352 (2023-06-13 23:36Z)
+﻿### 4.1.353 (2023-06-15 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.569.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Audit Manager
+    * Added cmdlet Get-AUDMEvidenceFileUploadUrl leveraging the GetEvidenceFileUploadUrl service API.
+    * Modified cmdlet Edit-AUDMSetting: added parameters DefaultExportDestination_Destination and DefaultExportDestination_DestinationType.
+  * Amazon Location Service
+    * Modified cmdlet Search-LOCPlaceIndexForSuggestion: added parameter FilterCategory.
+    * Modified cmdlet Search-LOCPlaceIndexForText: added parameter FilterCategory.
+    * Modified cmdlet Set-LOCGeofence: added parameter GeofenceProperty.
+
+### 4.1.352 (2023-06-13 23:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.568.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon CloudTrail
     * Modified cmdlet Get-CTQuery: added parameter QueryAlias.

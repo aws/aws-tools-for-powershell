@@ -89,6 +89,21 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.Double[] FilterBBox { get; set; }
         #endregion
         
+        #region Parameter FilterCategory
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more Amazon Location categories to filter the returned places. If
+        /// you include more than one category, the results will include results that match <i>any</i>
+        /// of the categories listed.</para><para>For more information about using categories, including a list of Amazon Location categories,
+        /// see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories
+        /// and filtering</a>, in the <i>Amazon Location Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCategories")]
+        public System.String[] FilterCategory { get; set; }
+        #endregion
+        
         #region Parameter FilterCountry
         /// <summary>
         /// <para>
@@ -235,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 context.FilterBBox = new List<System.Double>(this.FilterBBox);
             }
+            if (this.FilterCategory != null)
+            {
+                context.FilterCategory = new List<System.String>(this.FilterCategory);
+            }
             if (this.FilterCountry != null)
             {
                 context.FilterCountry = new List<System.String>(this.FilterCountry);
@@ -278,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.FilterBBox != null)
             {
                 request.FilterBBox = cmdletContext.FilterBBox;
+            }
+            if (cmdletContext.FilterCategory != null)
+            {
+                request.FilterCategories = cmdletContext.FilterCategory;
             }
             if (cmdletContext.FilterCountry != null)
             {
@@ -362,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public List<System.Double> BiasPosition { get; set; }
             public List<System.Double> FilterBBox { get; set; }
+            public List<System.String> FilterCategory { get; set; }
             public List<System.String> FilterCountry { get; set; }
             public System.String IndexName { get; set; }
             public System.String Language { get; set; }

@@ -28,18 +28,17 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
-    /// You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3)
-    /// bucket by specifying the S3 URI of the evidence. 
+    /// Adds one or more pieces of evidence to a control in an Audit Manager assessment. 
     /// 
     ///  
     /// <para>
-    /// You must upload manual evidence to your S3 bucket before you can upload it to your
-    /// assessment. For instructions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
-    /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
-    /// in the <i>Amazon Simple Storage Service API Reference.</i></para><para>
+    /// You can import manual evidence from any S3 bucket by specifying the S3 URI of the
+    /// object. You can also upload a file from your browser, or enter plain text in response
+    /// to a risk assessment question. 
+    /// </para><para>
     /// The following restrictions apply to this action:
-    /// </para><ul><li><para>
+    /// </para><ul><li><para><code>manualEvidence</code> can be only one of the following: <code>evidenceFileName</code>,
+    /// <code>s3ResourcePath</code>, or <code>textResponse</code></para></li><li><para>
     /// Maximum size of an individual evidence file: 100 MB
     /// </para></li><li><para>
     /// Number of daily manual evidence uploads per control: 100

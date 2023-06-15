@@ -1631,6 +1631,7 @@ Set-Alias -Name Get-AUDMDelegations -Value Get-AUDMDelegation
 Set-Alias -Name AUDM-GetDelegations -Value Get-AUDMDelegation
 Set-Alias -Name AUDM-GetEvidence -Value Get-AUDMEvidence
 Set-Alias -Name AUDM-GetEvidenceByEvidenceFolder -Value Get-AUDMEvidenceByEvidenceFolder
+Set-Alias -Name AUDM-GetEvidenceFileUploadUrl -Value Get-AUDMEvidenceFileUploadUrl
 Set-Alias -Name AUDM-GetEvidenceFolder -Value Get-AUDMEvidenceFolder
 Set-Alias -Name Get-AUDMEvidenceFoldersByAssessment -Value Get-AUDMEvidenceFolderByAssessment
 Set-Alias -Name AUDM-GetEvidenceFoldersByAssessment -Value Get-AUDMEvidenceFolderByAssessment

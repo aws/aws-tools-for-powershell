@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns the name of the delegated Amazon Web Services administrator account for the
+    /// Gets the name of the delegated Amazon Web Services administrator account for a specified
     /// organization.
     /// </summary>
     [Cmdlet("Get", "AUDMOrganizationAdminAccount")]

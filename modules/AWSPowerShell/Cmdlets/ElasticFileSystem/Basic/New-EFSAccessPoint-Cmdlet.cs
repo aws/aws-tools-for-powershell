@@ -39,12 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  <note><para>
     /// If multiple requests to create access points on the same file system are sent in quick
-    /// succession, and the file system is near the limit of 1000 access points, you may experience
-    /// a throttling response for these requests. This is to ensure that the file system does
-    /// not exceed the stated access point limit.
+    /// succession, and the file system is near the limit of 1,000 access points, you may
+    /// experience a throttling response for these requests. This is to ensure that the file
+    /// system does not exceed the stated access point limit.
     /// </para></note><para>
     /// This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code>
     /// action.
+    /// </para><para>
+    /// Access points can be tagged on creation. If tags are specified in the creation action,
+    /// IAM performs additional authorization on the <code>elasticfilesystem:TagResource</code>
+    /// action to verify if users have permissions to create tags. Therefore, you must grant
+    /// explicit permissions to use the <code>elasticfilesystem:TagResource</code> action.
+    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html">Granting
+    /// permissions to tag resources during creation</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EFSAccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
