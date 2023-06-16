@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// can have up to 1,000 rules. This limit is not adjustable. Each rule consists of the
     /// following:
     /// </para><ul><li><para>
-    /// Filter identifying a subset of objects to which the rule applies. The filter can be
-    /// based on a key name prefix, object tags, or a combination of both.
+    /// A filter identifying a subset of objects to which the rule applies. The filter can
+    /// be based on a key name prefix, object tags, or a combination of both.
     /// </para></li><li><para>
-    /// Status whether the rule is in effect.
+    /// A status indicating whether the rule is in effect.
     /// </para></li><li><para>
     /// One or more lifecycle transition and expiration actions that you want Amazon S3 to
     /// perform on the objects identified by the filter. If the state of your bucket is versioning-enabled
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
     /// permission.
     /// </para><para>
-    /// You can also explicitly deny permissions. Explicit deny also supersedes any other
+    /// You can also explicitly deny permissions. An explicit deny also supersedes any other
     /// permissions. If you want to block users or accounts from removing or deleting objects
     /// from your bucket, you must deny them permissions for the following actions:
     /// </para><ul><li><para><code>s3:DeleteObject</code></para></li><li><para><code>s3:DeleteObjectVersion</code></para></li><li><para><code>s3:PutLifecycleConfiguration</code></para></li></ul><para>

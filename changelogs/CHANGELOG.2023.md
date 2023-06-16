@@ -1,4 +1,12 @@
-﻿### 4.1.353 (2023-06-15 21:16Z)
+﻿### 4.1.354 (2023-06-16 21:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.570.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Discovery Service
+    * Modified cmdlet Start-ADSExportTask: added parameters CpuPerformanceMetricBasis_Name, CpuPerformanceMetricBasis_PercentageAdjust, Ec2RecommendationsPreferences_Enabled, Ec2RecommendationsPreferences_ExcludedInstanceType, Ec2RecommendationsPreferences_PreferredRegion, Ec2RecommendationsPreferences_Tenancy, RamPerformanceMetricBasis_Name, RamPerformanceMetricBasis_PercentageAdjust, ReservedInstanceOptions_OfferingClass, ReservedInstanceOptions_PurchasingOption and ReservedInstanceOptions_TermLength.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Get-S3BucketAccelerateConfiguration: added parameter RequestPayer.
+    * Modified cmdlet Get-S3Version: added parameter RequestPayer.
+
+### 4.1.353 (2023-06-15 21:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.569.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Audit Manager
     * Added cmdlet Get-AUDMEvidenceFileUploadUrl leveraging the GetEvidenceFileUploadUrl service API.

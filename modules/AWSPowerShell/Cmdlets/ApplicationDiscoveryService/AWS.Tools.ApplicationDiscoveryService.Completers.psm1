@@ -87,6 +87,34 @@ $ADS_Completers = {
             break
         }
 
+        # Amazon.ApplicationDiscoveryService.OfferingClass
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass"
+        {
+            $v = "CONVERTIBLE","STANDARD"
+            break
+        }
+
+        # Amazon.ApplicationDiscoveryService.PurchasingOption
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_PurchasingOption"
+        {
+            $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
+            break
+        }
+
+        # Amazon.ApplicationDiscoveryService.Tenancy
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_Tenancy"
+        {
+            $v = "DEDICATED","SHARED"
+            break
+        }
+
+        # Amazon.ApplicationDiscoveryService.TermLength
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_TermLength"
+        {
+            $v = "ONE_YEAR","THREE_YEAR"
+            break
+        }
+
 
     }
 
@@ -97,6 +125,10 @@ $ADS_Completers = {
 
 $ADS_map = @{
     "ConfigurationType"=@("Get-ADSConfigurationList")
+    "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass"=@("Start-ADSExportTask")
+    "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_PurchasingOption"=@("Start-ADSExportTask")
+    "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_TermLength"=@("Start-ADSExportTask")
+    "Preferences_Ec2RecommendationsPreferences_Tenancy"=@("Start-ADSExportTask")
 }
 
 _awsArgumentCompleterRegistration $ADS_Completers $ADS_map

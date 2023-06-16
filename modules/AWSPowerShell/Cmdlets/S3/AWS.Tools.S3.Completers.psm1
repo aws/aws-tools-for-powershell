@@ -235,6 +235,7 @@ $S3_Completers = {
 
         # Amazon.S3.RequestPayer
         {
+            ($_ -eq "Get-S3BucketAccelerateConfiguration/RequestPayer") -Or
             ($_ -eq "Get-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectLegalHold/RequestPayer") -Or
@@ -242,6 +243,7 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectRetention/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectTagSet/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectV2/RequestPayer") -Or
+            ($_ -eq "Get-S3Version/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
@@ -358,7 +360,7 @@ $S3_map = @{
     "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")

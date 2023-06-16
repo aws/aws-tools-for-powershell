@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.569.0",
+    "ProductVersion" : "3.7.570.0",
     "CoreVersion"    : "3.7.107.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -218,7 +218,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.101.4",
+            "Version" : "3.7.101.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.105.1",
+            "Version" : "3.7.106.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -546,7 +546,7 @@
             "InPreview"               : false
         },
         "ApplicationDiscoveryService"     : {
-            "Version" : "3.7.101.84",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.127.3",
+            "Version" : "3.7.128.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -2258,7 +2258,7 @@
             "InPreview"               : false
         },
         "Account"                         : {
-            "Version" : "3.7.102.62",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"

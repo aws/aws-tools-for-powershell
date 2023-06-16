@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The bucket name that contains the objects.
+        /// <para>The bucket name that contains the objects. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String KeyMarker { get; set; }
         #endregion
         
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+        
         #region Parameter VersionIdMarker
         /// <summary>
         /// <para>
@@ -115,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Delimiter
         /// <summary>
         /// <para>
-        /// A delimiter is a character you use to group keys.
+        /// <para>A delimiter is a character that you specify to group keys. All keys that contain the
+        /// same string between the <code>prefix</code> and the first occurrence of the delimiter
+        /// are grouped under a single result element in CommonPrefixes. These groups are counted
+        /// as one result against the max-keys limitation. These keys are not returned elsewhere
+        /// in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MaxKey
         /// <summary>
         /// <para>
-        /// Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+        /// <para>Sets the maximum number of keys returned in the response. By default the action returns
+        /// up to 1,000 key names. The response might contain fewer keys but will never contain
+        /// more. If additional keys satisfy the search criteria, but were not returned because
+        /// max-keys was exceeded, the response contains &lt;isTruncated&gt;true&lt;/isTruncated&gt;.
+        /// To return the additional keys, see key-marker and version-id-marker.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// Limits the response to keys that begin with the specified prefix.
+        /// <para>Use this parameter to select only those keys that begin with the specified prefix.
+        /// You can use prefixes to separate a bucket into different groupings of keys. (You can
+        /// think of using prefix to make groups in the same way you'd use a folder in a file
+        /// system.) You can use prefix with delimiter to roll up numerous objects into a single
+        /// result under CommonPrefixes. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -194,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.KeyMarker = this.KeyMarker;
             context.MaxKey = this.MaxKey;
             context.Prefix = this.Prefix;
+            context.RequestPayer = this.RequestPayer;
             context.VersionIdMarker = this.VersionIdMarker;
             context.Encoding = this.Encoding;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
@@ -232,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Prefix != null)
             {
                 request.Prefix = cmdletContext.Prefix;
+            }
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
             if (cmdletContext.VersionIdMarker != null)
             {
@@ -311,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String KeyMarker { get; set; }
             public System.Int32? MaxKey { get; set; }
             public System.String Prefix { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String VersionIdMarker { get; set; }
             public Amazon.S3.EncodingType Encoding { get; set; }
             public System.String ExpectedBucketOwner { get; set; }

@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </para></li><li><para>
     /// configurationId
     /// </para></li></ul><para>
-    /// Also, all configuration items associated with your user account that have tags can
-    /// be listed if you call <code>DescribeTags</code> as is without passing any parameters.
+    /// Also, all configuration items associated with your user that have tags can be listed
+    /// if you call <code>DescribeTags</code> as is without passing any parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSTag")]

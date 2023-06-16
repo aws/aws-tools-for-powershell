@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// ACLs are still supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
     /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></important><dl><dt>Permissions</dt><dd><para>
-    /// You can set access permissions using one of the following methods:
+    /// You can set access permissions by using one of the following methods:
     /// </para><ul><li><para>
     /// Specify a canned ACL with the <code>x-amz-acl</code> request header. Amazon S3 supports
     /// a set of predefined ACLs, known as <i>canned ACLs</i>. Each canned ACL has a predefined

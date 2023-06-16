@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// By default, only the bucket owner can configure notifications on a bucket. However,
     /// bucket owners can use a bucket policy to grant permission to other users to set this
-    /// configuration with <code>s3:PutBucketNotification</code> permission.
+    /// configuration with the required <code>s3:PutBucketNotification</code> permission.
     /// </para><note><para>
     /// The PUT notification is an atomic operation. For example, suppose your notification
     /// configuration includes SNS topic, SQS queue, and Lambda function configurations. When

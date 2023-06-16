@@ -82,10 +82,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// - ScanRange</a> in the request parameters), you cannot specify the range of bytes
     /// of an object to return. 
     /// </para></li><li><para>
-    /// GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You cannot specify the
-    /// GLACIER, DEEP_ARCHIVE, or <code>REDUCED_REDUNDANCY</code> storage classes. For more
-    /// information, about storage classes see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro">Storage
-    /// Classes</a> in the <i>Amazon S3 User Guide</i>.
+    /// The <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, and <code>REDUCED_REDUNDANCY</code>
+    /// storage classes, or the <code>ARCHIVE_ACCESS</code> and <code>DEEP_ARCHIVE_ACCESS</code>
+    /// access tiers of the <code>INTELLIGENT_TIERING</code> storage class: You cannot query
+    /// objects in the <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, or <code>REDUCED_REDUNDANCY</code>
+    /// storage classes, nor objects in the <code>ARCHIVE_ACCESS</code> or <code>DEEP_ARCHIVE_ACCESS</code>
+    /// access tiers of the <code>INTELLIGENT_TIERING</code> storage class. For more information
+    /// about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using
+    /// Amazon S3 storage classes</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></li></ul></dd><dt>Special Errors</dt><dd><para>
     /// For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List
     /// of SELECT Object Content Error Codes</a></para></dd></dl><para>

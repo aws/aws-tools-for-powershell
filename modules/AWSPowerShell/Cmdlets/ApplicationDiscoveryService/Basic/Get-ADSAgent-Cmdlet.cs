@@ -28,9 +28,9 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Lists agents or connectors as specified by ID or other filters. All agents/connectors
-    /// associated with your user account can be listed if you call <code>DescribeAgents</code>
-    /// as is without passing any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists agents or collectors as specified by ID or other filters. All agents/collectors
+    /// associated with your user can be listed if you call <code>DescribeAgents</code> as
+    /// is without passing any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSAgent")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentInfo")]
@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>The agent or the Connector IDs for which you want information. If you specify no IDs,
-        /// the system returns information about all agents/Connectors associated with your Amazon
-        /// Web Services user account.</para>
+        /// <para>The agent or the collector IDs for which you want information. If you specify no IDs,
+        /// the system returns information about all agents/collectors associated with your user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of agents/Connectors to return in a single page of output. The maximum
+        /// <para>The total number of agents/collectors to return in a single page of output. The maximum
         /// value is 100.</para>
         /// </para>
         /// <para>

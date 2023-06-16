@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket for which the accelerate configuration is retrieved.
+        /// <para>The name of the bucket for which the accelerate configuration is retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,12 +78,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request fails with the HTTP status code <code>403 Forbidden</code> (access
+        /// denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
         #endregion
         
         #region Parameter Select
@@ -134,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.RequestPayer = this.RequestPayer;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
             
             CmdletOutput output;
@@ -221,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.Func<Amazon.S3.Model.GetBucketAccelerateConfigurationResponse, GetS3BucketAccelerateConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Status;
         }

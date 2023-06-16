@@ -28,9 +28,9 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// The HEAD action retrieves metadata from an object without returning the object itself.
-    /// This action is useful if you're only interested in an object's metadata. To use HEAD,
-    /// you must have READ access to the object.
+    /// The <code>HEAD</code> action retrieves metadata from an object without returning the
+    /// object itself. This action is useful if you're only interested in an object's metadata.
+    /// To use <code>HEAD</code>, you must have READ access to the object.
     /// 
     ///  
     /// <para>
@@ -44,20 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
     /// from the object, you must use the following headers:
-    /// </para><ul><li><para>
-    /// x-amz-server-side-encryption-customer-algorithm
-    /// </para></li><li><para>
-    /// x-amz-server-side-encryption-customer-key
-    /// </para></li><li><para>
-    /// x-amz-server-side-encryption-customer-key-MD5
-    /// </para></li></ul><para>
+    /// </para><ul><li><para><code>x-amz-server-side-encryption-customer-algorithm</code></para></li><li><para><code>x-amz-server-side-encryption-customer-key</code></para></li><li><para><code>x-amz-server-side-encryption-customer-key-MD5</code></para></li></ul><para>
     /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
     /// Encryption (Using Customer-Provided Encryption Keys)</a>.
     /// </para><note><ul><li><para>
     /// Encryption request headers, like <code>x-amz-server-side-encryption</code>, should
-    /// not be sent for GET requests if your object uses server-side encryption with KMS keys
-    /// (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys (SSE-S3).
-    /// If your object does use these types of keys, you’ll get an HTTP 400 BadRequest error.
+    /// not be sent for <code>GET</code> requests if your object uses server-side encryption
+    /// with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption
+    /// with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon
+    /// S3 managed encryption keys (SSE-S3). If your object does use these types of keys,
+    /// you’ll get an HTTP 400 Bad Request error.
     /// </para></li><li><para>
     ///  The last modified property in this case is the creation date of the object.
     /// </para></li></ul></note><para>
@@ -85,15 +81,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><dl><dt>Permissions</dt><dd><para>
     /// You need the relevant read object (or version) permission for this operation. For
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
-    /// resources, and condition keys for Amazon S3</a>. If the object you request does not
-    /// exist, the error Amazon S3 returns depends on whether you also have the s3:ListBucket
+    /// resources, and condition keys for Amazon S3</a>. If the object you request doesn't
+    /// exist, the error that Amazon S3 returns depends on whether you also have the s3:ListBucket
     /// permission.
     /// </para><ul><li><para>
     /// If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
-    /// an HTTP status code 404 ("no such key") error.
+    /// an HTTP status code 404 error.
     /// </para></li><li><para>
     /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
-    /// HTTP status code 403 ("access denied") error.
+    /// HTTP status code 403 error.
     /// </para></li></ul></dd></dl><para>
     /// The following actions are related to <code>HeadObject</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>

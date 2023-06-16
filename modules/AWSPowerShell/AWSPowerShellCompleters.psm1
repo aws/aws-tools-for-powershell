@@ -13756,7 +13756,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceStorageConfig/ResourceType")
         }
         {
-            $v = "AGENT_EVENTS","ATTACHMENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_EVALUATIONS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","REAL_TIME_CONTACT_ANALYSIS_SEGMENTS","SCHEDULED_REPORTS"
+            $v = "AGENT_EVENTS","ATTACHMENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_EVALUATIONS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","REAL_TIME_CONTACT_ANALYSIS_SEGMENTS","SCHEDULED_REPORTS","SCREEN_RECORDINGS"
             break
         }
 
@@ -16536,6 +16536,34 @@ $ADS_Completers = {
             break
         }
 
+        # Amazon.ApplicationDiscoveryService.OfferingClass
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass"
+        {
+            $v = "CONVERTIBLE","STANDARD"
+            break
+        }
+
+        # Amazon.ApplicationDiscoveryService.PurchasingOption
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_PurchasingOption"
+        {
+            $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
+            break
+        }
+
+        # Amazon.ApplicationDiscoveryService.Tenancy
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_Tenancy"
+        {
+            $v = "DEDICATED","SHARED"
+            break
+        }
+
+        # Amazon.ApplicationDiscoveryService.TermLength
+        "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_TermLength"
+        {
+            $v = "ONE_YEAR","THREE_YEAR"
+            break
+        }
+
 
     }
 
@@ -16546,6 +16574,10 @@ $ADS_Completers = {
 
 $ADS_map = @{
     "ConfigurationType"=@("Get-ADSConfigurationList")
+    "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass"=@("Start-ADSExportTask")
+    "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_PurchasingOption"=@("Start-ADSExportTask")
+    "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_TermLength"=@("Start-ADSExportTask")
+    "Preferences_Ec2RecommendationsPreferences_Tenancy"=@("Start-ADSExportTask")
 }
 
 _awsArgumentCompleterRegistration $ADS_Completers $ADS_map
@@ -49965,6 +49997,7 @@ $S3_Completers = {
 
         # Amazon.S3.RequestPayer
         {
+            ($_ -eq "Get-S3BucketAccelerateConfiguration/RequestPayer") -Or
             ($_ -eq "Get-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectLegalHold/RequestPayer") -Or
@@ -49972,6 +50005,7 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectRetention/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectTagSet/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectV2/RequestPayer") -Or
+            ($_ -eq "Get-S3Version/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
@@ -50088,7 +50122,7 @@ $S3_map = @{
     "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")

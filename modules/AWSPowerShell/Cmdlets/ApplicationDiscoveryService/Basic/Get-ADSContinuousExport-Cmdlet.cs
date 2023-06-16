@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Lists exports as specified by ID. All continuous exports associated with your user
-    /// account can be listed if you call <code>DescribeContinuousExports</code> as is without
-    /// passing any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// can be listed if you call <code>DescribeContinuousExports</code> as is without passing
+    /// any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSContinuousExport")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ContinuousExportDescription")]
