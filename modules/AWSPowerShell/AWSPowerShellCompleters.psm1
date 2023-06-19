@@ -8590,6 +8590,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.OnStackFailure
+        "New-CFNChangeSet/OnStackFailure"
+        {
+            $v = "DELETE","DO_NOTHING","ROLLBACK"
+            break
+        }
+
         # Amazon.CloudFormation.OperationStatus
         {
             ($_ -eq "Write-CFNHandlerProgress/CurrentOperationStatus") -Or
@@ -8714,6 +8721,7 @@ $CFN_map = @{
     "ErrorCode"=@("Write-CFNHandlerProgress")
     "Filters_Category"=@("Get-CFNTypeList")
     "OnFailure"=@("New-CFNStack")
+    "OnStackFailure"=@("New-CFNChangeSet")
     "OperationStatus"=@("Write-CFNHandlerProgress")
     "PermissionModel"=@("New-CFNStackSet","Update-CFNStackSet")
     "ProvisioningType"=@("Get-CFNTypeList")
@@ -50791,7 +50799,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AutoMLMode
-        "New-SMAutoMLJob/AutoMLJobConfig_Mode"
+        {
+            ($_ -eq "New-SMAutoMLJob/AutoMLJobConfig_Mode") -Or
+            ($_ -eq "New-SMAutoMLJobV2/AutoMLProblemTypeConfig_TabularJobConfig_Mode")
+        }
         {
             $v = "AUTO","ENSEMBLING","HYPERPARAMETER_TUNING"
             break
@@ -51446,7 +51457,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.ProblemType
-        "New-SMAutoMLJob/ProblemType"
+        {
+            ($_ -eq "New-SMAutoMLJobV2/AutoMLProblemTypeConfig_TabularJobConfig_ProblemType") -Or
+            ($_ -eq "New-SMAutoMLJob/ProblemType")
+        }
         {
             $v = "BinaryClassification","MulticlassClassification","Regression"
             break
@@ -51929,6 +51943,8 @@ $SM_map = @{
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
+    "AutoMLProblemTypeConfig_TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
+    "AutoMLProblemTypeConfig_TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
     "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")

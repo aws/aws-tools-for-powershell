@@ -381,7 +381,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Identifies the target device or the machine learning instance that you want to run
         /// your model on after the compilation has completed. Alternatively, you can specify
         /// OS, architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a>
-        /// fields. It can be used instead of <code>TargetPlatform</code>.</para>
+        /// fields. It can be used instead of <code>TargetPlatform</code>.</para><note><para>Currently <code>ml_trn1</code> is available only in US East (N. Virginia) Region,
+        /// and <code>ml_inf2</code> is available only in US East (Ohio) Region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

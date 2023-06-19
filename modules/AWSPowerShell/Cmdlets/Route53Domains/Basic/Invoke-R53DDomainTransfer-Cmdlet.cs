@@ -28,9 +28,7 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// Transfers a domain from another registrar to Amazon Route 53. When the transfer is
-    /// complete, the domain is registered either with Amazon Registrar (for .com, .net, and
-    /// .org domains) or with our registrar associate, Gandi (for all other TLDs).
+    /// Transfers a domain from another registrar to Amazon Route 53. 
     /// 
     ///  
     /// <para>
@@ -557,11 +555,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
-        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
-        /// the information that you entered for the admin contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
-        /// technical contacts.</para></note><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information for the registrar,
+        /// the phrase "REDACTED FOR PRIVACY", or "On behalf of &lt;domain name&gt; owner.".</para><note><para>While some domains may allow different privacy settings per contact, we recommend
+        /// specifying the same privacy setting for all contacts.</para></note><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,13 @@
-﻿### 4.1.354 (2023-06-16 21:34Z)
+﻿### 4.1.355 (2023-06-19 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.571.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Modified cmdlet New-CFNChangeSet: added parameter OnStackFailure.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VerifiedAccessInstanceLoggingConfiguration: added parameters AccessLogs_IncludeTrustContext and AccessLogs_LogVersion.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJobV2: added parameters CandidateGenerationConfig_AlgorithmsConfig, CompletionCriteria_MaxAutoMLJobRuntimeInSecond, CompletionCriteria_MaxCandidate, CompletionCriteria_MaxRuntimePerTrainingJobInSecond, TabularJobConfig_FeatureSpecificationS3Uri, TabularJobConfig_GenerateCandidateDefinitionsOnly, TabularJobConfig_Mode, TabularJobConfig_ProblemType, TabularJobConfig_SampleWeightAttributeName and TabularJobConfig_TargetAttributeName.
+
+### 4.1.354 (2023-06-16 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.570.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Application Discovery Service
     * Modified cmdlet Start-ADSExportTask: added parameters CpuPerformanceMetricBasis_Name, CpuPerformanceMetricBasis_PercentageAdjust, Ec2RecommendationsPreferences_Enabled, Ec2RecommendationsPreferences_ExcludedInstanceType, Ec2RecommendationsPreferences_PreferredRegion, Ec2RecommendationsPreferences_Tenancy, RamPerformanceMetricBasis_Name, RamPerformanceMetricBasis_PercentageAdjust, ReservedInstanceOptions_OfferingClass, ReservedInstanceOptions_PurchasingOption and ReservedInstanceOptions_TermLength.

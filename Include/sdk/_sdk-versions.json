@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.570.0",
+    "ProductVersion" : "3.7.571.0",
     "CoreVersion"    : "3.7.107.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -30,7 +30,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.107.4",
+            "Version" : "3.7.108.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.137.1",
+            "Version" : "3.7.138.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -160,7 +160,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.108.21",
+            "Version" : "3.7.108.22",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -306,7 +306,7 @@
             "InPreview"               : false
         },
         "Route53Domains"       : {
-            "Version" : "3.7.101.105",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.116.9",
+            "Version" : "3.7.117.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -850,7 +850,7 @@
             "InPreview"               : false
         },
         "Pricing"                         : {
-            "Version" : "3.7.101.64",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.135.2",
+            "Version" : "3.7.136.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.7"

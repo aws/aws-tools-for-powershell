@@ -28,18 +28,26 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an Amazon SageMaker AutoML job that uses non-tabular data such as images or
-    /// text for Computer Vision or Natural Language Processing problems.
+    /// Creates an Autopilot job also referred to as Autopilot experiment or AutoML job V2.
     /// 
     ///  
     /// <para>
-    /// Find the resulting model after you run an AutoML job V2 by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>.
+    /// We recommend using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
+    /// for all problem types. <code>CreateAutoMLJobV2</code> can process the same tabular
+    /// data as its previous version <code>CreateAutoMLJob</code>, as well as non-tabular
+    /// data for problem types such as image or text classification.
     /// </para><para>
-    /// To create an <code>AutoMLJob</code> using tabular data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.
-    /// </para><note><para>
-    /// This API action is callable through SageMaker Canvas only. Calling it directly from
-    /// the CLI or an SDK results in an error.
-    /// </para></note>
+    /// Find guidelines about how to migrate <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
+    /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
+    /// a CreateAutoMLJob to CreateAutoMLJobV2</a>.
+    /// </para><para>
+    /// For the list of available problem types supported by <code>CreateAutoMLJobV2</code>,
+    /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html">AutoMLProblemTypeConfig</a>.
+    /// </para><para>
+    /// Find the best-performing model after you run an AutoML job V2 by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>.
+    /// Calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>
+    /// on a AutoML job V2 results in an error.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SMAutoMLJobV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -50,6 +58,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
     )]
     public partial class NewSMAutoMLJobV2Cmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
+        
+        #region Parameter CandidateGenerationConfig_AlgorithmsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Stores the configuration information for the selection of algorithms used to train
+        /// model candidates on tabular data.</para><para>The list of available algorithms to choose from depends on the training mode set in
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html"><code>TabularJobConfig.Mode</code></a>.</para><ul><li><para><code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
+        /// attribute must be set and one only.</para><para>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
+        /// empty, <code>CandidateGenerationConfig</code> uses the full set of algorithms for
+        /// the given training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is not provided, <code>CandidateGenerationConfig</code>
+        /// uses the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// AutoMLAlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
+        /// support</a> section in Autopilot developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig")]
+        public Amazon.SageMaker.Model.AutoMLAlgorithmConfig[] CandidateGenerationConfig_AlgorithmsConfig { get; set; }
+        #endregion
         
         #region Parameter ModelDeployConfig_AutoGenerateEndpointName
         /// <summary>
@@ -70,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of channel objects describing the input data and their location. Each channel
         /// is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
         /// supported by <code>CreateAutoMLJob</code>. The supported formats depend on the problem
-        /// type:</para><ul><li><para>ImageClassification: S3Prefix, <code>ManifestFile</code>, <code>AugmentedManifestFile</code></para></li><li><para>TextClassification: S3Prefix</para></li></ul>
+        /// type:</para><ul><li><para>For Tabular problem types: <code>S3Prefix</code>, <code>ManifestFile</code>.</para></li><li><para>For ImageClassification: <code>S3Prefix</code>, <code>ManifestFile</code>, <code>AugmentedManifestFile</code>.</para></li><li><para>For TextClassification: <code>S3Prefix</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the column used to provide the sentences to be classified. It should not
-        /// be the same as the target column.</para>
+        /// be the same as the target column (Required).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,6 +162,40 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelDeployConfig_EndpointName { get; set; }
         #endregion
         
+        #region Parameter TabularJobConfig_FeatureSpecificationS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>A URL to the Amazon S3 data source containing selected features from the input data
+        /// source to run an Autopilot job V2. You can input <code>FeatureAttributeNames</code>
+        /// (optional) in JSON format as shown below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code></para><note><para>These column keys may not include the target column.</para></note><para>In ensembling mode, Autopilot only supports the following data types: <code>numeric</code>,
+        /// <code>categorical</code>, <code>text</code>, and <code>datetime</code>. In HPO mode,
+        /// Autopilot can support <code>numeric</code>, <code>categorical</code>, <code>text</code>,
+        /// <code>datetime</code>, and <code>sequence</code>.</para><para>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
+        /// <code>col2</code>,..) should be a subset of the column names in the input data. </para><para>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are provided,
+        /// then the column keys should be a subset of the column names provided in <code>FeatureAttributeNames</code>.
+        /// </para><para>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in <code>["col1",
+        /// "col2", ...]</code> are case sensitive and should be a list of strings containing
+        /// unique values that are a subset of the column names in the input data. The list of
+        /// columns provided must not include the target column.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_FeatureSpecificationS3Uri")]
+        public System.String TabularJobConfig_FeatureSpecificationS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter TabularJobConfig_GenerateCandidateDefinitionsOnly
+        /// <summary>
+        /// <para>
+        /// <para>Generates possible candidates without training the models. A model candidate is a
+        /// combination of data preprocessors, algorithms, and algorithm parameter settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_GenerateCandidateDefinitionsOnly")]
+        public System.Boolean? TabularJobConfig_GenerateCandidateDefinitionsOnly { get; set; }
+        #endregion
+        
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
@@ -158,6 +219,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds { get; set; }
         #endregion
         
+        #region Parameter CompletionCriteria_MaxAutoMLJobRuntimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum runtime, in seconds, an AutoML job has to complete.</para><para>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and
+        /// its processing is ended gracefully. The AutoML job identifies the best model whose
+        /// training was completed and marks it as the best-performing model. Any unfinished steps
+        /// of the job, such as automatic one-click Autopilot model deployment, are not completed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds")]
+        public System.Int32? CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
+        #endregion
+        
         #region Parameter AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds
         /// <summary>
         /// <para>
@@ -174,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
         /// value is 1.</para>
         /// </para>
         /// </summary>
@@ -182,10 +257,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates { get; set; }
         #endregion
         
+        #region Parameter CompletionCriteria_MaxCandidate
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+        /// value is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_MaxCandidates")]
+        public System.Int32? CompletionCriteria_MaxCandidate { get; set; }
+        #endregion
+        
         #region Parameter AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidates
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
         /// value is 1.</para>
         /// </para>
         /// </summary>
@@ -200,12 +287,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
         /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds { get; set; }
+        #endregion
+        
+        #region Parameter CompletionCriteria_MaxRuntimePerTrainingJobInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
+        /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
+        /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+        /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
+        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// the runtime of the job candidate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds")]
+        public System.Int32? CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
         #endregion
         
         #region Parameter AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds
@@ -215,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
         /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>
@@ -231,12 +334,53 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// optimize its performance based on the feedback provided by the objective metric when
         /// evaluating the model on the validation dataset.</para><para>For the list of all available metrics supported by Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
         /// metrics</a>.</para><para>If you do not specify a metric explicitly, the default behavior is to automatically
-        /// use:</para><ul><li><para><code>MSE</code>: for regression.</para></li><li><para><code>F1</code>: for binary classification</para></li><li><para><code>Accuracy</code>: for multiclass classification.</para></li></ul>
+        /// use:</para><ul><li><para>For tabular problem types:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li><li><para>For image or text classification problem types: <code>Accuracy</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.AutoMLMetricEnum")]
         public Amazon.SageMaker.AutoMLMetricEnum AutoMLJobObjective_MetricName { get; set; }
+        #endregion
+        
+        #region Parameter TabularJobConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The method that Autopilot uses to train the data. You can either specify the mode
+        /// manually or let Autopilot choose for you based on the dataset size by selecting <code>AUTO</code>.
+        /// In <code>AUTO</code> mode, Autopilot chooses <code>ENSEMBLING</code> for datasets
+        /// smaller than 100 MB, and <code>HYPERPARAMETER_TUNING</code> for larger ones.</para><para>The <code>ENSEMBLING</code> mode uses a multi-stack ensemble model to predict classification
+        /// and regression tasks directly from your dataset. This machine learning mode combines
+        /// several base models to produce an optimal predictive model. It then uses a stacking
+        /// ensemble method to combine predictions from contributing members. A multi-stack ensemble
+        /// model can provide better performance over a single model by combining the predictive
+        /// capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
+        /// algorithm support</a> for a list of algorithms supported by <code>ENSEMBLING</code>
+        /// mode.</para><para>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to
+        /// train the best version of a model. HPO automatically selects an algorithm for the
+        /// type of problem you want to solve. Then HPO finds the best hyperparameters according
+        /// to your objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
+        /// algorithm support</a> for a list of algorithms supported by <code>HYPERPARAMETER_TUNING</code>
+        /// mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_Mode")]
+        [AWSConstantClassSource("Amazon.SageMaker.AutoMLMode")]
+        public Amazon.SageMaker.AutoMLMode TabularJobConfig_Mode { get; set; }
+        #endregion
+        
+        #region Parameter TabularJobConfig_ProblemType
+        /// <summary>
+        /// <para>
+        /// <para>The type of supervised learning problem available for the model candidates of the
+        /// AutoML job V2. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
+        /// Amazon SageMaker Autopilot problem types</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_ProblemType")]
+        [AWSConstantClassSource("Amazon.SageMaker.ProblemType")]
+        public Amazon.SageMaker.ProblemType TabularJobConfig_ProblemType { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -271,6 +415,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OutputDataConfig_S3OutputPath { get; set; }
+        #endregion
+        
+        #region Parameter TabularJobConfig_SampleWeightAttributeName
+        /// <summary>
+        /// <para>
+        /// <para>If specified, this column name indicates which column of the dataset should be treated
+        /// as sample weights for use by the objective metric during the training, evaluation,
+        /// and the selection of the best model. This column is not considered as a predictive
+        /// feature. For more information on Autopilot metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">Metrics
+        /// and validation</a>.</para><para>Sample weights should be numeric, non-negative, with larger values indicating which
+        /// rows are more important than others. Data points that have invalid or no weight value
+        /// are excluded.</para><para>Support for sample weights is available in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">Ensembling</a>
+        /// mode only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_SampleWeightAttributeName")]
+        public System.String TabularJobConfig_SampleWeightAttributeName { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SecurityGroupId
@@ -312,11 +474,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TabularJobConfig_TargetAttributeName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the target variable in supervised learning, usually represented by 'y'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_TargetAttributeName")]
+        public System.String TabularJobConfig_TargetAttributeName { get; set; }
+        #endregion
+        
         #region Parameter TextClassificationJobConfig_TargetLabelColumn
         /// <summary>
         /// <para>
         /// <para>The name of the column used to provide the class labels. It should not be same as
-        /// the content column.</para>
+        /// the content column (Required).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,6 +602,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds = this.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds;
             context.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates = this.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates;
             context.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds = this.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds;
+            if (this.CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                context.CandidateGenerationConfig_AlgorithmsConfig = new List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig>(this.CandidateGenerationConfig_AlgorithmsConfig);
+            }
+            context.CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
+            context.CompletionCriteria_MaxCandidate = this.CompletionCriteria_MaxCandidate;
+            context.CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
+            context.TabularJobConfig_FeatureSpecificationS3Uri = this.TabularJobConfig_FeatureSpecificationS3Uri;
+            context.TabularJobConfig_GenerateCandidateDefinitionsOnly = this.TabularJobConfig_GenerateCandidateDefinitionsOnly;
+            context.TabularJobConfig_Mode = this.TabularJobConfig_Mode;
+            context.TabularJobConfig_ProblemType = this.TabularJobConfig_ProblemType;
+            context.TabularJobConfig_SampleWeightAttributeName = this.TabularJobConfig_SampleWeightAttributeName;
+            context.TabularJobConfig_TargetAttributeName = this.TabularJobConfig_TargetAttributeName;
             context.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds = this.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds;
             context.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidates = this.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidates;
             context.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds = this.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds;
@@ -653,6 +839,151 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.AutoMLProblemTypeConfig.TextClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig;
                 requestAutoMLProblemTypeConfigIsNull = false;
             }
+            Amazon.SageMaker.Model.TabularJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
+            
+             // populate TabularJobConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = new Amazon.SageMaker.Model.TabularJobConfig();
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri = null;
+            if (cmdletContext.TabularJobConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri = cmdletContext.TabularJobConfig_FeatureSpecificationS3Uri;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.FeatureSpecificationS3Uri = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            System.Boolean? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly = null;
+            if (cmdletContext.TabularJobConfig_GenerateCandidateDefinitionsOnly != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly = cmdletContext.TabularJobConfig_GenerateCandidateDefinitionsOnly.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.GenerateCandidateDefinitionsOnly = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.AutoMLMode requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode = null;
+            if (cmdletContext.TabularJobConfig_Mode != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode = cmdletContext.TabularJobConfig_Mode;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.Mode = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.ProblemType requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType = null;
+            if (cmdletContext.TabularJobConfig_ProblemType != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType = cmdletContext.TabularJobConfig_ProblemType;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.ProblemType = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName = null;
+            if (cmdletContext.TabularJobConfig_SampleWeightAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName = cmdletContext.TabularJobConfig_SampleWeightAttributeName;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.SampleWeightAttributeName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName = null;
+            if (cmdletContext.TabularJobConfig_TargetAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName = cmdletContext.TabularJobConfig_TargetAttributeName;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.TargetAttributeName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.CandidateGenerationConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = null;
+            
+             // populate CandidateGenerationConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.CandidateGenerationConfig();
+            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = null;
+            if (cmdletContext.CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = cmdletContext.CandidateGenerationConfig_AlgorithmsConfig;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.CandidateGenerationConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = null;
+            
+             // populate CompletionCriteria
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = new Amazon.SageMaker.Model.AutoMLJobCompletionCriteria();
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond = null;
+            if (cmdletContext.CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond = cmdletContext.CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxAutoMLJobRuntimeInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate = null;
+            if (cmdletContext.CompletionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate = cmdletContext.CompletionCriteria_MaxCandidate.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxCandidates = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond = null;
+            if (cmdletContext.CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond = cmdletContext.CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxRuntimePerTrainingJobInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.CompletionCriteria = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig != null)
+            {
+                request.AutoMLProblemTypeConfig.TabularJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig;
+                requestAutoMLProblemTypeConfigIsNull = false;
+            }
              // determine if request.AutoMLProblemTypeConfig should be set to null
             if (requestAutoMLProblemTypeConfigIsNull)
             {
@@ -874,6 +1205,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds { get; set; }
+            public List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> CandidateGenerationConfig_AlgorithmsConfig { get; set; }
+            public System.Int32? CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
+            public System.Int32? CompletionCriteria_MaxCandidate { get; set; }
+            public System.Int32? CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
+            public System.String TabularJobConfig_FeatureSpecificationS3Uri { get; set; }
+            public System.Boolean? TabularJobConfig_GenerateCandidateDefinitionsOnly { get; set; }
+            public Amazon.SageMaker.AutoMLMode TabularJobConfig_Mode { get; set; }
+            public Amazon.SageMaker.ProblemType TabularJobConfig_ProblemType { get; set; }
+            public System.String TabularJobConfig_SampleWeightAttributeName { get; set; }
+            public System.String TabularJobConfig_TargetAttributeName { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidates { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds { get; set; }

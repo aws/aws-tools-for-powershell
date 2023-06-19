@@ -28,15 +28,22 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an Autopilot job.
+    /// Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
     /// 
     ///  
     /// <para>
-    /// Find the best-performing model after you run an Autopilot job by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>.
+    /// Find the best-performing model after you run an AutoML job by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>
+    /// (recommended) or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>.
+    /// </para><note><para><code>CreateAutoMLJob</code> only accepts tabular input data. We recommend using
+    /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
+    /// for all problem types. <code>CreateAutoMLJobV2</code> can process the same tabular
+    /// data as its previous version <code>CreateAutoMLJob</code>, as well as non-tabular
+    /// data for problem types such as image or text classification.
     /// </para><para>
-    /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate
-    /// Model Development with Amazon SageMaker Autopilot</a>.
-    /// </para>
+    /// Find guidelines about how to migrate <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
+    /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
+    /// a CreateAutoMLJob to CreateAutoMLJobV2</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SMAutoMLJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -200,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
         /// value is 1.</para>
         /// </para>
         /// </summary>
@@ -216,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
         /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>
@@ -233,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// optimize its performance based on the feedback provided by the objective metric when
         /// evaluating the model on the validation dataset.</para><para>For the list of all available metrics supported by Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
         /// metrics</a>.</para><para>If you do not specify a metric explicitly, the default behavior is to automatically
-        /// use:</para><ul><li><para><code>MSE</code>: for regression.</para></li><li><para><code>F1</code>: for binary classification</para></li><li><para><code>Accuracy</code>: for multiclass classification.</para></li></ul>
+        /// use:</para><ul><li><para>For tabular problem types:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li><li><para>For image or text classification problem types: <code>Accuracy</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,12 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// several base models to produce an optimal predictive model. It then uses a stacking
         /// ensemble method to combine predictions from contributing members. A multi-stack ensemble
         /// model can provide better performance over a single model by combining the predictive
-        /// capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot
+        /// capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
         /// algorithm support</a> for a list of algorithms supported by <code>ENSEMBLING</code>
         /// mode.</para><para>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to
         /// train the best version of a model. HPO automatically selects an algorithm for the
         /// type of problem you want to solve. Then HPO finds the best hyperparameters according
-        /// to your objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot
+        /// to your objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
         /// algorithm support</a> for a list of algorithms supported by <code>HYPERPARAMETER_TUNING</code>
         /// mode.</para>
         /// </para>

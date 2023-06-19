@@ -174,6 +174,29 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] NotificationARNs { get; set; }
         #endregion
         
+        #region Parameter OnStackFailure
+        /// <summary>
+        /// <para>
+        /// <para>Determines what action will be taken if stack creation fails. If this parameter is
+        /// specified, the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a>
+        /// API operation must not be specified. This must be one of these values:</para><ul><li><para><code>DELETE</code> - Deletes the change set if the stack creation fails. This is
+        /// only valid when the <code>ChangeSetType</code> parameter is set to <code>CREATE</code>.
+        /// If the deletion of the stack fails, the status of the stack is <code>DELETE_FAILED</code>.</para></li><li><para><code>DO_NOTHING</code> - if the stack creation fails, do nothing. This is equivalent
+        /// to specifying <code>true</code> for the <code>DisableRollback</code> parameter to
+        /// the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a>
+        /// API operation.</para></li><li><para><code>ROLLBACK</code> - if the stack creation fails, roll back the stack. This is
+        /// equivalent to specifying <code>false</code> for the <code>DisableRollback</code> parameter
+        /// to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a>
+        /// API operation.</para></li></ul><para>For nested stacks, when the <code>OnStackFailure</code> parameter is set to <code>DELETE</code>
+        /// for the change set for the parent stack, any failure in a child stack will cause the
+        /// parent stack creation to fail and all stacks to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.OnStackFailure")]
+        public Amazon.CloudFormation.OnStackFailure OnStackFailure { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
@@ -402,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.NotificationARNs = new List<System.String>(this.NotificationARNs);
             }
+            context.OnStackFailure = this.OnStackFailure;
             if (this.Parameter != null)
             {
                 context.Parameter = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
@@ -473,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.NotificationARNs != null)
             {
                 request.NotificationARNs = cmdletContext.NotificationARNs;
+            }
+            if (cmdletContext.OnStackFailure != null)
+            {
+                request.OnStackFailure = cmdletContext.OnStackFailure;
             }
             if (cmdletContext.Parameter != null)
             {
@@ -582,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String Description { get; set; }
             public System.Boolean? IncludeNestedStack { get; set; }
             public List<System.String> NotificationARNs { get; set; }
+            public Amazon.CloudFormation.OnStackFailure OnStackFailure { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
             public List<Amazon.CloudFormation.Model.ResourceToImport> ResourcesToImport { get; set; }
             public List<System.String> ResourceType { get; set; }

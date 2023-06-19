@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns information about an Amazon SageMaker AutoML job.
+    /// Returns information about an AutoML job created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.
     /// </summary>
     [Cmdlet("Get", "SMAutoMLJob")]
     [OutputType("Amazon.SageMaker.Model.DescribeAutoMLJobResponse")]

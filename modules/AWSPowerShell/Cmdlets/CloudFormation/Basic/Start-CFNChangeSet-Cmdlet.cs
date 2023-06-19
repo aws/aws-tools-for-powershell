@@ -89,7 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DisableRollback
         /// <summary>
         /// <para>
-        /// <para>Preserves the state of previously provisioned resources when an operation fails.</para><para>Default: <code>True</code></para>
+        /// <para>Preserves the state of previously provisioned resources when an operation fails. This
+        /// parameter can't be specified when the <code>OnStackFailure</code> parameter to the
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
+        /// API operation was specified.</para><ul><li><para><code>True</code> - if the stack creation fails, do nothing. This is equivalent to
+        /// specifying <code>DO_NOTHING</code> for the <code>OnStackFailure</code> parameter to
+        /// the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
+        /// API operation.</para></li><li><para><code>False</code> - if the stack creation fails, roll back the stack. This is equivalent
+        /// to specifying <code>ROLLBACK</code> for the <code>OnStackFailure</code> parameter
+        /// to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
+        /// API operation.</para></li></ul><para>Default: <code>True</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

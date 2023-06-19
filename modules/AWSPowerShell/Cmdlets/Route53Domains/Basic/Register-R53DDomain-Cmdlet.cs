@@ -28,9 +28,8 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation registers a domain. Domains are registered either by Amazon Registrar
-    /// (for .com, .net, and .org domains) or by our registrar associate, Gandi (for all other
-    /// domains). For some top-level domains (TLDs), this operation requires extra parameters.
+    /// This operation registers a domain. For some top-level domains (TLDs), this operation
+    /// requires extra parameters.
     /// 
     ///  
     /// <para>
@@ -44,14 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// We'll notify you in advance of the renewal date so you can choose whether to renew
     /// the registration.
     /// </para></li><li><para>
-    /// Optionally enables privacy protection, so WHOIS queries return contact information
-    /// either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar
-    /// associate, Gandi (for all other TLDs). If you don't enable privacy protection, WHOIS
-    /// queries return the information that you entered for the administrative, registrant,
-    /// and technical contacts.
+    /// Optionally enables privacy protection, so WHOIS queries return contact for the registrar
+    /// or the phrase "REDACTED FOR PRIVACY", or "On behalf of &lt;domain name&gt; owner."
+    /// If you don't enable privacy protection, WHOIS queries return the information that
+    /// you entered for the administrative, registrant, and technical contacts.
     /// </para><note><para>
-    /// You must specify the same privacy setting for the administrative, registrant, and
-    /// technical contacts.
+    /// While some domains may allow different privacy settings per contact, we recommend
+    /// specifying the same privacy setting for all contacts.
     /// </para></note></li><li><para>
     /// If registration is successful, returns an operation ID that you can use to track the
     /// progress and completion of the action. If the request is not completed successfully,

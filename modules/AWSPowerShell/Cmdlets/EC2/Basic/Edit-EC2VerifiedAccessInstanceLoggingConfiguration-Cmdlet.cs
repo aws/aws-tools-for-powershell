@@ -107,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? S3_Enabled { get; set; }
         #endregion
         
+        #region Parameter AccessLogs_IncludeTrustContext
+        /// <summary>
+        /// <para>
+        /// <para> Include trust data sent by trust providers into the logs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccessLogs_IncludeTrustContext { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogs_LogGroup
         /// <summary>
         /// <para>
@@ -116,6 +126,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AccessLogs_CloudWatchLogs_LogGroup")]
         public System.String CloudWatchLogs_LogGroup { get; set; }
+        #endregion
+        
+        #region Parameter AccessLogs_LogVersion
+        /// <summary>
+        /// <para>
+        /// <para> The logging version to use. </para><para>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessLogs_LogVersion { get; set; }
         #endregion
         
         #region Parameter S3_Prefix
@@ -222,8 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CloudWatchLogs_Enabled = this.CloudWatchLogs_Enabled;
             context.CloudWatchLogs_LogGroup = this.CloudWatchLogs_LogGroup;
+            context.AccessLogs_IncludeTrustContext = this.AccessLogs_IncludeTrustContext;
             context.KinesisDataFirehose_DeliveryStream = this.KinesisDataFirehose_DeliveryStream;
             context.KinesisDataFirehose_Enabled = this.KinesisDataFirehose_Enabled;
+            context.AccessLogs_LogVersion = this.AccessLogs_LogVersion;
             context.S3_BucketName = this.S3_BucketName;
             context.S3_BucketOwner = this.S3_BucketOwner;
             context.S3_Enabled = this.S3_Enabled;
@@ -256,6 +278,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate AccessLogs
             var requestAccessLogsIsNull = true;
             request.AccessLogs = new Amazon.EC2.Model.VerifiedAccessLogOptions();
+            System.Boolean? requestAccessLogs_accessLogs_IncludeTrustContext = null;
+            if (cmdletContext.AccessLogs_IncludeTrustContext != null)
+            {
+                requestAccessLogs_accessLogs_IncludeTrustContext = cmdletContext.AccessLogs_IncludeTrustContext.Value;
+            }
+            if (requestAccessLogs_accessLogs_IncludeTrustContext != null)
+            {
+                request.AccessLogs.IncludeTrustContext = requestAccessLogs_accessLogs_IncludeTrustContext.Value;
+                requestAccessLogsIsNull = false;
+            }
+            System.String requestAccessLogs_accessLogs_LogVersion = null;
+            if (cmdletContext.AccessLogs_LogVersion != null)
+            {
+                requestAccessLogs_accessLogs_LogVersion = cmdletContext.AccessLogs_LogVersion;
+            }
+            if (requestAccessLogs_accessLogs_LogVersion != null)
+            {
+                request.AccessLogs.LogVersion = requestAccessLogs_accessLogs_LogVersion;
+                requestAccessLogsIsNull = false;
+            }
             Amazon.EC2.Model.VerifiedAccessLogCloudWatchLogsDestinationOptions requestAccessLogs_accessLogs_CloudWatchLogs = null;
             
              // populate CloudWatchLogs
@@ -457,8 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? CloudWatchLogs_Enabled { get; set; }
             public System.String CloudWatchLogs_LogGroup { get; set; }
+            public System.Boolean? AccessLogs_IncludeTrustContext { get; set; }
             public System.String KinesisDataFirehose_DeliveryStream { get; set; }
             public System.Boolean? KinesisDataFirehose_Enabled { get; set; }
+            public System.String AccessLogs_LogVersion { get; set; }
             public System.String S3_BucketName { get; set; }
             public System.String S3_BucketOwner { get; set; }
             public System.Boolean? S3_Enabled { get; set; }
