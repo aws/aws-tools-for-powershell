@@ -84,6 +84,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetConnectorMetadataCache" Verb="Reset" Noun="ConnectorMetadataCache" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartFlow" OutputProperty="*" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

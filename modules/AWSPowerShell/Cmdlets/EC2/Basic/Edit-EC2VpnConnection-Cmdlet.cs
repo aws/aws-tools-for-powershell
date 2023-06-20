@@ -80,6 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CustomerGatewayId
         /// <summary>
         /// <para>

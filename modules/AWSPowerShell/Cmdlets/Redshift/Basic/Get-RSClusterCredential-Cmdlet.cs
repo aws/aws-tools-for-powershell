@@ -85,15 +85,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// requesting credentials. This parameter is case sensitive.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter CustomDomainName
+        /// <summary>
+        /// <para>
+        /// <para>The custom domain name for the cluster credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDomainName { get; set; }
         #endregion
         
         #region Parameter DbGroup
@@ -210,12 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoCreate = this.AutoCreate;
             context.ClusterIdentifier = this.ClusterIdentifier;
-            #if MODULAR
-            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.CustomDomainName = this.CustomDomainName;
             if (this.DbGroup != null)
             {
                 context.DbGroup = new List<System.String>(this.DbGroup);
@@ -252,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.CustomDomainName != null)
+            {
+                request.CustomDomainName = cmdletContext.CustomDomainName;
             }
             if (cmdletContext.DbGroup != null)
             {
@@ -332,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.Boolean? AutoCreate { get; set; }
             public System.String ClusterIdentifier { get; set; }
+            public System.String CustomDomainName { get; set; }
             public List<System.String> DbGroup { get; set; }
             public System.String DbName { get; set; }
             public System.String DbUser { get; set; }

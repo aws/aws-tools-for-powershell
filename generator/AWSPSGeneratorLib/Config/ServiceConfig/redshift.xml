@@ -103,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomDomainAssociation" OutputProperty="*" Verb="New" Noun="CustomDomainAssociation" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpointAccess" OutputProperty="*" Verb="New" Noun="EndpointAccess" ShouldProcessTarget="" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -164,6 +168,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteClusterSubnetGroup" Verb="Remove" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomDomainAssociation" Verb="Remove" Noun="CustomDomainAssociation" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -253,6 +261,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterVersions" OutputProperty="ClusterVersions" Verb="Get" Noun="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterVersions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomDomainAssociations" OutputProperty="Associations" Verb="Get" Noun="CustomDomainAssociation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -442,6 +454,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyClusterSubnetGroup" OutputProperty="ClusterSubnetGroup" Verb="Edit" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCustomDomainAssociation" OutputProperty="*" Verb="Edit" Noun="CustomDomainAssociation" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

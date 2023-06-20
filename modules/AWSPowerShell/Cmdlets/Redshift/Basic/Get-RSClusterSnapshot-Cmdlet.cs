@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
-        /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 500.</para>
+        /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

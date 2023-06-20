@@ -42,6 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2HostCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AssetId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the Outpost hardware assets on which to allocate the Dedicated Hosts. Targeting
+        /// specific hardware assets on an Outpost can help to minimize latency between your workloads.
+        /// This parameter is supported only if you specify <b>OutpostArn</b>. If you are allocating
+        /// the Dedicated Hosts in a Region, omit this parameter.</para><ul><li><para>If you specify this parameter, you can omit <b>Quantity</b>. In this case, Amazon
+        /// EC2 allocates a Dedicated Host on each specified hardware asset.</para></li><li><para>If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value for <b>Quantity</b>
+        /// must be equal to the number of asset IDs specified.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetIds")]
+        public System.String[] AssetId { get; set; }
+        #endregion
+        
         #region Parameter AutoPlacement
         /// <summary>
         /// <para>
@@ -131,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
-        /// the Dedicated Host.</para>
+        /// the Dedicated Host. If you specify <b>OutpostArn</b>, you can optionally specify <b>AssetIds</b>.</para><para>If you are allocating the Dedicated Host in a Region, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,16 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of Dedicated Hosts to allocate to your account with these parameters.</para>
+        /// <para>The number of Dedicated Hosts to allocate to your account with these parameters. If
+        /// you are allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>,
+        /// you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on
+        /// each specified hardware asset. If you specify both <b>AssetIds</b> and <b>Quantity</b>,
+        /// then the value that you specify for <b>Quantity</b> must be equal to the number of
+        /// asset IDs specified.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? Quantity { get; set; }
         #endregion
         
@@ -239,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.InstanceType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AssetId != null)
+            {
+                context.AssetId = new List<System.String>(this.AssetId);
+            }
             context.AutoPlacement = this.AutoPlacement;
             context.AvailabilityZone = this.AvailabilityZone;
             #if MODULAR
@@ -254,12 +273,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.InstanceType = this.InstanceType;
             context.OutpostArn = this.OutpostArn;
             context.Quantity = this.Quantity;
-            #if MODULAR
-            if (this.Quantity == null && ParameterWasBound(nameof(this.Quantity)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Quantity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -280,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.AllocateHostsRequest();
             
+            if (cmdletContext.AssetId != null)
+            {
+                request.AssetIds = cmdletContext.AssetId;
+            }
             if (cmdletContext.AutoPlacement != null)
             {
                 request.AutoPlacement = cmdletContext.AutoPlacement;
@@ -381,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AssetId { get; set; }
             public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.String ClientToken { get; set; }

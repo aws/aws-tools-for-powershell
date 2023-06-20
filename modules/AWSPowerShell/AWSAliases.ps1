@@ -895,6 +895,7 @@ Set-Alias -Name List-AFFlowList -Value Get-AFFlowList
 Set-Alias -Name AF-ListFlows -Value Get-AFFlowList
 Set-Alias -Name AF-ListTagsForResource -Value Get-AFResourceTag
 Set-Alias -Name AF-RegisterConnector -Value Register-AFConnector
+Set-Alias -Name AF-ResetConnectorMetadataCache -Value Reset-AFConnectorMetadataCache
 Set-Alias -Name AF-StartFlow -Value Start-AFFlow
 Set-Alias -Name AF-StopFlow -Value Stop-AFFlow
 Set-Alias -Name AF-TagResource -Value Add-AFResourceTag
@@ -20220,6 +20221,8 @@ Set-Alias -Name Create-RSClusterSnapshot -Value New-RSClusterSnapshot
 Set-Alias -Name RS-CreateClusterSnapshot -Value New-RSClusterSnapshot
 Set-Alias -Name Create-RSClusterSubnetGroup -Value New-RSClusterSubnetGroup
 Set-Alias -Name RS-CreateClusterSubnetGroup -Value New-RSClusterSubnetGroup
+Set-Alias -Name Create-RSCustomDomainAssociation -Value New-RSCustomDomainAssociation
+Set-Alias -Name RS-CreateCustomDomainAssociation -Value New-RSCustomDomainAssociation
 Set-Alias -Name Create-RSEndpointAccess -Value New-RSEndpointAccess
 Set-Alias -Name RS-CreateEndpointAccess -Value New-RSEndpointAccess
 Set-Alias -Name Create-RSEventSubscription -Value New-RSEventSubscription
@@ -20253,6 +20256,8 @@ Set-Alias -Name Delete-RSClusterSnapshot -Value Remove-RSClusterSnapshot
 Set-Alias -Name RS-DeleteClusterSnapshot -Value Remove-RSClusterSnapshot
 Set-Alias -Name Delete-RSClusterSubnetGroup -Value Remove-RSClusterSubnetGroup
 Set-Alias -Name RS-DeleteClusterSubnetGroup -Value Remove-RSClusterSubnetGroup
+Set-Alias -Name Delete-RSCustomDomainAssociation -Value Remove-RSCustomDomainAssociation
+Set-Alias -Name RS-DeleteCustomDomainAssociation -Value Remove-RSCustomDomainAssociation
 Set-Alias -Name Delete-RSEndpointAccess -Value Remove-RSEndpointAccess
 Set-Alias -Name RS-DeleteEndpointAccess -Value Remove-RSEndpointAccess
 Set-Alias -Name Delete-RSEventSubscription -Value Remove-RSEventSubscription
@@ -20307,6 +20312,9 @@ Set-Alias -Name RS-DescribeClusterTracks -Value Get-RSClusterTrack
 Set-Alias -Name Describe-RSClusterVersions -Value Get-RSClusterVersion
 Set-Alias -Name Describe-RSClusterVersion -Value Get-RSClusterVersion
 Set-Alias -Name RS-DescribeClusterVersions -Value Get-RSClusterVersion
+Set-Alias -Name Describe-RSCustomDomainAssociations -Value Get-RSCustomDomainAssociation
+Set-Alias -Name Describe-RSCustomDomainAssociation -Value Get-RSCustomDomainAssociation
+Set-Alias -Name RS-DescribeCustomDomainAssociations -Value Get-RSCustomDomainAssociation
 Set-Alias -Name Describe-RSDataShares -Value Get-RSDataShare
 Set-Alias -Name Describe-RSDataShare -Value Get-RSDataShare
 Set-Alias -Name RS-DescribeDataShares -Value Get-RSDataShare
@@ -20410,6 +20418,8 @@ Set-Alias -Name Modify-RSClusterSnapshotSchedule -Value Edit-RSClusterSnapshotSc
 Set-Alias -Name RS-ModifyClusterSnapshotSchedule -Value Edit-RSClusterSnapshotSchedule
 Set-Alias -Name Modify-RSClusterSubnetGroup -Value Edit-RSClusterSubnetGroup
 Set-Alias -Name RS-ModifyClusterSubnetGroup -Value Edit-RSClusterSubnetGroup
+Set-Alias -Name Modify-RSCustomDomainAssociation -Value Edit-RSCustomDomainAssociation
+Set-Alias -Name RS-ModifyCustomDomainAssociation -Value Edit-RSCustomDomainAssociation
 Set-Alias -Name Modify-RSEndpointAccess -Value Edit-RSEndpointAccess
 Set-Alias -Name RS-ModifyEndpointAccess -Value Edit-RSEndpointAccess
 Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription

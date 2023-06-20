@@ -28,83 +28,75 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns a database user name and temporary password with temporary authorization to
-    /// log in to an Amazon Redshift database. The database user is mapped 1:1 to the source
-    /// Identity and Access Management (IAM) identity. For more information about IAM identities,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html">IAM Identities
-    /// (users, user groups, and roles)</a> in the Amazon Web Services Identity and Access
-    /// Management User Guide.
-    /// 
-    ///  
-    /// <para>
-    /// The Identity and Access Management (IAM) identity that runs this operation must have
-    /// an IAM policy attached that allows access to all necessary actions and resources.
-    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using
-    /// identity-based policies (IAM policies)</a> in the Amazon Redshift Cluster Management
-    /// Guide. 
-    /// </para>
+    /// Used to create a custom domain name for a cluster. Properties include the custom domain
+    /// name, the cluster the custom domain is associated with, and the certificate Amazon
+    /// Resource Name (ARN).
     /// </summary>
-    [Cmdlet("Get", "RSClusterCredentialsWithIAM")]
-    [OutputType("Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse")]
-    [AWSCmdlet("Calls the Amazon Redshift GetClusterCredentialsWithIAM API operation.", Operation = new[] {"GetClusterCredentialsWithIAM"}, SelectReturnType = typeof(Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse))]
-    [AWSCmdletOutput("Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "RSCustomDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Redshift.Model.CreateCustomDomainAssociationResponse")]
+    [AWSCmdlet("Calls the Amazon Redshift CreateCustomDomainAssociation API operation.", Operation = new[] {"CreateCustomDomainAssociation"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateCustomDomainAssociationResponse))]
+    [AWSCmdletOutput("Amazon.Redshift.Model.CreateCustomDomainAssociationResponse",
+        "This cmdlet returns an Amazon.Redshift.Model.CreateCustomDomainAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRSClusterCredentialsWithIAMCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class NewRSCustomDomainAssociationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the cluster that contains the database for which you are
-        /// requesting credentials. </para>
+        /// <para>The cluster identifier that the custom domain is associated with.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter CustomDomainCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The certificate Amazon Resource Name (ARN) for the custom domain name association.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CustomDomainCertificateArn { get; set; }
         #endregion
         
         #region Parameter CustomDomainName
         /// <summary>
         /// <para>
-        /// <para>The custom domain name for the IAM message cluster credentials.</para>
+        /// <para>The custom domain name for a custom domain association.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomDomainName { get; set; }
-        #endregion
-        
-        #region Parameter DbName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the database for which you are requesting credentials. If the database
-        /// name is specified, the IAM policy must allow access to the resource <code>dbname</code>
-        /// for the specified database name. If the database name is not specified, access to
-        /// all databases is allowed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DbName { get; set; }
-        #endregion
-        
-        #region Parameter DurationSecond
-        /// <summary>
-        /// <para>
-        /// <para>The number of seconds until the returned temporary password expires.</para><para>Range: 900-3600. Default: 900.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DurationSeconds")]
-        public System.Int32? DurationSecond { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse).
-        /// Specifying the name of a property of type Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.CreateCustomDomainAssociationResponse).
+        /// Specifying the name of a property of type Amazon.Redshift.Model.CreateCustomDomainAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,10 +113,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSCustomDomainAssociation (CreateCustomDomainAssociation)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -134,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse, GetRSClusterCredentialsWithIAMCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.CreateCustomDomainAssociationResponse, NewRSCustomDomainAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -147,9 +155,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClusterIdentifier = this.ClusterIdentifier;
+            #if MODULAR
+            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.CustomDomainCertificateArn = this.CustomDomainCertificateArn;
+            #if MODULAR
+            if (this.CustomDomainCertificateArn == null && ParameterWasBound(nameof(this.CustomDomainCertificateArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomDomainCertificateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.CustomDomainName = this.CustomDomainName;
-            context.DbName = this.DbName;
-            context.DurationSecond = this.DurationSecond;
+            #if MODULAR
+            if (this.CustomDomainName == null && ParameterWasBound(nameof(this.CustomDomainName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomDomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,23 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Redshift.Model.GetClusterCredentialsWithIAMRequest();
+            var request = new Amazon.Redshift.Model.CreateCustomDomainAssociationRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
+            if (cmdletContext.CustomDomainCertificateArn != null)
+            {
+                request.CustomDomainCertificateArn = cmdletContext.CustomDomainCertificateArn;
+            }
             if (cmdletContext.CustomDomainName != null)
             {
                 request.CustomDomainName = cmdletContext.CustomDomainName;
-            }
-            if (cmdletContext.DbName != null)
-            {
-                request.DbName = cmdletContext.DbName;
-            }
-            if (cmdletContext.DurationSecond != null)
-            {
-                request.DurationSeconds = cmdletContext.DurationSecond.Value;
             }
             
             CmdletOutput output;
@@ -215,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.GetClusterCredentialsWithIAMRequest request)
+        private Amazon.Redshift.Model.CreateCustomDomainAssociationResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateCustomDomainAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "GetClusterCredentialsWithIAM");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "CreateCustomDomainAssociation");
             try
             {
                 #if DESKTOP
-                return client.GetClusterCredentialsWithIAM(request);
+                return client.CreateCustomDomainAssociation(request);
                 #elif CORECLR
-                return client.GetClusterCredentialsWithIAMAsync(request).GetAwaiter().GetResult();
+                return client.CreateCustomDomainAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,10 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterIdentifier { get; set; }
+            public System.String CustomDomainCertificateArn { get; set; }
             public System.String CustomDomainName { get; set; }
-            public System.String DbName { get; set; }
-            public System.Int32? DurationSecond { get; set; }
-            public System.Func<Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse, GetRSClusterCredentialsWithIAMCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Redshift.Model.CreateCustomDomainAssociationResponse, NewRSCustomDomainAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

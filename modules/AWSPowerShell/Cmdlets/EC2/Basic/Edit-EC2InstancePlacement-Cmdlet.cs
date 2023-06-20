@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostResourceGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the host resource group in which to place the instance.</para>
+        /// <para>The ARN of the host resource group in which to place the instance. The instance must
+        /// have a tenancy of <code>host</code> to specify this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,9 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Tenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy for the instance.</para><note><para>For T3 instances, you can't change the tenancy from <code>dedicated</code> to <code>host</code>,
-        /// or from <code>host</code> to <code>dedicated</code>. Attempting to make one of these
-        /// unsupported tenancy changes results in the <code>InvalidTenancy</code> error code.</para></note>
+        /// <para>The tenancy for the instance.</para><note><para>For T3 instances, you must launch the instance on a Dedicated Host to use a tenancy
+        /// of <code>host</code>. You can't change the tenancy from <code>host</code> to <code>dedicated</code>
+        /// or <code>default</code>. Attempting to make one of these unsupported tenancy changes
+        /// results in an <code>InvalidRequest</code> error code.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

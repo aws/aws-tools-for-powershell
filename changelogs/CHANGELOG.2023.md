@@ -1,4 +1,18 @@
-﻿### 4.1.355 (2023-06-19 21:05Z)
+﻿### 4.1.356 (2023-06-20 22:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.572.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Appflow
+    * Added cmdlet Reset-AFConnectorMetadataCache leveraging the ResetConnectorMetadataCache service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Host: added parameter AssetId.
+  * Amazon Redshift
+    * Added cmdlet Edit-RSCustomDomainAssociation leveraging the ModifyCustomDomainAssociation service API.
+    * Added cmdlet Get-RSCustomDomainAssociation leveraging the DescribeCustomDomainAssociations service API.
+    * Added cmdlet New-RSCustomDomainAssociation leveraging the CreateCustomDomainAssociation service API.
+    * Added cmdlet Remove-RSCustomDomainAssociation leveraging the DeleteCustomDomainAssociation service API.
+    * Modified cmdlet Get-RSClusterCredential: added parameter CustomDomainName.
+    * Modified cmdlet Get-RSClusterCredentialsWithIAM: added parameter CustomDomainName.
+
+### 4.1.355 (2023-06-19 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.571.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Modified cmdlet New-CFNChangeSet: added parameter OnStackFailure.

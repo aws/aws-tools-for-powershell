@@ -44,6 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VpnTunnelOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter TunnelOptions_DPDTimeoutAction
         /// <summary>
         /// <para>

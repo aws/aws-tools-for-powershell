@@ -104,6 +104,7 @@ $AF_Completers = {
             ($_ -eq "Get-AFConnectorEntityList/ConnectorType") -Or
             ($_ -eq "Get-AFConnectorProfile/ConnectorType") -Or
             ($_ -eq "New-AFConnectorProfile/ConnectorType") -Or
+            ($_ -eq "Reset-AFConnectorMetadataCache/ConnectorType") -Or
             ($_ -eq "New-AFFlow/SourceFlowConfig_ConnectorType") -Or
             ($_ -eq "Update-AFFlow/SourceFlowConfig_ConnectorType")
         }
@@ -173,7 +174,7 @@ $AF_Completers = {
 $AF_map = @{
     "ConnectionMode"=@("New-AFConnectorProfile","Update-AFConnectorProfile")
     "ConnectorProvisioningType"=@("Register-AFConnector")
-    "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
+    "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile","Reset-AFConnectorMetadataCache")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_CustomConnector_DataTransferApi_Type"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
@@ -248,6 +249,7 @@ $AF_SelectMap = @{
                "Get-AFFlowList",
                "Get-AFResourceTag",
                "Register-AFConnector",
+               "Reset-AFConnectorMetadataCache",
                "Start-AFFlow",
                "Stop-AFFlow",
                "Add-AFResourceTag",
