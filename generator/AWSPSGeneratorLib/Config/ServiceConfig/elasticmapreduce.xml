@@ -167,6 +167,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSupportedInstanceTypes" OutputProperty="SupportedInstanceTypes" Verb="Get" Noun="SupportedInstanceType" PipelineParameter="ReleaseLabel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyCluster" OutputProperty="StepConcurrencyLevel" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

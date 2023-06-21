@@ -308,6 +308,7 @@ $EMR_SelectMap = @{
                "Get-EMRStepList",
                "Get-EMRStudioList",
                "Get-EMRStudioSessionMappingList",
+               "Get-EMRSupportedInstanceType",
                "Edit-EMRCluster",
                "Edit-EMRInstanceFleet",
                "Edit-EMRInstanceGroup",

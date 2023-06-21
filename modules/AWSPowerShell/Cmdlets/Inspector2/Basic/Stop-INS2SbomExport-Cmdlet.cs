@@ -22,32 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Returns information about an AutoML job created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.
-    /// 
-    ///  <note><para>
-    /// AutoML jobs created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
-    /// cannot be described by <code>DescribeAutoMLJob</code>.
-    /// </para></note>
+    /// Cancels a software bill of materials (SBOM) report.
     /// </summary>
-    [Cmdlet("Get", "SMAutoMLJob")]
-    [OutputType("Amazon.SageMaker.Model.DescribeAutoMLJobResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeAutoMLJob API operation.", Operation = new[] {"DescribeAutoMLJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeAutoMLJobResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeAutoMLJobResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeAutoMLJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "INS2SbomExport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Inspector2 CancelSbomExport API operation.", Operation = new[] {"CancelSbomExport"}, SelectReturnType = typeof(Amazon.Inspector2.Model.CancelSbomExportResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Inspector2.Model.CancelSbomExportResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Inspector2.Model.CancelSbomExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMAutoMLJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class StopINS2SbomExportCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoMLJobName
+        #region Parameter ReportId
         /// <summary>
         /// <para>
-        /// <para>Requests information about an AutoML job using its unique name.</para>
+        /// <para>The report ID of the SBOM export to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,34 +54,50 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AutoMLJobName { get; set; }
+        public System.String ReportId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeAutoMLJobResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeAutoMLJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReportId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.CancelSbomExportResponse).
+        /// Specifying the name of a property of type Amazon.Inspector2.Model.CancelSbomExportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ReportId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AutoMLJobName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AutoMLJobName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ReportId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReportId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AutoMLJobName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReportId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReportId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-INS2SbomExport (CancelSbomExport)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeAutoMLJobResponse, GetSMAutoMLJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.CancelSbomExportResponse, StopINS2SbomExportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -104,14 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AutoMLJobName;
+                context.Select = (response, cmdlet) => this.ReportId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AutoMLJobName = this.AutoMLJobName;
+            context.ReportId = this.ReportId;
             #if MODULAR
-            if (this.AutoMLJobName == null && ParameterWasBound(nameof(this.AutoMLJobName)))
+            if (this.ReportId == null && ParameterWasBound(nameof(this.ReportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AutoMLJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ReportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DescribeAutoMLJobRequest();
+            var request = new Amazon.Inspector2.Model.CancelSbomExportRequest();
             
-            if (cmdletContext.AutoMLJobName != null)
+            if (cmdletContext.ReportId != null)
             {
-                request.AutoMLJobName = cmdletContext.AutoMLJobName;
+                request.ReportId = cmdletContext.ReportId;
             }
             
             CmdletOutput output;
@@ -167,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeAutoMLJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeAutoMLJobRequest request)
+        private Amazon.Inspector2.Model.CancelSbomExportResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.CancelSbomExportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeAutoMLJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "CancelSbomExport");
             try
             {
                 #if DESKTOP
-                return client.DescribeAutoMLJob(request);
+                return client.CancelSbomExport(request);
                 #elif CORECLR
-                return client.DescribeAutoMLJobAsync(request).GetAwaiter().GetResult();
+                return client.CancelSbomExportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoMLJobName { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeAutoMLJobResponse, GetSMAutoMLJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ReportId { get; set; }
+            public System.Func<Amazon.Inspector2.Model.CancelSbomExportResponse, StopINS2SbomExportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ReportId;
         }
         
     }

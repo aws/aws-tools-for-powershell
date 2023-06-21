@@ -61,6 +61,43 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_CodeVulnerabilityDetectorName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the detector used to identify a code vulnerability in a Lambda function
+        /// used to filter findings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CodeVulnerabilityDetectorName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CodeVulnerabilityDetectorTag
+        /// <summary>
+        /// <para>
+        /// <para>The detector type tag associated with the vulnerability used to filter findings. Detector
+        /// tags group related vulnerabilities by common themes or tactics. For a list of available
+        /// tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java
+        /// tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python
+        /// tags</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_CodeVulnerabilityDetectorTags")]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CodeVulnerabilityDetectorTag { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CodeVulnerabilityFilePath
+        /// <summary>
+        /// <para>
+        /// <para>The file path to the file in a Lambda function that contains a code vulnerability
+        /// used to filter findings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CodeVulnerabilityFilePath { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_ComponentId
         /// <summary>
         /// <para>
@@ -180,6 +217,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("FilterCriteria_EcrImageTags")]
         public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_EcrImageTag { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_EpssScore
+        /// <summary>
+        /// <para>
+        /// <para>The EPSS score used to filter findings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.NumberFilter[] FilterCriteria_EpssScore { get; set; }
         #endregion
         
         #region Parameter FilterCriteria_ExploitAvailable
@@ -565,6 +612,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_AwsAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_AwsAccountId);
             }
+            if (this.FilterCriteria_CodeVulnerabilityDetectorName != null)
+            {
+                context.FilterCriteria_CodeVulnerabilityDetectorName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeVulnerabilityDetectorName);
+            }
+            if (this.FilterCriteria_CodeVulnerabilityDetectorTag != null)
+            {
+                context.FilterCriteria_CodeVulnerabilityDetectorTag = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeVulnerabilityDetectorTag);
+            }
+            if (this.FilterCriteria_CodeVulnerabilityFilePath != null)
+            {
+                context.FilterCriteria_CodeVulnerabilityFilePath = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeVulnerabilityFilePath);
+            }
             if (this.FilterCriteria_ComponentId != null)
             {
                 context.FilterCriteria_ComponentId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_ComponentId);
@@ -608,6 +667,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.FilterCriteria_EcrImageTag != null)
             {
                 context.FilterCriteria_EcrImageTag = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_EcrImageTag);
+            }
+            if (this.FilterCriteria_EpssScore != null)
+            {
+                context.FilterCriteria_EpssScore = new List<Amazon.Inspector2.Model.NumberFilter>(this.FilterCriteria_EpssScore);
             }
             if (this.FilterCriteria_ExploitAvailable != null)
             {
@@ -757,6 +820,36 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.FilterCriteria.AwsAccountId = requestFilterCriteria_filterCriteria_AwsAccountId;
                 requestFilterCriteriaIsNull = false;
             }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName = null;
+            if (cmdletContext.FilterCriteria_CodeVulnerabilityDetectorName != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName = cmdletContext.FilterCriteria_CodeVulnerabilityDetectorName;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName != null)
+            {
+                request.FilterCriteria.CodeVulnerabilityDetectorName = requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag = null;
+            if (cmdletContext.FilterCriteria_CodeVulnerabilityDetectorTag != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag = cmdletContext.FilterCriteria_CodeVulnerabilityDetectorTag;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag != null)
+            {
+                request.FilterCriteria.CodeVulnerabilityDetectorTags = requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath = null;
+            if (cmdletContext.FilterCriteria_CodeVulnerabilityFilePath != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath = cmdletContext.FilterCriteria_CodeVulnerabilityFilePath;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath != null)
+            {
+                request.FilterCriteria.CodeVulnerabilityFilePath = requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath;
+                requestFilterCriteriaIsNull = false;
+            }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ComponentId = null;
             if (cmdletContext.FilterCriteria_ComponentId != null)
             {
@@ -865,6 +958,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageTag != null)
             {
                 request.FilterCriteria.EcrImageTags = requestFilterCriteria_filterCriteria_EcrImageTag;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_EpssScore = null;
+            if (cmdletContext.FilterCriteria_EpssScore != null)
+            {
+                requestFilterCriteria_filterCriteria_EpssScore = cmdletContext.FilterCriteria_EpssScore;
+            }
+            if (requestFilterCriteria_filterCriteria_EpssScore != null)
+            {
+                request.FilterCriteria.EpssScore = requestFilterCriteria_filterCriteria_EpssScore;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ExploitAvailable = null;
@@ -1205,6 +1308,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public System.String Description { get; set; }
             public System.String FilterArn { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_AwsAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityDetectorName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityDetectorTag { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityFilePath { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_ComponentId { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_ComponentType { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_Ec2InstanceImageId { get; set; }
@@ -1216,6 +1322,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageRegistry { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageRepositoryName { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageTag { get; set; }
+            public List<Amazon.Inspector2.Model.NumberFilter> FilterCriteria_EpssScore { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_ExploitAvailable { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingArn { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingStatus { get; set; }

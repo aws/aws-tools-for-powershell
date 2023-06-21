@@ -22,47 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MQ;
-using Amazon.MQ.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MQ
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Updates the specified configuration.
+    /// Updates an encryption key. A <code>ResourceNotFoundException</code> means that an
+    /// AWS owned key is being used for encryption.
     /// </summary>
-    [Cmdlet("Update", "MQConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.MQ.Model.UpdateConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon MQ UpdateConfiguration API operation.", Operation = new[] {"UpdateConfiguration"}, SelectReturnType = typeof(Amazon.MQ.Model.UpdateConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.MQ.Model.UpdateConfigurationResponse",
-        "This cmdlet returns an Amazon.MQ.Model.UpdateConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "INS2EncryptionKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Inspector2 UpdateEncryptionKey API operation.", Operation = new[] {"UpdateEncryptionKey"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateEncryptionKeyResponse))]
+    [AWSCmdletOutput("None or Amazon.Inspector2.Model.UpdateEncryptionKeyResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Inspector2.Model.UpdateEncryptionKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateMQConfigurationCmdlet : AmazonMQClientCmdlet, IExecutor
+    public partial class UpdateINS2EncryptionKeyCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ConfigurationId
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The unique ID that Amazon MQ generates for the configuration.</para>
+        /// <para>A KMS key ID for the encryption key.</para>
         /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConfigurationId { get; set; }
-        #endregion
-        
-        #region Parameter Data
-        /// <summary>
-        /// <para>
-        /// <para>Amazon MQ for Active MQ: The base64-encoded XML configuration. Amazon MQ for RabbitMQ:
-        /// the base64-encoded Cuttlefish configuration.</para>
-        /// </para>
-        /// <para>The cmdlet will automatically convert the supplied parameter to Base64 before supplying to the service.</para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -72,25 +55,47 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Amazon.PowerShell.Common.Base64StringParameterConverter]
-        public System.String Data { get; set; }
+        public System.String KmsKeyId { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The description of the configuration.</para>
+        /// <para>The resource type for the encryption key.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Inspector2.ResourceType")]
+        public Amazon.Inspector2.ResourceType ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter ScanType
+        /// <summary>
+        /// <para>
+        /// <para>The scan type for the encryption key.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Inspector2.ScanType")]
+        public Amazon.Inspector2.ScanType ScanType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MQ.Model.UpdateConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.MQ.Model.UpdateConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.UpdateEncryptionKeyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Data parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Data' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the KmsKeyId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^KmsKeyId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Data' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KmsKeyId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfigurationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-MQConfiguration (UpdateConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KmsKeyId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-INS2EncryptionKey (UpdateEncryptionKey)"))
             {
                 return;
             }
@@ -136,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MQ.Model.UpdateConfigurationResponse, UpdateMQConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateEncryptionKeyResponse, UpdateINS2EncryptionKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,24 +150,30 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Data;
+                context.Select = (response, cmdlet) => this.KmsKeyId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConfigurationId = this.ConfigurationId;
+            context.KmsKeyId = this.KmsKeyId;
             #if MODULAR
-            if (this.ConfigurationId == null && ParameterWasBound(nameof(this.ConfigurationId)))
+            if (this.KmsKeyId == null && ParameterWasBound(nameof(this.KmsKeyId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConfigurationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter KmsKeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Data = this.Data;
+            context.ResourceType = this.ResourceType;
             #if MODULAR
-            if (this.Data == null && ParameterWasBound(nameof(this.Data)))
+            if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
             {
-                WriteWarning("You are passing $null as a value for parameter Data which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
+            context.ScanType = this.ScanType;
+            #if MODULAR
+            if (this.ScanType == null && ParameterWasBound(nameof(this.ScanType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ScanType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,19 +188,19 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MQ.Model.UpdateConfigurationRequest();
+            var request = new Amazon.Inspector2.Model.UpdateEncryptionKeyRequest();
             
-            if (cmdletContext.ConfigurationId != null)
+            if (cmdletContext.KmsKeyId != null)
             {
-                request.ConfigurationId = cmdletContext.ConfigurationId;
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
-            if (cmdletContext.Data != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.Data = cmdletContext.Data;
+                request.ResourceType = cmdletContext.ResourceType;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ScanType != null)
             {
-                request.Description = cmdletContext.Description;
+                request.ScanType = cmdletContext.ScanType;
             }
             
             CmdletOutput output;
@@ -224,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         #region AWS Service Operation Call
         
-        private Amazon.MQ.Model.UpdateConfigurationResponse CallAWSServiceOperation(IAmazonMQ client, Amazon.MQ.Model.UpdateConfigurationRequest request)
+        private Amazon.Inspector2.Model.UpdateEncryptionKeyResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.UpdateEncryptionKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MQ", "UpdateConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "UpdateEncryptionKey");
             try
             {
                 #if DESKTOP
-                return client.UpdateConfiguration(request);
+                return client.UpdateEncryptionKey(request);
                 #elif CORECLR
-                return client.UpdateConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.UpdateEncryptionKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConfigurationId { get; set; }
-            public System.String Data { get; set; }
-            public System.String Description { get; set; }
-            public System.Func<Amazon.MQ.Model.UpdateConfigurationResponse, UpdateMQConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String KmsKeyId { get; set; }
+            public Amazon.Inspector2.ResourceType ResourceType { get; set; }
+            public Amazon.Inspector2.ScanType ScanType { get; set; }
+            public System.Func<Amazon.Inspector2.Model.UpdateEncryptionKeyResponse, UpdateINS2EncryptionKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

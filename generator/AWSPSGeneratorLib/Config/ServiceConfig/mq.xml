@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>mq</C2jFilename>
     <AssemblyName>MQ</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -91,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="Promote" OutputProperty="BrokerId" Verb="Invoke" Noun="Promote" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RebootBroker" Verb="Restart" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,8 +114,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.MQ.Model.WeeklyStartTime</Type>
         <Type>Amazon.MQ.Model.ConfigurationId</Type>

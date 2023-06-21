@@ -365,6 +365,20 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
         #endregion
         
+        #region Parameter StructuredLogDestination
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the log groups to which your server logs are sent.</para><para>To specify a log group, you must provide the ARN for an existing log group. In this
+        /// case, the format of the log group is as follows:</para><para><code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code></para><para>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code></para><para>If you have previously specified a log group for a server, you can clear it, and in
+        /// effect turn off structured logging, by providing an empty value for this parameter
+        /// in an <code>update-server</code> call. For example:</para><para><code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StructuredLogDestinations")]
+        public System.String[] StructuredLogDestination { get; set; }
+        #endregion
+        
         #region Parameter EndpointDetails_SubnetId
         /// <summary>
         /// <para>
@@ -525,6 +539,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 context.Protocol = new List<System.String>(this.Protocol);
             }
             context.SecurityPolicyName = this.SecurityPolicyName;
+            if (this.StructuredLogDestination != null)
+            {
+                context.StructuredLogDestination = new List<System.String>(this.StructuredLogDestination);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
@@ -760,6 +778,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.SecurityPolicyName = cmdletContext.SecurityPolicyName;
             }
+            if (cmdletContext.StructuredLogDestination != null)
+            {
+                request.StructuredLogDestinations = cmdletContext.StructuredLogDestination;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -878,6 +900,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
+            public List<System.String> StructuredLogDestination { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
             public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnPartialUpload { get; set; }
             public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnUpload { get; set; }

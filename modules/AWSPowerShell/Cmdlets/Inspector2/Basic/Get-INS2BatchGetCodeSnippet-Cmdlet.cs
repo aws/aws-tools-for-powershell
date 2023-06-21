@@ -22,50 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Returns information about an AutoML job created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.
-    /// 
-    ///  <note><para>
-    /// AutoML jobs created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
-    /// cannot be described by <code>DescribeAutoMLJob</code>.
-    /// </para></note>
+    /// Retrieves code snippets from findings that Amazon Inspector detected code vulnerabilities
+    /// in.
     /// </summary>
-    [Cmdlet("Get", "SMAutoMLJob")]
-    [OutputType("Amazon.SageMaker.Model.DescribeAutoMLJobResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeAutoMLJob API operation.", Operation = new[] {"DescribeAutoMLJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeAutoMLJobResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeAutoMLJobResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeAutoMLJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "INS2BatchGetCodeSnippet")]
+    [OutputType("Amazon.Inspector2.Model.BatchGetCodeSnippetResponse")]
+    [AWSCmdlet("Calls the Inspector2 BatchGetCodeSnippet API operation.", Operation = new[] {"BatchGetCodeSnippet"}, SelectReturnType = typeof(Amazon.Inspector2.Model.BatchGetCodeSnippetResponse))]
+    [AWSCmdletOutput("Amazon.Inspector2.Model.BatchGetCodeSnippetResponse",
+        "This cmdlet returns an Amazon.Inspector2.Model.BatchGetCodeSnippetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMAutoMLJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetINS2BatchGetCodeSnippetCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoMLJobName
+        #region Parameter FindingArn
         /// <summary>
         /// <para>
-        /// <para>Requests information about an AutoML job using its unique name.</para>
+        /// <para>An array of finding ARNs for the findings you want to retrieve code snippets from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AutoMLJobName { get; set; }
+        [Alias("FindingArns")]
+        public System.String[] FindingArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeAutoMLJobResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeAutoMLJobResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.BatchGetCodeSnippetResponse).
+        /// Specifying the name of a property of type Amazon.Inspector2.Model.BatchGetCodeSnippetResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AutoMLJobName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AutoMLJobName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FindingArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FindingArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AutoMLJobName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FindingArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -95,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeAutoMLJobResponse, GetSMAutoMLJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.BatchGetCodeSnippetResponse, GetINS2BatchGetCodeSnippetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -104,14 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AutoMLJobName;
+                context.Select = (response, cmdlet) => this.FindingArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AutoMLJobName = this.AutoMLJobName;
-            #if MODULAR
-            if (this.AutoMLJobName == null && ParameterWasBound(nameof(this.AutoMLJobName)))
+            if (this.FindingArn != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AutoMLJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.FindingArn = new List<System.String>(this.FindingArn);
+            }
+            #if MODULAR
+            if (this.FindingArn == null && ParameterWasBound(nameof(this.FindingArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FindingArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DescribeAutoMLJobRequest();
+            var request = new Amazon.Inspector2.Model.BatchGetCodeSnippetRequest();
             
-            if (cmdletContext.AutoMLJobName != null)
+            if (cmdletContext.FindingArn != null)
             {
-                request.AutoMLJobName = cmdletContext.AutoMLJobName;
+                request.FindingArns = cmdletContext.FindingArn;
             }
             
             CmdletOutput output;
@@ -167,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeAutoMLJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeAutoMLJobRequest request)
+        private Amazon.Inspector2.Model.BatchGetCodeSnippetResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.BatchGetCodeSnippetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeAutoMLJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "BatchGetCodeSnippet");
             try
             {
                 #if DESKTOP
-                return client.DescribeAutoMLJob(request);
+                return client.BatchGetCodeSnippet(request);
                 #elif CORECLR
-                return client.DescribeAutoMLJobAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetCodeSnippetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoMLJobName { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeAutoMLJobResponse, GetSMAutoMLJobCmdlet, object> Select { get; set; } =
+            public List<System.String> FindingArn { get; set; }
+            public System.Func<Amazon.Inspector2.Model.BatchGetCodeSnippetResponse, GetINS2BatchGetCodeSnippetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

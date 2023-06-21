@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCodeSnippet" OutputProperty="*" Verb="Get" Noun="BatchGetCodeSnippet" PipelineParameter="FindingArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetFreeTrialInfo" OutputProperty="*" Verb="Get" Noun="GetFreeTrialInfo" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -42,11 +46,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelSbomExport" OutputProperty="ReportId" Verb="Stop" Noun="SbomExport" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="Arn" Verb="New" Noun="Filter" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFindingsReport" OutputProperty="ReportId" Verb="New" Noun="FindingsReport" ShouldProcessTarget="" PipelineParameter="ReportFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSbomExport" OutputProperty="ReportId" Verb="New" Noun="SbomExport" ShouldProcessTarget="" PipelineParameter="ReportFormat" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -90,11 +102,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEncryptionKey" OutputProperty="KmsKeyId" Verb="Get" Noun="EncryptionKey" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFindingsReportStatus" OutputProperty="*" Verb="Get" Noun="FindingsReportStatus" PipelineParameter="ReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMember" OutputProperty="Member" Verb="Get" Noun="Member" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSbomExport" OutputProperty="*" Verb="Get" Noun="SbomExport" PipelineParameter="ReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,6 +158,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetEncryptionKey" Verb="Reset" Noun="EncryptionKey" ShouldProcessTarget="ResourceType" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchVulnerabilities" OutputProperty="Vulnerabilities" Verb="Search" Noun="Vulnerability" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -155,6 +179,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEc2DeepInspectionConfiguration" OutputProperty="*" Verb="Update" Noun="Ec2DeepInspectionConfiguration" ShouldProcessTarget="ActivateDeepInspection" PipelineParameter="ActivateDeepInspection" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEncryptionKey" Verb="Update" Noun="EncryptionKey" ShouldProcessTarget="KmsKeyId" PipelineParameter="KmsKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.MQ
 {
     /// <summary>
     /// Creates an ActiveMQ user.
+    /// 
+    ///  <important><para>
+    /// Do not add personally identifiable information (PII) or other confidential or sensitive
+    /// information in broker usernames. Broker usernames are accessible to other Amazon Web
+    /// Services services, including CloudWatch Logs. Broker usernames are not intended to
+    /// be used for private or sensitive data.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "MQUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -97,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Password { get; set; }
+        #endregion
+        
+        #region Parameter ReplicationUser
+        /// <summary>
+        /// <para>
+        /// <para>Defines if this user is intended for CRDR replication purposes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ReplicationUser { get; set; }
         #endregion
         
         #region Parameter Username
@@ -198,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ReplicationUser = this.ReplicationUser;
             context.Username = this.Username;
             #if MODULAR
             if (this.Username == null && ParameterWasBound(nameof(this.Username)))
@@ -236,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
+            }
+            if (cmdletContext.ReplicationUser != null)
+            {
+                request.ReplicationUser = cmdletContext.ReplicationUser.Value;
             }
             if (cmdletContext.Username != null)
             {
@@ -306,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.Boolean? ConsoleAccess { get; set; }
             public List<System.String> Group { get; set; }
             public System.String Password { get; set; }
+            public System.Boolean? ReplicationUser { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.MQ.Model.CreateUserResponse, NewMQUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -85,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.Boolean? AutoEnable_Lambda { get; set; }
         #endregion
         
+        #region Parameter AutoEnable_LambdaCode
+        /// <summary>
+        /// <para>
+        /// Amazon.Inspector2.Model.AutoEnable.LambdaCode
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEnable_LambdaCode { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AutoEnable'.
@@ -142,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             #endif
             context.AutoEnable_Lambda = this.AutoEnable_Lambda;
+            context.AutoEnable_LambdaCode = this.AutoEnable_LambdaCode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +201,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAutoEnable_autoEnable_Lambda != null)
             {
                 request.AutoEnable.Lambda = requestAutoEnable_autoEnable_Lambda.Value;
+                requestAutoEnableIsNull = false;
+            }
+            System.Boolean? requestAutoEnable_autoEnable_LambdaCode = null;
+            if (cmdletContext.AutoEnable_LambdaCode != null)
+            {
+                requestAutoEnable_autoEnable_LambdaCode = cmdletContext.AutoEnable_LambdaCode.Value;
+            }
+            if (requestAutoEnable_autoEnable_LambdaCode != null)
+            {
+                request.AutoEnable.LambdaCode = requestAutoEnable_autoEnable_LambdaCode.Value;
                 requestAutoEnableIsNull = false;
             }
              // determine if request.AutoEnable should be set to null
@@ -261,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public System.Boolean? AutoEnable_Ec2 { get; set; }
             public System.Boolean? AutoEnable_Ecr { get; set; }
             public System.Boolean? AutoEnable_Lambda { get; set; }
+            public System.Boolean? AutoEnable_LambdaCode { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateOrganizationConfigurationResponse, UpdateINS2OrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AutoEnable;
         }

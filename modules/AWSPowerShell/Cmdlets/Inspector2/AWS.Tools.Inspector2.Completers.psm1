@@ -90,10 +90,11 @@ $INS2_Completers = {
         # Amazon.Inspector2.AggregationFindingType
         {
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_AccountAggregation_FindingType") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_FindingType")
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_FindingType") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_FindingType")
         }
         {
-            $v = "NETWORK_REACHABILITY","PACKAGE_VULNERABILITY"
+            $v = "CODE_VULNERABILITY","NETWORK_REACHABILITY","PACKAGE_VULNERABILITY"
             break
         }
 
@@ -210,6 +211,35 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.ResourceType
+        {
+            ($_ -eq "Get-INS2EncryptionKey/ResourceType") -Or
+            ($_ -eq "Reset-INS2EncryptionKey/ResourceType") -Or
+            ($_ -eq "Update-INS2EncryptionKey/ResourceType")
+        }
+        {
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION"
+            break
+        }
+
+        # Amazon.Inspector2.SbomReportFormat
+        "New-INS2SbomExport/ReportFormat"
+        {
+            $v = "CYCLONEDX_1_4","SPDX_2_3"
+            break
+        }
+
+        # Amazon.Inspector2.ScanType
+        {
+            ($_ -eq "Get-INS2EncryptionKey/ScanType") -Or
+            ($_ -eq "Reset-INS2EncryptionKey/ScanType") -Or
+            ($_ -eq "Update-INS2EncryptionKey/ScanType")
+        }
+        {
+            $v = "CODE","NETWORK","PACKAGE"
+            break
+        }
+
         # Amazon.Inspector2.Service
         "Get-INS2AccountPermissionList/Service"
         {
@@ -220,7 +250,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.SortField
         "Get-INS2FindingList/SortCriteria_Field"
         {
-            $v = "AWS_ACCOUNT_ID","COMPONENT_TYPE","ECR_IMAGE_PUSHED_AT","ECR_IMAGE_REGISTRY","ECR_IMAGE_REPOSITORY_NAME","FINDING_STATUS","FINDING_TYPE","FIRST_OBSERVED_AT","INSPECTOR_SCORE","LAST_OBSERVED_AT","NETWORK_PROTOCOL","RESOURCE_TYPE","SEVERITY","VENDOR_SEVERITY","VULNERABILITY_ID","VULNERABILITY_SOURCE"
+            $v = "AWS_ACCOUNT_ID","COMPONENT_TYPE","ECR_IMAGE_PUSHED_AT","ECR_IMAGE_REGISTRY","ECR_IMAGE_REPOSITORY_NAME","EPSS_SCORE","FINDING_STATUS","FINDING_TYPE","FIRST_OBSERVED_AT","INSPECTOR_SCORE","LAST_OBSERVED_AT","NETWORK_PROTOCOL","RESOURCE_TYPE","SEVERITY","VENDOR_SEVERITY","VULNERABILITY_ID","VULNERABILITY_SOURCE"
             break
         }
 
@@ -285,13 +315,16 @@ $INS2_map = @{
     "AggregationRequest_PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_TitleAggregation_FindingType"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_TitleAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
     "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "GroupBy"=@("Get-INS2CoverageStatisticList")
-    "ReportFormat"=@("New-INS2FindingsReport")
+    "ReportFormat"=@("New-INS2FindingsReport","New-INS2SbomExport")
+    "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
     "Service"=@("Get-INS2AccountPermissionList")
     "SortCriteria_Field"=@("Get-INS2FindingList")
     "SortCriteria_SortOrder"=@("Get-INS2FindingList")
@@ -349,12 +382,15 @@ $INS2_SelectCompleters = {
 $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
                "Get-INS2GetAccountStatus",
+               "Get-INS2BatchGetCodeSnippet",
                "Get-INS2GetFreeTrialInfo",
                "Get-INS2BatchMemberEc2DeepInspectionStatus",
                "Update-INS2BatchMemberEc2DeepInspectionStatus",
                "Stop-INS2FindingsReport",
+               "Stop-INS2SbomExport",
                "New-INS2Filter",
                "New-INS2FindingsReport",
+               "New-INS2SbomExport",
                "Remove-INS2Filter",
                "Get-INS2OrganizationConfiguration",
                "Stop-INS2Service",
@@ -365,8 +401,10 @@ $INS2_SelectMap = @{
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2Ec2DeepInspectionConfiguration",
+               "Get-INS2EncryptionKey",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
+               "Get-INS2SbomExport",
                "Get-INS2AccountPermissionList",
                "Get-INS2CoverageList",
                "Get-INS2CoverageStatisticList",
@@ -377,11 +415,13 @@ $INS2_SelectMap = @{
                "Get-INS2MemberList",
                "Get-INS2ResourceTag",
                "Get-INS2UsageTotalList",
+               "Reset-INS2EncryptionKey",
                "Search-INS2Vulnerability",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
                "Update-INS2Configuration",
                "Update-INS2Ec2DeepInspectionConfiguration",
+               "Update-INS2EncryptionKey",
                "Update-INS2Filter",
                "Update-INS2OrganizationConfiguration",
                "Update-INS2OrgEc2DeepInspectionConfiguration")

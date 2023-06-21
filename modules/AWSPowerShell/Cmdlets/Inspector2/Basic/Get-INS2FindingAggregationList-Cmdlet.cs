@@ -124,6 +124,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.AggregationFindingType FindingTypeAggregation_FindingType { get; set; }
         #endregion
         
+        #region Parameter TitleAggregation_FindingType
+        /// <summary>
+        /// <para>
+        /// <para>The type of finding to aggregate on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_TitleAggregation_FindingType")]
+        [AWSConstantClassSource("Amazon.Inspector2.AggregationFindingType")]
+        public Amazon.Inspector2.AggregationFindingType TitleAggregation_FindingType { get; set; }
+        #endregion
+        
         #region Parameter LambdaFunctionAggregation_FunctionName
         /// <summary>
         /// <para>
@@ -842,6 +854,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             context.RepositoryAggregation_SortBy = this.RepositoryAggregation_SortBy;
             context.RepositoryAggregation_SortOrder = this.RepositoryAggregation_SortOrder;
+            context.TitleAggregation_FindingType = this.TitleAggregation_FindingType;
             context.TitleAggregation_ResourceType = this.TitleAggregation_ResourceType;
             context.TitleAggregation_SortBy = this.TitleAggregation_SortBy;
             context.TitleAggregation_SortOrder = this.TitleAggregation_SortOrder;
@@ -1261,71 +1274,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.AggregationRequest.LambdaLayerAggregation = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation;
                 requestAggregationRequestIsNull = false;
             }
-            Amazon.Inspector2.Model.TitleAggregation requestAggregationRequest_aggregationRequest_TitleAggregation = null;
-            
-             // populate TitleAggregation
-            var requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = true;
-            requestAggregationRequest_aggregationRequest_TitleAggregation = new Amazon.Inspector2.Model.TitleAggregation();
-            Amazon.Inspector2.AggregationResourceType requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType = null;
-            if (cmdletContext.TitleAggregation_ResourceType != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType = cmdletContext.TitleAggregation_ResourceType;
-            }
-            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation.ResourceType = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType;
-                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
-            }
-            Amazon.Inspector2.TitleSortBy requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy = null;
-            if (cmdletContext.TitleAggregation_SortBy != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy = cmdletContext.TitleAggregation_SortBy;
-            }
-            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation.SortBy = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy;
-                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
-            }
-            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder = null;
-            if (cmdletContext.TitleAggregation_SortOrder != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder = cmdletContext.TitleAggregation_SortOrder;
-            }
-            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation.SortOrder = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder;
-                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
-            }
-            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title = null;
-            if (cmdletContext.TitleAggregation_Title != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title = cmdletContext.TitleAggregation_Title;
-            }
-            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation.Titles = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title;
-                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
-            }
-            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId = null;
-            if (cmdletContext.TitleAggregation_VulnerabilityId != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId = cmdletContext.TitleAggregation_VulnerabilityId;
-            }
-            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId != null)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation.VulnerabilityIds = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId;
-                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
-            }
-             // determine if requestAggregationRequest_aggregationRequest_TitleAggregation should be set to null
-            if (requestAggregationRequest_aggregationRequest_TitleAggregationIsNull)
-            {
-                requestAggregationRequest_aggregationRequest_TitleAggregation = null;
-            }
-            if (requestAggregationRequest_aggregationRequest_TitleAggregation != null)
-            {
-                request.AggregationRequest.TitleAggregation = requestAggregationRequest_aggregationRequest_TitleAggregation;
-                requestAggregationRequestIsNull = false;
-            }
             Amazon.Inspector2.Model.Ec2InstanceAggregation requestAggregationRequest_aggregationRequest_Ec2InstanceAggregation = null;
             
              // populate Ec2InstanceAggregation
@@ -1474,6 +1422,81 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation != null)
             {
                 request.AggregationRequest.LambdaFunctionAggregation = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.TitleAggregation requestAggregationRequest_aggregationRequest_TitleAggregation = null;
+            
+             // populate TitleAggregation
+            var requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_TitleAggregation = new Amazon.Inspector2.Model.TitleAggregation();
+            Amazon.Inspector2.AggregationFindingType requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_FindingType = null;
+            if (cmdletContext.TitleAggregation_FindingType != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_FindingType = cmdletContext.TitleAggregation_FindingType;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_FindingType != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation.FindingType = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_FindingType;
+                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
+            }
+            Amazon.Inspector2.AggregationResourceType requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType = null;
+            if (cmdletContext.TitleAggregation_ResourceType != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType = cmdletContext.TitleAggregation_ResourceType;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation.ResourceType = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_ResourceType;
+                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
+            }
+            Amazon.Inspector2.TitleSortBy requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy = null;
+            if (cmdletContext.TitleAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy = cmdletContext.TitleAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation.SortBy = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder = null;
+            if (cmdletContext.TitleAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder = cmdletContext.TitleAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation.SortOrder = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title = null;
+            if (cmdletContext.TitleAggregation_Title != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title = cmdletContext.TitleAggregation_Title;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation.Titles = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_Title;
+                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId = null;
+            if (cmdletContext.TitleAggregation_VulnerabilityId != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId = cmdletContext.TitleAggregation_VulnerabilityId;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId != null)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation.VulnerabilityIds = requestAggregationRequest_aggregationRequest_TitleAggregation_titleAggregation_VulnerabilityId;
+                requestAggregationRequest_aggregationRequest_TitleAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_TitleAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_TitleAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_TitleAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_TitleAggregation != null)
+            {
+                request.AggregationRequest.TitleAggregation = requestAggregationRequest_aggregationRequest_TitleAggregation;
                 requestAggregationRequestIsNull = false;
             }
             Amazon.Inspector2.Model.AwsEcrContainerAggregation requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation = null;
@@ -1686,6 +1709,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> RepositoryAggregation_Repository { get; set; }
             public Amazon.Inspector2.RepositorySortBy RepositoryAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder RepositoryAggregation_SortOrder { get; set; }
+            public Amazon.Inspector2.AggregationFindingType TitleAggregation_FindingType { get; set; }
             public Amazon.Inspector2.AggregationResourceType TitleAggregation_ResourceType { get; set; }
             public Amazon.Inspector2.TitleSortBy TitleAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder TitleAggregation_SortOrder { get; set; }

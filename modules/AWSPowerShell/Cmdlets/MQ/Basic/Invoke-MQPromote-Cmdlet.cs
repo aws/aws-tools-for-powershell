@@ -28,86 +28,22 @@ using Amazon.MQ.Model;
 namespace Amazon.PowerShell.Cmdlets.MQ
 {
     /// <summary>
-    /// Updates the information for an ActiveMQ user.
+    /// Promotes a data replication replica broker to the primary broker role.
     /// </summary>
-    [Cmdlet("Update", "MQUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon MQ UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.MQ.Model.UpdateUserResponse))]
-    [AWSCmdletOutput("None or Amazon.MQ.Model.UpdateUserResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MQ.Model.UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Invoke", "MQPromote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon MQ Promote API operation.", Operation = new[] {"Promote"}, SelectReturnType = typeof(Amazon.MQ.Model.PromoteResponse))]
+    [AWSCmdletOutput("System.String or Amazon.MQ.Model.PromoteResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.MQ.Model.PromoteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateMQUserCmdlet : AmazonMQClientCmdlet, IExecutor
+    public partial class InvokeMQPromoteCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
         #region Parameter BrokerId
         /// <summary>
         /// <para>
         /// <para>The unique ID that Amazon MQ generates for the broker.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BrokerId { get; set; }
-        #endregion
-        
-        #region Parameter ConsoleAccess
-        /// <summary>
-        /// <para>
-        /// <para>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ConsoleAccess { get; set; }
-        #endregion
-        
-        #region Parameter Group
-        /// <summary>
-        /// <para>
-        /// <para>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can
-        /// contain only alphanumeric characters, dashes, periods, underscores, and tildes (-
-        /// . _ ~). This value must be 2-100 characters long.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Groups")]
-        public System.String[] Group { get; set; }
-        #endregion
-        
-        #region Parameter Password
-        /// <summary>
-        /// <para>
-        /// <para>The password of the user. This value must be at least 12 characters long, must contain
-        /// at least 4 unique characters, and must not contain commas, colons, or equal signs
-        /// (,:=).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Password { get; set; }
-        #endregion
-        
-        #region Parameter ReplicationUser
-        /// <summary>
-        /// <para>
-        /// <para>Defines whether the user is intended for data replication.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ReplicationUser { get; set; }
-        #endregion
-        
-        #region Parameter Username
-        /// <summary>
-        /// <para>
-        /// <para>The username of the ActiveMQ user. This value can contain only alphanumeric characters,
-        /// dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters
-        /// long.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,25 +54,43 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Username { get; set; }
+        public System.String BrokerId { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The Promote mode requested. Note: Valid values for the parameter are SWITCHOVER, FAILOVER.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.MQ.PromoteMode")]
+        public Amazon.MQ.PromoteMode Mode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MQ.Model.UpdateUserResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BrokerId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MQ.Model.PromoteResponse).
+        /// Specifying the name of a property of type Amazon.MQ.Model.PromoteResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "BrokerId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Username parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Username' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the BrokerId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BrokerId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Username' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BrokerId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -157,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BrokerId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-MQUser (UpdateUser)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-MQPromote (Promote)"))
             {
                 return;
             }
@@ -170,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MQ.Model.UpdateUserResponse, UpdateMQUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MQ.Model.PromoteResponse, InvokeMQPromoteCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -179,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Username;
+                context.Select = (response, cmdlet) => this.BrokerId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BrokerId = this.BrokerId;
@@ -189,18 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 WriteWarning("You are passing $null as a value for parameter BrokerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ConsoleAccess = this.ConsoleAccess;
-            if (this.Group != null)
-            {
-                context.Group = new List<System.String>(this.Group);
-            }
-            context.Password = this.Password;
-            context.ReplicationUser = this.ReplicationUser;
-            context.Username = this.Username;
+            context.Mode = this.Mode;
             #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            if (this.Mode == null && ParameterWasBound(nameof(this.Mode)))
             {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Mode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -217,31 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MQ.Model.UpdateUserRequest();
+            var request = new Amazon.MQ.Model.PromoteRequest();
             
             if (cmdletContext.BrokerId != null)
             {
                 request.BrokerId = cmdletContext.BrokerId;
             }
-            if (cmdletContext.ConsoleAccess != null)
+            if (cmdletContext.Mode != null)
             {
-                request.ConsoleAccess = cmdletContext.ConsoleAccess.Value;
-            }
-            if (cmdletContext.Group != null)
-            {
-                request.Groups = cmdletContext.Group;
-            }
-            if (cmdletContext.Password != null)
-            {
-                request.Password = cmdletContext.Password;
-            }
-            if (cmdletContext.ReplicationUser != null)
-            {
-                request.ReplicationUser = cmdletContext.ReplicationUser.Value;
-            }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
+                request.Mode = cmdletContext.Mode;
             }
             
             CmdletOutput output;
@@ -276,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         #region AWS Service Operation Call
         
-        private Amazon.MQ.Model.UpdateUserResponse CallAWSServiceOperation(IAmazonMQ client, Amazon.MQ.Model.UpdateUserRequest request)
+        private Amazon.MQ.Model.PromoteResponse CallAWSServiceOperation(IAmazonMQ client, Amazon.MQ.Model.PromoteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MQ", "UpdateUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MQ", "Promote");
             try
             {
                 #if DESKTOP
-                return client.UpdateUser(request);
+                return client.Promote(request);
                 #elif CORECLR
-                return client.UpdateUserAsync(request).GetAwaiter().GetResult();
+                return client.PromoteAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -305,13 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BrokerId { get; set; }
-            public System.Boolean? ConsoleAccess { get; set; }
-            public List<System.String> Group { get; set; }
-            public System.String Password { get; set; }
-            public System.Boolean? ReplicationUser { get; set; }
-            public System.String Username { get; set; }
-            public System.Func<Amazon.MQ.Model.UpdateUserResponse, UpdateMQUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public Amazon.MQ.PromoteMode Mode { get; set; }
+            public System.Func<Amazon.MQ.Model.PromoteResponse, InvokeMQPromoteCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BrokerId;
         }
         
     }

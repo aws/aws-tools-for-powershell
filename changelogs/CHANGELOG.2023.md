@@ -1,4 +1,32 @@
-﻿### 4.1.356 (2023-06-20 22:51Z)
+﻿### 4.1.357 (2023-06-21 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.574.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic MapReduce
+    * Added cmdlet Get-EMRSupportedInstanceType leveraging the ListSupportedInstanceTypes service API.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2BatchGetCodeSnippet leveraging the BatchGetCodeSnippet service API.
+    * Added cmdlet Get-INS2EncryptionKey leveraging the GetEncryptionKey service API.
+    * Added cmdlet Get-INS2SbomExport leveraging the GetSbomExport service API.
+    * Added cmdlet New-INS2SbomExport leveraging the CreateSbomExport service API.
+    * Added cmdlet Reset-INS2EncryptionKey leveraging the ResetEncryptionKey service API.
+    * Added cmdlet Stop-INS2SbomExport leveraging the CancelSbomExport service API.
+    * Added cmdlet Update-INS2EncryptionKey leveraging the UpdateEncryptionKey service API.
+    * Modified cmdlet Get-INS2FindingAggregationList: added parameter TitleAggregation_FindingType.
+    * Modified cmdlet Get-INS2FindingList: added parameters FilterCriteria_CodeVulnerabilityDetectorName, FilterCriteria_CodeVulnerabilityDetectorTag, FilterCriteria_CodeVulnerabilityFilePath and FilterCriteria_EpssScore.
+    * Modified cmdlet New-INS2Filter: added parameters FilterCriteria_CodeVulnerabilityDetectorName, FilterCriteria_CodeVulnerabilityDetectorTag, FilterCriteria_CodeVulnerabilityFilePath and FilterCriteria_EpssScore.
+    * Modified cmdlet New-INS2FindingsReport: added parameters FilterCriteria_CodeVulnerabilityDetectorName, FilterCriteria_CodeVulnerabilityDetectorTag, FilterCriteria_CodeVulnerabilityFilePath and FilterCriteria_EpssScore.
+    * Modified cmdlet Update-INS2Filter: added parameters FilterCriteria_CodeVulnerabilityDetectorName, FilterCriteria_CodeVulnerabilityDetectorTag, FilterCriteria_CodeVulnerabilityFilePath and FilterCriteria_EpssScore.
+    * Modified cmdlet Update-INS2OrganizationConfiguration: added parameter AutoEnable_LambdaCode.
+  * Amazon MQ
+    * Added cmdlet Invoke-MQPromote leveraging the Promote service API.
+    * Modified cmdlet New-MQBroker: added parameters DataReplicationMode and DataReplicationPrimaryBrokerArn.
+    * Modified cmdlet New-MQUser: added parameter ReplicationUser.
+    * Modified cmdlet Update-MQBroker: added parameter DataReplicationMode.
+    * Modified cmdlet Update-MQUser: added parameter ReplicationUser.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter StructuredLogDestination.
+    * Modified cmdlet Update-TFRServer: added parameter StructuredLogDestination.
+
+### 4.1.356 (2023-06-20 22:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.572.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Added cmdlet Reset-AFConnectorMetadataCache leveraging the ResetConnectorMetadataCache service API.

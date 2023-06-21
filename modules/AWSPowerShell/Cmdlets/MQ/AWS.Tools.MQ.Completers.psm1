@@ -98,6 +98,16 @@ $MQ_Completers = {
             break
         }
 
+        # Amazon.MQ.DataReplicationMode
+        {
+            ($_ -eq "New-MQBroker/DataReplicationMode") -Or
+            ($_ -eq "Update-MQBroker/DataReplicationMode")
+        }
+        {
+            $v = "CRDR","NONE"
+            break
+        }
+
         # Amazon.MQ.DeploymentMode
         "New-MQBroker/DeploymentMode"
         {
@@ -115,6 +125,13 @@ $MQ_Completers = {
             break
         }
 
+        # Amazon.MQ.PromoteMode
+        "Invoke-MQPromote/Mode"
+        {
+            $v = "FAILOVER","SWITCHOVER"
+            break
+        }
+
 
     }
 
@@ -125,8 +142,10 @@ $MQ_Completers = {
 
 $MQ_map = @{
     "AuthenticationStrategy"=@("New-MQBroker","New-MQConfiguration","Update-MQBroker")
+    "DataReplicationMode"=@("New-MQBroker","Update-MQBroker")
     "DeploymentMode"=@("New-MQBroker")
     "EngineType"=@("New-MQBroker","New-MQConfiguration")
+    "Mode"=@("Invoke-MQPromote")
     "StorageType"=@("New-MQBroker")
 }
 
@@ -198,6 +217,7 @@ $MQ_SelectMap = @{
                "Get-MQConfigurationList",
                "Get-MQTagList",
                "Get-MQUserList",
+               "Invoke-MQPromote",
                "Restart-MQBroker",
                "Update-MQBroker",
                "Update-MQConfiguration",

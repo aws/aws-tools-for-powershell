@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     /// ec2:DescribeVpcs
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user">Create
-    /// an IAM User and Get Your AWS Credentials</a> and <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface">Never
+    /// an IAM User and Get Your Amazon Web Services Credentials</a> and <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface">Never
     /// Modify or Delete the Amazon MQ Elastic Network Interface</a> in the <i>Amazon MQ Developer
     /// Guide</i>.
     /// </para>
@@ -123,9 +123,12 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter BrokerName
         /// <summary>
         /// <para>
-        /// <para>Required. The broker's name. This value must be unique in your AWS account, 1-50 characters
-        /// long, must contain only letters, numbers, dashes, and underscores, and must not contain
-        /// white spaces, brackets, wildcard characters, or special characters.</para>
+        /// <para>Required. The broker's name. This value must be unique in your Amazon Web Services
+        /// account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores,
+        /// and must not contain white spaces, brackets, wildcard characters, or special characters.</para><important><para>Do not add personally identifiable information (PII) or other confidential or sensitive
+        /// information in broker names. Broker names are accessible to other Amazon Web Services
+        /// services, including CloudWatch Logs. Broker names are not intended to be used for
+        /// private or sensitive data.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,13 +156,35 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>The unique ID that the requester receives for the created broker. Amazon MQ passes
-        /// your ID with the API action. Note: We recommend using a Universally Unique Identifier
-        /// (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application
-        /// doesn't require idempotency.</para>
+        /// your ID with the API action.</para><note><para>We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId.
+        /// You may omit the creatorRequestId if your application doesn't require idempotency.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CreatorRequestId { get; set; }
+        #endregion
+        
+        #region Parameter DataReplicationMode
+        /// <summary>
+        /// <para>
+        /// <para>Defines whether this broker is a part of a data replication pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MQ.DataReplicationMode")]
+        public Amazon.MQ.DataReplicationMode DataReplicationMode { get; set; }
+        #endregion
+        
+        #region Parameter DataReplicationPrimaryBrokerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the primary broker that is used to replicate data
+        /// from in a data replication pair, and is applied to the replica broker. Must be set
+        /// when dataReplicationMode is set to CRDR.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataReplicationPrimaryBrokerArn { get; set; }
         #endregion
         
         #region Parameter DeploymentMode
@@ -245,8 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_Host
         /// <summary>
         /// <para>
-        /// <para>Specifies the location of the LDAP server such as AWS Directory Service for Microsoft
-        /// Active Directory . Optional failover server.</para>
+        /// <para>Specifies the location of the LDAP server such as Directory Service for Microsoft
+        /// Active Directory. Optional failover server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,9 +282,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter EncryptionOptions_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The customer master key (CMK) to use for the AWS Key Management Service (KMS). This
-        /// key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default
-        /// CMK to encrypt your data.</para>
+        /// <para>The customer master key (CMK) to use for the A KMS (KMS). This key is used to encrypt
+        /// your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your
+        /// data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,8 +426,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility.
         /// Deployment without public accessibility requires at least one subnet.</para><important><para>If you specify subnets in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">shared
         /// VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong
-        /// must be owned by your AWS account. Amazon MQ will not be able to create VPC endpoints
-        /// in VPCs that are not owned by your AWS account.</para></important>
+        /// must be owned by your Amazon Web Services account. Amazon MQ will not be able to create
+        /// VPC endpoints in VPCs that are not owned by your Amazon Web Services account.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,8 +449,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter EncryptionOptions_UseAwsOwnedKey
         /// <summary>
         /// <para>
-        /// <para>Enables the use of an AWS owned CMK using AWS Key Management Service (KMS). Set to
-        /// true by default, if no value is provided, for example, for RabbitMQ brokers.</para>
+        /// <para>Enables the use of an Amazon Web Services owned CMK using KMS (KMS). Set to true by
+        /// default, if no value is provided, for example, for RabbitMQ brokers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,12 +484,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter User
         /// <summary>
         /// <para>
-        /// <para>Required. The list of broker users (persons or applications) who can access queues
-        /// and topics. This value can contain only alphanumeric characters, dashes, periods,
-        /// underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</para><important><title>Amazon MQ for RabbitMQ</title><para>When you create an Amazon MQ for RabbitMQ broker, one and only one administrative
-        /// user is accepted and created when a broker is first provisioned. All subsequent broker
-        /// users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ
-        /// web console.</para></important>
+        /// <para>The list of broker users (persons or applications) who can access queues and topics.
+        /// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted
+        /// and created when a broker is first provisioned. All subsequent broker users are created
+        /// by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -583,6 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             #endif
             context.Configuration = this.Configuration;
             context.CreatorRequestId = this.CreatorRequestId;
+            context.DataReplicationMode = this.DataReplicationMode;
+            context.DataReplicationPrimaryBrokerArn = this.DataReplicationPrimaryBrokerArn;
             context.DeploymentMode = this.DeploymentMode;
             #if MODULAR
             if (this.DeploymentMode == null && ParameterWasBound(nameof(this.DeploymentMode)))
@@ -699,6 +724,14 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.CreatorRequestId != null)
             {
                 request.CreatorRequestId = cmdletContext.CreatorRequestId;
+            }
+            if (cmdletContext.DataReplicationMode != null)
+            {
+                request.DataReplicationMode = cmdletContext.DataReplicationMode;
+            }
+            if (cmdletContext.DataReplicationPrimaryBrokerArn != null)
+            {
+                request.DataReplicationPrimaryBrokerArn = cmdletContext.DataReplicationPrimaryBrokerArn;
             }
             if (cmdletContext.DeploymentMode != null)
             {
@@ -987,6 +1020,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.String BrokerName { get; set; }
             public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
             public System.String CreatorRequestId { get; set; }
+            public Amazon.MQ.DataReplicationMode DataReplicationMode { get; set; }
+            public System.String DataReplicationPrimaryBrokerArn { get; set; }
             public Amazon.MQ.DeploymentMode DeploymentMode { get; set; }
             public System.String EncryptionOptions_KmsKeyId { get; set; }
             public System.Boolean? EncryptionOptions_UseAwsOwnedKey { get; set; }

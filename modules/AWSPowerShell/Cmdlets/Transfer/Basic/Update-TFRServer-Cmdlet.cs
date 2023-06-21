@@ -352,6 +352,20 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
         #endregion
         
+        #region Parameter StructuredLogDestination
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the log groups to which your server logs are sent.</para><para>To specify a log group, you must provide the ARN for an existing log group. In this
+        /// case, the format of the log group is as follows:</para><para><code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code></para><para>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code></para><para>If you have previously specified a log group for a server, you can clear it, and in
+        /// effect turn off structured logging, by providing an empty value for this parameter
+        /// in an <code>update-server</code> call. For example:</para><para><code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StructuredLogDestinations")]
+        public System.String[] StructuredLogDestination { get; set; }
+        #endregion
+        
         #region Parameter EndpointDetails_SubnetId
         /// <summary>
         /// <para>
@@ -526,6 +540,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.StructuredLogDestination != null)
+            {
+                context.StructuredLogDestination = new List<System.String>(this.StructuredLogDestination);
+            }
             if (this.WorkflowDetails_OnPartialUpload != null)
             {
                 context.WorkflowDetails_OnPartialUpload = new List<Amazon.Transfer.Model.WorkflowDetail>(this.WorkflowDetails_OnPartialUpload);
@@ -753,6 +771,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.ServerId = cmdletContext.ServerId;
             }
+            if (cmdletContext.StructuredLogDestination != null)
+            {
+                request.StructuredLogDestinations = cmdletContext.StructuredLogDestination;
+            }
             
              // populate WorkflowDetails
             var requestWorkflowDetailsIsNull = true;
@@ -866,6 +888,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }
+            public List<System.String> StructuredLogDestination { get; set; }
             public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnPartialUpload { get; set; }
             public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnUpload { get; set; }
             public System.Func<Amazon.Transfer.Model.UpdateServerResponse, UpdateTFRServerCmdlet, object> Select { get; set; } =

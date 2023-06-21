@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
         #endregion
         
+        #region Parameter DataReplicationMode
+        /// <summary>
+        /// <para>
+        /// <para>Defines whether this broker is a part of a data replication pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MQ.DataReplicationMode")]
+        public Amazon.MQ.DataReplicationMode DataReplicationMode { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -136,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_Host
         /// <summary>
         /// <para>
-        /// <para>Specifies the location of the LDAP server such as AWS Directory Service for Microsoft
-        /// Active Directory . Optional failover server.</para>
+        /// <para>Specifies the location of the LDAP server such as Directory Service for Microsoft
+        /// Active Directory. Optional failover server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -362,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             #endif
             context.Configuration = this.Configuration;
+            context.DataReplicationMode = this.DataReplicationMode;
             context.EngineVersion = this.EngineVersion;
             context.HostInstanceType = this.HostInstanceType;
             if (this.LdapServerMetadata_Host != null)
@@ -416,6 +428,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.Configuration != null)
             {
                 request.Configuration = cmdletContext.Configuration;
+            }
+            if (cmdletContext.DataReplicationMode != null)
+            {
+                request.DataReplicationMode = cmdletContext.DataReplicationMode;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -646,6 +662,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String BrokerId { get; set; }
             public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
+            public Amazon.MQ.DataReplicationMode DataReplicationMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String HostInstanceType { get; set; }
             public List<System.String> LdapServerMetadata_Host { get; set; }
