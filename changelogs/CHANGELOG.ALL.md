@@ -1,4 +1,25 @@
-﻿### 4.1.357 (2023-06-21 21:02Z)
+﻿### 4.1.358 (2023-06-22 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.575.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Identity
+    * Modified cmdlet New-CHMIDAppInstanceBot: added parameters InvokedBy_StandardMessage and InvokedBy_TargetedMessage.
+    * Modified cmdlet Update-CHMIDAppInstanceBot: added parameters InvokedBy_StandardMessage, InvokedBy_TargetedMessage, Lex_LexBotAliasArn, Lex_LocaleId, Lex_RespondsTo and Lex_WelcomeIntent.
+  * Amazon Chime SDK Messaging
+    * Modified cmdlet Send-CHMMGChannelMessage: added parameter Target.
+  * Amazon Kendra
+    * Added cmdlet Invoke-KNDRRetrieve leveraging the Retrieve service API.
+  * Amazon Step Functions
+    * Added cmdlet Get-SFNStateMachineAlias leveraging the DescribeStateMachineAlias service API.
+    * Added cmdlet Get-SFNStateMachineAliasList leveraging the ListStateMachineAliases service API.
+    * Added cmdlet Get-SFNStateMachineVersionList leveraging the ListStateMachineVersions service API.
+    * Added cmdlet New-SFNStateMachineAlias leveraging the CreateStateMachineAlias service API.
+    * Added cmdlet Publish-SFNStateMachineVersion leveraging the PublishStateMachineVersion service API.
+    * Added cmdlet Remove-SFNStateMachineAlias leveraging the DeleteStateMachineAlias service API.
+    * Added cmdlet Remove-SFNStateMachineVersion leveraging the DeleteStateMachineVersion service API.
+    * Added cmdlet Update-SFNStateMachineAlias leveraging the UpdateStateMachineAlias service API.
+    * Modified cmdlet New-SFNStateMachine: added parameters Publish and VersionDescription.
+    * Modified cmdlet Update-SFNStateMachine: added parameters Publish and VersionDescription.
+
+### 4.1.357 (2023-06-21 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.574.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Added cmdlet Get-EMRSupportedInstanceType leveraging the ListSupportedInstanceTypes service API.

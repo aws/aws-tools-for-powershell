@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the message being updated.</para>
+        /// <para>The content of the channel message. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

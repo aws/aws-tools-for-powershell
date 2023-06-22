@@ -28,8 +28,8 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Calls back Chime SDK Messaging with a processing response message. This should be
-    /// invoked from the processor Lambda. This is a developer API.
+    /// Calls back Amazon Chime SDK messaging with a processing response message. This should
+    /// be invoked from the processor Lambda. This is a developer API.
     /// 
     ///  
     /// <para>
@@ -95,7 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelMessage_Content
         /// <summary>
         /// <para>
-        /// <para>The message content.</para>
+        /// <para>The message content. For Amazon Lex V2 bot responses, this field holds a list of messages
+        /// originating from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing
+        /// responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelMessage_ContentType
         /// <summary>
         /// <para>
-        /// <para>The content type of the call-back message.</para>
+        /// <para>The content type of the call-back message. For Amazon Lex V2 bot responses, the content
+        /// type is <code>application/amz-chime-lex-msgs</code> for success responses and <code>application/amz-chime-lex-error</code>
+        /// for failure responses. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing
+        /// responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,8 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelMessage_MessageAttribute
         /// <summary>
         /// <para>
-        /// <para>The attributes for the message, used for message filtering along with a <code>FilterRule</code>
-        /// defined in the <code>PushNotificationPreferences</code>. </para>
+        /// <para>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes
+        /// are mapped to specific fields from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing
+        /// responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

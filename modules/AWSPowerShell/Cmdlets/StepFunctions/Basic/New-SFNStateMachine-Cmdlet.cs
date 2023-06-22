@@ -35,14 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
     /// States Language</a> in the Step Functions User Guide.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// If you set the <code>publish</code> parameter of this API action to <code>true</code>,
+    /// it publishes version <code>1</code> as the first revision of the state machine.
+    /// </para><note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
     /// </para></note><note><para><code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create
     /// a duplicate resource if it was already created. <code>CreateStateMachine</code>'s
     /// idempotency check is based on the state machine <code>name</code>, <code>definition</code>,
-    /// <code>type</code>, <code>LoggingConfiguration</code> and <code>TracingConfiguration</code>.
-    /// If a following request has a different <code>roleArn</code> or <code>tags</code>,
+    /// <code>type</code>, <code>LoggingConfiguration</code>, and <code>TracingConfiguration</code>.
+    /// The check is also based on the <code>publish</code> and <code>versionDescription</code>
+    /// parameters. If a following request has a different <code>roleArn</code> or <code>tags</code>,
     /// Step Functions will ignore these differences and treat it as an idempotent request
     /// of the previous. In this case, <code>roleArn</code> and <code>tags</code> will not
     /// be updated, even if they are different.
@@ -139,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Publish
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to publish the first version of the state machine during
+        /// creation. The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Publish { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -182,6 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.StepFunctions.StateMachineType")]
         public Amazon.StepFunctions.StateMachineType Type { get; set; }
+        #endregion
+        
+        #region Parameter VersionDescription
+        /// <summary>
+        /// <para>
+        /// <para>Sets description about the state machine version. You can only set the description
+        /// if the <code>publish</code> parameter is set to <code>true</code>. Otherwise, if you
+        /// set <code>versionDescription</code>, but <code>publish</code> to <code>false</code>,
+        /// this API action throws <code>ValidationException</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionDescription { get; set; }
         #endregion
         
         #region Parameter Select
@@ -266,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Publish = this.Publish;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -279,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             }
             context.TracingConfiguration_Enabled = this.TracingConfiguration_Enabled;
             context.Type = this.Type;
+            context.VersionDescription = this.VersionDescription;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -342,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Publish != null)
+            {
+                request.Publish = cmdletContext.Publish.Value;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -372,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
+            }
+            if (cmdletContext.VersionDescription != null)
+            {
+                request.VersionDescription = cmdletContext.VersionDescription;
             }
             
             CmdletOutput output;
@@ -439,10 +478,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public System.Boolean? LoggingConfiguration_IncludeExecutionData { get; set; }
             public Amazon.StepFunctions.LogLevel LoggingConfiguration_Level { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? Publish { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.StepFunctions.Model.Tag> Tag { get; set; }
             public System.Boolean? TracingConfiguration_Enabled { get; set; }
             public Amazon.StepFunctions.StateMachineType Type { get; set; }
+            public System.String VersionDescription { get; set; }
             public System.Func<Amazon.StepFunctions.Model.CreateStateMachineResponse, NewSFNStateMachineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

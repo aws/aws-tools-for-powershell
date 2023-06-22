@@ -322,6 +322,7 @@ $KNDR_SelectMap = @{
                "Get-KNDRThesauriList",
                "Write-KNDRPrincipalMapping",
                "Invoke-KNDRQuery",
+               "Invoke-KNDRRetrieve",
                "Start-KNDRDataSourceSyncJob",
                "Stop-KNDRDataSourceSyncJob",
                "Send-KNDRFeedback",

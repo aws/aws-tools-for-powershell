@@ -28,38 +28,39 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Searches an index given an input query.
+    /// Retrieves relevant passages or text excerpts given an input query.
     /// 
     ///  
     /// <para>
-    /// You can configure boosting or relevance tuning at the query level to override boosting
-    /// at the index level, filter based on document fields/attributes and faceted search,
-    /// and filter based on the user or their group access to documents. You can also include
-    /// certain fields in the response that might provide useful additional information.
+    /// This API is similar to the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html">Query</a>
+    /// API. However, by default, the <code>Query</code> API only returns excerpt passages
+    /// of up to 100 token words. With the <code>Retrieve</code> API, you can retrieve longer
+    /// passages of up to 200 token words and up to 100 semantically relevant passages. This
+    /// doesn't include question-answer or FAQ type responses from your index. The passages
+    /// are text excerpts that can be semantically extracted from multiple documents and multiple
+    /// parts of the same document. If in extreme cases your documents produce no relevant
+    /// passages using the <code>Retrieve</code> API, you can alternatively use the <code>Query</code>
+    /// API.
     /// </para><para>
-    /// A query response contains three types of results.
+    /// You can also do the following:
     /// </para><ul><li><para>
-    /// Relevant suggested answers. The answers can be either a text excerpt or table excerpt.
-    /// The answer can be highlighted in the excerpt.
+    /// Override boosting at the index level
     /// </para></li><li><para>
-    /// Matching FAQs or questions-answer from your FAQ file.
+    /// Filter based on document fields or attributes
     /// </para></li><li><para>
-    /// Relevant documents. This result type includes an excerpt of the document with the
-    /// document title. The searched terms can be highlighted in the excerpt.
+    /// Filter based on the user or their group access to documents
     /// </para></li></ul><para>
-    /// You can specify that the query return only one type of result using the <code>QueryResultTypeFilter</code>
-    /// parameter. Each query returns the 100 most relevant results. If you filter result
-    /// type to only question-answers, a maximum of four results are returned. If you filter
-    /// result type to only answers, a maximum of three results are returned.
+    /// You can also include certain fields in the response that might provide useful additional
+    /// information.
     /// </para>
     /// </summary>
-    [Cmdlet("Invoke", "KNDRQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Kendra.Model.QueryResponse")]
-    [AWSCmdlet("Calls the Amazon Kendra Query API operation.", Operation = new[] {"Query"}, SelectReturnType = typeof(Amazon.Kendra.Model.QueryResponse))]
-    [AWSCmdletOutput("Amazon.Kendra.Model.QueryResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.QueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Invoke", "KNDRRetrieve", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Kendra.Model.RetrieveResponse")]
+    [AWSCmdlet("Calls the Amazon Kendra Retrieve API operation.", Operation = new[] {"Retrieve"}, SelectReturnType = typeof(Amazon.Kendra.Model.RetrieveResponse))]
+    [AWSCmdletOutput("Amazon.Kendra.Model.RetrieveResponse",
+        "This cmdlet returns an Amazon.Kendra.Model.RetrieveResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class InvokeKNDRQueryCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class InvokeKNDRRetrieveCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeFilter
@@ -87,17 +88,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.DataSourceGroup[] UserContext_DataSourceGroup { get; set; }
         #endregion
         
-        #region Parameter SortingConfiguration_DocumentAttributeKey
-        /// <summary>
-        /// <para>
-        /// <para>The name of the document attribute used to sort the response. You can use any field
-        /// that has the <code>Sortable</code> flag set to true.</para><para>You can also sort by any of the following built-in attributes:</para><ul><li><para>_category</para></li><li><para>_created_at</para></li><li><para>_last_updated_at</para></li><li><para>_version</para></li><li><para>_view_count</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
-        #endregion
-        
         #region Parameter DocumentRelevanceOverrideConfiguration
         /// <summary>
         /// <para>
@@ -113,18 +103,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.DocumentRelevanceConfiguration[] DocumentRelevanceOverrideConfiguration { get; set; }
         #endregion
         
-        #region Parameter Facet
-        /// <summary>
-        /// <para>
-        /// <para>An array of documents fields/attributes for faceted search. Amazon Kendra returns
-        /// a count for each field key specified. This helps your users narrow their search.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Facets")]
-        public Amazon.Kendra.Model.Facet[] Facet { get; set; }
-        #endregion
-        
         #region Parameter UserContext_Group
         /// <summary>
         /// <para>
@@ -137,21 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String[] UserContext_Group { get; set; }
         #endregion
         
-        #region Parameter SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion
-        /// <summary>
-        /// <para>
-        /// <para><code>TRUE</code> to suggest spell corrections for queries.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestions")]
-        public System.Boolean? SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion { get; set; }
-        #endregion
-        
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index for the search.</para>
+        /// <para>The identifier of the index to retrieve relevant passages for the search.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,62 +135,45 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter PageNumber
         /// <summary>
         /// <para>
-        /// <para>Query results are returned in pages the size of the <code>PageSize</code> parameter.
-        /// By default, Amazon Kendra returns the first page of results. Use this parameter to
-        /// get result pages after the first one.</para>
+        /// <para>Retrieved relevant passages are returned in pages the size of the <code>PageSize</code>
+        /// parameter. By default, Amazon Kendra returns the first page of results. Use this parameter
+        /// to get result pages after the first one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? PageNumber { get; set; }
         #endregion
         
-        #region Parameter QueryResultTypeFilter
-        /// <summary>
-        /// <para>
-        /// <para>Sets the type of query result or response. Only results for the specified type are
-        /// returned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Kendra.QueryResultType")]
-        public Amazon.Kendra.QueryResultType QueryResultTypeFilter { get; set; }
-        #endregion
-        
         #region Parameter QueryText
         /// <summary>
         /// <para>
-        /// <para>The input query text for the search. Amazon Kendra truncates queries at 30 token words,
-        /// which excludes punctuation and stop words. Truncation still applies if you use Boolean
-        /// or more advanced, complex queries. </para>
+        /// <para>The input query text to retrieve relevant passages for the search. Amazon Kendra truncates
+        /// queries at 30 token words, which excludes punctuation and stop words. Truncation still
+        /// applies if you use Boolean or more advanced, complex queries.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryText { get; set; }
         #endregion
         
         #region Parameter RequestedDocumentAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of document fields/attributes to include in the response. You can limit the
-        /// response to include certain document fields. By default, all document attributes are
-        /// included in the response.</para>
+        /// <para>A list of document fields/attributes to include in the response. You can limit the
+        /// response to include certain document fields. By default, all document fields are included
+        /// in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestedDocumentAttributes")]
         public System.String[] RequestedDocumentAttribute { get; set; }
-        #endregion
-        
-        #region Parameter SortingConfiguration_SortOrder
-        /// <summary>
-        /// <para>
-        /// <para>The order that the results should be returned in. In case of ties, the relevance assigned
-        /// to the result by Amazon Kendra is used as the tie-breaker.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Kendra.SortOrder")]
-        public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
         #endregion
         
         #region Parameter UserContext_Token
@@ -248,24 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String UserContext_UserId { get; set; }
         #endregion
         
-        #region Parameter VisitorId
-        /// <summary>
-        /// <para>
-        /// <para>Provides an identifier for a specific user. The <code>VisitorId</code> should be a
-        /// unique identifier, such as a GUID. Don't use personally identifiable information,
-        /// such as the user's email address, as the <code>VisitorId</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VisitorId { get; set; }
-        #endregion
-        
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>Sets the number of results that are returned in each page of results. The default
-        /// page size is 10. The maximum number of results returned is 100. If you ask for more
-        /// than 100 results, only 100 are returned.</para>
+        /// <para>Sets the number of retrieved relevant passages that are returned in each page of results.
+        /// The default page size is 10. The maximum number of results returned is 100. If you
+        /// ask for more than 100 results, only 100 are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.QueryResponse).
-        /// Specifying the name of a property of type Amazon.Kendra.Model.QueryResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.RetrieveResponse).
+        /// Specifying the name of a property of type Amazon.Kendra.Model.RetrieveResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IndexId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-KNDRQuery (Query)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-KNDRRetrieve (Retrieve)"))
             {
                 return;
             }
@@ -322,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.QueryResponse, InvokeKNDRQueryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.RetrieveResponse, InvokeKNDRRetrieveCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -339,10 +277,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             {
                 context.DocumentRelevanceOverrideConfiguration = new List<Amazon.Kendra.Model.DocumentRelevanceConfiguration>(this.DocumentRelevanceOverrideConfiguration);
             }
-            if (this.Facet != null)
-            {
-                context.Facet = new List<Amazon.Kendra.Model.Facet>(this.Facet);
-            }
             context.IndexId = this.IndexId;
             #if MODULAR
             if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
@@ -352,15 +286,17 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #endif
             context.PageNumber = this.PageNumber;
             context.PageSize = this.PageSize;
-            context.QueryResultTypeFilter = this.QueryResultTypeFilter;
             context.QueryText = this.QueryText;
+            #if MODULAR
+            if (this.QueryText == null && ParameterWasBound(nameof(this.QueryText)))
+            {
+                WriteWarning("You are passing $null as a value for parameter QueryText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.RequestedDocumentAttribute != null)
             {
                 context.RequestedDocumentAttribute = new List<System.String>(this.RequestedDocumentAttribute);
             }
-            context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
-            context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
-            context.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = this.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion;
             if (this.UserContext_DataSourceGroup != null)
             {
                 context.UserContext_DataSourceGroup = new List<Amazon.Kendra.Model.DataSourceGroup>(this.UserContext_DataSourceGroup);
@@ -371,7 +307,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             context.UserContext_Token = this.UserContext_Token;
             context.UserContext_UserId = this.UserContext_UserId;
-            context.VisitorId = this.VisitorId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -386,7 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kendra.Model.QueryRequest();
+            var request = new Amazon.Kendra.Model.RetrieveRequest();
             
             if (cmdletContext.AttributeFilter != null)
             {
@@ -395,10 +330,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.DocumentRelevanceOverrideConfiguration != null)
             {
                 request.DocumentRelevanceOverrideConfigurations = cmdletContext.DocumentRelevanceOverrideConfiguration;
-            }
-            if (cmdletContext.Facet != null)
-            {
-                request.Facets = cmdletContext.Facet;
             }
             if (cmdletContext.IndexId != null)
             {
@@ -412,10 +343,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             {
                 request.PageSize = cmdletContext.PageSize.Value;
             }
-            if (cmdletContext.QueryResultTypeFilter != null)
-            {
-                request.QueryResultTypeFilter = cmdletContext.QueryResultTypeFilter;
-            }
             if (cmdletContext.QueryText != null)
             {
                 request.QueryText = cmdletContext.QueryText;
@@ -423,54 +350,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.RequestedDocumentAttribute != null)
             {
                 request.RequestedDocumentAttributes = cmdletContext.RequestedDocumentAttribute;
-            }
-            
-             // populate SortingConfiguration
-            var requestSortingConfigurationIsNull = true;
-            request.SortingConfiguration = new Amazon.Kendra.Model.SortingConfiguration();
-            System.String requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey = null;
-            if (cmdletContext.SortingConfiguration_DocumentAttributeKey != null)
-            {
-                requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey = cmdletContext.SortingConfiguration_DocumentAttributeKey;
-            }
-            if (requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey != null)
-            {
-                request.SortingConfiguration.DocumentAttributeKey = requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey;
-                requestSortingConfigurationIsNull = false;
-            }
-            Amazon.Kendra.SortOrder requestSortingConfiguration_sortingConfiguration_SortOrder = null;
-            if (cmdletContext.SortingConfiguration_SortOrder != null)
-            {
-                requestSortingConfiguration_sortingConfiguration_SortOrder = cmdletContext.SortingConfiguration_SortOrder;
-            }
-            if (requestSortingConfiguration_sortingConfiguration_SortOrder != null)
-            {
-                request.SortingConfiguration.SortOrder = requestSortingConfiguration_sortingConfiguration_SortOrder;
-                requestSortingConfigurationIsNull = false;
-            }
-             // determine if request.SortingConfiguration should be set to null
-            if (requestSortingConfigurationIsNull)
-            {
-                request.SortingConfiguration = null;
-            }
-            
-             // populate SpellCorrectionConfiguration
-            var requestSpellCorrectionConfigurationIsNull = true;
-            request.SpellCorrectionConfiguration = new Amazon.Kendra.Model.SpellCorrectionConfiguration();
-            System.Boolean? requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = null;
-            if (cmdletContext.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion != null)
-            {
-                requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = cmdletContext.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion.Value;
-            }
-            if (requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion != null)
-            {
-                request.SpellCorrectionConfiguration.IncludeQuerySpellCheckSuggestions = requestSpellCorrectionConfiguration_spellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion.Value;
-                requestSpellCorrectionConfigurationIsNull = false;
-            }
-             // determine if request.SpellCorrectionConfiguration should be set to null
-            if (requestSpellCorrectionConfigurationIsNull)
-            {
-                request.SpellCorrectionConfiguration = null;
             }
             
              // populate UserContext
@@ -521,10 +400,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             {
                 request.UserContext = null;
             }
-            if (cmdletContext.VisitorId != null)
-            {
-                request.VisitorId = cmdletContext.VisitorId;
-            }
             
             CmdletOutput output;
             
@@ -558,15 +433,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.QueryResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.QueryRequest request)
+        private Amazon.Kendra.Model.RetrieveResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.RetrieveRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "Query");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "Retrieve");
             try
             {
                 #if DESKTOP
-                return client.Query(request);
+                return client.Retrieve(request);
                 #elif CORECLR
-                return client.QueryAsync(request).GetAwaiter().GetResult();
+                return client.RetrieveAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -588,22 +463,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             public Amazon.Kendra.Model.AttributeFilter AttributeFilter { get; set; }
             public List<Amazon.Kendra.Model.DocumentRelevanceConfiguration> DocumentRelevanceOverrideConfiguration { get; set; }
-            public List<Amazon.Kendra.Model.Facet> Facet { get; set; }
             public System.String IndexId { get; set; }
             public System.Int32? PageNumber { get; set; }
             public System.Int32? PageSize { get; set; }
-            public Amazon.Kendra.QueryResultType QueryResultTypeFilter { get; set; }
             public System.String QueryText { get; set; }
             public List<System.String> RequestedDocumentAttribute { get; set; }
-            public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
-            public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
-            public System.Boolean? SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion { get; set; }
             public List<Amazon.Kendra.Model.DataSourceGroup> UserContext_DataSourceGroup { get; set; }
             public List<System.String> UserContext_Group { get; set; }
             public System.String UserContext_Token { get; set; }
             public System.String UserContext_UserId { get; set; }
-            public System.String VisitorId { get; set; }
-            public System.Func<Amazon.Kendra.Model.QueryResponse, InvokeKNDRQueryCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Kendra.Model.RetrieveResponse, InvokeKNDRRetrieveCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

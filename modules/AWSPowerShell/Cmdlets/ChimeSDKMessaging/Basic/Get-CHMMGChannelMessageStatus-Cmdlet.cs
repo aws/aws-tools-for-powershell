@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// </para></dd><dt>FAILED</dt><dd><para>
     /// Processing failed
     /// </para></dd><dt>DENIED</dt><dd><para>
-    /// Messasge denied by the processor
+    /// Message denied by the processor
     /// </para></dd></dl><note><ul><li><para>
     /// This API does not return statuses for denied messages, because we don't store them
     /// once the processor denies them. 

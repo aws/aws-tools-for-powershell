@@ -170,20 +170,27 @@ $SFN_SelectCompleters = {
 $SFN_SelectMap = @{
     "Select"=@("New-SFNActivity",
                "New-SFNStateMachine",
+               "New-SFNStateMachineAlias",
                "Remove-SFNActivity",
                "Remove-SFNStateMachine",
+               "Remove-SFNStateMachineAlias",
+               "Remove-SFNStateMachineVersion",
                "Get-SFNActivity",
                "Get-SFNExecution",
                "Get-SFNMapRun",
                "Get-SFNStateMachine",
+               "Get-SFNStateMachineAlias",
                "Get-SFNStateMachineForExecution",
                "Get-SFNActivityTask",
                "Get-SFNExecutionHistory",
                "Get-SFNActivityList",
                "Get-SFNExecutionList",
                "Get-SFNMapRunList",
+               "Get-SFNStateMachineAliasList",
                "Get-SFNStateMachineList",
+               "Get-SFNStateMachineVersionList",
                "Get-SFNResourceTag",
+               "Publish-SFNStateMachineVersion",
                "Send-SFNTaskFailure",
                "Send-SFNTaskHeartbeat",
                "Send-SFNTaskSuccess",
@@ -193,7 +200,8 @@ $SFN_SelectMap = @{
                "Add-SFNResourceTag",
                "Remove-SFNResourceTag",
                "Update-SFNMapRun",
-               "Update-SFNStateMachine")
+               "Update-SFNStateMachine",
+               "Update-SFNStateMachineAlias")
 }
 
 _awsArgumentCompleterRegistration $SFN_SelectCompleters $SFN_SelectMap

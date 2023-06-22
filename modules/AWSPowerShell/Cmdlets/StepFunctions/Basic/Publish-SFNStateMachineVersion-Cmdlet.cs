@@ -28,47 +28,65 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Deletes a state machine. This is an asynchronous operation: It sets the state machine's
-    /// status to <code>DELETING</code> and begins the deletion process. 
+    /// Creates a <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>
+    /// from the current revision of a state machine. Use versions to create immutable snapshots
+    /// of your state machine. You can start executions from versions either directly or with
+    /// an alias. To create an alias, use <a>CreateStateMachineAlias</a>.
     /// 
     ///  
     /// <para>
-    /// A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined
-    /// within a state machine, a version ARN, or an alias ARN.
-    /// </para><para>
-    /// The following are some examples of qualified and unqualified state machine ARNs:
-    /// </para><ul><li><para>
-    /// The following qualified state machine ARN refers to a <i>Distributed Map state</i>
-    /// with a label <code>mapStateLabel</code> in a state machine named <code>myStateMachine</code>.
-    /// </para><para><code>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</code></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>,
-    /// the request fails with <code>ValidationException</code>.
-    /// </para></note></li><li><para>
-    /// The following unqualified state machine ARN refers to a state machine named <code>myStateMachine</code>.
-    /// </para><para><code>arn:partition:states:region:account-id:stateMachine:myStateMachine</code></para></li></ul><para>
-    /// This API action also deletes all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">versions</a>
-    /// and <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">aliases</a>
-    /// associated with a state machine.
-    /// </para><note><para>
-    /// For <code>EXPRESS</code> state machines, the deletion happens eventually (usually
-    /// in less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
-    /// API is called.
-    /// </para></note>
+    /// You can publish up to 1000 versions for each state machine. You must manually delete
+    /// unused versions using the <a>DeleteStateMachineVersion</a> API action.
+    /// </para><para><code>PublishStateMachineVersion</code> is an idempotent API. It doesn't create a
+    /// duplicate state machine version if it already exists for the current revision. Step
+    /// Functions bases <code>PublishStateMachineVersion</code>'s idempotency check on the
+    /// <code>stateMachineArn</code>, <code>name</code>, and <code>revisionId</code> parameters.
+    /// Requests with the same parameters return a successful idempotent response. If you
+    /// don't specify a <code>revisionId</code>, Step Functions checks for a previously published
+    /// version of the state machine's current revision.
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteStateMachineVersion</a></para></li><li><para><a>ListStateMachineVersions</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Step Functions DeleteStateMachine API operation.", Operation = new[] {"DeleteStateMachine"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.DeleteStateMachineResponse))]
-    [AWSCmdletOutput("None or Amazon.StepFunctions.Model.DeleteStateMachineResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.StepFunctions.Model.DeleteStateMachineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Publish", "SFNStateMachineVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.StepFunctions.Model.PublishStateMachineVersionResponse")]
+    [AWSCmdlet("Calls the AWS Step Functions PublishStateMachineVersion API operation.", Operation = new[] {"PublishStateMachineVersion"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.PublishStateMachineVersionResponse))]
+    [AWSCmdletOutput("Amazon.StepFunctions.Model.PublishStateMachineVersionResponse",
+        "This cmdlet returns an Amazon.StepFunctions.Model.PublishStateMachineVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSFNStateMachineCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
+    public partial class PublishSFNStateMachineVersionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>An optional description of the state machine version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>Only publish the state machine version if the current state machine's revision ID
+        /// matches the specified ID.</para><para>Use this option to avoid publishing a version if the state machine changed since you
+        /// last updated it. If the specified revision ID doesn't match the state machine's current
+        /// revision ID, the API returns <code>ConflictException</code>.</para><note><para>To specify an initial revision ID for a state machine with no revision ID assigned,
+        /// specify the string <code>INITIAL</code> for the <code>revisionId</code> parameter.
+        /// For example, you can specify a <code>revisionID</code> of <code>INITIAL</code> when
+        /// you create a state machine using the <a>CreateStateMachine</a> API action.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RevisionId { get; set; }
+        #endregion
         
         #region Parameter StateMachineArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the state machine to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the state machine.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.DeleteStateMachineResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.PublishStateMachineVersionResponse).
+        /// Specifying the name of a property of type Amazon.StepFunctions.Model.PublishStateMachineVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StateMachineArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SFNStateMachine (DeleteStateMachine)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Publish-SFNStateMachineVersion (PublishStateMachineVersion)"))
             {
                 return;
             }
@@ -131,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.DeleteStateMachineResponse, RemoveSFNStateMachineCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.PublishStateMachineVersionResponse, PublishSFNStateMachineVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,6 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 context.Select = (response, cmdlet) => this.StateMachineArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Description = this.Description;
+            context.RevisionId = this.RevisionId;
             context.StateMachineArn = this.StateMachineArn;
             #if MODULAR
             if (this.StateMachineArn == null && ParameterWasBound(nameof(this.StateMachineArn)))
@@ -164,8 +185,16 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StepFunctions.Model.DeleteStateMachineRequest();
+            var request = new Amazon.StepFunctions.Model.PublishStateMachineVersionRequest();
             
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
+            }
             if (cmdletContext.StateMachineArn != null)
             {
                 request.StateMachineArn = cmdletContext.StateMachineArn;
@@ -203,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private Amazon.StepFunctions.Model.DeleteStateMachineResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DeleteStateMachineRequest request)
+        private Amazon.StepFunctions.Model.PublishStateMachineVersionResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.PublishStateMachineVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "DeleteStateMachine");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "PublishStateMachineVersion");
             try
             {
                 #if DESKTOP
-                return client.DeleteStateMachine(request);
+                return client.PublishStateMachineVersion(request);
                 #elif CORECLR
-                return client.DeleteStateMachineAsync(request).GetAwaiter().GetResult();
+                return client.PublishStateMachineVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -231,9 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Description { get; set; }
+            public System.String RevisionId { get; set; }
             public System.String StateMachineArn { get; set; }
-            public System.Func<Amazon.StepFunctions.Model.DeleteStateMachineResponse, RemoveSFNStateMachineCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.StepFunctions.Model.PublishStateMachineVersionResponse, PublishSFNStateMachineVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

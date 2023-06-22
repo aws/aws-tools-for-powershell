@@ -6935,9 +6935,32 @@ $CHMID_Completers = {
         }
 
         # Amazon.ChimeSDKIdentity.RespondsTo
-        "New-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo"
+        {
+            ($_ -eq "New-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo") -Or
+            ($_ -eq "Update-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo")
+        }
         {
             $v = "STANDARD_MESSAGES"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.StandardMessages
+        {
+            ($_ -eq "New-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_StandardMessages") -Or
+            ($_ -eq "Update-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_StandardMessages")
+        }
+        {
+            $v = "ALL","AUTO","MENTIONS","NONE"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.TargetedMessages
+        {
+            ($_ -eq "New-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_TargetedMessages") -Or
+            ($_ -eq "Update-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_TargetedMessages")
+        }
+        {
+            $v = "ALL","NONE"
             break
         }
 
@@ -6951,7 +6974,9 @@ $CHMID_Completers = {
 
 $CHMID_map = @{
     "AllowMessages"=@("Register-CHMIDAppInstanceUserEndpoint","Update-CHMIDAppInstanceUserEndpoint")
-    "Configuration_Lex_RespondsTo"=@("New-CHMIDAppInstanceBot")
+    "Configuration_Lex_InvokedBy_StandardMessages"=@("New-CHMIDAppInstanceBot","Update-CHMIDAppInstanceBot")
+    "Configuration_Lex_InvokedBy_TargetedMessages"=@("New-CHMIDAppInstanceBot","Update-CHMIDAppInstanceBot")
+    "Configuration_Lex_RespondsTo"=@("New-CHMIDAppInstanceBot","Update-CHMIDAppInstanceBot")
     "ExpirationSettings_ExpirationCriterion"=@("New-CHMIDAppInstanceUser","Write-CHMIDAppInstanceUserExpirationSetting")
     "Type"=@("Register-CHMIDAppInstanceUserEndpoint")
 }
@@ -32275,6 +32300,7 @@ $KNDR_SelectMap = @{
                "Get-KNDRThesauriList",
                "Write-KNDRPrincipalMapping",
                "Invoke-KNDRQuery",
+               "Invoke-KNDRRetrieve",
                "Start-KNDRDataSourceSyncJob",
                "Stop-KNDRDataSourceSyncJob",
                "Send-KNDRFeedback",
@@ -56846,20 +56872,27 @@ $SFN_SelectCompleters = {
 $SFN_SelectMap = @{
     "Select"=@("New-SFNActivity",
                "New-SFNStateMachine",
+               "New-SFNStateMachineAlias",
                "Remove-SFNActivity",
                "Remove-SFNStateMachine",
+               "Remove-SFNStateMachineAlias",
+               "Remove-SFNStateMachineVersion",
                "Get-SFNActivity",
                "Get-SFNExecution",
                "Get-SFNMapRun",
                "Get-SFNStateMachine",
+               "Get-SFNStateMachineAlias",
                "Get-SFNStateMachineForExecution",
                "Get-SFNActivityTask",
                "Get-SFNExecutionHistory",
                "Get-SFNActivityList",
                "Get-SFNExecutionList",
                "Get-SFNMapRunList",
+               "Get-SFNStateMachineAliasList",
                "Get-SFNStateMachineList",
+               "Get-SFNStateMachineVersionList",
                "Get-SFNResourceTag",
+               "Publish-SFNStateMachineVersion",
                "Send-SFNTaskFailure",
                "Send-SFNTaskHeartbeat",
                "Send-SFNTaskSuccess",
@@ -56869,7 +56902,8 @@ $SFN_SelectMap = @{
                "Add-SFNResourceTag",
                "Remove-SFNResourceTag",
                "Update-SFNMapRun",
-               "Update-SFNStateMachine")
+               "Update-SFNStateMachine",
+               "Update-SFNStateMachineAlias")
 }
 
 _awsArgumentCompleterRegistration $SFN_SelectCompleters $SFN_SelectMap

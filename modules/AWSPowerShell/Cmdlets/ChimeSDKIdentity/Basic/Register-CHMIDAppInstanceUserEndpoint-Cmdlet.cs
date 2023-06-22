@@ -43,8 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         #region Parameter AllowMessage
         /// <summary>
         /// <para>

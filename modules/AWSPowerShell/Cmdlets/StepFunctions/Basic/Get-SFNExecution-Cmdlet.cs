@@ -28,17 +28,21 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Provides all information about a state machine execution, such as the state machine
-    /// associated with the execution, the execution input and output, and relevant execution
-    /// metadata. Use this API action to return the Map Run ARN if the execution was dispatched
-    /// by a Map Run.
+    /// Provides information about a state machine execution, such as the state machine associated
+    /// with the execution, the execution input and output, and relevant execution metadata.
+    /// Use this API action to return the Map Run Amazon Resource Name (ARN) if the execution
+    /// was dispatched by a Map Run.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// If you specify a version or alias ARN when you call the <a>StartExecution</a> API
+    /// action, <code>DescribeExecution</code> returns that ARN.
+    /// </para><note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
     /// </para></note><para>
-    /// This API action is not supported by <code>EXPRESS</code> state machine executions
-    /// unless they were dispatched by a Map Run.
+    /// Executions of an <code>EXPRESS</code> state machinearen't supported by <code>DescribeExecution</code>
+    /// unless a Map Run dispatched them.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SFNExecution")]

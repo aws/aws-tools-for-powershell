@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KNDRThesauriList', 
         'Get-KNDRThesaurus', 
         'Invoke-KNDRQuery', 
+        'Invoke-KNDRRetrieve', 
         'New-KNDRAccessControlConfiguration', 
         'New-KNDRDataSource', 
         'New-KNDRExperience', 

@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     public partial class UnregisterCHMIDAppInstanceUserEndpointCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>

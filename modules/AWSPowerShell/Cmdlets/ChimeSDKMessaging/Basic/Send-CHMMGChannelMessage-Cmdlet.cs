@@ -35,8 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
     /// as the value in the header.
     /// </para><para>
-    /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
-    /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
+    /// Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata.
+    /// Metadata is arbitrary, and you can use it in a variety of ways, such as containing
+    /// a link to an attachment.
+    /// </para><para><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.
     /// </para></note>
     /// </summary>
     [Cmdlet("Send", "CHMMGChannelMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -108,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the message.</para>
+        /// <para>The content of the channel message.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,6 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String SubChannelId { get; set; }
         #endregion
         
+        #region Parameter Target
+        /// <summary>
+        /// <para>
+        /// <para>The target of a message. Must be a member of the channel, such as another user, a
+        /// bot, or the sender. Only the target and the sender can view targeted messages. Only
+        /// users who can see targeted messages can take actions on them. However, administrators
+        /// can delete targeted messages that they can’t see. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ChimeSDKMessaging.Model.Target[] Target { get; set; }
+        #endregion
+        
         #region Parameter PushNotification_Title
         /// <summary>
         /// <para>
@@ -206,7 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</para>
+        /// <para>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</para><para><code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata
+        /// is arbitrary, and you can use it in a variety of ways, such as containing a link to
+        /// an attachment.</para><para><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -325,6 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             context.PushNotification_Title = this.PushNotification_Title;
             context.PushNotification_Type = this.PushNotification_Type;
             context.SubChannelId = this.SubChannelId;
+            if (this.Target != null)
+            {
+                context.Target = new List<Amazon.ChimeSDKMessaging.Model.Target>(this.Target);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -423,6 +444,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             {
                 request.SubChannelId = cmdletContext.SubChannelId;
             }
+            if (cmdletContext.Target != null)
+            {
+                request.Target = cmdletContext.Target;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -500,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String PushNotification_Title { get; set; }
             public Amazon.ChimeSDKMessaging.PushNotificationType PushNotification_Type { get; set; }
             public System.String SubChannelId { get; set; }
+            public List<Amazon.ChimeSDKMessaging.Model.Target> Target { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMessageType Type { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.SendChannelMessageResponse, SendCHMMGChannelMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

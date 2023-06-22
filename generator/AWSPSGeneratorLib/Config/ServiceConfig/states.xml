@@ -27,11 +27,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStateMachineAlias" OutputProperty="*" Verb="New" Noun="StateMachineAlias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteActivity" Verb="Remove" Noun="Activity" ShouldProcessTarget="ActivityArn" PipelineParameter="ActivityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStateMachine" Verb="Remove" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStateMachineAlias" Verb="Remove" Noun="StateMachineAlias" ShouldProcessTarget="StateMachineAliasArn" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStateMachineVersion" Verb="Remove" Noun="StateMachineVersion" ShouldProcessTarget="StateMachineVersionArn" PipelineParameter="StateMachineVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeStateMachine" OutputProperty="*" Verb="Get" Noun="StateMachine" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStateMachineAlias" OutputProperty="*" Verb="Get" Noun="StateMachineAlias" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,11 +91,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStateMachineAliases" OutputProperty="StateMachineAliases" Verb="Get" Noun="StateMachineAliasList" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStateMachineVersions" OutputProperty="StateMachineVersions" Verb="Get" Noun="StateMachineVersionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishStateMachineVersion" OutputProperty="*" Verb="Publish" Noun="StateMachineVersion" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -120,6 +148,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStateMachine" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStateMachineAlias" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachineAlias" ShouldProcessTarget="StateMachineAliasArn" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

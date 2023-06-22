@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// The Standard message type
     /// </para></li></ol><note><para>
     /// Channel flows don't process Control or System messages. For more information about
-    /// the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message
+    /// the message types provided by Chime SDK messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message
     /// types</a> in the <i>Amazon Chime developer guide</i>.
     /// </para></note>
     /// </summary>

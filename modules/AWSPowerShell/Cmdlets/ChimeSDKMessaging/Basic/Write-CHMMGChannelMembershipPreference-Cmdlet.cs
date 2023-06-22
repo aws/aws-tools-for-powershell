@@ -28,12 +28,11 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code>
+    /// Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
     /// for the specified channel. The user or bot must be a member of the channel. Only the
     /// user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code>
-    /// and channel moderator roles can't set preferences for other users or users. Banned
-    /// users or bots can't set membership preferences for the channel from which they are
-    /// banned.
+    /// and channel moderator roles can't set preferences for other users. Banned users or
+    /// bots can't set membership preferences for the channel from which they are banned.
     /// 
     ///  <note><para>
     /// The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code>

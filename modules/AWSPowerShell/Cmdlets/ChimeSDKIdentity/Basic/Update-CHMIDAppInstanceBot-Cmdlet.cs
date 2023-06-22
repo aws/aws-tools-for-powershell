@@ -59,6 +59,31 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         public System.String AppInstanceBotArn { get; set; }
         #endregion
         
+        #region Parameter Lex_LexBotAliasArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format: <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Lex_LexBotAliasArn")]
+        public System.String Lex_LexBotAliasArn { get; set; }
+        #endregion
+        
+        #region Parameter Lex_LocaleId
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the Amazon Lex V2 bot's language and locale. The string must match one
+        /// of the supported locales in Amazon Lex V2. All of the intents, slot types, and slots
+        /// used in the bot must have the same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+        /// languages</a> in the <i>Amazon Lex V2 Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Lex_LocaleId")]
+        public System.String Lex_LocaleId { get; set; }
+        #endregion
+        
         #region Parameter Metadata
         /// <summary>
         /// <para>
@@ -91,6 +116,58 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Lex_RespondsTo
+        /// <summary>
+        /// <para>
+        /// <important><para><b>Deprecated</b>. Use <code>InvokedBy</code> instead.</para></important><para>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control
+        /// messages are not supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Lex_RespondsTo")]
+        [AWSConstantClassSource("Amazon.ChimeSDKIdentity.RespondsTo")]
+        public Amazon.ChimeSDKIdentity.RespondsTo Lex_RespondsTo { get; set; }
+        #endregion
+        
+        #region Parameter InvokedBy_StandardMessage
+        /// <summary>
+        /// <para>
+        /// <para>Sets standard messages as the bot trigger. For standard messages:</para><ul><li><para><code>ALL</code>: The bot processes all standard messages.</para></li><li><para><code>AUTO</code>: The bot responds to ALL messages when the channel has one other
+        /// non-hidden member, and responds to MENTIONS when the channel has more than one other
+        /// non-hidden member.</para></li><li><para><code>MENTIONS</code>: The bot processes all standard messages that have a message
+        /// attribute with <code>CHIME.mentions</code> and a value of the bot ARN.</para></li><li><para><code>NONE</code>: The bot processes no standard messages.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Lex_InvokedBy_StandardMessages")]
+        [AWSConstantClassSource("Amazon.ChimeSDKIdentity.StandardMessages")]
+        public Amazon.ChimeSDKIdentity.StandardMessages InvokedBy_StandardMessage { get; set; }
+        #endregion
+        
+        #region Parameter InvokedBy_TargetedMessage
+        /// <summary>
+        /// <para>
+        /// <para>Sets targeted messages as the bot trigger. For targeted messages:</para><ul><li><para><code>ALL</code>: The bot processes all <code>TargetedMessages</code> sent to it.
+        /// The bot then responds with a targeted message back to the sender. </para></li><li><para><code>NONE</code>: The bot processes no targeted messages.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Lex_InvokedBy_TargetedMessages")]
+        [AWSConstantClassSource("Amazon.ChimeSDKIdentity.TargetedMessages")]
+        public Amazon.ChimeSDKIdentity.TargetedMessages InvokedBy_TargetedMessage { get; set; }
+        #endregion
+        
+        #region Parameter Lex_WelcomeIntent
+        /// <summary>
+        /// <para>
+        /// <para>The name of the welcome intent configured in the Amazon Lex V2 bot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Lex_WelcomeIntent")]
+        public System.String Lex_WelcomeIntent { get; set; }
         #endregion
         
         #region Parameter Select
@@ -162,6 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
                 WriteWarning("You are passing $null as a value for parameter AppInstanceBotArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InvokedBy_StandardMessage = this.InvokedBy_StandardMessage;
+            context.InvokedBy_TargetedMessage = this.InvokedBy_TargetedMessage;
+            context.Lex_LexBotAliasArn = this.Lex_LexBotAliasArn;
+            context.Lex_LocaleId = this.Lex_LocaleId;
+            context.Lex_RespondsTo = this.Lex_RespondsTo;
+            context.Lex_WelcomeIntent = this.Lex_WelcomeIntent;
             context.Metadata = this.Metadata;
             #if MODULAR
             if (this.Metadata == null && ParameterWasBound(nameof(this.Metadata)))
@@ -195,6 +278,105 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             if (cmdletContext.AppInstanceBotArn != null)
             {
                 request.AppInstanceBotArn = cmdletContext.AppInstanceBotArn;
+            }
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.ChimeSDKIdentity.Model.Configuration();
+            Amazon.ChimeSDKIdentity.Model.LexConfiguration requestConfiguration_configuration_Lex = null;
+            
+             // populate Lex
+            var requestConfiguration_configuration_LexIsNull = true;
+            requestConfiguration_configuration_Lex = new Amazon.ChimeSDKIdentity.Model.LexConfiguration();
+            System.String requestConfiguration_configuration_Lex_lex_LexBotAliasArn = null;
+            if (cmdletContext.Lex_LexBotAliasArn != null)
+            {
+                requestConfiguration_configuration_Lex_lex_LexBotAliasArn = cmdletContext.Lex_LexBotAliasArn;
+            }
+            if (requestConfiguration_configuration_Lex_lex_LexBotAliasArn != null)
+            {
+                requestConfiguration_configuration_Lex.LexBotAliasArn = requestConfiguration_configuration_Lex_lex_LexBotAliasArn;
+                requestConfiguration_configuration_LexIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Lex_lex_LocaleId = null;
+            if (cmdletContext.Lex_LocaleId != null)
+            {
+                requestConfiguration_configuration_Lex_lex_LocaleId = cmdletContext.Lex_LocaleId;
+            }
+            if (requestConfiguration_configuration_Lex_lex_LocaleId != null)
+            {
+                requestConfiguration_configuration_Lex.LocaleId = requestConfiguration_configuration_Lex_lex_LocaleId;
+                requestConfiguration_configuration_LexIsNull = false;
+            }
+            Amazon.ChimeSDKIdentity.RespondsTo requestConfiguration_configuration_Lex_lex_RespondsTo = null;
+            if (cmdletContext.Lex_RespondsTo != null)
+            {
+                requestConfiguration_configuration_Lex_lex_RespondsTo = cmdletContext.Lex_RespondsTo;
+            }
+            if (requestConfiguration_configuration_Lex_lex_RespondsTo != null)
+            {
+                requestConfiguration_configuration_Lex.RespondsTo = requestConfiguration_configuration_Lex_lex_RespondsTo;
+                requestConfiguration_configuration_LexIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Lex_lex_WelcomeIntent = null;
+            if (cmdletContext.Lex_WelcomeIntent != null)
+            {
+                requestConfiguration_configuration_Lex_lex_WelcomeIntent = cmdletContext.Lex_WelcomeIntent;
+            }
+            if (requestConfiguration_configuration_Lex_lex_WelcomeIntent != null)
+            {
+                requestConfiguration_configuration_Lex.WelcomeIntent = requestConfiguration_configuration_Lex_lex_WelcomeIntent;
+                requestConfiguration_configuration_LexIsNull = false;
+            }
+            Amazon.ChimeSDKIdentity.Model.InvokedBy requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy = null;
+            
+             // populate InvokedBy
+            var requestConfiguration_configuration_Lex_configuration_Lex_InvokedByIsNull = true;
+            requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy = new Amazon.ChimeSDKIdentity.Model.InvokedBy();
+            Amazon.ChimeSDKIdentity.StandardMessages requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_StandardMessage = null;
+            if (cmdletContext.InvokedBy_StandardMessage != null)
+            {
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_StandardMessage = cmdletContext.InvokedBy_StandardMessage;
+            }
+            if (requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_StandardMessage != null)
+            {
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy.StandardMessages = requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_StandardMessage;
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedByIsNull = false;
+            }
+            Amazon.ChimeSDKIdentity.TargetedMessages requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_TargetedMessage = null;
+            if (cmdletContext.InvokedBy_TargetedMessage != null)
+            {
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_TargetedMessage = cmdletContext.InvokedBy_TargetedMessage;
+            }
+            if (requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_TargetedMessage != null)
+            {
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy.TargetedMessages = requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy_invokedBy_TargetedMessage;
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedByIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy should be set to null
+            if (requestConfiguration_configuration_Lex_configuration_Lex_InvokedByIsNull)
+            {
+                requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy = null;
+            }
+            if (requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy != null)
+            {
+                requestConfiguration_configuration_Lex.InvokedBy = requestConfiguration_configuration_Lex_configuration_Lex_InvokedBy;
+                requestConfiguration_configuration_LexIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Lex should be set to null
+            if (requestConfiguration_configuration_LexIsNull)
+            {
+                requestConfiguration_configuration_Lex = null;
+            }
+            if (requestConfiguration_configuration_Lex != null)
+            {
+                request.Configuration.Lex = requestConfiguration_configuration_Lex;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             if (cmdletContext.Metadata != null)
             {
@@ -266,6 +448,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppInstanceBotArn { get; set; }
+            public Amazon.ChimeSDKIdentity.StandardMessages InvokedBy_StandardMessage { get; set; }
+            public Amazon.ChimeSDKIdentity.TargetedMessages InvokedBy_TargetedMessage { get; set; }
+            public System.String Lex_LexBotAliasArn { get; set; }
+            public System.String Lex_LocaleId { get; set; }
+            public Amazon.ChimeSDKIdentity.RespondsTo Lex_RespondsTo { get; set; }
+            public System.String Lex_WelcomeIntent { get; set; }
             public System.String Metadata { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.ChimeSDKIdentity.Model.UpdateAppInstanceBotResponse, UpdateCHMIDAppInstanceBotCmdlet, object> Select { get; set; } =

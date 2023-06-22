@@ -97,13 +97,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SFNMapRunList', 
         'Get-SFNResourceTag', 
         'Get-SFNStateMachine', 
+        'Get-SFNStateMachineAlias', 
+        'Get-SFNStateMachineAliasList', 
         'Get-SFNStateMachineForExecution', 
         'Get-SFNStateMachineList', 
+        'Get-SFNStateMachineVersionList', 
         'New-SFNActivity', 
         'New-SFNStateMachine', 
+        'New-SFNStateMachineAlias', 
+        'Publish-SFNStateMachineVersion', 
         'Remove-SFNActivity', 
         'Remove-SFNResourceTag', 
         'Remove-SFNStateMachine', 
+        'Remove-SFNStateMachineAlias', 
+        'Remove-SFNStateMachineVersion', 
         'Send-SFNTaskFailure', 
         'Send-SFNTaskHeartbeat', 
         'Send-SFNTaskSuccess', 
@@ -111,7 +118,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-SFNSyncExecution', 
         'Stop-SFNExecution', 
         'Update-SFNMapRun', 
-        'Update-SFNStateMachine')
+        'Update-SFNStateMachine', 
+        'Update-SFNStateMachineAlias')
 
     # Variables to export from this module
     VariablesToExport = '*'

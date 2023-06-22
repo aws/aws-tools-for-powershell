@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.574.0",
+    "ProductVersion" : "3.7.575.0",
     "CoreVersion"    : "3.7.107.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -634,7 +634,7 @@
             "InPreview"               : false
         },
         "StepFunctions"                   : {
-            "Version" : "3.7.102.120",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -1682,7 +1682,7 @@
             "InPreview"               : false
         },
         "Kendra"                          : {
-            "Version" : "3.7.104.23",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -2194,7 +2194,7 @@
             "InPreview"               : false
         },
         "ChimeSDKMessaging"               : {
-            "Version" : "3.7.103.28",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -2202,7 +2202,7 @@
             "InPreview"               : false
         },
         "ChimeSDKIdentity"                : {
-            "Version" : "3.7.101.49",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"

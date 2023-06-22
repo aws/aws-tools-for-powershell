@@ -28,34 +28,26 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Provides information about a state machine's definition, its execution role ARN, and
-    /// configuration. If a Map Run dispatched the execution, this action returns the Map
-    /// Run Amazon Resource Name (ARN) in the response. The state machine returned is the
-    /// state machine associated with the Map Run.
+    /// Returns details about a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.
     /// 
-    ///  <note><para>
-    /// This operation is eventually consistent. The results are best effort and may not reflect
-    /// very recent updates and changes.
-    /// </para></note><para>
-    /// This API action is not supported by <code>EXPRESS</code> state machines.
-    /// </para>
+    ///  
+    /// <para><b>Related operations:</b></para><ul><li><para><a>CreateStateMachineAlias</a></para></li><li><para><a>ListStateMachineAliases</a></para></li><li><para><a>UpdateStateMachineAlias</a></para></li><li><para><a>DeleteStateMachineAlias</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "SFNStateMachineForExecution")]
-    [OutputType("Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse")]
-    [AWSCmdlet("Calls the AWS Step Functions DescribeStateMachineForExecution API operation.", Operation = new[] {"DescribeStateMachineForExecution"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse))]
-    [AWSCmdletOutput("Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SFNStateMachineAlias")]
+    [OutputType("Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse")]
+    [AWSCmdlet("Calls the AWS Step Functions DescribeStateMachineAlias API operation.", Operation = new[] {"DescribeStateMachineAlias"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse))]
+    [AWSCmdletOutput("Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse",
+        "This cmdlet returns an Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSFNStateMachineForExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
+    public partial class GetSFNStateMachineAliasCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
-        #region Parameter ExecutionArn
+        #region Parameter StateMachineAliasArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the execution you want state machine information
-        /// for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the state machine alias.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,14 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExecutionArn { get; set; }
+        public System.String StateMachineAliasArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse).
-        /// Specifying the name of a property of type Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse).
+        /// Specifying the name of a property of type Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExecutionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExecutionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StateMachineAliasArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StateMachineAliasArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExecutionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StateMachineAliasArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -103,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse, GetSFNStateMachineForExecutionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse, GetSFNStateMachineAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -112,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExecutionArn;
+                context.Select = (response, cmdlet) => this.StateMachineAliasArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ExecutionArn = this.ExecutionArn;
+            context.StateMachineAliasArn = this.StateMachineAliasArn;
             #if MODULAR
-            if (this.ExecutionArn == null && ParameterWasBound(nameof(this.ExecutionArn)))
+            if (this.StateMachineAliasArn == null && ParameterWasBound(nameof(this.StateMachineAliasArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter StateMachineAliasArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StepFunctions.Model.DescribeStateMachineForExecutionRequest();
+            var request = new Amazon.StepFunctions.Model.DescribeStateMachineAliasRequest();
             
-            if (cmdletContext.ExecutionArn != null)
+            if (cmdletContext.StateMachineAliasArn != null)
             {
-                request.ExecutionArn = cmdletContext.ExecutionArn;
+                request.StateMachineAliasArn = cmdletContext.StateMachineAliasArn;
             }
             
             CmdletOutput output;
@@ -175,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DescribeStateMachineForExecutionRequest request)
+        private Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DescribeStateMachineAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "DescribeStateMachineForExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "DescribeStateMachineAlias");
             try
             {
                 #if DESKTOP
-                return client.DescribeStateMachineForExecution(request);
+                return client.DescribeStateMachineAlias(request);
                 #elif CORECLR
-                return client.DescribeStateMachineForExecutionAsync(request).GetAwaiter().GetResult();
+                return client.DescribeStateMachineAliasAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -203,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ExecutionArn { get; set; }
-            public System.Func<Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse, GetSFNStateMachineForExecutionCmdlet, object> Select { get; set; } =
+            public System.String StateMachineAliasArn { get; set; }
+            public System.Func<Amazon.StepFunctions.Model.DescribeStateMachineAliasResponse, GetSFNStateMachineAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

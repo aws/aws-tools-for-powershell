@@ -108,9 +108,32 @@ $CHMID_Completers = {
         }
 
         # Amazon.ChimeSDKIdentity.RespondsTo
-        "New-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo"
+        {
+            ($_ -eq "New-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo") -Or
+            ($_ -eq "Update-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo")
+        }
         {
             $v = "STANDARD_MESSAGES"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.StandardMessages
+        {
+            ($_ -eq "New-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_StandardMessages") -Or
+            ($_ -eq "Update-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_StandardMessages")
+        }
+        {
+            $v = "ALL","AUTO","MENTIONS","NONE"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.TargetedMessages
+        {
+            ($_ -eq "New-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_TargetedMessages") -Or
+            ($_ -eq "Update-CHMIDAppInstanceBot/Configuration_Lex_InvokedBy_TargetedMessages")
+        }
+        {
+            $v = "ALL","NONE"
             break
         }
 
@@ -124,7 +147,9 @@ $CHMID_Completers = {
 
 $CHMID_map = @{
     "AllowMessages"=@("Register-CHMIDAppInstanceUserEndpoint","Update-CHMIDAppInstanceUserEndpoint")
-    "Configuration_Lex_RespondsTo"=@("New-CHMIDAppInstanceBot")
+    "Configuration_Lex_InvokedBy_StandardMessages"=@("New-CHMIDAppInstanceBot","Update-CHMIDAppInstanceBot")
+    "Configuration_Lex_InvokedBy_TargetedMessages"=@("New-CHMIDAppInstanceBot","Update-CHMIDAppInstanceBot")
+    "Configuration_Lex_RespondsTo"=@("New-CHMIDAppInstanceBot","Update-CHMIDAppInstanceBot")
     "ExpirationSettings_ExpirationCriterion"=@("New-CHMIDAppInstanceUser","Write-CHMIDAppInstanceUserExpirationSetting")
     "Type"=@("Register-CHMIDAppInstanceUserEndpoint")
 }

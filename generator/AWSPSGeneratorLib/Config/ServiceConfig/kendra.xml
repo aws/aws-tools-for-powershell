@@ -253,6 +253,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDataSourceSyncJob" OutputProperty="ExecutionId" Verb="Start" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
