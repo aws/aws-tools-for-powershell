@@ -1,4 +1,9 @@
-﻿### 4.1.358 (2023-06-22 21:00Z)
+﻿### 4.1.359 (2023-06-23 20:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.576.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon DevOps Guru
+    * Modified cmdlet Update-DGURUServiceIntegration: added parameters KMSServerSideEncryption_KMSKeyId, KMSServerSideEncryption_OptInStatus and KMSServerSideEncryption_Type.
+
+### 4.1.358 (2023-06-22 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.575.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Identity
     * Modified cmdlet New-CHMIDAppInstanceBot: added parameters InvokedBy_StandardMessage and InvokedBy_TargetedMessage.

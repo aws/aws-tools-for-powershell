@@ -42,6 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class UpdateDGURUServiceIntegrationCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        #region Parameter KMSServerSideEncryption_KMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para> Describes the specified KMS key.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// an alias name, prefix it with "alias/". If you specify a predefined Amazon Web Services
+        /// alias (an Amazon Web Services alias with no key ID), Amazon Web Services KMS associates
+        /// the alias with an Amazon Web Services managed key and returns its KeyId and Arn in
+        /// the response. To specify a KMS key in a different Amazon Web Services account, you
+        /// must use the key ARN or alias ARN.</para><para>For example: </para><para>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para><para>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para><para>Alias name: alias/ExampleAlias</para><para>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceIntegration_KMSServerSideEncryption_KMSKeyId")]
+        public System.String KMSServerSideEncryption_KMSKeyId { get; set; }
+        #endregion
+        
         #region Parameter ServiceIntegration_OpsCenter
         /// <summary>
         /// <para>
@@ -50,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public Amazon.DevOpsGuru.Model.OpsCenterIntegrationConfig ServiceIntegration_OpsCenter { get; set; }
+        #endregion
+        
+        #region Parameter KMSServerSideEncryption_OptInStatus
+        /// <summary>
+        /// <para>
+        /// <para> Specifies if DevOps Guru is enabled for KMS integration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceIntegration_KMSServerSideEncryption_OptInStatus")]
+        [AWSConstantClassSource("Amazon.DevOpsGuru.OptInStatus")]
+        public Amazon.DevOpsGuru.OptInStatus KMSServerSideEncryption_OptInStatus { get; set; }
         #endregion
         
         #region Parameter LogsAnomalyDetection_OptInStatus
@@ -63,6 +91,20 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         [Alias("ServiceIntegration_LogsAnomalyDetection_OptInStatus")]
         [AWSConstantClassSource("Amazon.DevOpsGuru.OptInStatus")]
         public Amazon.DevOpsGuru.OptInStatus LogsAnomalyDetection_OptInStatus { get; set; }
+        #endregion
+        
+        #region Parameter KMSServerSideEncryption_Type
+        /// <summary>
+        /// <para>
+        /// <para> The type of KMS key used. Customer managed keys are the KMS keys that you create.
+        /// Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceIntegration_KMSServerSideEncryption_Type")]
+        [AWSConstantClassSource("Amazon.DevOpsGuru.ServerSideEncryptionType")]
+        public Amazon.DevOpsGuru.ServerSideEncryptionType KMSServerSideEncryption_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -126,6 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 context.Select = (response, cmdlet) => this.ServiceIntegration_OpsCenter;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.KMSServerSideEncryption_KMSKeyId = this.KMSServerSideEncryption_KMSKeyId;
+            context.KMSServerSideEncryption_OptInStatus = this.KMSServerSideEncryption_OptInStatus;
+            context.KMSServerSideEncryption_Type = this.KMSServerSideEncryption_Type;
             context.LogsAnomalyDetection_OptInStatus = this.LogsAnomalyDetection_OptInStatus;
             context.ServiceIntegration_OpsCenter = this.ServiceIntegration_OpsCenter;
             
@@ -181,6 +226,51 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestServiceIntegration_serviceIntegration_LogsAnomalyDetection != null)
             {
                 request.ServiceIntegration.LogsAnomalyDetection = requestServiceIntegration_serviceIntegration_LogsAnomalyDetection;
+                requestServiceIntegrationIsNull = false;
+            }
+            Amazon.DevOpsGuru.Model.KMSServerSideEncryptionIntegrationConfig requestServiceIntegration_serviceIntegration_KMSServerSideEncryption = null;
+            
+             // populate KMSServerSideEncryption
+            var requestServiceIntegration_serviceIntegration_KMSServerSideEncryptionIsNull = true;
+            requestServiceIntegration_serviceIntegration_KMSServerSideEncryption = new Amazon.DevOpsGuru.Model.KMSServerSideEncryptionIntegrationConfig();
+            System.String requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_KMSKeyId = null;
+            if (cmdletContext.KMSServerSideEncryption_KMSKeyId != null)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_KMSKeyId = cmdletContext.KMSServerSideEncryption_KMSKeyId;
+            }
+            if (requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_KMSKeyId != null)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption.KMSKeyId = requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_KMSKeyId;
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryptionIsNull = false;
+            }
+            Amazon.DevOpsGuru.OptInStatus requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_OptInStatus = null;
+            if (cmdletContext.KMSServerSideEncryption_OptInStatus != null)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_OptInStatus = cmdletContext.KMSServerSideEncryption_OptInStatus;
+            }
+            if (requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_OptInStatus != null)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption.OptInStatus = requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_OptInStatus;
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryptionIsNull = false;
+            }
+            Amazon.DevOpsGuru.ServerSideEncryptionType requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_Type = null;
+            if (cmdletContext.KMSServerSideEncryption_Type != null)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_Type = cmdletContext.KMSServerSideEncryption_Type;
+            }
+            if (requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_Type != null)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption.Type = requestServiceIntegration_serviceIntegration_KMSServerSideEncryption_kMSServerSideEncryption_Type;
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryptionIsNull = false;
+            }
+             // determine if requestServiceIntegration_serviceIntegration_KMSServerSideEncryption should be set to null
+            if (requestServiceIntegration_serviceIntegration_KMSServerSideEncryptionIsNull)
+            {
+                requestServiceIntegration_serviceIntegration_KMSServerSideEncryption = null;
+            }
+            if (requestServiceIntegration_serviceIntegration_KMSServerSideEncryption != null)
+            {
+                request.ServiceIntegration.KMSServerSideEncryption = requestServiceIntegration_serviceIntegration_KMSServerSideEncryption;
                 requestServiceIntegrationIsNull = false;
             }
              // determine if request.ServiceIntegration should be set to null
@@ -249,6 +339,9 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String KMSServerSideEncryption_KMSKeyId { get; set; }
+            public Amazon.DevOpsGuru.OptInStatus KMSServerSideEncryption_OptInStatus { get; set; }
+            public Amazon.DevOpsGuru.ServerSideEncryptionType KMSServerSideEncryption_Type { get; set; }
             public Amazon.DevOpsGuru.OptInStatus LogsAnomalyDetection_OptInStatus { get; set; }
             public Amazon.DevOpsGuru.Model.OpsCenterIntegrationConfig ServiceIntegration_OpsCenter { get; set; }
             public System.Func<Amazon.DevOpsGuru.Model.UpdateServiceIntegrationResponse, UpdateDGURUServiceIntegrationCmdlet, object> Select { get; set; } =

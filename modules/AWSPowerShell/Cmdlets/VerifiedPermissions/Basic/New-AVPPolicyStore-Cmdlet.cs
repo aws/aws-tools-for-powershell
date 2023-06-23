@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
     /// Creates a policy store. A policy store is a container for policy resources.
+    /// 
+    ///  <note><para>
+    /// Although <a href="https://docs.cedarpolicy.com/schema.html#namespace">Cedar supports
+    /// multiple namespaces</a>, Verified Permissions currently supports only one namespace
+    /// per policy store.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "AVPPolicyStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VerifiedPermissions.Model.CreatePolicyStoreResponse")]

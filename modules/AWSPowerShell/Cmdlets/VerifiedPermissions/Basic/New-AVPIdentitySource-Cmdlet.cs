@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities
-        /// to be authorized.</para><para>Example: <code>"UserPoolArn": "cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code></para>
+        /// to be authorized.</para><para>Example: <code>"UserPoolArn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

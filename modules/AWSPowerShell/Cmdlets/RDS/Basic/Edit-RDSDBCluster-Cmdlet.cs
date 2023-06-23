@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster. You
+    /// Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster. You
     /// can change one or more settings by specifying these parameters and the new values
     /// in the request.
     /// 
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ
-        /// DB cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// DB cluster.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowEngineModeChange
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether engine mode changes from <code>serverless</code> to
-        /// <code>provisioned</code> are allowed.</para><para>Constraints: You must allow engine mode changes when specifying a different value
-        /// for the <code>EngineMode</code> parameter from the DB cluster's current engine mode.</para><para>Valid for: Aurora Serverless v1 DB clusters only</para>
+        /// <para>Specifies whether engine mode changes from <code>serverless</code> to <code>provisioned</code>
+        /// are allowed.</para><para>Valid for Cluster Type: Aurora Serverless v1 DB clusters only</para><para>Constraints:</para><ul><li><para>You must allow engine mode changes when specifying a different value for the <code>EngineMode</code>
+        /// parameter from the DB cluster's current engine mode.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints: You must allow major version upgrades when specifying a value for the
-        /// <code>EngineVersion</code> parameter that is a different major version than the DB
-        /// cluster's current version.</para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>Specifies whether major version upgrades are allowed.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Constraints:</para><ul><li><para>You must allow major version upgrades when specifying a value for the <code>EngineVersion</code>
+        /// parameter that is a different major version than the DB cluster's current version.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,12 +88,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the modifications in this request and any pending modifications
+        /// <para>Specifies whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
         /// setting for the DB cluster. If this parameter is disabled, changes to the DB cluster
         /// are applied during the next maintenance window.</para><para>Most modifications can be applied immediately or during the next scheduled maintenance
         /// window. Some modifications, such as turning on deletion protection and changing the
-        /// master password, are applied immediately—regardless of when you choose to apply them.</para><para>By default, this parameter is disabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// master password, are applied immediately—regardless of when you choose to apply them.</para><para>By default, this parameter is disabled.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether minor engine upgrades are applied automatically to
-        /// the DB cluster during the maintenance window. By default, minor engine upgrades are
-        /// applied automatically.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// <para>Specifies whether minor engine upgrades are applied automatically to the DB cluster
+        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// 0.</para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul><para>Valid for: Aurora MySQL DB clusters only</para>
+        /// <code>0</code>.</para><para>Valid for Cluster Type: Aurora MySQL DB clusters only</para><para>Default: <code>0</code></para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of days for which automated backups are retained. Specify a minimum value
-        /// of 1.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// of <code>1</code>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Default: <code>1</code></para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the DB cluster to snapshots of
-        /// the DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>Specifies whether to copy all tags from the DB cluster to snapshots of the DB cluster.
+        /// The default is not to copy them.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</para><para>Constraints: This identifier must match the identifier of an existing DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for
-        /// example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon Web
-        /// Services Regions, or for all database engines.</para><para>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
-        /// DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// example <code>db.m6gd.xlarge</code>. Not all DB instance classes are available in
+        /// all Amazon Web Services Regions, or for all database engines.</para><para>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
+        /// DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group to use for the DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The name of the DB cluster parameter group to use for the DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of the DB parameter group to apply to all instances of the DB cluster.</para><note><para>When you apply a parameter group using the <code>DBInstanceParameterGroupName</code>
         /// parameter, the DB cluster isn't rebooted automatically. Also, parameter changes are
-        /// applied immediately rather than during the next maintenance window.</para></note><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as this DB cluster.</para></li><li><para>The <code>DBInstanceParameterGroupName</code> parameter is valid in combination with
-        /// the <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.</para></li></ul><para>Valid for: Aurora DB clusters only</para>
+        /// applied immediately rather than during the next maintenance window.</para></note><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as this DB cluster.</para></li><li><para>The <code>DBInstanceParameterGroupName</code> parameter is valid in combination with
+        /// the <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,9 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
-        /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection isn't enabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>Specifies whether the DB cluster has deletion protection enabled. The database can't
+        /// be deleted when deletion protection is enabled. By default, deletion protection isn't
+        /// enabled.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Active Directory directory ID to move the DB cluster to. Specify <code>none</code>
         /// to remove the cluster from its current domain. The domain must be created prior to
         /// this operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
-        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,8 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>The name of the IAM role to use when making API calls to the Directory Service.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,15 +260,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableGlobalWriteForwarding
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable this DB cluster to forward write operations
-        /// to the primary cluster of an Aurora global database (<a>GlobalCluster</a>). By default,
-        /// write operations are not allowed on Aurora DB clusters that are secondary clusters
-        /// in an Aurora global database.</para><para>You can set this value only on Aurora DB clusters that are members of an Aurora global
+        /// <para>Specifies whether to enable this DB cluster to forward write operations to the primary
+        /// cluster of a global cluster (Aurora global database). By default, write operations
+        /// are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global
+        /// database.</para><para>You can set this value only on Aurora DB clusters that are members of an Aurora global
         /// database. With this parameter enabled, a secondary cluster can forward writes to the
-        /// current primary cluster and the resulting changes are replicated back to this cluster.
+        /// current primary cluster, and the resulting changes are replicated back to this cluster.
         /// For the primary DB cluster of an Aurora global database, this value is used immediately
-        /// if the primary is demoted by the <a>FailoverGlobalCluster</a> API operation, but it
-        /// does nothing until then.</para><para>Valid for: Aurora DB clusters only</para>
+        /// if the primary is demoted by a global cluster API operation, but it does nothing until
+        /// then.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,11 +278,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableHttpEndpoint
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless
-        /// v1 DB cluster. By default, the HTTP endpoint is disabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API for running
+        /// <para>Specifies whether to enable the HTTP endpoint for an Aurora Serverless v1 DB cluster.
+        /// By default, the HTTP endpoint is disabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API for running
         /// SQL queries on the Aurora Serverless v1 DB cluster. You can also query your database
         /// from inside the RDS console with the query editor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
-        /// the Data API for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// the Data API for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,9 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
+        /// (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -318,8 +315,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to turn on Performance Insights for the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
-        /// Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// <para>Specifies whether to turn on Performance Insights for the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
+        /// Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para><note><para>The DB engine mode can be modified only from <code>serverless</code> to <code>provisioned</code>.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
-        /// CreateDBCluster</a>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// CreateDBCluster</a>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// be running an engine version that's the same or later than the version you specify.</para><para>To list all of the available engine versions for Aurora MySQL, use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
         /// command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for MySQL, use the following
         /// command:</para><para><code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -359,8 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
         /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
-        /// cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Constraints:</para><ul><li><para>Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,8 +366,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ManageMasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to manage the master user password with Amazon Web
-        /// Services Secrets Manager.</para><para>If the DB cluster doesn't manage the master user password with Amazon Web Services
+        /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
+        /// Manager.</para><para>If the DB cluster doesn't manage the master user password with Amazon Web Services
         /// Secrets Manager, you can turn on this management. In this case, you can't specify
         /// <code>MasterUserPassword</code>.</para><para>If the DB cluster already manages the master user password with Amazon Web Services
         /// Secrets Manager, and you specify that the master user password is not managed with
@@ -381,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
-        /// Guide.</i></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -391,8 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The new password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The new password for the master database user.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can contain any printable ASCII character except "/", """, or "@".</para></li><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -412,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// KMS key to encrypt the secret, and you must use a customer managed KMS key.</para></li></ul><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
         /// specify the key ARN or alias ARN.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
-        /// account has a different default KMS key for each Amazon Web Services Region.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// account has a different default KMS key for each Amazon Web Services Region.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -475,9 +470,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0.
-        /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
-        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify <code>0</code>.</para><para>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
+        /// to a value other than <code>0</code>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code></para><para>Default: <code>0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -491,8 +485,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Monitoring metrics to Amazon CloudWatch Logs. An example is <code>arn:aws:iam:123456789012:role/emaccess</code>.
         /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
-        /// Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code>
-        /// value.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply
+        /// a <code>MonitoringRoleArn</code> value.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -502,10 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// <para>The network type of the DB cluster.</para><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
         /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
         /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
-        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <code>IPV4 | DUAL</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This
-        /// value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// value is stored as a lowercase string.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -526,8 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// option group.</para><para>DB clusters are associated with a default option group that can't be modified.</para>
+        /// <para>The option group to associate the DB cluster with.</para><para>DB clusters are associated with a default option group that can't be modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -542,7 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// name for the KMS key.</para><para>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
         /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
         /// account. Your Amazon Web Services account has a different default KMS key for each
-        /// Amazon Web Services Region.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// Amazon Web Services Region.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -552,9 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data. The default is 7 days. The
-        /// following values are valid:</para><ul><li><para>7</para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23</para></li><li><para>731</para></li></ul><para>For example, the following values are valid:</para><ul><li><para>93 (3 months * 31)</para></li><li><para>341 (11 months * 31)</para></li><li><para>589 (19 months * 31)</para></li><li><para>731</para></li></ul><para>If you specify a retention period such as 94, which isn't a valid value, RDS issues
-        /// an error.</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values:</para><ul><li><para><code>7</code></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
+        /// <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code>
+        /// (19 months * 31)</para></li><li><para><code>731</code></para></li></ul><para>Default: <code>7</code> days</para><para>If you specify a retention period that isn't valid, such as <code>94</code>, Amazon
+        /// RDS issues an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -564,7 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>The port number on which the DB cluster accepts connections.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -577,7 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
-        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -588,11 +582,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week. To see
         /// the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
-        /// User Guide</i>.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</para></li><li><para>Days must be one of <code>Mon | Tue | Wed | Thu | Fri | Sat | Sun</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -602,14 +596,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RotateMasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to rotate the secret managed by Amazon Web Services
-        /// Secrets Manager for the master user password.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
+        /// <para>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager
+        /// for the master user password.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
         /// Web Services Secrets Manager for the DB cluster. The secret value contains the updated
         /// password.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
-        /// Guide.</i></para><para>Constraints:</para><ul><li><para>You must apply the change immediately when rotating the master user password.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>You must apply the change immediately when rotating the master user password.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -642,9 +636,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter
-        /// is required.</para><para>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters);
-        /// <code>io1</code> (Multi-AZ DB clusters)</para><para>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type">Storage
+        /// configurations for Amazon Aurora DB clusters</a>. For information on storage types
+        /// for Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings">Settings
+        /// for creating Multi-AZ DB clusters</a>.</para><para>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter
+        /// is required.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para>Aurora DB clusters - <code>aurora | aurora-iopt1</code></para></li><li><para>Multi-AZ DB clusters - <code>io1</code></para></li></ul><para>Default:</para><ul><li><para>Aurora DB clusters - <code>aurora</code></para></li><li><para>Multi-AZ DB clusters - <code>io1</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -669,7 +665,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups that the DB cluster will belong to.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

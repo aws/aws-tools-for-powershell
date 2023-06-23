@@ -225,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for redundancy within a single Availability Zone in an Amazon Web Services Region
         /// . Valid values are the following:</para><ul><li><para><code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities
         /// of 64 - 4,096 MBps. <code>Single_AZ_1</code> is available in all Amazon Web Services
-        /// Regions where Amazon FSx for OpenZFS is available, except US West (Oregon).</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
-        /// - 10,240 MBps using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
+        /// Regions where Amazon FSx for OpenZFS is available.</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
+        /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
         /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)
         /// Amazon Web Services Regions.</para></li></ul><para>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
         /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File

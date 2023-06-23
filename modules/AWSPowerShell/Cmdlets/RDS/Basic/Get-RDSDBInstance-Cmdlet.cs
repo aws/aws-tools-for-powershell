@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about provisioned RDS instances. This API supports pagination.
+    /// Describes provisioned RDS instances. This API supports pagination.
     /// 
     ///  <note><para>
     /// This operation can also return information for Amazon Neptune DB instances and Amazon
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB
         /// instance. If this parameter is specified, information from only the specific DB instance
-        /// is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
+        /// is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DB instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,12 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB instances to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
+        /// <para>A filter that specifies one or more DB instances to describe.</para><para>Supported Filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
         /// Resource Names (ARNs). The results list only includes information about the DB instances
         /// associated with the DB clusters identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon
         /// Resource Names (ARNs). The results list only includes information about the DB instances
         /// identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results
-        /// list will only include information about the DB instances identified by these DB instance
+        /// list only includes information about the DB instances identified by these DB instance
         /// resource identifiers.</para></li><li><para><code>domain</code> - Accepts Active Directory directory IDs. The results list only
         /// includes information about the DB instances associated with these domains.</para></li><li><para><code>engine</code> - Accepts engine names. The results list only includes information
         /// about the DB instances for these engines.</para></li></ul>

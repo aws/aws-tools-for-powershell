@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.575.0",
+    "ProductVersion" : "3.7.576.0",
     "CoreVersion"    : "3.7.107.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.119.11",
+            "Version" : "3.7.119.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -1298,7 +1298,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.103.3",
+            "Version" : "3.7.103.4",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -1906,7 +1906,7 @@
             "InPreview"               : false
         },
         "DevOpsGuru"                      : {
-            "Version" : "3.7.102.67",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -2794,7 +2794,7 @@
             "InPreview"               : false
         },
         "VerifiedPermissions"                 : {
-            "Version" : "3.7.100.2",
+            "Version" : "3.7.100.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"

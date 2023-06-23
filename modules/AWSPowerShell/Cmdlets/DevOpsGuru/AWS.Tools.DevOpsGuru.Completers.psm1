@@ -122,7 +122,10 @@ $DGURU_Completers = {
         }
 
         # Amazon.DevOpsGuru.OptInStatus
-        "Update-DGURUServiceIntegration/ServiceIntegration_LogsAnomalyDetection_OptInStatus"
+        {
+            ($_ -eq "Update-DGURUServiceIntegration/ServiceIntegration_KMSServerSideEncryption_OptInStatus") -Or
+            ($_ -eq "Update-DGURUServiceIntegration/ServiceIntegration_LogsAnomalyDetection_OptInStatus")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
@@ -152,6 +155,13 @@ $DGURU_Completers = {
             break
         }
 
+        # Amazon.DevOpsGuru.ServerSideEncryptionType
+        "Update-DGURUServiceIntegration/ServiceIntegration_KMSServerSideEncryption_Type"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
         # Amazon.DevOpsGuru.UpdateResourceCollectionAction
         "Update-DGURUResourceCollection/Action"
         {
@@ -176,6 +186,8 @@ $DGURU_map = @{
     "Locale"=@("Get-DGURURecommendationList")
     "OrganizationResourceCollectionType"=@("Get-DGURUOrganizationResourceCollectionHealth")
     "ResourceCollectionType"=@("Get-DGURUResourceCollection","Get-DGURUResourceCollectionHealth")
+    "ServiceIntegration_KMSServerSideEncryption_OptInStatus"=@("Update-DGURUServiceIntegration")
+    "ServiceIntegration_KMSServerSideEncryption_Type"=@("Update-DGURUServiceIntegration")
     "ServiceIntegration_LogsAnomalyDetection_OptInStatus"=@("Update-DGURUServiceIntegration")
     "StatusFilter_Any_Type"=@("Get-DGURUOrganizationInsightList")
     "StatusFilter_Closed_Type"=@("Get-DGURUOrganizationInsightList")

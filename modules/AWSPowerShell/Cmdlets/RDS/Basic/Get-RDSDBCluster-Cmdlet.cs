@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This
-    /// API supports pagination.
+    /// Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports
+    /// pagination.
     /// 
     ///  
     /// <para>
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB
-        /// cluster. If this parameter is specified, information from only the specific DB cluster
-        /// is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DBClusterIdentifier.</para></li></ul>
+        /// cluster. If this parameter is specified, information for only the specific DB cluster
+        /// is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DB cluster identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>clone-group-id</code> - Accepts clone group identifiers. The results list only
+        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported Filters:</para><ul><li><para><code>clone-group-id</code> - Accepts clone group identifiers. The results list only
         /// includes information about the DB clusters associated with these clone groups.</para></li><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
         /// Resource Names (ARNs). The results list only includes information about the DB clusters
         /// identified by these ARNs.</para></li><li><para><code>db-cluster-resource-id</code> - Accepts DB cluster resource identifiers. The
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>Optional Boolean parameter that specifies whether the output includes information
-        /// about clusters shared from other Amazon Web Services accounts.</para>
+        /// <para>Specifies whether the output includes information about clusters shared from other
+        /// Amazon Web Services accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
