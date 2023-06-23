@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Confirm", "SMCPage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts AcceptPage API operation.", Operation = new[] {"AcceptPage"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.AcceptPageResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts AcceptPage API operation.", Operation = new[] {"AcceptPage"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.AcceptPageResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.AcceptPageResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.AcceptPageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.AcceptPageResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.AcceptPageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "AcceptPage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "AcceptPage");
             try
             {
                 #if DESKTOP

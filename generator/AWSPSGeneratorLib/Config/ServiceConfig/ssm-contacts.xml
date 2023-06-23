@@ -5,7 +5,7 @@
     <C2jFilename>ssm-contacts</C2jFilename>
     <AssemblyName>SSMContacts</AssemblyName>
     <ServiceNounPrefix>SMC</ServiceNounPrefix>
-    <ServiceName>AWS System Manager Contacts</ServiceName>
+    <ServiceName>AWS Systems Manager Incident Manager Contacts</ServiceName>
     <ServiceClientInterface>IAmazonSSMContacts</ServiceClientInterface>
     <ServiceClient>AmazonSSMContactsClient</ServiceClient>
     <ServiceModuleGuid>A96E6967-EF0A-45B7-B52E-8B83A45FFDD4</ServiceModuleGuid>

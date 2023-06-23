@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Remove", "SMCContactChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts DeleteContactChannel API operation.", Operation = new[] {"DeleteContactChannel"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteContactChannelResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts DeleteContactChannel API operation.", Operation = new[] {"DeleteContactChannel"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteContactChannelResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.DeleteContactChannelResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.DeleteContactChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.DeleteContactChannelResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.DeleteContactChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "DeleteContactChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "DeleteContactChannel");
             try
             {
                 #if DESKTOP

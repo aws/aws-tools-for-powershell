@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Remove", "SMCRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts DeleteRotation API operation.", Operation = new[] {"DeleteRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteRotationResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts DeleteRotation API operation.", Operation = new[] {"DeleteRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteRotationResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.DeleteRotationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.DeleteRotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.DeleteRotationResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.DeleteRotationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "DeleteRotation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "DeleteRotation");
             try
             {
                 #if DESKTOP

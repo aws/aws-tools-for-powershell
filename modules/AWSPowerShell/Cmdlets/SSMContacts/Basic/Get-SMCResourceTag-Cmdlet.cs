@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Get", "SMCResourceTag")]
     [OutputType("Amazon.SSMContacts.Model.Tag")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.Tag or Amazon.SSMContacts.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SSMContacts.Model.Tag objects.",
         "The service call response (type Amazon.SSMContacts.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "ListTagsForResource");
             try
             {
                 #if DESKTOP

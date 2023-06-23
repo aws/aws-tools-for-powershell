@@ -56107,7 +56107,7 @@ $SSM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SSM_SelectCompleters $SSM_SelectMap
-# Argument completions for service AWS System Manager Contacts
+# Argument completions for service AWS Systems Manager Incident Manager Contacts
 
 
 $SMC_Completers = {

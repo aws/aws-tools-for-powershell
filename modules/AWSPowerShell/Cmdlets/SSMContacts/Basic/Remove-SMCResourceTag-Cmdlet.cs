@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Remove", "SMCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "UntagResource");
             try
             {
                 #if DESKTOP

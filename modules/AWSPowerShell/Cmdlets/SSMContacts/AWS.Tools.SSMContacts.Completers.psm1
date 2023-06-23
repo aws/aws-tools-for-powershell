@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS System Manager Contacts
+# Argument completions for service AWS Systems Manager Incident Manager Contacts
 
 
 $SMC_Completers = {

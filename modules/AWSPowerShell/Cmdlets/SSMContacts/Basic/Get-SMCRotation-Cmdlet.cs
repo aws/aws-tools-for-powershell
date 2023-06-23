@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Get", "SMCRotation")]
     [OutputType("Amazon.SSMContacts.Model.GetRotationResponse")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts GetRotation API operation.", Operation = new[] {"GetRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.GetRotationResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts GetRotation API operation.", Operation = new[] {"GetRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.GetRotationResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.GetRotationResponse",
         "This cmdlet returns an Amazon.SSMContacts.Model.GetRotationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.GetRotationResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.GetRotationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "GetRotation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "GetRotation");
             try
             {
                 #if DESKTOP

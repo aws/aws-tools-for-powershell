@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Get", "SMCContactChannelList")]
     [OutputType("Amazon.SSMContacts.Model.ContactChannel")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts ListContactChannels API operation.", Operation = new[] {"ListContactChannels"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListContactChannelsResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts ListContactChannels API operation.", Operation = new[] {"ListContactChannels"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListContactChannelsResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.ContactChannel or Amazon.SSMContacts.Model.ListContactChannelsResponse",
         "This cmdlet returns a collection of Amazon.SSMContacts.Model.ContactChannel objects.",
         "The service call response (type Amazon.SSMContacts.Model.ListContactChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.ListContactChannelsResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListContactChannelsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListContactChannels");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "ListContactChannels");
             try
             {
                 #if DESKTOP

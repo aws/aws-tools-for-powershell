@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Update", "SMCRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts UpdateRotation API operation.", Operation = new[] {"UpdateRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.UpdateRotationResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts UpdateRotation API operation.", Operation = new[] {"UpdateRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.UpdateRotationResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.UpdateRotationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.UpdateRotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -428,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.UpdateRotationResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.UpdateRotationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "UpdateRotation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "UpdateRotation");
             try
             {
                 #if DESKTOP
