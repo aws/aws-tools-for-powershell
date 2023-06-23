@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Start", "SMCEngagement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts StartEngagement API operation.", Operation = new[] {"StartEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.StartEngagementResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts StartEngagement API operation.", Operation = new[] {"StartEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.StartEngagementResponse))]
     [AWSCmdletOutput("System.String or Amazon.SSMContacts.Model.StartEngagementResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SSMContacts.Model.StartEngagementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.StartEngagementResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.StartEngagementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "StartEngagement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "StartEngagement");
             try
             {
                 #if DESKTOP

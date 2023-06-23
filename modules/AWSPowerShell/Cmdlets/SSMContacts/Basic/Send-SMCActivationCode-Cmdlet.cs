@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Send", "SMCActivationCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts SendActivationCode API operation.", Operation = new[] {"SendActivationCode"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.SendActivationCodeResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts SendActivationCode API operation.", Operation = new[] {"SendActivationCode"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.SendActivationCodeResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.SendActivationCodeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.SendActivationCodeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.SendActivationCodeResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.SendActivationCodeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "SendActivationCode");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "SendActivationCode");
             try
             {
                 #if DESKTOP

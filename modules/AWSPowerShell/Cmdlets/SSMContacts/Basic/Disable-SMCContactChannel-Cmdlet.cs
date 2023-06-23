@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Disable", "SMCContactChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts DeactivateContactChannel API operation.", Operation = new[] {"DeactivateContactChannel"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeactivateContactChannelResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts DeactivateContactChannel API operation.", Operation = new[] {"DeactivateContactChannel"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeactivateContactChannelResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.DeactivateContactChannelResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.DeactivateContactChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.DeactivateContactChannelResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.DeactivateContactChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "DeactivateContactChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "DeactivateContactChannel");
             try
             {
                 #if DESKTOP

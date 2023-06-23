@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Write", "SMCContactPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts PutContactPolicy API operation.", Operation = new[] {"PutContactPolicy"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.PutContactPolicyResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts PutContactPolicy API operation.", Operation = new[] {"PutContactPolicy"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.PutContactPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.PutContactPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.PutContactPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.PutContactPolicyResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.PutContactPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "PutContactPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "PutContactPolicy");
             try
             {
                 #if DESKTOP

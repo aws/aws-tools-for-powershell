@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Get", "SMCEngagement")]
     [OutputType("Amazon.SSMContacts.Model.DescribeEngagementResponse")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts DescribeEngagement API operation.", Operation = new[] {"DescribeEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DescribeEngagementResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts DescribeEngagement API operation.", Operation = new[] {"DescribeEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DescribeEngagementResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.DescribeEngagementResponse",
         "This cmdlet returns an Amazon.SSMContacts.Model.DescribeEngagementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.DescribeEngagementResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.DescribeEngagementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "DescribeEngagement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "DescribeEngagement");
             try
             {
                 #if DESKTOP

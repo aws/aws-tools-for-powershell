@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Get", "SMCPagesByEngagementList")]
     [OutputType("Amazon.SSMContacts.Model.Page")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts ListPagesByEngagement API operation.", Operation = new[] {"ListPagesByEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListPagesByEngagementResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts ListPagesByEngagement API operation.", Operation = new[] {"ListPagesByEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListPagesByEngagementResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.Page or Amazon.SSMContacts.Model.ListPagesByEngagementResponse",
         "This cmdlet returns a collection of Amazon.SSMContacts.Model.Page objects.",
         "The service call response (type Amazon.SSMContacts.Model.ListPagesByEngagementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.ListPagesByEngagementResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListPagesByEngagementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListPagesByEngagement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "ListPagesByEngagement");
             try
             {
                 #if DESKTOP

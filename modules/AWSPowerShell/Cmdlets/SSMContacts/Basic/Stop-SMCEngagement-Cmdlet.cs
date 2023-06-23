@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Stop", "SMCEngagement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts StopEngagement API operation.", Operation = new[] {"StopEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.StopEngagementResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts StopEngagement API operation.", Operation = new[] {"StopEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.StopEngagementResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.StopEngagementResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.StopEngagementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.StopEngagementResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.StopEngagementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "StopEngagement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "StopEngagement");
             try
             {
                 #if DESKTOP

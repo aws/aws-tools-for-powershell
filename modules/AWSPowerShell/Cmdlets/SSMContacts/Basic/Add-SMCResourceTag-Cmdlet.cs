@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     /// </summary>
     [Cmdlet("Add", "SMCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SSMContacts.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         private Amazon.SSMContacts.Model.TagResourceResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager Incident Manager Contacts", "TagResource");
             try
             {
                 #if DESKTOP

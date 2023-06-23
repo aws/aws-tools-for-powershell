@@ -27,7 +27,7 @@ using Amazon.SSMContacts.Model;
 
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
-    [AWSClientCmdlet("AWS System Manager Contacts", "SMC", "2021-05-03", "SSMContacts")]
+    [AWSClientCmdlet("AWS Systems Manager Incident Manager Contacts", "SMC", "2021-05-03", "SSMContacts")]
     public abstract partial class AmazonSSMContactsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSSMContacts Client { get; private set; }
