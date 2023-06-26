@@ -511,6 +511,21 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String Schedule_Timezone { get; set; }
         #endregion
         
+        #region Parameter WriteJourneyRequest_TimezoneEstimationMethod
+        /// <summary>
+        /// <para>
+        /// <para>An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a>
+        /// time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</para><ul><li><para>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</para></li><li><para>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode
+        /// and Endpoint.Location.Country.</para><note><para>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia,
+        /// New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint
+        /// is available.</para></note></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_TimezoneEstimationMethods")]
+        public System.String[] WriteJourneyRequest_TimezoneEstimationMethod { get; set; }
+        #endregion
+        
         #region Parameter EventType_Value
         /// <summary>
         /// <para>
@@ -812,6 +827,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.EventStartCondition_SegmentId = this.EventStartCondition_SegmentId;
             context.SegmentStartCondition_SegmentId = this.SegmentStartCondition_SegmentId;
             context.WriteJourneyRequest_State = this.WriteJourneyRequest_State;
+            if (this.WriteJourneyRequest_TimezoneEstimationMethod != null)
+            {
+                context.WriteJourneyRequest_TimezoneEstimationMethod = new List<System.String>(this.WriteJourneyRequest_TimezoneEstimationMethod);
+            }
             context.WriteJourneyRequest_WaitForQuietTime = this.WriteJourneyRequest_WaitForQuietTime;
             
             // allow further manipulation of loaded context prior to processing
@@ -939,6 +958,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteJourneyRequest_writeJourneyRequest_State != null)
             {
                 request.WriteJourneyRequest.State = requestWriteJourneyRequest_writeJourneyRequest_State;
+                requestWriteJourneyRequestIsNull = false;
+            }
+            List<System.String> requestWriteJourneyRequest_writeJourneyRequest_TimezoneEstimationMethod = null;
+            if (cmdletContext.WriteJourneyRequest_TimezoneEstimationMethod != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_TimezoneEstimationMethod = cmdletContext.WriteJourneyRequest_TimezoneEstimationMethod;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_TimezoneEstimationMethod != null)
+            {
+                request.WriteJourneyRequest.TimezoneEstimationMethods = requestWriteJourneyRequest_writeJourneyRequest_TimezoneEstimationMethod;
                 requestWriteJourneyRequestIsNull = false;
             }
             System.Boolean? requestWriteJourneyRequest_writeJourneyRequest_WaitForQuietTime = null;
@@ -1528,6 +1557,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String EventStartCondition_SegmentId { get; set; }
             public System.String SegmentStartCondition_SegmentId { get; set; }
             public Amazon.Pinpoint.State WriteJourneyRequest_State { get; set; }
+            public List<System.String> WriteJourneyRequest_TimezoneEstimationMethod { get; set; }
             public System.Boolean? WriteJourneyRequest_WaitForQuietTime { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdateJourneyResponse, UpdatePINJourneyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JourneyResponse;

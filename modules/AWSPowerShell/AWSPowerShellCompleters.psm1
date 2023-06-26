@@ -13900,7 +13900,9 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNQuickConnect/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNRoutingProfile/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNSecurityProfile/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType")
+            ($_ -eq "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNResourceTag/SearchCriteria_TagSearchCondition_TagKeyComparisonType") -Or
+            ($_ -eq "Search-CONNResourceTag/SearchCriteria_TagSearchCondition_TagValueComparisonType")
         }
         {
             $v = "CONTAINS","EXACT","STARTS_WITH"
@@ -13987,6 +13989,8 @@ $CONN_map = @{
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
+    "SearchCriteria_TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
+    "SearchCriteria_TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
@@ -14186,6 +14190,7 @@ $CONN_SelectMap = @{
                "Search-CONNPrompt",
                "Search-CONNQueue",
                "Search-CONNQuickConnect",
+               "Search-CONNResourceTag",
                "Search-CONNRoutingProfile",
                "Search-CONNSecurityProfile",
                "Search-CONNUser",
@@ -27751,6 +27756,7 @@ $IAM_SelectMap = @{
                "Get-IAMGroupPolicy",
                "Get-IAMInstanceProfile",
                "Get-IAMLoginProfile",
+               "Get-IAMMFADeviceMetadata",
                "Get-IAMOpenIDConnectProvider",
                "Get-IAMOrganizationsAccessReport",
                "Get-IAMPolicy",

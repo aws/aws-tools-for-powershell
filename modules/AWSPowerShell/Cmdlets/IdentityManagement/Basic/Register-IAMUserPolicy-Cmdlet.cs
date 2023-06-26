@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// You use this operation to attach a <i>managed</i> policy to a user. To embed an inline
-    /// policy in a user, use <a>PutUserPolicy</a>.
+    /// policy in a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html"><code>PutUserPolicy</code></a>.
     /// </para><para>
     /// As a best practice, you can validate your IAM policies. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating
     /// IAM policies</a> in the <i>IAM User Guide</i>.

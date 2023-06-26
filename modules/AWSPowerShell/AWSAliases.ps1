@@ -5668,6 +5668,8 @@ Set-Alias -Name Search-CONNQueues -Value Search-CONNQueue
 Set-Alias -Name CONN-SearchQueues -Value Search-CONNQueue
 Set-Alias -Name Search-CONNQuickConnects -Value Search-CONNQuickConnect
 Set-Alias -Name CONN-SearchQuickConnects -Value Search-CONNQuickConnect
+Set-Alias -Name Search-CONNResourceTags -Value Search-CONNResourceTag
+Set-Alias -Name CONN-SearchResourceTags -Value Search-CONNResourceTag
 Set-Alias -Name Search-CONNRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name CONN-SearchRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile
@@ -12194,6 +12196,8 @@ Set-Alias -Name IAM-GetGroup -Value Get-IAMGroup
 Set-Alias -Name IAM-GetGroupPolicy -Value Get-IAMGroupPolicy
 Set-Alias -Name IAM-GetInstanceProfile -Value Get-IAMInstanceProfile
 Set-Alias -Name IAM-GetLoginProfile -Value Get-IAMLoginProfile
+Set-Alias -Name Get-IAMMFADevice -Value Get-IAMMFADeviceMetadata
+Set-Alias -Name IAM-GetMFADevice -Value Get-IAMMFADeviceMetadata
 Set-Alias -Name IAM-GetOpenIDConnectProvider -Value Get-IAMOpenIDConnectProvider
 Set-Alias -Name IAM-GetOrganizationsAccessReport -Value Get-IAMOrganizationsAccessReport
 Set-Alias -Name IAM-GetPolicy -Value Get-IAMPolicy

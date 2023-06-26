@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.576.0",
+    "ProductVersion" : "3.7.577.0",
     "CoreVersion"    : "3.7.107.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -218,7 +218,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.101.6",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -666,7 +666,7 @@
             "InPreview"               : false
         },
         "Pinpoint"                        : {
-            "Version" : "3.7.101.29",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -826,7 +826,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.117.1",
+            "Version" : "3.7.118.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -914,7 +914,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.106.21",
+            "Version" : "3.7.107.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.128.1",
+            "Version" : "3.7.129.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"

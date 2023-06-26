@@ -284,6 +284,7 @@ $IAM_SelectMap = @{
                "Get-IAMGroupPolicy",
                "Get-IAMInstanceProfile",
                "Get-IAMLoginProfile",
+               "Get-IAMMFADeviceMetadata",
                "Get-IAMOpenIDConnectProvider",
                "Get-IAMOrganizationsAccessReport",
                "Get-IAMPolicy",

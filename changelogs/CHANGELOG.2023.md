@@ -1,4 +1,14 @@
-﻿### 4.1.359 (2023-06-23 20:58Z)
+﻿### 4.1.360 (2023-06-26 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.577.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNResourceTag leveraging the SearchResourceTags service API.
+  * Amazon Identity and Access Management
+    * Added cmdlet Get-IAMMFADeviceMetadata leveraging the GetMFADevice service API.
+  * Amazon Pinpoint
+    * Modified cmdlet New-PINJourney: added parameter WriteJourneyRequest_TimezoneEstimationMethod.
+    * Modified cmdlet Update-PINJourney: added parameter WriteJourneyRequest_TimezoneEstimationMethod.
+
+### 4.1.359 (2023-06-23 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.576.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon DevOps Guru
     * Modified cmdlet Update-DGURUServiceIntegration: added parameters KMSServerSideEncryption_KMSKeyId, KMSServerSideEncryption_OptInStatus and KMSServerSideEncryption_Type.

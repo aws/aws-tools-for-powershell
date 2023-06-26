@@ -22,60 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
-    /// IP sets, threat intel sets, publishing destination, with a limit of 50 tags per resource.
-    /// When invoked, this operation returns all assigned tags for a given resource.
+    /// Retrieves information about an MFA device for a specified user.
     /// </summary>
-    [Cmdlet("Get", "GDResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon GuardDuty ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GuardDuty.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IAMMFADeviceMetadata")]
+    [OutputType("Amazon.IdentityManagement.Model.GetMFADeviceResponse")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetMFADevice API operation.", Operation = new[] {"GetMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetMFADeviceResponse))]
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetMFADeviceResponse",
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetMFADeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGDResourceTagCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetIAMMFADeviceMetadataCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter SerialNumber
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the given GuardDuty resource. </para>
+        /// <para>Serial number that uniquely identifies the MFA device. For this API, we only accept
+        /// FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String SerialNumber { get; set; }
+        #endregion
+        
+        #region Parameter UserName
+        /// <summary>
+        /// <para>
+        /// <para>The friendly name identifying the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String UserName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityManagement.Model.GetMFADeviceResponse).
+        /// Specifying the name of a property of type Amazon.IdentityManagement.Model.GetMFADeviceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -93,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.ListTagsForResourceResponse, GetGDResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.GetMFADeviceResponse, GetIAMMFADeviceMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -102,16 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.UserName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.SerialNumber = this.SerialNumber;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.SerialNumber == null && ParameterWasBound(nameof(this.SerialNumber)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SerialNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UserName = this.UserName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,11 +135,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.ListTagsForResourceRequest();
+            var request = new Amazon.IdentityManagement.Model.GetMFADeviceRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.SerialNumber != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.SerialNumber = cmdletContext.SerialNumber;
+            }
+            if (cmdletContext.UserName != null)
+            {
+                request.UserName = cmdletContext.UserName;
             }
             
             CmdletOutput output;
@@ -165,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.ListTagsForResourceRequest request)
+        private Amazon.IdentityManagement.Model.GetMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetMFADeviceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetMFADevice");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.GetMFADevice(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.GetMFADeviceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.ListTagsForResourceResponse, GetGDResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String SerialNumber { get; set; }
+            public System.String UserName { get; set; }
+            public System.Func<Amazon.IdentityManagement.Model.GetMFADeviceResponse, GetIAMMFADeviceMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

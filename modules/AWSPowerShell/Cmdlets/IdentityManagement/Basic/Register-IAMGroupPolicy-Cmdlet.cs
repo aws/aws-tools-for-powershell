@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// You use this operation to attach a managed policy to a group. To embed an inline policy
-    /// in a group, use <a>PutGroupPolicy</a>.
+    /// in a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html"><code>PutGroupPolicy</code></a>.
     /// </para><para>
     /// As a best practice, you can validate your IAM policies. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating
     /// IAM policies</a> in the <i>IAM User Guide</i>.

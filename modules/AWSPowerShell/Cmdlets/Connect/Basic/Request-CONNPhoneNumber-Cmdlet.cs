@@ -43,7 +43,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a>
     /// API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
     /// operation.
-    /// </para></important>
+    /// </para></important><para>
+    /// If you plan to claim and release numbers frequently during a 30 day period, contact
+    /// us for a service quota exception. Otherwise, it is possible you will be blocked from
+    /// claiming and releasing any more numbers until 30 days past the oldest number released
+    /// has expired.
+    /// </para><para>
+    /// By default you can claim and release up to 200% of your maximum number of active phone
+    /// numbers during any 30 day period. If you claim and release phone numbers using the
+    /// UI or API during a rolling 30 day cycle that exceeds 200% of your phone number service
+    /// level quota, you will be blocked from claiming any more numbers until 30 days past
+    /// the oldest number released has expired. 
+    /// </para><para>
+    /// For example, if you already have 99 claimed numbers and a service level quota of 99
+    /// phone numbers, and in any 30 day period you release 99, claim 99, and then release
+    /// 99, you will have exceeded the 200% limit. At that point you are blocked from claiming
+    /// any more numbers until you open an Amazon Web Services support ticket.
+    /// </para>
     /// </summary>
     [Cmdlet("Request", "CONNPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.ClaimPhoneNumberResponse")]

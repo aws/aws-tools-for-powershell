@@ -596,6 +596,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchResourceTags" OutputProperty="Tags" Verb="Search" Noun="ResourceTag" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchRoutingProfiles" OutputProperty="*" Verb="Search" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />

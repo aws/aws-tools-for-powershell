@@ -288,6 +288,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMFADevice" OutputProperty="*" Verb="Get" Noun="MFADeviceMetadata" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOpenIDConnectProvider" OutputProperty="*" Verb="Get" Noun="OpenIDConnectProvider" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

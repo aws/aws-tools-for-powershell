@@ -222,6 +222,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Search-CONNPrompt', 
         'Search-CONNQueue', 
         'Search-CONNQuickConnect', 
+        'Search-CONNResourceTag', 
         'Search-CONNRoutingProfile', 
         'Search-CONNSecurityProfile', 
         'Search-CONNUser', 
