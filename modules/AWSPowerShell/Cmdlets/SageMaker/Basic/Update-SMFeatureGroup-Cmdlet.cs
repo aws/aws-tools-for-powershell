@@ -70,6 +70,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String FeatureGroupName { get; set; }
         #endregion
         
+        #region Parameter TtlDuration_Unit
+        /// <summary>
+        /// <para>
+        /// <para><code>TtlDuration</code> time unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnlineStoreConfig_TtlDuration_Unit")]
+        [AWSConstantClassSource("Amazon.SageMaker.TtlDurationUnit")]
+        public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
+        #endregion
+        
+        #region Parameter TtlDuration_Value
+        /// <summary>
+        /// <para>
+        /// <para><code>TtlDuration</code> time value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnlineStoreConfig_TtlDuration_Value")]
+        public System.Int32? TtlDuration_Value { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'FeatureGroupArn'.
@@ -143,6 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter FeatureGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TtlDuration_Unit = this.TtlDuration_Unit;
+            context.TtlDuration_Value = this.TtlDuration_Value;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +191,50 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.FeatureGroupName != null)
             {
                 request.FeatureGroupName = cmdletContext.FeatureGroupName;
+            }
+            
+             // populate OnlineStoreConfig
+            var requestOnlineStoreConfigIsNull = true;
+            request.OnlineStoreConfig = new Amazon.SageMaker.Model.OnlineStoreConfigUpdate();
+            Amazon.SageMaker.Model.TtlDuration requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = null;
+            
+             // populate TtlDuration
+            var requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull = true;
+            requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = new Amazon.SageMaker.Model.TtlDuration();
+            Amazon.SageMaker.TtlDurationUnit requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit = null;
+            if (cmdletContext.TtlDuration_Unit != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit = cmdletContext.TtlDuration_Unit;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration.Unit = requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit;
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull = false;
+            }
+            System.Int32? requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value = null;
+            if (cmdletContext.TtlDuration_Value != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value = cmdletContext.TtlDuration_Value.Value;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration.Value = requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value.Value;
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull = false;
+            }
+             // determine if requestOnlineStoreConfig_onlineStoreConfig_TtlDuration should be set to null
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = null;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDuration != null)
+            {
+                request.OnlineStoreConfig.TtlDuration = requestOnlineStoreConfig_onlineStoreConfig_TtlDuration;
+                requestOnlineStoreConfigIsNull = false;
+            }
+             // determine if request.OnlineStoreConfig should be set to null
+            if (requestOnlineStoreConfigIsNull)
+            {
+                request.OnlineStoreConfig = null;
             }
             
             CmdletOutput output;
@@ -230,6 +299,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public List<Amazon.SageMaker.Model.FeatureDefinition> FeatureAddition { get; set; }
             public System.String FeatureGroupName { get; set; }
+            public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
+            public System.Int32? TtlDuration_Value { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateFeatureGroupResponse, UpdateSMFeatureGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FeatureGroupArn;
         }

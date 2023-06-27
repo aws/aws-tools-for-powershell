@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter ReleaseLabel
         /// <summary>
         /// <para>
-        /// <para>The EMR release associated with the application.</para>
+        /// <para>The Amazon EMR release associated with the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

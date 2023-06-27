@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Creates a new OpsItem. You must have permission in Identity and Access Management
-    /// (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-    /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
+    /// (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
+    /// up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -56,9 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The target Amazon Web Services account where you want to create an OpsItem. To make
         /// this call, your account must be configured to work with OpsItems across accounts.
-        /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html">Setting
-        /// up OpsCenter to work with OpsItems across accounts</a> in the <i>Amazon Web Services
-        /// Systems Manager User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
+        /// up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// operation).</para><para>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource
         /// in the request. Use the <code>/aws/automations</code> key in OperationalData to associate
         /// an Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands
-        /// that use these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating
+        /// that use these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Creating
         /// OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -237,9 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional metadata that you assign to a resource. You can restrict access to OpsItems
-        /// by using an inline IAM policy that specifies tags. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions">Getting
-        /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><para>Tags use a key-value pair. For example:</para><para><code>Key=Department,Value=Finance</code></para><important><para>To add tags to a new OpsItem, a user must have IAM permissions for both the <code>ssm:CreateOpsItems</code>
+        /// <para>Optional metadata that you assign to a resource.</para><para>Tags use a key-value pair. For example:</para><para><code>Key=Department,Value=Finance</code></para><important><para>To add tags to a new OpsItem, a user must have IAM permissions for both the <code>ssm:CreateOpsItems</code>
         /// operation and the <code>ssm:AddTagsToResource</code> operation. To add tags to an
         /// existing OpsItem, use the <a>AddTagsToResource</a> operation.</para></important>
         /// </para>

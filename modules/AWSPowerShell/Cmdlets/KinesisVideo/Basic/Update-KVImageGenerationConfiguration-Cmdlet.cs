@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter DestinationConfig_DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code>
-        /// must match the Region where the stream is located.</para>
+        /// <para>The Amazon Web Services Region of the S3 bucket where images will be delivered. This
+        /// <code>DestinationRegion</code> must match the Region where the stream is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

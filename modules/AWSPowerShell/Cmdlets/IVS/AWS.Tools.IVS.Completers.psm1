@@ -192,6 +192,7 @@ $IVS_SelectCompleters = {
 $IVS_SelectMap = @{
     "Select"=@("Get-IVSChannelBatch",
                "Get-IVSStreamKeyBatch",
+               "Start-IVSStartViewerSessionRevocation",
                "New-IVSChannel",
                "New-IVSRecordingConfiguration",
                "New-IVSStreamKey",
@@ -214,6 +215,7 @@ $IVS_SelectMap = @{
                "Get-IVSStreamSessionList",
                "Get-IVSResourceTag",
                "Write-IVSMetadata",
+               "Start-IVSViewerSessionRevocation",
                "Stop-IVSStream",
                "Add-IVSResourceTag",
                "Remove-IVSResourceTag",

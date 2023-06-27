@@ -1,4 +1,26 @@
-﻿### 4.1.360 (2023-06-26 21:06Z)
+﻿### 4.1.361 (2023-06-27 21:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.578.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter ReleaseLabel.
+  * Amazon Interactive Video Service
+    * Added cmdlet Start-IVSStartViewerSessionRevocation leveraging the BatchStartViewerSessionRevocation service API.
+    * Added cmdlet Start-IVSViewerSessionRevocation leveraging the StartViewerSessionRevocation service API.
+  * Amazon Kinesis Video Streams
+    * Added cmdlet Get-KVEdgeAgentConfigurationList leveraging the ListEdgeAgentConfigurations service API.
+    * Added cmdlet Remove-KVEdgeConfiguration leveraging the DeleteEdgeConfiguration service API.
+  * Amazon Private 5G
+    * Modified cmdlet Enable-PV5GNetworkSite: added parameters CommitmentConfiguration_AutomaticRenewal, CommitmentConfiguration_CommitmentLength and ShippingAddress_EmailAddress.
+    * Modified cmdlet Start-PV5GNetworkResourceUpdate: added parameters CommitmentConfiguration_AutomaticRenewal, CommitmentConfiguration_CommitmentLength and ShippingAddress_EmailAddress.
+  * Amazon SageMaker Feature Store Runtime
+    * Modified cmdlet Get-SMFSRecord: added parameter ExpirationTimeResponse.
+    * Modified cmdlet Get-SMFSRecordBatch: added parameters ExpirationTimeResponse and PassThru.
+    * Modified cmdlet Write-SMFSRecord: added parameters TtlDuration_Unit and TtlDuration_Value.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMFeatureGroup: added parameters TtlDuration_Unit and TtlDuration_Value.
+    * Modified cmdlet Update-SMFeatureGroup: added parameters TtlDuration_Unit and TtlDuration_Value.
+  * Amazon Web Services AppFabric. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AFAB and can be listed using the command 'Get-AWSCmdletName -Service AFAB'.
+
+### 4.1.360 (2023-06-26 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.577.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNResourceTag leveraging the SearchResourceTags service API.

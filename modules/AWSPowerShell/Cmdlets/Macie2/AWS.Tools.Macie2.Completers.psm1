@@ -170,7 +170,7 @@ $MAC2_Completers = {
         # Amazon.Macie2.ManagedDataIdentifierSelector
         "New-MAC2ClassificationJob/ManagedDataIdentifierSelector"
         {
-            $v = "ALL","EXCLUDE","INCLUDE","NONE"
+            $v = "ALL","EXCLUDE","INCLUDE","NONE","RECOMMENDED"
             break
         }
 

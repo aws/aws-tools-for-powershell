@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEdgeConfiguration" Verb="Remove" Noun="EdgeConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSignalingChannel" Verb="Remove" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +72,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSignalingChannelEndpoint" OutputProperty="ResourceEndpointList" Verb="Get" Noun="SignalingChannelEndpoint" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEdgeAgentConfigurations" OutputProperty="EdgeConfigs" Verb="Get" Noun="EdgeAgentConfigurationList" PipelineParameter="HubDeviceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

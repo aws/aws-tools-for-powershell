@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>appfabric</C2jFilename>
+    <AssemblyName>AppFabric</AssemblyName>
+    <ServiceNounPrefix>AFAB</ServiceNounPrefix>
+    <ServiceName>Amazon Web Services AppFabric</ServiceName>
+    <ServiceClientInterface>IAmazonAppFabric</ServiceClientInterface>
+    <ServiceClient>AmazonAppFabricClient</ServiceClient>
+    <ServiceModuleGuid>758CB655-80D3-4C32-BEB3-8943BCBF21DB</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetUserAccessTasks" OutputProperty="UserAccessResultsList" Verb="Get" Noun="UserAccessTaskList" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConnectAppAuthorization" OutputProperty="AppAuthorizationSummary" Verb="Connect" Noun="AppAuthorization" ShouldProcessTarget="AppAuthorizationIdentifier" PipelineParameter="AppAuthorizationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppAuthorization" OutputProperty="AppAuthorization" Verb="New" Noun="AppAuthorization" ShouldProcessTarget="AppBundleIdentifier" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppBundle" OutputProperty="AppBundle" Verb="New" Noun="AppBundle" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIngestion" OutputProperty="Ingestion" Verb="New" Noun="Ingestion" ShouldProcessTarget="AppBundleIdentifier" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIngestionDestination" OutputProperty="IngestionDestination" Verb="New" Noun="IngestionDestination" ShouldProcessTarget="IngestionIdentifier" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppAuthorization" Verb="Remove" Noun="AppAuthorization" ShouldProcessTarget="AppAuthorizationIdentifier" PipelineParameter="AppAuthorizationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppBundle" Verb="Remove" Noun="AppBundle" ShouldProcessTarget="AppBundleIdentifier" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIngestion" Verb="Remove" Noun="Ingestion" ShouldProcessTarget="IngestionIdentifier" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIngestionDestination" Verb="Remove" Noun="IngestionDestination" ShouldProcessTarget="IngestionDestinationIdentifier" PipelineParameter="IngestionDestinationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAppAuthorization" OutputProperty="AppAuthorization" Verb="Get" Noun="AppAuthorization" PipelineParameter="AppAuthorizationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAppBundle" OutputProperty="AppBundle" Verb="Get" Noun="AppBundle" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIngestion" OutputProperty="Ingestion" Verb="Get" Noun="Ingestion" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIngestionDestination" OutputProperty="IngestionDestination" Verb="Get" Noun="IngestionDestination" PipelineParameter="IngestionDestinationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppAuthorizations" OutputProperty="AppAuthorizationSummaryList" Verb="Get" Noun="AppAuthorizationList" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppBundles" OutputProperty="AppBundleSummaryList" Verb="Get" Noun="AppBundleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIngestionDestinations" OutputProperty="IngestionDestinations" Verb="Get" Noun="IngestionDestinationList" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartIngestion" Verb="Start" Noun="Ingestion" ShouldProcessTarget="IngestionIdentifier" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartUserAccessTasks" OutputProperty="UserAccessTasksList" Verb="Start" Noun="UserAccessTask" IgnoreSupportsShouldProcess="true" PipelineParameter="AppBundleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopIngestion" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionIdentifier" PipelineParameter="IngestionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppAuthorization" OutputProperty="AppAuthorization" Verb="Update" Noun="AppAuthorization" ShouldProcessTarget="AppAuthorizationIdentifier" PipelineParameter="AppAuthorizationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIngestionDestination" OutputProperty="IngestionDestination" Verb="Update" Noun="IngestionDestination" ShouldProcessTarget="IngestionDestinationIdentifier" PipelineParameter="IngestionDestinationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

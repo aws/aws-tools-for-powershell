@@ -42,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     public partial class GetSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {
         
+        #region Parameter ExpirationTimeResponse
+        /// <summary>
+        /// <para>
+        /// <para>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
+        /// <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it
+        /// is not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
+        /// null.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse")]
+        public Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse ExpirationTimeResponse { get; set; }
+        #endregion
+        
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
@@ -115,6 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
                 context.Select = CreateSelectDelegate<Amazon.SageMakerFeatureStoreRuntime.Model.GetRecordResponse, GetSMFSRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ExpirationTimeResponse = this.ExpirationTimeResponse;
             context.FeatureGroupName = this.FeatureGroupName;
             #if MODULAR
             if (this.FeatureGroupName == null && ParameterWasBound(nameof(this.FeatureGroupName)))
@@ -149,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             // create request
             var request = new Amazon.SageMakerFeatureStoreRuntime.Model.GetRecordRequest();
             
+            if (cmdletContext.ExpirationTimeResponse != null)
+            {
+                request.ExpirationTimeResponse = cmdletContext.ExpirationTimeResponse;
+            }
             if (cmdletContext.FeatureGroupName != null)
             {
                 request.FeatureGroupName = cmdletContext.FeatureGroupName;
@@ -222,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse ExpirationTimeResponse { get; set; }
             public System.String FeatureGroupName { get; set; }
             public List<System.String> FeatureName { get; set; }
             public System.String RecordIdentifierValueAsString { get; set; }

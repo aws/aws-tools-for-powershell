@@ -2271,6 +2271,136 @@ $ACD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ACD_SelectCompleters $ACD_SelectMap
+# Argument completions for service Amazon Web Services AppFabric
+
+
+$AFAB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AppFabric.AuthType
+        "New-AFABAppAuthorization/AuthType"
+        {
+            $v = "apiKey","oauth2"
+            break
+        }
+
+        # Amazon.AppFabric.Format
+        "New-AFABIngestionDestination/ProcessingConfiguration_AuditLog_Format"
+        {
+            $v = "json","parquet"
+            break
+        }
+
+        # Amazon.AppFabric.IngestionType
+        "New-AFABIngestion/IngestionType"
+        {
+            $v = "auditLog"
+            break
+        }
+
+        # Amazon.AppFabric.Schema
+        "New-AFABIngestionDestination/ProcessingConfiguration_AuditLog_Schema"
+        {
+            $v = "ocsf","raw"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AFAB_map = @{
+    "AuthType"=@("New-AFABAppAuthorization")
+    "IngestionType"=@("New-AFABIngestion")
+    "ProcessingConfiguration_AuditLog_Format"=@("New-AFABIngestionDestination")
+    "ProcessingConfiguration_AuditLog_Schema"=@("New-AFABIngestionDestination")
+}
+
+_awsArgumentCompleterRegistration $AFAB_Completers $AFAB_map
+
+$AFAB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AFAB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AFAB_SelectMap = @{
+    "Select"=@("Get-AFABUserAccessTaskList",
+               "Connect-AFABAppAuthorization",
+               "New-AFABAppAuthorization",
+               "New-AFABAppBundle",
+               "New-AFABIngestion",
+               "New-AFABIngestionDestination",
+               "Remove-AFABAppAuthorization",
+               "Remove-AFABAppBundle",
+               "Remove-AFABIngestion",
+               "Remove-AFABIngestionDestination",
+               "Get-AFABAppAuthorization",
+               "Get-AFABAppBundle",
+               "Get-AFABIngestion",
+               "Get-AFABIngestionDestination",
+               "Get-AFABAppAuthorizationList",
+               "Get-AFABAppBundleList",
+               "Get-AFABIngestionDestinationList",
+               "Get-AFABIngestionList",
+               "Get-AFABResourceTag",
+               "Start-AFABIngestion",
+               "Start-AFABUserAccessTask",
+               "Stop-AFABIngestion",
+               "Add-AFABResourceTag",
+               "Remove-AFABResourceTag",
+               "Update-AFABAppAuthorization",
+               "Update-AFABIngestionDestination")
+}
+
+_awsArgumentCompleterRegistration $AFAB_SelectCompleters $AFAB_SelectMap
 # Argument completions for service Amazon Appflow
 
 
@@ -31580,6 +31710,7 @@ $IVS_SelectCompleters = {
 $IVS_SelectMap = @{
     "Select"=@("Get-IVSChannelBatch",
                "Get-IVSStreamKeyBatch",
+               "Start-IVSStartViewerSessionRevocation",
                "New-IVSChannel",
                "New-IVSRecordingConfiguration",
                "New-IVSStreamKey",
@@ -31602,6 +31733,7 @@ $IVS_SelectMap = @{
                "Get-IVSStreamSessionList",
                "Get-IVSResourceTag",
                "Write-IVSMetadata",
+               "Start-IVSViewerSessionRevocation",
                "Stop-IVSStream",
                "Add-IVSResourceTag",
                "Remove-IVSResourceTag",
@@ -33102,6 +33234,7 @@ $KV_SelectCompleters = {
 $KV_SelectMap = @{
     "Select"=@("New-KVSignalingChannel",
                "New-KVStream",
+               "Remove-KVEdgeConfiguration",
                "Remove-KVSignalingChannel",
                "Remove-KVStream",
                "Get-KVEdgeConfiguration",
@@ -33113,6 +33246,7 @@ $KV_SelectMap = @{
                "Get-KVStream",
                "Get-KVDataEndpoint",
                "Get-KVSignalingChannelEndpoint",
+               "Get-KVEdgeAgentConfigurationList",
                "Get-KVSignalingChannelList",
                "Get-KVStreamList",
                "Get-KVResourceTag",
@@ -36445,7 +36579,7 @@ $MAC2_Completers = {
         # Amazon.Macie2.ManagedDataIdentifierSelector
         "New-MAC2ClassificationJob/ManagedDataIdentifierSelector"
         {
-            $v = "ALL","EXCLUDE","INCLUDE","NONE"
+            $v = "ALL","EXCLUDE","INCLUDE","NONE","RECOMMENDED"
             break
         }
 
@@ -45389,6 +45523,16 @@ $PV5G_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Private5G.CommitmentLength
+        {
+            ($_ -eq "Enable-PV5GNetworkSite/CommitmentConfiguration_CommitmentLength") -Or
+            ($_ -eq "Start-PV5GNetworkResourceUpdate/CommitmentConfiguration_CommitmentLength")
+        }
+        {
+            $v = "ONE_YEAR","SIXTY_DAYS","THREE_YEARS"
+            break
+        }
+
         # Amazon.Private5G.ElevationReference
         "Set-PV5GAccessPoint/Position_ElevationReference"
         {
@@ -45406,7 +45550,7 @@ $PV5G_Completers = {
         # Amazon.Private5G.UpdateType
         "Start-PV5GNetworkResourceUpdate/UpdateType"
         {
-            $v = "REPLACE","RETURN"
+            $v = "COMMITMENT","REPLACE","RETURN"
             break
         }
 
@@ -45419,6 +45563,7 @@ $PV5G_Completers = {
 }
 
 $PV5G_map = @{
+    "CommitmentConfiguration_CommitmentLength"=@("Enable-PV5GNetworkSite","Start-PV5GNetworkResourceUpdate")
     "Position_ElevationReference"=@("Set-PV5GAccessPoint")
     "Position_ElevationUnit"=@("Set-PV5GAccessPoint")
     "UpdateType"=@("Start-PV5GNetworkResourceUpdate")
@@ -52013,6 +52158,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TtlDurationUnit
+        {
+            ($_ -eq "New-SMFeatureGroup/OnlineStoreConfig_TtlDuration_Unit") -Or
+            ($_ -eq "Update-SMFeatureGroup/OnlineStoreConfig_TtlDuration_Unit")
+        }
+        {
+            $v = "Days","Hours","Minutes","Seconds","Weeks"
+            break
+        }
+
         # Amazon.SageMaker.UserProfileSortKey
         "Get-SMUserProfileList/SortBy"
         {
@@ -52109,6 +52264,7 @@ $SM_map = @{
     "MonitoringTypeEquals"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEquals"=@("Get-SMFeatureGroupList")
+    "OnlineStoreConfig_TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
     "OutputConfig_TargetPlatform_Accelerator"=@("New-SMCompilationJob")
@@ -52658,6 +52814,23 @@ $SMFS_Completers = {
             break
         }
 
+        # Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse
+        {
+            ($_ -eq "Get-SMFSRecord/ExpirationTimeResponse") -Or
+            ($_ -eq "Get-SMFSRecordBatch/ExpirationTimeResponse")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
+        # Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit
+        "Write-SMFSRecord/TtlDuration_Unit"
+        {
+            $v = "Days","Hours","Minutes","Seconds","Weeks"
+            break
+        }
+
 
     }
 
@@ -52668,6 +52841,8 @@ $SMFS_Completers = {
 
 $SMFS_map = @{
     "DeletionMode"=@("Remove-SMFSRecord")
+    "ExpirationTimeResponse"=@("Get-SMFSRecord","Get-SMFSRecordBatch")
+    "TtlDuration_Unit"=@("Write-SMFSRecord")
 }
 
 _awsArgumentCompleterRegistration $SMFS_Completers $SMFS_map

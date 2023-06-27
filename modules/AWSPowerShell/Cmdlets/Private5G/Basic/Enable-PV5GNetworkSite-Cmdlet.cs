@@ -42,6 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        #region Parameter CommitmentConfiguration_AutomaticRenewal
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the commitment period for a radio unit is set to automatically
+        /// renew for an additional 1 year after your current commitment period expires.</para><para>Set to <code>True</code>, if you want your commitment period to automatically renew.
+        /// Set to <code>False</code> if you do not want your commitment to automatically renew.</para><para>You can do the following:</para><ul><li><para>Set a 1-year commitment to automatically renew for an additional 1 year. The hourly
+        /// rate for the additional year will continue to be the same as your existing 1-year
+        /// rate.</para></li><li><para>Set a 3-year commitment to automatically renew for an additional 1 year. The hourly
+        /// rate for the additional year will continue to be the same as your existing 3-year
+        /// rate.</para></li><li><para>Turn off a previously-enabled automatic renewal on a 1-year or 3-year commitment.</para></li></ul><para>You cannot use the automatic-renewal option for a 60-day commitment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CommitmentConfiguration_AutomaticRenewal { get; set; }
+        #endregion
+        
         #region Parameter ShippingAddress_City
         /// <summary>
         /// <para>
@@ -57,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ShippingAddress_City { get; set; }
+        #endregion
+        
+        #region Parameter CommitmentConfiguration_CommitmentLength
+        /// <summary>
+        /// <para>
+        /// <para>The duration of the commitment period for the radio unit. You can choose a 60-day,
+        /// 1-year, or 3-year period.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Private5G.CommitmentLength")]
+        public Amazon.Private5G.CommitmentLength CommitmentConfiguration_CommitmentLength { get; set; }
         #endregion
         
         #region Parameter ShippingAddress_Company
@@ -84,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ShippingAddress_Country { get; set; }
+        #endregion
+        
+        #region Parameter ShippingAddress_EmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The recipient's email address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ShippingAddress_EmailAddress { get; set; }
         #endregion
         
         #region Parameter ShippingAddress_Name
@@ -123,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         #region Parameter ShippingAddress_PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number for this address.</para>
+        /// <para>The recipient's phone number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,6 +314,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CommitmentConfiguration_AutomaticRenewal = this.CommitmentConfiguration_AutomaticRenewal;
+            context.CommitmentConfiguration_CommitmentLength = this.CommitmentConfiguration_CommitmentLength;
             context.NetworkSiteArn = this.NetworkSiteArn;
             #if MODULAR
             if (this.NetworkSiteArn == null && ParameterWasBound(nameof(this.NetworkSiteArn)))
@@ -298,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
                 WriteWarning("You are passing $null as a value for parameter ShippingAddress_Country which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ShippingAddress_EmailAddress = this.ShippingAddress_EmailAddress;
             context.ShippingAddress_Name = this.ShippingAddress_Name;
             #if MODULAR
             if (this.ShippingAddress_Name == null && ParameterWasBound(nameof(this.ShippingAddress_Name)))
@@ -349,6 +390,35 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            
+             // populate CommitmentConfiguration
+            var requestCommitmentConfigurationIsNull = true;
+            request.CommitmentConfiguration = new Amazon.Private5G.Model.CommitmentConfiguration();
+            System.Boolean? requestCommitmentConfiguration_commitmentConfiguration_AutomaticRenewal = null;
+            if (cmdletContext.CommitmentConfiguration_AutomaticRenewal != null)
+            {
+                requestCommitmentConfiguration_commitmentConfiguration_AutomaticRenewal = cmdletContext.CommitmentConfiguration_AutomaticRenewal.Value;
+            }
+            if (requestCommitmentConfiguration_commitmentConfiguration_AutomaticRenewal != null)
+            {
+                request.CommitmentConfiguration.AutomaticRenewal = requestCommitmentConfiguration_commitmentConfiguration_AutomaticRenewal.Value;
+                requestCommitmentConfigurationIsNull = false;
+            }
+            Amazon.Private5G.CommitmentLength requestCommitmentConfiguration_commitmentConfiguration_CommitmentLength = null;
+            if (cmdletContext.CommitmentConfiguration_CommitmentLength != null)
+            {
+                requestCommitmentConfiguration_commitmentConfiguration_CommitmentLength = cmdletContext.CommitmentConfiguration_CommitmentLength;
+            }
+            if (requestCommitmentConfiguration_commitmentConfiguration_CommitmentLength != null)
+            {
+                request.CommitmentConfiguration.CommitmentLength = requestCommitmentConfiguration_commitmentConfiguration_CommitmentLength;
+                requestCommitmentConfigurationIsNull = false;
+            }
+             // determine if request.CommitmentConfiguration should be set to null
+            if (requestCommitmentConfigurationIsNull)
+            {
+                request.CommitmentConfiguration = null;
+            }
             if (cmdletContext.NetworkSiteArn != null)
             {
                 request.NetworkSiteArn = cmdletContext.NetworkSiteArn;
@@ -385,6 +455,16 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
             if (requestShippingAddress_shippingAddress_Country != null)
             {
                 request.ShippingAddress.Country = requestShippingAddress_shippingAddress_Country;
+                requestShippingAddressIsNull = false;
+            }
+            System.String requestShippingAddress_shippingAddress_EmailAddress = null;
+            if (cmdletContext.ShippingAddress_EmailAddress != null)
+            {
+                requestShippingAddress_shippingAddress_EmailAddress = cmdletContext.ShippingAddress_EmailAddress;
+            }
+            if (requestShippingAddress_shippingAddress_EmailAddress != null)
+            {
+                request.ShippingAddress.EmailAddress = requestShippingAddress_shippingAddress_EmailAddress;
                 requestShippingAddressIsNull = false;
             }
             System.String requestShippingAddress_shippingAddress_Name = null;
@@ -524,10 +604,13 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? CommitmentConfiguration_AutomaticRenewal { get; set; }
+            public Amazon.Private5G.CommitmentLength CommitmentConfiguration_CommitmentLength { get; set; }
             public System.String NetworkSiteArn { get; set; }
             public System.String ShippingAddress_City { get; set; }
             public System.String ShippingAddress_Company { get; set; }
             public System.String ShippingAddress_Country { get; set; }
+            public System.String ShippingAddress_EmailAddress { get; set; }
             public System.String ShippingAddress_Name { get; set; }
             public System.String ShippingAddress_PhoneNumber { get; set; }
             public System.String ShippingAddress_PostalCode { get; set; }

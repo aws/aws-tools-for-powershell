@@ -28,20 +28,20 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes one or more of your managed nodes, including information about the operating
-    /// system platform, the version of SSM Agent installed on the managed node, node status,
-    /// and so on.
+    /// Provides information about one or more of your managed nodes, including the operating
+    /// system platform, SSM Agent version, association status, and IP address. This operation
+    /// does not return information for nodes that are either Stopped or Terminated.
     /// 
     ///  
     /// <para>
-    /// If you specify one or more managed node IDs, it returns information for those managed
+    /// If you specify one or more node IDs, the operation returns information for those managed
     /// nodes. If you don't specify node IDs, it returns information for all your managed
     /// nodes. If you specify a node ID that isn't valid or a node that you don't own, you
     /// receive an error.
     /// </para><note><para>
-    /// The <code>IamRole</code> field for this API operation is the Identity and Access Management
-    /// (IAM) role assigned to on-premises managed nodes. This call doesn't return the IAM
-    /// role for EC2 instances.
+    /// The <code>IamRole</code> field returned for this API operation is the Identity and
+    /// Access Management (IAM) role assigned to on-premises managed nodes. This operation
+    /// does not return the IAM role for EC2 instances.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
@@ -58,8 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of managed nodes.
-        /// You can filter based on tags applied to your managed nodes. Use this <code>Filters</code>
-        /// data type instead of <code>InstanceInformationFilterList</code>, which is deprecated.</para>
+        /// You can filter based on tags applied to your managed nodes. Tag filters can't be combined
+        /// with other filter types. Use this <code>Filters</code> data type instead of <code>InstanceInformationFilterList</code>,
+        /// which is deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results. </para>
+        /// that you can specify in a subsequent call to get the next set of results. The default
+        /// value is 10 items. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

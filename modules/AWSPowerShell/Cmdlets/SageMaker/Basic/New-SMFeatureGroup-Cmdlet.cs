@@ -297,6 +297,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TtlDuration_Unit
+        /// <summary>
+        /// <para>
+        /// <para><code>TtlDuration</code> time unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnlineStoreConfig_TtlDuration_Unit")]
+        [AWSConstantClassSource("Amazon.SageMaker.TtlDurationUnit")]
+        public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
+        #endregion
+        
+        #region Parameter TtlDuration_Value
+        /// <summary>
+        /// <para>
+        /// <para><code>TtlDuration</code> time value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnlineStoreConfig_TtlDuration_Value")]
+        public System.Int32? TtlDuration_Value { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'FeatureGroupArn'.
@@ -394,6 +417,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.OfflineStoreConfig_TableFormat = this.OfflineStoreConfig_TableFormat;
             context.OnlineStoreConfig_EnableOnlineStore = this.OnlineStoreConfig_EnableOnlineStore;
             context.SecurityConfig_KmsKeyId = this.SecurityConfig_KmsKeyId;
+            context.TtlDuration_Unit = this.TtlDuration_Unit;
+            context.TtlDuration_Value = this.TtlDuration_Value;
             context.RecordIdentifierFeatureName = this.RecordIdentifierFeatureName;
             #if MODULAR
             if (this.RecordIdentifierFeatureName == null && ParameterWasBound(nameof(this.RecordIdentifierFeatureName)))
@@ -596,6 +621,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.OnlineStoreConfig.SecurityConfig = requestOnlineStoreConfig_onlineStoreConfig_SecurityConfig;
                 requestOnlineStoreConfigIsNull = false;
             }
+            Amazon.SageMaker.Model.TtlDuration requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = null;
+            
+             // populate TtlDuration
+            var requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull = true;
+            requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = new Amazon.SageMaker.Model.TtlDuration();
+            Amazon.SageMaker.TtlDurationUnit requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit = null;
+            if (cmdletContext.TtlDuration_Unit != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit = cmdletContext.TtlDuration_Unit;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration.Unit = requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Unit;
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull = false;
+            }
+            System.Int32? requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value = null;
+            if (cmdletContext.TtlDuration_Value != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value = cmdletContext.TtlDuration_Value.Value;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration.Value = requestOnlineStoreConfig_onlineStoreConfig_TtlDuration_ttlDuration_Value.Value;
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull = false;
+            }
+             // determine if requestOnlineStoreConfig_onlineStoreConfig_TtlDuration should be set to null
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDurationIsNull)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = null;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_TtlDuration != null)
+            {
+                request.OnlineStoreConfig.TtlDuration = requestOnlineStoreConfig_onlineStoreConfig_TtlDuration;
+                requestOnlineStoreConfigIsNull = false;
+            }
              // determine if request.OnlineStoreConfig should be set to null
             if (requestOnlineStoreConfigIsNull)
             {
@@ -688,6 +748,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.TableFormat OfflineStoreConfig_TableFormat { get; set; }
             public System.Boolean? OnlineStoreConfig_EnableOnlineStore { get; set; }
             public System.String SecurityConfig_KmsKeyId { get; set; }
+            public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
+            public System.Int32? TtlDuration_Value { get; set; }
             public System.String RecordIdentifierFeatureName { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

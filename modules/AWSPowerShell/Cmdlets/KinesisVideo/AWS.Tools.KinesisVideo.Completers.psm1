@@ -235,6 +235,7 @@ $KV_SelectCompleters = {
 $KV_SelectMap = @{
     "Select"=@("New-KVSignalingChannel",
                "New-KVStream",
+               "Remove-KVEdgeConfiguration",
                "Remove-KVSignalingChannel",
                "Remove-KVStream",
                "Get-KVEdgeConfiguration",
@@ -246,6 +247,7 @@ $KV_SelectMap = @{
                "Get-KVStream",
                "Get-KVDataEndpoint",
                "Get-KVSignalingChannelEndpoint",
+               "Get-KVEdgeAgentConfigurationList",
                "Get-KVSignalingChannelList",
                "Get-KVStreamList",
                "Get-KVResourceTag",

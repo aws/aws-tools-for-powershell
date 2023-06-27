@@ -1303,6 +1303,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TtlDurationUnit
+        {
+            ($_ -eq "New-SMFeatureGroup/OnlineStoreConfig_TtlDuration_Unit") -Or
+            ($_ -eq "Update-SMFeatureGroup/OnlineStoreConfig_TtlDuration_Unit")
+        }
+        {
+            $v = "Days","Hours","Minutes","Seconds","Weeks"
+            break
+        }
+
         # Amazon.SageMaker.UserProfileSortKey
         "Get-SMUserProfileList/SortBy"
         {
@@ -1399,6 +1409,7 @@ $SM_map = @{
     "MonitoringTypeEquals"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEquals"=@("Get-SMFeatureGroupList")
+    "OnlineStoreConfig_TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
     "OutputConfig_TargetPlatform_Accelerator"=@("New-SMCompilationJob")

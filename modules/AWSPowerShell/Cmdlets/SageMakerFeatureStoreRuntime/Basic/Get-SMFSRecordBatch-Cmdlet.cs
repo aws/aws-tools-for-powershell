@@ -39,6 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     public partial class GetSMFSRecordBatchCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {
         
+        #region Parameter ExpirationTimeResponse
+        /// <summary>
+        /// <para>
+        /// <para>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
+        /// <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it
+        /// is not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
+        /// null.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse")]
+        public Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse ExpirationTimeResponse { get; set; }
+        #endregion
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>
@@ -69,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ExpirationTimeResponse parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ExpirationTimeResponse' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExpirationTimeResponse' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -79,11 +103,22 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse, GetSMFSRecordBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ExpirationTimeResponse;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ExpirationTimeResponse = this.ExpirationTimeResponse;
             if (this.Identifier != null)
             {
                 context.Identifier = new List<Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordIdentifier>(this.Identifier);
@@ -110,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             // create request
             var request = new Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordRequest();
             
+            if (cmdletContext.ExpirationTimeResponse != null)
+            {
+                request.ExpirationTimeResponse = cmdletContext.ExpirationTimeResponse;
+            }
             if (cmdletContext.Identifier != null)
             {
                 request.Identifiers = cmdletContext.Identifier;
@@ -175,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMakerFeatureStoreRuntime.ExpirationTimeResponse ExpirationTimeResponse { get; set; }
             public List<Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordIdentifier> Identifier { get; set; }
             public System.Func<Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse, GetSMFSRecordBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

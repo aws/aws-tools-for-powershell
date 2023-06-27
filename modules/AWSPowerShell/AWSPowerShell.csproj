@@ -94,6 +94,9 @@
     <Reference Include="AWSSDK.AppConfigData">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppConfigData.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppFabric">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppFabric.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Appflow">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Appflow.dll</HintPath>
     </Reference>
@@ -1121,6 +1124,9 @@
     </Reference>
     <Reference Include="AWSSDK.AppConfigData">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppConfigData.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppFabric">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppFabric.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Appflow">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Appflow.dll</HintPath>

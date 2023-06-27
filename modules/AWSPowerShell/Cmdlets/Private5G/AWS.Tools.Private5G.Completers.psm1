@@ -80,6 +80,16 @@ $PV5G_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Private5G.CommitmentLength
+        {
+            ($_ -eq "Enable-PV5GNetworkSite/CommitmentConfiguration_CommitmentLength") -Or
+            ($_ -eq "Start-PV5GNetworkResourceUpdate/CommitmentConfiguration_CommitmentLength")
+        }
+        {
+            $v = "ONE_YEAR","SIXTY_DAYS","THREE_YEARS"
+            break
+        }
+
         # Amazon.Private5G.ElevationReference
         "Set-PV5GAccessPoint/Position_ElevationReference"
         {
@@ -97,7 +107,7 @@ $PV5G_Completers = {
         # Amazon.Private5G.UpdateType
         "Start-PV5GNetworkResourceUpdate/UpdateType"
         {
-            $v = "REPLACE","RETURN"
+            $v = "COMMITMENT","REPLACE","RETURN"
             break
         }
 
@@ -110,6 +120,7 @@ $PV5G_Completers = {
 }
 
 $PV5G_map = @{
+    "CommitmentConfiguration_CommitmentLength"=@("Enable-PV5GNetworkSite","Start-PV5GNetworkResourceUpdate")
     "Position_ElevationReference"=@("Set-PV5GAccessPoint")
     "Position_ElevationUnit"=@("Set-PV5GAccessPoint")
     "UpdateType"=@("Start-PV5GNetworkResourceUpdate")

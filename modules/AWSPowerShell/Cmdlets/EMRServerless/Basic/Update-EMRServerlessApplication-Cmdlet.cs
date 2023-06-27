@@ -154,6 +154,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String MaximumCapacity_Memory { get; set; }
         #endregion
         
+        #region Parameter ReleaseLabel
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EMR release label for the application. You can change the release label
+        /// to use a different release of Amazon EMR.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReleaseLabel { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
@@ -297,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 context.NetworkConfiguration_SubnetId = new List<System.String>(this.NetworkConfiguration_SubnetId);
             }
+            context.ReleaseLabel = this.ReleaseLabel;
             if (this.WorkerTypeSpecification != null)
             {
                 context.WorkerTypeSpecification = new Dictionary<System.String, Amazon.EMRServerless.Model.WorkerTypeSpecificationInput>(StringComparer.Ordinal);
@@ -472,6 +484,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 request.NetworkConfiguration = null;
             }
+            if (cmdletContext.ReleaseLabel != null)
+            {
+                request.ReleaseLabel = cmdletContext.ReleaseLabel;
+            }
             if (cmdletContext.WorkerTypeSpecification != null)
             {
                 request.WorkerTypeSpecifications = cmdletContext.WorkerTypeSpecification;
@@ -550,6 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String MaximumCapacity_Memory { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroupId { get; set; }
             public List<System.String> NetworkConfiguration_SubnetId { get; set; }
+            public System.String ReleaseLabel { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.WorkerTypeSpecificationInput> WorkerTypeSpecification { get; set; }
             public System.Func<Amazon.EMRServerless.Model.UpdateApplicationResponse, UpdateEMRServerlessApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Application;

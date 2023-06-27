@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>,
         /// or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </para><para>Since the default value is set to <code>true</code>, configure the uploader schedule
         /// such that the media files are not being deleted before they are initially uploaded
-        /// to AWS cloud.</para>
+        /// to the Amazon Web Services cloud.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter MediaSourceConfig_MediaUriSecretArn
         /// <summary>
         /// <para>
-        /// <para>The AWS Secrets Manager ARN for the username and password of the camera, or a local
-        /// media file location.</para>
+        /// <para>The Amazon Web Services Secrets Manager ARN for the username and password of the camera,
+        /// or a local media file location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

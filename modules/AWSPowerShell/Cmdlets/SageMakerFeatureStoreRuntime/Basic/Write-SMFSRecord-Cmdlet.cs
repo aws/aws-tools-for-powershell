@@ -91,6 +91,27 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         public System.String[] TargetStore { get; set; }
         #endregion
         
+        #region Parameter TtlDuration_Unit
+        /// <summary>
+        /// <para>
+        /// <para><code>TtlDuration</code> time unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit")]
+        public Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit TtlDuration_Unit { get; set; }
+        #endregion
+        
+        #region Parameter TtlDuration_Value
+        /// <summary>
+        /// <para>
+        /// <para><code>TtlDuration</code> time value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TtlDuration_Value { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -153,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             {
                 context.TargetStore = new List<System.String>(this.TargetStore);
             }
+            context.TtlDuration_Unit = this.TtlDuration_Unit;
+            context.TtlDuration_Value = this.TtlDuration_Value;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +203,35 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             if (cmdletContext.TargetStore != null)
             {
                 request.TargetStores = cmdletContext.TargetStore;
+            }
+            
+             // populate TtlDuration
+            var requestTtlDurationIsNull = true;
+            request.TtlDuration = new Amazon.SageMakerFeatureStoreRuntime.Model.TtlDuration();
+            Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit requestTtlDuration_ttlDuration_Unit = null;
+            if (cmdletContext.TtlDuration_Unit != null)
+            {
+                requestTtlDuration_ttlDuration_Unit = cmdletContext.TtlDuration_Unit;
+            }
+            if (requestTtlDuration_ttlDuration_Unit != null)
+            {
+                request.TtlDuration.Unit = requestTtlDuration_ttlDuration_Unit;
+                requestTtlDurationIsNull = false;
+            }
+            System.Int32? requestTtlDuration_ttlDuration_Value = null;
+            if (cmdletContext.TtlDuration_Value != null)
+            {
+                requestTtlDuration_ttlDuration_Value = cmdletContext.TtlDuration_Value.Value;
+            }
+            if (requestTtlDuration_ttlDuration_Value != null)
+            {
+                request.TtlDuration.Value = requestTtlDuration_ttlDuration_Value.Value;
+                requestTtlDurationIsNull = false;
+            }
+             // determine if request.TtlDuration should be set to null
+            if (requestTtlDurationIsNull)
+            {
+                request.TtlDuration = null;
             }
             
             CmdletOutput output;
@@ -245,6 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             public System.String FeatureGroupName { get; set; }
             public List<Amazon.SageMakerFeatureStoreRuntime.Model.FeatureValue> Record { get; set; }
             public List<System.String> TargetStore { get; set; }
+            public Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit TtlDuration_Unit { get; set; }
+            public System.Int32? TtlDuration_Value { get; set; }
             public System.Func<Amazon.SageMakerFeatureStoreRuntime.Model.PutRecordResponse, WriteSMFSRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

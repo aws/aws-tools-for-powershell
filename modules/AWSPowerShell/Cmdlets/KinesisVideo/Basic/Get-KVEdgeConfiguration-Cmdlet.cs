@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
     /// Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code>
-    /// API. Use this API to get the status of the configuration if the configuration is in
-    /// sync with the Edge Agent.
+    /// API and the latest status of the edge agent's recorder and uploader jobs. Use this
+    /// API to get the status of the configuration to determine if the configuration is in
+    /// sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent.
     /// </summary>
     [Cmdlet("Get", "KVEdgeConfiguration")]
     [OutputType("Amazon.KinesisVideo.Model.DescribeEdgeConfigurationResponse")]

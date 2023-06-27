@@ -66,6 +66,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ApiGatewayV2.dll',
         'AWSSDK.AppConfig.dll',
         'AWSSDK.AppConfigData.dll',
+        'AWSSDK.AppFabric.dll',
         'AWSSDK.Appflow.dll',
         'AWSSDK.AppIntegrationsService.dll',
         'AWSSDK.ApplicationAutoScaling.dll',

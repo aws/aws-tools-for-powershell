@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// ARN. For example, an OpsMetadata object with an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code>
         /// has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or
         /// <code>/aws/ssm/MyGroup/appmanager</code>.</para><para>For the <code>Document</code> and <code>Parameter</code> values, use the name of the
-        /// resource.</para><para><code>ManagedInstance</code>: <code>mi-012345abcde</code></para><note><para>The <code>ManagedInstance</code> type for this API operation is only for on-premises
+        /// resource. If you're tagging a shared document, you must use the full ARN of the document.</para><para><code>ManagedInstance</code>: <code>mi-012345abcde</code></para><note><para>The <code>ManagedInstance</code> type for this API operation is only for on-premises
         /// managed nodes. You must specify the name of the managed node in the following format:
         /// <code>mi-<i>ID_number</i></code>. For example, <code>mi-1a2b3c4d5e6f</code>.</para></note>
         /// </para>
