@@ -38,9 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <b>Note: </b>When piping a collection of Amazon.S3.Model.S3Object or Amazon.S3.Model.S3ObjectVersion instances
     /// to identify the objects to be deleted the cmdlet receives the elements from the piped collection 
     /// one element at a time and will therefore make one service call per collection element to be deleted. To perform 
-    /// the deletion as a batch with a single call to the service specify the collection as the value of the -InputObject 
-    /// parameter. The -KeyCollection and -KeyAndVersionCollection parameters automatically process as a batch and make 
-    /// a single call to the service to delete all of the objects identified in the collections supplied to the parameters.
+    /// the deletion as a batch up to 1000 objects with a single call to the service specify the collection as the value 
+    /// of the -InputObject parameter. The -KeyCollection and -KeyAndVersionCollection parameters also automatically 
+    /// process as a batch and make a single call to the service to delete up to 1000 objects identified in the collections
+    /// supplied to the parameters.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_WithKey, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
