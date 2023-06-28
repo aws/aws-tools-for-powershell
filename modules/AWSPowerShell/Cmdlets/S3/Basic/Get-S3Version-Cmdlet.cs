@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// versions.
     /// 
     ///  <important><para>
-    ///  To use this operation, you must have permissions to perform the <code>s3:ListBucketVersions</code>
+    ///  To use this operation, you must have permission to perform the <code>s3:ListBucketVersions</code>
     /// action. Be aware of the name difference. 
     /// </para></important><note><para>
-    ///  A 200 OK response can contain valid or invalid XML. Make sure to design your application
-    /// to parse the contents of the response and handle it appropriately.
+    ///  A <code>200 OK</code> response can contain valid or invalid XML. Make sure to design
+    /// your application to parse the contents of the response and handle it appropriately.
     /// </para></note><para>
     /// To use this operation, you must have READ access to the bucket.
     /// </para><para>
@@ -102,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String KeyMarker { get; set; }
         #endregion
         
+        #region Parameter OptionalObjectAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the optional fields that you want returned in the response. Fields that
+        /// you do not specify are not returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OptionalObjectAttributes")]
+        public System.String[] OptionalObjectAttribute { get; set; }
+        #endregion
+        
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
@@ -128,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>A delimiter is a character that you specify to group keys. All keys that contain the
         /// same string between the <code>prefix</code> and the first occurrence of the delimiter
-        /// are grouped under a single result element in CommonPrefixes. These groups are counted
-        /// as one result against the max-keys limitation. These keys are not returned elsewhere
-        /// in the response.</para>
+        /// are grouped under a single result element in <code>CommonPrefixes</code>. These groups
+        /// are counted as one result against the <code>max-keys</code> limitation. These keys
+        /// are not returned elsewhere in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,11 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MaxKey
         /// <summary>
         /// <para>
-        /// <para>Sets the maximum number of keys returned in the response. By default the action returns
+        /// <para>Sets the maximum number of keys returned in the response. By default, the action returns
         /// up to 1,000 key names. The response might contain fewer keys but will never contain
         /// more. If additional keys satisfy the search criteria, but were not returned because
-        /// max-keys was exceeded, the response contains &lt;isTruncated&gt;true&lt;/isTruncated&gt;.
-        /// To return the additional keys, see key-marker and version-id-marker.</para>
+        /// <code>max-keys</code> was exceeded, the response contains <code>&lt;isTruncated&gt;true&lt;/isTruncated&gt;</code>.
+        /// To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>Use this parameter to select only those keys that begin with the specified prefix.
         /// You can use prefixes to separate a bucket into different groupings of keys. (You can
-        /// think of using prefix to make groups in the same way you'd use a folder in a file
-        /// system.) You can use prefix with delimiter to roll up numerous objects into a single
-        /// result under CommonPrefixes. </para>
+        /// think of using <code>prefix</code> to make groups in the same way that you'd use a
+        /// folder in a file system.) You can use <code>prefix</code> with <code>delimiter</code>
+        /// to roll up numerous objects into a single result under <code>CommonPrefixes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -216,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Delimiter = this.Delimiter;
             context.KeyMarker = this.KeyMarker;
             context.MaxKey = this.MaxKey;
+            if (this.OptionalObjectAttribute != null)
+            {
+                context.OptionalObjectAttribute = new List<System.String>(this.OptionalObjectAttribute);
+            }
             context.Prefix = this.Prefix;
             context.RequestPayer = this.RequestPayer;
             context.VersionIdMarker = this.VersionIdMarker;
@@ -252,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.MaxKey != null)
             {
                 request.MaxKeys = cmdletContext.MaxKey.Value;
+            }
+            if (cmdletContext.OptionalObjectAttribute != null)
+            {
+                request.OptionalObjectAttributes = cmdletContext.OptionalObjectAttribute;
             }
             if (cmdletContext.Prefix != null)
             {
@@ -338,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Delimiter { get; set; }
             public System.String KeyMarker { get; set; }
             public System.Int32? MaxKey { get; set; }
+            public List<System.String> OptionalObjectAttribute { get; set; }
             public System.String Prefix { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String VersionIdMarker { get; set; }

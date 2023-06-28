@@ -32962,7 +32962,7 @@ $KINA2_Completers = {
         # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
         "New-KINA2Application/RuntimeEnvironment"
         {
-            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0"
+            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
             break
         }
 
@@ -41913,7 +41913,7 @@ $OMICS_Completers = {
         # Amazon.Omics.WorkflowEngine
         "New-OMICSWorkflow/Engine"
         {
-            $v = "NEXTFLOW","WDL"
+            $v = "CWL","NEXTFLOW","WDL"
             break
         }
 

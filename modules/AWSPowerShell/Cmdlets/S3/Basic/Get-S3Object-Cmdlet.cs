@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
         /// you provide the Outposts access point ARN in place of the bucket name. For more information
         /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
-        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
@@ -98,6 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
+        #region Parameter OptionalObjectAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the optional fields that you want returned in the response. Fields that
+        /// you do not specify are not returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OptionalObjectAttributes")]
+        public System.String[] OptionalObjectAttribute { get; set; }
+        #endregion
+        
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
@@ -113,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Delimiter
         /// <summary>
         /// <para>
-        /// A delimiter is a character you use to group keys.
+        /// A delimiter is a character that you use to group keys.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
@@ -236,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            if (this.OptionalObjectAttribute != null)
+            {
+                context.OptionalObjectAttribute = new List<System.String>(this.OptionalObjectAttribute);
+            }
             context.Prefix = this.Prefix;
             context.RequestPayer = this.RequestPayer;
             
@@ -278,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.MaxKey != null)
             {
                 request.MaxKeys = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxKey.Value);
+            }
+            if (cmdletContext.OptionalObjectAttribute != null)
+            {
+                request.OptionalObjectAttributes = cmdletContext.OptionalObjectAttribute;
             }
             if (cmdletContext.Prefix != null)
             {
@@ -357,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.OptionalObjectAttribute != null)
+            {
+                request.OptionalObjectAttributes = cmdletContext.OptionalObjectAttribute;
             }
             if (cmdletContext.Prefix != null)
             {
@@ -491,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ExpectedBucketOwner { get; set; }
             public System.String Marker { get; set; }
             public int? MaxKey { get; set; }
+            public List<System.String> OptionalObjectAttribute { get; set; }
             public System.String Prefix { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.Func<Amazon.S3.Model.ListObjectsResponse, GetS3ObjectCmdlet, object> Select { get; set; } =

@@ -34,19 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// sure to design your application to parse the contents of the response and handle it
     /// appropriately. Objects are returned sorted in an ascending order of the respective
     /// key names in the list. For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing
-    /// object keys programmatically</a><para>
+    /// object keys programmatically</a> in the <i>Amazon S3 User Guide</i>.
+    /// 
+    ///  
+    /// <para>
     /// To use this operation, you must have READ access to the bucket.
     /// </para><para>
     /// To use this action in an Identity and Access Management (IAM) policy, you must have
-    /// permissions to perform the <code>s3:ListBucket</code> action. The bucket owner has
+    /// permission to perform the <code>s3:ListBucket</code> action. The bucket owner has
     /// this permission by default and can grant this permission to others. For more information
     /// about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
-    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><important><para>
     /// This section describes the latest revision of this action. We recommend that you use
-    /// this revised API for application development. For backward compatibility, Amazon S3
-    /// continues to support the prior version of this API, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.
+    /// this revised API operation for application development. For backward compatibility,
+    /// Amazon S3 continues to support the prior version of this API operation, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.
     /// </para></important><para>
     /// To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.
     /// </para><para>
@@ -76,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
         /// you provide the Outposts access point ARN in place of the bucket name. For more information
         /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
-        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
@@ -113,13 +116,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter FetchOwner
         /// <summary>
         /// <para>
-        /// The owner field is not present in ListObjectsV2 responses by default.
-        /// If you want to return owner field with each key in the result then set this field to true.
-        /// If not specified, the Owner field on S3Object will be null.
+        /// The owner field is not present in <code>ListObjectsV2</code> by default. If you want
+        /// to return the owner field with each key in the result, then set the <code>FetchOwner</code>
+        /// field to <code>true</code>..
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? FetchOwner { get; set; }
+        #endregion
+        
+        #region Parameter OptionalObjectAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the optional fields that you want returned in the response. Fields that
+        /// you do not specify are not returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OptionalObjectAttributes")]
+        public System.String[] OptionalObjectAttribute { get; set; }
         #endregion
         
         #region Parameter RequestPayer
@@ -148,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
-        /// <para>ContinuationToken indicates Amazon S3 that the list is being continued on this bucket
-        /// with a token. ContinuationToken is obfuscated and is not a real key.</para>
+        /// <para><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued
+        /// on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not
+        /// a real key.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -164,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Delimiter
         /// <summary>
         /// <para>
-        /// A delimiter is a character you use to group keys.
+        /// A delimiter is a character that you use to group keys.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
@@ -271,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            if (this.OptionalObjectAttribute != null)
+            {
+                context.OptionalObjectAttribute = new List<System.String>(this.OptionalObjectAttribute);
+            }
             context.Prefix = this.Prefix;
             context.RequestPayer = this.RequestPayer;
             context.StartAfter = this.StartAfter;
@@ -318,6 +338,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.MaxKey != null)
             {
                 request.MaxKeys = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxKey.Value);
+            }
+            if (cmdletContext.OptionalObjectAttribute != null)
+            {
+                request.OptionalObjectAttributes = cmdletContext.OptionalObjectAttribute;
             }
             if (cmdletContext.Prefix != null)
             {
@@ -405,6 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.FetchOwner != null)
             {
                 request.FetchOwner = cmdletContext.FetchOwner.Value;
+            }
+            if (cmdletContext.OptionalObjectAttribute != null)
+            {
+                request.OptionalObjectAttributes = cmdletContext.OptionalObjectAttribute;
             }
             if (cmdletContext.Prefix != null)
             {
@@ -544,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ExpectedBucketOwner { get; set; }
             public System.Boolean? FetchOwner { get; set; }
             public int? MaxKey { get; set; }
+            public List<System.String> OptionalObjectAttribute { get; set; }
             public System.String Prefix { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String StartAfter { get; set; }

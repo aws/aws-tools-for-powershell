@@ -350,9 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter StartingPosition
         /// <summary>
         /// <para>
-        /// <para>The position in a stream from which to start reading. Required for Amazon Kinesis,
-        /// Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported
-        /// only for Amazon Kinesis streams and Amazon DocumentDB.</para>
+        /// <para>The position in a stream from which to start reading. Required for Amazon Kinesis
+        /// and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only
+        /// for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache
+        /// Kafka.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from
-        /// which to start reading.</para>
+        /// which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

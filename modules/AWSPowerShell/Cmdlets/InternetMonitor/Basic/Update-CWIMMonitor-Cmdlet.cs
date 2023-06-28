@@ -48,6 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     public partial class UpdateCWIMMonitorCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
+        #region Parameter HealthEventsConfig_AvailabilityScoreThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The health event threshold percentage set for availability scores.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? HealthEventsConfig_AvailabilityScoreThreshold { get; set; }
+        #endregion
+        
         #region Parameter S3Config_BucketName
         /// <summary>
         /// <para>
@@ -110,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MonitorName { get; set; }
+        #endregion
+        
+        #region Parameter HealthEventsConfig_PerformanceScoreThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The health event threshold percentage set for performance scores.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? HealthEventsConfig_PerformanceScoreThreshold { get; set; }
         #endregion
         
         #region Parameter ResourcesToAdd
@@ -236,6 +256,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.HealthEventsConfig_AvailabilityScoreThreshold = this.HealthEventsConfig_AvailabilityScoreThreshold;
+            context.HealthEventsConfig_PerformanceScoreThreshold = this.HealthEventsConfig_PerformanceScoreThreshold;
             context.S3Config_BucketName = this.S3Config_BucketName;
             context.S3Config_BucketPrefix = this.S3Config_BucketPrefix;
             context.S3Config_LogDeliveryStatus = this.S3Config_LogDeliveryStatus;
@@ -276,6 +298,35 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate HealthEventsConfig
+            var requestHealthEventsConfigIsNull = true;
+            request.HealthEventsConfig = new Amazon.InternetMonitor.Model.HealthEventsConfig();
+            System.Double? requestHealthEventsConfig_healthEventsConfig_AvailabilityScoreThreshold = null;
+            if (cmdletContext.HealthEventsConfig_AvailabilityScoreThreshold != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityScoreThreshold = cmdletContext.HealthEventsConfig_AvailabilityScoreThreshold.Value;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_AvailabilityScoreThreshold != null)
+            {
+                request.HealthEventsConfig.AvailabilityScoreThreshold = requestHealthEventsConfig_healthEventsConfig_AvailabilityScoreThreshold.Value;
+                requestHealthEventsConfigIsNull = false;
+            }
+            System.Double? requestHealthEventsConfig_healthEventsConfig_PerformanceScoreThreshold = null;
+            if (cmdletContext.HealthEventsConfig_PerformanceScoreThreshold != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceScoreThreshold = cmdletContext.HealthEventsConfig_PerformanceScoreThreshold.Value;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_PerformanceScoreThreshold != null)
+            {
+                request.HealthEventsConfig.PerformanceScoreThreshold = requestHealthEventsConfig_healthEventsConfig_PerformanceScoreThreshold.Value;
+                requestHealthEventsConfigIsNull = false;
+            }
+             // determine if request.HealthEventsConfig should be set to null
+            if (requestHealthEventsConfigIsNull)
+            {
+                request.HealthEventsConfig = null;
             }
             
              // populate InternetMeasurementsLogDelivery
@@ -417,6 +468,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Double? HealthEventsConfig_AvailabilityScoreThreshold { get; set; }
+            public System.Double? HealthEventsConfig_PerformanceScoreThreshold { get; set; }
             public System.String S3Config_BucketName { get; set; }
             public System.String S3Config_BucketPrefix { get; set; }
             public Amazon.InternetMonitor.LogDeliveryStatus S3Config_LogDeliveryStatus { get; set; }

@@ -1,4 +1,20 @@
-﻿### 4.1.361 (2023-06-27 21:21Z)
+﻿### 4.1.362 (2023-06-28 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.579.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Internet Monitor
+    * Modified cmdlet New-CWIMMonitor: added parameters HealthEventsConfig_AvailabilityScoreThreshold and HealthEventsConfig_PerformanceScoreThreshold.
+    * Modified cmdlet Update-CWIMMonitor: added parameters HealthEventsConfig_AvailabilityScoreThreshold and HealthEventsConfig_PerformanceScoreThreshold.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBInstance: added parameters DisableDomain, DomainAuthSecretArn, DomainDnsIp, DomainFqdn and DomainOu.
+    * Modified cmdlet New-RDSDBInstance: added parameters DomainAuthSecretArn, DomainDnsIp, DomainFqdn and DomainOu.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameters DomainAuthSecretArn, DomainDnsIp, DomainFqdn and DomainOu.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameters DomainAuthSecretArn, DomainDnsIp, DomainFqdn and DomainOu.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameters DomainAuthSecretArn, DomainDnsIp, DomainFqdn and DomainOu.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Get-S3Object: added parameter OptionalObjectAttribute.
+    * Modified cmdlet Get-S3ObjectV2: added parameter OptionalObjectAttribute.
+    * Modified cmdlet Get-S3Version: added parameter OptionalObjectAttribute.
+
+### 4.1.361 (2023-06-27 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.578.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet Update-EMRServerlessApplication: added parameter ReleaseLabel.

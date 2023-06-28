@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
-        /// The ContinuationToken that represents a placeholder from where this request should begin.
+        /// The <code>ContinuationToken</code> that represents a placeholder from where this request
+        /// should begin.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

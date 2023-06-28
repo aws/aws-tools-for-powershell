@@ -307,6 +307,39 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String Domain { get; set; }
         #endregion
         
+        #region Parameter DomainAuthSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the Secrets Manager secret that contains the credentials for the user
+        /// performing the domain join.</para><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainAuthSecretArn { get; set; }
+        #endregion
+        
+        #region Parameter DomainDnsIp
+        /// <summary>
+        /// <para>
+        /// <para>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</para><para>Constraints:</para><ul><li><para>Two IP addresses must be provided. If there isn't a secondary domain controller, use
+        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <code>123.124.125.126,234.235.236.237</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainDnsIps")]
+        public System.String[] DomainDnsIp { get; set; }
+        #endregion
+        
+        #region Parameter DomainFqdn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the fully qualified domain name of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Cannot be greater than 64 characters.</para></li></ul><para>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainFqdn { get; set; }
+        #endregion
+        
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
@@ -315,6 +348,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainIAMRoleName { get; set; }
+        #endregion
+        
+        #region Parameter DomainOu
+        /// <summary>
+        /// <para>
+        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Cannot be greater than 64 characters.</para></li></ul><para>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainOu { get; set; }
         #endregion
         
         #region Parameter EnableCloudwatchLogsExport
@@ -898,7 +941,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
+            context.DomainAuthSecretArn = this.DomainAuthSecretArn;
+            if (this.DomainDnsIp != null)
+            {
+                context.DomainDnsIp = new List<System.String>(this.DomainDnsIp);
+            }
+            context.DomainFqdn = this.DomainFqdn;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
+            context.DomainOu = this.DomainOu;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -1041,9 +1091,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Domain = cmdletContext.Domain;
             }
+            if (cmdletContext.DomainAuthSecretArn != null)
+            {
+                request.DomainAuthSecretArn = cmdletContext.DomainAuthSecretArn;
+            }
+            if (cmdletContext.DomainDnsIp != null)
+            {
+                request.DomainDnsIps = cmdletContext.DomainDnsIp;
+            }
+            if (cmdletContext.DomainFqdn != null)
+            {
+                request.DomainFqdn = cmdletContext.DomainFqdn;
+            }
             if (cmdletContext.DomainIAMRoleName != null)
             {
                 request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
+            }
+            if (cmdletContext.DomainOu != null)
+            {
+                request.DomainOu = cmdletContext.DomainOu;
             }
             if (cmdletContext.EnableCloudwatchLogsExport != null)
             {
@@ -1268,7 +1334,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
+            public System.String DomainAuthSecretArn { get; set; }
+            public List<System.String> DomainDnsIp { get; set; }
+            public System.String DomainFqdn { get; set; }
             public System.String DomainIAMRoleName { get; set; }
+            public System.String DomainOu { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableCustomerOwnedIp { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

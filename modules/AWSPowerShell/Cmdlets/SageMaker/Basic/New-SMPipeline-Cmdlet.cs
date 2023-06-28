@@ -85,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PipelineDefinition
         /// <summary>
         /// <para>
-        /// <para>The JSON pipeline definition of the pipeline.</para>
+        /// <para>The <a href="https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/">JSON
+        /// pipeline definition</a> of the pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -223,7 +223,7 @@ $OMICS_Completers = {
         # Amazon.Omics.WorkflowEngine
         "New-OMICSWorkflow/Engine"
         {
-            $v = "NEXTFLOW","WDL"
+            $v = "CWL","NEXTFLOW","WDL"
             break
         }
 
