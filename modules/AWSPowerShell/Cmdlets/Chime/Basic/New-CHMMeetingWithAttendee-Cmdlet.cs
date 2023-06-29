@@ -32,7 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
     /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
     /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> .
+    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> . 
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html">CreateMeetingWithAttendees</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMMeetingWithAttendee", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Meeting")]
@@ -41,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns an Amazon.Chime.Model.Meeting object.",
         "The service call response (type Amazon.Chime.Model.CreateMeetingWithAttendeesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by CreateMeetingWithAttendees in the Amazon Chime SDK Meetings Namespace")]
     public partial class NewCHMMeetingWithAttendeeCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

@@ -133,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter IconS3Location_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of the S3 object.</para>
+        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType
+        /// (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType,
+        /// and using an existing application package (VHD file). In this case, <code>S3Key</code>
+        /// refers to the VHD file. If a new application package is required, then <code>S3Key</code>
+        /// is not required. (Actions: CreateAppBlock)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

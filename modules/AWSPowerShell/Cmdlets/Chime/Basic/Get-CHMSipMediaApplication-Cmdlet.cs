@@ -30,6 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Retrieves the information for a SIP media application, including name, AWS Region,
     /// and endpoints.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplication.html">GetSipMediaApplication</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMSipMediaApplication")]
     [OutputType("Amazon.Chime.Model.SipMediaApplication")]
@@ -38,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns an Amazon.Chime.Model.SipMediaApplication object.",
         "The service call response (type Amazon.Chime.Model.GetSipMediaApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by GetSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
     public partial class GetCHMSipMediaApplicationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

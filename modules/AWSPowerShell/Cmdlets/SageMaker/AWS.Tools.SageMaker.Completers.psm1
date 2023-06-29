@@ -195,7 +195,7 @@ $SM_Completers = {
             ($_ -eq "New-SMAutoMLJobV2/AutoMLJobObjective_MetricName")
         }
         {
-            $v = "Accuracy","AUC","BalancedAccuracy","F1","F1macro","MAE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE"
+            $v = "Accuracy","AUC","AverageWeightedQuantileLoss","BalancedAccuracy","F1","F1macro","MAE","MAPE","MASE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE","WAPE"
             break
         }
 

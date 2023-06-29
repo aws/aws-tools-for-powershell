@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// out of Amazon Chime and can no longer sign in. To remove the suspension from suspended
     /// <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.
     /// </para><para>
-    ///  To sign out users without suspending them, use the <a>LogoutUser</a> action. 
+    ///  To sign out users without suspending them, use the <a>LogoutUser</a> action.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "CHMUserSuspensionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

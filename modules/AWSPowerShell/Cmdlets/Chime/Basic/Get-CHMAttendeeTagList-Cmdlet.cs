@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Lists the tags applied to an Amazon Chime SDK attendee resource.
+    /// 
+    ///  <important><para>
+    /// ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace. Update
+    /// your application to remove calls to this API.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMAttendeeTagList")]
     [OutputType("Amazon.Chime.Model.Tag")]
@@ -37,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns a collection of Amazon.Chime.Model.Tag objects.",
         "The service call response (type Amazon.Chime.Model.ListAttendeeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
     public partial class GetCHMAttendeeTagListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

@@ -33,7 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     ///  <note><para>
     /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
     /// of the user that makes the API call as the value in the header.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.html">ListChannelModerators</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMChannelModeratorList")]
     [OutputType("Amazon.Chime.Model.ListChannelModeratorsResponse")]
@@ -41,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdletOutput("Amazon.Chime.Model.ListChannelModeratorsResponse",
         "This cmdlet returns an Amazon.Chime.Model.ListChannelModeratorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by ListChannelModerators in the Amazon Chime SDK Messaging Namespace")]
     public partial class GetCHMChannelModeratorListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

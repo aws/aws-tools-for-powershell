@@ -32,6 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// You can use validated addresses in a Presence Information Data Format Location Object
     /// file that you include in SIP requests. That helps ensure that addresses are routed
     /// to the appropriate Public Safety Answering Point.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ValidateE911Address.html">ValidateE911Address</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Confirm", "CHME911Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.ValidateE911AddressResponse")]
@@ -39,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdletOutput("Amazon.Chime.Model.ValidateE911AddressResponse",
         "This cmdlet returns an Amazon.Chime.Model.ValidateE911AddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace")]
     public partial class ConfirmCHME911AddressCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

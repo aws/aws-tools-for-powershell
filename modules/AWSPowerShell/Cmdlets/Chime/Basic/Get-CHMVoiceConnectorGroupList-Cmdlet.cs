@@ -28,7 +28,16 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorGroups.html">ListVoiceConnectorGroups</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMVoiceConnectorGroupList")]
     [OutputType("Amazon.Chime.Model.VoiceConnectorGroup")]
@@ -37,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns a collection of Amazon.Chime.Model.VoiceConnectorGroup objects.",
         "The service call response (type Amazon.Chime.Model.ListVoiceConnectorGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by ListVoiceConnectorGroups in the Amazon Chime SDK Voice Namespace")]
     public partial class GetCHMVoiceConnectorGroupListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

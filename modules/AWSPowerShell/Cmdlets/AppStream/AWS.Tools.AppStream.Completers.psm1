@@ -80,6 +80,13 @@ $APS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppStream.AppBlockBuilderPlatformType
+        "New-APSAppBlockBuilder/Platform"
+        {
+            $v = "WINDOWS_SERVER_2019"
+            break
+        }
+
         # Amazon.AppStream.AppVisibility
         {
             ($_ -eq "New-APSEntitlement/AppVisibility") -Or
@@ -129,9 +136,17 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.PackagingType
+        "New-APSAppBlock/PackagingType"
+        {
+            $v = "APPSTREAM2","CUSTOM"
+            break
+        }
+
         # Amazon.AppStream.PlatformType
         {
             ($_ -eq "New-APSFleet/Platform") -Or
+            ($_ -eq "Update-APSAppBlockBuilder/Platform") -Or
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
@@ -180,7 +195,8 @@ $APS_map = @{
     "CertificateBasedAuthProperties_Status"=@("New-APSDirectoryConfig","Update-APSDirectoryConfig")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
-    "Platform"=@("New-APSFleet","Update-APSFleet")
+    "PackagingType"=@("New-APSAppBlock")
+    "Platform"=@("New-APSAppBlockBuilder","New-APSFleet","Update-APSAppBlockBuilder","Update-APSFleet")
     "StreamingExperienceSettings_PreferredProtocol"=@("New-APSStack","Update-APSStack")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
     "Type"=@("Get-APSImageList")
@@ -236,13 +252,16 @@ $APS_SelectCompleters = {
 }
 
 $APS_SelectMap = @{
-    "Select"=@("Register-APSApplicationFleet",
+    "Select"=@("Add-APSAppBlockBuilderAppBlock",
+               "Register-APSApplicationFleet",
                "Add-APSApplicationToEntitlement",
                "Register-APSFleet",
                "Register-APSUserStackBatch",
                "Unregister-APSUserStackBatch",
                "Copy-APSImage",
                "New-APSAppBlock",
+               "New-APSAppBlockBuilder",
+               "New-APSAppBlockBuilderStreamingURL",
                "New-APSApplication",
                "New-APSDirectoryConfig",
                "New-APSEntitlement",
@@ -255,6 +274,7 @@ $APS_SelectMap = @{
                "New-APSUsageReportSubscription",
                "New-APSUser",
                "Remove-APSAppBlock",
+               "Remove-APSAppBlockBuilder",
                "Remove-APSApplication",
                "Remove-APSDirectoryConfig",
                "Remove-APSEntitlement",
@@ -265,6 +285,8 @@ $APS_SelectMap = @{
                "Remove-APSStack",
                "Remove-APSUsageReportSubscription",
                "Remove-APSUser",
+               "Get-APSAppBlockBuilderAppBlockAssociation",
+               "Get-APSAppBlockBuilder",
                "Get-APSAppBlock",
                "Get-APSApplicationFleetAssociation",
                "Get-APSApplication",
@@ -280,6 +302,7 @@ $APS_SelectMap = @{
                "Get-APSUser",
                "Get-APSUserStackAssociation",
                "Disable-APSUser",
+               "Remove-APSAppBlockBuilderAppBlock",
                "Unregister-APSApplicationFleet",
                "Remove-APSApplicationFromEntitlement",
                "Unregister-APSFleet",
@@ -289,12 +312,15 @@ $APS_SelectMap = @{
                "Get-APSAssociatedStackList",
                "Get-APSEntitledApplicationList",
                "Get-APSTagsForResourceList",
+               "Start-APSAppBlockBuilder",
                "Start-APSFleet",
                "Start-APSImageBuilder",
+               "Stop-APSAppBlockBuilder",
                "Stop-APSFleet",
                "Stop-APSImageBuilder",
                "Add-APSResourceTag",
                "Remove-APSResourceTag",
+               "Update-APSAppBlockBuilder",
                "Update-APSApplication",
                "Update-APSDirectoryConfig",
                "Update-APSEntitlement",

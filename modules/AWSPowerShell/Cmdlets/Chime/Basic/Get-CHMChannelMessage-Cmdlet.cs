@@ -33,7 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     ///  <note><para>
     /// The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
     /// of the user that makes the API call as the value in the header.
-    /// </para></note>
+    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html">GetChannelMessage</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMChannelMessage")]
     [OutputType("Amazon.Chime.Model.ChannelMessage")]
@@ -42,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns an Amazon.Chime.Model.ChannelMessage object.",
         "The service call response (type Amazon.Chime.Model.GetChannelMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by GetChannelMessage in the Amazon Chime SDK Messaging Namespace")]
     public partial class GetCHMChannelMessageCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

@@ -31,12 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
     /// promoted user can perform the following actions. 
     /// 
-    ///  <ul><li><para><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html">CreateAppInstanceAdmin</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><ul><li><para><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.
     /// </para></li><li><para><code>DeleteChannelMessage</code> actions.
     /// </para></li></ul><para>
     /// Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code>
     /// role.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMAppInstanceAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.CreateAppInstanceAdminResponse")]
@@ -44,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdletOutput("Amazon.Chime.Model.CreateAppInstanceAdminResponse",
         "This cmdlet returns an Amazon.Chime.Model.CreateAppInstanceAdminResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
     public partial class NewCHMAppInstanceAdminCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

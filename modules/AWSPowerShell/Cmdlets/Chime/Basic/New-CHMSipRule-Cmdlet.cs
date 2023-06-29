@@ -30,6 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Creates a SIP rule which can be used to run a SIP media application as a target for
     /// a specific trigger type.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipRule.html">CreateSipRule</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMSipRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.SipRule")]
@@ -38,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns an Amazon.Chime.Model.SipRule object.",
         "The service call response (type Amazon.Chime.Model.CreateSipRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by CreateSipRule in the Amazon Chime SDK Voice Namespace")]
     public partial class NewCHMSipRuleCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

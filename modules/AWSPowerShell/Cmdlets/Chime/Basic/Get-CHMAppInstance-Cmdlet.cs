@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Returns the full details of an <code>AppInstance</code>.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.html">DescribeAppInstance</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstance")]
     [OutputType("Amazon.Chime.Model.AppInstance")]
@@ -37,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns an Amazon.Chime.Model.AppInstance object.",
         "The service call response (type Amazon.Chime.Model.DescribeAppInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by DescribeAppInstance in the Amazon Chime SDK Identity Namespace")]
     public partial class GetCHMAppInstanceCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

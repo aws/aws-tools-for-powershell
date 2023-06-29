@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Amazon.Chime.IAmazonChime.ListChannels<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon.Chime.IAmazonChime.ListChannels<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMChannelList")]
     [OutputType("Amazon.Chime.Model.ChannelSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns a collection of Amazon.Chime.Model.ChannelSummary objects.",
         "The service call response (type Amazon.Chime.Model.ListChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by ListChannels in the Amazon Chime SDK Messaging Namespace")]
     public partial class GetCHMChannelListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

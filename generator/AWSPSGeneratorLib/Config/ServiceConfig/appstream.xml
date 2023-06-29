@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAppBlockBuilderAppBlock" OutputProperty="AppBlockBuilderAppBlockAssociation" Verb="Add" Noun="AppBlockBuilderAppBlock" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateApplicationFleet" OutputProperty="ApplicationFleetAssociation" Verb="Register" Noun="ApplicationFleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppBlock" OutputProperty="AppBlock" Verb="New" Noun="AppBlock" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PostSetupScriptDetails_ScriptS3Location_S3Bucket" NewName="PostSetupScriptDetails_ScriptS3Location_S3Bucket" />
+                <Param Name="PostSetupScriptDetails_ScriptS3Location_S3Key" NewName="PostSetupScriptDetails_ScriptS3Location_S3Key" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="New" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppBlockBuilderStreamingURL" OutputProperty="*" Verb="New" Noun="AppBlockBuilderStreamingURL" ShouldProcessTarget="AppBlockBuilderName" PipelineParameter="AppBlockBuilderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppBlockBuilder" Verb="Remove" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -132,6 +151,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppBlockBuilderAppBlockAssociations" OutputProperty="AppBlockBuilderAppBlockAssociations" Verb="Get" Noun="AppBlockBuilderAppBlockAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppBlockBuilders" OutputProperty="AppBlockBuilders" Verb="Get" Noun="AppBlockBuilder" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -197,6 +224,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAppBlockBuilderAppBlock" Verb="Remove" Noun="AppBlockBuilderAppBlock" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateApplicationFleet" Verb="Unregister" Noun="ApplicationFleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -233,11 +264,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Start" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartFleet" Verb="Start" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImageBuilder" OutputProperty="ImageBuilder" Verb="Start" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Stop" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -254,6 +293,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="TagKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Update" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

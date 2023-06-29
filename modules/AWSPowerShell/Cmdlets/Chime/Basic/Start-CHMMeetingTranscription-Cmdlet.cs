@@ -40,12 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Transcribe. For more information on each parameter and which combinations are valid,
     /// refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a>
     /// API in the <i>Amazon Transcribe Developer Guide</i>.
-    /// </para><important><para>
+    /// </para><note><para>
     /// Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon
     /// Transcribe is subject to the <a href="https://aws.amazon.com/service-terms/">AWS Service
     /// Terms</a>, including the terms specific to the AWS Machine Learning and Artificial
     /// Intelligence Services.
-    /// </para></important>
+    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html">StartMeetingTranscription</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Start", "CHMMeetingTranscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -54,6 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Chime.Model.StartMeetingTranscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by StartMeetingTranscription in the Amazon Chime SDK Meetings Namespace")]
     public partial class StartCHMMeetingTranscriptionCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

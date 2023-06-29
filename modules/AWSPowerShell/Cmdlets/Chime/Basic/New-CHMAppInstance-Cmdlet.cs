@@ -31,6 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
     /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
     /// idempotency behavior as described in the AWS API Standard.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html">CreateAppInstance</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMAppInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -39,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Chime.Model.CreateAppInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by CreateAppInstance in the Amazon Chime SDK Identity Namespace")]
     public partial class NewCHMAppInstanceCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

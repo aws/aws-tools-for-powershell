@@ -51,6 +51,30 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.Model.AggregateColumn[] Aggregation_AggregateColumn { get; set; }
         #endregion
         
+        #region Parameter Aggregation_AllowedJoinOperator
+        /// <summary>
+        /// <para>
+        /// <para>Which logical operators (if any) are to be used in an INNER JOIN match condition.
+        /// Default is <code>AND</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_Aggregation_AllowedJoinOperators")]
+        public System.String[] Aggregation_AllowedJoinOperator { get; set; }
+        #endregion
+        
+        #region Parameter List_AllowedJoinOperator
+        /// <summary>
+        /// <para>
+        /// <para>Which logical operators (if any) are to be used in an INNER JOIN match condition.
+        /// Default is <code>AND</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_List_AllowedJoinOperators")]
+        public System.String[] List_AllowedJoinOperator { get; set; }
+        #endregion
+        
         #region Parameter AnalysisRuleType
         /// <summary>
         /// <para>
@@ -114,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Columns that can be used to join a configured table with the table of the member who
-        /// can query and another members' configured tables.</para>
+        /// can query and other members' configured tables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Control that requires member who runs query to do a join with their configured table
-        /// and/or other configured table in query</para>
+        /// and/or other configured table in query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 context.Aggregation_AggregateColumn = new List<Amazon.CleanRooms.Model.AggregateColumn>(this.Aggregation_AggregateColumn);
             }
+            if (this.Aggregation_AllowedJoinOperator != null)
+            {
+                context.Aggregation_AllowedJoinOperator = new List<System.String>(this.Aggregation_AllowedJoinOperator);
+            }
             if (this.Aggregation_DimensionColumn != null)
             {
                 context.Aggregation_DimensionColumn = new List<System.String>(this.Aggregation_DimensionColumn);
@@ -252,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (this.Aggregation_ScalarFunction != null)
             {
                 context.Aggregation_ScalarFunction = new List<System.String>(this.Aggregation_ScalarFunction);
+            }
+            if (this.List_AllowedJoinOperator != null)
+            {
+                context.List_AllowedJoinOperator = new List<System.String>(this.List_AllowedJoinOperator);
             }
             if (this.List_JoinColumn != null)
             {
@@ -305,6 +337,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate List
             var requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_ListIsNull = true;
             requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List = new Amazon.CleanRooms.Model.AnalysisRuleList();
+            List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List_list_AllowedJoinOperator = null;
+            if (cmdletContext.List_AllowedJoinOperator != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List_list_AllowedJoinOperator = cmdletContext.List_AllowedJoinOperator;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List_list_AllowedJoinOperator != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List.AllowedJoinOperators = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List_list_AllowedJoinOperator;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_ListIsNull = false;
+            }
             List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_List_list_JoinColumn = null;
             if (cmdletContext.List_JoinColumn != null)
             {
@@ -348,6 +390,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_AggregateColumn != null)
             {
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation.AggregateColumns = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_AggregateColumn;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_AggregationIsNull = false;
+            }
+            List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_AllowedJoinOperator = null;
+            if (cmdletContext.Aggregation_AllowedJoinOperator != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_AllowedJoinOperator = cmdletContext.Aggregation_AllowedJoinOperator;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_AllowedJoinOperator != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation.AllowedJoinOperators = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_AllowedJoinOperator;
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_AggregationIsNull = false;
             }
             List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Aggregation_aggregation_DimensionColumn = null;
@@ -495,11 +547,13 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CleanRooms.Model.AggregateColumn> Aggregation_AggregateColumn { get; set; }
+            public List<System.String> Aggregation_AllowedJoinOperator { get; set; }
             public List<System.String> Aggregation_DimensionColumn { get; set; }
             public List<System.String> Aggregation_JoinColumn { get; set; }
             public Amazon.CleanRooms.JoinRequiredOption Aggregation_JoinRequired { get; set; }
             public List<Amazon.CleanRooms.Model.AggregationConstraint> Aggregation_OutputConstraint { get; set; }
             public List<System.String> Aggregation_ScalarFunction { get; set; }
+            public List<System.String> List_AllowedJoinOperator { get; set; }
             public List<System.String> List_JoinColumn { get; set; }
             public List<System.String> List_ListColumn { get; set; }
             public Amazon.CleanRooms.ConfiguredTableAnalysisRuleType AnalysisRuleType { get; set; }

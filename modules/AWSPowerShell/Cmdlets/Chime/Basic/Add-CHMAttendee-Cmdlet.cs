@@ -28,7 +28,12 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Applies the specified tags to the specified Amazon Chime SDK attendee.
+    /// Applies the specified tags to the specified Amazon Chime attendee.
+    /// 
+    ///  <important><para>
+    /// TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update your
+    /// application to remove calls to this API.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "CHMAttendee", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Chime.Model.TagAttendeeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
     public partial class AddCHMAttendeeCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

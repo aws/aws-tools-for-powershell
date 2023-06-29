@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter PostSetupScriptDetails_ExecutableParameter
+        /// <summary>
+        /// <para>
+        /// <para>The runtime parameters passed to the run path for the script.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostSetupScriptDetails_ExecutableParameters")]
+        public System.String PostSetupScriptDetails_ExecutableParameter { get; set; }
+        #endregion
+        
         #region Parameter SetupScriptDetails_ExecutableParameter
         /// <summary>
         /// <para>
@@ -82,20 +93,23 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String SetupScriptDetails_ExecutableParameter { get; set; }
         #endregion
         
+        #region Parameter PostSetupScriptDetails_ExecutablePath
+        /// <summary>
+        /// <para>
+        /// <para>The run path for the script.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostSetupScriptDetails_ExecutablePath { get; set; }
+        #endregion
+        
         #region Parameter SetupScriptDetails_ExecutablePath
         /// <summary>
         /// <para>
         /// <para>The run path for the script.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SetupScriptDetails_ExecutablePath { get; set; }
         #endregion
         
@@ -116,20 +130,34 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PackagingType
+        /// <summary>
+        /// <para>
+        /// <para>The packaging type of the app block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.PackagingType")]
+        public Amazon.AppStream.PackagingType PackagingType { get; set; }
+        #endregion
+        
+        #region Parameter PostSetupScriptDetails_ScriptS3Location_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The S3 bucket of the S3 object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostSetupScriptDetails_ScriptS3Location_S3Bucket { get; set; }
+        #endregion
+        
         #region Parameter ScriptS3Location_S3Bucket
         /// <summary>
         /// <para>
         /// <para>The S3 bucket of the S3 object.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SetupScriptDetails_ScriptS3Location_S3Bucket")]
         public System.String ScriptS3Location_S3Bucket { get; set; }
         #endregion
@@ -151,20 +179,31 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String SourceS3Location_S3Bucket { get; set; }
         #endregion
         
+        #region Parameter PostSetupScriptDetails_ScriptS3Location_S3Key
+        /// <summary>
+        /// <para>
+        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType
+        /// (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType,
+        /// and using an existing application package (VHD file). In this case, <code>S3Key</code>
+        /// refers to the VHD file. If a new application package is required, then <code>S3Key</code>
+        /// is not required. (Actions: CreateAppBlock)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostSetupScriptDetails_ScriptS3Location_S3Key { get; set; }
+        #endregion
+        
         #region Parameter ScriptS3Location_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of the S3 object.</para>
+        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType
+        /// (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType,
+        /// and using an existing application package (VHD file). In this case, <code>S3Key</code>
+        /// refers to the VHD file. If a new application package is required, then <code>S3Key</code>
+        /// is not required. (Actions: CreateAppBlock)</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SetupScriptDetails_ScriptS3Location_S3Key")]
         public System.String ScriptS3Location_S3Key { get; set; }
         #endregion
@@ -172,17 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SourceS3Location_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of the S3 object.</para>
+        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType
+        /// (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType,
+        /// and using an existing application package (VHD file). In this case, <code>S3Key</code>
+        /// refers to the VHD file. If a new application package is required, then <code>S3Key</code>
+        /// is not required. (Actions: CreateAppBlock)</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceS3Location_S3Key { get; set; }
         #endregion
         
@@ -197,19 +233,24 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter PostSetupScriptDetails_TimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The run timeout, in seconds, for the script.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostSetupScriptDetails_TimeoutInSeconds")]
+        public System.Int32? PostSetupScriptDetails_TimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter SetupScriptDetails_TimeoutInSecond
         /// <summary>
         /// <para>
         /// <para>The run timeout, in seconds, for the script.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SetupScriptDetails_TimeoutInSeconds")]
         public System.Int32? SetupScriptDetails_TimeoutInSecond { get; set; }
         #endregion
@@ -285,35 +326,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PackagingType = this.PackagingType;
+            context.PostSetupScriptDetails_ExecutableParameter = this.PostSetupScriptDetails_ExecutableParameter;
+            context.PostSetupScriptDetails_ExecutablePath = this.PostSetupScriptDetails_ExecutablePath;
+            context.PostSetupScriptDetails_ScriptS3Location_S3Bucket = this.PostSetupScriptDetails_ScriptS3Location_S3Bucket;
+            context.PostSetupScriptDetails_ScriptS3Location_S3Key = this.PostSetupScriptDetails_ScriptS3Location_S3Key;
+            context.PostSetupScriptDetails_TimeoutInSecond = this.PostSetupScriptDetails_TimeoutInSecond;
             context.SetupScriptDetails_ExecutableParameter = this.SetupScriptDetails_ExecutableParameter;
             context.SetupScriptDetails_ExecutablePath = this.SetupScriptDetails_ExecutablePath;
-            #if MODULAR
-            if (this.SetupScriptDetails_ExecutablePath == null && ParameterWasBound(nameof(this.SetupScriptDetails_ExecutablePath)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SetupScriptDetails_ExecutablePath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ScriptS3Location_S3Bucket = this.ScriptS3Location_S3Bucket;
-            #if MODULAR
-            if (this.ScriptS3Location_S3Bucket == null && ParameterWasBound(nameof(this.ScriptS3Location_S3Bucket)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ScriptS3Location_S3Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ScriptS3Location_S3Key = this.ScriptS3Location_S3Key;
-            #if MODULAR
-            if (this.ScriptS3Location_S3Key == null && ParameterWasBound(nameof(this.ScriptS3Location_S3Key)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ScriptS3Location_S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SetupScriptDetails_TimeoutInSecond = this.SetupScriptDetails_TimeoutInSecond;
-            #if MODULAR
-            if (this.SetupScriptDetails_TimeoutInSecond == null && ParameterWasBound(nameof(this.SetupScriptDetails_TimeoutInSecond)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SetupScriptDetails_TimeoutInSecond which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SourceS3Location_S3Bucket = this.SourceS3Location_S3Bucket;
             #if MODULAR
             if (this.SourceS3Location_S3Bucket == null && ParameterWasBound(nameof(this.SourceS3Location_S3Bucket)))
@@ -322,12 +345,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #endif
             context.SourceS3Location_S3Key = this.SourceS3Location_S3Key;
-            #if MODULAR
-            if (this.SourceS3Location_S3Key == null && ParameterWasBound(nameof(this.SourceS3Location_S3Key)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceS3Location_S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -363,6 +380,84 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PackagingType != null)
+            {
+                request.PackagingType = cmdletContext.PackagingType;
+            }
+            
+             // populate PostSetupScriptDetails
+            var requestPostSetupScriptDetailsIsNull = true;
+            request.PostSetupScriptDetails = new Amazon.AppStream.Model.ScriptDetails();
+            System.String requestPostSetupScriptDetails_postSetupScriptDetails_ExecutableParameter = null;
+            if (cmdletContext.PostSetupScriptDetails_ExecutableParameter != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ExecutableParameter = cmdletContext.PostSetupScriptDetails_ExecutableParameter;
+            }
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_ExecutableParameter != null)
+            {
+                request.PostSetupScriptDetails.ExecutableParameters = requestPostSetupScriptDetails_postSetupScriptDetails_ExecutableParameter;
+                requestPostSetupScriptDetailsIsNull = false;
+            }
+            System.String requestPostSetupScriptDetails_postSetupScriptDetails_ExecutablePath = null;
+            if (cmdletContext.PostSetupScriptDetails_ExecutablePath != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ExecutablePath = cmdletContext.PostSetupScriptDetails_ExecutablePath;
+            }
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_ExecutablePath != null)
+            {
+                request.PostSetupScriptDetails.ExecutablePath = requestPostSetupScriptDetails_postSetupScriptDetails_ExecutablePath;
+                requestPostSetupScriptDetailsIsNull = false;
+            }
+            System.Int32? requestPostSetupScriptDetails_postSetupScriptDetails_TimeoutInSecond = null;
+            if (cmdletContext.PostSetupScriptDetails_TimeoutInSecond != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_TimeoutInSecond = cmdletContext.PostSetupScriptDetails_TimeoutInSecond.Value;
+            }
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_TimeoutInSecond != null)
+            {
+                request.PostSetupScriptDetails.TimeoutInSeconds = requestPostSetupScriptDetails_postSetupScriptDetails_TimeoutInSecond.Value;
+                requestPostSetupScriptDetailsIsNull = false;
+            }
+            Amazon.AppStream.Model.S3Location requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location = null;
+            
+             // populate ScriptS3Location
+            var requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3LocationIsNull = true;
+            requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location = new Amazon.AppStream.Model.S3Location();
+            System.String requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Bucket = null;
+            if (cmdletContext.PostSetupScriptDetails_ScriptS3Location_S3Bucket != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Bucket = cmdletContext.PostSetupScriptDetails_ScriptS3Location_S3Bucket;
+            }
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Bucket != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location.S3Bucket = requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Bucket;
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3LocationIsNull = false;
+            }
+            System.String requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Key = null;
+            if (cmdletContext.PostSetupScriptDetails_ScriptS3Location_S3Key != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Key = cmdletContext.PostSetupScriptDetails_ScriptS3Location_S3Key;
+            }
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Key != null)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location.S3Key = requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location_postSetupScriptDetails_ScriptS3Location_S3Key;
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3LocationIsNull = false;
+            }
+             // determine if requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location should be set to null
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3LocationIsNull)
+            {
+                requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location = null;
+            }
+            if (requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location != null)
+            {
+                request.PostSetupScriptDetails.ScriptS3Location = requestPostSetupScriptDetails_postSetupScriptDetails_ScriptS3Location;
+                requestPostSetupScriptDetailsIsNull = false;
+            }
+             // determine if request.PostSetupScriptDetails should be set to null
+            if (requestPostSetupScriptDetailsIsNull)
+            {
+                request.PostSetupScriptDetails = null;
             }
             
              // populate SetupScriptDetails
@@ -535,6 +630,12 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
+            public Amazon.AppStream.PackagingType PackagingType { get; set; }
+            public System.String PostSetupScriptDetails_ExecutableParameter { get; set; }
+            public System.String PostSetupScriptDetails_ExecutablePath { get; set; }
+            public System.String PostSetupScriptDetails_ScriptS3Location_S3Bucket { get; set; }
+            public System.String PostSetupScriptDetails_ScriptS3Location_S3Key { get; set; }
+            public System.Int32? PostSetupScriptDetails_TimeoutInSecond { get; set; }
             public System.String SetupScriptDetails_ExecutableParameter { get; set; }
             public System.String SetupScriptDetails_ExecutablePath { get; set; }
             public System.String ScriptS3Location_S3Bucket { get; set; }

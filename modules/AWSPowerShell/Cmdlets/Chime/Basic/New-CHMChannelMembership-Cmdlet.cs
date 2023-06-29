@@ -51,7 +51,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// </para></li></ul><note><para>
     /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
     /// of the user that makes the API call as the value in the header.
-    /// </para></note>
+    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html">CreateChannelMembership</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMChannelMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.CreateChannelMembershipResponse")]
@@ -59,6 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdletOutput("Amazon.Chime.Model.CreateChannelMembershipResponse",
         "This cmdlet returns an Amazon.Chime.Model.CreateChannelMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by CreateChannelMembership in the Amazon Chime SDK Messaging Namespace")]
     public partial class NewCHMChannelMembershipCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

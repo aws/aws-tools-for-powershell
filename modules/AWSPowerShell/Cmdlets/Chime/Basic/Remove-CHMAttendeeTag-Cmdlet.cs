@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Untags the specified tags from the specified Amazon Chime SDK attendee.
+    /// 
+    ///  <important><para>
+    /// UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update
+    /// your application to remove calls to this API.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CHMAttendeeTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Chime.Model.UntagAttendeeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
     public partial class RemoveCHMAttendeeTagCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

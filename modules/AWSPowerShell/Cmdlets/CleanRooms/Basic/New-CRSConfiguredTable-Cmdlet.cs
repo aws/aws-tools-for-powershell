@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Glue_DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name of the database the AWS Glue table belongs to.</para>
+        /// <para>The name of the database the Glue table belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Glue_TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Glue table.</para>
+        /// <para>The name of the Glue table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

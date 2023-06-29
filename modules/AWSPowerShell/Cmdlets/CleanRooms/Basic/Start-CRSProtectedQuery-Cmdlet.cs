@@ -28,7 +28,7 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates a protected query that is started by AWS Clean Rooms.
+    /// Creates a protected query that is started by Clean Rooms .
     /// </summary>
     [Cmdlet("Start", "CRSProtectedQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.ProtectedQuery")]
@@ -90,14 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>The query string to be submitted.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SqlParameters_QueryString { get; set; }
         #endregion
         
@@ -203,12 +196,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.S3_KeyPrefix = this.S3_KeyPrefix;
             context.S3_ResultFormat = this.S3_ResultFormat;
             context.SqlParameters_QueryString = this.SqlParameters_QueryString;
-            #if MODULAR
-            if (this.SqlParameters_QueryString == null && ParameterWasBound(nameof(this.SqlParameters_QueryString)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SqlParameters_QueryString which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))

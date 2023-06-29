@@ -193,17 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter IconS3Location_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of the S3 object.</para>
+        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType
+        /// (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType,
+        /// and using an existing application package (VHD file). In this case, <code>S3Key</code>
+        /// refers to the VHD file. If a new application package is required, then <code>S3Key</code>
+        /// is not required. (Actions: CreateAppBlock)</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IconS3Location_S3Key { get; set; }
         #endregion
         
@@ -307,12 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #endif
             context.IconS3Location_S3Key = this.IconS3Location_S3Key;
-            #if MODULAR
-            if (this.IconS3Location_S3Key == null && ParameterWasBound(nameof(this.IconS3Location_S3Key)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IconS3Location_S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.InstanceFamily != null)
             {
                 context.InstanceFamily = new List<System.String>(this.InstanceFamily);

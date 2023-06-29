@@ -201,6 +201,18 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ReturnValuesOnConditionCheckFailure
+        {
+            ($_ -eq "Invoke-DDBDDBExecuteStatement/ReturnValuesOnConditionCheckFailure") -Or
+            ($_ -eq "Remove-DDBItem/ReturnValuesOnConditionCheckFailure") -Or
+            ($_ -eq "Set-DDBItem/ReturnValuesOnConditionCheckFailure") -Or
+            ($_ -eq "Update-DDBItem/ReturnValuesOnConditionCheckFailure")
+        }
+        {
+            $v = "ALL_OLD","NONE"
+            break
+        }
+
         # Amazon.DynamoDBv2.S3SseAlgorithm
         "Export-DDBTableToPointInTime/S3SseAlgorithm"
         {
@@ -281,6 +293,7 @@ $DDB_map = @{
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetrics"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnValues"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
+    "ReturnValuesOnConditionCheckFailure"=@("Invoke-DDBDDBExecuteStatement","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "S3SseAlgorithm"=@("Export-DDBTableToPointInTime")
     "Select"=@("Invoke-DDBQuery","Invoke-DDBScan")
     "SSESpecification_SSEType"=@("Update-DDBTable")

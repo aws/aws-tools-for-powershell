@@ -3495,6 +3495,13 @@ $APS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppStream.AppBlockBuilderPlatformType
+        "New-APSAppBlockBuilder/Platform"
+        {
+            $v = "WINDOWS_SERVER_2019"
+            break
+        }
+
         # Amazon.AppStream.AppVisibility
         {
             ($_ -eq "New-APSEntitlement/AppVisibility") -Or
@@ -3544,9 +3551,17 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.PackagingType
+        "New-APSAppBlock/PackagingType"
+        {
+            $v = "APPSTREAM2","CUSTOM"
+            break
+        }
+
         # Amazon.AppStream.PlatformType
         {
             ($_ -eq "New-APSFleet/Platform") -Or
+            ($_ -eq "Update-APSAppBlockBuilder/Platform") -Or
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
@@ -3595,7 +3610,8 @@ $APS_map = @{
     "CertificateBasedAuthProperties_Status"=@("New-APSDirectoryConfig","Update-APSDirectoryConfig")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
-    "Platform"=@("New-APSFleet","Update-APSFleet")
+    "PackagingType"=@("New-APSAppBlock")
+    "Platform"=@("New-APSAppBlockBuilder","New-APSFleet","Update-APSAppBlockBuilder","Update-APSFleet")
     "StreamingExperienceSettings_PreferredProtocol"=@("New-APSStack","Update-APSStack")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
     "Type"=@("Get-APSImageList")
@@ -3651,13 +3667,16 @@ $APS_SelectCompleters = {
 }
 
 $APS_SelectMap = @{
-    "Select"=@("Register-APSApplicationFleet",
+    "Select"=@("Add-APSAppBlockBuilderAppBlock",
+               "Register-APSApplicationFleet",
                "Add-APSApplicationToEntitlement",
                "Register-APSFleet",
                "Register-APSUserStackBatch",
                "Unregister-APSUserStackBatch",
                "Copy-APSImage",
                "New-APSAppBlock",
+               "New-APSAppBlockBuilder",
+               "New-APSAppBlockBuilderStreamingURL",
                "New-APSApplication",
                "New-APSDirectoryConfig",
                "New-APSEntitlement",
@@ -3670,6 +3689,7 @@ $APS_SelectMap = @{
                "New-APSUsageReportSubscription",
                "New-APSUser",
                "Remove-APSAppBlock",
+               "Remove-APSAppBlockBuilder",
                "Remove-APSApplication",
                "Remove-APSDirectoryConfig",
                "Remove-APSEntitlement",
@@ -3680,6 +3700,8 @@ $APS_SelectMap = @{
                "Remove-APSStack",
                "Remove-APSUsageReportSubscription",
                "Remove-APSUser",
+               "Get-APSAppBlockBuilderAppBlockAssociation",
+               "Get-APSAppBlockBuilder",
                "Get-APSAppBlock",
                "Get-APSApplicationFleetAssociation",
                "Get-APSApplication",
@@ -3695,6 +3717,7 @@ $APS_SelectMap = @{
                "Get-APSUser",
                "Get-APSUserStackAssociation",
                "Disable-APSUser",
+               "Remove-APSAppBlockBuilderAppBlock",
                "Unregister-APSApplicationFleet",
                "Remove-APSApplicationFromEntitlement",
                "Unregister-APSFleet",
@@ -3704,12 +3727,15 @@ $APS_SelectMap = @{
                "Get-APSAssociatedStackList",
                "Get-APSEntitledApplicationList",
                "Get-APSTagsForResourceList",
+               "Start-APSAppBlockBuilder",
                "Start-APSFleet",
                "Start-APSImageBuilder",
+               "Stop-APSAppBlockBuilder",
                "Stop-APSFleet",
                "Stop-APSImageBuilder",
                "Add-APSResourceTag",
                "Remove-APSResourceTag",
+               "Update-APSAppBlockBuilder",
                "Update-APSApplication",
                "Update-APSDirectoryConfig",
                "Update-APSEntitlement",
@@ -18231,6 +18257,18 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ReturnValuesOnConditionCheckFailure
+        {
+            ($_ -eq "Invoke-DDBDDBExecuteStatement/ReturnValuesOnConditionCheckFailure") -Or
+            ($_ -eq "Remove-DDBItem/ReturnValuesOnConditionCheckFailure") -Or
+            ($_ -eq "Set-DDBItem/ReturnValuesOnConditionCheckFailure") -Or
+            ($_ -eq "Update-DDBItem/ReturnValuesOnConditionCheckFailure")
+        }
+        {
+            $v = "ALL_OLD","NONE"
+            break
+        }
+
         # Amazon.DynamoDBv2.S3SseAlgorithm
         "Export-DDBTableToPointInTime/S3SseAlgorithm"
         {
@@ -18311,6 +18349,7 @@ $DDB_map = @{
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetrics"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnValues"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
+    "ReturnValuesOnConditionCheckFailure"=@("Invoke-DDBDDBExecuteStatement","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "S3SseAlgorithm"=@("Export-DDBTableToPointInTime")
     "Select"=@("Invoke-DDBQuery","Invoke-DDBScan")
     "SSESpecification_SSEType"=@("Update-DDBTable")
@@ -25329,7 +25368,7 @@ $GML_Completers = {
         # Amazon.GameLift.OperatingSystem
         "New-GMLBuild/OperatingSystem"
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","WINDOWS_2012","WINDOWS_2016"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","AMAZON_LINUX_2023","WINDOWS_2012","WINDOWS_2016"
             break
         }
 
@@ -51050,7 +51089,7 @@ $SM_Completers = {
             ($_ -eq "New-SMAutoMLJobV2/AutoMLJobObjective_MetricName")
         }
         {
-            $v = "Accuracy","AUC","BalancedAccuracy","F1","F1macro","MAE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE"
+            $v = "Accuracy","AUC","AverageWeightedQuantileLoss","BalancedAccuracy","F1","F1macro","MAE","MAPE","MASE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE","WAPE"
             break
         }
 

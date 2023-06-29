@@ -208,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
-        /// value is 1.</para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, as well as time-series forecasting problem types,
+        /// the supported value is 1. For tabular problem types, the maximum value is 750.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// optimize its performance based on the feedback provided by the objective metric when
         /// evaluating the model on the validation dataset.</para><para>For the list of all available metrics supported by Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
         /// metrics</a>.</para><para>If you do not specify a metric explicitly, the default behavior is to automatically
-        /// use:</para><ul><li><para>For tabular problem types:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li><li><para>For image or text classification problem types: <code>Accuracy</code></para></li></ul>
+        /// use:</para><ul><li><para>For tabular problem types:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li><li><para>For image or text classification problem types: <code>Accuracy</code></para></li><li><para>For time-series forecasting problem types: <code>AverageWeightedQuantileLoss</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

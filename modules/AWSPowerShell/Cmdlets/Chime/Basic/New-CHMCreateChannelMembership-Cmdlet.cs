@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Adds a specified number of users to a channel.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html">BatchCreateChannelMembership</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMCreateChannelMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.BatchCreateChannelMembershipResponse")]
@@ -36,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdletOutput("Amazon.Chime.Model.BatchCreateChannelMembershipResponse",
         "This cmdlet returns an Amazon.Chime.Model.BatchCreateChannelMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by BatchCreateChannelMembership in the Amazon Chime SDK Messaging Namespace")]
     public partial class NewCHMCreateChannelMembershipCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

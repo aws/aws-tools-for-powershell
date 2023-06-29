@@ -28,8 +28,17 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
+    /// <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html">GetVoiceConnectorTerminationHealth</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><para>
     /// Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
     /// from your SIP infrastructure for the specified Amazon Chime Voice Connector.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMVoiceConnectorTerminationHealth")]
     [OutputType("Amazon.Chime.Model.TerminationHealth")]
@@ -38,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet returns an Amazon.Chime.Model.TerminationHealth object.",
         "The service call response (type Amazon.Chime.Model.GetVoiceConnectorTerminationHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace")]
     public partial class GetCHMVoiceConnectorTerminationHealthCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

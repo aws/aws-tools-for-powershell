@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Gets the retention settings for an <code>AppInstance</code>.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.html">GetMessagingRetentionSettings</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceRetentionSetting")]
     [OutputType("Amazon.Chime.Model.GetAppInstanceRetentionSettingsResponse")]
@@ -36,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdletOutput("Amazon.Chime.Model.GetAppInstanceRetentionSettingsResponse",
         "This cmdlet returns an Amazon.Chime.Model.GetAppInstanceRetentionSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by GetAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace")]
     public partial class GetCHMAppInstanceRetentionSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

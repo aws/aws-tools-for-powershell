@@ -32,6 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// disconnects all clients, and prevents new clients from joining the meeting. For more
     /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
     /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// 
+    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteMeeting.html">DeleteMeeting</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CHMMeeting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -40,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Chime.Model.DeleteMeetingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Replaced by DeleteMeeting in the Amazon Chime SDK Meetings Namespace")]
     public partial class RemoveCHMMeetingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         

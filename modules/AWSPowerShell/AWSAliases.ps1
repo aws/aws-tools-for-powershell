@@ -1211,6 +1211,8 @@ Set-Alias -Name AAR-TagResource -Value Add-AARResourceTag
 Set-Alias -Name AAR-UntagResource -Value Remove-AARResourceTag
 Set-Alias -Name AAR-UpdateService -Value Update-AARService
 Set-Alias -Name AAR-UpdateVpcIngressConnection -Value Update-AARVpcIngressConnection
+Set-Alias -Name Associate-APSAppBlockBuilderAppBlock -Value Add-APSAppBlockBuilderAppBlock
+Set-Alias -Name APS-AssociateAppBlockBuilderAppBlock -Value Add-APSAppBlockBuilderAppBlock
 Set-Alias -Name Associate-APSApplicationFleet -Value Register-APSApplicationFleet
 Set-Alias -Name APS-AssociateApplicationFleet -Value Register-APSApplicationFleet
 Set-Alias -Name Associate-APSApplicationToEntitlement -Value Add-APSApplicationToEntitlement
@@ -1226,6 +1228,10 @@ Set-Alias -Name APS-BatchDisassociateUserStack -Value Unregister-APSUserStackBat
 Set-Alias -Name APS-CopyImage -Value Copy-APSImage
 Set-Alias -Name Create-APSAppBlock -Value New-APSAppBlock
 Set-Alias -Name APS-CreateAppBlock -Value New-APSAppBlock
+Set-Alias -Name Create-APSAppBlockBuilder -Value New-APSAppBlockBuilder
+Set-Alias -Name APS-CreateAppBlockBuilder -Value New-APSAppBlockBuilder
+Set-Alias -Name Create-APSAppBlockBuilderStreamingURL -Value New-APSAppBlockBuilderStreamingURL
+Set-Alias -Name APS-CreateAppBlockBuilderStreamingURL -Value New-APSAppBlockBuilderStreamingURL
 Set-Alias -Name Create-APSApplication -Value New-APSApplication
 Set-Alias -Name APS-CreateApplication -Value New-APSApplication
 Set-Alias -Name Create-APSDirectoryConfig -Value New-APSDirectoryConfig
@@ -1250,6 +1256,8 @@ Set-Alias -Name Create-APSUser -Value New-APSUser
 Set-Alias -Name APS-CreateUser -Value New-APSUser
 Set-Alias -Name Delete-APSAppBlock -Value Remove-APSAppBlock
 Set-Alias -Name APS-DeleteAppBlock -Value Remove-APSAppBlock
+Set-Alias -Name Delete-APSAppBlockBuilder -Value Remove-APSAppBlockBuilder
+Set-Alias -Name APS-DeleteAppBlockBuilder -Value Remove-APSAppBlockBuilder
 Set-Alias -Name Delete-APSApplication -Value Remove-APSApplication
 Set-Alias -Name APS-DeleteApplication -Value Remove-APSApplication
 Set-Alias -Name Delete-APSDirectoryConfig -Value Remove-APSDirectoryConfig
@@ -1271,6 +1279,12 @@ Set-Alias -Name Delete-APSUsageReportSubscription -Value Remove-APSUsageReportSu
 Set-Alias -Name APS-DeleteUsageReportSubscription -Value Remove-APSUsageReportSubscription
 Set-Alias -Name Delete-APSUser -Value Remove-APSUser
 Set-Alias -Name APS-DeleteUser -Value Remove-APSUser
+Set-Alias -Name Describe-APSAppBlockBuilderAppBlockAssociations -Value Get-APSAppBlockBuilderAppBlockAssociation
+Set-Alias -Name Describe-APSAppBlockBuilderAppBlockAssociation -Value Get-APSAppBlockBuilderAppBlockAssociation
+Set-Alias -Name APS-DescribeAppBlockBuilderAppBlockAssociations -Value Get-APSAppBlockBuilderAppBlockAssociation
+Set-Alias -Name Describe-APSAppBlockBuilders -Value Get-APSAppBlockBuilder
+Set-Alias -Name Describe-APSAppBlockBuilder -Value Get-APSAppBlockBuilder
+Set-Alias -Name APS-DescribeAppBlockBuilders -Value Get-APSAppBlockBuilder
 Set-Alias -Name Describe-APSAppBlocks -Value Get-APSAppBlock
 Set-Alias -Name Describe-APSAppBlock -Value Get-APSAppBlock
 Set-Alias -Name APS-DescribeAppBlocks -Value Get-APSAppBlock
@@ -1314,6 +1328,8 @@ Set-Alias -Name Describe-APSUserStackAssociations -Value Get-APSUserStackAssocia
 Set-Alias -Name Describe-APSUserStackAssociation -Value Get-APSUserStackAssociation
 Set-Alias -Name APS-DescribeUserStackAssociations -Value Get-APSUserStackAssociation
 Set-Alias -Name APS-DisableUser -Value Disable-APSUser
+Set-Alias -Name Disassociate-APSAppBlockBuilderAppBlock -Value Remove-APSAppBlockBuilderAppBlock
+Set-Alias -Name APS-DisassociateAppBlockBuilderAppBlock -Value Remove-APSAppBlockBuilderAppBlock
 Set-Alias -Name Disassociate-APSApplicationFleet -Value Unregister-APSApplicationFleet
 Set-Alias -Name APS-DisassociateApplicationFleet -Value Unregister-APSApplicationFleet
 Set-Alias -Name Disassociate-APSApplicationFromEntitlement -Value Remove-APSApplicationFromEntitlement
@@ -1334,12 +1350,15 @@ Set-Alias -Name List-APSEntitledApplicationList -Value Get-APSEntitledApplicatio
 Set-Alias -Name APS-ListEntitledApplications -Value Get-APSEntitledApplicationList
 Set-Alias -Name Get-APSResourceTag -Value Get-APSTagsForResourceList
 Set-Alias -Name APS-ListTagsForResource -Value Get-APSTagsForResourceList
+Set-Alias -Name APS-StartAppBlockBuilder -Value Start-APSAppBlockBuilder
 Set-Alias -Name APS-StartFleet -Value Start-APSFleet
 Set-Alias -Name APS-StartImageBuilder -Value Start-APSImageBuilder
+Set-Alias -Name APS-StopAppBlockBuilder -Value Stop-APSAppBlockBuilder
 Set-Alias -Name APS-StopFleet -Value Stop-APSFleet
 Set-Alias -Name APS-StopImageBuilder -Value Stop-APSImageBuilder
 Set-Alias -Name APS-TagResource -Value Add-APSResourceTag
 Set-Alias -Name APS-UntagResource -Value Remove-APSResourceTag
+Set-Alias -Name APS-UpdateAppBlockBuilder -Value Update-APSAppBlockBuilder
 Set-Alias -Name APS-UpdateApplication -Value Update-APSApplication
 Set-Alias -Name APS-UpdateDirectoryConfig -Value Update-APSDirectoryConfig
 Set-Alias -Name APS-UpdateEntitlement -Value Update-APSEntitlement

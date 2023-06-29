@@ -1,4 +1,29 @@
-﻿### 4.1.362 (2023-06-28 21:08Z)
+﻿### 4.1.363 (2023-06-29 22:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.580.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Added cmdlet Add-APSAppBlockBuilderAppBlock leveraging the AssociateAppBlockBuilderAppBlock service API.
+    * Added cmdlet Get-APSAppBlockBuilder leveraging the DescribeAppBlockBuilders service API.
+    * Added cmdlet Get-APSAppBlockBuilderAppBlockAssociation leveraging the DescribeAppBlockBuilderAppBlockAssociations service API.
+    * Added cmdlet New-APSAppBlockBuilder leveraging the CreateAppBlockBuilder service API.
+    * Added cmdlet New-APSAppBlockBuilderStreamingURL leveraging the CreateAppBlockBuilderStreamingURL service API.
+    * Added cmdlet Remove-APSAppBlockBuilder leveraging the DeleteAppBlockBuilder service API.
+    * Added cmdlet Remove-APSAppBlockBuilderAppBlock leveraging the DisassociateAppBlockBuilderAppBlock service API.
+    * Added cmdlet Start-APSAppBlockBuilder leveraging the StartAppBlockBuilder service API.
+    * Added cmdlet Stop-APSAppBlockBuilder leveraging the StopAppBlockBuilder service API.
+    * Added cmdlet Update-APSAppBlockBuilder leveraging the UpdateAppBlockBuilder service API.
+    * Modified cmdlet New-APSAppBlock: added parameters PackagingType, PostSetupScriptDetails_ExecutableParameter, PostSetupScriptDetails_ExecutablePath, PostSetupScriptDetails_ScriptS3Location_S3Bucket, PostSetupScriptDetails_ScriptS3Location_S3Key and PostSetupScriptDetails_TimeoutInSecond.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSConfiguredTableAnalysisRule: added parameters Aggregation_AllowedJoinOperator and List_AllowedJoinOperator.
+    * Modified cmdlet Update-CRSConfiguredTableAnalysisRule: added parameters Aggregation_AllowedJoinOperator and List_AllowedJoinOperator.
+  * Amazon DynamoDB
+    * Modified cmdlet Invoke-DDBDDBExecuteStatement: added parameter ReturnValuesOnConditionCheckFailure.
+    * Modified cmdlet Remove-DDBItem: added parameter ReturnValuesOnConditionCheckFailure.
+    * Modified cmdlet Set-DDBItem: added parameter ReturnValuesOnConditionCheckFailure.
+    * Modified cmdlet Update-DDBItem: added parameter ReturnValuesOnConditionCheckFailure.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJobV2: added parameters AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond, AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate, AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond, TimeSeriesConfig_GroupingAttributeName, TimeSeriesConfig_ItemIdentifierAttributeName, TimeSeriesConfig_TargetAttributeName, TimeSeriesConfig_TimestampAttributeName, TimeSeriesForecastingJobConfig_FeatureSpecificationS3Uri, TimeSeriesForecastingJobConfig_ForecastFrequency, TimeSeriesForecastingJobConfig_ForecastHorizon, TimeSeriesForecastingJobConfig_ForecastQuantile, Transformations_Aggregation and Transformations_Filling.
+
+### 4.1.362 (2023-06-28 21:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.579.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor
     * Modified cmdlet New-CWIMMonitor: added parameters HealthEventsConfig_AvailabilityScoreThreshold and HealthEventsConfig_PerformanceScoreThreshold.

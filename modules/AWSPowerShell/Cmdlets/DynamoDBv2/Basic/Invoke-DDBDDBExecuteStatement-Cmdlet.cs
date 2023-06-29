@@ -89,6 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
         #endregion
         
+        #region Parameter ReturnValuesOnConditionCheckFailure
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code>
+        /// operation that failed a condition check.</para><para>There is no additional cost associated with requesting a return value aside from the
+        /// small network and processing overhead of receiving a larger response. No read capacity
+        /// units are consumed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ReturnValuesOnConditionCheckFailure")]
+        public Amazon.DynamoDBv2.ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure { get; set; }
+        #endregion
+        
         #region Parameter Statement
         /// <summary>
         /// <para>
@@ -204,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.Parameter = new List<Amazon.DynamoDBv2.Model.AttributeValue>(this.Parameter);
             }
             context.ReturnConsumedCapacity = this.ReturnConsumedCapacity;
+            context.ReturnValuesOnConditionCheckFailure = this.ReturnValuesOnConditionCheckFailure;
             context.Statement = this.Statement;
             #if MODULAR
             if (this.Statement == null && ParameterWasBound(nameof(this.Statement)))
@@ -246,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.ReturnConsumedCapacity != null)
             {
                 request.ReturnConsumedCapacity = cmdletContext.ReturnConsumedCapacity;
+            }
+            if (cmdletContext.ReturnValuesOnConditionCheckFailure != null)
+            {
+                request.ReturnValuesOnConditionCheckFailure = cmdletContext.ReturnValuesOnConditionCheckFailure;
             }
             if (cmdletContext.Statement != null)
             {
@@ -317,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.String NextToken { get; set; }
             public List<Amazon.DynamoDBv2.Model.AttributeValue> Parameter { get; set; }
             public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
+            public Amazon.DynamoDBv2.ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure { get; set; }
             public System.String Statement { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.ExecuteStatementResponse, InvokeDDBDDBExecuteStatementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
