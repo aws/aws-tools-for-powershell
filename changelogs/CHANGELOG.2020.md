@@ -1,5 +1,5 @@
 ﻿### 4.1.6.0 (2020-12-22)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.79.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.79.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAA. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MWAA and can be listed using the command 'Get-AWSCmdletName -Service MWAA'.
   * Amazon Amplify Backend. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AMPB and can be listed using the command 'Get-AWSCmdletName -Service AMPB'.
   * Amazon AppIntegrations Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AIS and can be listed using the command 'Get-AWSCmdletName -Service AIS'.
@@ -601,7 +601,7 @@
   * Amazon Well-Architected Tool. Added cmdlets to support the service. Cmdlets for the service have the noun prefix WAT and can be listed using the command 'Get-AWSCmdletName -Service WAT'.
 
 ### 4.1.5.0 (2020-11-16)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.56.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.56.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Identity Store. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IDS and can be listed using the command 'Get-AWSCmdletName -Service IDS'.
   * Amazon Amplify
     * Modified cmdlet New-AMPApp: added parameter CustomHeader.
@@ -691,7 +691,7 @@
     * Modified cmdlet Start-TXTDocumentTextDetection: added parameter KMSKeyId.
 
 ### 4.1.4.0 (2020-11-06)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.50.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.50.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPApp: added parameter AutoBranchCreationConfig_EnablePerformanceMode.
     * Modified cmdlet New-AMPBranch: added parameter EnablePerformanceMode.
@@ -924,7 +924,7 @@
     * Modified cmdlet Update-XRGroup: added parameter InsightsConfiguration_NotificationsEnabled.
 
 ### 4.1.3.0 (2020-10-29)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPApp: added parameter AutoBranchCreationConfig_EnablePerformanceMode.
     * Modified cmdlet New-AMPBranch: added parameter EnablePerformanceMode.
@@ -1094,7 +1094,7 @@
     * Modified cmdlet Update-XRGroup: added parameter InsightsConfiguration_NotificationsEnabled.
 
 ### 4.1.2.0 (2020-10-06)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.31.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.31.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Single Sign-On Admin. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SSOADMN and can be listed using the command 'Get-AWSCmdletName -Service SSOADMN'.
   * Amazon Batch
     * Added cmdlet Add-BATResourceTag leveraging the TagResource service API.
@@ -1130,7 +1130,7 @@
     * Added cmdlet Write-S3BucketOwnershipControl leveraging the PutBucketOwnershipControls service API.
 
 ### 4.1.1.0 (2020-09-30)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.27.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.27.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Modified cmdlet New-AGDomainName: added parameters MutualTlsAuthentication_TruststoreUri and MutualTlsAuthentication_TruststoreVersion.
   * Amazon API Gateway V2
@@ -1438,7 +1438,7 @@
     * Modified cmdlet Update-XRGroup: added parameter InsightsConfiguration_InsightsEnabled.
 
 ### 4.1.0.0 (2020-08-18)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.800.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.800.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Changing AWSPowerShell module to target .NET Framework 4.5 and PowerShell 3.0.
   * Allowing full build on Linux.
   * Amazon Alexa For Business
@@ -1943,7 +1943,7 @@
     * Modified cmdlet Get-WKSWorkspaceImage: added parameter ImageType.
 
 ### 4.0.6.0 (2020-06-10)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.758.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.758.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Modified cmdlet Write-AGIntegration: added parameter TlsConfig_InsecureSkipVerification.
   * Amazon API Gateway V2
@@ -2345,7 +2345,7 @@
     * Added cmdlet Write-WMRetentionPolicy leveraging the PutRetentionPolicy service API.
 
 ### 4.0.5.0 (2020-03-13)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.699.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.699.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway V2
     * Added cmdlet Get-AG2VpcLink leveraging the GetVpcLink service API.
     * Added cmdlet Get-AG2VpcLinkList leveraging the GetVpcLinks service API.
@@ -2541,7 +2541,7 @@
     * Added cmdlet Write-WMAccessControlRule leveraging the PutAccessControlRule service API.
 
 ### 4.0.4.0 (2020-02-05)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.671.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.671.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataSync
     * Added cmdlet Get-DSYNLocationFsxWindow leveraging the DescribeLocationFsxWindows service API.
     * Added cmdlet New-DSYNLocationFsxWindow leveraging the CreateLocationFsxWindows service API.
@@ -2565,7 +2565,7 @@
     * Added cmdlet Remove-WMResourceTag leveraging the UntagResource service API.
 
 ### 4.0.3.0 (2020-01-21)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.668.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.668.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Added cmdlet Get-BAKCopyJob leveraging the DescribeCopyJob service API.
     * Added cmdlet Get-BAKCopyJobList leveraging the ListCopyJobs service API.

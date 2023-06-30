@@ -1,5 +1,5 @@
 ﻿### 4.0.2.0 (2019-12-13)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.648.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.648.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Improving speed of AWS.Tools.Installer's Install-AWSPowerShellModule and Update-AWSPowerShellModule, adding support for running AWS.Tools in strict mode.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBProfile: added parameters EndOfMeetingReminder_Enabled, EndOfMeetingReminder_ReminderAtMinute, EndOfMeetingReminder_ReminderType, InstantBooking_DurationInMinute, InstantBooking_Enabled, MeetingRoomConfiguration_RoomUtilizationMetricsEnabled, RequireCheckIn_Enabled and RequireCheckIn_ReleaseAfterMinute.
@@ -369,7 +369,7 @@
   * Fixed an issue where an older version of AWSSDK.SageMakerRuntime was included in the modules resulting in the MSI installer being non functional.
 
 ### 4.0.1.0 (2019-11-25)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.637.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.637.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Fixed Get-AWSCmdletName returning wrong cmdlet names.
   * Fixed error in AWS.Tools.Installer.
   * Amazon Amplify
@@ -732,7 +732,7 @@
 
 ### 3.3.618.0 (2019-11-04)
   * The modular version of AWS Tools for PowerShell (AWS.Tools) includes a preview of the upcoming changes from AWS Tools for Powershell v4. You can find detailed information in the [GitHub announcement](https://github.com/aws/aws-tools-for-powershell/issues/61).
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.618.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.618.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Mesh
     * Modified cmdlet New-AMSHRoute: added parameters Match_Metadata, Match_ServiceName, RetryPolicy_GrpcRetryEvent, Spec_GrpcRoute_Action_WeightedTarget, Spec_GrpcRoute_Match_MethodName, Spec_GrpcRoute_RetryPolicy_HttpRetryEvent, Spec_GrpcRoute_RetryPolicy_MaxRetry, Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit, Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value, Spec_GrpcRoute_RetryPolicy_TcpRetryEvent, Spec_Http2Route_Action_WeightedTarget, Spec_Http2Route_Match_Header, Spec_Http2Route_Match_Method, Spec_Http2Route_Match_Prefix, Spec_Http2Route_Match_Scheme, Spec_Http2Route_RetryPolicy_HttpRetryEvent, Spec_Http2Route_RetryPolicy_MaxRetry, Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit, Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value, Spec_Http2Route_RetryPolicy_TcpRetryEvent, Spec_HttpRoute_Match_Header, Spec_HttpRoute_Match_Method, Spec_HttpRoute_Match_Prefix, Spec_HttpRoute_Match_Scheme, Spec_HttpRoute_RetryPolicy_HttpRetryEvent, Spec_HttpRoute_RetryPolicy_MaxRetry, Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit, Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value and Spec_HttpRoute_RetryPolicy_TcpRetryEvent.
     * Modified cmdlet Update-AMSHRoute: added parameters Match_Metadata, Match_ServiceName, RetryPolicy_GrpcRetryEvent, Spec_GrpcRoute_Action_WeightedTarget, Spec_GrpcRoute_Match_MethodName, Spec_GrpcRoute_RetryPolicy_HttpRetryEvent, Spec_GrpcRoute_RetryPolicy_MaxRetry, Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit, Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value, Spec_GrpcRoute_RetryPolicy_TcpRetryEvent, Spec_Http2Route_Action_WeightedTarget, Spec_Http2Route_Match_Header, Spec_Http2Route_Match_Method, Spec_Http2Route_Match_Prefix, Spec_Http2Route_Match_Scheme, Spec_Http2Route_RetryPolicy_HttpRetryEvent, Spec_Http2Route_RetryPolicy_MaxRetry, Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit, Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value, Spec_Http2Route_RetryPolicy_TcpRetryEvent, Spec_HttpRoute_Match_Header, Spec_HttpRoute_Match_Method, Spec_HttpRoute_Match_Prefix, Spec_HttpRoute_Match_Scheme, Spec_HttpRoute_RetryPolicy_HttpRetryEvent, Spec_HttpRoute_RetryPolicy_MaxRetry, Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit, Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value and Spec_HttpRoute_RetryPolicy_TcpRetryEvent.
@@ -800,7 +800,7 @@
     * Modified cmdlet Update-TFRUser: added parameters HomeDirectoryMapping and HomeDirectoryType.
 
 ### 3.3.604.0 (2019-10-11)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.604.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.604.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Added cmdlet Get-AMPArtifactList leveraging the ListArtifacts service API.
     * Added cmdlet Get-AMPArtifactUrl leveraging the GetArtifactUrl service API.
@@ -923,7 +923,7 @@
     * Added cmdlet Restore-WKSWorkspace leveraging the RestoreWorkspace service API.
 
 ### 3.3.590.0 (2019-09-23)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.590.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.590.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBProfile: added parameter Locale.
     * Modified cmdlet Update-ALXBProfile: added parameter Locale.
@@ -1052,7 +1052,7 @@
 
 ### 3.3.563.0 (2019-08-08)
   * A new new modular variant of AWS Tools for PowerShell ([AWS.Tools](https://www.powershellgallery.com/packages/AWS.Tools.Common)) is now offered in prerelease. Please provide feedback by opening a GitHub issue [here](https://github.com/aws/aws-tools-for-powershell/issues) if you encounter any problem using it. In order to manage each AWS service, install from [PowerShell Gallery](https://www.powershellgallery.com/) the corresponding module (e.g. [AWS.Tools.EC2](https://www.powershellgallery.com/packages/AWS.Tools.EC2), [AWS.Tools.S3](https://www.powershellgallery.com/packages/AWS.Tools.S3)...).
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.563.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.563.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet Register-BATJobDefinition: added parameter LinuxParameters_Device.
   * Amazon CloudWatch Application Insights
@@ -1110,7 +1110,7 @@
     * Added cmdlet Get-STSAccessKeyInfo leveraging the GetAccessKeyInfo service API.
 
 ### 3.3.553.0 (2019-07-19)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.553.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.553.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Added cmdlet Add-AMPResourceTag leveraging the TagResource service API.
     * Added cmdlet Get-AMPResourceTag leveraging the ListTagsForResource service API.
@@ -1227,7 +1227,7 @@
     * Modified cmdlet New-WAFRWebACL: added parameter Tag.
 
 ### 3.3.542.0 (2019-06-28)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.542.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.542.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBContact: added parameters PhoneNumberList and SipAddress.
     * Modified cmdlet Update-ALXBContact: added parameters PhoneNumberList and SipAddress.
@@ -1368,7 +1368,7 @@
     * Added cmdlet Copy-WKSWorkspaceImage leveraging the CopyWorkspaceImage service API.
 
 ### 3.3.522.0 (2019-05-31)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Added cmdlet Add-ALXBContactToAddressBook leveraging the AssociateContactWithAddressBook service API.
     * Added cmdlet Add-ALXBDeviceToNetworkProfile leveraging the AssociateDeviceWithNetworkProfile service API.
@@ -1502,7 +1502,7 @@
     * Added cmdlet Remove-WLWebsiteAuthorizationProviderFromFleet leveraging the DisassociateWebsiteAuthorizationProvider service API.
 
 ### 3.3.509.0 (2019-05-14)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * AWSPowerShell cmdlets
     * [Breaking Change] Modified cmdlets Use-STSRoleWithSAML and Use-STSWebIdentityRole to honor the Set-AWSProxy configuration.
     * Modified cmdlets Clear-AWSDefaultConfiguration, Clear-AWSCredential, Set-AWSProxy, Clear-AWSProxy, Set-DefaultAWSRegion and Clear-DefaultAWSRegion: added parameter Scope.
@@ -1594,7 +1594,7 @@
     * Modified cmdlet Get-XRTraceSummary: added parameters SamplingStrategy_Name, SamplingStrategy_Value and TimeRangeType.
 
 ### 3.3.498.0 (2019-04-24)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * SAML Configuration Cmdlets Set-AWSSamlEndpoint and Set-AWSSamlRoleProfile are now available in the AWSPowerShell.NetCore module when used under Windows.
   * Modified cmdlet Set-AWSCredential: added parameters Scope. Using Set-AWSCredential with _-Scope Global_ allows to make credentials available to the whole PowerShell session.
   * Amazon Alexa For Business
@@ -1704,7 +1704,7 @@
     * Modified cmdlet New-WKSIpGroup: added parameter Tag.
 
 ### 3.3.485.0 (2019-03-28)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * AWSPowerShell.NetCore now targets PowerShell Standard (https://github.com/PowerShell/PowerShellStandard). As a preview feature, you can test using the AWSPowerShell.NetCore module under older version of PowerShell starting with PowerShell 3.0 when at least .NET Framework 4.7.2 is installed.
   * AWSPowerShell.NetCore now targets AWS .NET SDK for NetStandard 2.0.
   * This changelog is now available on GitHub at https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md. Users are also invited to create GitHub issues at https://github.com/aws/aws-tools-for-powershell/issues to report bugs or make feature requests.
@@ -1921,7 +1921,7 @@
     * Modified cmdlet Update-TFRServer: added parameters EndpointDetails_VpcEndpointId and EndpointType.
 
 ### 3.3.462.0 (2019-02-25)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Updated AWSPowerShell.NetCore manifest to reference missing assemblies.
   * Enabled pagination support for multiple cmdlets.
   * Amazon Athena
@@ -2027,7 +2027,7 @@
     * Modified cmdlet Write-SSMParameter: added parameter Tag.
 
 ### 3.3.450.0 (2019-02-06)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.450.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.450.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Fixed all autopaginating cmdlets so that specifying -NextToken $null correctly enables manual control of pagination.
   * Amazon API Gateway Management API. Added cmdlets to support the service. Amazon API Gateway Management API allows you to directly manage runtime aspects of your APIs. Cmdlets for the service have the noun prefix AGM and can be listed using the command 'Get-AWSCmdletName -Service AGM'.
   * Amazon API Gateway V2. Added cmdlets to support the service. Amazon API Gateway V2 allows you to programmatically setup and manage WebSocket APIs end to end. Cmdlets for the service have the noun prefix AG2 and can be listed using the command 'Get-AWSCmdletName -Service AG2'.

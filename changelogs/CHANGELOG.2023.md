@@ -1,5 +1,5 @@
 ﻿### 4.1.363 (2023-06-29 22:07Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.580.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.580.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Added cmdlet Add-APSAppBlockBuilderAppBlock leveraging the AssociateAppBlockBuilderAppBlock service API.
     * Added cmdlet Get-APSAppBlockBuilder leveraging the DescribeAppBlockBuilders service API.
@@ -24,7 +24,7 @@
     * Modified cmdlet New-SMAutoMLJobV2: added parameters AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond, AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate, AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond, TimeSeriesConfig_GroupingAttributeName, TimeSeriesConfig_ItemIdentifierAttributeName, TimeSeriesConfig_TargetAttributeName, TimeSeriesConfig_TimestampAttributeName, TimeSeriesForecastingJobConfig_FeatureSpecificationS3Uri, TimeSeriesForecastingJobConfig_ForecastFrequency, TimeSeriesForecastingJobConfig_ForecastHorizon, TimeSeriesForecastingJobConfig_ForecastQuantile, Transformations_Aggregation and Transformations_Filling.
 
 ### 4.1.362 (2023-06-28 21:08Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.579.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.579.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor
     * Modified cmdlet New-CWIMMonitor: added parameters HealthEventsConfig_AvailabilityScoreThreshold and HealthEventsConfig_PerformanceScoreThreshold.
     * Modified cmdlet Update-CWIMMonitor: added parameters HealthEventsConfig_AvailabilityScoreThreshold and HealthEventsConfig_PerformanceScoreThreshold.
@@ -40,7 +40,7 @@
     * Modified cmdlet Get-S3Version: added parameter OptionalObjectAttribute.
 
 ### 4.1.361 (2023-06-27 21:21Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.578.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.578.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet Update-EMRServerlessApplication: added parameter ReleaseLabel.
   * Amazon Interactive Video Service
@@ -62,7 +62,7 @@
   * Amazon Web Services AppFabric. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AFAB and can be listed using the command 'Get-AWSCmdletName -Service AFAB'.
 
 ### 4.1.360 (2023-06-26 21:06Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.577.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.577.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNResourceTag leveraging the SearchResourceTags service API.
   * Amazon Identity and Access Management
@@ -72,12 +72,12 @@
     * Modified cmdlet Update-PINJourney: added parameter WriteJourneyRequest_TimezoneEstimationMethod.
 
 ### 4.1.359 (2023-06-23 20:58Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.576.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.576.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DevOps Guru
     * Modified cmdlet Update-DGURUServiceIntegration: added parameters KMSServerSideEncryption_KMSKeyId, KMSServerSideEncryption_OptInStatus and KMSServerSideEncryption_Type.
 
 ### 4.1.358 (2023-06-22 21:00Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.575.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.575.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Identity
     * Modified cmdlet New-CHMIDAppInstanceBot: added parameters InvokedBy_StandardMessage and InvokedBy_TargetedMessage.
     * Modified cmdlet Update-CHMIDAppInstanceBot: added parameters InvokedBy_StandardMessage, InvokedBy_TargetedMessage, Lex_LexBotAliasArn, Lex_LocaleId, Lex_RespondsTo and Lex_WelcomeIntent.
@@ -98,7 +98,7 @@
     * Modified cmdlet Update-SFNStateMachine: added parameters Publish and VersionDescription.
 
 ### 4.1.357 (2023-06-21 21:02Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.574.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.574.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Added cmdlet Get-EMRSupportedInstanceType leveraging the ListSupportedInstanceTypes service API.
   * Amazon Inspector2
@@ -126,7 +126,7 @@
     * Modified cmdlet Update-TFRServer: added parameter StructuredLogDestination.
 
 ### 4.1.356 (2023-06-20 22:51Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.572.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.572.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Added cmdlet Reset-AFConnectorMetadataCache leveraging the ResetConnectorMetadataCache service API.
   * Amazon Elastic Compute Cloud (EC2)
@@ -140,7 +140,7 @@
     * Modified cmdlet Get-RSClusterCredentialsWithIAM: added parameter CustomDomainName.
 
 ### 4.1.355 (2023-06-19 21:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.571.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.571.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Modified cmdlet New-CFNChangeSet: added parameter OnStackFailure.
   * Amazon Elastic Compute Cloud (EC2)
@@ -149,7 +149,7 @@
     * Modified cmdlet New-SMAutoMLJobV2: added parameters CandidateGenerationConfig_AlgorithmsConfig, CompletionCriteria_MaxAutoMLJobRuntimeInSecond, CompletionCriteria_MaxCandidate, CompletionCriteria_MaxRuntimePerTrainingJobInSecond, TabularJobConfig_FeatureSpecificationS3Uri, TabularJobConfig_GenerateCandidateDefinitionsOnly, TabularJobConfig_Mode, TabularJobConfig_ProblemType, TabularJobConfig_SampleWeightAttributeName and TabularJobConfig_TargetAttributeName.
 
 ### 4.1.354 (2023-06-16 21:34Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.570.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.570.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Discovery Service
     * Modified cmdlet Start-ADSExportTask: added parameters CpuPerformanceMetricBasis_Name, CpuPerformanceMetricBasis_PercentageAdjust, Ec2RecommendationsPreferences_Enabled, Ec2RecommendationsPreferences_ExcludedInstanceType, Ec2RecommendationsPreferences_PreferredRegion, Ec2RecommendationsPreferences_Tenancy, RamPerformanceMetricBasis_Name, RamPerformanceMetricBasis_PercentageAdjust, ReservedInstanceOptions_OfferingClass, ReservedInstanceOptions_PurchasingOption and ReservedInstanceOptions_TermLength.
   * Amazon Simple Storage Service (S3)
@@ -157,7 +157,7 @@
     * Modified cmdlet Get-S3Version: added parameter RequestPayer.
 
 ### 4.1.353 (2023-06-15 21:16Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.569.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.569.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Audit Manager
     * Added cmdlet Get-AUDMEvidenceFileUploadUrl leveraging the GetEvidenceFileUploadUrl service API.
     * Modified cmdlet Edit-AUDMSetting: added parameters DefaultExportDestination_Destination and DefaultExportDestination_DestinationType.
@@ -167,7 +167,7 @@
     * Modified cmdlet Set-LOCGeofence: added parameter GeofenceProperty.
 
 ### 4.1.352 (2023-06-13 23:36Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.568.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.568.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudTrail
     * Modified cmdlet Get-CTQuery: added parameter QueryAlias.
     * Modified cmdlet Start-CTQuery: added parameters QueryAlias and QueryParameter.
@@ -216,7 +216,7 @@
     * Modified cmdlet New-WATWorkload: added parameter ProfileArn.
 
 ### 4.1.351 (2023-06-12 22:10Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.567.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.567.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify UI Builder
     * Added cmdlet Get-AMPUICodegenJob leveraging the GetCodegenJob service API.
     * Added cmdlet Get-AMPUICodegenJobList leveraging the ListCodegenJobs service API.
@@ -236,14 +236,14 @@
     * Modified cmdlet Get-REKFaceList: added parameters FaceId and UserId.
 
 ### 4.1.350 (2023-06-09 21:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.566.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.566.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNHoursOfOperation leveraging the SearchHoursOfOperations service API.
     * Added cmdlet Search-CONNPrompt leveraging the SearchPrompts service API.
     * Added cmdlet Search-CONNQuickConnect leveraging the SearchQuickConnects service API.
 
 ### 4.1.349 (2023-06-08 21:18Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.565.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.565.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Start-ATHSession: added parameter EngineConfiguration_SparkProperty.
   * Amazon Payment Cryptography Control Plane. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PAYCC and can be listed using the command 'Get-AWSCmdletName -Service PAYCC'.
@@ -255,7 +255,7 @@
     * Modified cmdlet Update-TSWTable: added parameter Schema_CompositePartitionKey.
 
 ### 4.1.348 (2023-06-07 21:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.564.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.564.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Added cmdlet Get-CWLAccountPolicy leveraging the DescribeAccountPolicies service API.
     * Added cmdlet Remove-CWLAccountPolicy leveraging the DeleteAccountPolicy service API.
@@ -270,7 +270,7 @@
     * Modified cmdlet Start-EMRCJobRun: added parameters ContainerLogRotationConfiguration_MaxFilesToKeep and ContainerLogRotationConfiguration_RotationSize.
 
 ### 4.1.347 (2023-06-06 21:17Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.563.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.563.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Inspector2
     * Modified cmdlet Get-INS2CoverageList: added parameter FilterCriteria_LastScannedAt.
     * Modified cmdlet Get-INS2CoverageStatisticList: added parameter FilterCriteria_LastScannedAt.
@@ -312,7 +312,7 @@
     * Added cmdlet Stop-SQSMessageMoveTask leveraging the CancelMessageMoveTask service API.
 
 ### 4.1.346 (2023-06-05 22:44Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.562.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.562.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Added cmdlet Disable-CFNOrganizationsAccess leveraging the DeactivateOrganizationsAccess service API.
     * Added cmdlet Enable-CFNOrganizationsAccess leveraging the ActivateOrganizationsAccess service API.
@@ -348,7 +348,7 @@
     * Modified cmdlet New-KSKeyspace: added parameters ReplicationSpecification_RegionList and ReplicationSpecification_ReplicationStrategy.
 
 ### 4.1.345 (2023-06-02 21:07Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.561.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.561.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Added cmdlet Remove-ATHCapacityReservation leveraging the DeleteCapacityReservation service API.
   * Amazon CloudTrail
@@ -362,7 +362,7 @@
     * Added cmdlet Get-WAF2ManagedProductsByVendor leveraging the DescribeManagedProductsByVendor service API.
 
 ### 4.1.344 (2023-06-01 21:22Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.559.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.559.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBProfile: added parameter ProactiveJoin_EnabledByMotion.
     * Modified cmdlet Update-ALXBProfile: added parameter ProactiveJoin_EnabledByMotion.
@@ -382,7 +382,7 @@
     * Modified cmdlet Update-IVSChannel: added parameter Preset.
 
 ### 4.1.343 (2023-05-31 21:06Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.558.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.558.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Config
     * Modified cmdlet Write-CFGConfigurationRecorder: added parameters ExclusionByResourceTypes_ResourceType and RecordingStrategy_UseOnly.
   * Amazon Fraud Detector
@@ -403,7 +403,7 @@
     * Added cmdlet Update-WSWIpAccessSetting leveraging the UpdateIpAccessSettings service API.
 
 ### 4.1.342 (2023-05-30 21:24Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.557.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.557.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet Start-CHMVOSpeakerSearchTask: added parameter CallLeg.
   * Amazon IoT FleetWise
@@ -446,13 +446,13 @@
     * [Breaking Change] Modified cmdlet Update-SLKSubscriber: removed parameters ExternalId, Id and SourceType; added parameters Source, SubscriberId, SubscriberIdentity_ExternalId and SubscriberIdentity_Principal.
 
 ### 4.1.341 (2023-05-26 21:21Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.556.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.556.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT Wireless
     * Modified cmdlet New-IOTWNetworkAnalyzerConfiguration: added parameters MulticastGroup and TraceContent_MulticastFrameInfo.
     * Modified cmdlet Update-IOTWNetworkAnalyzerConfiguration: added parameters MulticastGroupsToAdd, MulticastGroupsToRemove and TraceContent_MulticastFrameInfo.
 
 ### 4.1.340 (2023-05-25 21:18Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.555.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.555.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GameLift Service
     * Modified cmdlet Request-GMLGameServer: added parameter FilterOption_InstanceStatus.
   * Amazon Glue
@@ -465,7 +465,7 @@
     * Modified cmdlet New-SMHyperParameterTuningJob: added parameters Autotune_Mode, HyperParameterRanges_AutoParameter and ParameterRanges_AutoParameter.
 
 ### 4.1.339 (2023-05-24 21:11Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.554.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.554.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Added cmdlet Get-ASYNSourceApiAssociation leveraging the GetSourceApiAssociation service API.
     * Added cmdlet Get-ASYNSourceApiAssociationList leveraging the ListSourceApiAssociations service API.
@@ -481,14 +481,14 @@
     * Modified cmdlet Update-ASYNGraphqlApi: added parameters MergedApiExecutionRoleArn and OwnerContact.
 
 ### 4.1.338 (2023-05-23 21:32Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.553.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.553.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet Get-SMInferenceRecommendationsJobList: added parameters ModelNameEqual and ModelPackageVersionArnEqual.
   * Amazon Translate
     * Added cmdlet ConvertTo-TRNDocument leveraging the TranslateDocument service API.
 
 ### 4.1.337 (2023-05-22 21:00Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.552.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.552.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Modified cmdlet Start-BAKRestoreJob: added parameter CopySourceTagsToRestoredResource.
   * Amazon QuickSight
@@ -500,13 +500,13 @@
     * Added cmdlet Start-QSAssetBundleImportJob leveraging the StartAssetBundleImportJob service API.
 
 ### 4.1.336 (2023-05-19 21:12Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.551.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.551.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaPackage v2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MPV2 and can be listed using the command 'Get-AWSCmdletName -Service MPV2'.
   * Amazon Simple Email Service V2 (SES V2)
     * Added cmdlet Write-SES2DedicatedIpPoolScalingAttribute leveraging the PutDedicatedIpPoolScalingAttributes service API.
 
 ### 4.1.335 (2023-05-18 21:18Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.549.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.549.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * [Breaking Change] Modified cmdlet Start-ATHSession: removed parameter EngineConfiguration_SparkProperty.
   * Amazon Connect Service
@@ -519,13 +519,13 @@
     * [Breaking Change] Modified cmdlet Start-SMGSEarthObservationJob: removed parameters S3Data_KmsKeyId, S3Data_MetadataProvider and S3Data_S3Uri.
 
 ### 4.1.334 (2023-05-16 21:38Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.548.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.548.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet Get-GLUECustomEntityTypeList: added parameter Tag.
     * Modified cmdlet New-GLUECustomEntityType: added parameter Tag.
 
 ### 4.1.333 (2023-05-15 21:19Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.547.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.547.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Start-ATHSession: added parameter EngineConfiguration_SparkProperty.
   * Amazon CodeCatalyst
@@ -539,7 +539,7 @@
     * Modified cmdlet Update-TFRServer: added parameter IdentityProviderDetails_SftpAuthenticationMethod.
 
 ### 4.1.332 (2023-05-11 21:11Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.546.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.546.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ElastiCache
     * Modified cmdlet Edit-ECReplicationGroup: added parameter ClusterMode.
     * Modified cmdlet New-ECReplicationGroup: added parameter ClusterMode.
@@ -569,7 +569,7 @@
     * Added cmdlet Get-ASASupportedLanguage leveraging the DescribeSupportedLanguages service API.
 
 ### 4.1.331 (2023-05-10 20:56Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.545.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.545.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Modified cmdlet Get-EMRNotebookExecutionList: added parameter ExecutionEngineId.
     * Modified cmdlet Start-EMRNotebookExecution: added parameters EnvironmentVariable, ExecutionEngine_ExecutionRoleArn, NotebookS3Location_Bucket, NotebookS3Location_Key, OutputNotebookFormat, OutputNotebookS3Location_Bucket and OutputNotebookS3Location_Key.
@@ -577,20 +577,20 @@
     * Modified cmdlet Restore-RDSDBClusterFromS3: added parameter StorageType.
 
 ### 4.1.330 (2023-05-09 21:13Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.544.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.544.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.329 (2023-05-08 21:44Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.543.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.543.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.328 (2023-05-05 22:25Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.542.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.542.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaTailor
     * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter AvailSuppression_FillPolicy.
   * Amazon Inspector2
     * Added cmdlet Search-INS2Vulnerability leveraging the SearchVulnerabilities service API.
 
 ### 4.1.327 (2023-05-04 23:13Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.540.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.540.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon OpenSearch Service
     * Added cmdlet Get-OSDomainNode leveraging the DescribeDomainNodes service API.
   * Amazon QuickSight
@@ -619,7 +619,7 @@
     * Added cmdlet Get-SHUBFindingHistory leveraging the GetFindingHistory service API.
 
 ### 4.1.326 (2023-05-03 21:04Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.539.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.539.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Modified cmdlet New-ASYNGraphqlApi: added parameter Visibility.
   * Amazon Inspector2
@@ -642,7 +642,7 @@
     * Modified cmdlet Update-WATWorkload: added parameter DiscoveryConfig_WorkloadResourceDefinition.
 
 ### 4.1.325 (2023-05-02 21:12Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.538.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.538.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Added cmdlet Stop-AFFlowExecution leveraging the CancelFlowExecutions service API.
   * Amazon Kendra
@@ -650,7 +650,7 @@
     * Modified cmdlet Update-KNDRQuerySuggestionsConfig: added parameters AttributeSuggestionsConfig_AttributeSuggestionsMode and AttributeSuggestionsConfig_SuggestableConfigList.
 
 ### 4.1.324 (2023-05-01 21:03Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.537.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.537.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Key Management Service
     * Modified cmdlet Invoke-KMSDecrypt: added parameters Recipient_AttestationDocument and Recipient_KeyEncryptionAlgorithm.
     * Modified cmdlet New-KMSDataKey: added parameters Recipient_AttestationDocument and Recipient_KeyEncryptionAlgorithm.
@@ -658,7 +658,7 @@
     * Modified cmdlet New-KMSRandom: added parameters Recipient_AttestationDocument and Recipient_KeyEncryptionAlgorithm.
 
 ### 4.1.323 (2023-04-28 23:59Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.536.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.536.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Added cmdlet Get-ATHCapacityAssignmentConfiguration leveraging the GetCapacityAssignmentConfiguration service API.
     * Added cmdlet Get-ATHCapacityReservation leveraging the GetCapacityReservation service API.
@@ -681,7 +681,7 @@
     * [Breaking Change] Modified cmdlet Get-WAF2DecryptedAPIKey: parameter Scope doesn't support pipeline ByValue anymore; parameter Scope cannot be used positionally anymore.
 
 ### 4.1.322 (2023-04-27 21:10Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.535.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.535.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Containers
     * Added cmdlet Get-EMRCManagedEndpointSessionCredential leveraging the GetManagedEndpointSessionCredentials service API.
   * Amazon GuardDuty
@@ -702,11 +702,11 @@
     * Modified cmdlet Update-MSKConnectivity: added parameters Iam_Enabled, Scram_Enabled and Tls_Enabled.
 
 ### 4.1.321 (2023-04-26 21:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.534.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.534.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon OpenSearch Ingestion. Added cmdlets to support the service. Cmdlets for the service have the noun prefix OSIS and can be listed using the command 'Get-AWSCmdletName -Service OSIS'.
 
 ### 4.1.320 (2023-04-25 21:06Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.533.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.533.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Messaging
     * [Breaking Change] Modified cmdlet Remove-CHMMGChannel: removed parameter SubChannelId.
     * [Breaking Change] Modified cmdlet Update-CHMMGChannelReadMarker: removed parameter SubChannelId.
@@ -745,12 +745,12 @@
     * Added cmdlet Get-PINJourneyRunExecutionMetric leveraging the GetJourneyRunExecutionMetrics service API.
 
 ### 4.1.319 (2023-04-25 08:18Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.532.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.532.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2VerifiedAccessTrustProvider: added parameters OidcOptions_AuthorizationEndpoint, OidcOptions_ClientId, OidcOptions_ClientSecret, OidcOptions_Issuer, OidcOptions_TokenEndpoint and OidcOptions_UserInfoEndpoint.
 
 ### 4.1.318 (2023-04-21 21:59Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.531.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.531.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet New-CONNParticipant leveraging the CreateParticipant service API.
   * Amazon Firewall Management Service
@@ -761,7 +761,7 @@
     * Modified cmdlet Write-FMSResourceSet: added parameter ResourceSet_ResourceSetStatus.
 
 ### 4.1.317 (2023-04-21 02:09Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.530.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.530.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime
     * Modified cmdlet Start-CHMMeetingTranscription: added parameters EngineTranscribeSettings_IdentifyLanguage, EngineTranscribeSettings_LanguageOption, EngineTranscribeSettings_PreferredLanguage, TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames and TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames.
   * Amazon Chime SDK Meetings
@@ -777,7 +777,7 @@
     * Added cmdlet New-WAF2APIKey leveraging the CreateAPIKey service API.
 
 ### 4.1.316 (2023-04-19 21:06Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.529.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.529.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Comprehend
     * Modified cmdlet New-COMPDocumentClassifier: added parameters DocumentReaderConfig_DocumentReadAction, DocumentReaderConfig_DocumentReadMode, DocumentReaderConfig_FeatureType, Documents_S3Uri, Documents_TestS3Uri and InputDataConfig_DocumentType.
   * Amazon Resource Access Manager (RAM)
@@ -796,7 +796,7 @@
     * Modified cmdlet Remove-RAMResourceTag: added parameter ResourceArn.
 
 ### 4.1.315 (2023-04-17 21:07Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.528.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.528.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Modified cmdlet New-AFConnectorProfile: added parameter ClientToken.
     * Modified cmdlet New-AFFlow: added parameter ClientToken.
@@ -820,12 +820,12 @@
     * Modified cmdlet Update-IOTWWirelessGateway: added parameter MaxEirp.
 
 ### 4.1.314 (2023-04-14 21:03Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.527.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.527.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Relational Database Service
     * Modified cmdlet Edit-RDSDBCluster: added parameters AllowEngineModeChange and EngineMode.
 
 ### 4.1.313 (2023-04-13 21:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.526.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.526.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet New-CHMVOSipMediaApplication: added parameter Tag.
     * Modified cmdlet New-CHMVOVoiceConnector: added parameter Tag.
@@ -853,18 +853,18 @@
     * Modified cmdlet Update-EMCNFlowSource: added parameters GatewayBridgeSource_BridgeArn and VpcInterfaceAttachment_VpcInterfaceName.
 
 ### 4.1.312 (2023-04-12 21:13Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.525.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.525.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Ground Station
     * Modified cmdlet Register-GSAgent: added parameter AgentDetails_AgentCpuCore.
 
 ### 4.1.311 (2023-04-11 22:08Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.524.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.524.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon WAF V2
     * Modified cmdlet New-WAF2WebACL: added parameter AssociationConfig_RequestBody.
     * Modified cmdlet Update-WAF2WebACL: added parameter AssociationConfig_RequestBody.
 
 ### 4.1.310 (2023-04-10 21:07Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.523.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.523.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Marketplace Catalog Service
     * Added cmdlet Get-MCATResourcePolicy leveraging the GetResourcePolicy service API.
     * Added cmdlet Remove-MCATResourcePolicy leveraging the DeleteResourcePolicy service API.
@@ -875,7 +875,7 @@
     * Added cmdlet New-REKFaceLivenessSession leveraging the CreateFaceLivenessSession service API.
 
 ### 4.1.309 (2023-04-07 20:54Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DocumentDB (with MongoDB compatibility)
     * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameter DBClusterParameterGroupName.
   * Amazon Lambda
@@ -895,7 +895,7 @@
     * Modified cmdlet Update-QSDataSet: added parameter RowLevelPermissionTagConfiguration_TagRuleConfiguration.
 
 ### 4.1.308 (2023-04-06 21:09Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.521.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.521.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Added cmdlet ConvertFrom-DDBItem.
     * Added cmdlet ConvertTo-DDBItem.
@@ -922,10 +922,10 @@
     * Modified cmdlet Update-PROServiceInstance: added parameter ClientToken.
 
 ### 4.1.307 (2023-04-05 21:14Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.520.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.520.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.306 (2023-04-04 21:08Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.519.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.519.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify UI Builder
     * Modified cmdlet Convert-AMPUICodeForToken: added parameter Request_ClientId.
     * Modified cmdlet New-AMPUIForm: added parameter FormToCreate_LabelDecorator.
@@ -938,7 +938,7 @@
     * [Breaking Change] Modified cmdlet Update-WAF2WebACL: removed parameter AssociationConfig_RequestBody.
 
 ### 4.1.305 (2023-04-03 21:02Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.518.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.518.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAA
     * Modified cmdlet New-MWAAEnvironment: added parameters StartupScriptS3ObjectVersion and StartupScriptS3Path.
     * Modified cmdlet Update-MWAAEnvironment: added parameters StartupScriptS3ObjectVersion and StartupScriptS3Path.
@@ -956,7 +956,7 @@
     * Modified cmdlet Update-WAF2WebACL: added parameter AssociationConfig_RequestBody.
 
 ### 4.1.304 (2023-03-31 21:08Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.517.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.517.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor
     * Modified cmdlet New-CWIMMonitor: added parameters S3Config_BucketName, S3Config_BucketPrefix and S3Config_LogDeliveryStatus.
     * Modified cmdlet Update-CWIMMonitor: added parameters S3Config_BucketName, S3Config_BucketPrefix and S3Config_LogDeliveryStatus.
@@ -964,7 +964,7 @@
     * Modified cmdlet Remove-SMFSRecord: added parameter DeletionMode.
 
 ### 4.1.303 (2023-03-30 21:13Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.516.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.516.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Image Builder
     * Added cmdlet Get-EC2IBImageScanFindingAggregationList leveraging the ListImageScanFindingAggregations service API.
     * Added cmdlet Get-EC2IBImageScanFindingList leveraging the ListImageScanFindings service API.
@@ -1015,12 +1015,12 @@
     * Added cmdlet Get-WATConsolidatedReport leveraging the GetConsolidatedReport service API.
 
 ### 4.1.302 (2023-03-29 21:03Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.515.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.515.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Relational Database Service
     * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter SourceDBClusterIdentifier.
 
 ### 4.1.301 (2023-03-28 20:59Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.514.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.514.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon System Manager Contacts
     * Added cmdlet Get-SMCPageResolutionList leveraging the ListPageResolutions service API.
     * Added cmdlet Get-SMCPreviewRotationShiftList leveraging the ListPreviewRotationShifts service API.
@@ -1038,7 +1038,7 @@
     * Modified cmdlet Update-SMCContact: added parameter Plan_RotationId.
 
 ### 4.1.300 (2023-03-27 20:56Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.513.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.513.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet New-ATHWorkGroup: added parameter Configuration_EnableMinimumEncryptionConfiguration.
     * Modified cmdlet Update-ATHWorkGroup: added parameter ConfigurationUpdates_EnableMinimumEncryptionConfiguration.
@@ -1069,10 +1069,10 @@
     * Modified cmdlet Start-VIDSpeakerEnrollmentJob: added parameter FraudDetectionConfig_WatchlistId.
 
 ### 4.1.299 (2023-03-24 21:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.512.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.512.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.298 (2023-03-23 21:11Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.511.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.511.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet Register-BATJobDefinition: added parameters EphemeralStorage_SizeInGiB and Metadata_Label.
     * Modified cmdlet Submit-BATJob: added parameter Metadata_Label.
@@ -1127,7 +1127,7 @@
     * Added cmdlet New-SMAutoMLJobV2 leveraging the CreateAutoMLJobV2 service API.
 
 ### 4.1.297 (2023-03-22 21:02Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.510.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.510.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT TwinMaker
     * Modified cmdlet New-IOTTMScene: added parameter SceneMetadata.
     * Modified cmdlet Update-IOTTMScene: added parameter SceneMetadata.
@@ -1141,10 +1141,10 @@
     * Modified cmdlet Update-RESHAppVersionResource: added parameter LogicalResourceId_EksSourceName.
 
 ### 4.1.296 (2023-03-21 23:03Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.295 (2023-03-20 21:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.508.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.508.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Auto Scaling
     * Added cmdlet Add-AASResourceTag leveraging the TagResource service API.
     * Added cmdlet Get-AASResourceTag leveraging the ListTagsForResource service API.
@@ -1154,7 +1154,7 @@
     * Added cmdlet Search-WDResource leveraging the SearchResources service API.
 
 ### 4.1.294 (2023-03-17 21:00Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.507.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.507.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet Get-ABCAccountAssociationList: added parameter Filters_AccountIds.
     * Modified cmdlet Get-ABCBillingGroupList: added parameter Filters_Status.
@@ -1163,7 +1163,7 @@
     * Modified cmdlet New-DMSEndpoint: added parameters KafkaSettings_SaslMechanism, MicrosoftSQLServerSettings_ForceLobLookup, MicrosoftSQLServerSettings_TlogAccessMode, OracleSettings_ConvertTimestampWithZoneToUTC, PostgreSQLSettings_MapBooleanAsBoolean, RedshiftSettings_MapBooleanAsBoolean and S3Settings_GlueCatalogGeneration.
 
 ### 4.1.293 (2023-03-16 21:08Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.505.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.505.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GuardDuty
     * Modified cmdlet Get-GDOrganizationConfiguration: added parameters MaxResult, NextToken and NoAutoIteration.
     * Modified cmdlet Get-GDUsageStatistic: added parameter UsageCriteria_Feature.
@@ -1173,10 +1173,10 @@
     * Modified cmdlet Update-GDOrganizationConfiguration: added parameter Feature.
 
 ### 4.1.292 (2023-03-15 21:00Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.504.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.504.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.291 (2023-03-14 21:12Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.503.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.503.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Auto Scaling
     * Modified cmdlet Set-AASScalingPolicy: added parameter CustomizedMetricSpecification_Metric.
   * Amazon Data Exchange
@@ -1189,7 +1189,7 @@
     * Modified cmdlet Update-KSTable: added parameter ClientSideTimestamps_Status.
 
 ### 4.1.290 (2023-03-13 21:04Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.502.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.502.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppIntegrations Service
     * Modified cmdlet New-AISDataIntegration: added parameters FileConfiguration_Filter, FileConfiguration_Folder and ObjectConfiguration.
   * Amazon S3 Control
@@ -1202,12 +1202,12 @@
     * Modified cmdlet Update-TNBSolNetworkInstance: added parameter Tag.
 
 ### 4.1.289 (2023-03-10 22:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.501.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.501.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Modified cmdlet Set-AWSHistoryConfiguration: added parameter IncludeSensitiveData.
 
 ### 4.1.288 (2023-03-09 22:11Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.500.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.500.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeArtifact
     * Added cmdlet Publish-CAPackageVersion leveraging the PublishPackageVersion service API.
   * Amazon Connect Service
@@ -1216,7 +1216,7 @@
     * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameters ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled and ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled.
 
 ### 4.1.287 (2023-03-08 22:18Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.499.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.499.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DynamoDB
     * Modified cmdlet Update-DDBTable: added parameter DeletionProtectionEnabled.
   * Amazon Lake Formation
@@ -1228,7 +1228,7 @@
     * Modified cmdlet Update-R53RResolverEndpoint: added parameters ResolverEndpointType and UpdateIpAddress.
 
 ### 4.1.286 (2023-03-07 22:03Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Added cmdlet Get-DMSRecommendation leveraging the DescribeRecommendations service API.
     * Added cmdlet Get-DMSRecommendationLimitation leveraging the DescribeRecommendationLimitations service API.
@@ -1236,10 +1236,10 @@
     * Added cmdlet Start-DMSRecommendation leveraging the StartRecommendations service API.
 
 ### 4.1.285 (2023-03-06 21:47Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.497.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.497.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.284 (2023-03-03 22:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.496.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.496.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Transcribe Service
     * Modified cmdlet New-TRSVocabulary: added parameter DataAccessRoleArn.
     * Modified cmdlet New-TRSVocabularyFilter: added parameter DataAccessRoleArn.
@@ -1247,7 +1247,7 @@
     * Modified cmdlet Update-TRSVocabularyFilter: added parameter DataAccessRoleArn.
 
 ### 4.1.283 (2023-03-02 22:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.495.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.495.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT
     * Modified cmdlet New-IOTJob: added parameter SchedulingConfig_MaintenanceWindow.
     * Modified cmdlet New-IOTJobTemplate: added parameter MaintenanceWindow.
@@ -1255,7 +1255,7 @@
     * Modified cmdlet Get-PIResourceMetric: added parameter PeriodAlignment.
 
 ### 4.1.282 (2023-03-01 21:55Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.494.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.494.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeCatalyst
     * Added cmdlet Stop-CCATDevEnvironmentSession leveraging the StopDevEnvironmentSession service API.
   * Amazon Price List Service
@@ -1265,7 +1265,7 @@
     * Added cmdlet Get-S3OOutpostsWithS3List leveraging the ListOutpostsWithS3 service API.
 
 ### 4.1.281 (2023-02-28 21:59Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.493.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.493.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Comprehend
     * Added cmdlet Get-COMPDataset leveraging the DescribeDataset service API.
     * Added cmdlet Get-COMPDatasetList leveraging the ListDatasets service API.
@@ -1298,7 +1298,7 @@
     * Modified cmdlet New-MBCAccessor: added parameter Tag.
 
 ### 4.1.280 (2023-02-27 22:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.492.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.492.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWIM and can be listed using the command 'Get-AWSCmdletName -Service CWIM'.
   * Amazon Lambda
     * Modified cmdlet New-LMEventSourceMapping: added parameters DocumentDBEventSourceConfig_CollectionName, DocumentDBEventSourceConfig_DatabaseName and DocumentDBEventSourceConfig_FullDocument.
@@ -1310,7 +1310,7 @@
     * Added cmdlet Resume-TSWBatchLoadTask leveraging the ResumeBatchLoadTask service API.
 
 ### 4.1.279 (2023-02-24 21:50Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.491.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.491.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Added cmdlet Remove-CCASDomain leveraging the DeleteDomain service API.
   * Amazon Connect Service
@@ -1325,7 +1325,7 @@
     * Modified cmdlet Update-SHUBSecurityHubConfiguration: added parameter ControlFindingGenerator.
 
 ### 4.1.278 (2023-02-23 22:12Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.490.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.490.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Service
     * Added cmdlet Remove-ECSTaskDefinition leveraging the DeleteTaskDefinitions service API.
   * Amazon IoT Wireless
@@ -1343,7 +1343,7 @@
     * Modified cmdlet Get-LOCMapTile: added parameter Key.
 
 ### 4.1.277 (2023-02-22 21:50Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.489.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.489.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet Write-CHMVOVoiceConnectorLoggingConfiguration: added parameter LoggingConfiguration_EnableMediaMetricLog.
   * Amazon CloudWatch RUM
@@ -1356,7 +1356,7 @@
     * Modified cmdlet Update-OSDomainConfig: added parameters AutoTuneOptions_UseOffPeakWindow, OffPeakWindowOptions_Enabled, SoftwareUpdateOptions_AutoSoftwareUpdateEnabled, WindowStartTime_Hour and WindowStartTime_Minute.
 
 ### 4.1.276 (2023-02-21 22:59Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.488.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.488.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Modified cmdlet New-QSDataSource: added parameter S3Parameters_RoleArn.
     * Modified cmdlet Update-QSDataSource: added parameter S3Parameters_RoleArn.
@@ -1378,13 +1378,13 @@
   * Amazon Telco Network Builder. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TNB and can be listed using the command 'Get-AWSCmdletName -Service TNB'.
 
 ### 4.1.275 (2023-02-20 21:43Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.487.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.487.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.274 (2023-02-17 21:53Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.486.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.486.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.273 (2023-02-16 23:18Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Modified cmdlet Add-EMRInstanceFleet: added parameters OnDemandResizeSpecification_TimeoutDurationMinute and SpotResizeSpecification_TimeoutDurationMinute.
     * Modified cmdlet Edit-EMRInstanceFleet: added parameters OnDemandResizeSpecification_TimeoutDurationMinute and SpotResizeSpecification_TimeoutDurationMinute.
@@ -1393,7 +1393,7 @@
     * Modified cmdlet Update-MGRFWorkspace: added parameters NetworkAccessControl_PrefixListId, NetworkAccessControl_VpceId and RemoveNetworkAccessConfiguration.
 
 ### 4.1.272 (2023-02-15 22:54Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.484.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.484.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Fraud Detector
     * Added cmdlet Get-FDListElement leveraging the GetListElements service API.
     * Added cmdlet Get-FDListsMetadata leveraging the GetListsMetadata service API.
@@ -1404,7 +1404,7 @@
     * Added cmdlet Start-PV5GNetworkResourceUpdate leveraging the StartNetworkResourceUpdate service API.
 
 ### 4.1.271 (2023-02-14 23:51Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.483.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.483.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppConfig
     * Modified cmdlet Get-APPCHostedConfigurationVersionList: added parameter VersionLabel.
     * Modified cmdlet New-APPCHostedConfigurationVersion: added parameter VersionLabel.
@@ -1413,7 +1413,7 @@
     * Modified cmdlet New-EC2Host: added parameter HostMaintenance.
 
 ### 4.1.270 (2023-02-13 21:54Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.482.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.482.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account
     * Added cmdlet Disable-ACCTRegion leveraging the DisableRegion service API.
     * Added cmdlet Enable-ACCTRegion leveraging the EnableRegion service API.
@@ -1427,7 +1427,7 @@
     * Modified cmdlet Update-SNOWJob: added parameters EKSOnDeviceService_EKSAnywhereVersion and EKSOnDeviceService_KubernetesVersion.
 
 ### 4.1.269 (2023-02-10 21:59Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.481.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.481.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Added cmdlet Undo-ASInstanceRefresh leveraging the RollbackInstanceRefresh service API.
     * Modified cmdlet Start-ASInstanceRefresh: added parameters Preferences_AutoRollback, Preferences_ScaleInProtectedInstance and Preferences_StandbyInstance.
@@ -1435,7 +1435,7 @@
     * Modified cmdlet New-SMAutoMLJob: added parameter CandidateGenerationConfig_AlgorithmsConfig.
 
 ### 4.1.268 (2023-02-09 22:07Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.479.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.479.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Containers
     * Modified cmdlet Start-EMRCJobRun: added parameter RetryPolicyConfiguration_MaxAttempt.
   * Amazon Lex Model Building V2
@@ -1443,21 +1443,21 @@
     * Modified cmdlet Update-LMBV2Bot: added parameters BotMember and BotType.
 
 ### 4.1.267 (2023-02-08 22:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.478.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.478.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.266 (2023-02-07 21:57Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.477.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.477.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.265 (2023-02-06 22:04Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.477.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.477.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.264 (2023-02-03 22:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.476.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.476.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Proton
     * Added cmdlet Get-PROResourcesSummary leveraging the GetResourcesSummary service API.
 
 ### 4.1.263 (2023-02-02 22:16Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.475.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.475.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppConfig
     * Modified cmdlet Start-APPCDeployment: added parameter KmsKeyIdentifier.
   * Amazon QuickSight
@@ -1465,7 +1465,7 @@
     * Modified cmdlet Update-QSDashboard: added parameters DataPointDrillUpDownOption_AvailabilityStatus, DataPointMenuLabelOption_AvailabilityStatus, DataPointTooltipOption_AvailabilityStatus, ExportWithHiddenFieldsOption_AvailabilityStatus, SheetLayoutElementMaximizationOption_AvailabilityStatus, VisualAxisSortOption_AvailabilityStatus and VisualMenuOption_AvailabilityStatus.
 
 ### 4.1.262 (2023-02-01 21:55Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.473.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.473.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DevOps Guru
     * Modified cmdlet Get-DGURUAnomaliesForInsightList: added parameter ServiceCollection_ServiceName.
   * Amazon Elemental MediaTailor
@@ -1475,7 +1475,7 @@
     * Modified cmdlet New-FRCDatasetImportJob: added parameter ImportMode.
 
 ### 4.1.261 (2023-01-31 22:23Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.472.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.472.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Modified cmdlet New-ASYNDataSource: added parameter EventBridgeConfig_EventBusArn.
     * Modified cmdlet Update-ASYNDataSource: added parameter EventBridgeConfig_EventBusArn.
@@ -1510,24 +1510,24 @@
     * Modified cmdlet New-SMHyperParameterTuningJob: added parameters BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving, ConvergenceDetected_CompleteOnConvergence and ResourceLimits_MaxRuntimeInSecond.
 
 ### 4.1.260 (2023-01-30 22:10Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.471.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.471.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.
     * Modified cmdlet New-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.
     * Modified cmdlet Remove-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.
 
 ### 4.1.259 (2023-01-27 22:03Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.470.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.470.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaTailor
     * Added cmdlet Add-EMTLogsForChannel leveraging the ConfigureLogsForChannel service API.
   * Amazon SageMaker Runtime
     * Modified cmdlet Invoke-SMREndpointAsync: added parameter InvocationTimeoutSecond.
 
 ### 4.1.258 (2023-01-26 21:55Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.469.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.469.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.257 (2023-01-25 22:15Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.468.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.468.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Edit-EC2IpamResourceDiscovery leveraging the ModifyIpamResourceDiscovery service API.
     * Added cmdlet Get-EC2IpamDiscoveredAccount leveraging the GetIpamDiscoveredAccounts service API.
@@ -1544,22 +1544,22 @@
     * Modified cmdlet New-SMInferenceRecommendationsJob: added parameters ContainerConfig_DataInputConfig and InputConfig_ModelName.
 
 ### 4.1.256 (2023-01-24 22:00Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.467.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.467.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Systems Manager for SAP
     * Added cmdlet Get-SMSAPOperationList leveraging the ListOperations service API.
     * Modified cmdlet Get-SMSAPApplication: added parameter AppRegistryArn.
 
 ### 4.1.255 (2023-01-23 22:07Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.466.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.466.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Lambda
     * Added cmdlet Get-LMRuntimeManagementConfig leveraging the GetRuntimeManagementConfig service API.
     * Added cmdlet Write-LMRuntimeManagementConfig leveraging the PutRuntimeManagementConfig service API.
 
 ### 4.1.254 (2023-01-20 22:04Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.465.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.465.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.253 (2023-01-20 02:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.464.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.464.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Modified cmdlet New-AFFlow: added parameter Pardot_Object.
     * Modified cmdlet Update-AFFlow: added parameter Pardot_Object.
@@ -1579,52 +1579,52 @@
     * Modified cmdlet New-SMHyperParameterTuningJob: added parameter TrainingJobDefinition_Environment.
 
 ### 4.1.252 (2023-01-18 22:01Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.463.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.463.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch
     * Modified cmdlet Write-CWMetricStream: added parameter IncludeLinkedAccountsMetric.
 
 ### 4.1.251 (2023-01-17 21:51Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet New-ABCPricingRule: added parameters Operation and UsageType.
 
 ### 4.1.250 (2023-01-13 22:05Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.461.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.461.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Resource Groups
     * Added cmdlet Get-RGAccountSetting leveraging the GetAccountSettings service API.
     * Added cmdlet Update-RGAccountSetting leveraging the UpdateAccountSettings service API.
 
 ### 4.1.249 (2023-01-12 22:00Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.460.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.460.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CRS and can be listed using the command 'Get-AWSCmdletName -Service CRS'.
   * Amazon Lambda
     * Modified cmdlet New-LMEventSourceMapping: added parameter ScalingConfig_MaximumConcurrency.
     * Modified cmdlet Update-LMEventSourceMapping: added parameter ScalingConfig_MaximumConcurrency.
 
 ### 4.1.248 (2023-01-11 21:38Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.459.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.459.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.247 (2023-01-10 21:56Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.458.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.458.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Relational Database Service
     * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter AllocatedStorage.
     * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter AllocatedStorage.
     * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter AllocatedStorage.
 
 ### 4.1.246 (2023-01-09 22:26Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.457.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.457.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Kendra Intelligent Ranking. Added cmdlets to support the service. Cmdlets for the service have the noun prefix KNRK and can be listed using the command 'Get-AWSCmdletName -Service KNRK'.
   * Amazon WorkSpaces Web
     * Modified cmdlet New-WSWPortal: added parameter AuthenticationType.
     * Modified cmdlet Update-WSWPortal: added parameter AuthenticationType.
 
 ### 4.1.245 (2023-01-06 21:55Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.456.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.456.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Audit Manager
     * Modified cmdlet Edit-AUDMSetting: added parameter DeregistrationPolicy_DeleteResource.
 
 ### 4.1.244 (2023-01-05 21:58Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.455.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.455.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Runner
     * Modified cmdlet New-AARService: added parameters CodeConfigurationValues_RuntimeEnvironmentSecret and ImageConfiguration_RuntimeEnvironmentSecret.
     * Modified cmdlet Update-AARService: added parameters CodeConfigurationValues_RuntimeEnvironmentSecret and ImageConfiguration_RuntimeEnvironmentSecret.
@@ -1635,9 +1635,9 @@
     * Modified cmdlet New-RDSDBInstance: added parameter CACertificateIdentifier.
 
 ### 4.1.243 (2023-01-04 21:46Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.454.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.454.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Auto Scaling
     * Modified cmdlet Get-AASScalingActivity: added parameter IncludeNotScaledActivity.
 
 ### 4.1.242 (2023-01-03 21:55Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.453.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.453.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.

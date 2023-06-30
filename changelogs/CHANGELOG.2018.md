@@ -1,5 +1,5 @@
 ﻿### 3.3.428.0 (2018-12-14)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.428.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.428.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Added cmdlet Add-ALXBSkillToUser leveraging the AssociateSkillWithUsers service API.
     * Added cmdlet Get-ALXBBusinessReportScheduleList leveraging the ListBusinessReportSchedules service API.
