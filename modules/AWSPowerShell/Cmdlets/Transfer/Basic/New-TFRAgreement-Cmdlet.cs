@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// needs to provide read and write access to the parent directory of the file location
         /// used in the <code>StartFileTransfer</code> request. Additionally, you need to provide
         /// read and write access to the parent directory of the files that you intend to send
-        /// with <code>StartFileTransfer</code>.</para>
+        /// with <code>StartFileTransfer</code>.</para><para>If you are using Basic authentication for your AS2 connector, the access role requires
+        /// the <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret
+        /// is encrypted using a customer-managed key instead of the Amazon Web Services managed
+        /// key in Secrets Manager, then the role also needs the <code>kms:Decrypt</code> permission
+        /// for that key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

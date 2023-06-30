@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.580.0",
+    "ProductVersion" : "3.7.581.0",
     "CoreVersion"    : "3.7.107.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -160,7 +160,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.108.23",
+            "Version" : "3.7.109.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -898,7 +898,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.112.0",
+            "Version" : "3.7.112.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.140.0",
+            "Version" : "3.7.141.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.106.0",
+            "Version" : "3.7.107.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -1802,7 +1802,7 @@
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "3.7.104.0",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -2002,7 +2002,7 @@
             "InPreview"               : false
         },
         "PrometheusService"               : {
-            "Version" : "3.7.100.147",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"
@@ -2794,7 +2794,7 @@
             "InPreview"               : false
         },
         "VerifiedPermissions"                 : {
-            "Version" : "3.7.100.4",
+            "Version" : "3.7.100.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.107.8"

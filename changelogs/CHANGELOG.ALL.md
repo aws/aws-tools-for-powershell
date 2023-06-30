@@ -1,4 +1,13 @@
-﻿### 4.1.363 (2023-06-29 22:07Z)
+﻿### 4.1.364 (2023-06-30 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.581.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMEndpoint: added parameters MaximumBatchSize_Type, MaximumBatchSize_Value, RollbackMaximumBatchSize_Type, RollbackMaximumBatchSize_Value, RollingUpdatePolicy_MaximumExecutionTimeoutInSecond and RollingUpdatePolicy_WaitIntervalInSecond.
+    * Modified cmdlet Update-SMEndpoint: added parameters MaximumBatchSize_Type, MaximumBatchSize_Value, RollbackMaximumBatchSize_Type, RollbackMaximumBatchSize_Value, RollingUpdatePolicy_MaximumExecutionTimeoutInSecond and RollingUpdatePolicy_WaitIntervalInSecond.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameter As2Config_BasicAuthSecretId.
+    * Modified cmdlet Update-TFRConnector: added parameter As2Config_BasicAuthSecretId.
+
+### 4.1.363 (2023-06-29 22:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.580.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Added cmdlet Add-APSAppBlockBuilderAppBlock leveraging the AssociateAppBlockBuilderAppBlock service API.

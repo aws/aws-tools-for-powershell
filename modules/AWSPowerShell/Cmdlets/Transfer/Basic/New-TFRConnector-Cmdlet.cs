@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// needs to provide read and write access to the parent directory of the file location
         /// used in the <code>StartFileTransfer</code> request. Additionally, you need to provide
         /// read and write access to the parent directory of the files that you intend to send
-        /// with <code>StartFileTransfer</code>.</para>
+        /// with <code>StartFileTransfer</code>.</para><para>If you are using Basic authentication for your AS2 connector, the access role requires
+        /// the <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret
+        /// is encrypted using a customer-managed key instead of the Amazon Web Services managed
+        /// key in Secrets Manager, then the role also needs the <code>kms:Decrypt</code> permission
+        /// for that key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,6 +71,26 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AccessRole { get; set; }
+        #endregion
+        
+        #region Parameter As2Config_BasicAuthSecretId
+        /// <summary>
+        /// <para>
+        /// <para>Provides Basic authentication support to the AS2 Connectors API. To use Basic authentication,
+        /// you must provide the name or Amazon Resource Name (ARN) of a secret in Secrets Manager.</para><para>The default value for this parameter is <code>null</code>, which indicates that Basic
+        /// authentication is not enabled for the connector.</para><para>If the connector should use Basic authentication, the secret needs to be in the following
+        /// format:</para><para><code>{ "Username": "user-name", "Password": "user-password" }</code></para><para>Replace <code>user-name</code> and <code>user-password</code> with the credentials
+        /// for the actual user that is being authenticated.</para><para>Note the following:</para><ul><li><para>You are storing these credentials in Secrets Manager, <i>not passing them directly</i>
+        /// into this API.</para></li><li><para>If you are using the API, SDKs, or CloudFormation to configure your connector, then
+        /// you must create the secret before you can enable Basic authentication. However, if
+        /// you are using the Amazon Web Services management console, you can have the system
+        /// create the secret for you.</para></li></ul><para>If you have previously enabled Basic authentication for a connector, you can disable
+        /// it by using the <code>UpdateConnector</code> API call. For example, if you are using
+        /// the CLI, you can run the following command to remove Basic authentication:</para><para><code>update-connector --connector-id my-connector-id --as2-config 'BasicAuthSecretId=""'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String As2Config_BasicAuthSecretId { get; set; }
         #endregion
         
         #region Parameter As2Config_Compression
@@ -250,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter AccessRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.As2Config_BasicAuthSecretId = this.As2Config_BasicAuthSecretId;
             context.As2Config_Compression = this.As2Config_Compression;
             context.As2Config_EncryptionAlgorithm = this.As2Config_EncryptionAlgorithm;
             context.As2Config_LocalProfileId = this.As2Config_LocalProfileId;
@@ -294,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate As2Config
             var requestAs2ConfigIsNull = true;
             request.As2Config = new Amazon.Transfer.Model.As2ConnectorConfig();
+            System.String requestAs2Config_as2Config_BasicAuthSecretId = null;
+            if (cmdletContext.As2Config_BasicAuthSecretId != null)
+            {
+                requestAs2Config_as2Config_BasicAuthSecretId = cmdletContext.As2Config_BasicAuthSecretId;
+            }
+            if (requestAs2Config_as2Config_BasicAuthSecretId != null)
+            {
+                request.As2Config.BasicAuthSecretId = requestAs2Config_as2Config_BasicAuthSecretId;
+                requestAs2ConfigIsNull = false;
+            }
             Amazon.Transfer.CompressionEnum requestAs2Config_as2Config_Compression = null;
             if (cmdletContext.As2Config_Compression != null)
             {
@@ -453,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessRole { get; set; }
+            public System.String As2Config_BasicAuthSecretId { get; set; }
             public Amazon.Transfer.CompressionEnum As2Config_Compression { get; set; }
             public Amazon.Transfer.EncryptionAlg As2Config_EncryptionAlgorithm { get; set; }
             public System.String As2Config_LocalProfileId { get; set; }

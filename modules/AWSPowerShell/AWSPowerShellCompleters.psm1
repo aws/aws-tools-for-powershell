@@ -51167,7 +51167,11 @@ $SM_Completers = {
             ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type") -Or
             ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type") -Or
             ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type") -Or
-            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type")
+            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type") -Or
+            ($_ -eq "New-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type") -Or
+            ($_ -eq "New-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type")
         }
         {
             $v = "CAPACITY_PERCENT","INSTANCE_COUNT"
@@ -51272,7 +51276,7 @@ $SM_Completers = {
         # Amazon.SageMaker.EndpointStatus
         "Get-SMEndpointList/StatusEquals"
         {
-            $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","SystemUpdating","Updating"
+            $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","SystemUpdating","UpdateRollbackFailed","Updating"
             break
         }
 
@@ -52262,6 +52266,8 @@ $SM_map = @{
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DesiredState"=@("Stop-SMInferenceExperiment")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "Direction"=@("Find-SMLineage")
