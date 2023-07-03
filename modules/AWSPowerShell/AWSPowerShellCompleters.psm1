@@ -51851,6 +51851,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.RecommendationJobSupportedEndpointType
+        "New-SMInferenceRecommendationsJob/InputConfig_ContainerConfig_SupportedEndpointType"
+        {
+            $v = "RealTime","Serverless"
+            break
+        }
+
         # Amazon.SageMaker.RecommendationJobType
         "New-SMInferenceRecommendationsJob/JobType"
         {
@@ -52285,6 +52292,7 @@ $SM_map = @{
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
+    "InputConfig_ContainerConfig_SupportedEndpointType"=@("New-SMInferenceRecommendationsJob")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")

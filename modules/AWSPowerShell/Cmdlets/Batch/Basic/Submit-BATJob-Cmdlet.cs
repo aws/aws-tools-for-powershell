@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The command to send to the container that overrides the default command from the Docker
-        /// image or the job definition.</para>
+        /// image or the job definition.</para><note><para>This parameter can't contain an empty string.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,9 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ShareIdentifier
         /// <summary>
         /// <para>
-        /// <para>The share identifier for the job. If the job queue doesn't have a scheduling policy,
-        /// then this parameter must not be specified. If the job queue has a scheduling policy,
-        /// then this parameter must be specified.</para>
+        /// <para>The share identifier for the job. Don't specify this parameter if the job queue doesn't
+        /// have a scheduling policy. If the job queue has a scheduling policy, then this parameter
+        /// must be specified.</para><para>This string is limited to 255 alphanumeric characters, and can be followed by an asterisk
+        /// (*).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

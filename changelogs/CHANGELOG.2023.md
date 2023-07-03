@@ -1,4 +1,11 @@
-﻿### 4.1.364 (2023-06-30 21:07Z)
+﻿### 4.1.365 (2023-07-03 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.582.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameters RuntimePlatform_CpuArchitecture and RuntimePlatform_OperatingSystemFamily.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameter ContainerConfig_SupportedEndpointType.
+
+### 4.1.364 (2023-06-30 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.581.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMEndpoint: added parameters MaximumBatchSize_Type, MaximumBatchSize_Value, RollbackMaximumBatchSize_Type, RollbackMaximumBatchSize_Value, RollingUpdatePolicy_MaximumExecutionTimeoutInSecond and RollingUpdatePolicy_WaitIntervalInSecond.

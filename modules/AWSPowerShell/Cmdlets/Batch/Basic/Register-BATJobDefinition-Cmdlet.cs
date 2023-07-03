@@ -94,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.EksContainer[] PodProperties_Container { get; set; }
         #endregion
         
+        #region Parameter RuntimePlatform_CpuArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
+        /// <code>X86_64</code> and <code> ARM64</code>.</para><note><para>This parameter must be set to <code>X86_64</code> for Windows containers.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_RuntimePlatform_CpuArchitecture")]
+        public System.String RuntimePlatform_CpuArchitecture { get; set; }
+        #endregion
+        
         #region Parameter LinuxParameters_Device
         /// <summary>
         /// <para>
@@ -385,6 +397,27 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NodeProperties_NumNodes")]
         public System.Int32? NodeProperties_NumNode { get; set; }
+        #endregion
+        
+        #region Parameter RuntimePlatform_OperatingSystemFamily
+        /// <summary>
+        /// <para>
+        /// <para>The operating system for the compute environment. Valid values are: <code>LINUX</code>
+        /// (default), <code>WINDOWS_SERVER_2019_CORE</code>, <code>WINDOWS_SERVER_2019_FULL</code>,
+        /// <code>WINDOWS_SERVER_2022_CORE</code>, and <code>WINDOWS_SERVER_2022_FULL</code>.</para><note><para>The following parameters can’t be set for Windows containers: <code>linuxParameters</code>,
+        /// <code>privileged</code>, <code>user</code>, <code>ulimits</code>, <code>readonlyRootFilesystem</code>,
+        /// and <code>efsVolumeConfiguration</code>.</para></note><note><para>The Batch Scheduler checks before registering a task definition with Fargate. If the
+        /// job requires a Windows container and the first compute environment is <code>LINUX</code>,
+        /// the compute environment is skipped and the next is checked until a Windows-based compute
+        /// environment is found.</para></note><note><para>Fargate Spot is not supported for Windows-based containers on Fargate. A job queue
+        /// will be blocked if a Fargate Windows job is submitted to a job queue with only Fargate
+        /// Spot compute environments. However, you can attach both <code>FARGATE</code> and <code>FARGATE_SPOT</code>
+        /// compute environments to the same job queue.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_RuntimePlatform_OperatingSystemFamily")]
+        public System.String RuntimePlatform_OperatingSystemFamily { get; set; }
         #endregion
         
         #region Parameter LogConfiguration_Option
@@ -872,6 +905,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ContainerProperties_ResourceRequirement = new List<Amazon.Batch.Model.ResourceRequirement>(this.ContainerProperties_ResourceRequirement);
             }
+            context.RuntimePlatform_CpuArchitecture = this.RuntimePlatform_CpuArchitecture;
+            context.RuntimePlatform_OperatingSystemFamily = this.RuntimePlatform_OperatingSystemFamily;
             if (this.ContainerProperties_Secret != null)
             {
                 context.ContainerProperties_Secret = new List<Amazon.Batch.Model.Secret>(this.ContainerProperties_Secret);
@@ -1212,6 +1247,41 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_NetworkConfiguration != null)
             {
                 request.ContainerProperties.NetworkConfiguration = requestContainerProperties_containerProperties_NetworkConfiguration;
+                requestContainerPropertiesIsNull = false;
+            }
+            Amazon.Batch.Model.RuntimePlatform requestContainerProperties_containerProperties_RuntimePlatform = null;
+            
+             // populate RuntimePlatform
+            var requestContainerProperties_containerProperties_RuntimePlatformIsNull = true;
+            requestContainerProperties_containerProperties_RuntimePlatform = new Amazon.Batch.Model.RuntimePlatform();
+            System.String requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_CpuArchitecture = null;
+            if (cmdletContext.RuntimePlatform_CpuArchitecture != null)
+            {
+                requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_CpuArchitecture = cmdletContext.RuntimePlatform_CpuArchitecture;
+            }
+            if (requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_CpuArchitecture != null)
+            {
+                requestContainerProperties_containerProperties_RuntimePlatform.CpuArchitecture = requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_CpuArchitecture;
+                requestContainerProperties_containerProperties_RuntimePlatformIsNull = false;
+            }
+            System.String requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_OperatingSystemFamily = null;
+            if (cmdletContext.RuntimePlatform_OperatingSystemFamily != null)
+            {
+                requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_OperatingSystemFamily = cmdletContext.RuntimePlatform_OperatingSystemFamily;
+            }
+            if (requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_OperatingSystemFamily != null)
+            {
+                requestContainerProperties_containerProperties_RuntimePlatform.OperatingSystemFamily = requestContainerProperties_containerProperties_RuntimePlatform_runtimePlatform_OperatingSystemFamily;
+                requestContainerProperties_containerProperties_RuntimePlatformIsNull = false;
+            }
+             // determine if requestContainerProperties_containerProperties_RuntimePlatform should be set to null
+            if (requestContainerProperties_containerProperties_RuntimePlatformIsNull)
+            {
+                requestContainerProperties_containerProperties_RuntimePlatform = null;
+            }
+            if (requestContainerProperties_containerProperties_RuntimePlatform != null)
+            {
+                request.ContainerProperties.RuntimePlatform = requestContainerProperties_containerProperties_RuntimePlatform;
                 requestContainerPropertiesIsNull = false;
             }
             Amazon.Batch.Model.LogConfiguration requestContainerProperties_containerProperties_LogConfiguration = null;
@@ -1623,6 +1693,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Boolean? ContainerProperties_Privileged { get; set; }
             public System.Boolean? ContainerProperties_ReadonlyRootFilesystem { get; set; }
             public List<Amazon.Batch.Model.ResourceRequirement> ContainerProperties_ResourceRequirement { get; set; }
+            public System.String RuntimePlatform_CpuArchitecture { get; set; }
+            public System.String RuntimePlatform_OperatingSystemFamily { get; set; }
             public List<Amazon.Batch.Model.Secret> ContainerProperties_Secret { get; set; }
             public List<Amazon.Batch.Model.Ulimit> ContainerProperties_Ulimit { get; set; }
             public System.String ContainerProperties_User { get; set; }

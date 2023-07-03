@@ -355,6 +355,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] PayloadConfig_SupportedContentType { get; set; }
         #endregion
         
+        #region Parameter ContainerConfig_SupportedEndpointType
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint type to receive recommendations for. By default this is null, and the
+        /// results of the inference recommendation job return a combined list of both real-time
+        /// and serverless benchmarks. By specifying a value for this field, you can receive a
+        /// longer list of benchmarks for the desired endpoint type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_SupportedEndpointType")]
+        [AWSConstantClassSource("Amazon.SageMaker.RecommendationJobSupportedEndpointType")]
+        public Amazon.SageMaker.RecommendationJobSupportedEndpointType ContainerConfig_SupportedEndpointType { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfig_SupportedInstanceType
         /// <summary>
         /// <para>
@@ -495,6 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.PayloadConfig_SupportedContentType = new List<System.String>(this.PayloadConfig_SupportedContentType);
             }
+            context.ContainerConfig_SupportedEndpointType = this.ContainerConfig_SupportedEndpointType;
             if (this.ContainerConfig_SupportedInstanceType != null)
             {
                 context.ContainerConfig_SupportedInstanceType = new List<System.String>(this.ContainerConfig_SupportedInstanceType);
@@ -800,6 +816,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestInputConfig_inputConfig_ContainerConfig.NearestModelName = requestInputConfig_inputConfig_ContainerConfig_containerConfig_NearestModelName;
                 requestInputConfig_inputConfig_ContainerConfigIsNull = false;
             }
+            Amazon.SageMaker.RecommendationJobSupportedEndpointType requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedEndpointType = null;
+            if (cmdletContext.ContainerConfig_SupportedEndpointType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedEndpointType = cmdletContext.ContainerConfig_SupportedEndpointType;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedEndpointType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.SupportedEndpointType = requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedEndpointType;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
             List<System.String> requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedInstanceType = null;
             if (cmdletContext.ContainerConfig_SupportedInstanceType != null)
             {
@@ -1031,6 +1057,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ContainerConfig_NearestModelName { get; set; }
             public System.String PayloadConfig_SamplePayloadUrl { get; set; }
             public List<System.String> PayloadConfig_SupportedContentType { get; set; }
+            public Amazon.SageMaker.RecommendationJobSupportedEndpointType ContainerConfig_SupportedEndpointType { get; set; }
             public List<System.String> ContainerConfig_SupportedInstanceType { get; set; }
             public System.String ContainerConfig_Task { get; set; }
             public List<Amazon.SageMaker.Model.EndpointInputConfiguration> InputConfig_EndpointConfiguration { get; set; }

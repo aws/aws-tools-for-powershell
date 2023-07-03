@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
-        /// <para>The desired number of Amazon EC2 vCPUS in the compute environment. Batch modifies
-        /// this value between the minimum and maximum values based on job queue demand.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// <para>The desired number of vCPUS in the compute environment. Batch modifies this value
+        /// between the minimum and maximum values based on job queue demand.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note><note><para>Batch doesn't support changing the desired number of vCPUs of an existing compute
         /// environment. Don't specify this parameter for compute environments using Amazon EKS
         /// clusters.</para></note><note><para>When you update the <code>desiredvCpus</code> setting, the value must be between the
@@ -266,8 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MinvCpu
         /// <summary>
         /// <para>
-        /// <para>The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if
-        /// the compute environment is <code>DISABLED</code>).</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// <para>The minimum number of vCPUs that an environment should maintain (even if the compute
+        /// environment is <code>DISABLED</code>).</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
         /// </summary>

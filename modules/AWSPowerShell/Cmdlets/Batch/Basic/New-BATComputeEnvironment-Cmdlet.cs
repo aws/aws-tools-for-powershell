@@ -88,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// or <code>SPOT_CAPACITY_OPTIMIZED</code>.
     /// </para></li><li><para>
     /// Set the update to latest image version (<code>updateToLatestImageVersion</code>) parameter
-    /// to <code>true</code>.
+    /// to <code>true</code>. The <code>updateToLatestImageVersion</code> parameter is used
+    /// when you update a compute environment. This parameter is ignored when you create a
+    /// compute environment.
     /// </para></li><li><para>
     /// Don't specify an AMI ID in <code>imageId</code>, <code>imageIdOverride</code> (in
     /// <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_Ec2Configuration.html"><code>ec2Configuration</code></a>), or in the launch template (<code>launchTemplate</code>).
@@ -194,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
-        /// <para>The desired number of Amazon EC2 vCPUS in the compute environment. Batch modifies
-        /// this value between the minimum and maximum values based on job queue demand.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// <para>The desired number of vCPUS in the compute environment. Batch modifies this value
+        /// between the minimum and maximum values based on job queue demand.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
         /// </summary>
@@ -313,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon EC2 vCPUs that a compute environment can reach.</para><note><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+        /// <para>The maximum number of vCPUs that a compute environment can support.</para><note><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
         /// allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code>
         /// strategy using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to
         /// meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code>
@@ -329,8 +331,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MinvCpu
         /// <summary>
         /// <para>
-        /// <para>The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if
-        /// the compute environment is <code>DISABLED</code>).</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// <para>The minimum number of vCPUs that a compute environment should maintain (even if the
+        /// compute environment is <code>DISABLED</code>).</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
         /// </summary>
