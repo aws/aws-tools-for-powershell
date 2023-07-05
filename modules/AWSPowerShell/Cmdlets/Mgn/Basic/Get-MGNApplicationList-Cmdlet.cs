@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Applications list Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter Filters_ApplicationIDs
         /// <summary>
         /// <para>
@@ -139,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.Filters_IsArchived;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             if (this.Filters_ApplicationIDs != null)
             {
                 context.Filters_ApplicationIDs = new List<System.String>(this.Filters_ApplicationIDs);
@@ -166,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.ListApplicationsRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             
              // populate Filters
             var requestFiltersIsNull = true;
@@ -274,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public List<System.String> Filters_ApplicationIDs { get; set; }
             public System.Boolean? Filters_IsArchived { get; set; }
             public List<System.String> Filters_WaveIDs { get; set; }

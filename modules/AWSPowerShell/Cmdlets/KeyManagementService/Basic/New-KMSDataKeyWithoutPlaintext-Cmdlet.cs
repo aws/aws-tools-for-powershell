@@ -95,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class NewKMSDataKeyWithoutPlaintextCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
@@ -234,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Select = (response, cmdlet) => this.KeyId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DryRun = this.DryRun;
             if (this.EncryptionContext != null)
             {
                 context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -271,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request
             var request = new Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.EncryptionContext != null)
             {
                 request.EncryptionContext = cmdletContext.EncryptionContext;
@@ -352,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public Dictionary<System.String, System.String> EncryptionContext { get; set; }
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }

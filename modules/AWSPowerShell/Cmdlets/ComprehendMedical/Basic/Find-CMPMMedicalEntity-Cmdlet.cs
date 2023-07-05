@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     /// 
     ///  
     /// <para>
-    ///  Inspects the clinical text for a variety of medical entities and returns specific
+    /// Inspects the clinical text for a variety of medical entities and returns specific
     /// information about them such as entity category, location, and confidence score on
-    /// that information .
+    /// that information.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Find", "CMPMMedicalEntity")]
@@ -51,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para> A UTF-8 text string containing the clinical content being examined for entities.
-        /// Each string must contain fewer than 20,000 bytes of characters.</para>
+        /// <para> A UTF-8 text string containing the clinical content being examined for entities.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

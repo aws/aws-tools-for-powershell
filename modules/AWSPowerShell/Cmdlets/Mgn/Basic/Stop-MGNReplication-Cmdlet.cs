@@ -28,32 +28,33 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Deletes a single Job by ID.
+    /// Stop Replication.
     /// </summary>
-    [Cmdlet("Remove", "MGNJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Application Migration Service DeleteJob API operation.", Operation = new[] {"DeleteJob"}, SelectReturnType = typeof(Amazon.Mgn.Model.DeleteJobResponse))]
-    [AWSCmdletOutput("None or Amazon.Mgn.Model.DeleteJobResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.DeleteJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "MGNReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Mgn.Model.StopReplicationResponse")]
+    [AWSCmdlet("Calls the Application Migration Service StopReplication API operation.", Operation = new[] {"StopReplication"}, SelectReturnType = typeof(Amazon.Mgn.Model.StopReplicationResponse))]
+    [AWSCmdletOutput("Amazon.Mgn.Model.StopReplicationResponse",
+        "This cmdlet returns an Amazon.Mgn.Model.StopReplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveMGNJobCmdlet : AmazonMgnClientCmdlet, IExecutor
+    public partial class StopMGNReplicationCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter AccountID
         /// <summary>
         /// <para>
-        /// <para>Request to delete Job from service by Account ID.</para>
+        /// <para>Stop Replication Request account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AccountID { get; set; }
         #endregion
         
-        #region Parameter JobID
+        #region Parameter SourceServerID
         /// <summary>
         /// <para>
-        /// <para>Request to delete Job from service by Job ID.</para>
+        /// <para>Stop Replication Request source server ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +65,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobID { get; set; }
+        public System.String SourceServerID { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.DeleteJobResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.StopReplicationResponse).
+        /// Specifying the name of a property of type Amazon.Mgn.Model.StopReplicationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobID parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobID' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SourceServerID parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SourceServerID' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobID' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceServerID' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -102,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobID), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MGNJob (DeleteJob)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceServerID), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-MGNReplication (StopReplication)"))
             {
                 return;
             }
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DeleteJobResponse, RemoveMGNJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.StopReplicationResponse, StopMGNReplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,15 +127,15 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobID;
+                context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountID = this.AccountID;
-            context.JobID = this.JobID;
+            context.SourceServerID = this.SourceServerID;
             #if MODULAR
-            if (this.JobID == null && ParameterWasBound(nameof(this.JobID)))
+            if (this.SourceServerID == null && ParameterWasBound(nameof(this.SourceServerID)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SourceServerID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Mgn.Model.DeleteJobRequest();
+            var request = new Amazon.Mgn.Model.StopReplicationRequest();
             
             if (cmdletContext.AccountID != null)
             {
                 request.AccountID = cmdletContext.AccountID;
             }
-            if (cmdletContext.JobID != null)
+            if (cmdletContext.SourceServerID != null)
             {
-                request.JobID = cmdletContext.JobID;
+                request.SourceServerID = cmdletContext.SourceServerID;
             }
             
             CmdletOutput output;
@@ -193,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region AWS Service Operation Call
         
-        private Amazon.Mgn.Model.DeleteJobResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.DeleteJobRequest request)
+        private Amazon.Mgn.Model.StopReplicationResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.StopReplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "DeleteJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "StopReplication");
             try
             {
                 #if DESKTOP
-                return client.DeleteJob(request);
+                return client.StopReplication(request);
                 #elif CORECLR
-                return client.DeleteJobAsync(request).GetAwaiter().GetResult();
+                return client.StopReplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,9 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountID { get; set; }
-            public System.String JobID { get; set; }
-            public System.Func<Amazon.Mgn.Model.DeleteJobResponse, RemoveMGNJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String SourceServerID { get; set; }
+            public System.Func<Amazon.Mgn.Model.StopReplicationResponse, StopMGNReplicationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

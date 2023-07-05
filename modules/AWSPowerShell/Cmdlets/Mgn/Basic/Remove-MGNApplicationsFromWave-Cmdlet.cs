@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class RemoveMGNApplicationsFromWaveCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter ApplicationIDs
         /// <summary>
         /// <para>
@@ -135,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.WaveID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             if (this.ApplicationIDs != null)
             {
                 context.ApplicationIDs = new List<System.String>(this.ApplicationIDs);
@@ -168,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.DisassociateApplicationsRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             if (cmdletContext.ApplicationIDs != null)
             {
                 request.ApplicationIDs = cmdletContext.ApplicationIDs;
@@ -237,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public List<System.String> ApplicationIDs { get; set; }
             public System.String WaveID { get; set; }
             public System.Func<Amazon.Mgn.Model.DisassociateApplicationsResponse, RemoveMGNApplicationsFromWaveCmdlet, object> Select { get; set; } =

@@ -28,49 +28,22 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Retrieves detailed job log items with paging.
+    /// List Managed Accounts.
     /// </summary>
-    [Cmdlet("Get", "MGNJobLogItem")]
-    [OutputType("Amazon.Mgn.Model.JobLog")]
-    [AWSCmdlet("Calls the Application Migration Service DescribeJobLogItems API operation.", Operation = new[] {"DescribeJobLogItems"}, SelectReturnType = typeof(Amazon.Mgn.Model.DescribeJobLogItemsResponse))]
-    [AWSCmdletOutput("Amazon.Mgn.Model.JobLog or Amazon.Mgn.Model.DescribeJobLogItemsResponse",
-        "This cmdlet returns a collection of Amazon.Mgn.Model.JobLog objects.",
-        "The service call response (type Amazon.Mgn.Model.DescribeJobLogItemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MGNManagedAccountList")]
+    [OutputType("Amazon.Mgn.Model.ManagedAccount")]
+    [AWSCmdlet("Calls the Application Migration Service ListManagedAccounts API operation.", Operation = new[] {"ListManagedAccounts"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListManagedAccountsResponse))]
+    [AWSCmdletOutput("Amazon.Mgn.Model.ManagedAccount or Amazon.Mgn.Model.ListManagedAccountsResponse",
+        "This cmdlet returns a collection of Amazon.Mgn.Model.ManagedAccount objects.",
+        "The service call response (type Amazon.Mgn.Model.ListManagedAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMGNJobLogItemCmdlet : AmazonMgnClientCmdlet, IExecutor
+    public partial class GetMGNManagedAccountListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
-        
-        #region Parameter AccountID
-        /// <summary>
-        /// <para>
-        /// <para>Request to describe Job log Account ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountID { get; set; }
-        #endregion
-        
-        #region Parameter JobID
-        /// <summary>
-        /// <para>
-        /// <para>Request to describe Job log job ID.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobID { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Request to describe Job log item maximum results.</para>
+        /// <para>List managed accounts request max results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Request to describe Job log next token.</para>
+        /// <para>List managed accounts request next token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,22 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.DescribeJobLogItemsResponse).
-        /// Specifying the name of a property of type Amazon.Mgn.Model.DescribeJobLogItemsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.ListManagedAccountsResponse).
+        /// Specifying the name of a property of type Amazon.Mgn.Model.ListManagedAccountsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Items";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobID parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobID' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobID' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -119,29 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DescribeJobLogItemsResponse, GetMGNJobLogItemCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.ListManagedAccountsResponse, GetMGNManagedAccountListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.JobID;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountID = this.AccountID;
-            context.JobID = this.JobID;
-            #if MODULAR
-            if (this.JobID == null && ParameterWasBound(nameof(this.JobID)))
-            {
-                WriteWarning("You are passing $null as a value for parameter JobID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -158,16 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Mgn.Model.DescribeJobLogItemsRequest();
+            var request = new Amazon.Mgn.Model.ListManagedAccountsRequest();
             
-            if (cmdletContext.AccountID != null)
-            {
-                request.AccountID = cmdletContext.AccountID;
-            }
-            if (cmdletContext.JobID != null)
-            {
-                request.JobID = cmdletContext.JobID;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -209,15 +146,15 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region AWS Service Operation Call
         
-        private Amazon.Mgn.Model.DescribeJobLogItemsResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.DescribeJobLogItemsRequest request)
+        private Amazon.Mgn.Model.ListManagedAccountsResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.ListManagedAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "DescribeJobLogItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "ListManagedAccounts");
             try
             {
                 #if DESKTOP
-                return client.DescribeJobLogItems(request);
+                return client.ListManagedAccounts(request);
                 #elif CORECLR
-                return client.DescribeJobLogItemsAsync(request).GetAwaiter().GetResult();
+                return client.ListManagedAccountsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,11 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountID { get; set; }
-            public System.String JobID { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Mgn.Model.DescribeJobLogItemsResponse, GetMGNJobLogItemCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Mgn.Model.ListManagedAccountsResponse, GetMGNManagedAccountListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

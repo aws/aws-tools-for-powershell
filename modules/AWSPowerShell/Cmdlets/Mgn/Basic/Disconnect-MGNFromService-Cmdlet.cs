@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Request to disconnect Source Server from service by Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>
@@ -130,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             context.SourceServerID = this.SourceServerID;
             #if MODULAR
             if (this.SourceServerID == null && ParameterWasBound(nameof(this.SourceServerID)))
@@ -153,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.DisconnectFromServiceRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             if (cmdletContext.SourceServerID != null)
             {
                 request.SourceServerID = cmdletContext.SourceServerID;
@@ -218,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public System.String SourceServerID { get; set; }
             public System.Func<Amazon.Mgn.Model.DisconnectFromServiceResponse, DisconnectMGNFromServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

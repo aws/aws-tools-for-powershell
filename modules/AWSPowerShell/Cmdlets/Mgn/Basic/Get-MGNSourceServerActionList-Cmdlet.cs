@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class GetMGNSourceServerActionListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Account ID to return when listing source server post migration custom actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter Filters_ActionIDs
         /// <summary>
         /// <para>
@@ -135,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             if (this.Filters_ActionIDs != null)
             {
                 context.Filters_ActionIDs = new List<System.String>(this.Filters_ActionIDs);
@@ -164,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.ListSourceServerActionsRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             
              // populate Filters
             var requestFiltersIsNull = true;
@@ -256,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public List<System.String> Filters_ActionIDs { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

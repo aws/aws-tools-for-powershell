@@ -254,6 +254,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? UseDedicatedReplicationServer { get; set; }
         #endregion
         
+        #region Parameter UseFipsEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Request to use Fips Endpoint during Replication Settings template creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseFipsEndpoint { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -392,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 WriteWarning("You are passing $null as a value for parameter UseDedicatedReplicationServer which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UseFipsEndpoint = this.UseFipsEndpoint;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -459,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.UseDedicatedReplicationServer != null)
             {
                 request.UseDedicatedReplicationServer = cmdletContext.UseDedicatedReplicationServer.Value;
+            }
+            if (cmdletContext.UseFipsEndpoint != null)
+            {
+                request.UseFipsEndpoint = cmdletContext.UseFipsEndpoint.Value;
             }
             
             CmdletOutput output;
@@ -534,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Dictionary<System.String, System.String> StagingAreaTag { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Boolean? UseDedicatedReplicationServer { get; set; }
+            public System.Boolean? UseFipsEndpoint { get; set; }
             public System.Func<Amazon.Mgn.Model.CreateReplicationConfigurationTemplateResponse, NewMGNReplicationConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

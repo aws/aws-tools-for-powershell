@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class RemoveMGNSourceServerActionCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Source server post migration account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter ActionID
         /// <summary>
         /// <para>
@@ -135,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             context.ActionID = this.ActionID;
             #if MODULAR
             if (this.ActionID == null && ParameterWasBound(nameof(this.ActionID)))
@@ -165,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.RemoveSourceServerActionRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             if (cmdletContext.ActionID != null)
             {
                 request.ActionID = cmdletContext.ActionID;
@@ -234,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public System.String ActionID { get; set; }
             public System.String SourceServerID { get; set; }
             public System.Func<Amazon.Mgn.Model.RemoveSourceServerActionResponse, RemoveMGNSourceServerActionCmdlet, object> Select { get; set; } =

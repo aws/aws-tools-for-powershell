@@ -155,6 +155,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedAccounts" OutputProperty="Items" Verb="Get" Noun="ManagedAccountList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSourceServerActions" OutputProperty="Items" Verb="Get" Noun="SourceServerActionList" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +179,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PauseReplication" OutputProperty="*" Verb="Suspend" Noun="Replication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutSourceServerAction" OutputProperty="*" Verb="Write" Noun="SourceServerAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -191,11 +199,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResumeReplication" OutputProperty="*" Verb="Resume" Noun="Replication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RetryDataReplication" OutputProperty="*" Verb="Resume" Noun="DataReplication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCutover" OutputProperty="Job" Verb="Start" Noun="Cutover" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCutover" OutputProperty="Job" Verb="Start" Noun="Cutover" AnonymousShouldProcessTarget="true" PipelineParameter="AccountID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -211,7 +223,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTest" OutputProperty="Job" Verb="Start" Noun="Test" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartTest" OutputProperty="Job" Verb="Start" Noun="Test" AnonymousShouldProcessTarget="true" PipelineParameter="AccountID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopReplication" OutputProperty="*" Verb="Stop" Noun="Replication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -219,7 +235,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateTargetInstances" OutputProperty="Job" Verb="Remove" Noun="TargetInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateTargetInstances" OutputProperty="Job" Verb="Remove" Noun="TargetInstance" AnonymousShouldProcessTarget="true" PipelineParameter="AccountID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

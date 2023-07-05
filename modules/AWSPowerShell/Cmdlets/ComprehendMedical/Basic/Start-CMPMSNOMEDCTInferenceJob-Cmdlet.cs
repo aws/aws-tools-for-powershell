@@ -114,8 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         /// <summary>
         /// <para>
         /// <para>The URI of the S3 bucket that contains the input data. The bucket must be in the same
-        /// region as the API endpoint that you are calling.</para><para>Each file in the document collection must be less than 40 KB. You can store a maximum
-        /// of 30 GB in the bucket.</para>
+        /// region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter OutputDataConfig_S3Key
         /// <summary>
         /// <para>
-        /// <para>The path to the output data files in the S3 bucket. Comprehend Medical; creates an
-        /// output directory using the job ID so that the output from one job does not overwrite
+        /// <para>The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates
+        /// an output directory using the job ID so that the output from one job does not overwrite
         /// the output of another.</para>
         /// </para>
         /// </summary>

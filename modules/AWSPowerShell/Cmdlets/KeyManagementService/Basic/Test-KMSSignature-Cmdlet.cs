@@ -84,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter GrantToken
         /// <summary>
         /// <para>
@@ -247,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Select = (response, cmdlet) => this.Message;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DryRun = this.DryRun;
             if (this.GrantToken != null)
             {
                 context.GrantToken = new List<System.String>(this.GrantToken);
@@ -301,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 // create request
                 var request = new Amazon.KeyManagementService.Model.VerifyRequest();
                 
+                if (cmdletContext.DryRun != null)
+                {
+                    request.DryRun = cmdletContext.DryRun.Value;
+                }
                 if (cmdletContext.GrantToken != null)
                 {
                     request.GrantTokens = cmdletContext.GrantToken;
@@ -400,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }
             public byte[] Message { get; set; }

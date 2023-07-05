@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class RemoveMGNSourceServersFromApplicationCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter ApplicationID
         /// <summary>
         /// <para>
@@ -135,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.ApplicationID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             context.ApplicationID = this.ApplicationID;
             #if MODULAR
             if (this.ApplicationID == null && ParameterWasBound(nameof(this.ApplicationID)))
@@ -168,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.DisassociateSourceServersRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             if (cmdletContext.ApplicationID != null)
             {
                 request.ApplicationID = cmdletContext.ApplicationID;
@@ -237,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public System.String ApplicationID { get; set; }
             public List<System.String> SourceServerIDs { get; set; }
             public System.Func<Amazon.Mgn.Model.DisassociateSourceServersResponse, RemoveMGNSourceServersFromApplicationCmdlet, object> Select { get; set; } =

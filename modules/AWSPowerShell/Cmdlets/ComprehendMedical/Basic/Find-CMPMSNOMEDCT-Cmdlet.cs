@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para> The input text to be analyzed using InferSNOMEDCT. The text should be a string with
-        /// 1 to 10000 characters. </para>
+        /// <para>The input text to be analyzed using InferSNOMEDCT.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

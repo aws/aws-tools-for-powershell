@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class NewKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Constraints_EncryptionContextEqual
         /// <summary>
         /// <para>
@@ -277,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     context.Constraints_EncryptionContextSubset.Add((String)hashKey, (String)(this.Constraints_EncryptionContextSubset[hashKey]));
                 }
             }
+            context.DryRun = this.DryRun;
             context.GranteePrincipal = this.GranteePrincipal;
             #if MODULAR
             if (this.GranteePrincipal == null && ParameterWasBound(nameof(this.GranteePrincipal)))
@@ -351,6 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (requestConstraintsIsNull)
             {
                 request.Constraints = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.GranteePrincipal != null)
             {
@@ -439,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             public Dictionary<System.String, System.String> Constraints_EncryptionContextEqual { get; set; }
             public Dictionary<System.String, System.String> Constraints_EncryptionContextSubset { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String GranteePrincipal { get; set; }
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }

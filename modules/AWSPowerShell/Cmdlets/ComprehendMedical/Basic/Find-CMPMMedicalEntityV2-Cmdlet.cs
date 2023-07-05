@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>A UTF-8 string containing the clinical content being examined for entities. Each string
-        /// must contain fewer than 20,000 bytes of characters.</para>
+        /// <para>A UTF-8 string containing the clinical content being examined for entities.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

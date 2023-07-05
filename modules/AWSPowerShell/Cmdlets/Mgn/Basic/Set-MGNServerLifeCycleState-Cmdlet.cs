@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>The request to change the source server migration account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             context.LifeCycle_State = this.LifeCycle_State;
             #if MODULAR
             if (this.LifeCycle_State == null && ParameterWasBound(nameof(this.LifeCycle_State)))
@@ -171,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.ChangeServerLifeCycleStateRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             
              // populate LifeCycle
             var requestLifeCycleIsNull = true;
@@ -255,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public Amazon.Mgn.ChangeServerLifeCycleStateSourceServerLifecycleState LifeCycle_State { get; set; }
             public System.String SourceServerID { get; set; }
             public System.Func<Amazon.Mgn.Model.ChangeServerLifeCycleStateResponse, SetMGNServerLifeCycleStateCmdlet, object> Select { get; set; } =

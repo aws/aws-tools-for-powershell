@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>The input text used for analysis. The input for InferRxNorm is a string from 1 to
-        /// 10000 characters.</para>
+        /// <para>The input text used for analysis.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

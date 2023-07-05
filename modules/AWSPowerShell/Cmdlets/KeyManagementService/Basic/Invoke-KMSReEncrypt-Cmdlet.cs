@@ -183,6 +183,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public System.String DestinationKeyId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter GrantToken
         /// <summary>
         /// <para>
@@ -311,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 WriteWarning("You are passing $null as a value for parameter DestinationKeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             if (this.GrantToken != null)
             {
                 context.GrantToken = new List<System.String>(this.GrantToken);
@@ -361,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 if (cmdletContext.DestinationKeyId != null)
                 {
                     request.DestinationKeyId = cmdletContext.DestinationKeyId;
+                }
+                if (cmdletContext.DryRun != null)
+                {
+                    request.DryRun = cmdletContext.DryRun.Value;
                 }
                 if (cmdletContext.GrantToken != null)
                 {
@@ -451,6 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public Amazon.KeyManagementService.EncryptionAlgorithmSpec DestinationEncryptionAlgorithm { get; set; }
             public Dictionary<System.String, System.String> DestinationEncryptionContext { get; set; }
             public System.String DestinationKeyId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> GrantToken { get; set; }
             public Amazon.KeyManagementService.EncryptionAlgorithmSpec SourceEncryptionAlgorithm { get; set; }
             public Dictionary<System.String, System.String> SourceEncryptionContext { get; set; }

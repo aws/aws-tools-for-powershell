@@ -80,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code>
         /// | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code>
         /// | <code>AGENT_HIERARCHY_LEVEL_FIVE</code></para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
-        /// For example, a <code>GetMetricDataV2</code> request can filter by 50 queues, 35 agents,
-        /// and 15 routing profiles for a total of 100 filter values. <code>VOICE</code>, <code>CHAT</code>,
-        /// and <code>TASK</code> are valid <code>filterValue</code> for the <code>CHANNEL</code>
-        /// filter key.</para></li></ul>
+        /// VOICE, CHAT, and TASK are valid <code>filterValue</code> for the CHANNEL filter key.
+        /// They do not count towards limitation of 100 filter values. For example, a GetMetricDataV2
+        /// request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of
+        /// 100 filter values, along with 3 channel filters.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter GrantId
         /// <summary>
         /// <para>
@@ -139,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.RetireGrantResponse, DisableKMSGrantCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.GrantId = this.GrantId;
             context.GrantToken = this.GrantToken;
             context.KeyId = this.KeyId;
@@ -158,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request
             var request = new Amazon.KeyManagementService.Model.RetireGrantRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.GrantId != null)
             {
                 request.GrantId = cmdletContext.GrantId;
@@ -231,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public System.String GrantId { get; set; }
             public System.String GrantToken { get; set; }
             public System.String KeyId { get; set; }

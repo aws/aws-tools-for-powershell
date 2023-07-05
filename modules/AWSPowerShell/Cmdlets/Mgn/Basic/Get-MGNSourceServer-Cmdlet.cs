@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Request to filter Source Servers list by Accoun ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter Filters_ApplicationIDs
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DescribeSourceServersResponse, GetMGNSourceServerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountID = this.AccountID;
             if (this.Filters_ApplicationIDs != null)
             {
                 context.Filters_ApplicationIDs = new List<System.String>(this.Filters_ApplicationIDs);
@@ -176,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.DescribeSourceServersRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             
              // populate Filters
             var requestFiltersIsNull = true;
@@ -304,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public List<System.String> Filters_ApplicationIDs { get; set; }
             public System.Boolean? Filters_IsArchived { get; set; }
             public List<System.String> Filters_LifeCycleState { get; set; }

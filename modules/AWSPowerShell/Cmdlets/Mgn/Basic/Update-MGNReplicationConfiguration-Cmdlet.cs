@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Update replication configuration Account ID request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter AssociateDefaultSecurityGroup
         /// <summary>
         /// <para>
@@ -206,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? UseDedicatedReplicationServer { get; set; }
         #endregion
         
+        #region Parameter UseFipsEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Update replication configuration use Fips Endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseFipsEndpoint { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -268,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = (response, cmdlet) => this.SourceServerID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountID = this.AccountID;
             context.AssociateDefaultSecurityGroup = this.AssociateDefaultSecurityGroup;
             context.BandwidthThrottling = this.BandwidthThrottling;
             context.CreatePublicIP = this.CreatePublicIP;
@@ -302,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 }
             }
             context.UseDedicatedReplicationServer = this.UseDedicatedReplicationServer;
+            context.UseFipsEndpoint = this.UseFipsEndpoint;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -318,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.UpdateReplicationConfigurationRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             if (cmdletContext.AssociateDefaultSecurityGroup != null)
             {
                 request.AssociateDefaultSecurityGroup = cmdletContext.AssociateDefaultSecurityGroup.Value;
@@ -377,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.UseDedicatedReplicationServer != null)
             {
                 request.UseDedicatedReplicationServer = cmdletContext.UseDedicatedReplicationServer.Value;
+            }
+            if (cmdletContext.UseFipsEndpoint != null)
+            {
+                request.UseFipsEndpoint = cmdletContext.UseFipsEndpoint.Value;
             }
             
             CmdletOutput output;
@@ -439,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public System.Boolean? AssociateDefaultSecurityGroup { get; set; }
             public System.Int64? BandwidthThrottling { get; set; }
             public System.Boolean? CreatePublicIP { get; set; }
@@ -454,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String StagingAreaSubnetId { get; set; }
             public Dictionary<System.String, System.String> StagingAreaTag { get; set; }
             public System.Boolean? UseDedicatedReplicationServer { get; set; }
+            public System.Boolean? UseFipsEndpoint { get; set; }
             public System.Func<Amazon.Mgn.Model.UpdateReplicationConfigurationResponse, UpdateMGNReplicationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

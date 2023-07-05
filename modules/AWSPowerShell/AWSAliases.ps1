@@ -16821,6 +16821,9 @@ Set-Alias -Name MGN-ListImportErrors -Value Get-MGNImportErrorList
 Set-Alias -Name List-MGNImports -Value Get-MGNImportList
 Set-Alias -Name List-MGNImportList -Value Get-MGNImportList
 Set-Alias -Name MGN-ListImports -Value Get-MGNImportList
+Set-Alias -Name List-MGNManagedAccounts -Value Get-MGNManagedAccountList
+Set-Alias -Name List-MGNManagedAccountList -Value Get-MGNManagedAccountList
+Set-Alias -Name MGN-ListManagedAccounts -Value Get-MGNManagedAccountList
 Set-Alias -Name List-MGNSourceServerActions -Value Get-MGNSourceServerActionList
 Set-Alias -Name List-MGNSourceServerActionList -Value Get-MGNSourceServerActionList
 Set-Alias -Name MGN-ListSourceServerActions -Value Get-MGNSourceServerActionList
@@ -16833,12 +16836,15 @@ Set-Alias -Name List-MGNWaveList -Value Get-MGNWaveList
 Set-Alias -Name MGN-ListWaves -Value Get-MGNWaveList
 Set-Alias -Name Mark-MGNAsArchived -Value Set-MGNAsArchived
 Set-Alias -Name MGN-MarkAsArchived -Value Set-MGNAsArchived
+Set-Alias -Name Pause-MGNReplication -Value Suspend-MGNReplication
+Set-Alias -Name MGN-PauseReplication -Value Suspend-MGNReplication
 Set-Alias -Name Put-MGNSourceServerAction -Value Write-MGNSourceServerAction
 Set-Alias -Name MGN-PutSourceServerAction -Value Write-MGNSourceServerAction
 Set-Alias -Name Put-MGNTemplateAction -Value Write-MGNTemplateAction
 Set-Alias -Name MGN-PutTemplateAction -Value Write-MGNTemplateAction
 Set-Alias -Name MGN-RemoveSourceServerAction -Value Remove-MGNSourceServerAction
 Set-Alias -Name MGN-RemoveTemplateAction -Value Remove-MGNTemplateAction
+Set-Alias -Name MGN-ResumeReplication -Value Resume-MGNReplication
 Set-Alias -Name Retry-MGNDataReplication -Value Resume-MGNDataReplication
 Set-Alias -Name MGN-RetryDataReplication -Value Resume-MGNDataReplication
 Set-Alias -Name MGN-StartCutover -Value Start-MGNCutover
@@ -16846,6 +16852,7 @@ Set-Alias -Name MGN-StartExport -Value Start-MGNExport
 Set-Alias -Name MGN-StartImport -Value Start-MGNImport
 Set-Alias -Name MGN-StartReplication -Value Start-MGNReplication
 Set-Alias -Name MGN-StartTest -Value Start-MGNTest
+Set-Alias -Name MGN-StopReplication -Value Stop-MGNReplication
 Set-Alias -Name MGN-TagResource -Value Add-MGNResourceTag
 Set-Alias -Name Terminate-MGNTargetInstances -Value Remove-MGNTargetInstance
 Set-Alias -Name Terminate-MGNTargetInstance -Value Remove-MGNTargetInstance

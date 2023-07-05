@@ -195,6 +195,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? UseDedicatedReplicationServer { get; set; }
         #endregion
         
+        #region Parameter UseFipsEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Update replication configuration template use Fips Endpoint request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseFipsEndpoint { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -287,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 }
             }
             context.UseDedicatedReplicationServer = this.UseDedicatedReplicationServer;
+            context.UseFipsEndpoint = this.UseFipsEndpoint;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -358,6 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.UseDedicatedReplicationServer != null)
             {
                 request.UseDedicatedReplicationServer = cmdletContext.UseDedicatedReplicationServer.Value;
+            }
+            if (cmdletContext.UseFipsEndpoint != null)
+            {
+                request.UseFipsEndpoint = cmdletContext.UseFipsEndpoint.Value;
             }
             
             CmdletOutput output;
@@ -434,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String StagingAreaSubnetId { get; set; }
             public Dictionary<System.String, System.String> StagingAreaTag { get; set; }
             public System.Boolean? UseDedicatedReplicationServer { get; set; }
+            public System.Boolean? UseFipsEndpoint { get; set; }
             public System.Func<Amazon.Mgn.Model.UpdateReplicationConfigurationTemplateResponse, UpdateMGNReplicationConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

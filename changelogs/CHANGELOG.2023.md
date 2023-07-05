@@ -1,4 +1,67 @@
-﻿### 4.1.365 (2023-07-03 21:20Z)
+﻿### 4.1.366 (2023-07-05 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.583.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Migration Service
+    * Added cmdlet Get-MGNManagedAccountList leveraging the ListManagedAccounts service API.
+    * Added cmdlet Resume-MGNReplication leveraging the ResumeReplication service API.
+    * Added cmdlet Stop-MGNReplication leveraging the StopReplication service API.
+    * Added cmdlet Suspend-MGNReplication leveraging the PauseReplication service API.
+    * Modified cmdlet Add-MGNApplicationsToWave: added parameter AccountID.
+    * Modified cmdlet Add-MGNSourceServersToApplication: added parameter AccountID.
+    * Modified cmdlet Complete-MGNCutover: added parameter AccountID.
+    * Modified cmdlet Disconnect-MGNFromService: added parameter AccountID.
+    * Modified cmdlet Get-MGNApplicationList: added parameter AccountID.
+    * Modified cmdlet Get-MGNJob: added parameter AccountID.
+    * Modified cmdlet Get-MGNJobLogItem: added parameter AccountID.
+    * Modified cmdlet Get-MGNLaunchConfiguration: added parameter AccountID.
+    * Modified cmdlet Get-MGNReplicationConfiguration: added parameter AccountID.
+    * Modified cmdlet Get-MGNSourceServer: added parameter AccountID.
+    * Modified cmdlet Get-MGNSourceServerActionList: added parameter AccountID.
+    * Modified cmdlet Get-MGNWaveList: added parameter AccountID.
+    * Modified cmdlet New-MGNApplication: added parameter AccountID.
+    * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameter UseFipsEndpoint.
+    * Modified cmdlet New-MGNWave: added parameter AccountID.
+    * Modified cmdlet Remove-MGNApplication: added parameter AccountID.
+    * Modified cmdlet Remove-MGNApplicationsFromWave: added parameter AccountID.
+    * Modified cmdlet Remove-MGNJob: added parameter AccountID.
+    * Modified cmdlet Remove-MGNSourceServer: added parameter AccountID.
+    * Modified cmdlet Remove-MGNSourceServerAction: added parameter AccountID.
+    * Modified cmdlet Remove-MGNSourceServersFromApplication: added parameter AccountID.
+    * Modified cmdlet Remove-MGNTargetInstance: added parameters AccountID and PassThru.
+    * Modified cmdlet Remove-MGNWave: added parameter AccountID.
+    * Modified cmdlet Resume-MGNDataReplication: added parameter AccountID.
+    * Modified cmdlet Set-MGNApplicationAsArchived: added parameter AccountID.
+    * Modified cmdlet Set-MGNApplicationAsUnarchived: added parameter AccountID.
+    * Modified cmdlet Set-MGNAsArchived: added parameter AccountID.
+    * Modified cmdlet Set-MGNServerLifeCycleState: added parameter AccountID.
+    * Modified cmdlet Set-MGNWaveAsArchived: added parameter AccountID.
+    * Modified cmdlet Set-MGNWaveAsUnarchived: added parameter AccountID.
+    * Modified cmdlet Start-MGNCutover: added parameters AccountID and PassThru.
+    * Modified cmdlet Start-MGNReplication: added parameter AccountID.
+    * Modified cmdlet Start-MGNTest: added parameters AccountID and PassThru.
+    * Modified cmdlet Update-MGNApplication: added parameter AccountID.
+    * Modified cmdlet Update-MGNLaunchConfiguration: added parameter AccountID.
+    * Modified cmdlet Update-MGNReplicationConfiguration: added parameters AccountID and UseFipsEndpoint.
+    * Modified cmdlet Update-MGNReplicationConfigurationTemplate: added parameter UseFipsEndpoint.
+    * Modified cmdlet Update-MGNSourceServerReplicationType: added parameter AccountID.
+    * Modified cmdlet Update-MGNWave: added parameter AccountID.
+    * Modified cmdlet Write-MGNSourceServerAction: added parameter AccountID.
+  * Amazon Key Management Service
+    * Modified cmdlet Disable-KMSGrant: added parameter DryRun.
+    * Modified cmdlet Invoke-KMSDecrypt: added parameter DryRun.
+    * Modified cmdlet Invoke-KMSEncrypt: added parameter DryRun.
+    * Modified cmdlet Invoke-KMSReEncrypt: added parameter DryRun.
+    * Modified cmdlet Invoke-KMSSigning: added parameter DryRun.
+    * Modified cmdlet New-KMSDataKey: added parameter DryRun.
+    * Modified cmdlet New-KMSDataKeyPair: added parameter DryRun.
+    * Modified cmdlet New-KMSDataKeyPairWithoutPlaintext: added parameter DryRun.
+    * Modified cmdlet New-KMSDataKeyWithoutPlaintext: added parameter DryRun.
+    * Modified cmdlet New-KMSGrant: added parameter DryRun.
+    * Modified cmdlet New-KMSMac: added parameter DryRun.
+    * Modified cmdlet Revoke-KMSGrant: added parameter DryRun.
+    * Modified cmdlet Test-KMSMac: added parameter DryRun.
+    * Modified cmdlet Test-KMSSignature: added parameter DryRun.
+
+### 4.1.365 (2023-07-03 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.582.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet Register-BATJobDefinition: added parameters RuntimePlatform_CpuArchitecture and RuntimePlatform_OperatingSystemFamily.

@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS
     /// key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The
     /// only exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region
-    /// replica key</a>, or an asymmetric or HMAC KMS key with imported key material[BUGBUG-link
-    /// to importing-keys-managing.html#import-delete-key.) To prevent the use of a KMS key
-    /// without deleting it, use <a>DisableKey</a>. 
+    /// replica key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric
+    /// or HMAC KMS key with imported key material</a>.) To prevent the use of a KMS key without
+    /// deleting it, use <a>DisableKey</a>. 
     /// </para></important><para>
     /// You can schedule the deletion of a multi-Region primary key and its replica keys at
     /// any time. However, KMS will not delete a multi-Region primary key with existing replica
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// deletes the KMS key.</para><para>If the KMS key is a multi-Region primary key with replica keys, the waiting period
         /// begins when the last of its replica keys is deleted. Otherwise, the waiting period
         /// begins immediately.</para><para>This value is optional. If you include a value, it must be between 7 and 30, inclusive.
-        /// If you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-pending-deletion-window"><code>kms:ScheduleKeyDeletionPendingWindowInDays</code></a> condition key to further
+        /// If you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days"><code>kms:ScheduleKeyDeletionPendingWindowInDays</code></a> condition key to further
         /// constrain the values that principals can specify in the <code>PendingWindowInDays</code>
         /// parameter.</para>
         /// </para>

@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter AccountID
+        /// <summary>
+        /// <para>
+        /// <para>Request to describe job log items by Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountID { get; set; }
+        #endregion
+        
         #region Parameter Filters_FromDate
         /// <summary>
         /// <para>
@@ -124,6 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DescribeJobsResponse, GetMGNJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountID = this.AccountID;
             context.Filters_FromDate = this.Filters_FromDate;
             if (this.Filters_JobIDs != null)
             {
@@ -148,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.DescribeJobsRequest();
             
+            if (cmdletContext.AccountID != null)
+            {
+                request.AccountID = cmdletContext.AccountID;
+            }
             
              // populate Filters
             var requestFiltersIsNull = true;
@@ -256,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountID { get; set; }
             public System.String Filters_FromDate { get; set; }
             public List<System.String> Filters_JobIDs { get; set; }
             public System.String Filters_ToDate { get; set; }
