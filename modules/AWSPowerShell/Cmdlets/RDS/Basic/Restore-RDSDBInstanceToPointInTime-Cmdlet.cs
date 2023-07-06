@@ -201,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainAuthSecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the Secrets Manager secret that contains the credentials for the user
-        /// performing the domain join.</para><para>Constraints:</para><ul><li><para>Cannot be greater than 64 characters.</para></li></ul><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
+        /// <para>The ARN for the Secrets Manager secret with the credentials for the user joining the
+        /// domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainFqdn
         /// <summary>
         /// <para>
-        /// <para>Specifies the fully qualified domain name of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Cannot be greater than 64 characters.</para></li></ul><para>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code></para>
+        /// <para>The fully qualified domain name (FQDN) of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,8 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>The name of the IAM role to use when making API calls to the Directory Service.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainOu
         /// <summary>
         /// <para>
-        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Cannot be greater than 64 characters.</para></li></ul><para>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code></para>
+        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

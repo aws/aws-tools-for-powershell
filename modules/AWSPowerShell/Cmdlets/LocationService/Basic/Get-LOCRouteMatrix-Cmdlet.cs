@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCRouteMatrixCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CarModeOptions_AvoidFerry
         /// <summary>
         /// <para>
@@ -233,6 +235,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.Double? Dimensions_Height { get; set; }
         #endregion
         
+        #region Parameter Key
+        /// <summary>
+        /// <para>
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// key</a> to authorize the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Key { get; set; }
+        #endregion
+        
         #region Parameter Dimensions_Length
         /// <summary>
         /// <para>
@@ -393,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.DistanceUnit = this.DistanceUnit;
+            context.Key = this.Key;
             context.TravelMode = this.TravelMode;
             context.TruckModeOptions_AvoidFerry = this.TruckModeOptions_AvoidFerry;
             context.TruckModeOptions_AvoidToll = this.TruckModeOptions_AvoidToll;
@@ -470,6 +484,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.DistanceUnit != null)
             {
                 request.DistanceUnit = cmdletContext.DistanceUnit;
+            }
+            if (cmdletContext.Key != null)
+            {
+                request.Key = cmdletContext.Key;
             }
             if (cmdletContext.TravelMode != null)
             {
@@ -663,6 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.DateTime? DepartureTime { get; set; }
             public List<List<System.Double>> DestinationPosition { get; set; }
             public Amazon.LocationService.DistanceUnit DistanceUnit { get; set; }
+            public System.String Key { get; set; }
             public Amazon.LocationService.TravelMode TravelMode { get; set; }
             public System.Boolean? TruckModeOptions_AvoidFerry { get; set; }
             public System.Boolean? TruckModeOptions_AvoidToll { get; set; }

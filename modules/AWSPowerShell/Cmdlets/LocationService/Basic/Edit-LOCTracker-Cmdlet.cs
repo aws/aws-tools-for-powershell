@@ -49,6 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EventBridgeEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable position <code>UPDATE</code> events from this tracker to be sent
+        /// to EventBridge.</para><note><para>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code>
+        /// events for geofences with this tracker. Those events are always sent to EventBridge.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EventBridgeEnabled { get; set; }
+        #endregion
+        
         #region Parameter PositionFiltering
         /// <summary>
         /// <para>
@@ -178,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.EventBridgeEnabled = this.EventBridgeEnabled;
             context.PositionFiltering = this.PositionFiltering;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PricingPlan = this.PricingPlan;
@@ -211,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EventBridgeEnabled != null)
+            {
+                request.EventBridgeEnabled = cmdletContext.EventBridgeEnabled.Value;
             }
             if (cmdletContext.PositionFiltering != null)
             {
@@ -294,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.Boolean? EventBridgeEnabled { get; set; }
             public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }

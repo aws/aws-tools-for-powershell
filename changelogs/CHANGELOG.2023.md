@@ -1,4 +1,16 @@
-﻿### 4.1.366 (2023-07-05 21:05Z)
+﻿### 4.1.367 (2023-07-06 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.584.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Location Service
+    * Modified cmdlet Edit-LOCTracker: added parameter EventBridgeEnabled.
+    * Modified cmdlet Get-LOCPlace: added parameter Key.
+    * Modified cmdlet Get-LOCRoute: added parameter Key.
+    * Modified cmdlet Get-LOCRouteMatrix: added parameter Key.
+    * Modified cmdlet New-LOCTracker: added parameter EventBridgeEnabled.
+    * Modified cmdlet Search-LOCPlaceIndexForPosition: added parameter Key.
+    * Modified cmdlet Search-LOCPlaceIndexForSuggestion: added parameter Key.
+    * Modified cmdlet Search-LOCPlaceIndexForText: added parameter Key.
+
+### 4.1.366 (2023-07-05 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.583.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Migration Service
     * Added cmdlet Get-MGNManagedAccountList leveraging the ListManagedAccounts service API.

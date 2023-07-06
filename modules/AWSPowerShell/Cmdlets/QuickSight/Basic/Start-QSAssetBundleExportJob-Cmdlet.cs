@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// and can be polled with a <code>DescribeAssetBundleExportJob</code> API call. When
     /// a job is successfully completed, a download URL that contains the exported assets
     /// is returned. The URL is valid for 5 minutes and can be refreshed with a <code>DescribeAssetBundleExportJob</code>
-    /// API call. Each Amazon QuickSight account can run up to 10 export jobs concurrently.
+    /// API call. Each Amazon QuickSight account can run up to 5 export jobs concurrently.
     /// </para><para>
     /// The API caller must have the necessary permissions in their IAM role to access each
     /// resource before the resources can be exported.

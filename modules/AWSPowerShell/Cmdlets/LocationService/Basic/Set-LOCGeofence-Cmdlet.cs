@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter GeofenceProperty
         /// <summary>
         /// <para>
-        /// <para>Specifies additional user-defined properties to store with the Geofence. An array
-        /// of key-value pairs.</para>
+        /// <para>Associates one of more properties with the geofence. A property is a key-value pair
+        /// stored with the geofence and added to any geofence event triggered with that geofence.</para><para>Format: <code>"key" : "value"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

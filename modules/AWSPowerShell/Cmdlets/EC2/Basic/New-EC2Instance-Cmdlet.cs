@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HibernationOptions_Configured
         /// <summary>
         /// <para>
-        /// <para>If you set this parameter to <code>true</code>, your instance is enabled for hibernation.</para><para>Default: <code>false</code></para>
+        /// <para>Set to <code>true</code> to enable your instance for hibernation.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

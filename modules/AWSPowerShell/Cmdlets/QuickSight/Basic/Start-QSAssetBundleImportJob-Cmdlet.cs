@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// QuickSight account. You can also choose to import a naming prefix and specified configuration
     /// overrides. The assets that are contained in the bundle file that you provide are used
     /// to create or update a new or existing asset in your Amazon QuickSight account. Each
-    /// Amazon QuickSight account can run up to 10 import jobs concurrently.
+    /// Amazon QuickSight account can run up to 5 import jobs concurrently.
     /// </para><para>
     /// The API caller must have the necessary <code>"create"</code>, <code>"describe"</code>,
     /// and <code>"update"</code> permissions in their IAM role to access each resource type

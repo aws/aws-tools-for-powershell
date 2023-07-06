@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
     /// Retrieves the API key resource details.
-    /// 
-    ///  <important><para>
-    /// The API keys feature is in preview. We may add, change, or remove features before
-    /// announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using
-    /// API keys</a>.
-    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "LOCKey")]
     [OutputType("Amazon.LocationService.Model.DescribeKeyResponse")]

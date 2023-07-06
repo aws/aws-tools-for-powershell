@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCPlaceCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter IndexName
@@ -69,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IndexName { get; set; }
+        #endregion
+        
+        #region Parameter Key
+        /// <summary>
+        /// <para>
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// key</a> to authorize the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Key { get; set; }
         #endregion
         
         #region Parameter Language
@@ -158,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter IndexName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Key = this.Key;
             context.Language = this.Language;
             context.PlaceId = this.PlaceId;
             #if MODULAR
@@ -185,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.IndexName != null)
             {
                 request.IndexName = cmdletContext.IndexName;
+            }
+            if (cmdletContext.Key != null)
+            {
+                request.Key = cmdletContext.Key;
             }
             if (cmdletContext.Language != null)
             {
@@ -256,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String IndexName { get; set; }
+            public System.String Key { get; set; }
             public System.String Language { get; set; }
             public System.String PlaceId { get; set; }
             public System.Func<Amazon.LocationService.Model.GetPlaceResponse, GetLOCPlaceCmdlet, object> Select { get; set; } =

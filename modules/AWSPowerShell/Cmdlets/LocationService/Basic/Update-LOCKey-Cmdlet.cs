@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
     /// Updates the specified properties of a given API key resource.
-    /// 
-    ///  <important><para>
-    /// The API keys feature is in preview. We may add, change, or remove features before
-    /// announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using
-    /// API keys</a>.
-    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "LOCKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.UpdateKeyResponse")]
@@ -48,9 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Restrictions_AllowAction
         /// <summary>
         /// <para>
-        /// <para>A list of allowed actions that an API key resource grants permissions to perform</para><note><para>Currently, the only valid action is <code>geo:GetMap*</code> as an input to the list.
-        /// For example, <code>["geo:GetMap*"]</code> is valid but <code>["geo:GetMapTile"]</code>
-        /// is not.</para></note>
+        /// <para>A list of allowed actions that an API key resource grants permissions to perform.
+        /// You must have at least one action for each type of resource. For example, if you have
+        /// a place resource, you must include at least one place action.</para><para>The following are valid values for the actions.</para><ul><li><para><b>Map actions</b></para><ul><li><para><code>geo:GetMap*</code> - Allows all actions needed for map rendering.</para></li></ul></li><li><para><b>Place actions</b></para><ul><li><para><code>geo:SearchPlaceIndexForText</code> - Allows geocoding.</para></li><li><para><code>geo:SearchPlaceIndexForPosition</code> - Allows reverse geocoding.</para></li><li><para><code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating suggestions from
+        /// text.</para></li><li><para><code>GetPlace</code> - Allows finding a place by place ID.</para></li></ul></li><li><para><b>Route actions</b></para><ul><li><para><code>geo:CalculateRoute</code> - Allows point to point routing.</para></li><li><para><code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of routes.</para></li></ul></li></ul><note><para>You must use these strings exactly. For example, to provide access to map rendering,
+        /// the only valid action is <code>geo:GetMap*</code> as an input to the list. <code>["geo:GetMap*"]</code>
+        /// is valid but <code>["geo:GetMapTile"]</code> is not. Similarly, you cannot use <code>["geo:SearchPlaceIndexFor*"]</code>
+        /// - you must list each of the Place actions separately.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,16 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Restrictions_AllowResource
         /// <summary>
         /// <para>
-        /// <para>A list of allowed resource ARNs that a API key bearer can perform actions on</para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a>.</para><note><para>In this preview, you can allow only map resources.</para></note><para>Requirements:</para><ul><li><para>Must be prefixed with <code>arn</code>.</para></li><li><para><code>partition</code> and <code>service</code> must not be empty and should begin
-        /// with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric numbers,
-        /// hyphens (-) and periods (.).</para></li><li><para><code>region</code> and <code>account-id</code> can be empty or should begin with
-        /// only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric numbers,
-        /// hyphens (-) and periods (.).</para></li><li><para><code>resource-id</code> can begin with any character except for forward slash (/)
-        /// and contain any characters after, including forward slashes to form a path.</para><para><code>resource-id</code> can also include wildcard characters, denoted by an asterisk
-        /// (*).</para></li><li><para><code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>,
-        /// <code>account-id</code> and <code>resource-id</code> must be delimited by a colon
-        /// (:).</para></li><li><para>No spaces allowed. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</para></li></ul>
+        /// <para>A list of allowed resource ARNs that a API key bearer can perform actions on.</para><ul><li><para>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards
+        /// in the resource-id to match multiple resources of the same type.</para></li><li><para>The resources must be in the same <code>partition</code>, <code>region</code>, and
+        /// <code>account-id</code> as the key that is being created.</para></li><li><para>Other than wildcards, you must include the full ARN, including the <code>arn</code>,
+        /// <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code>
+        /// and <code>resource-id</code>, delimited by colons (:).</para></li><li><para>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</para></li></ul><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

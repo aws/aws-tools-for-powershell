@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and a secondary cluster to it. Or you can specify an existing Aurora cluster during
     /// the create operation, and this cluster becomes the primary cluster of the global database.
     /// </para><note><para>
-    /// This action applies only to Aurora DB clusters.
+    /// This operation applies only to Aurora DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "RDSGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name for your database of up to 64 alphanumeric characters. If you do not provide
-        /// a name, Amazon Aurora will not create a database in the global database cluster you
-        /// are creating.</para>
+        /// <para>The name for your database of up to 64 alphanumeric characters. If you don't specify
+        /// a name, Amazon Aurora doesn't create a database in the global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
+        /// case, Amazon Aurora uses the database name from the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>The deletion protection setting for the new global database. The global database can't
-        /// be deleted when deletion protection is enabled.</para>
+        /// <para>Specifies whether to enable deletion protection for the new global database cluster.
+        /// The global database can't be deleted when deletion protection is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para>
+        /// <para>The database engine to use for this global database cluster.</para><para>Valid Values: <code>aurora-mysql | aurora-postgresql</code></para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
+        /// case, Amazon Aurora uses the engine of the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version of the Aurora global database.</para>
+        /// <para>The engine version to use for this global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
+        /// case, Amazon Aurora uses the engine version of the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier of the new global database cluster. This parameter is stored
+        /// <para>The cluster identifier for this global database cluster. This parameter is stored
         /// as a lowercase string.</para>
         /// </para>
         /// </summary>
@@ -109,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) to use as the primary cluster of the global database.
-        /// This parameter is optional.</para>
+        /// <para>The Amazon Resource Name (ARN) to use as the primary cluster of the global database.</para><para>If you provide a value for this parameter, don't specify values for the following
+        /// settings because Amazon Aurora uses the values from the specified source DB cluster:</para><ul><li><para><code>DatabaseName</code></para></li><li><para><code>Engine</code></para></li><li><para><code>EngineVersion</code></para></li><li><para><code>StorageEncrypted</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>The storage encryption setting for the new global database cluster.</para>
+        /// <para>Specifies whether to enable storage encryption for the new global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
+        /// case, Amazon Aurora uses the setting from the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
