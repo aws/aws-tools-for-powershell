@@ -49,6 +49,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationConfig" OutputProperty="ReplicationConfig" Verb="New" Noun="ReplicationConfig" ShouldProcessTarget="ReplicationConfigIdentifier" PipelineParameter="ReplicationConfigIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationInstance" OutputProperty="ReplicationInstance" Verb="New" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceIdentifier" PipelineParameter="ReplicationInstanceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -82,6 +86,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFleetAdvisorDatabases" OutputProperty="DatabaseIds" Verb="Remove" Noun="FleetAdvisorDatabaseId" ShouldProcessTarget="DatabaseIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationConfig" OutputProperty="ReplicationConfig" Verb="Remove" Noun="ReplicationConfig" ShouldProcessTarget="ReplicationConfigArn" PipelineParameter="ReplicationConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -181,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationConfigs" OutputProperty="ReplicationConfigs" Verb="Get" Noun="ReplicationConfig" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeReplicationInstances" OutputProperty="ReplicationInstances" Verb="Get" Noun="ReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -189,7 +201,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplications" OutputProperty="Replications" Verb="Get" Noun="Replication" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeReplicationSubnetGroups" OutputProperty="ReplicationSubnetGroups" Verb="Get" Noun="ReplicationSubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTableStatistics" OutputProperty="*" Verb="Get" Noun="ReplicationTableStatistic" PipelineParameter="ReplicationConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,6 +253,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationConfig" OutputProperty="ReplicationConfig" Verb="Edit" Noun="ReplicationConfig" ShouldProcessTarget="ReplicationConfigArn" PipelineParameter="ReplicationConfigArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyReplicationInstance" OutputProperty="ReplicationInstance" Verb="Edit" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -257,6 +281,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReloadReplicationTables" OutputProperty="ReplicationConfigArn" Verb="Restore" Noun="ReplicationTable" ShouldProcessTarget="ReplicationConfigArn" PipelineParameter="ReplicationConfigArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ReloadTables" OutputProperty="ReplicationTaskArn" Verb="Restore" Noun="Table" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -273,6 +301,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartReplication" OutputProperty="Replication" Verb="Start" Noun="Replication" ShouldProcessTarget="ReplicationConfigArn" PipelineParameter="ReplicationConfigArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartReplicationTask" OutputProperty="ReplicationTask" Verb="Start" Noun="ReplicationTask" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -282,6 +314,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartReplicationTaskAssessmentRun" OutputProperty="ReplicationTaskAssessmentRun" Verb="Start" Noun="ReplicationTaskAssessmentRun" ShouldProcessTarget="AssessmentRunName" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopReplication" OutputProperty="Replication" Verb="Stop" Noun="Replication" ShouldProcessTarget="ReplicationConfigArn" PipelineParameter="ReplicationConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

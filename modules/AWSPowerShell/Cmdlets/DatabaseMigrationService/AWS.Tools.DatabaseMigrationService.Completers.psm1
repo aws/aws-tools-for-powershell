@@ -212,6 +212,26 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.KafkaSslEndpointIdentificationAlgorithm
+        {
+            ($_ -eq "Edit-DMSEndpoint/KafkaSettings_SslEndpointIdentificationAlgorithm") -Or
+            ($_ -eq "New-DMSEndpoint/KafkaSettings_SslEndpointIdentificationAlgorithm")
+        }
+        {
+            $v = "https","none"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.LongVarcharMappingType
+        {
+            ($_ -eq "Edit-DMSEndpoint/PostgreSQLSettings_MapLongVarcharAs") -Or
+            ($_ -eq "New-DMSEndpoint/PostgreSQLSettings_MapLongVarcharAs")
+        }
+        {
+            $v = "clob","nclob","wstring"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.MessageFormatValue
         {
             ($_ -eq "Edit-DMSEndpoint/KafkaSettings_MessageFormat") -Or
@@ -228,7 +248,9 @@ $DMS_Completers = {
         {
             ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
             ($_ -eq "Get-DMSApplicableIndividualAssessment/MigrationType") -Or
-            ($_ -eq "New-DMSReplicationTask/MigrationType")
+            ($_ -eq "New-DMSReplicationTask/MigrationType") -Or
+            ($_ -eq "Edit-DMSReplicationConfig/ReplicationType") -Or
+            ($_ -eq "New-DMSReplicationConfig/ReplicationType")
         }
         {
             $v = "cdc","full-load","full-load-and-cdc"
@@ -278,7 +300,10 @@ $DMS_Completers = {
         }
 
         # Amazon.DatabaseMigrationService.ReloadOptionValue
-        "Restore-DMSTable/ReloadOption"
+        {
+            ($_ -eq "Restore-DMSReplicationTable/ReloadOption") -Or
+            ($_ -eq "Restore-DMSTable/ReloadOption")
+        }
         {
             $v = "data-reload","validate-only"
             break
@@ -365,6 +390,7 @@ $DMS_map = @{
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SaslMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "KafkaSettings_SslEndpointIdentificationAlgorithm"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSQLServerSettings_TlogAccessMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -374,11 +400,13 @@ $DMS_map = @{
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedisSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedisSettings_SslSecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedshiftSettings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "ReloadOption"=@("Restore-DMSTable")
+    "ReloadOption"=@("Restore-DMSReplicationTable","Restore-DMSTable")
+    "ReplicationType"=@("Edit-DMSReplicationConfig","New-DMSReplicationConfig")
     "S3Settings_CannedAclForObjects"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DataFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -449,6 +477,7 @@ $DMS_SelectMap = @{
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
                "New-DMSFleetAdvisorCollector",
+               "New-DMSReplicationConfig",
                "New-DMSReplicationInstance",
                "New-DMSReplicationSubnetGroup",
                "New-DMSReplicationTask",
@@ -458,6 +487,7 @@ $DMS_SelectMap = @{
                "Remove-DMSEventSubscription",
                "Remove-DMSFleetAdvisorCollector",
                "Remove-DMSFleetAdvisorDatabaseId",
+               "Remove-DMSReplicationConfig",
                "Remove-DMSReplicationInstance",
                "Remove-DMSReplicationSubnetGroup",
                "Remove-DMSReplicationTask",
@@ -482,9 +512,12 @@ $DMS_SelectMap = @{
                "Get-DMSRecommendationLimitation",
                "Get-DMSRecommendation",
                "Get-DMSRefreshSchemasStatus",
+               "Get-DMSReplicationConfig",
                "Get-DMSReplicationInstance",
                "Get-DMSReplicationInstanceTaskLog",
+               "Get-DMSReplication",
                "Get-DMSReplicationSubnetGroup",
+               "Get-DMSReplicationTableStatistic",
                "Get-DMSReplicationTaskAssessmentResult",
                "Get-DMSReplicationTaskAssessmentRun",
                "Get-DMSReplicationTaskIndividualAssessment",
@@ -495,19 +528,23 @@ $DMS_SelectMap = @{
                "Get-DMSResourceTag",
                "Edit-DMSEndpoint",
                "Edit-DMSEventSubscription",
+               "Edit-DMSReplicationConfig",
                "Edit-DMSReplicationInstance",
                "Edit-DMSReplicationSubnetGroup",
                "Edit-DMSReplicationTask",
                "Move-DMSReplicationTask",
                "Restart-DMSReplicationInstance",
                "Invoke-DMSSchemaRefresh",
+               "Restore-DMSReplicationTable",
                "Restore-DMSTable",
                "Remove-DMSResourceTag",
                "Start-DMSFleetAdvisorLsaAnalysis",
                "Start-DMSRecommendation",
+               "Start-DMSReplication",
                "Start-DMSReplicationTask",
                "Start-DMSReplicationTaskAssessment",
                "Start-DMSReplicationTaskAssessmentRun",
+               "Stop-DMSReplication",
                "Stop-DMSReplicationTask",
                "Test-DMSConnection",
                "Update-DMSSubscriptionsToEventBridge")

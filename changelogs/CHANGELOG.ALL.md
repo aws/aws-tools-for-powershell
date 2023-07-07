@@ -1,4 +1,28 @@
-﻿### 4.1.367 (2023-07-06 21:23Z)
+﻿### 4.1.368 (2023-07-07 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.586.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Register-CWLKmsKey: added parameter ResourceIdentifier.
+    * Modified cmdlet Unregister-CWLKmsKey: added parameter ResourceIdentifier.
+  * Amazon Database Migration Service
+    * Added cmdlet Edit-DMSReplicationConfig leveraging the ModifyReplicationConfig service API.
+    * Added cmdlet Get-DMSReplication leveraging the DescribeReplications service API.
+    * Added cmdlet Get-DMSReplicationConfig leveraging the DescribeReplicationConfigs service API.
+    * Added cmdlet Get-DMSReplicationTableStatistic leveraging the DescribeReplicationTableStatistics service API.
+    * Added cmdlet New-DMSReplicationConfig leveraging the CreateReplicationConfig service API.
+    * Added cmdlet Remove-DMSReplicationConfig leveraging the DeleteReplicationConfig service API.
+    * Added cmdlet Restore-DMSReplicationTable leveraging the ReloadReplicationTables service API.
+    * Added cmdlet Start-DMSReplication leveraging the StartReplication service API.
+    * Added cmdlet Stop-DMSReplication leveraging the StopReplication service API.
+    * Modified cmdlet Edit-DMSEndpoint: added parameters DocDbSettings_ReplicateShardCollection, DocDbSettings_UseUpdateLookUp, KafkaSettings_SslEndpointIdentificationAlgorithm, MongoDbSettings_ReplicateShardCollection, MongoDbSettings_UseUpdateLookUp, OracleSettings_OpenTransactionWindow, PostgreSQLSettings_MapJsonbAsClob, PostgreSQLSettings_MapLongVarcharAs, TimestreamSettings_CdcInsertsAndUpdate, TimestreamSettings_DatabaseName, TimestreamSettings_EnableMagneticStoreWrite, TimestreamSettings_MagneticDuration and TimestreamSettings_MemoryDuration.
+    * Modified cmdlet New-DMSEndpoint: added parameters DocDbSettings_ReplicateShardCollection, DocDbSettings_UseUpdateLookUp, KafkaSettings_SslEndpointIdentificationAlgorithm, MongoDbSettings_ReplicateShardCollection, MongoDbSettings_UseUpdateLookUp, OracleSettings_OpenTransactionWindow, PostgreSQLSettings_MapJsonbAsClob, PostgreSQLSettings_MapLongVarcharAs, TimestreamSettings_CdcInsertsAndUpdate, TimestreamSettings_DatabaseName, TimestreamSettings_EnableMagneticStoreWrite, TimestreamSettings_MagneticDuration and TimestreamSettings_MemoryDuration.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLAccountConfiguration leveraging the DescribeAccountConfiguration service API.
+    * Added cmdlet Get-EMLThumbnail leveraging the DescribeThumbnails service API.
+    * Added cmdlet Update-EMLAccountConfiguration leveraging the UpdateAccountConfiguration service API.
+  * Amazon Glue
+    * Modified cmdlet New-GLUETable: added parameters IcebergInput_MetadataOperation and IcebergInput_Version.
+
+### 4.1.367 (2023-07-06 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.584.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Location Service
     * Modified cmdlet Edit-LOCTracker: added parameter EventBridgeEnabled.

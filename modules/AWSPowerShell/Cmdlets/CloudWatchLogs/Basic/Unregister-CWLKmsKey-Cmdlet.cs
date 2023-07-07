@@ -28,16 +28,29 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Disassociates the associated KMS key from the specified log group.
+    /// Disassociates the specified KMS key from the specified log group or from all CloudWatch
+    /// Logs Insights query results in the account.
     /// 
     ///  
     /// <para>
-    /// After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting
-    /// newly ingested data for the log group. All previously ingested data remains encrypted,
-    /// and CloudWatch Logs requires permissions for the KMS key whenever the encrypted data
-    /// is requested.
-    /// </para><para>
-    /// Note that it can take up to 5 minutes for this operation to take effect.
+    /// When you use <code>DisassociateKmsKey</code>, you specify either the <code>logGroupName</code>
+    /// parameter or the <code>resourceIdentifier</code> parameter. You can't specify both
+    /// of those parameters in the same operation.
+    /// </para><ul><li><para>
+    /// Specify the <code>logGroupName</code> parameter to stop using the KMS key to encrypt
+    /// future log events ingested and stored in the log group. Instead, they will be encrypted
+    /// with the default CloudWatch Logs method. The log events that were ingested while the
+    /// key was associated with the log group are still encrypted with that key. Therefore,
+    /// CloudWatch Logs will need permissions for the key whenever that data is accessed.
+    /// </para></li><li><para>
+    /// Specify the <code>resourceIdentifier</code> parameter with the <code>query-result</code>
+    /// resource to stop using the KMS key to encrypt the results of all future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
+    /// operations in the account. They will instead be encrypted with the default CloudWatch
+    /// Logs method. The results from queries that ran while the key was associated with the
+    /// account are still encrypted with that key. Therefore, CloudWatch Logs will need permissions
+    /// for the key whenever that data is accessed.
+    /// </para></li></ul><para>
+    /// It can take up to 5 minutes for this operation to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "CWLKmsKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,18 +66,30 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The name of the log group.</para><para>In your <code>DisassociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code>
+        /// parameter or the <code>logGroup</code> parameter, but you can't specify both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter ResourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the target for this operation. You must specify one of the following:</para><ul><li><para>Specify the ARN of a log group to stop having CloudWatch Logs use the KMS key to encrypt
+        /// log events that are ingested and stored by that log group. After you run this operation,
+        /// CloudWatch Logs encrypts ingested log events with the default CloudWatch Logs method.
+        /// The log group ARN must be in the following format. Replace <i>REGION</i> and <i>ACCOUNT_ID</i>
+        /// with your Region and account ID.</para><para><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i></code></para></li><li><para>Specify the following ARN to stop using this key to encrypt the results of future
+        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
+        /// operations in this account. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your
+        /// Region and account ID.</para><para><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code></para></li></ul><para>In your <code>DisssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code>
+        /// parameter or the <code>logGroup</code> parameter, but you can't specify both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -129,12 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.LogGroupName = this.LogGroupName;
-            #if MODULAR
-            if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LogGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ResourceIdentifier = this.ResourceIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
+            }
+            if (cmdletContext.ResourceIdentifier != null)
+            {
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
             
             CmdletOutput output;
@@ -217,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String LogGroupName { get; set; }
+            public System.String ResourceIdentifier { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DisassociateKmsKeyResponse, UnregisterCWLKmsKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

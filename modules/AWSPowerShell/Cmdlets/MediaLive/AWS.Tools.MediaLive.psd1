@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-EMLResourceTag', 
         'Deny-EMLInputDeviceTransfer', 
+        'Get-EMLAccountConfiguration', 
         'Get-EMLChannel', 
         'Get-EMLChannelList', 
         'Get-EMLInput', 
@@ -108,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMLReservationList', 
         'Get-EMLResourceTag', 
         'Get-EMLSchedule', 
+        'Get-EMLThumbnail', 
         'Move-EMLInputDevice', 
         'New-EMLChannel', 
         'New-EMLInput', 
@@ -136,6 +138,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-EMLInputDeviceTransfer', 
         'Stop-EMLMultiplex', 
         'Stop-EMLResourceBatch', 
+        'Update-EMLAccountConfiguration', 
         'Update-EMLChannel', 
         'Update-EMLChannelClass', 
         'Update-EMLInput', 

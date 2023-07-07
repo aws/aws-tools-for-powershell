@@ -175,6 +175,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.MetadataOperation
+        "New-GLUETable/OpenTableFormatInput_IcebergInput_MetadataOperation"
+        {
+            $v = "CREATE"
+            break
+        }
+
         # Amazon.Glue.MLUserDataEncryptionModeString
         "New-GLUEMLTransform/TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"
         {
@@ -339,6 +346,7 @@ $GLUE_map = @{
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "LineageConfiguration_CrawlerLineageSettings"=@("New-GLUECrawler","Update-GLUECrawler")
+    "OpenTableFormatInput_IcebergInput_MetadataOperation"=@("New-GLUETable")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")

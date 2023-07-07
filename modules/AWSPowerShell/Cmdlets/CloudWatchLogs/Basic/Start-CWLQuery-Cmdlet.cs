@@ -36,6 +36,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
     /// Logs Insights Query Syntax</a>.
     /// </para><para>
+    /// After you run a query using <code>StartQuery</code>, the query results are stored
+    /// by CloudWatch Logs. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
+    /// to retrieve the results of a query, using the <code>queryId</code> that <code>StartQuery</code>
+    /// returns. 
+    /// </para><para>
+    /// If you have associated a KMS key with the query results in this account, then <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
+    /// uses that key to encrypt the results when it stores them. If no key is associated
+    /// with query results, the query results are encrypted with the default CloudWatch Logs
+    /// encryption method.
+    /// </para><para>
     /// Queries time out after 60 minutes of runtime. If your queries are timing out, reduce
     /// the time range being searched or partition your query into a number of queries.
     /// </para><para>
@@ -84,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// is in a source account and you're using a monitoring account, you must specify the
         /// ARN of the log group here. The query definition must also be defined in the monitoring
         /// account.</para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-        /// <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>.
+        /// <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -97,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The log group on which to perform the query.</para><note><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-        /// <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>.
+        /// <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -109,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The list of log groups to be queried. You can include up to 50 log groups.</para><note><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-        /// <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>.
+        /// <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>.
         /// </para></note>
         /// </para>
         /// </summary>

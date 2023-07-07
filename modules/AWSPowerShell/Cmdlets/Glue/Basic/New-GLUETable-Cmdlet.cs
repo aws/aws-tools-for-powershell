@@ -69,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter IcebergInput_MetadataOperation
+        /// <summary>
+        /// <para>
+        /// <para>A required metadata operation. Can only be set to <code>CREATE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenTableFormatInput_IcebergInput_MetadataOperation")]
+        [AWSConstantClassSource("Amazon.Glue.MetadataOperation")]
+        public Amazon.Glue.MetadataOperation IcebergInput_MetadataOperation { get; set; }
+        #endregion
+        
         #region Parameter PartitionIndex
         /// <summary>
         /// <para>
@@ -106,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TransactionId { get; set; }
+        #endregion
+        
+        #region Parameter IcebergInput_Version
+        /// <summary>
+        /// <para>
+        /// <para>The table version for the Iceberg table. Defaults to 2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenTableFormatInput_IcebergInput_Version")]
+        public System.String IcebergInput_Version { get; set; }
         #endregion
         
         #region Parameter Select
@@ -177,6 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IcebergInput_MetadataOperation = this.IcebergInput_MetadataOperation;
+            context.IcebergInput_Version = this.IcebergInput_Version;
             if (this.PartitionIndex != null)
             {
                 context.PartitionIndex = new List<Amazon.Glue.Model.PartitionIndex>(this.PartitionIndex);
@@ -212,6 +237,50 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            
+             // populate OpenTableFormatInput
+            var requestOpenTableFormatInputIsNull = true;
+            request.OpenTableFormatInput = new Amazon.Glue.Model.OpenTableFormatInput();
+            Amazon.Glue.Model.IcebergInput requestOpenTableFormatInput_openTableFormatInput_IcebergInput = null;
+            
+             // populate IcebergInput
+            var requestOpenTableFormatInput_openTableFormatInput_IcebergInputIsNull = true;
+            requestOpenTableFormatInput_openTableFormatInput_IcebergInput = new Amazon.Glue.Model.IcebergInput();
+            Amazon.Glue.MetadataOperation requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_MetadataOperation = null;
+            if (cmdletContext.IcebergInput_MetadataOperation != null)
+            {
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_MetadataOperation = cmdletContext.IcebergInput_MetadataOperation;
+            }
+            if (requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_MetadataOperation != null)
+            {
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInput.MetadataOperation = requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_MetadataOperation;
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInputIsNull = false;
+            }
+            System.String requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_Version = null;
+            if (cmdletContext.IcebergInput_Version != null)
+            {
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_Version = cmdletContext.IcebergInput_Version;
+            }
+            if (requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_Version != null)
+            {
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInput.Version = requestOpenTableFormatInput_openTableFormatInput_IcebergInput_icebergInput_Version;
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInputIsNull = false;
+            }
+             // determine if requestOpenTableFormatInput_openTableFormatInput_IcebergInput should be set to null
+            if (requestOpenTableFormatInput_openTableFormatInput_IcebergInputIsNull)
+            {
+                requestOpenTableFormatInput_openTableFormatInput_IcebergInput = null;
+            }
+            if (requestOpenTableFormatInput_openTableFormatInput_IcebergInput != null)
+            {
+                request.OpenTableFormatInput.IcebergInput = requestOpenTableFormatInput_openTableFormatInput_IcebergInput;
+                requestOpenTableFormatInputIsNull = false;
+            }
+             // determine if request.OpenTableFormatInput should be set to null
+            if (requestOpenTableFormatInputIsNull)
+            {
+                request.OpenTableFormatInput = null;
             }
             if (cmdletContext.PartitionIndex != null)
             {
@@ -288,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
+            public Amazon.Glue.MetadataOperation IcebergInput_MetadataOperation { get; set; }
+            public System.String IcebergInput_Version { get; set; }
             public List<Amazon.Glue.Model.PartitionIndex> PartitionIndex { get; set; }
             public Amazon.Glue.Model.TableInput TableInput { get; set; }
             public System.String TransactionId { get; set; }

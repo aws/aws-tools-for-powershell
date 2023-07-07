@@ -28,34 +28,28 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Returns information about the possible endpoint settings available when you create
-    /// an endpoint for a specific database engine.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides details on replication progress by returning status information for one or
+    /// more provisioned DMS Serverless replications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DMSEndpointSetting")]
-    [OutputType("Amazon.DatabaseMigrationService.Model.EndpointSetting")]
-    [AWSCmdlet("Calls the AWS Database Migration Service DescribeEndpointSettings API operation.", Operation = new[] {"DescribeEndpointSettings"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse))]
-    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.EndpointSetting or Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse",
-        "This cmdlet returns a collection of Amazon.DatabaseMigrationService.Model.EndpointSetting objects.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DMSReplication")]
+    [OutputType("Amazon.DatabaseMigrationService.Model.Replication")]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeReplications API operation.", Operation = new[] {"DescribeReplications"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse))]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Replication or Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse",
+        "This cmdlet returns a collection of Amazon.DatabaseMigrationService.Model.Replication objects.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDMSEndpointSettingCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class GetDMSReplicationCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter EngineName
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The database engine used for your source or target endpoint.</para>
+        /// <para>Filters applied to the replications.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EngineName { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.DatabaseMigrationService.Model.Filter[] Filter { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -63,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <code>MaxRecords</code>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -80,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved.</para>
+        /// included in the response so that the remaining results can be retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,23 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EndpointSettings'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse).
-        /// Specifying the name of a property of type Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Replications'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse).
+        /// Specifying the name of a property of type Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EndpointSettings";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EngineName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EngineName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EngineName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "Replications";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -129,28 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse, GetDMSEndpointSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse, GetDMSReplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.Filter != null)
             {
-                context.Select = (response, cmdlet) => this.EngineName;
+                context.Filter = new List<Amazon.DatabaseMigrationService.Model.Filter>(this.Filter);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EngineName = this.EngineName;
-            #if MODULAR
-            if (this.EngineName == null && ParameterWasBound(nameof(this.EngineName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EngineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Marker = this.Marker;
             context.MaxRecord = this.MaxRecord;
             
@@ -166,16 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsRequest();
+            var request = new Amazon.DatabaseMigrationService.Model.DescribeReplicationsRequest();
             
-            if (cmdletContext.EngineName != null)
+            if (cmdletContext.Filter != null)
             {
-                request.EngineName = cmdletContext.EngineName;
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxRecord != null)
             {
@@ -238,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeReplicationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeEndpointSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeReplications");
             try
             {
                 #if DESKTOP
-                return client.DescribeEndpointSettings(request);
+                return client.DescribeReplications(request);
                 #elif CORECLR
-                return client.DescribeEndpointSettingsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeReplicationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,11 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EngineName { get; set; }
+            public List<Amazon.DatabaseMigrationService.Model.Filter> Filter { get; set; }
             public System.String Marker { get; set; }
             public System.Int32? MaxRecord { get; set; }
-            public System.Func<Amazon.DatabaseMigrationService.Model.DescribeEndpointSettingsResponse, GetDMSEndpointSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EndpointSettings;
+            public System.Func<Amazon.DatabaseMigrationService.Model.DescribeReplicationsResponse, GetDMSReplicationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Replications;
         }
         
     }
