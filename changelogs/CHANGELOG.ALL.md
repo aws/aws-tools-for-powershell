@@ -1,4 +1,7 @@
-﻿### 4.1.368 (2023-07-07 21:17Z)
+﻿### 4.1.369 (2023-07-11 07:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.587.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.368 (2023-07-07 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.586.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Modified cmdlet Register-CWLKmsKey: added parameter ResourceIdentifier.
