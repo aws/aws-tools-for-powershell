@@ -84,7 +84,7 @@
             </div>
             <div class="sectionbody">
                 <div class="syntax">
-                    <pre><div class="syntaxblock"><div class="cmdlet">Update-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                    <pre><div class="syntaxblock"><div class="cmdlet">Update-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipPublisherCheck &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-AllowClobber &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
                 </div>
             </div>
         </div>
@@ -171,10 +171,51 @@
                         </div>
                     </div>
                     <div class="parameter">
+                        <div class="parameterName">-SkipPublisherCheck &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Allows skipping the publisher validation check.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
                         <div class="parameterName">-Scope &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
                                 target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
                         <div class="parameterDescription">Specifies the installation scope of the module. The acceptable values for this parameter are AllUsers and CurrentUser. The AllUsers scope installs modules in a location that is accessible to all users of the computer: $env:ProgramFiles\PowerShell\Modules. The CurrentUser installs modules in a location that is accessible only to the current user of the computer: $home\Documents\PowerShell\Modules. When no Scope is defined, the default is CurrentUser.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-AllowClobber &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Overrides warning messages about installation conflicts about
+                            existing commands on a computer.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>

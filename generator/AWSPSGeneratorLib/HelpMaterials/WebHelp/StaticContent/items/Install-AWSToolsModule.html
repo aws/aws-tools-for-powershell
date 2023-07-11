@@ -84,7 +84,7 @@
             </div>
             <div class="sectionbody">
                 <div class="syntax">
-                    <pre><div class="syntaxblock"><div class="cmdlet">Install-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-Name &lt;String&gt;</div><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipUpdate &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-AllowClobber &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                    <pre><div class="syntaxblock"><div class="cmdlet">Install-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-Name &lt;String&gt;</div><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MinimumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipUpdate &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipPublisherCheck &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-AllowClobber &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
                 </div>
             </div>
         </div>
@@ -153,6 +153,28 @@
                         </div>
                     </div>
                     <div class="parameter">
+                        <div class="parameterName">-MinimumVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the minimum version of the modules to install.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
                         <div class="parameterName">-MaximumVersion &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
                                 target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
@@ -199,6 +221,26 @@
                         <div class="parameterName">-SkipUpdate &lt;SwitchParameter&gt;</div>
                         <div class="parameterDescription">Install-AWSToolsModule by default also updates all currently
                             installed AWS.Tools modules. -SkipUpdate disables the update.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SkipPublisherCheck &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Allows skipping the publisher validation check.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
