@@ -28,32 +28,44 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List the infrastructure as code outputs for your environment.
+    /// Get detailed data for a deployment.
     /// </summary>
-    [Cmdlet("Get", "PROEnvironmentOutputList")]
-    [OutputType("Amazon.Proton.Model.Output")]
-    [AWSCmdlet("Calls the AWS Proton ListEnvironmentOutputs API operation.", Operation = new[] {"ListEnvironmentOutputs"}, SelectReturnType = typeof(Amazon.Proton.Model.ListEnvironmentOutputsResponse))]
-    [AWSCmdletOutput("Amazon.Proton.Model.Output or Amazon.Proton.Model.ListEnvironmentOutputsResponse",
-        "This cmdlet returns a collection of Amazon.Proton.Model.Output objects.",
-        "The service call response (type Amazon.Proton.Model.ListEnvironmentOutputsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PRODeployment")]
+    [OutputType("Amazon.Proton.Model.Deployment")]
+    [AWSCmdlet("Calls the AWS Proton GetDeployment API operation.", Operation = new[] {"GetDeployment"}, SelectReturnType = typeof(Amazon.Proton.Model.GetDeploymentResponse))]
+    [AWSCmdletOutput("Amazon.Proton.Model.Deployment or Amazon.Proton.Model.GetDeploymentResponse",
+        "This cmdlet returns an Amazon.Proton.Model.Deployment object.",
+        "The service call response (type Amazon.Proton.Model.GetDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPROEnvironmentOutputListCmdlet : AmazonProtonClientCmdlet, IExecutor
+    public partial class GetPRODeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
-        #region Parameter DeploymentId
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter ComponentName
         /// <summary>
         /// <para>
-        /// <para>The ID of the deployment whose outputs you want.</para>
+        /// <para>The name of a component that you want to get the detailed data for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DeploymentId { get; set; }
+        public System.String ComponentName { get; set; }
         #endregion
         
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The environment name.</para>
+        /// <para>The name of a environment that you want to get the detailed data for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentName { get; set; }
+        #endregion
+        
+        #region Parameter Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the deployment that you want to get the detailed data for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,37 +76,47 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentName { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter NextToken
+        #region Parameter ServiceInstanceName
         /// <summary>
         /// <para>
-        /// <para>A token that indicates the location of the next environment output in the array of
-        /// environment outputs, after the list of environment outputs that was previously requested.</para>
+        /// <para>The name of the service instance associated with the given deployment ID. <code>serviceName</code>
+        /// must be specified to identify the service instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String ServiceInstanceName { get; set; }
+        #endregion
+        
+        #region Parameter ServiceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the service associated with the given deployment ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Outputs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.ListEnvironmentOutputsResponse).
-        /// Specifying the name of a property of type Amazon.Proton.Model.ListEnvironmentOutputsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Deployment'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.GetDeploymentResponse).
+        /// Specifying the name of a property of type Amazon.Proton.Model.GetDeploymentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Outputs";
+        public string Select { get; set; } = "Deployment";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Proton.Model.ListEnvironmentOutputsResponse, GetPROEnvironmentOutputListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Proton.Model.GetDeploymentResponse, GetPRODeploymentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,18 +143,20 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentName;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DeploymentId = this.DeploymentId;
+            context.ComponentName = this.ComponentName;
             context.EnvironmentName = this.EnvironmentName;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.EnvironmentName == null && ParameterWasBound(nameof(this.EnvironmentName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NextToken = this.NextToken;
+            context.ServiceInstanceName = this.ServiceInstanceName;
+            context.ServiceName = this.ServiceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,19 +171,27 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Proton.Model.ListEnvironmentOutputsRequest();
+            var request = new Amazon.Proton.Model.GetDeploymentRequest();
             
-            if (cmdletContext.DeploymentId != null)
+            if (cmdletContext.ComponentName != null)
             {
-                request.DeploymentId = cmdletContext.DeploymentId;
+                request.ComponentName = cmdletContext.ComponentName;
             }
             if (cmdletContext.EnvironmentName != null)
             {
                 request.EnvironmentName = cmdletContext.EnvironmentName;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.Id != null)
             {
-                request.NextToken = cmdletContext.NextToken;
+                request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.ServiceInstanceName != null)
+            {
+                request.ServiceInstanceName = cmdletContext.ServiceInstanceName;
+            }
+            if (cmdletContext.ServiceName != null)
+            {
+                request.ServiceName = cmdletContext.ServiceName;
             }
             
             CmdletOutput output;
@@ -194,15 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         #region AWS Service Operation Call
         
-        private Amazon.Proton.Model.ListEnvironmentOutputsResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.ListEnvironmentOutputsRequest request)
+        private Amazon.Proton.Model.GetDeploymentResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.GetDeploymentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "ListEnvironmentOutputs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "GetDeployment");
             try
             {
                 #if DESKTOP
-                return client.ListEnvironmentOutputs(request);
+                return client.GetDeployment(request);
                 #elif CORECLR
-                return client.ListEnvironmentOutputsAsync(request).GetAwaiter().GetResult();
+                return client.GetDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +254,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeploymentId { get; set; }
+            public System.String ComponentName { get; set; }
             public System.String EnvironmentName { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.Proton.Model.ListEnvironmentOutputsResponse, GetPROEnvironmentOutputListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Outputs;
+            public System.String Id { get; set; }
+            public System.String ServiceInstanceName { get; set; }
+            public System.String ServiceName { get; set; }
+            public System.Func<Amazon.Proton.Model.GetDeploymentResponse, GetPRODeploymentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Deployment;
         }
         
     }

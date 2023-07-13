@@ -150,6 +150,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-PERSRecommender', 
         'Stop-PERSSolutionVersionCreation', 
         'Update-PERSCampaign', 
+        'Update-PERSDataset', 
         'Update-PERSMetricAttribution', 
         'Update-PERSRecommender')
 

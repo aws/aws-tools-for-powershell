@@ -1,4 +1,28 @@
-﻿### 4.1.369 (2023-07-11 07:30Z)
+﻿### 4.1.370 (2023-07-13 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.588.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Remove-CONNQueue leveraging the DeleteQueue service API.
+    * Added cmdlet Remove-CONNRoutingProfile leveraging the DeleteRoutingProfile service API.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters PostgreSQLSettings_BabelfishDatabaseName and PostgreSQLSettings_DatabaseMode.
+    * Modified cmdlet New-DMSEndpoint: added parameters PostgreSQLSettings_BabelfishDatabaseName and PostgreSQLSettings_DatabaseMode.
+  * Amazon FSx
+    * Modified cmdlet New-FSXVolume: added parameters AutocommitPeriod_Type, AutocommitPeriod_Value, DefaultRetention_Type, DefaultRetention_Value, MaximumRetention_Type, MaximumRetention_Value, MinimumRetention_Type, MinimumRetention_Value, SnaplockConfiguration_AuditLogVolume, SnaplockConfiguration_PrivilegedDelete, SnaplockConfiguration_SnaplockType and SnaplockConfiguration_VolumeAppendModeEnabled.
+    * Modified cmdlet New-FSXVolumeFromBackup: added parameters AutocommitPeriod_Type, AutocommitPeriod_Value, DefaultRetention_Type, DefaultRetention_Value, MaximumRetention_Type, MaximumRetention_Value, MinimumRetention_Type, MinimumRetention_Value, SnaplockConfiguration_AuditLogVolume, SnaplockConfiguration_PrivilegedDelete, SnaplockConfiguration_SnaplockType and SnaplockConfiguration_VolumeAppendModeEnabled.
+    * Modified cmdlet Remove-FSXVolume: added parameter OntapConfiguration_BypassSnaplockEnterpriseRetention.
+    * Modified cmdlet Update-FSXVolume: added parameters AutocommitPeriod_Type, AutocommitPeriod_Value, DefaultRetention_Type, DefaultRetention_Value, MaximumRetention_Type, MaximumRetention_Value, MinimumRetention_Type, MinimumRetention_Value, SnaplockConfiguration_AuditLogVolume, SnaplockConfiguration_PrivilegedDelete and SnaplockConfiguration_VolumeAppendModeEnabled.
+  * Amazon Personalize
+    * Added cmdlet Update-PERSDataset leveraging the UpdateDataset service API.
+  * Amazon Proton
+    * Added cmdlet Get-PRODeployment leveraging the GetDeployment service API.
+    * Added cmdlet Get-PRODeploymentList leveraging the ListDeployments service API.
+    * Added cmdlet Remove-PRODeployment leveraging the DeleteDeployment service API.
+    * Modified cmdlet Get-PROComponentOutputList: added parameter DeploymentId.
+    * Modified cmdlet Get-PROEnvironmentOutputList: added parameter DeploymentId.
+    * Modified cmdlet Get-PROServiceInstanceOutputList: added parameter DeploymentId.
+    * Modified cmdlet Get-PROServicePipelineOutputList: added parameter DeploymentId.
+
+### 4.1.369 (2023-07-11 07:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.587.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.368 (2023-07-07 21:17Z)

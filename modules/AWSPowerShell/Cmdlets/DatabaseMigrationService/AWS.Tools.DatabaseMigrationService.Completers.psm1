@@ -130,6 +130,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.DatabaseMode
+        {
+            ($_ -eq "Edit-DMSEndpoint/PostgreSQLSettings_DatabaseMode") -Or
+            ($_ -eq "New-DMSEndpoint/PostgreSQLSettings_DatabaseMode")
+        }
+        {
+            $v = "babelfish","default"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.DataFormatValue
         {
             ($_ -eq "Edit-DMSEndpoint/S3Settings_DataFormat") -Or
@@ -400,6 +410,7 @@ $DMS_map = @{
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedisSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")

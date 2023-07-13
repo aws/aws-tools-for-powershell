@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String ComponentName { get; set; }
         #endregion
         
+        #region Parameter DeploymentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the deployment whose outputs you want.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentId { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -127,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 WriteWarning("You are passing $null as a value for parameter ComponentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeploymentId = this.DeploymentId;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -147,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.ComponentName != null)
             {
                 request.ComponentName = cmdletContext.ComponentName;
+            }
+            if (cmdletContext.DeploymentId != null)
+            {
+                request.DeploymentId = cmdletContext.DeploymentId;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -214,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ComponentName { get; set; }
+            public System.String DeploymentId { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Proton.Model.ListComponentOutputsResponse, GetPROComponentOutputListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Outputs;

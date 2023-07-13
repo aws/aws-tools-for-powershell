@@ -66,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. If you use a customer managed key, you
-    /// must also have <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
-    /// on the key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
+    /// must also have <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, and <code>kms:Decrypt</code>
+    /// permissions on the key. If you change the KMS key and you don't have <code>kms:Encrypt</code>
+    /// permission to the new key, Secrets Manager does not re-ecrypt existing secret versions
+    /// with the new key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
     /// Secret encryption and decryption</a>.
     /// </para>
     /// </summary>
@@ -114,8 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt new
         /// secret versions as well as any existing versions with the staging labels <code>AWSCURRENT</code>,
-        /// <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>. For more information about versions
-        /// and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
+        /// <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>. If you don't have <code>kms:Encrypt</code>
+        /// permission to the new key, Secrets Manager does not re-ecrypt existing secret versions
+        /// with the new key. For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
         /// Version</a>.</para><para>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About
         /// aliases</a>.</para><para>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed

@@ -59,11 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Web Services.
     /// </para><note><para>
     /// Amazon Web Services secures communication with some OIDC identity providers (IdPs)
-    /// through our library of trusted certificate authorities (CAs) instead of using a certificate
-    /// thumbprint to verify your IdP server certificate. These OIDC IdPs include Google,
-    /// Auth0, and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
-    /// In these cases, your legacy thumbprint remains in your configuration, but is no longer
-    /// used for validation.
+    /// through our library of trusted root certificate authorities (CAs) instead of using
+    /// a certificate thumbprint to verify your IdP server certificate. These OIDC IdPs include
+    /// Auth0, GitHub, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
+    /// Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your configuration,
+    /// but is no longer used for validation.
     /// </para></note><note><para>
     /// The trust for the OIDC provider is derived from the IAM provider that this operation
     /// creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a>

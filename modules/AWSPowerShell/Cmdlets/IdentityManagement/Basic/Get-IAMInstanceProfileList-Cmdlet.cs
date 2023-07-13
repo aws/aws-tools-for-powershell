@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Lists the instance profiles that have the specified path prefix. If there are none,
     /// the operation returns an empty list. For more information about instance profiles,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-    /// instance profiles</a>.
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+    /// instance profiles</a> in the <i>IAM User Guide</i>.
     /// 
     ///  <note><para>
     /// IAM resource-listing operations return a subset of the available attributes for the

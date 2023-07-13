@@ -5515,8 +5515,12 @@ Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationA
 Set-Alias -Name CONN-DeleteIntegrationAssociation -Value Remove-CONNIntegrationAssociation
 Set-Alias -Name Delete-CONNPrompt -Value Remove-CONNPrompt
 Set-Alias -Name CONN-DeletePrompt -Value Remove-CONNPrompt
+Set-Alias -Name Delete-CONNQueue -Value Remove-CONNQueue
+Set-Alias -Name CONN-DeleteQueue -Value Remove-CONNQueue
 Set-Alias -Name Delete-CONNQuickConnect -Value Remove-CONNQuickConnect
 Set-Alias -Name CONN-DeleteQuickConnect -Value Remove-CONNQuickConnect
+Set-Alias -Name Delete-CONNRoutingProfile -Value Remove-CONNRoutingProfile
+Set-Alias -Name CONN-DeleteRoutingProfile -Value Remove-CONNRoutingProfile
 Set-Alias -Name Delete-CONNRule -Value Remove-CONNRule
 Set-Alias -Name CONN-DeleteRule -Value Remove-CONNRule
 Set-Alias -Name Delete-CONNSecurityProfile -Value Remove-CONNSecurityProfile
@@ -18853,6 +18857,7 @@ Set-Alias -Name PERS-StopSolutionVersionCreation -Value Stop-PERSSolutionVersion
 Set-Alias -Name PERS-TagResource -Value Add-PERSResourceTag
 Set-Alias -Name PERS-UntagResource -Value Remove-PERSResourceTag
 Set-Alias -Name PERS-UpdateCampaign -Value Update-PERSCampaign
+Set-Alias -Name PERS-UpdateDataset -Value Update-PERSDataset
 Set-Alias -Name PERS-UpdateMetricAttribution -Value Update-PERSMetricAttribution
 Set-Alias -Name PERS-UpdateRecommender -Value Update-PERSRecommender
 Set-Alias -Name Put-PERSEEvents -Value Write-PERSEEvent
@@ -19431,6 +19436,8 @@ Set-Alias -Name Create-PROTemplateSyncConfig -Value New-PROTemplateSyncConfig
 Set-Alias -Name PRO-CreateTemplateSyncConfig -Value New-PROTemplateSyncConfig
 Set-Alias -Name Delete-PROComponent -Value Remove-PROComponent
 Set-Alias -Name PRO-DeleteComponent -Value Remove-PROComponent
+Set-Alias -Name Delete-PRODeployment -Value Remove-PRODeployment
+Set-Alias -Name PRO-DeleteDeployment -Value Remove-PRODeployment
 Set-Alias -Name Delete-PROEnvironmentAccountConnection -Value Remove-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-DeleteEnvironmentAccountConnection -Value Remove-PROEnvironmentAccountConnection
 Set-Alias -Name Delete-PROEnvironment -Value Remove-PROEnvironment
@@ -19454,6 +19461,7 @@ Set-Alias -Name PRO-DeleteTemplateSyncConfig -Value Remove-PROTemplateSyncConfig
 Set-Alias -Name Get-PROAccountSettings -Value Get-PROAccountSetting
 Set-Alias -Name PRO-GetAccountSettings -Value Get-PROAccountSetting
 Set-Alias -Name PRO-GetComponent -Value Get-PROComponent
+Set-Alias -Name PRO-GetDeployment -Value Get-PRODeployment
 Set-Alias -Name PRO-GetEnvironmentAccountConnection -Value Get-PROEnvironmentAccountConnection
 Set-Alias -Name PRO-GetEnvironment -Value Get-PROEnvironment
 Set-Alias -Name PRO-GetEnvironmentTemplate -Value Get-PROEnvironmentTemplate
@@ -19479,6 +19487,9 @@ Set-Alias -Name PRO-ListComponentProvisionedResources -Value Get-PROComponentPro
 Set-Alias -Name List-PROComponents -Value Get-PROComponentList
 Set-Alias -Name List-PROComponentList -Value Get-PROComponentList
 Set-Alias -Name PRO-ListComponents -Value Get-PROComponentList
+Set-Alias -Name List-PRODeployments -Value Get-PRODeploymentList
+Set-Alias -Name List-PRODeploymentList -Value Get-PRODeploymentList
+Set-Alias -Name PRO-ListDeployments -Value Get-PRODeploymentList
 Set-Alias -Name List-PROEnvironmentAccountConnections -Value Get-PROEnvironmentAccountConnectionList
 Set-Alias -Name List-PROEnvironmentAccountConnectionList -Value Get-PROEnvironmentAccountConnectionList
 Set-Alias -Name PRO-ListEnvironmentAccountConnections -Value Get-PROEnvironmentAccountConnectionList

@@ -22,38 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Proton;
-using Amazon.Proton.Model;
+using Amazon.Personalize;
+using Amazon.Personalize.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PRO
+namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Get a list service of instance Infrastructure as Code (IaC) outputs.
+    /// Update a dataset to replace its schema with a new or existing one. For more information,
+    /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html">Replacing
+    /// a dataset's schema</a>.
     /// </summary>
-    [Cmdlet("Get", "PROServiceInstanceOutputList")]
-    [OutputType("Amazon.Proton.Model.Output")]
-    [AWSCmdlet("Calls the AWS Proton ListServiceInstanceOutputs API operation.", Operation = new[] {"ListServiceInstanceOutputs"}, SelectReturnType = typeof(Amazon.Proton.Model.ListServiceInstanceOutputsResponse))]
-    [AWSCmdletOutput("Amazon.Proton.Model.Output or Amazon.Proton.Model.ListServiceInstanceOutputsResponse",
-        "This cmdlet returns a collection of Amazon.Proton.Model.Output objects.",
-        "The service call response (type Amazon.Proton.Model.ListServiceInstanceOutputsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PERSDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Personalize UpdateDataset API operation.", Operation = new[] {"UpdateDataset"}, SelectReturnType = typeof(Amazon.Personalize.Model.UpdateDatasetResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Personalize.Model.UpdateDatasetResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Personalize.Model.UpdateDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPROServiceInstanceOutputListCmdlet : AmazonProtonClientCmdlet, IExecutor
+    public partial class UpdatePERSDatasetCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
-        #region Parameter DeploymentId
+        #region Parameter DatasetArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the deployment whose outputs you want.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DeploymentId { get; set; }
-        #endregion
-        
-        #region Parameter ServiceInstanceName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the service instance whose outputs you want.</para>
+        /// <para>The Amazon Resource Name (ARN) of the dataset that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServiceInstanceName { get; set; }
+        public System.String DatasetArn { get; set; }
         #endregion
         
-        #region Parameter ServiceName
+        #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The name of the service that <code>serviceInstanceName</code> is associated to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the new schema you want use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,35 +73,40 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServiceName { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A token that indicates the location of the next output in the array of outputs, after
-        /// the list of outputs that was previously requested.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String SchemaArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Outputs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.ListServiceInstanceOutputsResponse).
-        /// Specifying the name of a property of type Amazon.Proton.Model.ListServiceInstanceOutputsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.UpdateDatasetResponse).
+        /// Specifying the name of a property of type Amazon.Personalize.Model.UpdateDatasetResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Outputs";
+        public string Select { get; set; } = "DatasetArn";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatasetArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PERSDataset (UpdateDataset)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -118,23 +115,21 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Proton.Model.ListServiceInstanceOutputsResponse, GetPROServiceInstanceOutputListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.UpdateDatasetResponse, UpdatePERSDatasetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DeploymentId = this.DeploymentId;
-            context.NextToken = this.NextToken;
-            context.ServiceInstanceName = this.ServiceInstanceName;
+            context.DatasetArn = this.DatasetArn;
             #if MODULAR
-            if (this.ServiceInstanceName == null && ParameterWasBound(nameof(this.ServiceInstanceName)))
+            if (this.DatasetArn == null && ParameterWasBound(nameof(this.DatasetArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ServiceInstanceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ServiceName = this.ServiceName;
+            context.SchemaArn = this.SchemaArn;
             #if MODULAR
-            if (this.ServiceName == null && ParameterWasBound(nameof(this.ServiceName)))
+            if (this.SchemaArn == null && ParameterWasBound(nameof(this.SchemaArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ServiceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SchemaArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,23 +146,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Proton.Model.ListServiceInstanceOutputsRequest();
+            var request = new Amazon.Personalize.Model.UpdateDatasetRequest();
             
-            if (cmdletContext.DeploymentId != null)
+            if (cmdletContext.DatasetArn != null)
             {
-                request.DeploymentId = cmdletContext.DeploymentId;
+                request.DatasetArn = cmdletContext.DatasetArn;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.SchemaArn != null)
             {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.ServiceInstanceName != null)
-            {
-                request.ServiceInstanceName = cmdletContext.ServiceInstanceName;
-            }
-            if (cmdletContext.ServiceName != null)
-            {
-                request.ServiceName = cmdletContext.ServiceName;
+                request.SchemaArn = cmdletContext.SchemaArn;
             }
             
             CmdletOutput output;
@@ -202,15 +189,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         #region AWS Service Operation Call
         
-        private Amazon.Proton.Model.ListServiceInstanceOutputsResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.ListServiceInstanceOutputsRequest request)
+        private Amazon.Personalize.Model.UpdateDatasetResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.UpdateDatasetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "ListServiceInstanceOutputs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "UpdateDataset");
             try
             {
                 #if DESKTOP
-                return client.ListServiceInstanceOutputs(request);
+                return client.UpdateDataset(request);
                 #elif CORECLR
-                return client.ListServiceInstanceOutputsAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDatasetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,12 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeploymentId { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String ServiceInstanceName { get; set; }
-            public System.String ServiceName { get; set; }
-            public System.Func<Amazon.Proton.Model.ListServiceInstanceOutputsResponse, GetPROServiceInstanceOutputListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Outputs;
+            public System.String DatasetArn { get; set; }
+            public System.String SchemaArn { get; set; }
+            public System.Func<Amazon.Personalize.Model.UpdateDatasetResponse, UpdatePERSDatasetCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DatasetArn;
         }
         
     }

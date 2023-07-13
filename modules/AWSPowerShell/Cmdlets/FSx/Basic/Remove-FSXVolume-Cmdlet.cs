@@ -39,6 +39,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class RemoveFSXVolumeCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        #region Parameter OntapConfiguration_BypassSnaplockEnterpriseRetention
+        /// <summary>
+        /// <para>
+        /// <para>Setting this to <code>true</code> allows a SnapLock administrator to delete an FSx
+        /// for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files.
+        /// The IAM permission <code>fsx:BypassSnaplockEnterpriseRetention</code> is also required
+        /// to delete SnapLock Enterprise volumes with unexpired WORM files. The default value
+        /// is <code>false</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-delete-volume">
+        /// Deleting a SnapLock volume </a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OntapConfiguration_BypassSnaplockEnterpriseRetention { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -161,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.OntapConfiguration_BypassSnaplockEnterpriseRetention = this.OntapConfiguration_BypassSnaplockEnterpriseRetention;
             if (this.OntapConfiguration_FinalBackupTag != null)
             {
                 context.OntapConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.OntapConfiguration_FinalBackupTag);
@@ -201,6 +217,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate OntapConfiguration
             var requestOntapConfigurationIsNull = true;
             request.OntapConfiguration = new Amazon.FSx.Model.DeleteVolumeOntapConfiguration();
+            System.Boolean? requestOntapConfiguration_ontapConfiguration_BypassSnaplockEnterpriseRetention = null;
+            if (cmdletContext.OntapConfiguration_BypassSnaplockEnterpriseRetention != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_BypassSnaplockEnterpriseRetention = cmdletContext.OntapConfiguration_BypassSnaplockEnterpriseRetention.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_BypassSnaplockEnterpriseRetention != null)
+            {
+                request.OntapConfiguration.BypassSnaplockEnterpriseRetention = requestOntapConfiguration_ontapConfiguration_BypassSnaplockEnterpriseRetention.Value;
+                requestOntapConfigurationIsNull = false;
+            }
             List<Amazon.FSx.Model.Tag> requestOntapConfiguration_ontapConfiguration_FinalBackupTag = null;
             if (cmdletContext.OntapConfiguration_FinalBackupTag != null)
             {
@@ -311,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? OntapConfiguration_BypassSnaplockEnterpriseRetention { get; set; }
             public List<Amazon.FSx.Model.Tag> OntapConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? OntapConfiguration_SkipFinalBackup { get; set; }
             public List<System.String> OpenZFSConfiguration_Option { get; set; }

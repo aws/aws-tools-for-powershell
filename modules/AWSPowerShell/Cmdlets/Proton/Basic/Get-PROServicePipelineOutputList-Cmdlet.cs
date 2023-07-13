@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROServicePipelineOutputListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        #region Parameter DeploymentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the deployment you want the outputs for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentId { get; set; }
+        #endregion
+        
         #region Parameter ServiceName
         /// <summary>
         /// <para>
@@ -114,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.ServiceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeploymentId = this.DeploymentId;
             context.NextToken = this.NextToken;
             context.ServiceName = this.ServiceName;
             #if MODULAR
@@ -138,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.ListServicePipelineOutputsRequest();
             
+            if (cmdletContext.DeploymentId != null)
+            {
+                request.DeploymentId = cmdletContext.DeploymentId;
+            }
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
@@ -207,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DeploymentId { get; set; }
             public System.String NextToken { get; set; }
             public System.String ServiceName { get; set; }
             public System.Func<Amazon.Proton.Model.ListServicePipelineOutputsResponse, GetPROServicePipelineOutputListCmdlet, object> Select { get; set; } =

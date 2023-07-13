@@ -205,13 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// When not provided, the AutoML job V2 includes all the columns from the original dataset
         /// that are not already declared in <code>TimeSeriesConfig</code>. If provided, the AutoML
         /// job V2 only considers these additional columns as a complement to the ones declared
-        /// in <code>TimeSeriesConfig</code>.</para><para> You can input <code>FeatureAttributeNames</code> (optional) in JSON format as shown
+        /// in <code>TimeSeriesConfig</code>.</para><para>You can input <code>FeatureAttributeNames</code> (optional) in JSON format as shown
         /// below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code></para><para>Autopilot supports the following data types: <code>numeric</code>, <code>categorical</code>,
-        /// <code>text</code>, and <code>datetime</code>.</para><note><para>These column keys must not include any column set in <code>TimeSeriesConfig</code>.</para></note><para>When not provided, the AutoML job V2 includes all the columns from the original dataset
-        /// that are not already declared in <code>TimeSeriesConfig</code>. If provided, the AutoML
-        /// job V2 only considers these additional columns as a complement to the ones declared
-        /// in <code>TimeSeriesConfig</code>.</para><para>Autopilot supports the following data types: <code>numeric</code>, <code>categorical</code>,
-        /// <code>text</code>, and <code>datetime</code>.</para>
+        /// <code>text</code>, and <code>datetime</code>.</para><note><para>These column keys must not include any column set in <code>TimeSeriesConfig</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

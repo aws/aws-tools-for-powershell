@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RecipeArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the recipe to use for model training. Only specified when <code>performAutoML</code>
+        /// <para>The ARN of the recipe to use for model training. This is required when <code>performAutoML</code>
         /// is false.</para>
         /// </para>
         /// </summary>

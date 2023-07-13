@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// When you embed an inline policy in a role, the inline policy is used as part of the
     /// role's access (permissions) policy. The role's trust policy is created at the same
-    /// time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html"><code>CreateRole</code></a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html"><code>UpdateAssumerolePolicy</code></a>. For more information about IAM roles, see
-    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-    /// roles to delegate permissions and federate identities</a>.
+    /// time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html"><code>CreateRole</code></a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html"><code>UpdateAssumeRolePolicy</code></a>. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM roles</a>
+    /// in the <i>IAM User Guide</i>.
     /// </para><para>
     /// A role can also have a managed policy attached to it. To attach a managed policy to
     /// a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html"><code>AttachRolePolicy</code></a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html"><code>CreatePolicy</code></a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed

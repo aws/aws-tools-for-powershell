@@ -28,11 +28,15 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Creates a new role for your Amazon Web Services account. For more information about
-    /// roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
-    /// roles</a>. For information about quotas for role names and the number of roles you
-    /// can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// Creates a new role for your Amazon Web Services account.
+    /// 
+    ///  
+    /// <para>
+    ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+    /// roles</a> in the <i>IAM User Guide</i>. For information about quotas for role names
+    /// and the number of roles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
     /// and STS quotas</a> in the <i>IAM User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.Role")]

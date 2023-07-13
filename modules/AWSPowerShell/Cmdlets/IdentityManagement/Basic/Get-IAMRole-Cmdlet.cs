@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Retrieves information about the specified role, including the role's path, GUID, ARN,
     /// and the role's trust policy that grants permission to assume the role. For more information
-    /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-    /// with roles</a>.
+    /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+    /// roles</a> in the <i>IAM User Guide</i>.
     /// 
     ///  <note><para>
     /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC

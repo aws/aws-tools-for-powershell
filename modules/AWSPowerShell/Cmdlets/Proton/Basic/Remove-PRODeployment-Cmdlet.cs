@@ -28,32 +28,24 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List the infrastructure as code outputs for your environment.
+    /// Delete the deployment.
     /// </summary>
-    [Cmdlet("Get", "PROEnvironmentOutputList")]
-    [OutputType("Amazon.Proton.Model.Output")]
-    [AWSCmdlet("Calls the AWS Proton ListEnvironmentOutputs API operation.", Operation = new[] {"ListEnvironmentOutputs"}, SelectReturnType = typeof(Amazon.Proton.Model.ListEnvironmentOutputsResponse))]
-    [AWSCmdletOutput("Amazon.Proton.Model.Output or Amazon.Proton.Model.ListEnvironmentOutputsResponse",
-        "This cmdlet returns a collection of Amazon.Proton.Model.Output objects.",
-        "The service call response (type Amazon.Proton.Model.ListEnvironmentOutputsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "PRODeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Proton.Model.Deployment")]
+    [AWSCmdlet("Calls the AWS Proton DeleteDeployment API operation.", Operation = new[] {"DeleteDeployment"}, SelectReturnType = typeof(Amazon.Proton.Model.DeleteDeploymentResponse))]
+    [AWSCmdletOutput("Amazon.Proton.Model.Deployment or Amazon.Proton.Model.DeleteDeploymentResponse",
+        "This cmdlet returns an Amazon.Proton.Model.Deployment object.",
+        "The service call response (type Amazon.Proton.Model.DeleteDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPROEnvironmentOutputListCmdlet : AmazonProtonClientCmdlet, IExecutor
+    public partial class RemovePRODeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
-        #region Parameter DeploymentId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the deployment whose outputs you want.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DeploymentId { get; set; }
-        #endregion
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
-        #region Parameter EnvironmentName
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The environment name.</para>
+        /// <para>The ID of the deployment to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,45 +56,50 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentName { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A token that indicates the location of the next environment output in the array of
-        /// environment outputs, after the list of environment outputs that was previously requested.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Outputs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.ListEnvironmentOutputsResponse).
-        /// Specifying the name of a property of type Amazon.Proton.Model.ListEnvironmentOutputsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Deployment'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.DeleteDeploymentResponse).
+        /// Specifying the name of a property of type Amazon.Proton.Model.DeleteDeploymentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Outputs";
+        public string Select { get; set; } = "Deployment";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PRODeployment (DeleteDeployment)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -112,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Proton.Model.ListEnvironmentOutputsResponse, GetPROEnvironmentOutputListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Proton.Model.DeleteDeploymentResponse, RemovePRODeploymentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,18 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentName;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DeploymentId = this.DeploymentId;
-            context.EnvironmentName = this.EnvironmentName;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.EnvironmentName == null && ParameterWasBound(nameof(this.EnvironmentName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,19 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Proton.Model.ListEnvironmentOutputsRequest();
+            var request = new Amazon.Proton.Model.DeleteDeploymentRequest();
             
-            if (cmdletContext.DeploymentId != null)
+            if (cmdletContext.Id != null)
             {
-                request.DeploymentId = cmdletContext.DeploymentId;
-            }
-            if (cmdletContext.EnvironmentName != null)
-            {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -194,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         #region AWS Service Operation Call
         
-        private Amazon.Proton.Model.ListEnvironmentOutputsResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.ListEnvironmentOutputsRequest request)
+        private Amazon.Proton.Model.DeleteDeploymentResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.DeleteDeploymentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "ListEnvironmentOutputs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "DeleteDeployment");
             try
             {
                 #if DESKTOP
-                return client.ListEnvironmentOutputs(request);
+                return client.DeleteDeployment(request);
                 #elif CORECLR
-                return client.ListEnvironmentOutputsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeploymentId { get; set; }
-            public System.String EnvironmentName { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.Proton.Model.ListEnvironmentOutputsResponse, GetPROEnvironmentOutputListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Outputs;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.Proton.Model.DeleteDeploymentResponse, RemovePRODeploymentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Deployment;
         }
         
     }

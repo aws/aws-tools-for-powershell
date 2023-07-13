@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
-    /// For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-    /// roles to delegate permissions and federate identities</a>.
+    ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+    /// roles</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRolePolicy")]

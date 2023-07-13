@@ -257,6 +257,7 @@ $PERS_SelectMap = @{
                "Add-PERSResourceTag",
                "Remove-PERSResourceTag",
                "Update-PERSCampaign",
+               "Update-PERSDataset",
                "Update-PERSMetricAttribution",
                "Update-PERSRecommender")
 }

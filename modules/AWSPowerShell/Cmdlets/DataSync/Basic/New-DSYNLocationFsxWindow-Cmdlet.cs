@@ -136,9 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter User
         /// <summary>
         /// <para>
-        /// <para>Specifies the user who has the permissions to access files and folders in the file
-        /// system.</para><para>For information about choosing a user name that ensures sufficient permissions to
-        /// files, folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.</para>
+        /// <para>Specifies the user who has the permissions to access files, folders, and metadata
+        /// in your file system.</para><para>For information about choosing a user with sufficient permissions, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">Required
+        /// permissions</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

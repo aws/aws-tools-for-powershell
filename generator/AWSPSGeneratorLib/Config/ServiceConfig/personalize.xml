@@ -275,6 +275,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataset" OutputProperty="DatasetArn" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMetricAttribution" OutputProperty="MetricAttributionArn" Verb="Update" Noun="MetricAttribution" ShouldProcessTarget="MetricAttributionArn" PipelineParameter="MetricAttributionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

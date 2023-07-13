@@ -22,42 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IdentityManagement;
-using Amazon.IdentityManagement.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IAM
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Removes the specified IAM role from the specified EC2 instance profile.
-    /// 
-    ///  <important><para>
-    /// Make sure that you do not have any Amazon EC2 instances running with the role you
-    /// are about to remove from the instance profile. Removing a role from an instance profile
-    /// that is associated with a running instance might break any applications running on
-    /// the instance.
-    /// </para></important><para>
-    ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
-    /// roles</a> in the <i>IAM User Guide</i>. For more information about instance profiles,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
-    /// instance profiles</a> in the <i>IAM User Guide</i>.
-    /// </para>
+    /// Deletes a queue.
     /// </summary>
-    [Cmdlet("Remove", "IAMRoleFromInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CONNQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Identity and Access Management RemoveRoleFromInstanceProfile API operation.", Operation = new[] {"RemoveRoleFromInstanceProfile"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse))]
-    [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service DeleteQueue API operation.", Operation = new[] {"DeleteQueue"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteQueueResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveIAMRoleFromInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class RemoveCONNQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter InstanceProfileName
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The name of the instance profile to update.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,32 +55,30 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceProfileName { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter RoleName
+        #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The name of the role to remove.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The identifier for the queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleName { get; set; }
+        public System.String QueueId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteQueueResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceProfileName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceProfileName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceProfileName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -125,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RoleName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMRoleFromInstanceProfile (RemoveRoleFromInstanceProfile)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNQueue (DeleteQueue)"))
             {
                 return;
             }
@@ -139,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse, RemoveIAMRoleFromInstanceProfileCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteQueueResponse, RemoveCONNQueueCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,21 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceProfileName;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceProfileName = this.InstanceProfileName;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.InstanceProfileName == null && ParameterWasBound(nameof(this.InstanceProfileName)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceProfileName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoleName = this.RoleName;
+            context.QueueId = this.QueueId;
             #if MODULAR
-            if (this.RoleName == null && ParameterWasBound(nameof(this.RoleName)))
+            if (this.QueueId == null && ParameterWasBound(nameof(this.QueueId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -179,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileRequest();
+            var request = new Amazon.Connect.Model.DeleteQueueRequest();
             
-            if (cmdletContext.InstanceProfileName != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.InstanceProfileName = cmdletContext.InstanceProfileName;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.RoleName != null)
+            if (cmdletContext.QueueId != null)
             {
-                request.RoleName = cmdletContext.RoleName;
+                request.QueueId = cmdletContext.QueueId;
             }
             
             CmdletOutput output;
@@ -222,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileRequest request)
+        private Amazon.Connect.Model.DeleteQueueResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteQueueRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "RemoveRoleFromInstanceProfile");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteQueue");
             try
             {
                 #if DESKTOP
-                return client.RemoveRoleFromInstanceProfile(request);
+                return client.DeleteQueue(request);
                 #elif CORECLR
-                return client.RemoveRoleFromInstanceProfileAsync(request).GetAwaiter().GetResult();
+                return client.DeleteQueueAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,9 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceProfileName { get; set; }
-            public System.String RoleName { get; set; }
-            public System.Func<Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse, RemoveIAMRoleFromInstanceProfileCmdlet, object> Select { get; set; } =
+            public System.String InstanceId { get; set; }
+            public System.String QueueId { get; set; }
+            public System.Func<Amazon.Connect.Model.DeleteQueueResponse, RemoveCONNQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -42,6 +42,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter SnaplockConfiguration_AuditLogVolume
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The
+        /// default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>,
+        /// the SnapLock volume is created as an audit log volume. The minimum retention period
+        /// for an audit log volume is six months. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume">
+        /// SnapLock audit log volumes</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_AuditLogVolume")]
+        public System.Boolean? SnaplockConfiguration_AuditLogVolume { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -211,6 +226,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OpenZFSConfiguration_ParentVolumeId { get; set; }
         #endregion
         
+        #region Parameter SnaplockConfiguration_PrivilegedDelete
+        /// <summary>
+        /// <para>
+        /// <para>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock
+        /// Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete
+        /// WORM files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code>
+        /// is a terminal state. If privileged delete is permanently disabled on a SnapLock volume,
+        /// you can't re-enable it. The default value is <code>DISABLED</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#privileged-delete">Privileged
+        /// delete</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_PrivilegedDelete")]
+        [AWSConstantClassSource("Amazon.FSx.PrivilegedDelete")]
+        public Amazon.FSx.PrivilegedDelete SnaplockConfiguration_PrivilegedDelete { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_ReadOnly
         /// <summary>
         /// <para>
@@ -262,13 +294,34 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_SizeInMegabyte
         /// <summary>
         /// <para>
-        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating. Provide
-        /// any whole number in the range of 20–104857600 to specify the size of the volume.</para>
+        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OntapConfiguration_SizeInMegabytes")]
         public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+        #endregion
+        
+        #region Parameter SnaplockConfiguration_SnaplockType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set,
+        /// it can't be changed. You can choose one of the following retention modes: </para><ul><li><para><code>COMPLIANCE</code>: Files transitioned to write once, read many (WORM) on a
+        /// Compliance volume can't be deleted until their retention periods expire. This retention
+        /// mode is used to address government or industry-specific mandates or to protect against
+        /// ransomware attacks. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html">SnapLock
+        /// Compliance</a>. </para></li><li><para><code>ENTERPRISE</code>: Files transitioned to WORM on an Enterprise volume can be
+        /// deleted by authorized users before their retention periods expire using privileged
+        /// delete. This retention mode is used to advance an organization's data integrity and
+        /// internal compliance or to test retention settings before using SnapLock Compliance.
+        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.htmlFile">SnapLock
+        /// Enterprise</a>. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_SnaplockType")]
+        [AWSConstantClassSource("Amazon.FSx.SnaplockType")]
+        public Amazon.FSx.SnaplockType SnaplockConfiguration_SnaplockType { get; set; }
         #endregion
         
         #region Parameter OriginSnapshot_SnapshotARN
@@ -363,6 +416,65 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter AutocommitPeriod_Type
+        /// <summary>
+        /// <para>
+        /// <para>Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock
+        /// volume. Setting this value to <code>NONE</code> disables autocommit. The default value
+        /// is <code>NONE</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type")]
+        [AWSConstantClassSource("Amazon.FSx.AutocommitPeriodType")]
+        public Amazon.FSx.AutocommitPeriodType AutocommitPeriod_Type { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRetention_Type
+        /// <summary>
+        /// <para>
+        /// <para>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume.
+        /// Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files
+        /// are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained
+        /// until you set an explicit retention period. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type")]
+        [AWSConstantClassSource("Amazon.FSx.RetentionPeriodType")]
+        public Amazon.FSx.RetentionPeriodType DefaultRetention_Type { get; set; }
+        #endregion
+        
+        #region Parameter MaximumRetention_Type
+        /// <summary>
+        /// <para>
+        /// <para>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume.
+        /// Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files
+        /// are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained
+        /// until you set an explicit retention period. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type")]
+        [AWSConstantClassSource("Amazon.FSx.RetentionPeriodType")]
+        public Amazon.FSx.RetentionPeriodType MaximumRetention_Type { get; set; }
+        #endregion
+        
+        #region Parameter MinimumRetention_Type
+        /// <summary>
+        /// <para>
+        /// <para>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume.
+        /// Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files
+        /// are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained
+        /// until you set an explicit retention period. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type")]
+        [AWSConstantClassSource("Amazon.FSx.RetentionPeriodType")]
+        public Amazon.FSx.RetentionPeriodType MinimumRetention_Type { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_UserAndGroupQuota
         /// <summary>
         /// <para>
@@ -372,6 +484,71 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OpenZFSConfiguration_UserAndGroupQuotas")]
         public Amazon.FSx.Model.OpenZFSUserOrGroupQuota[] OpenZFSConfiguration_UserAndGroupQuota { get; set; }
+        #endregion
+        
+        #region Parameter AutocommitPeriod_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the amount of time for the autocommit period of a file in an FSx for ONTAP
+        /// SnapLock volume. The following ranges are valid: </para><ul><li><para><code>Minutes</code>: 5 - 65,535</para></li><li><para><code>Hours</code>: 1 - 65,535</para></li><li><para><code>Days</code>: 1 - 3,650</para></li><li><para><code>Months</code>: 1 - 120</para></li><li><para><code>Years</code>: 1 - 10</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Value")]
+        public System.Int32? AutocommitPeriod_Value { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRetention_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume.
+        /// You can't set a value for <code>INFINITE</code> or <code>UNSPECIFIED</code>. For all
+        /// other options, the following ranges are valid: </para><ul><li><para><code>Seconds</code>: 0 - 65,535</para></li><li><para><code>Minutes</code>: 0 - 65,535</para></li><li><para><code>Hours</code>: 0 - 24</para></li><li><para><code>Days</code>: 0 - 365</para></li><li><para><code>Months</code>: 0 - 12</para></li><li><para><code>Years</code>: 0 - 100</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Value")]
+        public System.Int32? DefaultRetention_Value { get; set; }
+        #endregion
+        
+        #region Parameter MaximumRetention_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume.
+        /// You can't set a value for <code>INFINITE</code> or <code>UNSPECIFIED</code>. For all
+        /// other options, the following ranges are valid: </para><ul><li><para><code>Seconds</code>: 0 - 65,535</para></li><li><para><code>Minutes</code>: 0 - 65,535</para></li><li><para><code>Hours</code>: 0 - 24</para></li><li><para><code>Days</code>: 0 - 365</para></li><li><para><code>Months</code>: 0 - 12</para></li><li><para><code>Years</code>: 0 - 100</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Value")]
+        public System.Int32? MaximumRetention_Value { get; set; }
+        #endregion
+        
+        #region Parameter MinimumRetention_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume.
+        /// You can't set a value for <code>INFINITE</code> or <code>UNSPECIFIED</code>. For all
+        /// other options, the following ranges are valid: </para><ul><li><para><code>Seconds</code>: 0 - 65,535</para></li><li><para><code>Minutes</code>: 0 - 65,535</para></li><li><para><code>Hours</code>: 0 - 24</para></li><li><para><code>Days</code>: 0 - 365</para></li><li><para><code>Months</code>: 0 - 12</para></li><li><para><code>Years</code>: 0 - 100</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Value")]
+        public System.Int32? MinimumRetention_Value { get; set; }
+        #endregion
+        
+        #region Parameter SnaplockConfiguration_VolumeAppendModeEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append
+        /// mode allows you to create WORM-appendable files and write data to them incrementally.
+        /// The default value is <code>false</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append
+        /// mode</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SnaplockConfiguration_VolumeAppendModeEnabled")]
+        public System.Boolean? SnaplockConfiguration_VolumeAppendModeEnabled { get; set; }
         #endregion
         
         #region Parameter VolumeType
@@ -467,6 +644,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_OntapVolumeType = this.OntapConfiguration_OntapVolumeType;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
+            context.SnaplockConfiguration_AuditLogVolume = this.SnaplockConfiguration_AuditLogVolume;
+            context.AutocommitPeriod_Type = this.AutocommitPeriod_Type;
+            context.AutocommitPeriod_Value = this.AutocommitPeriod_Value;
+            context.SnaplockConfiguration_PrivilegedDelete = this.SnaplockConfiguration_PrivilegedDelete;
+            context.DefaultRetention_Type = this.DefaultRetention_Type;
+            context.DefaultRetention_Value = this.DefaultRetention_Value;
+            context.MaximumRetention_Type = this.MaximumRetention_Type;
+            context.MaximumRetention_Value = this.MaximumRetention_Value;
+            context.MinimumRetention_Type = this.MinimumRetention_Type;
+            context.MinimumRetention_Value = this.MinimumRetention_Value;
+            context.SnaplockConfiguration_SnaplockType = this.SnaplockConfiguration_SnaplockType;
+            context.SnaplockConfiguration_VolumeAppendModeEnabled = this.SnaplockConfiguration_VolumeAppendModeEnabled;
             context.OntapConfiguration_SnapshotPolicy = this.OntapConfiguration_SnapshotPolicy;
             context.OntapConfiguration_StorageEfficiencyEnabled = this.OntapConfiguration_StorageEfficiencyEnabled;
             context.OntapConfiguration_StorageVirtualMachineId = this.OntapConfiguration_StorageVirtualMachineId;
@@ -641,6 +830,216 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_TieringPolicy != null)
             {
                 request.OntapConfiguration.TieringPolicy = requestOntapConfiguration_ontapConfiguration_TieringPolicy;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.CreateSnaplockConfiguration requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration = null;
+            
+             // populate SnaplockConfiguration
+            var requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration = new Amazon.FSx.Model.CreateSnaplockConfiguration();
+            System.Boolean? requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_AuditLogVolume = null;
+            if (cmdletContext.SnaplockConfiguration_AuditLogVolume != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_AuditLogVolume = cmdletContext.SnaplockConfiguration_AuditLogVolume.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_AuditLogVolume != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration.AuditLogVolume = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_AuditLogVolume.Value;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = false;
+            }
+            Amazon.FSx.PrivilegedDelete requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_PrivilegedDelete = null;
+            if (cmdletContext.SnaplockConfiguration_PrivilegedDelete != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_PrivilegedDelete = cmdletContext.SnaplockConfiguration_PrivilegedDelete;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_PrivilegedDelete != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration.PrivilegedDelete = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_PrivilegedDelete;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = false;
+            }
+            Amazon.FSx.SnaplockType requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_SnaplockType = null;
+            if (cmdletContext.SnaplockConfiguration_SnaplockType != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_SnaplockType = cmdletContext.SnaplockConfiguration_SnaplockType;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_SnaplockType != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration.SnaplockType = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_SnaplockType;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = false;
+            }
+            System.Boolean? requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_VolumeAppendModeEnabled = null;
+            if (cmdletContext.SnaplockConfiguration_VolumeAppendModeEnabled != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_VolumeAppendModeEnabled = cmdletContext.SnaplockConfiguration_VolumeAppendModeEnabled.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_VolumeAppendModeEnabled != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration.VolumeAppendModeEnabled = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_snaplockConfiguration_VolumeAppendModeEnabled.Value;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.AutocommitPeriod requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod = null;
+            
+             // populate AutocommitPeriod
+            var requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriodIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod = new Amazon.FSx.Model.AutocommitPeriod();
+            Amazon.FSx.AutocommitPeriodType requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Type = null;
+            if (cmdletContext.AutocommitPeriod_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Type = cmdletContext.AutocommitPeriod_Type;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod.Type = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Type;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriodIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Value = null;
+            if (cmdletContext.AutocommitPeriod_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Value = cmdletContext.AutocommitPeriod_Value.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod.Value = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod_autocommitPeriod_Value.Value;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriodIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriodIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration.AutocommitPeriod = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_AutocommitPeriod;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.SnaplockRetentionPeriod requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod = null;
+            
+             // populate RetentionPeriod
+            var requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriodIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod = new Amazon.FSx.Model.SnaplockRetentionPeriod();
+            Amazon.FSx.Model.RetentionPeriod requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention = null;
+            
+             // populate DefaultRetention
+            var requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetentionIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention = new Amazon.FSx.Model.RetentionPeriod();
+            Amazon.FSx.RetentionPeriodType requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Type = null;
+            if (cmdletContext.DefaultRetention_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Type = cmdletContext.DefaultRetention_Type;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention.Type = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Type;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetentionIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Value = null;
+            if (cmdletContext.DefaultRetention_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Value = cmdletContext.DefaultRetention_Value.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention.Value = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_defaultRetention_Value.Value;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetentionIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetentionIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod.DefaultRetention = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriodIsNull = false;
+            }
+            Amazon.FSx.Model.RetentionPeriod requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention = null;
+            
+             // populate MaximumRetention
+            var requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetentionIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention = new Amazon.FSx.Model.RetentionPeriod();
+            Amazon.FSx.RetentionPeriodType requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Type = null;
+            if (cmdletContext.MaximumRetention_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Type = cmdletContext.MaximumRetention_Type;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention.Type = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Type;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetentionIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Value = null;
+            if (cmdletContext.MaximumRetention_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Value = cmdletContext.MaximumRetention_Value.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention.Value = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_maximumRetention_Value.Value;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetentionIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetentionIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod.MaximumRetention = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriodIsNull = false;
+            }
+            Amazon.FSx.Model.RetentionPeriod requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention = null;
+            
+             // populate MinimumRetention
+            var requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetentionIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention = new Amazon.FSx.Model.RetentionPeriod();
+            Amazon.FSx.RetentionPeriodType requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Type = null;
+            if (cmdletContext.MinimumRetention_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Type = cmdletContext.MinimumRetention_Type;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention.Type = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Type;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetentionIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Value = null;
+            if (cmdletContext.MinimumRetention_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Value = cmdletContext.MinimumRetention_Value.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Value != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention.Value = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_minimumRetention_Value.Value;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetentionIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetentionIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod.MinimumRetention = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_ontapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriodIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriodIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration.RetentionPeriod = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration_ontapConfiguration_SnaplockConfiguration_RetentionPeriod;
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfigurationIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration != null)
+            {
+                request.OntapConfiguration.SnaplockConfiguration = requestOntapConfiguration_ontapConfiguration_SnaplockConfiguration;
                 requestOntapConfigurationIsNull = false;
             }
              // determine if request.OntapConfiguration should be set to null
@@ -858,6 +1257,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.InputOntapVolumeType OntapConfiguration_OntapVolumeType { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
             public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+            public System.Boolean? SnaplockConfiguration_AuditLogVolume { get; set; }
+            public Amazon.FSx.AutocommitPeriodType AutocommitPeriod_Type { get; set; }
+            public System.Int32? AutocommitPeriod_Value { get; set; }
+            public Amazon.FSx.PrivilegedDelete SnaplockConfiguration_PrivilegedDelete { get; set; }
+            public Amazon.FSx.RetentionPeriodType DefaultRetention_Type { get; set; }
+            public System.Int32? DefaultRetention_Value { get; set; }
+            public Amazon.FSx.RetentionPeriodType MaximumRetention_Type { get; set; }
+            public System.Int32? MaximumRetention_Value { get; set; }
+            public Amazon.FSx.RetentionPeriodType MinimumRetention_Type { get; set; }
+            public System.Int32? MinimumRetention_Value { get; set; }
+            public Amazon.FSx.SnaplockType SnaplockConfiguration_SnaplockType { get; set; }
+            public System.Boolean? SnaplockConfiguration_VolumeAppendModeEnabled { get; set; }
             public System.String OntapConfiguration_SnapshotPolicy { get; set; }
             public System.Boolean? OntapConfiguration_StorageEfficiencyEnabled { get; set; }
             public System.String OntapConfiguration_StorageVirtualMachineId { get; set; }

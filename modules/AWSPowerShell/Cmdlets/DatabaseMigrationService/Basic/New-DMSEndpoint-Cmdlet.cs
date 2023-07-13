@@ -330,6 +330,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String RedisSettings_AuthUserName { get; set; }
         #endregion
         
+        #region Parameter PostgreSQLSettings_BabelfishDatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The Babelfish for Aurora PostgreSQL database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_BabelfishDatabaseName { get; set; }
+        #endregion
+        
         #region Parameter MicrosoftSQLServerSettings_BcpPacketSize
         /// <summary>
         /// <para>
@@ -741,6 +751,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IBMDb2Settings_CurrentLsn { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_DatabaseMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use default or custom replication behavior for PostgreSQL-compatible
+        /// endpoints. You can use this setting to specify replication behavior for endpoints
+        /// that require additional configuration, such as Babelfish endpoints.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DatabaseMode")]
+        public Amazon.DatabaseMigrationService.DatabaseMode PostgreSQLSettings_DatabaseMode { get; set; }
         #endregion
         
         #region Parameter DatabaseName
@@ -4132,7 +4155,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.Password = this.Password;
             context.Port = this.Port;
             context.PostgreSQLSettings_AfterConnectScript = this.PostgreSQLSettings_AfterConnectScript;
+            context.PostgreSQLSettings_BabelfishDatabaseName = this.PostgreSQLSettings_BabelfishDatabaseName;
             context.PostgreSQLSettings_CaptureDdl = this.PostgreSQLSettings_CaptureDdl;
+            context.PostgreSQLSettings_DatabaseMode = this.PostgreSQLSettings_DatabaseMode;
             context.PostgreSQLSettings_DatabaseName = this.PostgreSQLSettings_DatabaseName;
             context.PostgreSQLSettings_DdlArtifactsSchema = this.PostgreSQLSettings_DdlArtifactsSchema;
             context.PostgreSQLSettings_ExecuteTimeout = this.PostgreSQLSettings_ExecuteTimeout;
@@ -6160,6 +6185,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.PostgreSQLSettings.AfterConnectScript = requestPostgreSQLSettings_postgreSQLSettings_AfterConnectScript;
                 requestPostgreSQLSettingsIsNull = false;
             }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_BabelfishDatabaseName = null;
+            if (cmdletContext.PostgreSQLSettings_BabelfishDatabaseName != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_BabelfishDatabaseName = cmdletContext.PostgreSQLSettings_BabelfishDatabaseName;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_BabelfishDatabaseName != null)
+            {
+                request.PostgreSQLSettings.BabelfishDatabaseName = requestPostgreSQLSettings_postgreSQLSettings_BabelfishDatabaseName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
             System.Boolean? requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl = null;
             if (cmdletContext.PostgreSQLSettings_CaptureDdl != null)
             {
@@ -6168,6 +6203,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl != null)
             {
                 request.PostgreSQLSettings.CaptureDdls = requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DatabaseMode requestPostgreSQLSettings_postgreSQLSettings_DatabaseMode = null;
+            if (cmdletContext.PostgreSQLSettings_DatabaseMode != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_DatabaseMode = cmdletContext.PostgreSQLSettings_DatabaseMode;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_DatabaseMode != null)
+            {
+                request.PostgreSQLSettings.DatabaseMode = requestPostgreSQLSettings_postgreSQLSettings_DatabaseMode;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.String requestPostgreSQLSettings_postgreSQLSettings_DatabaseName = null;
@@ -7598,7 +7643,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PostgreSQLSettings_AfterConnectScript { get; set; }
+            public System.String PostgreSQLSettings_BabelfishDatabaseName { get; set; }
             public System.Boolean? PostgreSQLSettings_CaptureDdl { get; set; }
+            public Amazon.DatabaseMigrationService.DatabaseMode PostgreSQLSettings_DatabaseMode { get; set; }
             public System.String PostgreSQLSettings_DatabaseName { get; set; }
             public System.String PostgreSQLSettings_DdlArtifactsSchema { get; set; }
             public System.Int32? PostgreSQLSettings_ExecuteTimeout { get; set; }
