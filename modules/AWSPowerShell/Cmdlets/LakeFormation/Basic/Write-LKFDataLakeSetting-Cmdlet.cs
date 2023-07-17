@@ -54,12 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>Whether to allow Amazon EMR clusters to access data managed by Lake Formation. </para><para>If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that
         /// are registered with Lake Formation.</para><para>If false or null, no Amazon EMR clusters will be able to access data in Amazon S3
-        /// locations that are registered with Lake Formation.</para><para>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#emr-switch">(Optional)
-        /// Allow Data Filtering on Amazon EMR</a>.</para>
+        /// locations that are registered with Lake Formation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/initial-LF-setup.html#external-data-filter">(Optional)
+        /// Allow external data filtering</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DataLakeSettings_AllowExternalDataFiltering { get; set; }
+        #endregion
+        
+        #region Parameter DataLakeSettings_AllowFullTableExternalDataAccess
+        /// <summary>
+        /// <para>
+        /// <para>Whether to allow a third-party query engine to get data access credentials without
+        /// session tags when a caller has full data access permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataLakeSettings_AllowFullTableExternalDataAccess { get; set; }
         #endregion
         
         #region Parameter DataLakeSettings_AuthorizedSessionTagValueList
@@ -157,6 +168,18 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.Collections.Hashtable DataLakeSettings_Parameter { get; set; }
         #endregion
         
+        #region Parameter DataLakeSettings_ReadOnlyAdmin
+        /// <summary>
+        /// <para>
+        /// <para>A list of Lake Formation principals with only view access to the resources, without
+        /// the ability to make changes. Supported principals are IAM users or IAM roles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataLakeSettings_ReadOnlyAdmins")]
+        public Amazon.LakeFormation.Model.DataLakePrincipal[] DataLakeSettings_ReadOnlyAdmin { get; set; }
+        #endregion
+        
         #region Parameter DataLakeSettings_TrustedResourceOwner
         /// <summary>
         /// <para>
@@ -234,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CatalogId = this.CatalogId;
             context.DataLakeSettings_AllowExternalDataFiltering = this.DataLakeSettings_AllowExternalDataFiltering;
+            context.DataLakeSettings_AllowFullTableExternalDataAccess = this.DataLakeSettings_AllowFullTableExternalDataAccess;
             if (this.DataLakeSettings_AuthorizedSessionTagValueList != null)
             {
                 context.DataLakeSettings_AuthorizedSessionTagValueList = new List<System.String>(this.DataLakeSettings_AuthorizedSessionTagValueList);
@@ -261,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 {
                     context.DataLakeSettings_Parameter.Add((String)hashKey, (String)(this.DataLakeSettings_Parameter[hashKey]));
                 }
+            }
+            if (this.DataLakeSettings_ReadOnlyAdmin != null)
+            {
+                context.DataLakeSettings_ReadOnlyAdmin = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.DataLakeSettings_ReadOnlyAdmin);
             }
             if (this.DataLakeSettings_TrustedResourceOwner != null)
             {
@@ -298,6 +326,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering != null)
             {
                 request.DataLakeSettings.AllowExternalDataFiltering = requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering.Value;
+                requestDataLakeSettingsIsNull = false;
+            }
+            System.Boolean? requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess = null;
+            if (cmdletContext.DataLakeSettings_AllowFullTableExternalDataAccess != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess = cmdletContext.DataLakeSettings_AllowFullTableExternalDataAccess.Value;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess != null)
+            {
+                request.DataLakeSettings.AllowFullTableExternalDataAccess = requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess.Value;
                 requestDataLakeSettingsIsNull = false;
             }
             List<System.String> requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList = null;
@@ -358,6 +396,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_Parameter != null)
             {
                 request.DataLakeSettings.Parameters = requestDataLakeSettings_dataLakeSettings_Parameter;
+                requestDataLakeSettingsIsNull = false;
+            }
+            List<Amazon.LakeFormation.Model.DataLakePrincipal> requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin = null;
+            if (cmdletContext.DataLakeSettings_ReadOnlyAdmin != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin = cmdletContext.DataLakeSettings_ReadOnlyAdmin;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin != null)
+            {
+                request.DataLakeSettings.ReadOnlyAdmins = requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin;
                 requestDataLakeSettingsIsNull = false;
             }
             List<System.String> requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner = null;
@@ -438,12 +486,14 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         {
             public System.String CatalogId { get; set; }
             public System.Boolean? DataLakeSettings_AllowExternalDataFiltering { get; set; }
+            public System.Boolean? DataLakeSettings_AllowFullTableExternalDataAccess { get; set; }
             public List<System.String> DataLakeSettings_AuthorizedSessionTagValueList { get; set; }
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateDatabaseDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateTableDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_DataLakeAdmin { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_ExternalDataFilteringAllowList { get; set; }
             public Dictionary<System.String, System.String> DataLakeSettings_Parameter { get; set; }
+            public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_ReadOnlyAdmin { get; set; }
             public List<System.String> DataLakeSettings_TrustedResourceOwner { get; set; }
             public System.Func<Amazon.LakeFormation.Model.PutDataLakeSettingsResponse, WriteLKFDataLakeSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

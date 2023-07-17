@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TableData_ColumnName
         /// <summary>
         /// <para>
-        /// <para>A list of column names.</para>
+        /// <para>A list of column names and/or nested column attributes. When specifying nested attributes,
+        /// use a qualified dot (.) delimited format such as "address"."zip". Nested attributes
+        /// within this list may not exceed a depth of 5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

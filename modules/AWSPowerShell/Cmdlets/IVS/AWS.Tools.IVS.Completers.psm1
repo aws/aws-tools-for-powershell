@@ -107,10 +107,24 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.RenditionConfigurationRenditionSelection
+        "New-IVSRecordingConfiguration/RenditionConfiguration_RenditionSelection"
+        {
+            $v = "ALL","CUSTOM","NONE"
+            break
+        }
+
         # Amazon.IVS.StreamHealth
         "Get-IVSStreamList/FilterBy_Health"
         {
             $v = "HEALTHY","STARVING","UNKNOWN"
+            break
+        }
+
+        # Amazon.IVS.ThumbnailConfigurationResolution
+        "New-IVSRecordingConfiguration/ThumbnailConfiguration_Resolution"
+        {
+            $v = "FULL_HD","HD","LOWEST_RESOLUTION","SD"
             break
         }
 
@@ -136,7 +150,9 @@ $IVS_map = @{
     "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
     "Preset"=@("New-IVSChannel","Update-IVSChannel")
+    "RenditionConfiguration_RenditionSelection"=@("New-IVSRecordingConfiguration")
     "ThumbnailConfiguration_RecordingMode"=@("New-IVSRecordingConfiguration")
+    "ThumbnailConfiguration_Resolution"=@("New-IVSRecordingConfiguration")
     "Type"=@("New-IVSChannel","Update-IVSChannel")
 }
 

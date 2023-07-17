@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>A format that specifies the type of the package version with the requested asset file.</para>
+        /// <para>A format that specifies the type of the package version with the requested asset file.</para><para>The only supported value is <code>generic</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

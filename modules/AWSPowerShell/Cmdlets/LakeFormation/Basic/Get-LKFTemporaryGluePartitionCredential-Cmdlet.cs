@@ -85,14 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// and <code>CELL_FILTER_PERMISSION</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SupportedPermissionTypes")]
         public System.String[] SupportedPermissionType { get; set; }
         #endregion
@@ -198,12 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             {
                 context.SupportedPermissionType = new List<System.String>(this.SupportedPermissionType);
             }
-            #if MODULAR
-            if (this.SupportedPermissionType == null && ParameterWasBound(nameof(this.SupportedPermissionType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SupportedPermissionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TableArn = this.TableArn;
             #if MODULAR
             if (this.TableArn == null && ParameterWasBound(nameof(this.TableArn)))

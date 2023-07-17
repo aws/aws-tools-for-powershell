@@ -97,6 +97,65 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.Int32? RecordingReconnectWindowSecond { get; set; }
         #endregion
         
+        #region Parameter RenditionConfiguration_Rendition
+        /// <summary>
+        /// <para>
+        /// <para>Indicates which renditions are recorded for a stream, if <code>renditionSelection</code>
+        /// is <code>CUSTOM</code>; otherwise, this field is irrelevant. The selected renditions
+        /// are recorded if they are available during the stream. If a selected rendition is unavailable,
+        /// the best available rendition is recorded. For details on the resolution dimensions
+        /// of each rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record
+        /// to Amazon S3</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RenditionConfiguration_Renditions")]
+        public System.String[] RenditionConfiguration_Rendition { get; set; }
+        #endregion
+        
+        #region Parameter RenditionConfiguration_RenditionSelection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates which set of renditions are recorded for a stream. For <code>BASIC</code>
+        /// channels, the <code>CUSTOM</code> value has no effect. If <code>CUSTOM</code> is specified,
+        /// a set of renditions must be specified in the <code>renditions</code> field. Default:
+        /// <code>ALL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IVS.RenditionConfigurationRenditionSelection")]
+        public Amazon.IVS.RenditionConfigurationRenditionSelection RenditionConfiguration_RenditionSelection { get; set; }
+        #endregion
+        
+        #region Parameter ThumbnailConfiguration_Resolution
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the desired resolution of recorded thumbnails. Thumbnails are recorded at
+        /// the selected resolution if the corresponding rendition is available during the stream;
+        /// otherwise, they are recorded at source resolution. For more information about resolution
+        /// values and their corresponding height and width dimensions, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record
+        /// to Amazon S3</a>. Default: Null (source resolution is returned).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IVS.ThumbnailConfigurationResolution")]
+        public Amazon.IVS.ThumbnailConfigurationResolution ThumbnailConfiguration_Resolution { get; set; }
+        #endregion
+        
+        #region Parameter ThumbnailConfiguration_Storage
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records
+        /// all generated thumbnails in a serial manner, to the media/thumbnails directory. <code>LATEST</code>
+        /// saves the latest thumbnail in media/latest_thumbnail/thumb.jpg and overwrites it at
+        /// the interval specified by <code>targetIntervalSeconds</code>. You can enable both
+        /// <code>SEQUENTIAL</code> and <code>LATEST</code>. Default: <code>SEQUENTIAL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ThumbnailConfiguration_Storage { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -115,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <summary>
         /// <para>
         /// <para>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
-        /// only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</para><para><b>Important:</b> Setting a value for <code>targetIntervalSeconds</code> does not
-        /// guarantee that thumbnails are generated at the specified interval. For thumbnails
+        /// only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</para><para><b>Important:</b> For the <code>BASIC</code> channel type, setting a value for <code>targetIntervalSeconds</code>
+        /// does not guarantee that thumbnails are generated at the specified interval. For thumbnails
         /// to be generated at the <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code>
         /// value for the input video must be less than the <code>targetIntervalSeconds</code>
         /// value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html">
@@ -194,6 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             context.S3_BucketName = this.S3_BucketName;
             context.Name = this.Name;
             context.RecordingReconnectWindowSecond = this.RecordingReconnectWindowSecond;
+            if (this.RenditionConfiguration_Rendition != null)
+            {
+                context.RenditionConfiguration_Rendition = new List<System.String>(this.RenditionConfiguration_Rendition);
+            }
+            context.RenditionConfiguration_RenditionSelection = this.RenditionConfiguration_RenditionSelection;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -203,6 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 }
             }
             context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
+            context.ThumbnailConfiguration_Resolution = this.ThumbnailConfiguration_Resolution;
+            if (this.ThumbnailConfiguration_Storage != null)
+            {
+                context.ThumbnailConfiguration_Storage = new List<System.String>(this.ThumbnailConfiguration_Storage);
+            }
             context.ThumbnailConfiguration_TargetIntervalSecond = this.ThumbnailConfiguration_TargetIntervalSecond;
             
             // allow further manipulation of loaded context prior to processing
@@ -262,6 +331,35 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             {
                 request.RecordingReconnectWindowSeconds = cmdletContext.RecordingReconnectWindowSecond.Value;
             }
+            
+             // populate RenditionConfiguration
+            var requestRenditionConfigurationIsNull = true;
+            request.RenditionConfiguration = new Amazon.IVS.Model.RenditionConfiguration();
+            List<System.String> requestRenditionConfiguration_renditionConfiguration_Rendition = null;
+            if (cmdletContext.RenditionConfiguration_Rendition != null)
+            {
+                requestRenditionConfiguration_renditionConfiguration_Rendition = cmdletContext.RenditionConfiguration_Rendition;
+            }
+            if (requestRenditionConfiguration_renditionConfiguration_Rendition != null)
+            {
+                request.RenditionConfiguration.Renditions = requestRenditionConfiguration_renditionConfiguration_Rendition;
+                requestRenditionConfigurationIsNull = false;
+            }
+            Amazon.IVS.RenditionConfigurationRenditionSelection requestRenditionConfiguration_renditionConfiguration_RenditionSelection = null;
+            if (cmdletContext.RenditionConfiguration_RenditionSelection != null)
+            {
+                requestRenditionConfiguration_renditionConfiguration_RenditionSelection = cmdletContext.RenditionConfiguration_RenditionSelection;
+            }
+            if (requestRenditionConfiguration_renditionConfiguration_RenditionSelection != null)
+            {
+                request.RenditionConfiguration.RenditionSelection = requestRenditionConfiguration_renditionConfiguration_RenditionSelection;
+                requestRenditionConfigurationIsNull = false;
+            }
+             // determine if request.RenditionConfiguration should be set to null
+            if (requestRenditionConfigurationIsNull)
+            {
+                request.RenditionConfiguration = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -278,6 +376,26 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (requestThumbnailConfiguration_thumbnailConfiguration_RecordingMode != null)
             {
                 request.ThumbnailConfiguration.RecordingMode = requestThumbnailConfiguration_thumbnailConfiguration_RecordingMode;
+                requestThumbnailConfigurationIsNull = false;
+            }
+            Amazon.IVS.ThumbnailConfigurationResolution requestThumbnailConfiguration_thumbnailConfiguration_Resolution = null;
+            if (cmdletContext.ThumbnailConfiguration_Resolution != null)
+            {
+                requestThumbnailConfiguration_thumbnailConfiguration_Resolution = cmdletContext.ThumbnailConfiguration_Resolution;
+            }
+            if (requestThumbnailConfiguration_thumbnailConfiguration_Resolution != null)
+            {
+                request.ThumbnailConfiguration.Resolution = requestThumbnailConfiguration_thumbnailConfiguration_Resolution;
+                requestThumbnailConfigurationIsNull = false;
+            }
+            List<System.String> requestThumbnailConfiguration_thumbnailConfiguration_Storage = null;
+            if (cmdletContext.ThumbnailConfiguration_Storage != null)
+            {
+                requestThumbnailConfiguration_thumbnailConfiguration_Storage = cmdletContext.ThumbnailConfiguration_Storage;
+            }
+            if (requestThumbnailConfiguration_thumbnailConfiguration_Storage != null)
+            {
+                request.ThumbnailConfiguration.Storage = requestThumbnailConfiguration_thumbnailConfiguration_Storage;
                 requestThumbnailConfigurationIsNull = false;
             }
             System.Int64? requestThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond = null;
@@ -359,8 +477,12 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.String S3_BucketName { get; set; }
             public System.String Name { get; set; }
             public System.Int32? RecordingReconnectWindowSecond { get; set; }
+            public List<System.String> RenditionConfiguration_Rendition { get; set; }
+            public Amazon.IVS.RenditionConfigurationRenditionSelection RenditionConfiguration_RenditionSelection { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.IVS.RecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
+            public Amazon.IVS.ThumbnailConfigurationResolution ThumbnailConfiguration_Resolution { get; set; }
+            public List<System.String> ThumbnailConfiguration_Storage { get; set; }
             public System.Int64? ThumbnailConfiguration_TargetIntervalSecond { get; set; }
             public System.Func<Amazon.IVS.Model.CreateRecordingConfigurationResponse, NewIVSRecordingConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecordingConfiguration;

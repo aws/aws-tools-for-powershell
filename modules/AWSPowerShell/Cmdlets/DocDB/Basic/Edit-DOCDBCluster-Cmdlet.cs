@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class EditDOCDBClusterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowMajorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints: You must allow major version upgrades when specifying a value for the
+        /// <code>EngineVersion</code> parameter that is a different major version than the DB
+        /// cluster's current version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowMajorVersionUpgrade { get; set; }
+        #endregion
+        
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
@@ -136,8 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to which you want to upgrade. Modifying
-        /// engine version is not supported on Amazon DocumentDB.</para>
+        /// <para>The version number of the database engine to which you want to upgrade. Changing this
+        /// parameter results in an outage. The change is applied during the next maintenance
+        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>To list all of the available engine versions for Amazon DocumentDB use the following
+        /// command:</para><para><code>aws docdb describe-db-engine-versions --engine docdb --query "DBEngineVersions[].EngineVersion"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 context.Select = (response, cmdlet) => this.DBClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.ApplyImmediately = this.ApplyImmediately;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             if (this.CloudwatchLogsExportConfiguration_DisableLogType != null)
@@ -319,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             // create request
             var request = new Amazon.DocDB.Model.ModifyDBClusterRequest();
             
+            if (cmdletContext.AllowMajorVersionUpgrade != null)
+            {
+                request.AllowMajorVersionUpgrade = cmdletContext.AllowMajorVersionUpgrade.Value;
+            }
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
@@ -457,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }

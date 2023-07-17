@@ -1,4 +1,13 @@
-﻿### 4.1.370 (2023-07-13 21:28Z)
+﻿### 4.1.371 (2023-07-17 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.589.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBCluster: added parameter AllowMajorVersionUpgrade.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSRecordingConfiguration: added parameters RenditionConfiguration_Rendition, RenditionConfiguration_RenditionSelection, ThumbnailConfiguration_Resolution and ThumbnailConfiguration_Storage.
+  * Amazon Lake Formation
+    * Modified cmdlet Write-LKFDataLakeSetting: added parameters DataLakeSettings_AllowFullTableExternalDataAccess and DataLakeSettings_ReadOnlyAdmin.
+
+### 4.1.370 (2023-07-13 21:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.588.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Remove-CONNQueue leveraging the DeleteQueue service API.
