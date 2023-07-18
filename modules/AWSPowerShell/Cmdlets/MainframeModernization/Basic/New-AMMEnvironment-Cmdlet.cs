@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter HighAvailabilityConfig_DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of instances in a high availability configuration.</para>
+        /// <para>The number of instances in a high availability configuration. The minimum possible
+        /// value is 1 and the maximum is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

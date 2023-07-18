@@ -177,6 +177,7 @@ $AMM_SelectMap = @{
                "Get-AMMDataSetImportTask",
                "Get-AMMDeployment",
                "Get-AMMEnvironment",
+               "Get-AMMSignedBluinsightsUrl",
                "Get-AMMApplicationList",
                "Get-AMMApplicationVersionList",
                "Get-AMMBatchJobDefinitionList",

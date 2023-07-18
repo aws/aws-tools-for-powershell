@@ -1,4 +1,24 @@
-﻿### 4.1.371 (2023-07-17 21:33Z)
+﻿### 4.1.372 (2023-07-18 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.601.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Import/Export Snowball
+    * Added cmdlet Get-SNOWPickupLocation leveraging the ListPickupLocations service API.
+    * Modified cmdlet New-SNOWAddress: added parameter Address_Type.
+    * Modified cmdlet New-SNOWCluster: added parameter Notification_DevicePickupSnsTopicARN.
+    * Modified cmdlet New-SNOWJob: added parameters ImpactLevel, Notification_DevicePickupSnsTopicARN, PickupDetails_DevicePickupId, PickupDetails_Email, PickupDetails_IdentificationExpirationDate, PickupDetails_IdentificationIssuingOrg, PickupDetails_IdentificationNumber, PickupDetails_Name and PickupDetails_PhoneNumber.
+    * Modified cmdlet Update-SNOWCluster: added parameter Notification_DevicePickupSnsTopicARN.
+    * Modified cmdlet Update-SNOWJob: added parameters Notification_DevicePickupSnsTopicARN, PickupDetails_DevicePickupId, PickupDetails_Email, PickupDetails_IdentificationExpirationDate, PickupDetails_IdentificationIssuingOrg, PickupDetails_IdentificationNumber, PickupDetails_Name and PickupDetails_PhoneNumber.
+  * Amazon Lex Model Building V2
+    * Added cmdlet Get-LMBV2IntentMetricList leveraging the ListIntentMetrics service API.
+    * Added cmdlet Get-LMBV2IntentPathList leveraging the ListIntentPaths service API.
+    * Added cmdlet Get-LMBV2IntentStageMetricList leveraging the ListIntentStageMetrics service API.
+    * Added cmdlet Get-LMBV2SessionAnalyticsDataList leveraging the ListSessionAnalyticsData service API.
+    * Added cmdlet Get-LMBV2SessionMetricList leveraging the ListSessionMetrics service API.
+    * Added cmdlet Get-LMBV2UtteranceAnalyticsDataList leveraging the ListUtteranceAnalyticsData service API.
+    * Added cmdlet Get-LMBV2UtteranceMetricList leveraging the ListUtteranceMetrics service API.
+  * Amazon M2
+    * Added cmdlet Get-AMMSignedBluinsightsUrl leveraging the GetSignedBluinsightsUrl service API.
+
+### 4.1.371 (2023-07-17 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.589.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DocumentDB (with MongoDB compatibility)
     * Modified cmdlet Edit-DOCDBCluster: added parameter AllowMajorVersionUpgrade.

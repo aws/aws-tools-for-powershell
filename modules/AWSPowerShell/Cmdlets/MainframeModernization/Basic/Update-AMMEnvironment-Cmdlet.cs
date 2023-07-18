@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>The desired capacity for the runtime environment to update.</para>
+        /// <para>The desired capacity for the runtime environment to update. The minimum possible value
+        /// is 0 and the maximum is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

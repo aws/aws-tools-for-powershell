@@ -80,9 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Document_ContentType
         /// <summary>
         /// <para>
-        /// <para>Describes the format of the document. You can specify one of the following:</para><ul><li><para>text/html - The input data consists of HTML content. Amazon Translate translates only
-        /// the text in the HTML element.</para></li><li><para>text/plain - The input data consists of unformatted text. Amazon Translate translates
-        /// every character in the content. </para></li></ul>
+        /// <para>Describes the format of the document. You can specify one of the following:</para><ul><li><para><code>text/html</code> - The input data consists of HTML content. Amazon Translate
+        /// translates only the text in the HTML element.</para></li><li><para><code>text/plain</code> - The input data consists of unformatted text. Amazon Translate
+        /// translates every character in the content. </para></li><li><para><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>
+        /// - The input data consists of a Word document (.docx).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

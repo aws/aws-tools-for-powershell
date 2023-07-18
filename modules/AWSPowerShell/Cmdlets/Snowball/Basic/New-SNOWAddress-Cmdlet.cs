@@ -185,6 +185,18 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Address_Street3 { get; set; }
         #endregion
         
+        #region Parameter Address_Type
+        /// <summary>
+        /// <para>
+        /// <para>Differentiates between delivery address and pickup address in the customer account.
+        /// Provided at job creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Snowball.AddressType")]
+        public Amazon.Snowball.AddressType Address_Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AddressId'.
@@ -241,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.Address_Street1 = this.Address_Street1;
             context.Address_Street2 = this.Address_Street2;
             context.Address_Street3 = this.Address_Street3;
+            context.Address_Type = this.Address_Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -401,6 +414,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 request.Address.Street3 = requestAddress_address_Street3;
                 requestAddressIsNull = false;
             }
+            Amazon.Snowball.AddressType requestAddress_address_Type = null;
+            if (cmdletContext.Address_Type != null)
+            {
+                requestAddress_address_Type = cmdletContext.Address_Type;
+            }
+            if (requestAddress_address_Type != null)
+            {
+                request.Address.Type = requestAddress_address_Type;
+                requestAddressIsNull = false;
+            }
              // determine if request.Address should be set to null
             if (requestAddressIsNull)
             {
@@ -481,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String Address_Street1 { get; set; }
             public System.String Address_Street2 { get; set; }
             public System.String Address_Street3 { get; set; }
+            public Amazon.Snowball.AddressType Address_Type { get; set; }
             public System.Func<Amazon.Snowball.Model.CreateAddressResponse, NewSNOWAddressCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AddressId;
         }

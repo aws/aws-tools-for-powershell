@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class GetSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

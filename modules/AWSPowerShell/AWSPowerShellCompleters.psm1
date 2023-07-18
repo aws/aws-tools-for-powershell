@@ -36406,6 +36406,7 @@ $AMM_SelectMap = @{
                "Get-AMMDataSetImportTask",
                "Get-AMMDeployment",
                "Get-AMMEnvironment",
+               "Get-AMMSignedBluinsightsUrl",
                "Get-AMMApplicationList",
                "Get-AMMApplicationVersionList",
                "Get-AMMBatchJobDefinitionList",
@@ -39935,6 +39936,30 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AnalyticsSessionSortByName
+        "Get-LMBV2SessionAnalyticsDataList/SortBy_Name"
+        {
+            $v = "ConversationStartTime","Duration","NumberOfTurns"
+            break
+        }
+
+        # Amazon.LexModelsV2.AnalyticsSortOrder
+        {
+            ($_ -eq "Get-LMBV2SessionAnalyticsDataList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2UtteranceAnalyticsDataList/SortBy_Order")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.LexModelsV2.AnalyticsUtteranceSortByName
+        "Get-LMBV2UtteranceAnalyticsDataList/SortBy_Name"
+        {
+            $v = "UtteranceTimestamp"
+            break
+        }
+
         # Amazon.LexModelsV2.AudioRecognitionStrategy
         {
             ($_ -eq "New-LMBV2SlotType/ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
@@ -40333,7 +40358,8 @@ $LMBV2_map = @{
     "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
-    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
+    "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
+    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -40461,8 +40487,13 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2CustomVocabularyItemList",
                "Get-LMBV2ExportList",
                "Get-LMBV2ImportList",
+               "Get-LMBV2IntentMetricList",
+               "Get-LMBV2IntentPathList",
                "Get-LMBV2IntentList",
+               "Get-LMBV2IntentStageMetricList",
                "Get-LMBV2RecommendedIntentList",
+               "Get-LMBV2SessionAnalyticsDataList",
+               "Get-LMBV2SessionMetricList",
                "Get-LMBV2SlotList",
                "Get-LMBV2SlotTypeList",
                "Get-LMBV2ResourceTag",
@@ -40470,6 +40501,8 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2TestExecutionList",
                "Get-LMBV2TestSetRecordList",
                "Get-LMBV2TestSetList",
+               "Get-LMBV2UtteranceAnalyticsDataList",
+               "Get-LMBV2UtteranceMetricList",
                "Search-LMBV2AssociatedTranscript",
                "Start-LMBV2BotRecommendation",
                "Start-LMBV2Import",
@@ -55505,6 +55538,20 @@ $SNOW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Snowball.AddressType
+        "New-SNOWAddress/Address_Type"
+        {
+            $v = "AWS_SHIP","CUST_PICKUP"
+            break
+        }
+
+        # Amazon.Snowball.ImpactLevel
+        "New-SNOWJob/ImpactLevel"
+        {
+            $v = "IL2","IL4","IL5","IL6","IL99"
+            break
+        }
+
         # Amazon.Snowball.JobType
         {
             ($_ -eq "New-SNOWCluster/JobType") -Or
@@ -55528,7 +55575,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWJob/RemoteManagement")
         }
         {
-            $v = "INSTALLED_AUTOSTART","INSTALLED_ONLY"
+            $v = "INSTALLED_AUTOSTART","INSTALLED_ONLY","NOT_INSTALLED"
             break
         }
 
@@ -55566,7 +55613,7 @@ $SNOW_Completers = {
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T100","T14","T240","T32","T42","T50","T8","T80","T98"
+            $v = "NoPreference","T100","T13","T14","T240","T32","T42","T50","T8","T80","T98"
             break
         }
 
@@ -55577,7 +55624,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWLongTermPricing/SnowballType")
         }
         {
-            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C","V3_5S"
+            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","RACK_5U_C","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C","V3_5S"
             break
         }
 
@@ -55610,6 +55657,8 @@ $SNOW_Completers = {
 }
 
 $SNOW_map = @{
+    "Address_Type"=@("New-SNOWAddress")
+    "ImpactLevel"=@("New-SNOWJob")
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
     "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
@@ -55694,6 +55743,7 @@ $SNOW_SelectMap = @{
                "Get-SNOWCompatibleImageList",
                "Get-SNOWJobList",
                "Get-SNOWLongTermPricing",
+               "Get-SNOWPickupLocation",
                "Get-SNOWServiceVersion",
                "Update-SNOWCluster",
                "Update-SNOWJob",

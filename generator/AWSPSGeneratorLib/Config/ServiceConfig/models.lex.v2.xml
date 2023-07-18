@@ -568,11 +568,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListIntentMetrics" OutputProperty="*" Verb="Get" Noun="IntentMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntentPaths" OutputProperty="NodeSummaries" Verb="Get" Noun="IntentPathList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIntents" OutputProperty="*" Verb="Get" Noun="IntentList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListIntentStageMetrics" OutputProperty="*" Verb="Get" Noun="IntentStageMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRecommendedIntents" OutputProperty="*" Verb="Get" Noun="RecommendedIntentList" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessionAnalyticsData" OutputProperty="*" Verb="Get" Noun="SessionAnalyticsDataList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessionMetrics" OutputProperty="*" Verb="Get" Noun="SessionMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -601,6 +621,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTestSets" OutputProperty="TestSets" Verb="Get" Noun="TestSetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUtteranceAnalyticsData" OutputProperty="*" Verb="Get" Noun="UtteranceAnalyticsDataList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUtteranceMetrics" OutputProperty="*" Verb="Get" Noun="UtteranceMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

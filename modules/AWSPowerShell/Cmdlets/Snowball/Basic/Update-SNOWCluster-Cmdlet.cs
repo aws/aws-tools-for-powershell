@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Notification_DevicePickupSnsTopicARN
+        /// <summary>
+        /// <para>
+        /// <para>Used to send SNS notifications for the person picking up the device (identified during
+        /// job creation).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Notification_DevicePickupSnsTopicARN { get; set; }
+        #endregion
+        
         #region Parameter Resources_Ec2AmiResource
         /// <summary>
         /// <para>
@@ -374,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             #endif
             context.Description = this.Description;
             context.ForwardingAddressId = this.ForwardingAddressId;
+            context.Notification_DevicePickupSnsTopicARN = this.Notification_DevicePickupSnsTopicARN;
             if (this.Notification_JobStatesToNotify != null)
             {
                 context.Notification_JobStatesToNotify = new List<System.String>(this.Notification_JobStatesToNotify);
@@ -440,6 +452,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
              // populate Notification
             var requestNotificationIsNull = true;
             request.Notification = new Amazon.Snowball.Model.Notification();
+            System.String requestNotification_notification_DevicePickupSnsTopicARN = null;
+            if (cmdletContext.Notification_DevicePickupSnsTopicARN != null)
+            {
+                requestNotification_notification_DevicePickupSnsTopicARN = cmdletContext.Notification_DevicePickupSnsTopicARN;
+            }
+            if (requestNotification_notification_DevicePickupSnsTopicARN != null)
+            {
+                request.Notification.DevicePickupSnsTopicARN = requestNotification_notification_DevicePickupSnsTopicARN;
+                requestNotificationIsNull = false;
+            }
             List<System.String> requestNotification_notification_JobStatesToNotify = null;
             if (cmdletContext.Notification_JobStatesToNotify != null)
             {
@@ -756,6 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String ClusterId { get; set; }
             public System.String Description { get; set; }
             public System.String ForwardingAddressId { get; set; }
+            public System.String Notification_DevicePickupSnsTopicARN { get; set; }
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }

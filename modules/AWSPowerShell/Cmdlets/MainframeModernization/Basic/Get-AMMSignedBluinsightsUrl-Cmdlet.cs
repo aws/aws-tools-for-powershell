@@ -22,60 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeGuruSecurity;
-using Amazon.CodeGuruSecurity.Model;
+using Amazon.MainframeModernization;
+using Amazon.MainframeModernization.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGS
+namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
-    /// Returns a list of all the standard scans in an account. Does not return express scans.
+    /// Gets a single sign-on URL that can be used to connect to AWS Blu Insights.
     /// </summary>
-    [Cmdlet("Get", "CGSScanList")]
-    [OutputType("Amazon.CodeGuruSecurity.Model.ScanSummary")]
-    [AWSCmdlet("Calls the Amazon CodeGuru Security ListScans API operation.", Operation = new[] {"ListScans"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.ListScansResponse))]
-    [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.ScanSummary or Amazon.CodeGuruSecurity.Model.ListScansResponse",
-        "This cmdlet returns a collection of Amazon.CodeGuruSecurity.Model.ScanSummary objects.",
-        "The service call response (type Amazon.CodeGuruSecurity.Model.ListScansResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AMMSignedBluinsightsUrl")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the M2 GetSignedBluinsightsUrl API operation.", Operation = new[] {"GetSignedBluinsightsUrl"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse))]
+    [AWSCmdletOutput("System.String or Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCGSScanListCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
+    public partial class GetAMMSignedBluinsightsUrlCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return in the response. Use this parameter when paginating
-        /// results. If additional results exist beyond the number you specify, the <code>nextToken</code>
-        /// element is returned in the response. Use <code>nextToken</code> in a subsequent request
-        /// to retrieve additional results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A token to use for paginating results that are returned in the response. Set the value
-        /// of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code>
-        /// value returned from the previous request to continue listing results after the first
-        /// page.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
-        #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Summaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeGuruSecurity.Model.ListScansResponse).
-        /// Specifying the name of a property of type Amazon.CodeGuruSecurity.Model.ListScansResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SignedBiUrl'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse).
+        /// Specifying the name of a property of type Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Summaries";
+        public string Select { get; set; } = "SignedBiUrl";
         #endregion
         
         protected override void ProcessRecord()
@@ -90,11 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeGuruSecurity.Model.ListScansResponse, GetCGSScanListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse, GetAMMSignedBluinsightsUrlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,16 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeGuruSecurity.Model.ListScansRequest();
+            var request = new Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlRequest();
             
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             
             CmdletOutput output;
             
@@ -152,15 +115,15 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeGuruSecurity.Model.ListScansResponse CallAWSServiceOperation(IAmazonCodeGuruSecurity client, Amazon.CodeGuruSecurity.Model.ListScansRequest request)
+        private Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse CallAWSServiceOperation(IAmazonMainframeModernization client, Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CodeGuru Security", "ListScans");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "M2", "GetSignedBluinsightsUrl");
             try
             {
                 #if DESKTOP
-                return client.ListScans(request);
+                return client.GetSignedBluinsightsUrl(request);
                 #elif CORECLR
-                return client.ListScansAsync(request).GetAwaiter().GetResult();
+                return client.GetSignedBluinsightsUrlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -180,10 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.CodeGuruSecurity.Model.ListScansResponse, GetCGSScanListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Summaries;
+            public System.Func<Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse, GetAMMSignedBluinsightsUrlCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SignedBiUrl;
         }
         
     }

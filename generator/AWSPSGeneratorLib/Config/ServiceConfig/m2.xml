@@ -78,6 +78,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSignedBluinsightsUrl" OutputProperty="SignedBiUrl" Verb="Get" Noun="SignedBluinsightsUrl" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

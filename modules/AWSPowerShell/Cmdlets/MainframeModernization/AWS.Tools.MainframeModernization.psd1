@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AMMEnvironment', 
         'Get-AMMEnvironmentList', 
         'Get-AMMResourceTag', 
+        'Get-AMMSignedBluinsightsUrl', 
         'New-AMMApplication', 
         'New-AMMDataSetImportTask', 
         'New-AMMDeployment', 

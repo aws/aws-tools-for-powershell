@@ -80,6 +80,20 @@ $SNOW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Snowball.AddressType
+        "New-SNOWAddress/Address_Type"
+        {
+            $v = "AWS_SHIP","CUST_PICKUP"
+            break
+        }
+
+        # Amazon.Snowball.ImpactLevel
+        "New-SNOWJob/ImpactLevel"
+        {
+            $v = "IL2","IL4","IL5","IL6","IL99"
+            break
+        }
+
         # Amazon.Snowball.JobType
         {
             ($_ -eq "New-SNOWCluster/JobType") -Or
@@ -103,7 +117,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWJob/RemoteManagement")
         }
         {
-            $v = "INSTALLED_AUTOSTART","INSTALLED_ONLY"
+            $v = "INSTALLED_AUTOSTART","INSTALLED_ONLY","NOT_INSTALLED"
             break
         }
 
@@ -141,7 +155,7 @@ $SNOW_Completers = {
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T100","T14","T240","T32","T42","T50","T8","T80","T98"
+            $v = "NoPreference","T100","T13","T14","T240","T32","T42","T50","T8","T80","T98"
             break
         }
 
@@ -152,7 +166,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWLongTermPricing/SnowballType")
         }
         {
-            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C","V3_5S"
+            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","RACK_5U_C","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C","V3_5S"
             break
         }
 
@@ -185,6 +199,8 @@ $SNOW_Completers = {
 }
 
 $SNOW_map = @{
+    "Address_Type"=@("New-SNOWAddress")
+    "ImpactLevel"=@("New-SNOWJob")
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
     "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
@@ -269,6 +285,7 @@ $SNOW_SelectMap = @{
                "Get-SNOWCompatibleImageList",
                "Get-SNOWJobList",
                "Get-SNOWLongTermPricing",
+               "Get-SNOWPickupLocation",
                "Get-SNOWServiceVersion",
                "Update-SNOWCluster",
                "Update-SNOWJob",

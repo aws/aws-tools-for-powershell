@@ -87,6 +87,30 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AnalyticsSessionSortByName
+        "Get-LMBV2SessionAnalyticsDataList/SortBy_Name"
+        {
+            $v = "ConversationStartTime","Duration","NumberOfTurns"
+            break
+        }
+
+        # Amazon.LexModelsV2.AnalyticsSortOrder
+        {
+            ($_ -eq "Get-LMBV2SessionAnalyticsDataList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2UtteranceAnalyticsDataList/SortBy_Order")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.LexModelsV2.AnalyticsUtteranceSortByName
+        "Get-LMBV2UtteranceAnalyticsDataList/SortBy_Name"
+        {
+            $v = "UtteranceTimestamp"
+            break
+        }
+
         # Amazon.LexModelsV2.AudioRecognitionStrategy
         {
             ($_ -eq "New-LMBV2SlotType/ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
@@ -485,7 +509,8 @@ $LMBV2_map = @{
     "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
-    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
+    "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
+    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -613,8 +638,13 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2CustomVocabularyItemList",
                "Get-LMBV2ExportList",
                "Get-LMBV2ImportList",
+               "Get-LMBV2IntentMetricList",
+               "Get-LMBV2IntentPathList",
                "Get-LMBV2IntentList",
+               "Get-LMBV2IntentStageMetricList",
                "Get-LMBV2RecommendedIntentList",
+               "Get-LMBV2SessionAnalyticsDataList",
+               "Get-LMBV2SessionMetricList",
                "Get-LMBV2SlotList",
                "Get-LMBV2SlotTypeList",
                "Get-LMBV2ResourceTag",
@@ -622,6 +652,8 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2TestExecutionList",
                "Get-LMBV2TestSetRecordList",
                "Get-LMBV2TestSetList",
+               "Get-LMBV2UtteranceAnalyticsDataList",
+               "Get-LMBV2UtteranceMetricList",
                "Search-LMBV2AssociatedTranscript",
                "Start-LMBV2BotRecommendation",
                "Start-LMBV2Import",

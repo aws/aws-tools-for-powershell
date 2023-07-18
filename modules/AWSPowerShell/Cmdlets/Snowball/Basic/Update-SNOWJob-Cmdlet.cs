@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class UpdateSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AddressId
         /// <summary>
         /// <para>
@@ -61,6 +63,27 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter PickupDetails_DevicePickupId
+        /// <summary>
+        /// <para>
+        /// <para>The unique ID for a device that will be picked up.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PickupDetails_DevicePickupId { get; set; }
+        #endregion
+        
+        #region Parameter Notification_DevicePickupSnsTopicARN
+        /// <summary>
+        /// <para>
+        /// <para>Used to send SNS notifications for the person picking up the device (identified during
+        /// job creation).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Notification_DevicePickupSnsTopicARN { get; set; }
         #endregion
         
         #region Parameter Resources_Ec2AmiResource
@@ -83,6 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OnDeviceServiceConfiguration_EKSOnDeviceService_EKSAnywhereVersion")]
         public System.String EKSOnDeviceService_EKSAnywhereVersion { get; set; }
+        #endregion
+        
+        #region Parameter PickupDetails_Email
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the person picking up the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PickupDetails_Email { get; set; }
         #endregion
         
         #region Parameter S3OnDeviceService_FaultTolerance
@@ -108,6 +141,36 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ForwardingAddressId { get; set; }
+        #endregion
+        
+        #region Parameter PickupDetails_IdentificationExpirationDate
+        /// <summary>
+        /// <para>
+        /// <para>Expiration date of the credential identifying the person picking up the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? PickupDetails_IdentificationExpirationDate { get; set; }
+        #endregion
+        
+        #region Parameter PickupDetails_IdentificationIssuingOrg
+        /// <summary>
+        /// <para>
+        /// <para>Organization that issued the credential identifying the person picking up the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PickupDetails_IdentificationIssuingOrg { get; set; }
+        #endregion
+        
+        #region Parameter PickupDetails_IdentificationNumber
+        /// <summary>
+        /// <para>
+        /// <para>The number on the credential identifying the person picking up the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PickupDetails_IdentificationNumber { get; set; }
         #endregion
         
         #region Parameter JobId
@@ -159,6 +222,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public Amazon.Snowball.Model.LambdaResource[] Resources_LambdaResource { get; set; }
         #endregion
         
+        #region Parameter PickupDetails_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the person picking up the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PickupDetails_Name { get; set; }
+        #endregion
+        
         #region Parameter Notification_NotifyAll
         /// <summary>
         /// <para>
@@ -167,6 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Notification_NotifyAll { get; set; }
+        #endregion
+        
+        #region Parameter PickupDetails_PhoneNumber
+        /// <summary>
+        /// <para>
+        /// <para>The phone number of the person picking up the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PickupDetails_PhoneNumber { get; set; }
         #endregion
         
         #region Parameter RoleARN
@@ -388,6 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Notification_DevicePickupSnsTopicARN = this.Notification_DevicePickupSnsTopicARN;
             if (this.Notification_JobStatesToNotify != null)
             {
                 context.Notification_JobStatesToNotify = new List<System.String>(this.Notification_JobStatesToNotify);
@@ -404,6 +488,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.S3OnDeviceService_StorageUnit = this.S3OnDeviceService_StorageUnit;
             context.TGWOnDeviceService_StorageLimit = this.TGWOnDeviceService_StorageLimit;
             context.TGWOnDeviceService_StorageUnit = this.TGWOnDeviceService_StorageUnit;
+            context.PickupDetails_DevicePickupId = this.PickupDetails_DevicePickupId;
+            context.PickupDetails_Email = this.PickupDetails_Email;
+            context.PickupDetails_IdentificationExpirationDate = this.PickupDetails_IdentificationExpirationDate;
+            context.PickupDetails_IdentificationIssuingOrg = this.PickupDetails_IdentificationIssuingOrg;
+            context.PickupDetails_IdentificationNumber = this.PickupDetails_IdentificationNumber;
+            context.PickupDetails_Name = this.PickupDetails_Name;
+            context.PickupDetails_PhoneNumber = this.PickupDetails_PhoneNumber;
             if (this.Resources_Ec2AmiResource != null)
             {
                 context.Resources_Ec2AmiResource = new List<Amazon.Snowball.Model.Ec2AmiResource>(this.Resources_Ec2AmiResource);
@@ -455,6 +546,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
              // populate Notification
             var requestNotificationIsNull = true;
             request.Notification = new Amazon.Snowball.Model.Notification();
+            System.String requestNotification_notification_DevicePickupSnsTopicARN = null;
+            if (cmdletContext.Notification_DevicePickupSnsTopicARN != null)
+            {
+                requestNotification_notification_DevicePickupSnsTopicARN = cmdletContext.Notification_DevicePickupSnsTopicARN;
+            }
+            if (requestNotification_notification_DevicePickupSnsTopicARN != null)
+            {
+                request.Notification.DevicePickupSnsTopicARN = requestNotification_notification_DevicePickupSnsTopicARN;
+                requestNotificationIsNull = false;
+            }
             List<System.String> requestNotification_notification_JobStatesToNotify = null;
             if (cmdletContext.Notification_JobStatesToNotify != null)
             {
@@ -660,6 +761,85 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 request.OnDeviceServiceConfiguration = null;
             }
             
+             // populate PickupDetails
+            var requestPickupDetailsIsNull = true;
+            request.PickupDetails = new Amazon.Snowball.Model.PickupDetails();
+            System.String requestPickupDetails_pickupDetails_DevicePickupId = null;
+            if (cmdletContext.PickupDetails_DevicePickupId != null)
+            {
+                requestPickupDetails_pickupDetails_DevicePickupId = cmdletContext.PickupDetails_DevicePickupId;
+            }
+            if (requestPickupDetails_pickupDetails_DevicePickupId != null)
+            {
+                request.PickupDetails.DevicePickupId = requestPickupDetails_pickupDetails_DevicePickupId;
+                requestPickupDetailsIsNull = false;
+            }
+            System.String requestPickupDetails_pickupDetails_Email = null;
+            if (cmdletContext.PickupDetails_Email != null)
+            {
+                requestPickupDetails_pickupDetails_Email = cmdletContext.PickupDetails_Email;
+            }
+            if (requestPickupDetails_pickupDetails_Email != null)
+            {
+                request.PickupDetails.Email = requestPickupDetails_pickupDetails_Email;
+                requestPickupDetailsIsNull = false;
+            }
+            System.DateTime? requestPickupDetails_pickupDetails_IdentificationExpirationDate = null;
+            if (cmdletContext.PickupDetails_IdentificationExpirationDate != null)
+            {
+                requestPickupDetails_pickupDetails_IdentificationExpirationDate = cmdletContext.PickupDetails_IdentificationExpirationDate.Value;
+            }
+            if (requestPickupDetails_pickupDetails_IdentificationExpirationDate != null)
+            {
+                request.PickupDetails.IdentificationExpirationDate = requestPickupDetails_pickupDetails_IdentificationExpirationDate.Value;
+                requestPickupDetailsIsNull = false;
+            }
+            System.String requestPickupDetails_pickupDetails_IdentificationIssuingOrg = null;
+            if (cmdletContext.PickupDetails_IdentificationIssuingOrg != null)
+            {
+                requestPickupDetails_pickupDetails_IdentificationIssuingOrg = cmdletContext.PickupDetails_IdentificationIssuingOrg;
+            }
+            if (requestPickupDetails_pickupDetails_IdentificationIssuingOrg != null)
+            {
+                request.PickupDetails.IdentificationIssuingOrg = requestPickupDetails_pickupDetails_IdentificationIssuingOrg;
+                requestPickupDetailsIsNull = false;
+            }
+            System.String requestPickupDetails_pickupDetails_IdentificationNumber = null;
+            if (cmdletContext.PickupDetails_IdentificationNumber != null)
+            {
+                requestPickupDetails_pickupDetails_IdentificationNumber = cmdletContext.PickupDetails_IdentificationNumber;
+            }
+            if (requestPickupDetails_pickupDetails_IdentificationNumber != null)
+            {
+                request.PickupDetails.IdentificationNumber = requestPickupDetails_pickupDetails_IdentificationNumber;
+                requestPickupDetailsIsNull = false;
+            }
+            System.String requestPickupDetails_pickupDetails_Name = null;
+            if (cmdletContext.PickupDetails_Name != null)
+            {
+                requestPickupDetails_pickupDetails_Name = cmdletContext.PickupDetails_Name;
+            }
+            if (requestPickupDetails_pickupDetails_Name != null)
+            {
+                request.PickupDetails.Name = requestPickupDetails_pickupDetails_Name;
+                requestPickupDetailsIsNull = false;
+            }
+            System.String requestPickupDetails_pickupDetails_PhoneNumber = null;
+            if (cmdletContext.PickupDetails_PhoneNumber != null)
+            {
+                requestPickupDetails_pickupDetails_PhoneNumber = cmdletContext.PickupDetails_PhoneNumber;
+            }
+            if (requestPickupDetails_pickupDetails_PhoneNumber != null)
+            {
+                request.PickupDetails.PhoneNumber = requestPickupDetails_pickupDetails_PhoneNumber;
+                requestPickupDetailsIsNull = false;
+            }
+             // determine if request.PickupDetails should be set to null
+            if (requestPickupDetailsIsNull)
+            {
+                request.PickupDetails = null;
+            }
+            
              // populate Resources
             var requestResourcesIsNull = true;
             request.Resources = new Amazon.Snowball.Model.JobResource();
@@ -775,6 +955,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String Description { get; set; }
             public System.String ForwardingAddressId { get; set; }
             public System.String JobId { get; set; }
+            public System.String Notification_DevicePickupSnsTopicARN { get; set; }
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }
@@ -788,6 +969,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public Amazon.Snowball.StorageUnit S3OnDeviceService_StorageUnit { get; set; }
             public System.Int32? TGWOnDeviceService_StorageLimit { get; set; }
             public Amazon.Snowball.StorageUnit TGWOnDeviceService_StorageUnit { get; set; }
+            public System.String PickupDetails_DevicePickupId { get; set; }
+            public System.String PickupDetails_Email { get; set; }
+            public System.DateTime? PickupDetails_IdentificationExpirationDate { get; set; }
+            public System.String PickupDetails_IdentificationIssuingOrg { get; set; }
+            public System.String PickupDetails_IdentificationNumber { get; set; }
+            public System.String PickupDetails_Name { get; set; }
+            public System.String PickupDetails_PhoneNumber { get; set; }
             public List<Amazon.Snowball.Model.Ec2AmiResource> Resources_Ec2AmiResource { get; set; }
             public List<Amazon.Snowball.Model.LambdaResource> Resources_LambdaResource { get; set; }
             public List<Amazon.Snowball.Model.S3Resource> Resources_S3Resource { get; set; }

@@ -76,7 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>The type of Snow Family devices to use for the long-term pricing job.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Snowball.SnowballType")]
         public Amazon.Snowball.SnowballType SnowballType { get; set; }
         #endregion
@@ -152,6 +158,12 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             }
             #endif
             context.SnowballType = this.SnowballType;
+            #if MODULAR
+            if (this.SnowballType == null && ParameterWasBound(nameof(this.SnowballType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SnowballType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

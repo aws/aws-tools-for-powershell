@@ -108,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the role associated with the application.</para>
+        /// <para>The Amazon Resource Name (ARN) that identifies a role that the application uses to
+        /// access Amazon Web Services resources that are not part of the application or are in
+        /// a different Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
