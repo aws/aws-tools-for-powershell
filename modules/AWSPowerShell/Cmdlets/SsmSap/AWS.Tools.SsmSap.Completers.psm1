@@ -87,6 +87,13 @@ $SMSAP_Completers = {
             break
         }
 
+        # Amazon.SsmSap.BackintMode
+        "Update-SMSAPApplicationSetting/Backint_BackintMode"
+        {
+            $v = "AWSBackup"
+            break
+        }
+
         # Amazon.SsmSap.PermissionActionType
         {
             ($_ -eq "Get-SMSAPResourcePermission/ActionType") -Or
@@ -109,6 +116,7 @@ $SMSAP_Completers = {
 $SMSAP_map = @{
     "ActionType"=@("Get-SMSAPResourcePermission","Remove-SMSAPResourcePermission","Write-SMSAPResourcePermission")
     "ApplicationType"=@("Register-SMSAPApplication")
+    "Backint_BackintMode"=@("Update-SMSAPApplicationSetting")
 }
 
 _awsArgumentCompleterRegistration $SMSAP_Completers $SMSAP_map
@@ -175,6 +183,7 @@ $SMSAP_SelectMap = @{
                "Get-SMSAPResourceTag",
                "Write-SMSAPResourcePermission",
                "Register-SMSAPApplication",
+               "Start-SMSAPApplicationRefresh",
                "Add-SMSAPResourceTag",
                "Remove-SMSAPResourceTag",
                "Update-SMSAPApplicationSetting")

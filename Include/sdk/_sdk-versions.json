@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.601.0",
+    "ProductVersion" : "3.7.602.0",
     "CoreVersion"    : "3.7.200.1",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -30,7 +30,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.200.1",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.200.1",
+            "Version" : "3.7.200.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"
@@ -1202,7 +1202,7 @@
             "InPreview"               : false
         },
         "RAM"                             : {
-            "Version" : "3.7.200.1",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"
@@ -1610,7 +1610,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.200.1",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"
@@ -2274,7 +2274,7 @@
             "InPreview"               : false
         },
         "ManagedGrafana"                  : {
-            "Version" : "3.7.200.1",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"
@@ -2586,7 +2586,7 @@
             "InPreview"               : false
         },
         "SsmSap"                              : {
-            "Version" : "3.7.200.1",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"
@@ -2803,6 +2803,14 @@
         },
         "AppFabric"                           : {
             "Version" : "3.7.200.1",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.200.1"
+            },
+            "InPreview"               : false
+        },
+        "MedicalImaging"                      : {
+            "Version" : "3.7.200.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.1"

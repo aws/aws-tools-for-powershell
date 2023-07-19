@@ -28,13 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the ClassicLink status of one or more VPCs.
-    /// 
-    ///  <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// <note><para>
+    /// This action is deprecated.
+    /// </para></note><para>
+    /// Describes the ClassicLink status of the specified VPCs.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2VpcClassicLink")]
     [OutputType("Amazon.EC2.Model.VpcClassicLink")]
@@ -49,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink
+        /// <para>The filters.</para><ul><li><para><code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink
         /// (<code>true</code> | <code>false</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
@@ -66,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>One or more VPCs for which you want to describe the ClassicLink status.</para>
+        /// <para>The VPCs for which you want to describe the ClassicLink status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

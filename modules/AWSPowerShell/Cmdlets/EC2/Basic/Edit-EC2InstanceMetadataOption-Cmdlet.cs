@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HttpProtocolIpv6
         /// <summary>
         /// <para>
-        /// <para>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
-        /// applies only if you have enabled the HTTP metadata endpoint.</para>
+        /// <para>Enables or disables the IPv6 endpoint for the instance metadata service. Applies only
+        /// if you enabled the HTTP metadata endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

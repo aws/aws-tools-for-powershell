@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>Specifies the ID of the principal whose resource shares you want to retrieve. This
         /// can be an Amazon Web Services account ID, an organization ID, an organizational unit
         /// ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an individual IAM user or role.</para><para>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</para>
+        /// Resource Name (ARN)</a> of an individual IAM role or user.</para><para>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

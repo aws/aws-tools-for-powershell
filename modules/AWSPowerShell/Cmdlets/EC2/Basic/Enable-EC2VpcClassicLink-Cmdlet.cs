@@ -29,17 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// This action is deprecated.
     /// </para></note><para>
     /// Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled
     /// VPC to allow communication over private IP addresses. You cannot enable your VPC for
     /// ClassicLink if any of your VPC route tables have existing routes for address ranges
     /// within the <code>10.0.0.0/8</code> IP address range, excluding local routes for VPCs
-    /// in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address ranges. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-    /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address ranges.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "EC2VpcClassicLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

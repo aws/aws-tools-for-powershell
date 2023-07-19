@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public System.String Configuration { get; set; }
         #endregion
         
+        #region Parameter GrafanaVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the version of Grafana to support in the new workspace.</para><para>Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example,
+        /// from 9.4 to 8.4).</para><para>To know what versions are available to upgrade to for a specific workspace, see the
+        /// <code>ListVersions</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GrafanaVersion { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
@@ -144,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
                 WriteWarning("You are passing $null as a value for parameter Configuration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GrafanaVersion = this.GrafanaVersion;
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -170,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.Configuration != null)
             {
                 request.Configuration = cmdletContext.Configuration;
+            }
+            if (cmdletContext.GrafanaVersion != null)
+            {
+                request.GrafanaVersion = cmdletContext.GrafanaVersion;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -237,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Configuration { get; set; }
+            public System.String GrafanaVersion { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.ManagedGrafana.Model.UpdateWorkspaceConfigurationResponse, UpdateMGRFWorkspaceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

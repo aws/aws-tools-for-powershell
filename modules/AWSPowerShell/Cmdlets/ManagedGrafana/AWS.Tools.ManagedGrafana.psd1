@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-MGRFResourceTag', 
         'Get-MGRFPermissionList', 
         'Get-MGRFResourceTag', 
+        'Get-MGRFVersionList', 
         'Get-MGRFWorkspace', 
         'Get-MGRFWorkspaceAuthentication', 
         'Get-MGRFWorkspaceConfiguration', 

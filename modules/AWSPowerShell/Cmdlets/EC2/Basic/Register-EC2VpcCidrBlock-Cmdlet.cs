@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// pool, or an Amazon-provided IPv6 CIDR block.
     /// </para><para>
     /// For more information about associating CIDR blocks with your VPC and applicable restrictions,
-    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC
-    /// and subnet sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP
+    /// addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2VpcCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>nat-gateway-id</code> - The ID of the NAT gateway.</para></li><li><para><code>state</code> - The state of the NAT gateway (<code>pending</code> | <code>failed</code>
+        /// <para>The filters.</para><ul><li><para><code>nat-gateway-id</code> - The ID of the NAT gateway.</para></li><li><para><code>state</code> - The state of the NAT gateway (<code>pending</code> | <code>failed</code>
         /// | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
-        /// <para>One or more NAT gateway IDs.</para>
+        /// <para>The IDs of the NAT gateways.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

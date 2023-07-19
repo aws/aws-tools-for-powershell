@@ -272,6 +272,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MediaStore.dll',
         'AWSSDK.MediaStoreData.dll',
         'AWSSDK.MediaTailor.dll',
+        'AWSSDK.MedicalImaging.dll',
         'AWSSDK.MemoryDB.dll',
         'AWSSDK.Mgn.dll',
         'AWSSDK.MigrationHub.dll',

@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity
-    /// between the internet and the VPC. For more information about your VPC and internet
-    /// gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon
-    /// Virtual Private Cloud User Guide</a>.
+    /// between the internet and the VPC. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet
+    /// gateways</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
     [Cmdlet("Add", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -39,26 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><para>
     /// When you create a security group, you specify a friendly name of your choice. You
-    /// can have a security group for use in EC2-Classic with the same name as a security
-    /// group for use in a VPC. However, you can't have two security groups for use in EC2-Classic
-    /// with the same name or two security groups for use in a VPC with the same name.
+    /// can't have two security groups for the same VPC with the same name.
     /// </para><para>
-    /// You have a default security group for use in EC2-Classic and a default security group
-    /// for use in your VPC. If you don't specify a security group when you launch an instance,
-    /// the instance is launched into the appropriate default security group. A default security
-    /// group includes a default rule that grants instances unrestricted network access to
-    /// each other.
+    /// You have a default security group for use in your VPC. If you don't specify a security
+    /// group when you launch an instance, the instance is launched into the appropriate default
+    /// security group. A default security group includes a default rule that grants instances
+    /// unrestricted network access to each other.
     /// </para><para>
     /// You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>,
     /// <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.
     /// </para><para>
     /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
     /// VPC Limits</a>.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -73,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the security group.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>A description for the security group.</para><para>Constraints: Up to 255 characters in length</para><para>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</para><para>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</para>
+        /// <para>The ID of the VPC. Required for a nondefault VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

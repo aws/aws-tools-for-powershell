@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC
-    /// CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP
+    /// addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -40,11 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// By default, each instance that you launch in the VPC has the default DHCP options,
     /// which include only a default DNS server that we provide (AmazonProvidedDNS). For more
     /// information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-    /// option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// option sets</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><para>
     /// You can specify the instance tenancy value for the VPC when you create it. You can't
     /// change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
-    /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Vpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// [VPC only] Adds the specified outbound (egress) rules to a security group for use
-    /// with a VPC.
+    /// Adds the specified outbound (egress) rules to a security group for use with a VPC.
     /// 
     ///  
     /// <para>

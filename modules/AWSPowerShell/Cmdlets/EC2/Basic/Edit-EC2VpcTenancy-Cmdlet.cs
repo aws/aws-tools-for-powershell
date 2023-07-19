@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// The tenancy of any existing instances in the VPC is not affected.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
-    /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpcTenancy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

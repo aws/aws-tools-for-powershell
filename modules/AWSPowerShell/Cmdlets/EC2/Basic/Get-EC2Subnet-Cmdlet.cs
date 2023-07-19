@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-    /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a>
+    /// in the <i>Amazon VPC User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Subnet")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone for the subnet. You can also
+        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone for the subnet. You can also
         /// use <code>availabilityZone</code> as the filter name.</para></li><li><para><code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
         /// You can also use <code>availabilityZoneId</code> as the filter name.</para></li><li><para><code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet
         /// that are available.</para></li><li><para><code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>One or more subnet IDs.</para><para>Default: Describes all your subnets.</para>
+        /// <para>The IDs of the subnets.</para><para>Default: Describes all your subnets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -100,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-SMSAPApplication', 
         'Remove-SMSAPResourcePermission', 
         'Remove-SMSAPResourceTag', 
+        'Start-SMSAPApplicationRefresh', 
         'Unregister-SMSAPApplication', 
         'Update-SMSAPApplicationSetting', 
         'Write-SMSAPResourcePermission')

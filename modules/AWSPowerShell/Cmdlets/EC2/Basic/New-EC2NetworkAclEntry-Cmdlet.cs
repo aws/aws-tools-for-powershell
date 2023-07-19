@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// After you add an entry, you can't modify it; you must either replace it, or create
     /// an entry and delete the old one.
     /// </para><para>
-    /// For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-    /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+    /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NetworkAclEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -40,20 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// you must also specify the ICMP type and code. If the security group rule has a description,
     /// you do not need to specify the description to revoke the rule.
     /// </para><para>
-    /// [EC2-Classic, default VPC] If the values you specify do not match the existing rule's
-    /// values, no error is returned, and the output describes the security group rules that
-    /// were not revoked.
+    /// For a default VPC, if the values you specify do not match the existing rule's values,
+    /// no error is returned, and the output describes the security group rules that were
+    /// not revoked.
     /// </para><para>
     /// Amazon Web Services recommends that you describe the security group to verify that
     /// the rules were removed.
     /// </para><para>
     /// Rule changes are propagated to instances within the security group as quickly as possible.
     /// However, a small delay might occur.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Revoke", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RevokeSecurityGroupIngressResponse")]
@@ -67,9 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group. You must specify either the security group ID or the
-        /// security group name in the request. For security groups in a nondefault VPC, you must
-        /// specify the security group ID.</para>
+        /// <para>The ID of the security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -79,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The name of the security group. You must specify either
-        /// the security group ID or the security group name in the request. For security groups
-        /// in a nondefault VPC, you must specify the security group ID.</para>
+        /// <para>[Default VPC] The name of the security group. You must specify either the security
+        /// group ID or the security group name in the request. For security groups in a nondefault
+        /// VPC, you must specify the security group ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

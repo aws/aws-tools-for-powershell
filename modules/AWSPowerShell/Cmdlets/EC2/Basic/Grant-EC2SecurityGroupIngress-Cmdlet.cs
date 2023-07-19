@@ -46,11 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
     /// VPC quotas</a>.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse")]
@@ -76,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The name of the security group. You must specify either
-        /// the security group ID or the security group name in the request. For security groups
-        /// in a nondefault VPC, you must specify the security group ID.</para>
+        /// <para>[Default VPC] The name of the security group. You must specify either the security
+        /// group ID or the security group name in the request. For security groups in a nondefault
+        /// VPC, you must specify the security group ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

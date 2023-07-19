@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon
-    /// Virtual Private Cloud User Guide</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet
+    /// gateways</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,10 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// [VPC only] Describes the stale security group rules for security groups in a specified
-    /// VPC. Rules are stale when they reference a deleted security group in the same VPC
-    /// or in a peer VPC, or if they reference a security group in a peer VPC for which the
-    /// VPC peering connection has been deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the stale security group rules for security groups in a specified VPC. Rules
+    /// are stale when they reference a deleted security group in the same VPC or in a peer
+    /// VPC, or if they reference a security group in a peer VPC for which the VPC peering
+    /// connection has been deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2StaleSecurityGroup")]
     [OutputType("Amazon.EC2.Model.StaleSecurityGroup")]

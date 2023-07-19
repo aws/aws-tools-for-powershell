@@ -28,20 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the specified security groups or all of your security groups.
-    /// 
-    ///  
-    /// <para>
-    /// A security group is for use with instances either in the EC2-Classic platform or in
-    /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-    /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
-    /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-    /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified security groups or all of your security groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2SecurityGroup")]
     [OutputType("Amazon.EC2.Model.SecurityGroup")]
@@ -105,10 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic and default VPC only] The names of the security groups. You can specify
-        /// either the security group name or the security group ID. For security groups in a
-        /// nondefault VPC, use the <code>group-name</code> filter to describe security groups
-        /// by name.</para><para>Default: Describes all of your security groups.</para>
+        /// <para>[Default VPC] The names of the security groups. You can specify either the security
+        /// group name or the security group ID.</para><para>Default: Describes all of your security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

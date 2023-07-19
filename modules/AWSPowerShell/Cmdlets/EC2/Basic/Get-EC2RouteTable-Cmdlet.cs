@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// route table. This command does not return the subnet ID for implicit associations.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-    /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// tables</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2RouteTable")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>association.route-table-association-id</code> - The ID of an association ID
+        /// <para>The filters.</para><ul><li><para><code>association.route-table-association-id</code> - The ID of an association ID
         /// for the route table.</para></li><li><para><code>association.route-table-id</code> - The ID of the route table involved in the
         /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>association.main</code> - Indicates whether the route table is the main route
         /// table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
-        /// <para>One or more route table IDs.</para><para>Default: Describes all your route tables.</para>
+        /// <para>The IDs of the route tables.</para><para>Default: Describes all your route tables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

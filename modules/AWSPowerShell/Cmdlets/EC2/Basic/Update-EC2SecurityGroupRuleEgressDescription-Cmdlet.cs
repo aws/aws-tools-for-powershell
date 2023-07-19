@@ -28,10 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// [VPC only] Updates the description of an egress (outbound) security group rule. You
-    /// can replace an existing description, or add a description to a rule that did not have
-    /// one previously. You can remove a description for a security group rule by omitting
-    /// the description parameter in the request.
+    /// Updates the description of an egress (outbound) security group rule. You can replace
+    /// an existing description, or add a description to a rule that did not have one previously.
+    /// You can remove a description for a security group rule by omitting the description
+    /// parameter in the request.
     /// </summary>
     [Cmdlet("Update", "EC2SecurityGroupRuleEgressDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>[Default VPC] The name of the security group. You must specify either the security
-        /// group ID or the security group name in the request.</para>
+        /// group ID or the security group name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

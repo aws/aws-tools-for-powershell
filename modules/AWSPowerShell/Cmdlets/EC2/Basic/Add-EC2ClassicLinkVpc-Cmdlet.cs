@@ -29,12 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// This action is deprecated.
     /// </para></note><para>
     /// Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of
-    /// the VPC's security groups. You cannot link an EC2-Classic instance to more than one
+    /// the VPC security groups. You cannot link an EC2-Classic instance to more than one
     /// VPC at a time. You can only link an instance that's in the <code>running</code> state.
     /// An instance is automatically unlinked from a VPC when it's stopped - you can link
     /// it to the VPC again when you restart it.
@@ -59,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The ID of one or more of the VPC's security groups. You cannot specify security groups
-        /// from a different VPC.</para>
+        /// <para>The IDs of the security groups. You cannot specify security groups from a different
+        /// VPC.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.</para>
+        /// <para>The ID of the EC2-Classic instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of a ClassicLink-enabled VPC.</para>
+        /// <para>The ID of the ClassicLink-enabled VPC.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

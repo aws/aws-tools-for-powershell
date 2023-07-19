@@ -89,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.String ResourceShareArn { get; set; }
         #endregion
         
+        #region Parameter Source
+        /// <summary>
+        /// <para>
+        /// <para>Specifies from which source accounts the service principal no longer has access to
+        /// the resources in this resource share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Sources")]
+        public System.String[] Source { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -184,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter ResourceShareArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Source != null)
+            {
+                context.Source = new List<System.String>(this.Source);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.ResourceShareArn != null)
             {
                 request.ResourceShareArn = cmdletContext.ResourceShareArn;
+            }
+            if (cmdletContext.Source != null)
+            {
+                request.Sources = cmdletContext.Source;
             }
             
             CmdletOutput output;
@@ -281,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public List<System.String> Principal { get; set; }
             public List<System.String> ResourceArn { get; set; }
             public System.String ResourceShareArn { get; set; }
+            public List<System.String> Source { get; set; }
             public System.Func<Amazon.RAM.Model.DisassociateResourceShareResponse, DisconnectRAMResourceShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceShareAssociations;
         }

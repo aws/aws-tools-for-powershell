@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone in which to create the volume.</para>
+        /// <para>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

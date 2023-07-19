@@ -193,6 +193,7 @@ $MGRF_SelectMap = @{
                "Remove-MGRFLicense",
                "Get-MGRFPermissionList",
                "Get-MGRFResourceTag",
+               "Get-MGRFVersionList",
                "Get-MGRFWorkspaceList",
                "Add-MGRFResourceTag",
                "Remove-MGRFResourceTag",

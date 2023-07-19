@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-    /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+    /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2NetworkAcl")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>association.association-id</code> - The ID of an association ID for the ACL.</para></li><li><para><code>association.network-acl-id</code> - The ID of the network ACL involved in the
+        /// <para>The filters.</para><ul><li><para><code>association.association-id</code> - The ID of an association ID for the ACL.</para></li><li><para><code>association.network-acl-id</code> - The ID of the network ACL involved in the
         /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>default</code> - Indicates whether the ACL is the default network ACL for the
         /// VPC.</para></li><li><para><code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</para></li><li><para><code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</para></li><li><para><code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</para></li><li><para><code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</para></li><li><para><code>entry.port-range.from</code> - The start of the port range specified in the
         /// entry. </para></li><li><para><code>entry.port-range.to</code> - The end of the port range specified in the entry.
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkAclId
         /// <summary>
         /// <para>
-        /// <para>One or more network ACL IDs.</para><para>Default: Describes all your network ACLs.</para>
+        /// <para>The IDs of the network ACLs.</para><para>Default: Describes all your network ACLs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

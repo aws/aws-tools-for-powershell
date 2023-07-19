@@ -712,6 +712,9 @@
     <Reference Include="AWSSDK.MediaTailor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaTailor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MedicalImaging">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MedicalImaging.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MemoryDB">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MemoryDB.dll</HintPath>
     </Reference>
@@ -1742,6 +1745,9 @@
     </Reference>
     <Reference Include="AWSSDK.MediaTailor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MediaTailor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MedicalImaging">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MedicalImaging.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MemoryDB">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MemoryDB.dll</HintPath>

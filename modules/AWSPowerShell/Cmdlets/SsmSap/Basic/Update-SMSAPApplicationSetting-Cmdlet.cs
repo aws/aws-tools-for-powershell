@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Backint_BackintMode
+        /// <summary>
+        /// <para>
+        /// <para>AWS service for your database backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SsmSap.BackintMode")]
+        public Amazon.SsmSap.BackintMode Backint_BackintMode { get; set; }
+        #endregion
+        
         #region Parameter CredentialsToAddOrUpdate
         /// <summary>
         /// <para>
@@ -76,6 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.SsmSap.Model.ApplicationCredential[] CredentialsToRemove { get; set; }
+        #endregion
+        
+        #region Parameter Backint_EnsureNoBackupInProcess
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Backint_EnsureNoBackupInProcess { get; set; }
         #endregion
         
         #region Parameter Select
@@ -147,6 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Backint_BackintMode = this.Backint_BackintMode;
+            context.Backint_EnsureNoBackupInProcess = this.Backint_EnsureNoBackupInProcess;
             if (this.CredentialsToAddOrUpdate != null)
             {
                 context.CredentialsToAddOrUpdate = new List<Amazon.SsmSap.Model.ApplicationCredential>(this.CredentialsToAddOrUpdate);
@@ -174,6 +197,35 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            
+             // populate Backint
+            var requestBackintIsNull = true;
+            request.Backint = new Amazon.SsmSap.Model.BackintConfig();
+            Amazon.SsmSap.BackintMode requestBackint_backint_BackintMode = null;
+            if (cmdletContext.Backint_BackintMode != null)
+            {
+                requestBackint_backint_BackintMode = cmdletContext.Backint_BackintMode;
+            }
+            if (requestBackint_backint_BackintMode != null)
+            {
+                request.Backint.BackintMode = requestBackint_backint_BackintMode;
+                requestBackintIsNull = false;
+            }
+            System.Boolean? requestBackint_backint_EnsureNoBackupInProcess = null;
+            if (cmdletContext.Backint_EnsureNoBackupInProcess != null)
+            {
+                requestBackint_backint_EnsureNoBackupInProcess = cmdletContext.Backint_EnsureNoBackupInProcess.Value;
+            }
+            if (requestBackint_backint_EnsureNoBackupInProcess != null)
+            {
+                request.Backint.EnsureNoBackupInProcess = requestBackint_backint_EnsureNoBackupInProcess.Value;
+                requestBackintIsNull = false;
+            }
+             // determine if request.Backint should be set to null
+            if (requestBackintIsNull)
+            {
+                request.Backint = null;
             }
             if (cmdletContext.CredentialsToAddOrUpdate != null)
             {
@@ -245,6 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public Amazon.SsmSap.BackintMode Backint_BackintMode { get; set; }
+            public System.Boolean? Backint_EnsureNoBackupInProcess { get; set; }
             public List<Amazon.SsmSap.Model.ApplicationCredential> CredentialsToAddOrUpdate { get; set; }
             public List<Amazon.SsmSap.Model.ApplicationCredential> CredentialsToRemove { get; set; }
             public System.Func<Amazon.SsmSap.Model.UpdateApplicationSettingsResponse, UpdateSMSAPApplicationSettingCmdlet, object> Select { get; set; } =

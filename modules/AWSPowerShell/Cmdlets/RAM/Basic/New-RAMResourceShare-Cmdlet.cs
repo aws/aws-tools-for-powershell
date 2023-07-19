@@ -121,6 +121,18 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.String[] ResourceArn { get; set; }
         #endregion
         
+        #region Parameter Source
+        /// <summary>
+        /// <para>
+        /// <para>Specifies from which source accounts the service principal has access to the resources
+        /// in this resource share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Sources")]
+        public System.String[] Source { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -233,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             {
                 context.ResourceArn = new List<System.String>(this.ResourceArn);
             }
+            if (this.Source != null)
+            {
+                context.Source = new List<System.String>(this.Source);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RAM.Model.Tag>(this.Tag);
@@ -276,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArns = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.Source != null)
+            {
+                request.Sources = cmdletContext.Source;
             }
             if (cmdletContext.Tag != null)
             {
@@ -348,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public List<System.String> PermissionArn { get; set; }
             public List<System.String> Principal { get; set; }
             public List<System.String> ResourceArn { get; set; }
+            public List<System.String> Source { get; set; }
             public List<Amazon.RAM.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RAM.Model.CreateResourceShareResponse, NewRAMResourceShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceShare;

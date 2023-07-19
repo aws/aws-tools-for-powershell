@@ -33,16 +33,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it
-    /// can take snapshots of the attached volumes while data is at rest, in order to ensure
-    /// a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code>
-    /// in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent
-    /// Amazon EC2 from shutting down and rebooting the instance.
-    /// </para><important><para>
-    /// If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
-    /// parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code>
-    /// option in the CLI, we can't guarantee the file system integrity of the created image.
-    /// </para></important><para>
     /// If you customized your instance with instance store volumes or Amazon EBS volumes
     /// in addition to the root device volume, the new AMI contains block device mapping information
     /// for those volumes. When you launch an instance from this new AMI, the instance automatically
@@ -124,13 +114,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NoReboot
         /// <summary>
         /// <para>
-        /// <para>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it
-        /// can take snapshots of the attached volumes while data is at rest, in order to ensure
-        /// a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code>
-        /// in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent
-        /// Amazon EC2 from shutting down and rebooting the instance.</para><important><para>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
-        /// parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code>
-        /// option in the CLI, we can't guarantee the file system integrity of the created image.</para></important><para>Default: <code>false</code> (follow standard reboot process)</para>
+        /// <para>Indicates whether or not the instance should be automatically rebooted before creating
+        /// the image. Specify one of the following values:</para><ul><li><para><code>true</code> - The instance is not rebooted before creating the image. This
+        /// creates crash-consistent snapshots that include only the data that has been written
+        /// to the volumes at the time the snapshots are created. Buffered data and data in memory
+        /// that has not yet been written to the volumes is not included in the snapshots.</para></li><li><para><code>false</code> - The instance is rebooted before creating the image. This ensures
+        /// that all buffered data and data in memory is written to the volumes before the snapshots
+        /// are created.</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

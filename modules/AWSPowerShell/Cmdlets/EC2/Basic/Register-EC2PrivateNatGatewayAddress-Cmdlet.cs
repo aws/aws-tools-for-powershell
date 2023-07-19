@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Assigns one or more private IPv4 addresses to a private NAT gateway. For more information,
     /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work
-    /// with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
     [Cmdlet("Register", "EC2PrivateNatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
-        /// <para>The NAT gateway ID.</para>
+        /// <para>The ID of the NAT gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

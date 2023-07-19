@@ -29,16 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// This action is deprecated.
     /// </para></note><para>
     /// Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the
     /// DNS hostname of a linked EC2-Classic instance resolves to its private IP address when
     /// addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
     /// of an instance in a VPC resolves to its private IP address when addressed from a linked
-    /// EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-    /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EC2-Classic instance.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VpcClassicLinkDnsSupport")]
@@ -54,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>One or more VPC IDs.</para>
+        /// <para>The IDs of the VPCs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

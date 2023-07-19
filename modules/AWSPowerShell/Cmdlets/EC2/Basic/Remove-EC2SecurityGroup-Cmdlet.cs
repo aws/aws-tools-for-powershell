@@ -32,14 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// If you attempt to delete a security group that is associated with an instance, or
-    /// is referenced by another security group, the operation fails with <code>InvalidGroup.InUse</code>
-    /// in EC2-Classic or <code>DependencyViolation</code> in EC2-VPC.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// If you attempt to delete a security group that is associated with an instance or network
+    /// interface or is referenced by another security group, the operation fails with <code>DependencyViolation</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -54,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group. Required for a nondefault VPC.</para>
+        /// <para>The ID of the security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The name of the security group. You can specify either
-        /// the security group name or the security group ID. For security groups in a nondefault
-        /// VPC, you must specify the security group ID.</para>
+        /// <para>[Default VPC] The name of the security group. You can specify either the security
+        /// group name or the security group ID. For security groups in a nondefault VPC, you
+        /// must specify the security group ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

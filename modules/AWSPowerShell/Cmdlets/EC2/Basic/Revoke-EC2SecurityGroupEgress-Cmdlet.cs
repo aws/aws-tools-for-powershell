@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// [VPC only] Removes the specified outbound (egress) rules from a security group for
-    /// EC2-VPC. This action does not apply to security groups for use in EC2-Classic.
+    /// Removes the specified outbound (egress) rules from the specified security group.
     /// 
     ///  
     /// <para>
@@ -41,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// you must also specify the ICMP type and code. If the security group rule has a description,
     /// you do not need to specify the description to revoke the rule.
     /// </para><para>
-    /// [Default VPC] If the values you specify do not match the existing rule's values, no
-    /// error is returned, and the output describes the security group rules that were not
-    /// revoked.
+    /// For a default VPC, if the values you specify do not match the existing rule's values,
+    /// no error is returned, and the output describes the security group rules that were
+    /// not revoked.
     /// </para><para>
     /// Amazon Web Services recommends that you describe the security group to verify that
     /// the rules were removed.

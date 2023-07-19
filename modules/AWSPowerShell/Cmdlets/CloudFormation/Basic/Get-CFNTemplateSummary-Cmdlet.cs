@@ -118,6 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String TemplateURL { get; set; }
         #endregion
         
+        #region Parameter TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning
+        /// <summary>
+        /// <para>
+        /// <para>If set to <code>True</code>, any unrecognized resource types generate warnings and
+        /// not an error. Any unrecognized resource types are returned in the <code>Warnings</code>
+        /// output parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarnings")]
+        public System.Boolean? TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -168,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.StackName = this.StackName;
             context.StackSetName = this.StackSetName;
             context.TemplateBody = this.TemplateBody;
+            context.TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning = this.TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning;
             context.TemplateURL = this.TemplateURL;
             
             // allow further manipulation of loaded context prior to processing
@@ -200,6 +214,25 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.TemplateBody != null)
             {
                 request.TemplateBody = cmdletContext.TemplateBody;
+            }
+            
+             // populate TemplateSummaryConfig
+            var requestTemplateSummaryConfigIsNull = true;
+            request.TemplateSummaryConfig = new Amazon.CloudFormation.Model.TemplateSummaryConfig();
+            System.Boolean? requestTemplateSummaryConfig_templateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning = null;
+            if (cmdletContext.TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning != null)
+            {
+                requestTemplateSummaryConfig_templateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning = cmdletContext.TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning.Value;
+            }
+            if (requestTemplateSummaryConfig_templateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning != null)
+            {
+                request.TemplateSummaryConfig.TreatUnrecognizedResourceTypesAsWarnings = requestTemplateSummaryConfig_templateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning.Value;
+                requestTemplateSummaryConfigIsNull = false;
+            }
+             // determine if request.TemplateSummaryConfig should be set to null
+            if (requestTemplateSummaryConfigIsNull)
+            {
+                request.TemplateSummaryConfig = null;
             }
             if (cmdletContext.TemplateURL != null)
             {
@@ -270,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String StackName { get; set; }
             public System.String StackSetName { get; set; }
             public System.String TemplateBody { get; set; }
+            public System.Boolean? TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning { get; set; }
             public System.String TemplateURL { get; set; }
             public System.Func<Amazon.CloudFormation.Model.GetTemplateSummaryResponse, GetCFNTemplateSummaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

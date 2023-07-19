@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EgressOnlyInternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>One or more egress-only internet gateway IDs.</para>
+        /// <para>The IDs of the egress-only internet gateways.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// <para>The filters.</para><ul><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

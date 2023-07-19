@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify
+        /// <para>The filters.</para><ul><li><para><code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify
         /// must exactly match the VPC's CIDR block for information to be returned for the VPC.
         /// Must contain the slash followed by one or two digits (for example, <code>/28</code>).</para></li><li><para><code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with
         /// the VPC.</para></li><li><para><code>cidr-block-association.association-id</code> - The association ID for an IPv4
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>One or more VPC IDs.</para><para>Default: Describes all your VPCs.</para>
+        /// <para>The IDs of the VPCs.</para><para>Default: Describes all your VPCs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

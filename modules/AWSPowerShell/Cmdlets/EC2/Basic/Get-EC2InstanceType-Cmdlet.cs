@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action
         /// based recovery is supported (<code>true</code> | <code>false</code>).</para></li><li><para><code>bare-metal</code> - Indicates whether it is a bare metal instance type (<code>true</code>
-        /// | <code>false</code>).</para></li><li><para><code>burstable-performance-supported</code> - Indicates whether it is a burstable
-        /// performance instance type (<code>true</code> | <code>false</code>).</para></li><li><para><code>current-generation</code> - Indicates whether this instance type is the latest
+        /// | <code>false</code>).</para></li><li><para><code>burstable-performance-supported</code> - Indicates whether the instance type
+        /// is a burstable performance T instance type (<code>true</code> | <code>false</code>).</para></li><li><para><code>current-generation</code> - Indicates whether this instance type is the latest
         /// generation instance type of an instance family (<code>true</code> | <code>false</code>).</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
         /// bandwidth performance for an EBS-optimized instance type, in Mbps.</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output
         /// storage operations per second for an EBS-optimized instance type.</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
@@ -79,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// IPv6 (<code>true</code> | <code>false</code>).</para></li><li><para><code>network-info.maximum-network-cards</code> - The maximum number of network cards
         /// per instance.</para></li><li><para><code>network-info.maximum-network-interfaces</code> - The maximum number of network
         /// interfaces per instance.</para></li><li><para><code>network-info.network-performance</code> - The network performance (for example,
-        /// "25 Gigabit").</para></li><li><para><code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code>
+        /// "25 Gigabit").</para></li><li><para><code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported
+        /// (<code>supported</code> | <code>unsupported</code>).</para></li><li><para><code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported (<code>supported</code>
+        /// | <code>unsupported</code>).</para></li><li><para><code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version (<code>2.0</code>).</para></li><li><para><code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code>
         /// | <code>i386</code> | <code>x86_64</code>).</para></li><li><para><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
         /// GHz.</para></li><li><para><code>processor-info.supported-features</code> - The supported CPU features (<code>amd-sev-snp</code>).</para></li><li><para><code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> | <code>uefi</code>).</para></li><li><para><code>supported-root-device-type</code> - The root device type (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>supported-usage-class</code> - The usage class (<code>on-demand</code> | <code>spot</code>).</para></li><li><para><code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code>

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Changes which network ACL a subnet is associated with. By default when you create
     /// a subnet, it's automatically associated with the default network ACL. For more information,
-    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-    /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+    /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
     /// 
     ///  
     /// <para>

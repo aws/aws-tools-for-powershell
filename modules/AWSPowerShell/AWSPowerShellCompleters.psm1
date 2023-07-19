@@ -26729,6 +26729,7 @@ $MGRF_SelectMap = @{
                "Remove-MGRFLicense",
                "Get-MGRFPermissionList",
                "Get-MGRFResourceTag",
+               "Get-MGRFVersionList",
                "Get-MGRFWorkspaceList",
                "Add-MGRFResourceTag",
                "Remove-MGRFResourceTag",
@@ -38798,6 +38799,112 @@ $EMT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMT_SelectCompleters $EMT_SelectMap
+# Argument completions for service Amazon Medical Imaging Service
+
+
+$MIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MedicalImaging.DatastoreStatus
+        "Get-MISDatastoreList/DatastoreStatus"
+        {
+            $v = "ACTIVE","CREATE_FAILED","CREATING","DELETED","DELETING"
+            break
+        }
+
+        # Amazon.MedicalImaging.JobStatus
+        "Get-MISDICOMImportJobList/JobStatus"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MIS_map = @{
+    "DatastoreStatus"=@("Get-MISDatastoreList")
+    "JobStatus"=@("Get-MISDICOMImportJobList")
+}
+
+_awsArgumentCompleterRegistration $MIS_Completers $MIS_map
+
+$MIS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MIS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MIS_SelectMap = @{
+    "Select"=@("Copy-MISImageSet",
+               "New-MISDatastore",
+               "Remove-MISDatastore",
+               "Remove-MISImageSet",
+               "Get-MISDatastore",
+               "Get-MISDICOMImportJob",
+               "Get-MISImageFrame",
+               "Get-MISImageSet",
+               "Get-MISImageSetMetadata",
+               "Get-MISDatastoreList",
+               "Get-MISDICOMImportJobList",
+               "Get-MISImageSetVersionList",
+               "Get-MISResourceTag",
+               "Search-MISImageSet",
+               "Start-MISDICOMImportJob",
+               "Add-MISResourceTag",
+               "Remove-MISResourceTag",
+               "Update-MISImageSetMetadata")
+}
+
+_awsArgumentCompleterRegistration $MIS_SelectCompleters $MIS_SelectMap
 # Argument completions for service Amazon MemoryDB
 
 
@@ -56840,6 +56947,13 @@ $SMSAP_Completers = {
             break
         }
 
+        # Amazon.SsmSap.BackintMode
+        "Update-SMSAPApplicationSetting/Backint_BackintMode"
+        {
+            $v = "AWSBackup"
+            break
+        }
+
         # Amazon.SsmSap.PermissionActionType
         {
             ($_ -eq "Get-SMSAPResourcePermission/ActionType") -Or
@@ -56862,6 +56976,7 @@ $SMSAP_Completers = {
 $SMSAP_map = @{
     "ActionType"=@("Get-SMSAPResourcePermission","Remove-SMSAPResourcePermission","Write-SMSAPResourcePermission")
     "ApplicationType"=@("Register-SMSAPApplication")
+    "Backint_BackintMode"=@("Update-SMSAPApplicationSetting")
 }
 
 _awsArgumentCompleterRegistration $SMSAP_Completers $SMSAP_map
@@ -56928,6 +57043,7 @@ $SMSAP_SelectMap = @{
                "Get-SMSAPResourceTag",
                "Write-SMSAPResourcePermission",
                "Register-SMSAPApplication",
+               "Start-SMSAPApplicationRefresh",
                "Add-SMSAPResourceTag",
                "Remove-SMSAPResourceTag",
                "Update-SMSAPApplicationSetting")

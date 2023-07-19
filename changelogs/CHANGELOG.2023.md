@@ -1,4 +1,20 @@
-﻿### 4.1.372 (2023-07-18 21:17Z)
+﻿### 4.1.373 (2023-07-19 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.602.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Modified cmdlet Get-CFNTemplateSummary: added parameter TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning.
+  * Amazon Managed Grafana
+    * Added cmdlet Get-MGRFVersionList leveraging the ListVersions service API.
+    * Modified cmdlet Update-MGRFWorkspaceConfiguration: added parameter GrafanaVersion.
+  * Amazon Medical Imaging Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MIS and can be listed using the command 'Get-AWSCmdletName -Service MIS'.
+  * Amazon Resource Access Manager (RAM)
+    * Modified cmdlet Connect-RAMResourceShare: added parameter Source.
+    * Modified cmdlet Disconnect-RAMResourceShare: added parameter Source.
+    * Modified cmdlet New-RAMResourceShare: added parameter Source.
+  * Amazon Systems Manager for SAP
+    * Added cmdlet Start-SMSAPApplicationRefresh leveraging the StartApplicationRefresh service API.
+    * Modified cmdlet Update-SMSAPApplicationSetting: added parameters Backint_BackintMode and Backint_EnsureNoBackupInProcess.
+
+### 4.1.372 (2023-07-18 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.601.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Import/Export Snowball
     * Added cmdlet Get-SNOWPickupLocation leveraging the ListPickupLocations service API.

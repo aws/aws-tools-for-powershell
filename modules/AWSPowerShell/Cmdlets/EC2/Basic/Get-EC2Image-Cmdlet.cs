@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code>
-        /// | <code>arm64</code>).</para></li><li><para><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
+        /// | <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</para></li><li><para><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
         /// whether the Amazon EBS volume is deleted on instance termination.</para></li><li><para><code>block-device-mapping.device-name</code> - The device name specified in the
         /// block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the
         /// Amazon EBS volume.</para></li><li><para><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS

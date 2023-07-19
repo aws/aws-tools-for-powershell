@@ -28,11 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
-    /// a private connection between your VPC and the service. The service may be provided
-    /// by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
+    /// Creates a VPC endpoint. A VPC endpoint provides a private connection between the specified
+    /// VPC and the specified endpoint service. You can use an endpoint service provided by
+    /// Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
     /// Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
-    /// Web Services PrivateLink Guide</a>.
+    /// Web Services PrivateLink User Guide</a>.
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointResponse")]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The service name.</para>
+        /// <para>The name of the endpoint service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC for the endpoint.</para>
+        /// <para>The ID of the VPC.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

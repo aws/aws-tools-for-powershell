@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account
+        /// <para>The filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account
         /// that owns the accepter VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's
         /// VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account
         /// that owns the requester VPC.</para></li><li><para><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</para></li><li><para><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
-        /// <para>One or more VPC peering connection IDs.</para><para>Default: Describes all your VPC peering connections.</para>
+        /// <para>The IDs of the VPC peering connections.</para><para>Default: Describes all your VPC peering connections.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

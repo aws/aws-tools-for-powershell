@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// private IPv4 addresses, and communicating between overlapping networks.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT
-    /// gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// gateways</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecondaryAllocationId
         /// <summary>
         /// <para>
-        /// <para>Secondary EIP allocation IDs. For more information about secondary addresses, see
-        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
-        /// a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// <para>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>[Private NAT gateway only] The number of secondary private IPv4 addresses you want
         /// to assign to the NAT gateway. For more information about secondary addresses, see
         /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
-        /// a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Secondary private IPv4 addresses. For more information about secondary addresses,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
-        /// a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

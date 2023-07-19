@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot
     /// unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
-    /// secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User
-    /// Guide</i>.
+    /// secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -40,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// gateway.
     /// </para><para>
     /// A private IP address will only be released at the end of MaxDrainDurationSeconds.
-    /// The private IP addresses stay associated and support the existing connections but
+    /// The private IP addresses stay associated and support the existing connections, but
     /// do not support any new connections (new connections are distributed across the remaining
     /// assigned private IP address). After the existing connections drain out, the private
-    /// IP addresses get released. 
+    /// IP addresses are released.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "EC2PrivateNatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
-        /// <para>The NAT gateway ID.</para>
+        /// <para>The ID of the NAT gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

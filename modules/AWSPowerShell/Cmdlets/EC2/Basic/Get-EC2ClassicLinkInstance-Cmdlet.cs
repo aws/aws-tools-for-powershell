@@ -28,15 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <note><para>
+    /// This action is deprecated.
+    /// </para></note><para>
     /// Describes one or more of your linked EC2-Classic instances. This request only returns
     /// information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
     /// use this request to return information about other instances.
-    /// 
-    ///  <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2ClassicLinkInstance")]
     [OutputType("Amazon.EC2.Model.ClassicLinkInstance")]
@@ -51,13 +49,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>group-id</code> - The ID of a VPC security group that's associated with the
+        /// <para>The filters.</para><ul><li><para><code>group-id</code> - The ID of a VPC security group that's associated with the
         /// instance.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
         /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC to which the instance is linked.</para><para><code>vpc-id</code> - The ID of the VPC that the instance is linked to.</para></li></ul>
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC to which the instance is linked.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</para>
+        /// <para>The instance IDs. Must be instances linked to a VPC through ClassicLink.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
