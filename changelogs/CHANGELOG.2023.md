@@ -1,4 +1,7 @@
-﻿### 4.1.373 (2023-07-19 21:06Z)
+﻿### 4.1.374 (2023-07-20 06:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.602.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.373 (2023-07-19 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.602.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Modified cmdlet Get-CFNTemplateSummary: added parameter TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning.
