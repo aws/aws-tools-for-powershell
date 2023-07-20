@@ -22,62 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SecurityLake;
-using Amazon.SecurityLake.Model;
+using Amazon.Route53Resolver;
+using Amazon.Route53Resolver.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SLK
+namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
-    /// source types for member accounts in required Amazon Web Services Regions, based on
-    /// the parameters you specify. You can choose any source type in any Region for either
-    /// accounts that are part of a trusted organization or standalone accounts. Once you
-    /// add an Amazon Web Service as a source, Security Lake starts collecting logs and events
-    /// from it.
-    /// 
-    ///  
-    /// <para>
-    /// You can use this API only to enable natively supported Amazon Web Services as a source.
-    /// Use <code>CreateCustomLogSource</code> to enable data collection from a custom source.
-    /// </para>
+    /// Deletes a Resolver on the Outpost.
     /// </summary>
-    [Cmdlet("New", "SLKAwsLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SecurityLake.Model.CreateAwsLogSourceResponse")]
-    [AWSCmdlet("Calls the Amazon Security Lake CreateAwsLogSource API operation.", Operation = new[] {"CreateAwsLogSource"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateAwsLogSourceResponse))]
-    [AWSCmdletOutput("Amazon.SecurityLake.Model.CreateAwsLogSourceResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.CreateAwsLogSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]
+    [AWSCmdlet("Calls the Amazon Route 53 Resolver DeleteOutpostResolver API operation.", Operation = new[] {"DeleteOutpostResolver"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse))]
+    [AWSCmdletOutput("Amazon.Route53Resolver.Model.OutpostResolver or Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse",
+        "This cmdlet returns an Amazon.Route53Resolver.Model.OutpostResolver object.",
+        "The service call response (type Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSLKAwsLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
+    public partial class RemoveR53ROutpostResolverCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
-        #region Parameter Source
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Specify the natively-supported Amazon Web Services service to add as a source in Security
-        /// Lake.</para>
+        /// <para>A unique string that identifies the Resolver on the Outpost.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Sources")]
-        public Amazon.SecurityLake.Model.AwsLogSourceConfiguration[] Source { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.CreateAwsLogSourceResponse).
-        /// Specifying the name of a property of type Amazon.SecurityLake.Model.CreateAwsLogSourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OutpostResolver'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse).
+        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "OutpostResolver";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Source), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SLKAwsLogSource (CreateAwsLogSource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-R53ROutpostResolver (DeleteOutpostResolver)"))
             {
                 return;
             }
@@ -106,19 +104,26 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.CreateAwsLogSourceResponse, NewSLKAwsLogSourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse, RemoveR53ROutpostResolverCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.Source != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.Source = new List<Amazon.SecurityLake.Model.AwsLogSourceConfiguration>(this.Source);
+                context.Select = (response, cmdlet) => this.Id;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Id = this.Id;
             #if MODULAR
-            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -135,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityLake.Model.CreateAwsLogSourceRequest();
+            var request = new Amazon.Route53Resolver.Model.DeleteOutpostResolverRequest();
             
-            if (cmdletContext.Source != null)
+            if (cmdletContext.Id != null)
             {
-                request.Sources = cmdletContext.Source;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -174,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityLake.Model.CreateAwsLogSourceResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.CreateAwsLogSourceRequest request)
+        private Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.DeleteOutpostResolverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "CreateAwsLogSource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "DeleteOutpostResolver");
             try
             {
                 #if DESKTOP
-                return client.CreateAwsLogSource(request);
+                return client.DeleteOutpostResolver(request);
                 #elif CORECLR
-                return client.CreateAwsLogSourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteOutpostResolverAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -202,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SecurityLake.Model.AwsLogSourceConfiguration> Source { get; set; }
-            public System.Func<Amazon.SecurityLake.Model.CreateAwsLogSourceResponse, NewSLKAwsLogSourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.Route53Resolver.Model.DeleteOutpostResolverResponse, RemoveR53ROutpostResolverCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OutpostResolver;
         }
         
     }

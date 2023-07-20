@@ -22,30 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Resolver;
-using Amazon.Route53Resolver.Model;
+using Amazon.CodeCatalyst;
+using Amazon.CodeCatalyst.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53R
+namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
-    /// Specifies an Amazon Web Services account that you want to share a query logging configuration
-    /// with, the query logging configuration that you want to share, and the operations that
-    /// you want the account to be able to perform on the configuration.
+    /// Deletes a source repository in Amazon CodeCatalyst. You cannot use this API to delete
+    /// a linked repository. It can only be used to delete a Amazon CodeCatalyst source repository.
     /// </summary>
-    [Cmdlet("Write", "R53RResolverQueryLogConfigPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Route 53 Resolver PutResolverQueryLogConfigPolicy API operation.", Operation = new[] {"PutResolverQueryLogConfigPolicy"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CCATSourceRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse")]
+    [AWSCmdlet("Calls the AWS CodeCatalyst DeleteSourceRepository API operation.", Operation = new[] {"DeleteSourceRepository"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse))]
+    [AWSCmdletOutput("Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse",
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteR53RResolverQueryLogConfigPolicyCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
+    public partial class RemoveCCATSourceRepositoryCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
-        #region Parameter Arn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the account that you want to share rules with.</para>
+        /// <para>The name of the source repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,18 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Arn { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ResolverQueryLogConfigPolicy
+        #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>An Identity and Access Management policy statement that lists the query logging configurations
-        /// that you want to share with another Amazon Web Services account and the operations
-        /// that you want the account to be able to perform. You can specify the following operations
-        /// in the <code>Actions</code> section of the statement:</para><ul><li><para><code>route53resolver:AssociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:DisassociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:ListResolverQueryLogConfigs</code></para></li></ul><para>In the <code>Resource</code> section of the statement, you specify the ARNs for the
-        /// query logging configurations that you want to share with the account that you specified
-        /// in <code>Arn</code>. </para>
+        /// <para>The name of the project in the space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,26 +71,43 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResolverQueryLogConfigPolicy { get; set; }
+        public System.String ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter SpaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the space.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SpaceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReturnValue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse).
-        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse).
+        /// Specifying the name of a property of type Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReturnValue";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,11 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
+            this._ExecuteWithAnonymousCredentials = true;
+            this._AWSSignerType = "bearer";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-R53RResolverQueryLogConfigPolicy (PutResolverQueryLogConfigPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCATSourceRepository (DeleteSourceRepository)"))
             {
                 return;
             }
@@ -131,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse, WriteR53RResolverQueryLogConfigPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse, RemoveCCATSourceRepositoryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,21 +151,28 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Arn;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Arn = this.Arn;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResolverQueryLogConfigPolicy = this.ResolverQueryLogConfigPolicy;
+            context.ProjectName = this.ProjectName;
             #if MODULAR
-            if (this.ResolverQueryLogConfigPolicy == null && ParameterWasBound(nameof(this.ResolverQueryLogConfigPolicy)))
+            if (this.ProjectName == null && ParameterWasBound(nameof(this.ProjectName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResolverQueryLogConfigPolicy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SpaceName = this.SpaceName;
+            #if MODULAR
+            if (this.SpaceName == null && ParameterWasBound(nameof(this.SpaceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SpaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyRequest();
+            var request = new Amazon.CodeCatalyst.Model.DeleteSourceRepositoryRequest();
             
-            if (cmdletContext.Arn != null)
+            if (cmdletContext.Name != null)
             {
-                request.Arn = cmdletContext.Arn;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ResolverQueryLogConfigPolicy != null)
+            if (cmdletContext.ProjectName != null)
             {
-                request.ResolverQueryLogConfigPolicy = cmdletContext.ResolverQueryLogConfigPolicy;
+                request.ProjectName = cmdletContext.ProjectName;
+            }
+            if (cmdletContext.SpaceName != null)
+            {
+                request.SpaceName = cmdletContext.SpaceName;
             }
             
             CmdletOutput output;
@@ -214,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyRequest request)
+        private Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse CallAWSServiceOperation(IAmazonCodeCatalyst client, Amazon.CodeCatalyst.Model.DeleteSourceRepositoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "PutResolverQueryLogConfigPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCatalyst", "DeleteSourceRepository");
             try
             {
                 #if DESKTOP
-                return client.PutResolverQueryLogConfigPolicy(request);
+                return client.DeleteSourceRepository(request);
                 #elif CORECLR
-                return client.PutResolverQueryLogConfigPolicyAsync(request).GetAwaiter().GetResult();
+                return client.DeleteSourceRepositoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Arn { get; set; }
-            public System.String ResolverQueryLogConfigPolicy { get; set; }
-            public System.Func<Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse, WriteR53RResolverQueryLogConfigPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReturnValue;
+            public System.String Name { get; set; }
+            public System.String ProjectName { get; set; }
+            public System.String SpaceName { get; set; }
+            public System.Func<Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse, RemoveCCATSourceRepositoryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

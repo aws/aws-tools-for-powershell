@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
     /// Retrieves the Amazon Security Lake configuration object for the specified Amazon Web
-    /// Services account ID. You can use the <code>ListDataLakes</code> API to know whether
-    /// Security Lake is enabled for any region.
+    /// Services Regions. You can use this operation to determine whether Security Lake is
+    /// enabled for a Region.
     /// </summary>
     [Cmdlet("Get", "SLKDataLakeList")]
     [OutputType("Amazon.SecurityLake.Model.DataLakeResource")]

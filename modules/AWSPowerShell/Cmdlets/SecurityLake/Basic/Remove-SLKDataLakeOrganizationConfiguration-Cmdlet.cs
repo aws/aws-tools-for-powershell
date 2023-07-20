@@ -28,11 +28,11 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Removes automatic the enablement of configuration settings for new member accounts
-    /// (but retains the settings for the delegated administrator) from Amazon Security Lake.
-    /// You must run this API using the credentials of the delegated administrator. When you
-    /// run this API, new member accounts that are added after the organization enables Security
-    /// Lake won't contribute to the data lake.
+    /// Turns off automatic enablement of Amazon Security Lake for member accounts that are
+    /// added to an organization in Organizations. Only the delegated Security Lake administrator
+    /// for an organization can perform this operation. If the delegated Security Lake administrator
+    /// performs this operation, new member accounts won't automatically contribute data to
+    /// the data lake.
     /// </summary>
     [Cmdlet("Remove", "SLKDataLakeOrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter AutoEnableNewAccount
         /// <summary>
         /// <para>
-        /// <para>Removes the automatic enablement of configuration settings for new member accounts
-        /// in Security Lake.</para>
+        /// <para>Turns off automatic enablement of Security Lake for member accounts that are added
+        /// to an organization.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

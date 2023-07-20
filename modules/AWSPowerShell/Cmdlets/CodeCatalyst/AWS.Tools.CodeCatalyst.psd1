@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCATEventLogList', 
         'Get-CCATProject', 
         'Get-CCATProjectList', 
+        'Get-CCATSourceRepository', 
         'Get-CCATSourceRepositoryBranchList', 
         'Get-CCATSourceRepositoryCloneUrl', 
         'Get-CCATSourceRepositoryList', 
@@ -104,14 +105,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CCATAccessToken', 
         'New-CCATDevEnvironment', 
         'New-CCATProject', 
+        'New-CCATSourceRepository', 
         'New-CCATSourceRepositoryBranch', 
         'Remove-CCATAccessToken', 
         'Remove-CCATDevEnvironment', 
+        'Remove-CCATProject', 
+        'Remove-CCATSourceRepository', 
+        'Remove-CCATSpace', 
         'Start-CCATDevEnvironment', 
         'Start-CCATDevEnvironmentSession', 
         'Stop-CCATDevEnvironment', 
         'Stop-CCATDevEnvironmentSession', 
-        'Update-CCATDevEnvironment')
+        'Update-CCATDevEnvironment', 
+        'Update-CCATProject', 
+        'Update-CCATSpace')
 
     # Variables to export from this module
     VariablesToExport = '*'

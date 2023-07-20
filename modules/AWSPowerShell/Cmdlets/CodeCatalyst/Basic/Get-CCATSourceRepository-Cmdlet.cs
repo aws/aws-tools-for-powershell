@@ -22,27 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.CodeCatalyst;
+using Amazon.CodeCatalyst.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
-    /// Shows the metadata for a feature within a feature group.
+    /// Returns information about a source repository.
     /// </summary>
-    [Cmdlet("Get", "SMFeatureMetadata")]
-    [OutputType("Amazon.SageMaker.Model.DescribeFeatureMetadataResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeFeatureMetadata API operation.", Operation = new[] {"DescribeFeatureMetadata"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeFeatureMetadataResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeFeatureMetadataResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeFeatureMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CCATSourceRepository")]
+    [OutputType("Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse")]
+    [AWSCmdlet("Calls the AWS CodeCatalyst GetSourceRepository API operation.", Operation = new[] {"GetSourceRepository"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse))]
+    [AWSCmdletOutput("Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse",
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMFeatureMetadataCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetCCATSourceRepositoryCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
-        #region Parameter FeatureGroupName
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the feature group containing the feature.</para>
+        /// <para>The name of the source repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,13 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FeatureGroupName { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter FeatureName
+        #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the feature.</para>
+        /// <para>The name of the project in the space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,14 +70,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FeatureName { get; set; }
+        public System.String ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter SpaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the space.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SpaceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeFeatureMetadataResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeFeatureMetadataResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse).
+        /// Specifying the name of a property of type Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,17 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FeatureGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FeatureGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FeatureGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
+            this._ExecuteWithAnonymousCredentials = true;
+            this._AWSSignerType = "bearer";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -107,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeFeatureMetadataResponse, GetSMFeatureMetadataCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse, GetCCATSourceRepositoryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,21 +134,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FeatureGroupName;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FeatureGroupName = this.FeatureGroupName;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.FeatureGroupName == null && ParameterWasBound(nameof(this.FeatureGroupName)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter FeatureGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.FeatureName = this.FeatureName;
+            context.ProjectName = this.ProjectName;
             #if MODULAR
-            if (this.FeatureName == null && ParameterWasBound(nameof(this.FeatureName)))
+            if (this.ProjectName == null && ParameterWasBound(nameof(this.ProjectName)))
             {
-                WriteWarning("You are passing $null as a value for parameter FeatureName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SpaceName = this.SpaceName;
+            #if MODULAR
+            if (this.SpaceName == null && ParameterWasBound(nameof(this.SpaceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SpaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -147,15 +172,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DescribeFeatureMetadataRequest();
+            var request = new Amazon.CodeCatalyst.Model.GetSourceRepositoryRequest();
             
-            if (cmdletContext.FeatureGroupName != null)
+            if (cmdletContext.Name != null)
             {
-                request.FeatureGroupName = cmdletContext.FeatureGroupName;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.FeatureName != null)
+            if (cmdletContext.ProjectName != null)
             {
-                request.FeatureName = cmdletContext.FeatureName;
+                request.ProjectName = cmdletContext.ProjectName;
+            }
+            if (cmdletContext.SpaceName != null)
+            {
+                request.SpaceName = cmdletContext.SpaceName;
             }
             
             CmdletOutput output;
@@ -190,15 +219,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeFeatureMetadataResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeFeatureMetadataRequest request)
+        private Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse CallAWSServiceOperation(IAmazonCodeCatalyst client, Amazon.CodeCatalyst.Model.GetSourceRepositoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeFeatureMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCatalyst", "GetSourceRepository");
             try
             {
                 #if DESKTOP
-                return client.DescribeFeatureMetadata(request);
+                return client.GetSourceRepository(request);
                 #elif CORECLR
-                return client.DescribeFeatureMetadataAsync(request).GetAwaiter().GetResult();
+                return client.GetSourceRepositoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,9 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FeatureGroupName { get; set; }
-            public System.String FeatureName { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeFeatureMetadataResponse, GetSMFeatureMetadataCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.String ProjectName { get; set; }
+            public System.String SpaceName { get; set; }
+            public System.Func<Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse, GetCCATSourceRepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -30,13 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// <summary>
     /// Initializes an Amazon Security Lake instance with the provided (or default) configuration.
     /// You can enable Security Lake in Amazon Web Services Regions with customized settings
-    /// before enabling log collection in Regions. By default, the <code>CreateDataLake</code>
-    /// Security Lake in all Regions. To specify particular Regions, configure these Regions
-    /// using the <code>configurations</code> parameter. If you have already enabled Security
-    /// Lake in a Region when you call this command, the command will update the Region if
-    /// you provide new configuration parameters. If you have not already enabled Security
-    /// Lake in the Region when you call this API, it will set up the data lake in the Region
-    /// with the specified configurations.
+    /// before enabling log collection in Regions. To specify particular Regions, configure
+    /// these Regions using the <code>configurations</code> parameter. If you have already
+    /// enabled Security Lake in a Region when you call this command, the command will update
+    /// the Region if you provide new configuration parameters. If you have not already enabled
+    /// Security Lake in the Region when you call this API, it will set up the data lake in
+    /// the Region with the specified configurations.
     /// 
     ///  
     /// <para>
@@ -94,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MetaStoreManagerRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, one for each tag to associate with the data lake configuration.
+        /// For each tag, you must specify both a tag key and a tag value. A tag value cannot
+        /// be null, but it can be an empty string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SecurityLake.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -175,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
                 WriteWarning("You are passing $null as a value for parameter MetaStoreManagerRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SecurityLake.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             if (cmdletContext.MetaStoreManagerRoleArn != null)
             {
                 request.MetaStoreManagerRoleArn = cmdletContext.MetaStoreManagerRoleArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -262,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         {
             public List<Amazon.SecurityLake.Model.DataLakeConfiguration> Configuration { get; set; }
             public System.String MetaStoreManagerRoleArn { get; set; }
+            public List<Amazon.SecurityLake.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SecurityLake.Model.CreateDataLakeResponse, NewSLKDataLakeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DataLakes;
         }

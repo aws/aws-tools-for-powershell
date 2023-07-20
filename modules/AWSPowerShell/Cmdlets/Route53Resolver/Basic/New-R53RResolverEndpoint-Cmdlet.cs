@@ -118,10 +118,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also
+        /// specify a value for the <code>PreferredInstanceType</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
+        #endregion
+        
+        #region Parameter PreferredInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreferredInstanceType { get; set; }
+        #endregion
+        
         #region Parameter ResolverEndpointType
         /// <summary>
         /// <para>
-        /// <para> For the endpoint type you can choose either IPv4, IPv6. or dual-stack. A dual-stack
+        /// <para> For the endpoint type you can choose either IPv4, IPv6, or dual-stack. A dual-stack
         /// endpoint means that it will resolve via both IPv4 and IPv6. This endpoint type is
         /// applied to all IP addresses. </para>
         /// </para>
@@ -251,6 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             #endif
             context.Name = this.Name;
+            context.OutpostArn = this.OutpostArn;
+            context.PreferredInstanceType = this.PreferredInstanceType;
             context.ResolverEndpointType = this.ResolverEndpointType;
             if (this.SecurityGroupId != null)
             {
@@ -297,6 +320,14 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
+            }
+            if (cmdletContext.PreferredInstanceType != null)
+            {
+                request.PreferredInstanceType = cmdletContext.PreferredInstanceType;
             }
             if (cmdletContext.ResolverEndpointType != null)
             {
@@ -375,6 +406,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public Amazon.Route53Resolver.ResolverEndpointDirection Direction { get; set; }
             public List<Amazon.Route53Resolver.Model.IpAddressRequest> IpAddress { get; set; }
             public System.String Name { get; set; }
+            public System.String OutpostArn { get; set; }
+            public System.String PreferredInstanceType { get; set; }
             public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<Amazon.Route53Resolver.Model.Tag> Tag { get; set; }

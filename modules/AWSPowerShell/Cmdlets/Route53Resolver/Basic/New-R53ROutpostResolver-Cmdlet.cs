@@ -28,26 +28,24 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// For DNS queries that originate in your VPCs, specifies which Resolver endpoint the
-    /// queries pass through, one domain name that you want to forward to your network, and
-    /// the IP addresses of the DNS resolvers in your network.
+    /// Creates an Route 53 Resolver on an Outpost.
     /// </summary>
-    [Cmdlet("New", "R53RResolverRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53Resolver.Model.ResolverRule")]
-    [AWSCmdlet("Calls the Amazon Route 53 Resolver CreateResolverRule API operation.", Operation = new[] {"CreateResolverRule"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.CreateResolverRuleResponse))]
-    [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverRule or Amazon.Route53Resolver.Model.CreateResolverRuleResponse",
-        "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverRule object.",
-        "The service call response (type Amazon.Route53Resolver.Model.CreateResolverRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]
+    [AWSCmdlet("Calls the Amazon Route 53 Resolver CreateOutpostResolver API operation.", Operation = new[] {"CreateOutpostResolver"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.CreateOutpostResolverResponse))]
+    [AWSCmdletOutput("Amazon.Route53Resolver.Model.OutpostResolver or Amazon.Route53Resolver.Model.CreateOutpostResolverResponse",
+        "This cmdlet returns an Amazon.Route53Resolver.Model.OutpostResolver object.",
+        "The service call response (type Amazon.Route53Resolver.Model.CreateOutpostResolverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewR53RResolverRuleCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
+    public partial class NewR53ROutpostResolverCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of running the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp. </para>
+        /// retried without the risk of running the operation twice. </para><para><code>CreatorRequestId</code> can be any unique string, for example, a date/time
+        /// stamp.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,13 +59,40 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String CreatorRequestId { get; set; }
         #endregion
         
-        #region Parameter DomainName
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>DNS queries for this domain name are forwarded to the IP addresses that you specify
-        /// in <code>TargetIps</code>. If a query matches multiple Resolver rules (example.com
-        /// and www.example.com), outbound DNS queries are routed using the Resolver rule that
-        /// contains the most specific domain name (www.example.com).</para>
+        /// <para>Number of Amazon EC2 instances for the Resolver on Outpost. The default and minimal
+        /// value is 4.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InstanceCount { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>A friendly name that lets you easily find a configuration in the Resolver dashboard
+        /// in the Route 53 console.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also
+        /// specify a value for the <code>PreferredInstanceType</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,58 +103,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String OutpostArn { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter PreferredInstanceType
         /// <summary>
         /// <para>
-        /// <para>A friendly name that lets you easily find a rule in the Resolver dashboard in the
-        /// Route 53 console.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ResolverEndpointId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the outbound Resolver endpoint that you want to use to route DNS queries
-        /// to the IP addresses that you specify in <code>TargetIps</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResolverEndpointId { get; set; }
-        #endregion
-        
-        #region Parameter RuleType
-        /// <summary>
-        /// <para>
-        /// <para>When you want to forward DNS queries for specified domain name to resolvers on your
-        /// network, specify <code>FORWARD</code>.</para><para>When you have a forwarding rule to forward DNS queries for a domain to your network
-        /// and you want Resolver to process queries for a subdomain of that domain, specify <code>SYSTEM</code>.</para><para>For example, to forward DNS queries for example.com to resolvers on your network,
-        /// you create a rule and specify <code>FORWARD</code> for <code>RuleType</code>. To then
-        /// have Resolver process queries for apex.example.com, you create a rule and specify
-        /// <code>SYSTEM</code> for <code>RuleType</code>.</para><para>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code>
-        /// for <code>RuleType</code>.</para>
+        /// <para> The Amazon EC2 instance type. If you specify this, you must also specify a value
+        /// for the <code>OutpostArn</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Route53Resolver.RuleTypeOption")]
-        public Amazon.Route53Resolver.RuleTypeOption RuleType { get; set; }
+        public System.String PreferredInstanceType { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of the tag keys and values that you want to associate with the endpoint.</para>
+        /// <para> A string that helps identify the Route 53 Resolvers on Outpost. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,36 +135,23 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.Model.Tag[] Tag { get; set; }
         #endregion
         
-        #region Parameter TargetIp
-        /// <summary>
-        /// <para>
-        /// <para>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4
-        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><code>TargetIps</code> is available only when the value of <code>Rule type</code>
-        /// is <code>FORWARD</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TargetIps")]
-        public Amazon.Route53Resolver.Model.TargetAddress[] TargetIp { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResolverRule'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.CreateResolverRuleResponse).
-        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.CreateResolverRuleResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OutpostResolver'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.CreateOutpostResolverResponse).
+        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.CreateOutpostResolverResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResolverRule";
+        public string Select { get; set; } = "OutpostResolver";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OutpostArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OutpostArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OutpostArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -186,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53RResolverRule (CreateResolverRule)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OutpostArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53ROutpostResolver (CreateOutpostResolver)"))
             {
                 return;
             }
@@ -200,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.CreateResolverRuleResponse, NewR53RResolverRuleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.CreateOutpostResolverResponse, NewR53ROutpostResolverCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -209,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainName;
+                context.Select = (response, cmdlet) => this.OutpostArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CreatorRequestId = this.CreatorRequestId;
@@ -219,29 +204,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter CreatorRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DomainName = this.DomainName;
+            context.InstanceCount = this.InstanceCount;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            context.ResolverEndpointId = this.ResolverEndpointId;
-            context.RuleType = this.RuleType;
+            context.OutpostArn = this.OutpostArn;
             #if MODULAR
-            if (this.RuleType == null && ParameterWasBound(nameof(this.RuleType)))
+            if (this.OutpostArn == null && ParameterWasBound(nameof(this.OutpostArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter RuleType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OutpostArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PreferredInstanceType = this.PreferredInstanceType;
+            #if MODULAR
+            if (this.PreferredInstanceType == null && ParameterWasBound(nameof(this.PreferredInstanceType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PreferredInstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Route53Resolver.Model.Tag>(this.Tag);
-            }
-            if (this.TargetIp != null)
-            {
-                context.TargetIp = new List<Amazon.Route53Resolver.Model.TargetAddress>(this.TargetIp);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -257,35 +244,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Resolver.Model.CreateResolverRuleRequest();
+            var request = new Amazon.Route53Resolver.Model.CreateOutpostResolverRequest();
             
             if (cmdletContext.CreatorRequestId != null)
             {
                 request.CreatorRequestId = cmdletContext.CreatorRequestId;
             }
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.InstanceCount != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.InstanceCount = cmdletContext.InstanceCount.Value;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ResolverEndpointId != null)
+            if (cmdletContext.OutpostArn != null)
             {
-                request.ResolverEndpointId = cmdletContext.ResolverEndpointId;
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
-            if (cmdletContext.RuleType != null)
+            if (cmdletContext.PreferredInstanceType != null)
             {
-                request.RuleType = cmdletContext.RuleType;
+                request.PreferredInstanceType = cmdletContext.PreferredInstanceType;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
-            }
-            if (cmdletContext.TargetIp != null)
-            {
-                request.TargetIps = cmdletContext.TargetIp;
             }
             
             CmdletOutput output;
@@ -320,15 +303,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Resolver.Model.CreateResolverRuleResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.CreateResolverRuleRequest request)
+        private Amazon.Route53Resolver.Model.CreateOutpostResolverResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.CreateOutpostResolverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "CreateResolverRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "CreateOutpostResolver");
             try
             {
                 #if DESKTOP
-                return client.CreateResolverRule(request);
+                return client.CreateOutpostResolver(request);
                 #elif CORECLR
-                return client.CreateResolverRuleAsync(request).GetAwaiter().GetResult();
+                return client.CreateOutpostResolverAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -349,14 +332,13 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CreatorRequestId { get; set; }
-            public System.String DomainName { get; set; }
+            public System.Int32? InstanceCount { get; set; }
             public System.String Name { get; set; }
-            public System.String ResolverEndpointId { get; set; }
-            public Amazon.Route53Resolver.RuleTypeOption RuleType { get; set; }
+            public System.String OutpostArn { get; set; }
+            public System.String PreferredInstanceType { get; set; }
             public List<Amazon.Route53Resolver.Model.Tag> Tag { get; set; }
-            public List<Amazon.Route53Resolver.Model.TargetAddress> TargetIp { get; set; }
-            public System.Func<Amazon.Route53Resolver.Model.CreateResolverRuleResponse, NewR53RResolverRuleCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResolverRule;
+            public System.Func<Amazon.Route53Resolver.Model.CreateOutpostResolverResponse, NewR53ROutpostResolverCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OutpostResolver;
         }
         
     }

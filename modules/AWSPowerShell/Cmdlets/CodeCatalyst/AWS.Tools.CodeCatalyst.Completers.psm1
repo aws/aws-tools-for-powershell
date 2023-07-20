@@ -164,11 +164,16 @@ $CCAT_SelectMap = @{
     "Select"=@("New-CCATAccessToken",
                "New-CCATDevEnvironment",
                "New-CCATProject",
+               "New-CCATSourceRepository",
                "New-CCATSourceRepositoryBranch",
                "Remove-CCATAccessToken",
                "Remove-CCATDevEnvironment",
+               "Remove-CCATProject",
+               "Remove-CCATSourceRepository",
+               "Remove-CCATSpace",
                "Get-CCATDevEnvironment",
                "Get-CCATProject",
+               "Get-CCATSourceRepository",
                "Get-CCATSourceRepositoryCloneUrl",
                "Get-CCATSpace",
                "Get-CCATSubscription",
@@ -186,6 +191,8 @@ $CCAT_SelectMap = @{
                "Stop-CCATDevEnvironment",
                "Stop-CCATDevEnvironmentSession",
                "Update-CCATDevEnvironment",
+               "Update-CCATProject",
+               "Update-CCATSpace",
                "Confirm-CCATSession")
 }
 

@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the feature group to delete the record from. </para>
+        /// <para>The name or Amazon Resource Name (ARN) of the feature group to delete the record from.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

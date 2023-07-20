@@ -53,6 +53,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter CrossAccountFilterOption
+        /// <summary>
+        /// <para>
+        /// <para> A cross account filter option. When the value is <code>"CrossAccount"</code> the
+        /// search results will only include resources made discoverable to you from other accounts.
+        /// When the value is <code>"SameAccount"</code> or <code>null</code> the search results
+        /// will only include resources from your account. Default is <code>null</code>. For more
+        /// information on searching for resources made discoverable to your account, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-cross-account-discoverability-use.html">
+        /// Search discoverable resources</a> in the SageMaker Developer Guide. The maximum number
+        /// of <code>ResourceCatalog</code>s viewable is 1000. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.CrossAccountFilterOption")]
+        public Amazon.SageMaker.CrossAccountFilterOption CrossAccountFilterOption { get; set; }
+        #endregion
+        
         #region Parameter SearchExpression_Filter
         /// <summary>
         /// <para>
@@ -246,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.Resource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CrossAccountFilterOption = this.CrossAccountFilterOption;
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -307,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request and set iteration invariants
             var request = new Amazon.SageMaker.Model.SearchRequest();
             
+            if (cmdletContext.CrossAccountFilterOption != null)
+            {
+                request.CrossAccountFilterOption = cmdletContext.CrossAccountFilterOption;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -427,6 +449,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             
             // create request and set iteration invariants
             var request = new Amazon.SageMaker.Model.SearchRequest();
+            if (cmdletContext.CrossAccountFilterOption != null)
+            {
+                request.CrossAccountFilterOption = cmdletContext.CrossAccountFilterOption;
+            }
             if (cmdletContext.Resource != null)
             {
                 request.Resource = cmdletContext.Resource;
@@ -611,6 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.CrossAccountFilterOption CrossAccountFilterOption { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.ResourceType Resource { get; set; }

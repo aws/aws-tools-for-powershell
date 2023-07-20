@@ -28,12 +28,18 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Retrieves a list of metadata for individual user utterances to your bot. The <code>startDateTime</code>
-    /// and <code>endDateTime</code> fields are required. These fields define a time range
-    /// for which you want to retrieve results. Of the optional fields, you can organize the
-    /// results in the following ways:
-    /// 
-    ///  <ul><li><para>
+    /// <note><para>
+    /// To use this API operation, your IAM role must have permissions to perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+    /// operation, which provides access to utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing
+    /// utterance statistics</a> for the IAM policy to apply to the IAM role.
+    /// </para></note><para>
+    /// Retrieves a list of metadata for individual user utterances to your bot. The following
+    /// fields are required:
+    /// </para><ul><li><para><code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+    /// which you want to retrieve results.
+    /// </para></li></ul><para>
+    /// Of the optional fields, you can organize the results in the following ways:
+    /// </para><ul><li><para>
     /// Use the <code>filters</code> field to filter the results and the <code>sortBy</code>
     /// field to specify the values by which to sort the results.
     /// </para></li><li><para>
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter SortBy_Name
         /// <summary>
         /// <para>
-        /// <para>The measure by which to sort the utterance analytics data.</para><ul><li><para><code>Count</code> – The number of utterances.</para></li><li><para><code>UtteranceTimeStamp</code> – The date and time of the utterance.</para></li></ul>
+        /// <para>The measure by which to sort the utterance analytics data.</para><ul><li><para><code>Count</code> – The number of utterances.</para></li><li><para><code>UtteranceTimestamp</code> – The date and time of the utterance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

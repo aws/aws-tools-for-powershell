@@ -4180,14 +4180,23 @@ Set-Alias -Name Create-CCATDevEnvironment -Value New-CCATDevEnvironment
 Set-Alias -Name CCAT-CreateDevEnvironment -Value New-CCATDevEnvironment
 Set-Alias -Name Create-CCATProject -Value New-CCATProject
 Set-Alias -Name CCAT-CreateProject -Value New-CCATProject
+Set-Alias -Name Create-CCATSourceRepository -Value New-CCATSourceRepository
+Set-Alias -Name CCAT-CreateSourceRepository -Value New-CCATSourceRepository
 Set-Alias -Name Create-CCATSourceRepositoryBranch -Value New-CCATSourceRepositoryBranch
 Set-Alias -Name CCAT-CreateSourceRepositoryBranch -Value New-CCATSourceRepositoryBranch
 Set-Alias -Name Delete-CCATAccessToken -Value Remove-CCATAccessToken
 Set-Alias -Name CCAT-DeleteAccessToken -Value Remove-CCATAccessToken
 Set-Alias -Name Delete-CCATDevEnvironment -Value Remove-CCATDevEnvironment
 Set-Alias -Name CCAT-DeleteDevEnvironment -Value Remove-CCATDevEnvironment
+Set-Alias -Name Delete-CCATProject -Value Remove-CCATProject
+Set-Alias -Name CCAT-DeleteProject -Value Remove-CCATProject
+Set-Alias -Name Delete-CCATSourceRepository -Value Remove-CCATSourceRepository
+Set-Alias -Name CCAT-DeleteSourceRepository -Value Remove-CCATSourceRepository
+Set-Alias -Name Delete-CCATSpace -Value Remove-CCATSpace
+Set-Alias -Name CCAT-DeleteSpace -Value Remove-CCATSpace
 Set-Alias -Name CCAT-GetDevEnvironment -Value Get-CCATDevEnvironment
 Set-Alias -Name CCAT-GetProject -Value Get-CCATProject
+Set-Alias -Name CCAT-GetSourceRepository -Value Get-CCATSourceRepository
 Set-Alias -Name Get-CCATSourceRepositoryCloneUrls -Value Get-CCATSourceRepositoryCloneUrl
 Set-Alias -Name CCAT-GetSourceRepositoryCloneUrls -Value Get-CCATSourceRepositoryCloneUrl
 Set-Alias -Name CCAT-GetSpace -Value Get-CCATSpace
@@ -4223,6 +4232,8 @@ Set-Alias -Name CCAT-StartDevEnvironmentSession -Value Start-CCATDevEnvironmentS
 Set-Alias -Name CCAT-StopDevEnvironment -Value Stop-CCATDevEnvironment
 Set-Alias -Name CCAT-StopDevEnvironmentSession -Value Stop-CCATDevEnvironmentSession
 Set-Alias -Name CCAT-UpdateDevEnvironment -Value Update-CCATDevEnvironment
+Set-Alias -Name CCAT-UpdateProject -Value Update-CCATProject
+Set-Alias -Name CCAT-UpdateSpace -Value Update-CCATSpace
 Set-Alias -Name Verify-CCATSession -Value Confirm-CCATSession
 Set-Alias -Name CCAT-VerifySession -Value Confirm-CCATSession
 Set-Alias -Name Associate-CCApprovalRuleTemplateWithRepository -Value Add-CCApprovalRuleTemplateToRepository
@@ -21490,6 +21501,8 @@ Set-Alias -Name Create-R53RFirewallRule -Value New-R53RFirewallRule
 Set-Alias -Name R53R-CreateFirewallRule -Value New-R53RFirewallRule
 Set-Alias -Name Create-R53RFirewallRuleGroup -Value New-R53RFirewallRuleGroup
 Set-Alias -Name R53R-CreateFirewallRuleGroup -Value New-R53RFirewallRuleGroup
+Set-Alias -Name Create-R53ROutpostResolver -Value New-R53ROutpostResolver
+Set-Alias -Name R53R-CreateOutpostResolver -Value New-R53ROutpostResolver
 Set-Alias -Name Create-R53RResolverEndpoint -Value New-R53RResolverEndpoint
 Set-Alias -Name R53R-CreateResolverEndpoint -Value New-R53RResolverEndpoint
 Set-Alias -Name Create-R53RResolverQueryLogConfig -Value New-R53RResolverQueryLogConfig
@@ -21502,6 +21515,8 @@ Set-Alias -Name Delete-R53RFirewallRule -Value Remove-R53RFirewallRule
 Set-Alias -Name R53R-DeleteFirewallRule -Value Remove-R53RFirewallRule
 Set-Alias -Name Delete-R53RFirewallRuleGroup -Value Remove-R53RFirewallRuleGroup
 Set-Alias -Name R53R-DeleteFirewallRuleGroup -Value Remove-R53RFirewallRuleGroup
+Set-Alias -Name Delete-R53ROutpostResolver -Value Remove-R53ROutpostResolver
+Set-Alias -Name R53R-DeleteOutpostResolver -Value Remove-R53ROutpostResolver
 Set-Alias -Name Delete-R53RResolverEndpoint -Value Remove-R53RResolverEndpoint
 Set-Alias -Name R53R-DeleteResolverEndpoint -Value Remove-R53RResolverEndpoint
 Set-Alias -Name Delete-R53RResolverQueryLogConfig -Value Remove-R53RResolverQueryLogConfig
@@ -21525,6 +21540,7 @@ Set-Alias -Name R53R-GetFirewallDomainList -Value Get-R53RFirewallDomainList
 Set-Alias -Name R53R-GetFirewallRuleGroupAssociation -Value Get-R53RFirewallRuleGroupAssociation
 Set-Alias -Name R53R-GetFirewallRuleGroup -Value Get-R53RFirewallRuleGroup
 Set-Alias -Name R53R-GetFirewallRuleGroupPolicy -Value Get-R53RFirewallRuleGroupPolicy
+Set-Alias -Name R53R-GetOutpostResolver -Value Get-R53ROutpostResolver
 Set-Alias -Name R53R-GetResolverConfig -Value Get-R53RResolverConfig
 Set-Alias -Name R53R-GetResolverDnssecConfig -Value Get-R53RResolverDnssecConfig
 Set-Alias -Name R53R-GetResolverEndpoint -Value Get-R53RResolverEndpoint
@@ -21554,6 +21570,9 @@ Set-Alias -Name R53R-ListFirewallRuleGroups -Value Get-R53RFirewallRuleGroupList
 Set-Alias -Name List-R53RFirewallRules -Value Get-R53RFirewallRuleList
 Set-Alias -Name List-R53RFirewallRuleList -Value Get-R53RFirewallRuleList
 Set-Alias -Name R53R-ListFirewallRules -Value Get-R53RFirewallRuleList
+Set-Alias -Name List-R53ROutpostResolvers -Value Get-R53ROutpostResolverList
+Set-Alias -Name List-R53ROutpostResolverList -Value Get-R53ROutpostResolverList
+Set-Alias -Name R53R-ListOutpostResolvers -Value Get-R53ROutpostResolverList
 Set-Alias -Name List-R53RResolverConfigs -Value Get-R53RResolverConfigList
 Set-Alias -Name List-R53RResolverConfigList -Value Get-R53RResolverConfigList
 Set-Alias -Name R53R-ListResolverConfigs -Value Get-R53RResolverConfigList
@@ -21597,6 +21616,7 @@ Set-Alias -Name Update-R53RFirewallRule -Value Edit-R53RFirewallRule
 Set-Alias -Name R53R-UpdateFirewallRule -Value Edit-R53RFirewallRule
 Set-Alias -Name Update-R53RFirewallRuleGroupAssociation -Value Edit-R53RFirewallRuleGroupAssociation
 Set-Alias -Name R53R-UpdateFirewallRuleGroupAssociation -Value Edit-R53RFirewallRuleGroupAssociation
+Set-Alias -Name R53R-UpdateOutpostResolver -Value Update-R53ROutpostResolver
 Set-Alias -Name R53R-UpdateResolverConfig -Value Update-R53RResolverConfig
 Set-Alias -Name R53R-UpdateResolverDnssecConfig -Value Update-R53RResolverDnssecConfig
 Set-Alias -Name R53R-UpdateResolverEndpoint -Value Update-R53RResolverEndpoint
@@ -22426,6 +22446,9 @@ Set-Alias -Name SM-ListProcessingJobs -Value Get-SMProcessingJobList
 Set-Alias -Name List-SMProjects -Value Get-SMProjectList
 Set-Alias -Name List-SMProjectList -Value Get-SMProjectList
 Set-Alias -Name SM-ListProjects -Value Get-SMProjectList
+Set-Alias -Name List-SMResourceCatalogs -Value Get-SMResourceCatalogList
+Set-Alias -Name List-SMResourceCatalogList -Value Get-SMResourceCatalogList
+Set-Alias -Name SM-ListResourceCatalogs -Value Get-SMResourceCatalogList
 Set-Alias -Name List-SMSpaces -Value Get-SMSpaceList
 Set-Alias -Name List-SMSpaceList -Value Get-SMSpaceList
 Set-Alias -Name SM-ListSpaces -Value Get-SMSpaceList
@@ -22906,7 +22929,10 @@ Set-Alias -Name SLK-ListLogSources -Value Get-SLKLogSourceList
 Set-Alias -Name List-SLKSubscribers -Value Get-SLKSubscriberList
 Set-Alias -Name List-SLKSubscriberList -Value Get-SLKSubscriberList
 Set-Alias -Name SLK-ListSubscribers -Value Get-SLKSubscriberList
+Set-Alias -Name SLK-ListTagsForResource -Value Get-SLKResourceTag
 Set-Alias -Name SLK-RegisterDataLakeDelegatedAdministrator -Value Register-SLKDataLakeDelegatedAdministrator
+Set-Alias -Name SLK-TagResource -Value Add-SLKResourceTag
+Set-Alias -Name SLK-UntagResource -Value Remove-SLKResourceTag
 Set-Alias -Name SLK-UpdateDataLake -Value Update-SLKDataLake
 Set-Alias -Name SLK-UpdateDataLakeExceptionSubscription -Value Update-SLKDataLakeExceptionSubscription
 Set-Alias -Name SLK-UpdateSubscriber -Value Update-SLKSubscriber

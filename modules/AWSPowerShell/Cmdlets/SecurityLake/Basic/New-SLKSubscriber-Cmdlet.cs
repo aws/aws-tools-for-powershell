@@ -132,6 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         public System.String SubscriberName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, one for each tag to associate with the subscriber. For each tag,
+        /// you must specify both a tag key and a tag value. A tag value cannot be null, but it
+        /// can be an empty string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SecurityLake.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -230,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
                 WriteWarning("You are passing $null as a value for parameter SubscriberName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SecurityLake.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -290,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             if (cmdletContext.SubscriberName != null)
             {
                 request.SubscriberName = cmdletContext.SubscriberName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -358,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             public System.String SubscriberIdentity_ExternalId { get; set; }
             public System.String SubscriberIdentity_Principal { get; set; }
             public System.String SubscriberName { get; set; }
+            public List<Amazon.SecurityLake.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SecurityLake.Model.CreateSubscriberResponse, NewSLKSubscriberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -28,42 +28,90 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Use this operation to describe a <code>FeatureGroup</code>. The response includes
-    /// information on the creation time, <code>FeatureGroup</code> name, the unique identifier
-    /// for each <code>FeatureGroup</code>, and more.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number
+    /// of <code>ResourceCatalog</code>s viewable is 1000.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SMFeatureGroup")]
-    [OutputType("Amazon.SageMaker.Model.DescribeFeatureGroupResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeFeatureGroup API operation.", Operation = new[] {"DescribeFeatureGroup"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeFeatureGroupResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeFeatureGroupResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeFeatureGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMResourceCatalogList")]
+    [OutputType("Amazon.SageMaker.Model.ResourceCatalog")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service ListResourceCatalogs API operation.", Operation = new[] {"ListResourceCatalogs"}, SelectReturnType = typeof(Amazon.SageMaker.Model.ListResourceCatalogsResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.ResourceCatalog or Amazon.SageMaker.Model.ListResourceCatalogsResponse",
+        "This cmdlet returns a collection of Amazon.SageMaker.Model.ResourceCatalog objects.",
+        "The service call response (type Amazon.SageMaker.Model.ListResourceCatalogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMFeatureGroupCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetSMResourceCatalogListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter FeatureGroupName
+        #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described.
-        /// </para>
+        /// <para> Use this parameter to search for <code>ResourceCatalog</code>s created after a specific
+        /// date and time. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? CreationTimeAfter { get; set; }
+        #endregion
+        
+        #region Parameter CreationTimeBefore
+        /// <summary>
+        /// <para>
+        /// <para> Use this parameter to search for <code>ResourceCatalog</code>s created before a specific
+        /// date and time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? CreationTimeBefore { get; set; }
+        #endregion
+        
+        #region Parameter NameContain
+        /// <summary>
+        /// <para>
+        /// <para> A string that partially matches one or more <code>ResourceCatalog</code>s names.
+        /// Filters <code>ResourceCatalog</code> by name. </para>
+        /// </para>
+        /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FeatureGroupName { get; set; }
+        [Alias("NameContains")]
+        public System.String NameContain { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para> The value on which the resource catalog list is sorted. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ResourceCatalogSortBy")]
+        public Amazon.SageMaker.ResourceCatalogSortBy SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para> The order in which the resource catalogs are listed. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ResourceCatalogSortOrder")]
+        public Amazon.SageMaker.ResourceCatalogSortOrder SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of results returned by <code>ListResourceCatalogs</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>).
-        /// 2,500 <code>Features</code> are returned by default.</para>
+        /// <para> A token to resume pagination of <code>ListResourceCatalogs</code> results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -76,21 +124,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeFeatureGroupResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeFeatureGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceCatalogs'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.ListResourceCatalogsResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.ListResourceCatalogsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ResourceCatalogs";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FeatureGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FeatureGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the NameContain parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NameContain' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FeatureGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NameContain' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeFeatureGroupResponse, GetSMFeatureGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.ListResourceCatalogsResponse, GetSMResourceCatalogListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,17 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FeatureGroupName;
+                context.Select = (response, cmdlet) => this.NameContain;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FeatureGroupName = this.FeatureGroupName;
-            #if MODULAR
-            if (this.FeatureGroupName == null && ParameterWasBound(nameof(this.FeatureGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FeatureGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.CreationTimeAfter = this.CreationTimeAfter;
+            context.CreationTimeBefore = this.CreationTimeBefore;
+            context.MaxResult = this.MaxResult;
+            context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,11 +203,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.SageMaker.Model.DescribeFeatureGroupRequest();
+            var request = new Amazon.SageMaker.Model.ListResourceCatalogsRequest();
             
-            if (cmdletContext.FeatureGroupName != null)
+            if (cmdletContext.CreationTimeAfter != null)
             {
-                request.FeatureGroupName = cmdletContext.FeatureGroupName;
+                request.CreationTimeAfter = cmdletContext.CreationTimeAfter.Value;
+            }
+            if (cmdletContext.CreationTimeBefore != null)
+            {
+                request.CreationTimeBefore = cmdletContext.CreationTimeBefore.Value;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NameContain != null)
+            {
+                request.NameContains = cmdletContext.NameContain;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
             }
             
             // Initialize loop variant and commence piping
@@ -219,15 +286,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeFeatureGroupResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeFeatureGroupRequest request)
+        private Amazon.SageMaker.Model.ListResourceCatalogsResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListResourceCatalogsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeFeatureGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListResourceCatalogs");
             try
             {
                 #if DESKTOP
-                return client.DescribeFeatureGroup(request);
+                return client.ListResourceCatalogs(request);
                 #elif CORECLR
-                return client.DescribeFeatureGroupAsync(request).GetAwaiter().GetResult();
+                return client.ListResourceCatalogsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +314,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FeatureGroupName { get; set; }
+            public System.DateTime? CreationTimeAfter { get; set; }
+            public System.DateTime? CreationTimeBefore { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeFeatureGroupResponse, GetSMFeatureGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.SageMaker.ResourceCatalogSortBy SortBy { get; set; }
+            public Amazon.SageMaker.ResourceCatalogSortOrder SortOrder { get; set; }
+            public System.Func<Amazon.SageMaker.Model.ListResourceCatalogsResponse, GetSMResourceCatalogListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourceCatalogs;
         }
         
     }

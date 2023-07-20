@@ -28,10 +28,14 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
+    /// <note><para>
+    /// To use this API operation, your IAM role must have permissions to perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+    /// operation, which provides access to utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing
+    /// utterance statistics</a> for the IAM policy to apply to the IAM role.
+    /// </para></note><para>
     /// Retrieves summary metrics for the utterances in your bot. The following fields are
     /// required:
-    /// 
-    ///  <ul><li><para><code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html">AnalyticsUtteranceMetric</a>
+    /// </para><ul><li><para><code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html">AnalyticsUtteranceMetric</a>
     /// objects. In each object, use the <code>name</code> field to specify the metric to
     /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
     /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field

@@ -22,40 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Resolver;
-using Amazon.Route53Resolver.Model;
+using Amazon.CodeCatalyst;
+using Amazon.CodeCatalyst.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53R
+namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
-    /// Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
-    /// You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated
-    /// to other type.
+    /// Creates an empty Git-based source repository in a specified project. The repository
+    /// is created with an initial empty commit with a default branch named <code>main</code>.
     /// </summary>
-    [Cmdlet("Update", "R53RResolverEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53Resolver.Model.ResolverEndpoint")]
-    [AWSCmdlet("Calls the Amazon Route 53 Resolver UpdateResolverEndpoint API operation.", Operation = new[] {"UpdateResolverEndpoint"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse))]
-    [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverEndpoint or Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse",
-        "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverEndpoint object.",
-        "The service call response (type Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "CCATSourceRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse")]
+    [AWSCmdlet("Calls the AWS CodeCatalyst CreateSourceRepository API operation.", Operation = new[] {"CreateSourceRepository"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse))]
+    [AWSCmdletOutput("Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse",
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateR53RResolverEndpointCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
+    public partial class NewCCATSourceRepositoryCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>The description of the source repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Resolver endpoint that you want to update.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ResolverEndpointId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the Resolver endpoint that you want to update.</para>
+        /// <para>The name of the source repository. For more information about name requirements, see
+        /// <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html">Quotas
+        /// for source repositories</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,51 +66,60 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResolverEndpointId { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ResolverEndpointType
+        #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para> Specifies the endpoint type for what type of IP address the endpoint uses to forward
-        /// DNS queries. </para><para>Updating to <code>IPV6</code> type isn't currently supported.</para>
+        /// <para>The name of the project in the space.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Route53Resolver.ResolverEndpointType")]
-        public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProjectName { get; set; }
         #endregion
         
-        #region Parameter UpdateIpAddress
+        #region Parameter SpaceName
         /// <summary>
         /// <para>
-        /// <para> Specifies the IPv6 address when you update the Resolver endpoint from IPv4 to dual-stack.
-        /// If you don't specify an IPv6 address, one will be automatically chosen from your subnet.
-        /// </para>
+        /// <para>The name of the space.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("UpdateIpAddresses")]
-        public Amazon.Route53Resolver.Model.UpdateIpAddress[] UpdateIpAddress { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SpaceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResolverEndpoint'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse).
-        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse).
+        /// Specifying the name of a property of type Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResolverEndpoint";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResolverEndpointId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResolverEndpointId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResolverEndpointId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,11 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
+            this._ExecuteWithAnonymousCredentials = true;
+            this._AWSSignerType = "bearer";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResolverEndpointId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-R53RResolverEndpoint (UpdateResolverEndpoint)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCATSourceRepository (CreateSourceRepository)"))
             {
                 return;
             }
@@ -144,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse, UpdateR53RResolverEndpointCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse, NewCCATSourceRepositoryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,22 +163,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResolverEndpointId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Description = this.Description;
             context.Name = this.Name;
-            context.ResolverEndpointId = this.ResolverEndpointId;
             #if MODULAR
-            if (this.ResolverEndpointId == null && ParameterWasBound(nameof(this.ResolverEndpointId)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResolverEndpointId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResolverEndpointType = this.ResolverEndpointType;
-            if (this.UpdateIpAddress != null)
+            context.ProjectName = this.ProjectName;
+            #if MODULAR
+            if (this.ProjectName == null && ParameterWasBound(nameof(this.ProjectName)))
             {
-                context.UpdateIpAddress = new List<Amazon.Route53Resolver.Model.UpdateIpAddress>(this.UpdateIpAddress);
+                WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.SpaceName = this.SpaceName;
+            #if MODULAR
+            if (this.SpaceName == null && ParameterWasBound(nameof(this.SpaceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SpaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,23 +202,23 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Resolver.Model.UpdateResolverEndpointRequest();
+            var request = new Amazon.CodeCatalyst.Model.CreateSourceRepositoryRequest();
             
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ResolverEndpointId != null)
+            if (cmdletContext.ProjectName != null)
             {
-                request.ResolverEndpointId = cmdletContext.ResolverEndpointId;
+                request.ProjectName = cmdletContext.ProjectName;
             }
-            if (cmdletContext.ResolverEndpointType != null)
+            if (cmdletContext.SpaceName != null)
             {
-                request.ResolverEndpointType = cmdletContext.ResolverEndpointType;
-            }
-            if (cmdletContext.UpdateIpAddress != null)
-            {
-                request.UpdateIpAddresses = cmdletContext.UpdateIpAddress;
+                request.SpaceName = cmdletContext.SpaceName;
             }
             
             CmdletOutput output;
@@ -234,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.UpdateResolverEndpointRequest request)
+        private Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse CallAWSServiceOperation(IAmazonCodeCatalyst client, Amazon.CodeCatalyst.Model.CreateSourceRepositoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "UpdateResolverEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCatalyst", "CreateSourceRepository");
             try
             {
                 #if DESKTOP
-                return client.UpdateResolverEndpoint(request);
+                return client.CreateSourceRepository(request);
                 #elif CORECLR
-                return client.UpdateResolverEndpointAsync(request).GetAwaiter().GetResult();
+                return client.CreateSourceRepositoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -262,12 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Description { get; set; }
             public System.String Name { get; set; }
-            public System.String ResolverEndpointId { get; set; }
-            public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
-            public List<Amazon.Route53Resolver.Model.UpdateIpAddress> UpdateIpAddress { get; set; }
-            public System.Func<Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse, UpdateR53RResolverEndpointCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResolverEndpoint;
+            public System.String ProjectName { get; set; }
+            public System.String SpaceName { get; set; }
+            public System.Func<Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse, NewCCATSourceRepositoryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

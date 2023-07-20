@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         /// <para>
         /// <para>Information about the integrated development environment (IDE) configured for a Dev
         /// Environment.</para><note><para>An IDE is required to create a Dev Environment. For Dev Environment creation, this
-        /// field contains configuration information and must be provided.</para></note>
+        /// field contains configuration information and must be provided. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

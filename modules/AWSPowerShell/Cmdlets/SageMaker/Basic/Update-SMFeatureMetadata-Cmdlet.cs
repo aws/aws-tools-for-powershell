@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the feature group containing the feature that you're updating.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the feature group containing the feature
+        /// that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

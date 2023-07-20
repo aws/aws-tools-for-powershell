@@ -22,48 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.Route53Resolver;
+using Amazon.Route53Resolver.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Use this operation to describe a <code>FeatureGroup</code>. The response includes
-    /// information on the creation time, <code>FeatureGroup</code> name, the unique identifier
-    /// for each <code>FeatureGroup</code>, and more.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the Resolvers on Outposts that were created using the current Amazon Web
+    /// Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SMFeatureGroup")]
-    [OutputType("Amazon.SageMaker.Model.DescribeFeatureGroupResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeFeatureGroup API operation.", Operation = new[] {"DescribeFeatureGroup"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeFeatureGroupResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeFeatureGroupResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeFeatureGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "R53ROutpostResolverList")]
+    [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]
+    [AWSCmdlet("Calls the Amazon Route 53 Resolver ListOutpostResolvers API operation.", Operation = new[] {"ListOutpostResolvers"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.ListOutpostResolversResponse))]
+    [AWSCmdletOutput("Amazon.Route53Resolver.Model.OutpostResolver or Amazon.Route53Resolver.Model.ListOutpostResolversResponse",
+        "This cmdlet returns a collection of Amazon.Route53Resolver.Model.OutpostResolver objects.",
+        "The service call response (type Amazon.Route53Resolver.Model.ListOutpostResolversResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMFeatureGroupCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetR53ROutpostResolverListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
-        #region Parameter FeatureGroupName
+        #region Parameter OutpostArn
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described.
-        /// </para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FeatureGroupName { get; set; }
+        public System.String OutpostArn { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of Resolvers on the Outpost that you want to return in the response
+        /// to a <code>ListOutpostResolver</code> request. If you don't specify a value for <code>MaxResults</code>,
+        /// the request returns up to 100 Resolvers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>).
-        /// 2,500 <code>Features</code> are returned by default.</para>
+        /// <para>For the first <code>ListOutpostResolver</code> request, omit this value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -76,21 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeFeatureGroupResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeFeatureGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OutpostResolvers'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.ListOutpostResolversResponse).
+        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.ListOutpostResolversResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "OutpostResolvers";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FeatureGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FeatureGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OutpostArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OutpostArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FeatureGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OutpostArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeFeatureGroupResponse, GetSMFeatureGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.ListOutpostResolversResponse, GetR53ROutpostResolverListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,17 +131,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FeatureGroupName;
+                context.Select = (response, cmdlet) => this.OutpostArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FeatureGroupName = this.FeatureGroupName;
-            #if MODULAR
-            if (this.FeatureGroupName == null && ParameterWasBound(nameof(this.FeatureGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FeatureGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OutpostArn = this.OutpostArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,11 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.SageMaker.Model.DescribeFeatureGroupRequest();
+            var request = new Amazon.Route53Resolver.Model.ListOutpostResolversRequest();
             
-            if (cmdletContext.FeatureGroupName != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.FeatureGroupName = cmdletContext.FeatureGroupName;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             
             // Initialize loop variant and commence piping
@@ -219,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeFeatureGroupResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeFeatureGroupRequest request)
+        private Amazon.Route53Resolver.Model.ListOutpostResolversResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.ListOutpostResolversRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeFeatureGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "ListOutpostResolvers");
             try
             {
                 #if DESKTOP
-                return client.DescribeFeatureGroup(request);
+                return client.ListOutpostResolvers(request);
                 #elif CORECLR
-                return client.DescribeFeatureGroupAsync(request).GetAwaiter().GetResult();
+                return client.ListOutpostResolversAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +250,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FeatureGroupName { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeFeatureGroupResponse, GetSMFeatureGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String OutpostArn { get; set; }
+            public System.Func<Amazon.Route53Resolver.Model.ListOutpostResolversResponse, GetR53ROutpostResolverListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OutpostResolvers;
         }
         
     }

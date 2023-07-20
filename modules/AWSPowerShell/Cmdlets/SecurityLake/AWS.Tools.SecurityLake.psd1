@@ -86,12 +86,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-SLKResourceTag', 
         'Get-SLKDataLakeExceptionList', 
         'Get-SLKDataLakeExceptionSubscription', 
         'Get-SLKDataLakeList', 
         'Get-SLKDataLakeOrganizationConfiguration', 
         'Get-SLKDataLakeSource', 
         'Get-SLKLogSourceList', 
+        'Get-SLKResourceTag', 
         'Get-SLKSubscriber', 
         'Get-SLKSubscriberList', 
         'New-SLKAwsLogSource', 
@@ -108,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SLKDataLakeDelegatedAdministrator', 
         'Remove-SLKDataLakeExceptionSubscription', 
         'Remove-SLKDataLakeOrganizationConfiguration', 
+        'Remove-SLKResourceTag', 
         'Remove-SLKSubscriber', 
         'Remove-SLKSubscriberNotification', 
         'Update-SLKDataLake', 

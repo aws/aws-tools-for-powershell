@@ -28,24 +28,23 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Specifies an Amazon Web Services account that you want to share a query logging configuration
-    /// with, the query logging configuration that you want to share, and the operations that
-    /// you want the account to be able to perform on the configuration.
+    /// You can use <code>UpdateOutpostResolver</code> to update the instance count, type,
+    /// or name of a Resolver on an Outpost.
     /// </summary>
-    [Cmdlet("Write", "R53RResolverQueryLogConfigPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Route 53 Resolver PutResolverQueryLogConfigPolicy API operation.", Operation = new[] {"PutResolverQueryLogConfigPolicy"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]
+    [AWSCmdlet("Calls the Amazon Route 53 Resolver UpdateOutpostResolver API operation.", Operation = new[] {"UpdateOutpostResolver"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse))]
+    [AWSCmdletOutput("Amazon.Route53Resolver.Model.OutpostResolver or Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse",
+        "This cmdlet returns an Amazon.Route53Resolver.Model.OutpostResolver object.",
+        "The service call response (type Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteR53RResolverQueryLogConfigPolicyCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
+    public partial class UpdateR53ROutpostResolverCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
-        #region Parameter Arn
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the account that you want to share rules with.</para>
+        /// <para>A unique string that identifies Resolver on an Outpost.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,48 +55,56 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Arn { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter ResolverQueryLogConfigPolicy
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>An Identity and Access Management policy statement that lists the query logging configurations
-        /// that you want to share with another Amazon Web Services account and the operations
-        /// that you want the account to be able to perform. You can specify the following operations
-        /// in the <code>Actions</code> section of the statement:</para><ul><li><para><code>route53resolver:AssociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:DisassociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:ListResolverQueryLogConfigs</code></para></li></ul><para>In the <code>Resource</code> section of the statement, you specify the ARNs for the
-        /// query logging configurations that you want to share with the account that you specified
-        /// in <code>Arn</code>. </para>
+        /// <para>The Amazon EC2 instance count for a Resolver on the Outpost.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResolverQueryLogConfigPolicy { get; set; }
+        public System.Int32? InstanceCount { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Name of the Resolver on the Outpost.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PreferredInstanceType
+        /// <summary>
+        /// <para>
+        /// <para> Amazon EC2 instance type. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreferredInstanceType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReturnValue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse).
-        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OutpostResolver'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse).
+        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReturnValue";
+        public string Select { get; set; } = "OutpostResolver";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-R53RResolverQueryLogConfigPolicy (PutResolverQueryLogConfigPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-R53ROutpostResolver (UpdateOutpostResolver)"))
             {
                 return;
             }
@@ -131,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse, WriteR53RResolverQueryLogConfigPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse, UpdateR53ROutpostResolverCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,23 +147,19 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Arn;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Arn = this.Arn;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResolverQueryLogConfigPolicy = this.ResolverQueryLogConfigPolicy;
-            #if MODULAR
-            if (this.ResolverQueryLogConfigPolicy == null && ParameterWasBound(nameof(this.ResolverQueryLogConfigPolicy)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResolverQueryLogConfigPolicy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.InstanceCount = this.InstanceCount;
+            context.Name = this.Name;
+            context.PreferredInstanceType = this.PreferredInstanceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,15 +174,23 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyRequest();
+            var request = new Amazon.Route53Resolver.Model.UpdateOutpostResolverRequest();
             
-            if (cmdletContext.Arn != null)
+            if (cmdletContext.Id != null)
             {
-                request.Arn = cmdletContext.Arn;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.ResolverQueryLogConfigPolicy != null)
+            if (cmdletContext.InstanceCount != null)
             {
-                request.ResolverQueryLogConfigPolicy = cmdletContext.ResolverQueryLogConfigPolicy;
+                request.InstanceCount = cmdletContext.InstanceCount.Value;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PreferredInstanceType != null)
+            {
+                request.PreferredInstanceType = cmdletContext.PreferredInstanceType;
             }
             
             CmdletOutput output;
@@ -214,15 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyRequest request)
+        private Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.UpdateOutpostResolverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "PutResolverQueryLogConfigPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "UpdateOutpostResolver");
             try
             {
                 #if DESKTOP
-                return client.PutResolverQueryLogConfigPolicy(request);
+                return client.UpdateOutpostResolver(request);
                 #elif CORECLR
-                return client.PutResolverQueryLogConfigPolicyAsync(request).GetAwaiter().GetResult();
+                return client.UpdateOutpostResolverAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +253,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Arn { get; set; }
-            public System.String ResolverQueryLogConfigPolicy { get; set; }
-            public System.Func<Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse, WriteR53RResolverQueryLogConfigPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReturnValue;
+            public System.String Id { get; set; }
+            public System.Int32? InstanceCount { get; set; }
+            public System.String Name { get; set; }
+            public System.String PreferredInstanceType { get; set; }
+            public System.Func<Amazon.Route53Resolver.Model.UpdateOutpostResolverResponse, UpdateR53ROutpostResolverCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OutpostResolver;
         }
         
     }

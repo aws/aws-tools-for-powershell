@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-        /// <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it
-        /// is not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
-        /// null.</para>
+        /// <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
+        /// null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the feature group from which you want to retrieve a record.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the feature group from which you want to
+        /// retrieve a record.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

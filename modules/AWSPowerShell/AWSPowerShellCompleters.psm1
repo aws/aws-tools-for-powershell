@@ -10902,11 +10902,16 @@ $CCAT_SelectMap = @{
     "Select"=@("New-CCATAccessToken",
                "New-CCATDevEnvironment",
                "New-CCATProject",
+               "New-CCATSourceRepository",
                "New-CCATSourceRepositoryBranch",
                "Remove-CCATAccessToken",
                "Remove-CCATDevEnvironment",
+               "Remove-CCATProject",
+               "Remove-CCATSourceRepository",
+               "Remove-CCATSpace",
                "Get-CCATDevEnvironment",
                "Get-CCATProject",
+               "Get-CCATSourceRepository",
                "Get-CCATSourceRepositoryCloneUrl",
                "Get-CCATSpace",
                "Get-CCATSubscription",
@@ -10924,6 +10929,8 @@ $CCAT_SelectMap = @{
                "Stop-CCATDevEnvironment",
                "Stop-CCATDevEnvironmentSession",
                "Update-CCATDevEnvironment",
+               "Update-CCATProject",
+               "Update-CCATSpace",
                "Confirm-CCATSession")
 }
 
@@ -49965,12 +49972,14 @@ $R53R_SelectMap = @{
                "New-R53RFirewallDomainList",
                "New-R53RFirewallRule",
                "New-R53RFirewallRuleGroup",
+               "New-R53ROutpostResolver",
                "New-R53RResolverEndpoint",
                "New-R53RResolverQueryLogConfig",
                "New-R53RResolverRule",
                "Remove-R53RFirewallDomainList",
                "Remove-R53RFirewallRule",
                "Remove-R53RFirewallRuleGroup",
+               "Remove-R53ROutpostResolver",
                "Remove-R53RResolverEndpoint",
                "Remove-R53RResolverQueryLogConfig",
                "Remove-R53RResolverRule",
@@ -49983,6 +49992,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallRuleGroup",
                "Get-R53RFirewallRuleGroupAssociation",
                "Get-R53RFirewallRuleGroupPolicy",
+               "Get-R53ROutpostResolver",
                "Get-R53RResolverConfig",
                "Get-R53RResolverDnssecConfig",
                "Get-R53RResolverEndpoint",
@@ -49999,6 +50009,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallRuleGroupAssociationList",
                "Get-R53RFirewallRuleGroupList",
                "Get-R53RFirewallRuleList",
+               "Get-R53ROutpostResolverList",
                "Get-R53RResolverConfigList",
                "Get-R53RResolverDnssecConfigList",
                "Get-R53RResolverEndpointIpAddressList",
@@ -50017,6 +50028,7 @@ $R53R_SelectMap = @{
                "Edit-R53RFirewallDomain",
                "Edit-R53RFirewallRule",
                "Edit-R53RFirewallRuleGroupAssociation",
+               "Update-R53ROutpostResolver",
                "Update-R53RResolverConfig",
                "Update-R53RResolverDnssecConfig",
                "Update-R53RResolverEndpoint",
@@ -51507,6 +51519,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.CrossAccountFilterOption
+        "Search-SMResource/CrossAccountFilterOption"
+        {
+            $v = "CrossAccount","SameAccount"
+            break
+        }
+
         # Amazon.SageMaker.DirectInternetAccess
         "New-SMNotebookInstance/DirectInternetAccess"
         {
@@ -52152,6 +52171,20 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ResourceCatalogSortBy
+        "Get-SMResourceCatalogList/SortBy"
+        {
+            $v = "CreationTime"
+            break
+        }
+
+        # Amazon.SageMaker.ResourceCatalogSortOrder
+        "Get-SMResourceCatalogList/SortOrder"
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
         # Amazon.SageMaker.ResourceType
         {
             ($_ -eq "Get-SMSearchSuggestion/Resource") -Or
@@ -52543,6 +52576,7 @@ $SM_map = @{
     "AutoMLProblemTypeConfig_TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
     "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
+    "CrossAccountFilterOption"=@("Search-SMResource")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DataQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
     "DataQualityJobInput_BatchTransformInput_S3InputMode"=@("New-SMDataQualityJobDefinition")
@@ -52611,8 +52645,8 @@ $SM_map = @{
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "SearchExpression_Operator"=@("Search-SMResource")
-    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "Status"=@("Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
@@ -52914,6 +52948,7 @@ $SM_SelectMap = @{
                "Get-SMPipelineList",
                "Get-SMProcessingJobList",
                "Get-SMProjectList",
+               "Get-SMResourceCatalogList",
                "Get-SMSpaceList",
                "Get-SMStageDeviceList",
                "Get-SMStudioLifecycleConfigList",
@@ -54243,7 +54278,10 @@ $SLK_SelectMap = @{
                "Get-SLKDataLakeList",
                "Get-SLKLogSourceList",
                "Get-SLKSubscriberList",
+               "Get-SLKResourceTag",
                "Register-SLKDataLakeDelegatedAdministrator",
+               "Add-SLKResourceTag",
+               "Remove-SLKResourceTag",
                "Update-SLKDataLake",
                "Update-SLKDataLakeExceptionSubscription",
                "Update-SLKSubscriber",

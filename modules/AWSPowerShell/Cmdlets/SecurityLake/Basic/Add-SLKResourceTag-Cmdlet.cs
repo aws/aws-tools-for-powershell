@@ -22,30 +22,38 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Resolver;
-using Amazon.Route53Resolver.Model;
+using Amazon.SecurityLake;
+using Amazon.SecurityLake.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53R
+namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Specifies an Amazon Web Services account that you want to share a query logging configuration
-    /// with, the query logging configuration that you want to share, and the operations that
-    /// you want the account to be able to perform on the configuration.
+    /// Adds or updates one or more tags that are associated with an Amazon Security Lake
+    /// resource: a subscriber, or the data lake configuration for your Amazon Web Services
+    /// account in a particular Amazon Web Services Region. A <i>tag</i> is a label that you
+    /// can define and associate with Amazon Web Services resources. Each tag consists of
+    /// a required <i>tag key</i> and an associated <i>tag value</i>. A <i>tag key</i> is
+    /// a general label that acts as a category for a more specific tag value. A <i>tag value</i>
+    /// acts as a descriptor for a tag key. Tags can help you identify, categorize, and manage
+    /// resources in different ways, such as by owner, environment, or other criteria. For
+    /// more information, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/tagging-resources.html">Tagging
+    /// Amazon Security Lake resources</a> in the <i>Amazon Security Lake User Guide</i>.
     /// </summary>
-    [Cmdlet("Write", "R53RResolverQueryLogConfigPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Route 53 Resolver PutResolverQueryLogConfigPolicy API operation.", Operation = new[] {"PutResolverQueryLogConfigPolicy"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "SLKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Security Lake TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.SecurityLake.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SecurityLake.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteR53RResolverQueryLogConfigPolicyCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
+    public partial class AddSLKResourceTagCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
-        #region Parameter Arn
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the account that you want to share rules with.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Security Lake resource to add or update
+        /// the tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,48 +64,45 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Arn { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter ResolverQueryLogConfigPolicy
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An Identity and Access Management policy statement that lists the query logging configurations
-        /// that you want to share with another Amazon Web Services account and the operations
-        /// that you want the account to be able to perform. You can specify the following operations
-        /// in the <code>Actions</code> section of the statement:</para><ul><li><para><code>route53resolver:AssociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:DisassociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:ListResolverQueryLogConfigs</code></para></li></ul><para>In the <code>Resource</code> section of the statement, you specify the ARNs for the
-        /// query logging configurations that you want to share with the account that you specified
-        /// in <code>Arn</code>. </para>
+        /// <para>An array of objects, one for each tag (key and value) to associate with the Amazon
+        /// Security Lake resource. For each tag, you must specify both a tag key and a tag value.
+        /// A tag value cannot be null, but it can be an empty string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResolverQueryLogConfigPolicy { get; set; }
+        [Alias("Tags")]
+        public Amazon.SecurityLake.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReturnValue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse).
-        /// Specifying the name of a property of type Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityLake.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReturnValue";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-R53RResolverQueryLogConfigPolicy (PutResolverQueryLogConfigPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SLKResourceTag (TagResource)"))
             {
                 return;
             }
@@ -131,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse, WriteR53RResolverQueryLogConfigPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityLake.Model.TagResourceResponse, AddSLKResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,21 +145,24 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Arn;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Arn = this.Arn;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResolverQueryLogConfigPolicy = this.ResolverQueryLogConfigPolicy;
-            #if MODULAR
-            if (this.ResolverQueryLogConfigPolicy == null && ParameterWasBound(nameof(this.ResolverQueryLogConfigPolicy)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResolverQueryLogConfigPolicy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.SecurityLake.Model.Tag>(this.Tag);
+            }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyRequest();
+            var request = new Amazon.SecurityLake.Model.TagResourceRequest();
             
-            if (cmdletContext.Arn != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Arn = cmdletContext.Arn;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.ResolverQueryLogConfigPolicy != null)
+            if (cmdletContext.Tag != null)
             {
-                request.ResolverQueryLogConfigPolicy = cmdletContext.ResolverQueryLogConfigPolicy;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -214,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse CallAWSServiceOperation(IAmazonRoute53Resolver client, Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyRequest request)
+        private Amazon.SecurityLake.Model.TagResourceResponse CallAWSServiceOperation(IAmazonSecurityLake client, Amazon.SecurityLake.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Resolver", "PutResolverQueryLogConfigPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Security Lake", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.PutResolverQueryLogConfigPolicy(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.PutResolverQueryLogConfigPolicyAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Arn { get; set; }
-            public System.String ResolverQueryLogConfigPolicy { get; set; }
-            public System.Func<Amazon.Route53Resolver.Model.PutResolverQueryLogConfigPolicyResponse, WriteR53RResolverQueryLogConfigPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReturnValue;
+            public System.String ResourceArn { get; set; }
+            public List<Amazon.SecurityLake.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.SecurityLake.Model.TagResourceResponse, AddSLKResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

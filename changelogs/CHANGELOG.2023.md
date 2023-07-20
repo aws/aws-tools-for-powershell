@@ -1,4 +1,33 @@
-﻿### 4.1.374 (2023-07-20 06:44Z)
+﻿### 4.1.375 (2023-07-20 21:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.603.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeCatalyst
+    * Added cmdlet Get-CCATSourceRepository leveraging the GetSourceRepository service API.
+    * Added cmdlet New-CCATSourceRepository leveraging the CreateSourceRepository service API.
+    * Added cmdlet Remove-CCATProject leveraging the DeleteProject service API.
+    * Added cmdlet Remove-CCATSourceRepository leveraging the DeleteSourceRepository service API.
+    * Added cmdlet Remove-CCATSpace leveraging the DeleteSpace service API.
+    * Added cmdlet Update-CCATProject leveraging the UpdateProject service API.
+    * Added cmdlet Update-CCATSpace leveraging the UpdateSpace service API.
+  * Amazon Route 53 Resolver
+    * Added cmdlet Get-R53ROutpostResolver leveraging the GetOutpostResolver service API.
+    * Added cmdlet Get-R53ROutpostResolverList leveraging the ListOutpostResolvers service API.
+    * Added cmdlet New-R53ROutpostResolver leveraging the CreateOutpostResolver service API.
+    * Added cmdlet Remove-R53ROutpostResolver leveraging the DeleteOutpostResolver service API.
+    * Added cmdlet Update-R53ROutpostResolver leveraging the UpdateOutpostResolver service API.
+    * Modified cmdlet New-R53RResolverEndpoint: added parameters OutpostArn and PreferredInstanceType.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMResourceCatalogList leveraging the ListResourceCatalogs service API.
+    * Modified cmdlet Search-SMResource: added parameter CrossAccountFilterOption.
+  * Amazon Security Lake
+    * Added cmdlet Add-SLKResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-SLKResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-SLKResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-SLKDataLake: added parameter Tag.
+    * Modified cmdlet New-SLKSubscriber: added parameter Tag.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSTranscriptionJob: added parameter ToxicityDetection.
+
+### 4.1.374 (2023-07-20 06:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.602.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.373 (2023-07-19 21:06Z)

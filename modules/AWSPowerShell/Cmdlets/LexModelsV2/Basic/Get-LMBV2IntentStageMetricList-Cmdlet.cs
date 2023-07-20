@@ -28,8 +28,8 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Retrieves summary metrics for the intent stages in your bot. The following fields
-    /// are required:
+    /// Retrieves summary metrics for the stages within intents in your bot. The following
+    /// fields are required:
     /// 
     ///  <ul><li><para><code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageMetric.html">AnalyticsIntentStageMetric</a>
     /// objects. In each object, use the <code>name</code> field to specify the metric to

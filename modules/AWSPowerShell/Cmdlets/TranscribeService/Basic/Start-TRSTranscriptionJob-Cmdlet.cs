@@ -487,6 +487,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter ToxicityDetection
+        /// <summary>
+        /// <para>
+        /// <para>Enables toxic speech detection in your transcript. If you include <code>ToxicityDetection</code>
+        /// in your request, you must also include <code>ToxicityCategories</code>.</para><para>For information on the types of toxic speech Amazon Transcribe can detect, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/toxic-language.html">Detecting
+        /// toxic speech</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.TranscribeService.Model.ToxicityDetectionSettings[] ToxicityDetection { get; set; }
+        #endregion
+        
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
@@ -662,6 +674,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
+            if (this.ToxicityDetection != null)
+            {
+                context.ToxicityDetection = new List<Amazon.TranscribeService.Model.ToxicityDetectionSettings>(this.ToxicityDetection);
             }
             context.TranscriptionJobName = this.TranscriptionJobName;
             #if MODULAR
@@ -968,6 +984,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.ToxicityDetection != null)
+            {
+                request.ToxicityDetection = cmdletContext.ToxicityDetection;
+            }
             if (cmdletContext.TranscriptionJobName != null)
             {
                 request.TranscriptionJobName = cmdletContext.TranscriptionJobName;
@@ -1063,6 +1083,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public List<System.String> Subtitles_Format { get; set; }
             public System.Int32? Subtitles_OutputStartIndex { get; set; }
             public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
+            public List<Amazon.TranscribeService.Model.ToxicityDetectionSettings> ToxicityDetection { get; set; }
             public System.String TranscriptionJobName { get; set; }
             public System.Func<Amazon.TranscribeService.Model.StartTranscriptionJobResponse, StartTRSTranscriptionJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TranscriptionJob;
