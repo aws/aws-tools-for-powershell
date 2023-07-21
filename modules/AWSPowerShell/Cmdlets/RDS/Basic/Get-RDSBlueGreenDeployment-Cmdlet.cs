@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about blue/green deployments.
+    /// Describes one or more blue/green deployments.
     /// 
     ///  
     /// <para>
@@ -52,8 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BlueGreenDeploymentIdentifier
         /// <summary>
         /// <para>
-        /// <para>The blue/green deployment identifier. If this parameter is specified, information
-        /// from only the specific blue/green deployment is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing blue/green deployment identifier.</para></li></ul>
+        /// <para>The blue/green deployment identifier. If you specify this parameter, the response
+        /// only includes information about the specific blue/green deployment. This parameter
+        /// isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match an existing blue/green deployment identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more blue/green deployments to describe.</para><para>Supported filters:</para><ul><li><para><code>blue-green-deployment-identifier</code> - Accepts system-generated identifiers
+        /// <para>A filter that specifies one or more blue/green deployments to describe.</para><para>Valid Values:</para><ul><li><para><code>blue-green-deployment-identifier</code> - Accepts system-generated identifiers
         /// for blue/green deployments. The results list only includes information about the blue/green
         /// deployments with the specified identifiers.</para></li><li><para><code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green
         /// deployments. The results list only includes information about the blue/green deployments
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>An optional pagination token provided by a previous <code>DescribeBlueGreenDeployments</code>
-        /// request. If this parameter is specified, the response includes only records beyond
+        /// request. If you specify this parameter, the response only includes records beyond
         /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
@@ -101,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints:</para><ul><li><para>Must be a minimum of 20.</para></li><li><para>Can't exceed 100.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

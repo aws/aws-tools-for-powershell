@@ -225,16 +225,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The meaning of this parameter differs depending on the database engine.</para><dl><dt>Amazon Aurora MySQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora MySQL
-        /// DB cluster is created. If you don't specify a value, Amazon RDS doesn't create a database
-        /// in the DB cluster.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon Aurora PostgreSQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
-        /// DB cluster is created.</para><para>Default: <code>postgres</code></para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 alphanumeric characters.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
-        /// (0 to 9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon RDS Custom for Oracle</dt><dd><para>The Oracle System ID (SID) of the created RDS Custom DB instance.</para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Must contain 1 to 8 alphanumeric characters.</para></li><li><para>Must contain a letter.</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon RDS Custom for SQL Server</dt><dd><para>Not applicable. Must be null.</para></dd><dt>RDS for MariaDB</dt><dd><para>The name of the database to create when the DB instance is created. If you don't specify
-        /// a value, Amazon RDS doesn't create a database in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
-        /// (0-9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>RDS for MySQL</dt><dd><para>The name of the database to create when the DB instance is created. If you don't specify
-        /// a value, Amazon RDS doesn't create a database in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
-        /// (0-9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>RDS for Oracle</dt><dd><para>The Oracle System ID (SID) of the created DB instance.</para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters.</para></li><li><para>Can't be a word reserved by the database engine, such as the string <code>NULL</code>.</para></li></ul></dd><dt>RDS for PostgreSQL</dt><dd><para>The name of the database to create when the DB instance is created.</para><para>Default: <code>postgres</code></para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
-        /// (0-9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>RDS for SQL Server</dt><dd><para>Not applicable. Must be null.</para></dd></dl>
+        /// <para>The meaning of this parameter differs according to the database engine you use.</para><para><b>MySQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// isn't specified, a database named <code>postgres</code> is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>Oracle</b></para><para>The Oracle System ID (SID) of the created DB instance. If you don't specify a value,
+        /// the default value is <code>ORCL</code>. You can't specify the string <code>null</code>,
+        /// or any other reserved word, for <code>DBName</code>.</para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>Amazon RDS Custom for Oracle</b></para><para>The Oracle System ID (SID) of the created RDS Custom DB instance. If you don't specify
+        /// a value, the default value is <code>ORCL</code> for non-CDBs and <code>RDSCDB</code>
+        /// for CDBs.</para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>It must contain 1 to 8 alphanumeric characters.</para></li><li><para>It must contain a letter.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>Amazon RDS Custom for SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora MySQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora MySQL
+        /// DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster,
+        /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 64 alphanumeric characters.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>Amazon Aurora PostgreSQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
+        /// DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL
+        /// DB cluster, a database named <code>postgres</code> is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 63 alphanumeric characters.</para></li><li><para>It must begin with a letter. Subsequent characters can be letters, underscores, or
+        /// digits (0 to 9).</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -273,6 +279,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DBSystemId
+        /// <summary>
+        /// <para>
+        /// <para>The Oracle system identifier (SID), which is the name of the Oracle database instance
+        /// that manages your database files. In this context, the term "Oracle database instance"
+        /// refers exclusively to the system global area (SGA) and Oracle background processes.
+        /// If you don't specify a SID, the value defaults to <code>RDSCDB</code>. The Oracle
+        /// SID is also the name of your CDB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBSystemId { get; set; }
         #endregion
         
         #region Parameter DeletionProtection
@@ -936,6 +956,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroup = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DBSystemId = this.DBSystemId;
             context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainAuthSecretArn = this.DomainAuthSecretArn;
@@ -1079,6 +1100,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DBSystemId != null)
+            {
+                request.DBSystemId = cmdletContext.DBSystemId;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -1329,6 +1354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public List<System.String> DBSecurityGroup { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.String DBSystemId { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainAuthSecretArn { get; set; }

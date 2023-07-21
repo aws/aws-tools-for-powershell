@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
     /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
-    /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
-    /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
-    /// Aurora User Guide</i>.
+    /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using
+    /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "RDSBlueGreenDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BlueGreenDeploymentIdentifier
         /// <summary>
         /// <para>
-        /// <para>The blue/green deployment identifier of the deployment to be deleted. This parameter
-        /// isn't case-sensitive.</para><para>Constraints: </para><ul><li><para>Must match an existing blue/green deployment identifier.</para></li></ul>
+        /// <para>The unique identifier of the blue/green deployment to delete. This parameter isn't
+        /// case-sensitive.</para><para>Constraints: </para><ul><li><para>Must match an existing blue/green deployment identifier.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeleteTarget
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to delete the resources in the green environment. You
-        /// can't specify this option if the blue/green deployment <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html">status</a>
+        /// <para>Specifies whether to delete the resources in the green environment. You can't specify
+        /// this option if the blue/green deployment <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html">status</a>
         /// is <code>SWITCHOVER_COMPLETED</code>.</para>
         /// </para>
         /// </summary>

@@ -1,4 +1,9 @@
-﻿### 4.1.375 (2023-07-20 21:44Z)
+﻿### 4.1.376 (2023-07-21 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.604.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstance: added parameter DBSystemId.
+
+### 4.1.375 (2023-07-20 21:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.603.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeCatalyst
     * Added cmdlet Get-CCATSourceRepository leveraging the GetSourceRepository service API.

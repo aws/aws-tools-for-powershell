@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
     /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
-    /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
-    /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
-    /// Aurora User Guide</i>.
+    /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using
+    /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Switch", "RDSBlueGreenDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BlueGreenDeploymentIdentifier
         /// <summary>
         /// <para>
-        /// <para>The blue/green deployment identifier.</para><para>Constraints:</para><ul><li><para>Must match an existing blue/green deployment identifier.</para></li></ul>
+        /// <para>The unique identifier of the blue/green deployment.</para><para>Constraints:</para><ul><li><para>Must match an existing blue/green deployment identifier.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SwitchoverTimeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, for the switchover to complete. The default is 300.</para><para>If the switchover takes longer than the specified duration, then any changes are rolled
+        /// <para>The amount of time, in seconds, for the switchover to complete.</para><para>Default: 300</para><para>If the switchover takes longer than the specified duration, then any changes are rolled
         /// back, and no changes are made to the environments.</para>
         /// </para>
         /// </summary>
