@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFNStackEvent', 
         'Get-CFNStackInstance', 
         'Get-CFNStackInstanceList', 
+        'Get-CFNStackInstanceResourceDrift', 
         'Get-CFNStackPolicy', 
         'Get-CFNStackResource', 
         'Get-CFNStackResourceDrift', 

@@ -80,6 +80,13 @@ $CHMMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMediaPipelines.ActiveSpeakerPosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition"
+        {
+            $v = "BottomLeft","BottomRight","TopLeft","TopRight"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.ArtifactsState
         {
             ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State") -Or
@@ -97,6 +104,20 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.BorderColor
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderColor"
+        {
+            $v = "Black","Blue","Green","Red","White","Yellow"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.CanvasOrientation
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_CanvasOrientation"
+        {
+            $v = "Landscape","Portrait"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.ContentMuxType
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"
         {
@@ -107,7 +128,7 @@ $CHMMP_Completers = {
         # Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"
         {
-            $v = "Horizontal","PresenterOnly","Vertical"
+            $v = "ActiveSpeakerOnly","Horizontal","PresenterOnly","Vertical"
             break
         }
 
@@ -115,6 +136,20 @@ $CHMMP_Completers = {
         "New-CHMMPMediaInsightsPipeline/KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"
         {
             $v = "ProducerTimestamp","ServerTimestamp"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.HighlightColor
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_HighlightColor"
+        {
+            $v = "Black","Blue","Green","Red","White","Yellow"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.HorizontalTilePosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TilePosition"
+        {
+            $v = "Bottom","Top"
             break
         }
 
@@ -174,6 +209,23 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.TileOrder
+        {
+            ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileOrder") -Or
+            ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileOrder")
+        }
+        {
+            $v = "JoinSequence","SpeakerSequence"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.VerticalTilePosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TilePosition"
+        {
+            $v = "Left","Right"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.VideoMuxType
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"
         {
@@ -191,8 +243,16 @@ $CHMMP_Completers = {
 
 $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_CanvasOrientation"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileOrder"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TilePosition"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileOrder"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TilePosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderColor"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_HighlightColor"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"=@("New-CHMMPMediaCapturePipeline")

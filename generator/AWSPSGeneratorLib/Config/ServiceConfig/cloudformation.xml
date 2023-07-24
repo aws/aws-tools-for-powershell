@@ -217,6 +217,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStackInstanceResourceDrifts" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceResourceDrift" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />

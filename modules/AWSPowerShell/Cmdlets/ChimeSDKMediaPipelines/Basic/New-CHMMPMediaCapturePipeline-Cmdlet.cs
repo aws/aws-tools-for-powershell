@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition
+        /// <summary>
+        /// <para>
+        /// <para>The position of the <code>ActiveSpeakerOnly</code> video tile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.ActiveSpeakerPosition")]
+        public Amazon.ChimeSDKMediaPipelines.ActiveSpeakerPosition ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition { get; set; }
+        #endregion
+        
         #region Parameter SelectedVideoStreams_AttendeeId
         /// <summary>
         /// <para>
@@ -53,6 +65,41 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ChimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_AttendeeIds")]
         public System.String[] SelectedVideoStreams_AttendeeId { get; set; }
+        #endregion
+        
+        #region Parameter VideoAttribute_BorderColor
+        /// <summary>
+        /// <para>
+        /// <para>Defines the border color of all video tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderColor")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.BorderColor")]
+        public Amazon.ChimeSDKMediaPipelines.BorderColor VideoAttribute_BorderColor { get; set; }
+        #endregion
+        
+        #region Parameter VideoAttribute_BorderThickness
+        /// <summary>
+        /// <para>
+        /// <para>Defines the border thickness for all video tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderThickness")]
+        public System.Int32? VideoAttribute_BorderThickness { get; set; }
+        #endregion
+        
+        #region Parameter GridViewConfiguration_CanvasOrientation
+        /// <summary>
+        /// <para>
+        /// <para>The orientation setting, horizontal or vertical.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_CanvasOrientation")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.CanvasOrientation")]
+        public Amazon.ChimeSDKMediaPipelines.CanvasOrientation GridViewConfiguration_CanvasOrientation { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -78,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         public Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption GridViewConfiguration_ContentShareLayout { get; set; }
         #endregion
         
+        #region Parameter VideoAttribute_CornerRadius
+        /// <summary>
+        /// <para>
+        /// <para>Sets the corner radius of all video tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_CornerRadius")]
+        public System.Int32? VideoAttribute_CornerRadius { get; set; }
+        #endregion
+        
         #region Parameter SelectedVideoStreams_ExternalUserId
         /// <summary>
         /// <para>
@@ -87,6 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ChimeSdkMeetingConfiguration_SourceConfiguration_SelectedVideoStreams_ExternalUserIds")]
         public System.String[] SelectedVideoStreams_ExternalUserId { get; set; }
+        #endregion
+        
+        #region Parameter VideoAttribute_HighlightColor
+        /// <summary>
+        /// <para>
+        /// <para>Defines the highlight color for the active video tile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_HighlightColor")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.HighlightColor")]
+        public Amazon.ChimeSDKMediaPipelines.HighlightColor VideoAttribute_HighlightColor { get; set; }
         #endregion
         
         #region Parameter CompositedVideo_Layout
@@ -266,6 +336,98 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         public Amazon.ChimeSDKMediaPipelines.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter HorizontalLayoutConfiguration_TileAspectRatio
+        /// <summary>
+        /// <para>
+        /// <para>Sets the aspect ratio of the video tiles, such as 16:9.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileAspectRatio")]
+        public System.String HorizontalLayoutConfiguration_TileAspectRatio { get; set; }
+        #endregion
+        
+        #region Parameter VerticalLayoutConfiguration_TileAspectRatio
+        /// <summary>
+        /// <para>
+        /// <para>Sets the aspect ratio of the video tiles, such as 16:9.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileAspectRatio")]
+        public System.String VerticalLayoutConfiguration_TileAspectRatio { get; set; }
+        #endregion
+        
+        #region Parameter HorizontalLayoutConfiguration_TileCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of video tiles to display.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileCount")]
+        public System.Int32? HorizontalLayoutConfiguration_TileCount { get; set; }
+        #endregion
+        
+        #region Parameter VerticalLayoutConfiguration_TileCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tiles to display.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileCount")]
+        public System.Int32? VerticalLayoutConfiguration_TileCount { get; set; }
+        #endregion
+        
+        #region Parameter HorizontalLayoutConfiguration_TileOrder
+        /// <summary>
+        /// <para>
+        /// <para>Sets the automatic ordering of the video tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileOrder")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.TileOrder")]
+        public Amazon.ChimeSDKMediaPipelines.TileOrder HorizontalLayoutConfiguration_TileOrder { get; set; }
+        #endregion
+        
+        #region Parameter VerticalLayoutConfiguration_TileOrder
+        /// <summary>
+        /// <para>
+        /// <para>Sets the automatic ordering of the video tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileOrder")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.TileOrder")]
+        public Amazon.ChimeSDKMediaPipelines.TileOrder VerticalLayoutConfiguration_TileOrder { get; set; }
+        #endregion
+        
+        #region Parameter HorizontalLayoutConfiguration_TilePosition
+        /// <summary>
+        /// <para>
+        /// <para>Sets the position of horizontal tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TilePosition")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.HorizontalTilePosition")]
+        public Amazon.ChimeSDKMediaPipelines.HorizontalTilePosition HorizontalLayoutConfiguration_TilePosition { get; set; }
+        #endregion
+        
+        #region Parameter VerticalLayoutConfiguration_TilePosition
+        /// <summary>
+        /// <para>
+        /// <para>Sets the position of vertical tiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TilePosition")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMediaPipelines.VerticalTilePosition")]
+        public Amazon.ChimeSDKMediaPipelines.VerticalTilePosition VerticalLayoutConfiguration_TilePosition { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'MediaCapturePipeline'.
@@ -309,8 +471,22 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Audio_MuxType = this.Audio_MuxType;
+            context.ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition = this.ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition;
+            context.GridViewConfiguration_CanvasOrientation = this.GridViewConfiguration_CanvasOrientation;
             context.GridViewConfiguration_ContentShareLayout = this.GridViewConfiguration_ContentShareLayout;
+            context.HorizontalLayoutConfiguration_TileAspectRatio = this.HorizontalLayoutConfiguration_TileAspectRatio;
+            context.HorizontalLayoutConfiguration_TileCount = this.HorizontalLayoutConfiguration_TileCount;
+            context.HorizontalLayoutConfiguration_TileOrder = this.HorizontalLayoutConfiguration_TileOrder;
+            context.HorizontalLayoutConfiguration_TilePosition = this.HorizontalLayoutConfiguration_TilePosition;
             context.PresenterOnlyConfiguration_PresenterPosition = this.PresenterOnlyConfiguration_PresenterPosition;
+            context.VerticalLayoutConfiguration_TileAspectRatio = this.VerticalLayoutConfiguration_TileAspectRatio;
+            context.VerticalLayoutConfiguration_TileCount = this.VerticalLayoutConfiguration_TileCount;
+            context.VerticalLayoutConfiguration_TileOrder = this.VerticalLayoutConfiguration_TileOrder;
+            context.VerticalLayoutConfiguration_TilePosition = this.VerticalLayoutConfiguration_TilePosition;
+            context.VideoAttribute_BorderColor = this.VideoAttribute_BorderColor;
+            context.VideoAttribute_BorderThickness = this.VideoAttribute_BorderThickness;
+            context.VideoAttribute_CornerRadius = this.VideoAttribute_CornerRadius;
+            context.VideoAttribute_HighlightColor = this.VideoAttribute_HighlightColor;
             context.CompositedVideo_Layout = this.CompositedVideo_Layout;
             context.CompositedVideo_Resolution = this.CompositedVideo_Resolution;
             context.Content_MuxType = this.Content_MuxType;
@@ -558,6 +734,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
              // populate GridViewConfiguration
             var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = true;
             requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration = new Amazon.ChimeSDKMediaPipelines.Model.GridViewConfiguration();
+            Amazon.ChimeSDKMediaPipelines.CanvasOrientation requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_CanvasOrientation = null;
+            if (cmdletContext.GridViewConfiguration_CanvasOrientation != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_CanvasOrientation = cmdletContext.GridViewConfiguration_CanvasOrientation;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_CanvasOrientation != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.CanvasOrientation = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_CanvasOrientation;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
+            }
             Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_ContentShareLayout = null;
             if (cmdletContext.GridViewConfiguration_ContentShareLayout != null)
             {
@@ -566,6 +752,31 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_ContentShareLayout != null)
             {
                 requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.ContentShareLayout = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_gridViewConfiguration_ContentShareLayout;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.Model.ActiveSpeakerOnlyConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration = null;
+            
+             // populate ActiveSpeakerOnlyConfiguration
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfigurationIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration = new Amazon.ChimeSDKMediaPipelines.Model.ActiveSpeakerOnlyConfiguration();
+            Amazon.ChimeSDKMediaPipelines.ActiveSpeakerPosition requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_activeSpeakerOnlyConfiguration_ActiveSpeakerPosition = null;
+            if (cmdletContext.ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_activeSpeakerOnlyConfiguration_ActiveSpeakerPosition = cmdletContext.ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_activeSpeakerOnlyConfiguration_ActiveSpeakerPosition != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration.ActiveSpeakerPosition = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_activeSpeakerOnlyConfiguration_ActiveSpeakerPosition;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfigurationIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfigurationIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.ActiveSpeakerOnlyConfiguration = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration;
                 requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
             }
             Amazon.ChimeSDKMediaPipelines.Model.PresenterOnlyConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration = null;
@@ -591,6 +802,171 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration != null)
             {
                 requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.PresenterOnlyConfiguration = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.Model.HorizontalLayoutConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration = null;
+            
+             // populate HorizontalLayoutConfiguration
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfigurationIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration = new Amazon.ChimeSDKMediaPipelines.Model.HorizontalLayoutConfiguration();
+            System.String requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileAspectRatio = null;
+            if (cmdletContext.HorizontalLayoutConfiguration_TileAspectRatio != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileAspectRatio = cmdletContext.HorizontalLayoutConfiguration_TileAspectRatio;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileAspectRatio != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration.TileAspectRatio = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileAspectRatio;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfigurationIsNull = false;
+            }
+            System.Int32? requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileCount = null;
+            if (cmdletContext.HorizontalLayoutConfiguration_TileCount != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileCount = cmdletContext.HorizontalLayoutConfiguration_TileCount.Value;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileCount != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration.TileCount = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileCount.Value;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.TileOrder requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileOrder = null;
+            if (cmdletContext.HorizontalLayoutConfiguration_TileOrder != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileOrder = cmdletContext.HorizontalLayoutConfiguration_TileOrder;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileOrder != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration.TileOrder = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TileOrder;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.HorizontalTilePosition requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TilePosition = null;
+            if (cmdletContext.HorizontalLayoutConfiguration_TilePosition != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TilePosition = cmdletContext.HorizontalLayoutConfiguration_TilePosition;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TilePosition != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration.TilePosition = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_horizontalLayoutConfiguration_TilePosition;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfigurationIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfigurationIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.HorizontalLayoutConfiguration = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.Model.VerticalLayoutConfiguration requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration = null;
+            
+             // populate VerticalLayoutConfiguration
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfigurationIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration = new Amazon.ChimeSDKMediaPipelines.Model.VerticalLayoutConfiguration();
+            System.String requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileAspectRatio = null;
+            if (cmdletContext.VerticalLayoutConfiguration_TileAspectRatio != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileAspectRatio = cmdletContext.VerticalLayoutConfiguration_TileAspectRatio;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileAspectRatio != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration.TileAspectRatio = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileAspectRatio;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfigurationIsNull = false;
+            }
+            System.Int32? requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileCount = null;
+            if (cmdletContext.VerticalLayoutConfiguration_TileCount != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileCount = cmdletContext.VerticalLayoutConfiguration_TileCount.Value;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileCount != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration.TileCount = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileCount.Value;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.TileOrder requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileOrder = null;
+            if (cmdletContext.VerticalLayoutConfiguration_TileOrder != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileOrder = cmdletContext.VerticalLayoutConfiguration_TileOrder;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileOrder != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration.TileOrder = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TileOrder;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.VerticalTilePosition requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TilePosition = null;
+            if (cmdletContext.VerticalLayoutConfiguration_TilePosition != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TilePosition = cmdletContext.VerticalLayoutConfiguration_TilePosition;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TilePosition != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration.TilePosition = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_verticalLayoutConfiguration_TilePosition;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfigurationIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfigurationIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.VerticalLayoutConfiguration = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.Model.VideoAttribute requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute = null;
+            
+             // populate VideoAttribute
+            var requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttributeIsNull = true;
+            requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute = new Amazon.ChimeSDKMediaPipelines.Model.VideoAttribute();
+            Amazon.ChimeSDKMediaPipelines.BorderColor requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderColor = null;
+            if (cmdletContext.VideoAttribute_BorderColor != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderColor = cmdletContext.VideoAttribute_BorderColor;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderColor != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute.BorderColor = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderColor;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttributeIsNull = false;
+            }
+            System.Int32? requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderThickness = null;
+            if (cmdletContext.VideoAttribute_BorderThickness != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderThickness = cmdletContext.VideoAttribute_BorderThickness.Value;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderThickness != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute.BorderThickness = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_BorderThickness.Value;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttributeIsNull = false;
+            }
+            System.Int32? requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_CornerRadius = null;
+            if (cmdletContext.VideoAttribute_CornerRadius != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_CornerRadius = cmdletContext.VideoAttribute_CornerRadius.Value;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_CornerRadius != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute.CornerRadius = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_CornerRadius.Value;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttributeIsNull = false;
+            }
+            Amazon.ChimeSDKMediaPipelines.HighlightColor requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_HighlightColor = null;
+            if (cmdletContext.VideoAttribute_HighlightColor != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_HighlightColor = cmdletContext.VideoAttribute_HighlightColor;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_HighlightColor != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute.HighlightColor = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_videoAttribute_HighlightColor;
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttributeIsNull = false;
+            }
+             // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute should be set to null
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttributeIsNull)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute = null;
+            }
+            if (requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute != null)
+            {
+                requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration.VideoAttribute = requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute;
                 requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfigurationIsNull = false;
             }
              // determine if requestChimeSdkMeetingConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_chimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration should be set to null
@@ -714,8 +1090,22 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ChimeSDKMediaPipelines.AudioMuxType Audio_MuxType { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.ActiveSpeakerPosition ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.CanvasOrientation GridViewConfiguration_CanvasOrientation { get; set; }
             public Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption GridViewConfiguration_ContentShareLayout { get; set; }
+            public System.String HorizontalLayoutConfiguration_TileAspectRatio { get; set; }
+            public System.Int32? HorizontalLayoutConfiguration_TileCount { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.TileOrder HorizontalLayoutConfiguration_TileOrder { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.HorizontalTilePosition HorizontalLayoutConfiguration_TilePosition { get; set; }
             public Amazon.ChimeSDKMediaPipelines.PresenterPosition PresenterOnlyConfiguration_PresenterPosition { get; set; }
+            public System.String VerticalLayoutConfiguration_TileAspectRatio { get; set; }
+            public System.Int32? VerticalLayoutConfiguration_TileCount { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.TileOrder VerticalLayoutConfiguration_TileOrder { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.VerticalTilePosition VerticalLayoutConfiguration_TilePosition { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.BorderColor VideoAttribute_BorderColor { get; set; }
+            public System.Int32? VideoAttribute_BorderThickness { get; set; }
+            public System.Int32? VideoAttribute_CornerRadius { get; set; }
+            public Amazon.ChimeSDKMediaPipelines.HighlightColor VideoAttribute_HighlightColor { get; set; }
             public Amazon.ChimeSDKMediaPipelines.LayoutOption CompositedVideo_Layout { get; set; }
             public Amazon.ChimeSDKMediaPipelines.ResolutionOption CompositedVideo_Resolution { get; set; }
             public Amazon.ChimeSDKMediaPipelines.ContentMuxType Content_MuxType { get; set; }

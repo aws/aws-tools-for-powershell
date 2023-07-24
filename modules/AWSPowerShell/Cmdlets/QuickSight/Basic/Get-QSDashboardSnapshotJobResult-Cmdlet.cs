@@ -22,28 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ApiGatewayV2;
-using Amazon.ApiGatewayV2.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AG2
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes a route request parameter. Supported only for WebSocket APIs.
+    /// Describes the result of an existing snapshot job that has finished running.
+    /// 
+    ///  
+    /// <para>
+    /// A finished snapshot job will return a <code>COMPLETED</code> or <code>FAILED</code>
+    /// status when you poll the job with a <code>DescribeDashboardSnapshotJob</code> API
+    /// call.
+    /// </para><para>
+    /// If the job has not finished running, this operation returns a message that says <code>Dashboard
+    /// Snapshot Job with id &lt;SnapshotjobId&gt; has not reached a terminal state.</code>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "AG2RouteRequestParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon API Gateway V2 DeleteRouteRequestParameter API operation.", Operation = new[] {"DeleteRouteRequestParameter"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse))]
-    [AWSCmdletOutput("None or Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QSDashboardSnapshotJobResult")]
+    [OutputType("Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight DescribeDashboardSnapshotJobResult API operation.", Operation = new[] {"DescribeDashboardSnapshotJobResult"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveAG2RouteRequestParameterCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
+    public partial class GetQSDashboardSnapshotJobResultCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
-        #region Parameter ApiId
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The API identifier.</para>
+        /// <para>The ID of the Amazon Web Services account that the dashboard snapshot job is executed
+        /// in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,13 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApiId { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
-        #region Parameter RequestParameterKey
+        #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The route request parameter key.</para>
+        /// <para>The ID of the dashboard that you have started a snapshot job for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,13 +83,14 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RequestParameterKey { get; set; }
+        public System.String DashboardId { get; set; }
         #endregion
         
-        #region Parameter RouteId
+        #region Parameter SnapshotJobId
         /// <summary>
         /// <para>
-        /// <para>The route ID.</para>
+        /// <para>The ID of the job to be described. The job ID is set when you start a new job with
+        /// a <code>StartDashboardSnapshotJob</code> API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,13 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RouteId { get; set; }
+        public System.String SnapshotJobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,34 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ApiId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ApiId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApiId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApiId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AG2RouteRequestParameter (DeleteRouteRequestParameter)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -140,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse, RemoveAG2RouteRequestParameterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse, GetQSDashboardSnapshotJobResultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,28 +147,28 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ApiId;
+                context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApiId = this.ApiId;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.ApiId == null && ParameterWasBound(nameof(this.ApiId)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RequestParameterKey = this.RequestParameterKey;
+            context.DashboardId = this.DashboardId;
             #if MODULAR
-            if (this.RequestParameterKey == null && ParameterWasBound(nameof(this.RequestParameterKey)))
+            if (this.DashboardId == null && ParameterWasBound(nameof(this.DashboardId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RequestParameterKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DashboardId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RouteId = this.RouteId;
+            context.SnapshotJobId = this.SnapshotJobId;
             #if MODULAR
-            if (this.RouteId == null && ParameterWasBound(nameof(this.RouteId)))
+            if (this.SnapshotJobId == null && ParameterWasBound(nameof(this.SnapshotJobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RouteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SnapshotJobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -187,19 +185,19 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterRequest();
+            var request = new Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultRequest();
             
-            if (cmdletContext.ApiId != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.ApiId = cmdletContext.ApiId;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.RequestParameterKey != null)
+            if (cmdletContext.DashboardId != null)
             {
-                request.RequestParameterKey = cmdletContext.RequestParameterKey;
+                request.DashboardId = cmdletContext.DashboardId;
             }
-            if (cmdletContext.RouteId != null)
+            if (cmdletContext.SnapshotJobId != null)
             {
-                request.RouteId = cmdletContext.RouteId;
+                request.SnapshotJobId = cmdletContext.SnapshotJobId;
             }
             
             CmdletOutput output;
@@ -234,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         #region AWS Service Operation Call
         
-        private Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse CallAWSServiceOperation(IAmazonApiGatewayV2 client, Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterRequest request)
+        private Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway V2", "DeleteRouteRequestParameter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeDashboardSnapshotJobResult");
             try
             {
                 #if DESKTOP
-                return client.DeleteRouteRequestParameter(request);
+                return client.DescribeDashboardSnapshotJobResult(request);
                 #elif CORECLR
-                return client.DeleteRouteRequestParameterAsync(request).GetAwaiter().GetResult();
+                return client.DescribeDashboardSnapshotJobResultAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -262,11 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiId { get; set; }
-            public System.String RequestParameterKey { get; set; }
-            public System.String RouteId { get; set; }
-            public System.Func<Amazon.ApiGatewayV2.Model.DeleteRouteRequestParameterResponse, RemoveAG2RouteRequestParameterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AwsAccountId { get; set; }
+            public System.String DashboardId { get; set; }
+            public System.String SnapshotJobId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse, GetQSDashboardSnapshotJobResultCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

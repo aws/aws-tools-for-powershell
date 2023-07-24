@@ -255,6 +255,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboardSnapshotJob" OutputProperty="*" Verb="Get" Noun="DashboardSnapshotJob" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboardSnapshotJobResult" OutputProperty="*" Verb="Get" Noun="DashboardSnapshotJobResult" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataSet" OutputProperty="DataSet" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -541,6 +549,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAssetBundleImportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDashboardSnapshotJob" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJob" AnonymousShouldProcessTarget="true" PipelineParameter="SnapshotJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

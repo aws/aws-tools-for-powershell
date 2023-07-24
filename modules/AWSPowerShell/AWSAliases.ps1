@@ -2390,6 +2390,8 @@ Set-Alias -Name CE-GetReservationCoverage -Value Get-CEReservationCoverage
 Set-Alias -Name CE-GetReservationPurchaseRecommendation -Value Get-CEReservationPurchaseRecommendation
 Set-Alias -Name CE-GetReservationUtilization -Value Get-CEReservationUtilization
 Set-Alias -Name CE-GetRightsizingRecommendation -Value Get-CERightsizingRecommendation
+Set-Alias -Name Get-CESavingsPlanPurchaseRecommendationDetails -Value Get-CESavingsPlanPurchaseRecommendationDetail
+Set-Alias -Name CE-GetSavingsPlanPurchaseRecommendationDetails -Value Get-CESavingsPlanPurchaseRecommendationDetail
 Set-Alias -Name CE-GetSavingsPlansCoverage -Value Get-CESavingsPlansCoverage
 Set-Alias -Name CE-GetSavingsPlansPurchaseRecommendation -Value Get-CESavingsPlansPurchaseRecommendation
 Set-Alias -Name CE-GetSavingsPlansUtilization -Value Get-CESavingsPlansUtilization
@@ -3532,6 +3534,9 @@ Set-Alias -Name CFN-ListExports -Value Get-CFNExport
 Set-Alias -Name List-CFNImports -Value Get-CFNImportList
 Set-Alias -Name List-CFNImportList -Value Get-CFNImportList
 Set-Alias -Name CFN-ListImports -Value Get-CFNImportList
+Set-Alias -Name List-CFNStackInstanceResourceDrifts -Value Get-CFNStackInstanceResourceDrift
+Set-Alias -Name List-CFNStackInstanceResourceDrift -Value Get-CFNStackInstanceResourceDrift
+Set-Alias -Name CFN-ListStackInstanceResourceDrifts -Value Get-CFNStackInstanceResourceDrift
 Set-Alias -Name List-CFNStackInstances -Value Get-CFNStackInstanceList
 Set-Alias -Name List-CFNStackInstanceList -Value Get-CFNStackInstanceList
 Set-Alias -Name CFN-ListStackInstances -Value Get-CFNStackInstanceList
@@ -19777,6 +19782,10 @@ Set-Alias -Name QS-DescribeDashboardDefinition -Value Get-QSDashboardDefinition
 Set-Alias -Name Describe-QSDashboardPermissions -Value Get-QSDashboardPermission
 Set-Alias -Name Describe-QSDashboardPermission -Value Get-QSDashboardPermission
 Set-Alias -Name QS-DescribeDashboardPermissions -Value Get-QSDashboardPermission
+Set-Alias -Name Describe-QSDashboardSnapshotJob -Value Get-QSDashboardSnapshotJob
+Set-Alias -Name QS-DescribeDashboardSnapshotJob -Value Get-QSDashboardSnapshotJob
+Set-Alias -Name Describe-QSDashboardSnapshotJobResult -Value Get-QSDashboardSnapshotJobResult
+Set-Alias -Name QS-DescribeDashboardSnapshotJobResult -Value Get-QSDashboardSnapshotJobResult
 Set-Alias -Name Describe-QSDataSet -Value Get-QSDataSet
 Set-Alias -Name QS-DescribeDataSet -Value Get-QSDataSet
 Set-Alias -Name Describe-QSDataSetPermissions -Value Get-QSDataSetPermission
@@ -19949,6 +19958,7 @@ Set-Alias -Name Search-QSGroup -Value Find-QSGroup
 Set-Alias -Name QS-SearchGroups -Value Find-QSGroup
 Set-Alias -Name QS-StartAssetBundleExportJob -Value Start-QSAssetBundleExportJob
 Set-Alias -Name QS-StartAssetBundleImportJob -Value Start-QSAssetBundleImportJob
+Set-Alias -Name QS-StartDashboardSnapshotJob -Value Start-QSDashboardSnapshotJob
 Set-Alias -Name QS-TagResource -Value Add-QSResourceTag
 Set-Alias -Name QS-UntagResource -Value Remove-QSResourceTag
 Set-Alias -Name QS-UpdateAccountCustomization -Value Update-QSAccountCustomization

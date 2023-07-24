@@ -55,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_Frequency
         /// <summary>
         /// <para>
-        /// <para>The frequency that anomaly reports are sent over email. </para>
+        /// <para>The frequency that anomaly notifications are sent. Notifications are sent either over
+        /// email (for DAILY and WEEKLY frequencies) or SNS (for IMMEDIATE frequency). For more
+        /// information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ad-SNS.html">Creating
+        /// an Amazon SNS topic for anomaly notifications</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,9 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>An <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object used to specify the anomalies that you want to generate alerts for. This supports
         /// dimensions and nested expressions. The supported dimensions are <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code>
-        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>. The supported nested expression
-        /// types are <code>AND</code> and <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code>
-        /// is required. Values must be numbers between 0 and 10,000,000,000.</para><para>One of Threshold or ThresholdExpression is required for this resource.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>, corresponding to an anomaly’s TotalImpact
+        /// and TotalImpactPercentage, respectively (see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a>
+        /// for more details). The supported nested expression types are <code>AND</code> and
+        /// <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code> is required.
+        /// Values must be numbers between 0 and 10,000,000,000 in string format.</para><para>One of Threshold or ThresholdExpression is required for this resource. You cannot
+        /// specify both.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
         /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para>Percentage threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
         /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para><code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": { "Key":
         /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
@@ -173,8 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_Threshold
         /// <summary>
         /// <para>
-        /// <para>(deprecated)</para><para>The dollar value that triggers a notification if the threshold is exceeded. </para><para>This field has been deprecated. To specify a threshold, use ThresholdExpression. Continued
-        /// use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</para><para>One of Threshold or ThresholdExpression is required for this resource.</para>
+        /// <para>(deprecated)</para><para>An absolute dollar value that must be exceeded by the anomaly's total impact (see
+        /// <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a>
+        /// for more details) for an anomaly notification to be generated.</para><para>This field has been deprecated. To specify a threshold, use ThresholdExpression. Continued
+        /// use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</para><para>One of Threshold or ThresholdExpression is required for this resource. You cannot
+        /// specify both.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

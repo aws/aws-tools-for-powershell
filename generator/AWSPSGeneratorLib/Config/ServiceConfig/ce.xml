@@ -95,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSavingsPlanPurchaseRecommendationDetails" OutputProperty="*" Verb="Get" Noun="SavingsPlanPurchaseRecommendationDetail" PipelineParameter="RecommendationDetailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSavingsPlansCoverage" OutputProperty="SavingsPlansCoverages" Verb="Get" Noun="SavingsPlansCoverage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />

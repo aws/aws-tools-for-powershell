@@ -1,4 +1,17 @@
-﻿### 4.1.376 (2023-07-21 21:41Z)
+﻿### 4.1.377 (2023-07-24 21:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.605.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Media Pipelines
+    * Modified cmdlet New-CHMMPMediaCapturePipeline: added parameters ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition, GridViewConfiguration_CanvasOrientation, HorizontalLayoutConfiguration_TileAspectRatio, HorizontalLayoutConfiguration_TileCount, HorizontalLayoutConfiguration_TileOrder, HorizontalLayoutConfiguration_TilePosition, VerticalLayoutConfiguration_TileAspectRatio, VerticalLayoutConfiguration_TileCount, VerticalLayoutConfiguration_TileOrder, VerticalLayoutConfiguration_TilePosition, VideoAttribute_BorderColor, VideoAttribute_BorderThickness, VideoAttribute_CornerRadius and VideoAttribute_HighlightColor.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNStackInstanceResourceDrift leveraging the ListStackInstanceResourceDrifts service API.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CESavingsPlanPurchaseRecommendationDetail leveraging the GetSavingsPlanPurchaseRecommendationDetails service API.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSDashboardSnapshotJob leveraging the DescribeDashboardSnapshotJob service API.
+    * Added cmdlet Get-QSDashboardSnapshotJobResult leveraging the DescribeDashboardSnapshotJobResult service API.
+    * Added cmdlet Start-QSDashboardSnapshotJob leveraging the StartDashboardSnapshotJob service API.
+
+### 4.1.376 (2023-07-21 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.604.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Relational Database Service
     * Modified cmdlet New-RDSDBInstance: added parameter DBSystemId.

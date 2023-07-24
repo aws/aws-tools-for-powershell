@@ -28,7 +28,13 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Updates an existing cost anomaly monitor subscription.
+    /// Updates an existing cost anomaly subscription. Specify the fields that you want to
+    /// update. Omitted fields are unchanged.
+    /// 
+    ///  <note><para>
+    /// The JSON below describes the generic construct for each type. See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html#API_UpdateAnomalySubscription_RequestParameters">Request
+    /// Parameters</a> for possible values as they apply to <code>AnomalySubscription</code>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "CEAnomalySubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -105,9 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>The update to the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object used to specify the anomalies that you want to generate alerts for. This supports
         /// dimensions and nested expressions. The supported dimensions are <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code>
-        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>. The supported nested expression
-        /// types are <code>AND</code> and <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code>
-        /// is required. Values must be numbers between 0 and 10,000,000,000.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>, corresponding to an anomaly’s TotalImpact
+        /// and TotalImpactPercentage, respectively (see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a>
+        /// for more details). The supported nested expression types are <code>AND</code> and
+        /// <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code> is required.
+        /// Values must be numbers between 0 and 10,000,000,000 in string format.</para><para>You can specify either Threshold or ThresholdExpression, but not both.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
         /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para>Percentage threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
         /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para><code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": { "Key":
         /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
@@ -126,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>(deprecated)</para><para>The update to the threshold value for receiving notifications. </para><para>This field has been deprecated. To update a threshold, use ThresholdExpression. Continued
-        /// use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</para>
+        /// use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</para><para>You can specify either Threshold or ThresholdExpression, but not both.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

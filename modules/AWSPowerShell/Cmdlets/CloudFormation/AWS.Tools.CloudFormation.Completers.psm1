@@ -97,6 +97,7 @@ $CFN_Completers = {
             ($_ -eq "Get-CFNOrganizationsAccess/CallAs") -Or
             ($_ -eq "Get-CFNStackInstance/CallAs") -Or
             ($_ -eq "Get-CFNStackInstanceList/CallAs") -Or
+            ($_ -eq "Get-CFNStackInstanceResourceDrift/CallAs") -Or
             ($_ -eq "Get-CFNStackSet/CallAs") -Or
             ($_ -eq "Get-CFNStackSetList/CallAs") -Or
             ($_ -eq "Get-CFNStackSetOperation/CallAs") -Or
@@ -279,7 +280,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackInstanceResourceDrift","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
@@ -393,6 +394,7 @@ $CFN_SelectMap = @{
                "Get-CFNChangeSetList",
                "Get-CFNExport",
                "Get-CFNImportList",
+               "Get-CFNStackInstanceResourceDrift",
                "Get-CFNStackInstanceList",
                "Get-CFNStackResourceSummary",
                "Get-CFNStackSummary",

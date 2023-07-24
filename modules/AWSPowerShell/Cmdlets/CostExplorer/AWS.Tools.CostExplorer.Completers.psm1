@@ -368,6 +368,7 @@ $CE_SelectMap = @{
                "Get-CEReservationPurchaseRecommendation",
                "Get-CEReservationUtilization",
                "Get-CERightsizingRecommendation",
+               "Get-CESavingsPlanPurchaseRecommendationDetail",
                "Get-CESavingsPlansCoverage",
                "Get-CESavingsPlansPurchaseRecommendation",
                "Get-CESavingsPlansUtilization",

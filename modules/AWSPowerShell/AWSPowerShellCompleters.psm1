@@ -6458,6 +6458,7 @@ $CE_SelectMap = @{
                "Get-CEReservationPurchaseRecommendation",
                "Get-CEReservationUtilization",
                "Get-CERightsizingRecommendation",
+               "Get-CESavingsPlanPurchaseRecommendationDetail",
                "Get-CESavingsPlansCoverage",
                "Get-CESavingsPlansPurchaseRecommendation",
                "Get-CESavingsPlansUtilization",
@@ -7228,6 +7229,13 @@ $CHMMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMediaPipelines.ActiveSpeakerPosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition"
+        {
+            $v = "BottomLeft","BottomRight","TopLeft","TopRight"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.ArtifactsState
         {
             ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State") -Or
@@ -7245,6 +7253,20 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.BorderColor
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderColor"
+        {
+            $v = "Black","Blue","Green","Red","White","Yellow"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.CanvasOrientation
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_CanvasOrientation"
+        {
+            $v = "Landscape","Portrait"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.ContentMuxType
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"
         {
@@ -7255,7 +7277,7 @@ $CHMMP_Completers = {
         # Amazon.ChimeSDKMediaPipelines.ContentShareLayoutOption
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"
         {
-            $v = "Horizontal","PresenterOnly","Vertical"
+            $v = "ActiveSpeakerOnly","Horizontal","PresenterOnly","Vertical"
             break
         }
 
@@ -7263,6 +7285,20 @@ $CHMMP_Completers = {
         "New-CHMMPMediaInsightsPipeline/KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"
         {
             $v = "ProducerTimestamp","ServerTimestamp"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.HighlightColor
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_HighlightColor"
+        {
+            $v = "Black","Blue","Green","Red","White","Yellow"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.HorizontalTilePosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TilePosition"
+        {
+            $v = "Bottom","Top"
             break
         }
 
@@ -7322,6 +7358,23 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.TileOrder
+        {
+            ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileOrder") -Or
+            ($_ -eq "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileOrder")
+        }
+        {
+            $v = "JoinSequence","SpeakerSequence"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.VerticalTilePosition
+        "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TilePosition"
+        {
+            $v = "Left","Right"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.VideoMuxType
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"
         {
@@ -7339,8 +7392,16 @@ $CHMMP_Completers = {
 
 $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Audio_MuxType"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_CanvasOrientation"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_ContentShareLayout"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TileOrder"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_HorizontalLayoutConfiguration_TilePosition"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TileOrder"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VerticalLayoutConfiguration_TilePosition"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_BorderColor"=@("New-CHMMPMediaCapturePipeline")
+    "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_VideoAttribute_HighlightColor"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Resolution"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_MuxType"=@("New-CHMMPMediaCapturePipeline")
@@ -8714,6 +8775,7 @@ $CFN_Completers = {
             ($_ -eq "Get-CFNOrganizationsAccess/CallAs") -Or
             ($_ -eq "Get-CFNStackInstance/CallAs") -Or
             ($_ -eq "Get-CFNStackInstanceList/CallAs") -Or
+            ($_ -eq "Get-CFNStackInstanceResourceDrift/CallAs") -Or
             ($_ -eq "Get-CFNStackSet/CallAs") -Or
             ($_ -eq "Get-CFNStackSetList/CallAs") -Or
             ($_ -eq "Get-CFNStackSetOperation/CallAs") -Or
@@ -8896,7 +8958,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackInstanceResourceDrift","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
@@ -9010,6 +9072,7 @@ $CFN_SelectMap = @{
                "Get-CFNChangeSetList",
                "Get-CFNExport",
                "Get-CFNImportList",
+               "Get-CFNStackInstanceResourceDrift",
                "Get-CFNStackInstanceList",
                "Get-CFNStackResourceSummary",
                "Get-CFNStackSummary",
@@ -46874,6 +46937,8 @@ $QS_SelectMap = @{
                "Get-QSDashboard",
                "Get-QSDashboardDefinition",
                "Get-QSDashboardPermission",
+               "Get-QSDashboardSnapshotJob",
+               "Get-QSDashboardSnapshotJobResult",
                "Get-QSDataSet",
                "Get-QSDataSetPermission",
                "Get-QSDataSetRefreshProperty",
@@ -46945,6 +47010,7 @@ $QS_SelectMap = @{
                "Find-QSGroup",
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
+               "Start-QSDashboardSnapshotJob",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSAccountCustomization",
