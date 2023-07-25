@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_Arn
         /// <summary>
         /// <para>
-        /// <para> A list of custom line item ARNs to retrieve information. </para>
+        /// <para>A list of custom line item ARNs to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_BillingGroup
         /// <summary>
         /// <para>
-        /// <para> The billing group Amazon Resource Names (ARNs) to retrieve information. </para>
+        /// <para>The billing group Amazon Resource Names (ARNs) to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_Name
         /// <summary>
         /// <para>
-        /// <para> A list of custom line items to retrieve information. </para>
+        /// <para>A list of custom line items to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter CloudWatchLoggingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables CloudWatch logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled")]
+        public System.Boolean? CloudWatchLoggingConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ManagedPersistenceMonitoringConfiguration_Enabled
         /// <summary>
         /// <para>
@@ -78,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ConfigurationOverrides_MonitoringConfiguration_ManagedPersistenceMonitoringConfiguration_Enabled")]
         public System.Boolean? ManagedPersistenceMonitoringConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch
+        /// Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_EncryptionKeyArn")]
+        public System.String CloudWatchLoggingConfiguration_EncryptionKeyArn { get; set; }
         #endregion
         
         #region Parameter ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn
@@ -162,6 +185,46 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobDriver_Hive_InitQueryFile")]
         public System.String Hive_InitQueryFile { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the log group in Amazon CloudWatch Logs where you want to publish your
+        /// logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroupName")]
+        public System.String CloudWatchLoggingConfiguration_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_LogStreamNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>Prefix for the CloudWatch log stream name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix")]
+        public System.String CloudWatchLoggingConfiguration_LogStreamNamePrefix { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_LogType
+        /// <summary>
+        /// <para>
+        /// <para>The types of logs that you want to publish to CloudWatch. If you don't specify any
+        /// log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default.
+        /// For more information including the supported worker types for Hive and Spark, see
+        /// <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging
+        /// for EMR Serverless with CloudWatch</a>.</para><ul><li><para><b>Key Valid Values</b>: <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>,
+        /// <code>HIVE_DRIVER</code>, <code>TEZ_TASK</code></para></li><li><para><b>Array Members Valid Values</b>: <code>STDOUT</code>, <code>STDERR</code>, <code>HIVE_LOG</code>,
+        /// <code>TEZ_AM</code>, <code>SYSTEM_LOGS</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes")]
+        public System.Collections.Hashtable CloudWatchLoggingConfiguration_LogType { get; set; }
         #endregion
         
         #region Parameter S3MonitoringConfiguration_LogUri
@@ -314,6 +377,30 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 context.ConfigurationOverrides_ApplicationConfiguration = new List<Amazon.EMRServerless.Model.Configuration>(this.ConfigurationOverrides_ApplicationConfiguration);
             }
+            context.CloudWatchLoggingConfiguration_Enabled = this.CloudWatchLoggingConfiguration_Enabled;
+            context.CloudWatchLoggingConfiguration_EncryptionKeyArn = this.CloudWatchLoggingConfiguration_EncryptionKeyArn;
+            context.CloudWatchLoggingConfiguration_LogGroupName = this.CloudWatchLoggingConfiguration_LogGroupName;
+            context.CloudWatchLoggingConfiguration_LogStreamNamePrefix = this.CloudWatchLoggingConfiguration_LogStreamNamePrefix;
+            if (this.CloudWatchLoggingConfiguration_LogType != null)
+            {
+                context.CloudWatchLoggingConfiguration_LogType = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CloudWatchLoggingConfiguration_LogType.Keys)
+                {
+                    object hashValue = this.CloudWatchLoggingConfiguration_LogType[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.CloudWatchLoggingConfiguration_LogType.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.CloudWatchLoggingConfiguration_LogType.Add((String)hashKey, valueSet);
+                }
+            }
             context.ManagedPersistenceMonitoringConfiguration_Enabled = this.ManagedPersistenceMonitoringConfiguration_Enabled;
             context.ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn = this.ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn;
             context.S3MonitoringConfiguration_EncryptionKeyArn = this.S3MonitoringConfiguration_EncryptionKeyArn;
@@ -455,6 +542,71 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration != null)
             {
                 requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration.S3MonitoringConfiguration = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfigurationIsNull = false;
+            }
+            Amazon.EMRServerless.Model.CloudWatchLoggingConfiguration requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration = null;
+            
+             // populate CloudWatchLoggingConfiguration
+            var requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = true;
+            requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration = new Amazon.EMRServerless.Model.CloudWatchLoggingConfiguration();
+            System.Boolean? requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_Enabled != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled = cmdletContext.CloudWatchLoggingConfiguration_Enabled.Value;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration.Enabled = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled.Value;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            System.String requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_EncryptionKeyArn = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_EncryptionKeyArn != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_EncryptionKeyArn = cmdletContext.CloudWatchLoggingConfiguration_EncryptionKeyArn;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_EncryptionKeyArn != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration.EncryptionKeyArn = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_EncryptionKeyArn;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            System.String requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroupName = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_LogGroupName != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroupName = cmdletContext.CloudWatchLoggingConfiguration_LogGroupName;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroupName != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration.LogGroupName = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroupName;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            System.String requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_LogStreamNamePrefix != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix = cmdletContext.CloudWatchLoggingConfiguration_LogStreamNamePrefix;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration.LogStreamNamePrefix = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_LogType != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType = cmdletContext.CloudWatchLoggingConfiguration_LogType;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration.LogTypes = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType;
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration should be set to null
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration = null;
+            }
+            if (requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration != null)
+            {
+                requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration.CloudWatchLoggingConfiguration = requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration_configurationOverrides_MonitoringConfiguration_CloudWatchLoggingConfiguration;
                 requestConfigurationOverrides_configurationOverrides_MonitoringConfigurationIsNull = false;
             }
              // determine if requestConfigurationOverrides_configurationOverrides_MonitoringConfiguration should be set to null
@@ -651,6 +803,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String ApplicationId { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.EMRServerless.Model.Configuration> ConfigurationOverrides_ApplicationConfiguration { get; set; }
+            public System.Boolean? CloudWatchLoggingConfiguration_Enabled { get; set; }
+            public System.String CloudWatchLoggingConfiguration_EncryptionKeyArn { get; set; }
+            public System.String CloudWatchLoggingConfiguration_LogGroupName { get; set; }
+            public System.String CloudWatchLoggingConfiguration_LogStreamNamePrefix { get; set; }
+            public Dictionary<System.String, List<System.String>> CloudWatchLoggingConfiguration_LogType { get; set; }
             public System.Boolean? ManagedPersistenceMonitoringConfiguration_Enabled { get; set; }
             public System.String ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn { get; set; }
             public System.String S3MonitoringConfiguration_EncryptionKeyArn { get; set; }

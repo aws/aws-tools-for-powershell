@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the column used to provide the sentences to be classified. It should not
-        /// be the same as the target column (Required).</para>
+        /// be the same as the target column.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -668,7 +668,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the column used to provide the class labels. It should not be same as
-        /// the content column (Required).</para>
+        /// the content column.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

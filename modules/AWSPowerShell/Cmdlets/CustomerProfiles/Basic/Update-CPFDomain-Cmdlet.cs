@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// </para><para>
     /// Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
     /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
-    /// resolution</a>: set <code>Matching</code> to true. 
+    /// resolution</a>: set <code>Matching</code> to true.
     /// </para><para>
     /// To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service
     /// confused deputy prevention</a> for sample policies that you should apply. 
@@ -54,6 +54,35 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class UpdateCPFDomainCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        #region Parameter AttributeTypesSelector_Address
+        /// <summary>
+        /// <para>
+        /// <para>The <code>Address</code> type. You can choose from <code>Address</code>, <code>BusinessAddress</code>,
+        /// <code>MaillingAddress</code>, and <code>ShippingAddress</code>.</para><para>You only can use the Address type in the <code>MatchingRule</code>. For example, if
+        /// you want to match profile based on <code>BusinessAddress.City</code> or <code>MaillingAddress.City</code>,
+        /// you need to choose the <code>BusinessAddress</code> and the <code>MaillingAddress</code>
+        /// to represent the Address type and specify the <code>Address.City</code> on the matching
+        /// rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleBasedMatching_AttributeTypesSelector_Address")]
+        public System.String[] AttributeTypesSelector_Address { get; set; }
+        #endregion
+        
+        #region Parameter AttributeTypesSelector_AttributeMatchingModel
+        /// <summary>
+        /// <para>
+        /// <para>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code>
+        /// or <code>MANY_TO_MANY</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel")]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.AttributeMatchingModel")]
+        public Amazon.CustomerProfiles.AttributeMatchingModel AttributeTypesSelector_AttributeMatchingModel { get; set; }
+        #endregion
+        
         #region Parameter ConflictResolution_ConflictResolvingModel
         /// <summary>
         /// <para>
@@ -67,6 +96,20 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [Alias("Matching_AutoMerging_ConflictResolution_ConflictResolvingModel")]
         [AWSConstantClassSource("Amazon.CustomerProfiles.ConflictResolvingModel")]
         public Amazon.CustomerProfiles.ConflictResolvingModel ConflictResolution_ConflictResolvingModel { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedMatching_ConflictResolution_ConflictResolvingModel
+        /// <summary>
+        /// <para>
+        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><code>RECENCY</code>: Uses the data that was most recently updated.</para></li><li><para><code>SOURCE</code>: Uses the data from a specific source. For example, if a company
+        /// has been aquired or two departments have merged, data from the specified source is
+        /// used. If two duplicate profiles are from the same source, then <code>RECENCY</code>
+        /// is used again.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.ConflictResolvingModel")]
+        public Amazon.CustomerProfiles.ConflictResolvingModel RuleBasedMatching_ConflictResolution_ConflictResolvingModel { get; set; }
         #endregion
         
         #region Parameter JobSchedule_DayOfTheWeek
@@ -136,6 +179,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter AttributeTypesSelector_EmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The <code>Email</code> type. You can choose from <code>EmailAddress</code>, <code>BusinessEmailAddress</code>
+        /// and <code>PersonalEmailAddress</code>.</para><para>You only can use the <code>EmailAddress</code> type in the <code>MatchingRule</code>.
+        /// For example, if you want to match profile based on <code>PersonalEmailAddress</code>
+        /// or <code>BusinessEmailAddress</code>, you need to choose the <code>PersonalEmailAddress</code>
+        /// and the <code>BusinessEmailAddress</code> to represent the <code>EmailAddress</code>
+        /// type and only specify the <code>EmailAddress</code> on the matching rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleBasedMatching_AttributeTypesSelector_EmailAddress")]
+        public System.String[] AttributeTypesSelector_EmailAddress { get; set; }
+        #endregion
+        
         #region Parameter AutoMerging_Enabled
         /// <summary>
         /// <para>
@@ -157,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.Boolean? Matching_Enabled { get; set; }
         #endregion
         
+        #region Parameter RuleBasedMatching_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>The flag that enables the rule-based matching process of duplicate profiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RuleBasedMatching_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Consolidation_MatchingAttributesList
         /// <summary>
         /// <para>
@@ -166,6 +235,38 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Matching_AutoMerging_Consolidation_MatchingAttributesList")]
         public System.String[][] Consolidation_MatchingAttributesList { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedMatching_MatchingRule
+        /// <summary>
+        /// <para>
+        /// <para>Configures how the rule-based matching process should match profiles. You can have
+        /// up to 15 <code>MatchingRule</code> in the <code>MatchingRules</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleBasedMatching_MatchingRules")]
+        public Amazon.CustomerProfiles.Model.MatchingRule[] RuleBasedMatching_MatchingRule { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedMatching_MaxAllowedRuleLevelForMatching
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the maximum allowed rule level.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RuleBasedMatching_MaxAllowedRuleLevelForMatching { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedMatching_MaxAllowedRuleLevelForMerging
+        /// <summary>
+        /// <para>
+        /// <para><a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_MatchingRule.html">MatchingRule</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RuleBasedMatching_MaxAllowedRuleLevelForMerging { get; set; }
         #endregion
         
         #region Parameter AutoMerging_MinAllowedConfidenceScoreForMerging
@@ -181,6 +282,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.Double? AutoMerging_MinAllowedConfidenceScoreForMerging { get; set; }
         #endregion
         
+        #region Parameter AttributeTypesSelector_PhoneNumber
+        /// <summary>
+        /// <para>
+        /// <para>The <code>PhoneNumber</code> type. You can choose from <code>PhoneNumber</code>, <code>HomePhoneNumber</code>,
+        /// and <code>MobilePhoneNumber</code>.</para><para>You only can use the <code>PhoneNumber</code> type in the <code>MatchingRule</code>.
+        /// For example, if you want to match a profile based on <code>Phone</code> or <code>HomePhone</code>,
+        /// you need to choose the <code>Phone</code> and the <code>HomePhone</code> to represent
+        /// the <code>PhoneNumber</code> type and only specify the <code>PhoneNumber</code> on
+        /// the matching rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleBasedMatching_AttributeTypesSelector_PhoneNumber")]
+        public System.String[] AttributeTypesSelector_PhoneNumber { get; set; }
+        #endregion
+        
         #region Parameter S3Exporting_S3BucketName
         /// <summary>
         /// <para>
@@ -190,6 +307,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Matching_ExportingConfig_S3Exporting_S3BucketName")]
         public System.String S3Exporting_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket where Identity Resolution Jobs write result files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName { get; set; }
         #endregion
         
         #region Parameter S3Exporting_S3KeyName
@@ -203,6 +330,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String S3Exporting_S3KeyName { get; set; }
         #endregion
         
+        #region Parameter RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName
+        /// <summary>
+        /// <para>
+        /// <para>The S3 key name of the location where Identity Resolution Jobs write result files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName { get; set; }
+        #endregion
+        
         #region Parameter ConflictResolution_SourceName
         /// <summary>
         /// <para>
@@ -213,6 +350,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Matching_AutoMerging_ConflictResolution_SourceName")]
         public System.String ConflictResolution_SourceName { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedMatching_ConflictResolution_SourceName
+        /// <summary>
+        /// <para>
+        /// <para>The <code>ObjectType</code> name that is used to resolve profile merging conflicts
+        /// when choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuleBasedMatching_ConflictResolution_SourceName { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -326,6 +474,30 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.S3Exporting_S3KeyName = this.S3Exporting_S3KeyName;
             context.JobSchedule_DayOfTheWeek = this.JobSchedule_DayOfTheWeek;
             context.JobSchedule_Time = this.JobSchedule_Time;
+            if (this.AttributeTypesSelector_Address != null)
+            {
+                context.AttributeTypesSelector_Address = new List<System.String>(this.AttributeTypesSelector_Address);
+            }
+            context.AttributeTypesSelector_AttributeMatchingModel = this.AttributeTypesSelector_AttributeMatchingModel;
+            if (this.AttributeTypesSelector_EmailAddress != null)
+            {
+                context.AttributeTypesSelector_EmailAddress = new List<System.String>(this.AttributeTypesSelector_EmailAddress);
+            }
+            if (this.AttributeTypesSelector_PhoneNumber != null)
+            {
+                context.AttributeTypesSelector_PhoneNumber = new List<System.String>(this.AttributeTypesSelector_PhoneNumber);
+            }
+            context.RuleBasedMatching_ConflictResolution_ConflictResolvingModel = this.RuleBasedMatching_ConflictResolution_ConflictResolvingModel;
+            context.RuleBasedMatching_ConflictResolution_SourceName = this.RuleBasedMatching_ConflictResolution_SourceName;
+            context.RuleBasedMatching_Enabled = this.RuleBasedMatching_Enabled;
+            context.RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName = this.RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName;
+            context.RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName = this.RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName;
+            if (this.RuleBasedMatching_MatchingRule != null)
+            {
+                context.RuleBasedMatching_MatchingRule = new List<Amazon.CustomerProfiles.Model.MatchingRule>(this.RuleBasedMatching_MatchingRule);
+            }
+            context.RuleBasedMatching_MaxAllowedRuleLevelForMatching = this.RuleBasedMatching_MaxAllowedRuleLevelForMatching;
+            context.RuleBasedMatching_MaxAllowedRuleLevelForMerging = this.RuleBasedMatching_MaxAllowedRuleLevelForMerging;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -565,6 +737,195 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.Matching = null;
             }
+            
+             // populate RuleBasedMatching
+            var requestRuleBasedMatchingIsNull = true;
+            request.RuleBasedMatching = new Amazon.CustomerProfiles.Model.RuleBasedMatchingRequest();
+            System.Boolean? requestRuleBasedMatching_ruleBasedMatching_Enabled = null;
+            if (cmdletContext.RuleBasedMatching_Enabled != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_Enabled = cmdletContext.RuleBasedMatching_Enabled.Value;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_Enabled != null)
+            {
+                request.RuleBasedMatching.Enabled = requestRuleBasedMatching_ruleBasedMatching_Enabled.Value;
+                requestRuleBasedMatchingIsNull = false;
+            }
+            List<Amazon.CustomerProfiles.Model.MatchingRule> requestRuleBasedMatching_ruleBasedMatching_MatchingRule = null;
+            if (cmdletContext.RuleBasedMatching_MatchingRule != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_MatchingRule = cmdletContext.RuleBasedMatching_MatchingRule;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_MatchingRule != null)
+            {
+                request.RuleBasedMatching.MatchingRules = requestRuleBasedMatching_ruleBasedMatching_MatchingRule;
+                requestRuleBasedMatchingIsNull = false;
+            }
+            System.Int32? requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMatching = null;
+            if (cmdletContext.RuleBasedMatching_MaxAllowedRuleLevelForMatching != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMatching = cmdletContext.RuleBasedMatching_MaxAllowedRuleLevelForMatching.Value;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMatching != null)
+            {
+                request.RuleBasedMatching.MaxAllowedRuleLevelForMatching = requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMatching.Value;
+                requestRuleBasedMatchingIsNull = false;
+            }
+            System.Int32? requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMerging = null;
+            if (cmdletContext.RuleBasedMatching_MaxAllowedRuleLevelForMerging != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMerging = cmdletContext.RuleBasedMatching_MaxAllowedRuleLevelForMerging.Value;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMerging != null)
+            {
+                request.RuleBasedMatching.MaxAllowedRuleLevelForMerging = requestRuleBasedMatching_ruleBasedMatching_MaxAllowedRuleLevelForMerging.Value;
+                requestRuleBasedMatchingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.ExportingConfig requestRuleBasedMatching_ruleBasedMatching_ExportingConfig = null;
+            
+             // populate ExportingConfig
+            var requestRuleBasedMatching_ruleBasedMatching_ExportingConfigIsNull = true;
+            requestRuleBasedMatching_ruleBasedMatching_ExportingConfig = new Amazon.CustomerProfiles.Model.ExportingConfig();
+            Amazon.CustomerProfiles.Model.S3ExportingConfig requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting = null;
+            
+             // populate S3Exporting
+            var requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3ExportingIsNull = true;
+            requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting = new Amazon.CustomerProfiles.Model.S3ExportingConfig();
+            System.String requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3BucketName = null;
+            if (cmdletContext.RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3BucketName = cmdletContext.RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3BucketName != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting.S3BucketName = requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3BucketName;
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3ExportingIsNull = false;
+            }
+            System.String requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3KeyName = null;
+            if (cmdletContext.RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3KeyName = cmdletContext.RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3KeyName != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting.S3KeyName = requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting_ruleBasedMatching_ExportingConfig_S3Exporting_S3KeyName;
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3ExportingIsNull = false;
+            }
+             // determine if requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting should be set to null
+            if (requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3ExportingIsNull)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting = null;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig.S3Exporting = requestRuleBasedMatching_ruleBasedMatching_ExportingConfig_ruleBasedMatching_ExportingConfig_S3Exporting;
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfigIsNull = false;
+            }
+             // determine if requestRuleBasedMatching_ruleBasedMatching_ExportingConfig should be set to null
+            if (requestRuleBasedMatching_ruleBasedMatching_ExportingConfigIsNull)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ExportingConfig = null;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ExportingConfig != null)
+            {
+                request.RuleBasedMatching.ExportingConfig = requestRuleBasedMatching_ruleBasedMatching_ExportingConfig;
+                requestRuleBasedMatchingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.ConflictResolution requestRuleBasedMatching_ruleBasedMatching_ConflictResolution = null;
+            
+             // populate ConflictResolution
+            var requestRuleBasedMatching_ruleBasedMatching_ConflictResolutionIsNull = true;
+            requestRuleBasedMatching_ruleBasedMatching_ConflictResolution = new Amazon.CustomerProfiles.Model.ConflictResolution();
+            Amazon.CustomerProfiles.ConflictResolvingModel requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_ConflictResolvingModel = null;
+            if (cmdletContext.RuleBasedMatching_ConflictResolution_ConflictResolvingModel != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_ConflictResolvingModel = cmdletContext.RuleBasedMatching_ConflictResolution_ConflictResolvingModel;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_ConflictResolvingModel != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolution.ConflictResolvingModel = requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_ConflictResolvingModel;
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolutionIsNull = false;
+            }
+            System.String requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_SourceName = null;
+            if (cmdletContext.RuleBasedMatching_ConflictResolution_SourceName != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_SourceName = cmdletContext.RuleBasedMatching_ConflictResolution_SourceName;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_SourceName != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolution.SourceName = requestRuleBasedMatching_ruleBasedMatching_ConflictResolution_ruleBasedMatching_ConflictResolution_SourceName;
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolutionIsNull = false;
+            }
+             // determine if requestRuleBasedMatching_ruleBasedMatching_ConflictResolution should be set to null
+            if (requestRuleBasedMatching_ruleBasedMatching_ConflictResolutionIsNull)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_ConflictResolution = null;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_ConflictResolution != null)
+            {
+                request.RuleBasedMatching.ConflictResolution = requestRuleBasedMatching_ruleBasedMatching_ConflictResolution;
+                requestRuleBasedMatchingIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.AttributeTypesSelector requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector = null;
+            
+             // populate AttributeTypesSelector
+            var requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelectorIsNull = true;
+            requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector = new Amazon.CustomerProfiles.Model.AttributeTypesSelector();
+            List<System.String> requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_Address = null;
+            if (cmdletContext.AttributeTypesSelector_Address != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_Address = cmdletContext.AttributeTypesSelector_Address;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_Address != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector.Address = requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_Address;
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelectorIsNull = false;
+            }
+            Amazon.CustomerProfiles.AttributeMatchingModel requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_AttributeMatchingModel = null;
+            if (cmdletContext.AttributeTypesSelector_AttributeMatchingModel != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_AttributeMatchingModel = cmdletContext.AttributeTypesSelector_AttributeMatchingModel;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_AttributeMatchingModel != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector.AttributeMatchingModel = requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_AttributeMatchingModel;
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelectorIsNull = false;
+            }
+            List<System.String> requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_EmailAddress = null;
+            if (cmdletContext.AttributeTypesSelector_EmailAddress != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_EmailAddress = cmdletContext.AttributeTypesSelector_EmailAddress;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_EmailAddress != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector.EmailAddress = requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_EmailAddress;
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelectorIsNull = false;
+            }
+            List<System.String> requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_PhoneNumber = null;
+            if (cmdletContext.AttributeTypesSelector_PhoneNumber != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_PhoneNumber = cmdletContext.AttributeTypesSelector_PhoneNumber;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_PhoneNumber != null)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector.PhoneNumber = requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector_attributeTypesSelector_PhoneNumber;
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelectorIsNull = false;
+            }
+             // determine if requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector should be set to null
+            if (requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelectorIsNull)
+            {
+                requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector = null;
+            }
+            if (requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector != null)
+            {
+                request.RuleBasedMatching.AttributeTypesSelector = requestRuleBasedMatching_ruleBasedMatching_AttributeTypesSelector;
+                requestRuleBasedMatchingIsNull = false;
+            }
+             // determine if request.RuleBasedMatching should be set to null
+            if (requestRuleBasedMatchingIsNull)
+            {
+                request.RuleBasedMatching = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -644,6 +1005,18 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String S3Exporting_S3KeyName { get; set; }
             public Amazon.CustomerProfiles.JobScheduleDayOfTheWeek JobSchedule_DayOfTheWeek { get; set; }
             public System.String JobSchedule_Time { get; set; }
+            public List<System.String> AttributeTypesSelector_Address { get; set; }
+            public Amazon.CustomerProfiles.AttributeMatchingModel AttributeTypesSelector_AttributeMatchingModel { get; set; }
+            public List<System.String> AttributeTypesSelector_EmailAddress { get; set; }
+            public List<System.String> AttributeTypesSelector_PhoneNumber { get; set; }
+            public Amazon.CustomerProfiles.ConflictResolvingModel RuleBasedMatching_ConflictResolution_ConflictResolvingModel { get; set; }
+            public System.String RuleBasedMatching_ConflictResolution_SourceName { get; set; }
+            public System.Boolean? RuleBasedMatching_Enabled { get; set; }
+            public System.String RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName { get; set; }
+            public System.String RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName { get; set; }
+            public List<Amazon.CustomerProfiles.Model.MatchingRule> RuleBasedMatching_MatchingRule { get; set; }
+            public System.Int32? RuleBasedMatching_MaxAllowedRuleLevelForMatching { get; set; }
+            public System.Int32? RuleBasedMatching_MaxAllowedRuleLevelForMerging { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.UpdateDomainResponse, UpdateCPFDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

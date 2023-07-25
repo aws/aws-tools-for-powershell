@@ -28,8 +28,25 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code>
-    /// and the file paths for where to send the files.
+    /// Begins a file transfer between local Amazon Web Services storage and a remote AS2
+    /// or SFTP server.
+    /// 
+    ///  <ul><li><para>
+    /// For an AS2 connector, you specify the <code>ConnectorId</code> and one or more <code>SendFilePaths</code>
+    /// to identify the files you want to transfer.
+    /// </para></li><li><para>
+    /// For an SFTP connector, the file transfer can be either outbound or inbound. In both
+    /// cases, you specify the <code>ConnectorId</code>. Depending on the direction of the
+    /// transfer, you also specify the following items:
+    /// </para><ul><li><para>
+    /// If you are transferring file from a partner's SFTP server to a Transfer Family server,
+    /// you specify one or more <code>RetreiveFilePaths</code> to identify the files you want
+    /// to transfer, and a <code>LocalDirectoryPath</code> to specify the destination folder.
+    /// </para></li><li><para>
+    /// If you are transferring file to a partner's SFTP server from Amazon Web Services storage,
+    /// you specify one or more <code>SendFilePaths</code> to identify the files you want
+    /// to transfer, and a <code>RemoteDirectoryPath</code> to specify the destination folder.
+    /// </para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("Start", "TFRFileTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ConnectorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the connector. </para>
+        /// <para>The unique identifier for the connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,22 +75,50 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String ConnectorId { get; set; }
         #endregion
         
+        #region Parameter LocalDirectoryPath
+        /// <summary>
+        /// <para>
+        /// <para>For an inbound transfer, the <code>LocaDirectoryPath</code> specifies the destination
+        /// for one or more files that are transferred from the partner's SFTP server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LocalDirectoryPath { get; set; }
+        #endregion
+        
+        #region Parameter RemoteDirectoryPath
+        /// <summary>
+        /// <para>
+        /// <para>For an outbound transfer, the <code>RemoteDirectoryPath</code> specifies the destination
+        /// for one or more files that are transferred to the partner's SFTP server. If you don't
+        /// specify a <code>RemoteDirectoryPath</code>, the destination for transferred files
+        /// is the SFTP user's home directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RemoteDirectoryPath { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveFilePath
+        /// <summary>
+        /// <para>
+        /// <para>One or more source paths for the partner's SFTP server. Each string represents a source
+        /// file path for one inbound file transfer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveFilePaths")]
+        public System.String[] RetrieveFilePath { get; set; }
+        #endregion
+        
         #region Parameter SendFilePath
         /// <summary>
         /// <para>
-        /// <para>An array of strings. Each string represents the absolute path for one outbound file
-        /// transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.
-        /// </para>
+        /// <para>One or more source paths for the Transfer Family server. Each string represents a
+        /// source file path for one outbound file transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SendFilePaths")]
         public System.String[] SendFilePath { get; set; }
         #endregion
@@ -147,16 +192,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ConnectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LocalDirectoryPath = this.LocalDirectoryPath;
+            context.RemoteDirectoryPath = this.RemoteDirectoryPath;
+            if (this.RetrieveFilePath != null)
+            {
+                context.RetrieveFilePath = new List<System.String>(this.RetrieveFilePath);
+            }
             if (this.SendFilePath != null)
             {
                 context.SendFilePath = new List<System.String>(this.SendFilePath);
             }
-            #if MODULAR
-            if (this.SendFilePath == null && ParameterWasBound(nameof(this.SendFilePath)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SendFilePath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +221,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.ConnectorId != null)
             {
                 request.ConnectorId = cmdletContext.ConnectorId;
+            }
+            if (cmdletContext.LocalDirectoryPath != null)
+            {
+                request.LocalDirectoryPath = cmdletContext.LocalDirectoryPath;
+            }
+            if (cmdletContext.RemoteDirectoryPath != null)
+            {
+                request.RemoteDirectoryPath = cmdletContext.RemoteDirectoryPath;
+            }
+            if (cmdletContext.RetrieveFilePath != null)
+            {
+                request.RetrieveFilePaths = cmdletContext.RetrieveFilePath;
             }
             if (cmdletContext.SendFilePath != null)
             {
@@ -243,6 +300,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectorId { get; set; }
+            public System.String LocalDirectoryPath { get; set; }
+            public System.String RemoteDirectoryPath { get; set; }
+            public List<System.String> RetrieveFilePath { get; set; }
             public List<System.String> SendFilePath { get; set; }
             public System.Func<Amazon.Transfer.Model.StartFileTransferResponse, StartTFRFileTransferCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TransferId;

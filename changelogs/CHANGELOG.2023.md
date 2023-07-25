@@ -1,4 +1,29 @@
-﻿### 4.1.377 (2023-07-24 21:31Z)
+﻿### 4.1.378 (2023-07-25 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.606.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet Get-ABCBillingGroupList: added parameter Filters_AutoAssociate.
+    * Modified cmdlet New-ABCBillingGroup: added parameter AccountGrouping_AutoAssociate.
+    * Modified cmdlet Update-ABCBillingGroup: added parameter AccountGrouping_AutoAssociate.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFRuleBasedMatchList leveraging the ListRuleBasedMatches service API.
+    * Added cmdlet Get-CPFSimilarProfile leveraging the GetSimilarProfiles service API.
+    * Modified cmdlet New-CPFDomain: added parameters AttributeTypesSelector_Address, AttributeTypesSelector_AttributeMatchingModel, AttributeTypesSelector_EmailAddress, AttributeTypesSelector_PhoneNumber, RuleBasedMatching_ConflictResolution_ConflictResolvingModel, RuleBasedMatching_ConflictResolution_SourceName, RuleBasedMatching_Enabled, RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName, RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName, RuleBasedMatching_MatchingRule, RuleBasedMatching_MaxAllowedRuleLevelForMatching and RuleBasedMatching_MaxAllowedRuleLevelForMerging.
+    * Modified cmdlet Update-CPFDomain: added parameters AttributeTypesSelector_Address, AttributeTypesSelector_AttributeMatchingModel, AttributeTypesSelector_EmailAddress, AttributeTypesSelector_PhoneNumber, RuleBasedMatching_ConflictResolution_ConflictResolvingModel, RuleBasedMatching_ConflictResolution_SourceName, RuleBasedMatching_Enabled, RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName, RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName, RuleBasedMatching_MatchingRule, RuleBasedMatching_MaxAllowedRuleLevelForMatching and RuleBasedMatching_MaxAllowedRuleLevelForMerging.
+  * Amazon DataSync
+    * Added cmdlet Get-DSYNLocationAzureBlob leveraging the DescribeLocationAzureBlob service API.
+    * Added cmdlet New-DSYNLocationAzureBlob leveraging the CreateLocationAzureBlob service API.
+    * Added cmdlet Update-DSYNLocationAzureBlob leveraging the UpdateLocationAzureBlob service API.
+  * Amazon EMR Serverless
+    * Modified cmdlet Start-EMRServerlessJobRun: added parameters CloudWatchLoggingConfiguration_Enabled, CloudWatchLoggingConfiguration_EncryptionKeyArn, CloudWatchLoggingConfiguration_LogGroupName, CloudWatchLoggingConfiguration_LogStreamNamePrefix and CloudWatchLoggingConfiguration_LogType.
+  * Amazon Security Token Service
+    * Modified cmdlet Use-STSRole: added parameter ProvidedContext.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Test-TFRConnection leveraging the TestConnection service API.
+    * Modified cmdlet New-TFRConnector: added parameters SftpConfig_TrustedHostKey and SftpConfig_UserSecretId.
+    * Modified cmdlet Start-TFRFileTransfer: added parameters LocalDirectoryPath, RemoteDirectoryPath and RetrieveFilePath.
+    * Modified cmdlet Update-TFRConnector: added parameters SftpConfig_TrustedHostKey and SftpConfig_UserSecretId.
+
+### 4.1.377 (2023-07-24 21:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.605.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Media Pipelines
     * Modified cmdlet New-CHMMPMediaCapturePipeline: added parameters ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition, GridViewConfiguration_CanvasOrientation, HorizontalLayoutConfiguration_TileAspectRatio, HorizontalLayoutConfiguration_TileCount, HorizontalLayoutConfiguration_TileOrder, HorizontalLayoutConfiguration_TilePosition, VerticalLayoutConfiguration_TileAspectRatio, VerticalLayoutConfiguration_TileCount, VerticalLayoutConfiguration_TileOrder, VerticalLayoutConfiguration_TilePosition, VideoAttribute_BorderColor, VideoAttribute_BorderThickness, VideoAttribute_CornerRadius and VideoAttribute_HighlightColor.

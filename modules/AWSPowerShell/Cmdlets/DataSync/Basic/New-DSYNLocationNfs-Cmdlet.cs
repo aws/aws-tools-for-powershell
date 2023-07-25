@@ -28,8 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Defines a file system on a Network File System (NFS) server that can be read from
-    /// or written to.
+    /// Creates an endpoint for an Network File System (NFS) file server that DataSync can
+    /// use for a data transfer.
     /// </summary>
     [Cmdlet("New", "DSYNLocationNfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
-        /// <para>The name of the NFS server. This value is the IP address or Domain Name Service (DNS)
-        /// name of the NFS server. An agent that is installed on-premises uses this hostname
-        /// to mount the NFS server in a network. </para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on Snowcone</a> for more information.</para><note><para>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</para></note>
+        /// <para>Specifies the IP address or domain name of your NFS file server. An agent that is
+        /// installed on-premises uses this hostname to mount the NFS server in a network. </para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
+        /// Server on Snowcone</a> for more information.</para><note><para>You must specify be an IP version 4 address or Domain Name System (DNS)-compliant
+        /// name.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>The subdirectory in the NFS file system that is used to read data from the NFS source
-        /// location or write data to the NFS destination. The NFS path should be a path that's
-        /// exported by the NFS server, or a subdirectory of that path. The path should be such
-        /// that it can be mounted by other NFS clients in your network. </para><para>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>"
+        /// <para>Specifies the subdirectory in the NFS file server that DataSync transfers to or from.
+        /// The NFS path should be a path that's exported by the NFS server, or a subdirectory
+        /// of that path. The path should be such that it can be mounted by other NFS clients
+        /// in your network. </para><para>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>"
         /// from an NFS client that has access to your server. You can specify any directory that
         /// appears in the results, and any subdirectory of that directory. Ensure that the NFS
         /// export is accessible without Kerberos authentication. </para><para>To transfer all the data in the folder you specified, DataSync needs to have permissions
@@ -93,8 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// or ensure that the permissions for all of the files that you want DataSync allow read
         /// access for all users. Doing either enables the agent to read the files. For the agent
         /// to access directories, you must additionally enable all execute access.</para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on Snowcone</a> for more information.</para><para>For information about NFS export configuration, see 18.7. The /etc/exports Configuration
-        /// File in the Red Hat Enterprise Linux documentation.</para>
+        /// Server on Snowcone</a> for more information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents the tag that you want to add to the location. The
-        /// value can be an empty string. We recommend using tags to name your resources.</para>
+        /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
+        /// Services resources. We recommend creating at least a name tag for your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

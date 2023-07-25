@@ -46,12 +46,23 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_Arn
         /// <summary>
         /// <para>
-        /// <para>The list of billing group Amazon Resource Names (ARNs) to retrieve information. </para>
+        /// <para>The list of billing group Amazon Resource Names (ARNs) to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters_Arns")]
         public System.String[] Filters_Arn { get; set; }
+        #endregion
+        
+        #region Parameter Filters_AutoAssociate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if this billing group will automatically associate newly added Amazon Web
+        /// Services accounts that join your consolidated billing family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Filters_AutoAssociate { get; set; }
         #endregion
         
         #region Parameter BillingPeriod
@@ -67,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_PricingPlan
         /// <summary>
         /// <para>
-        /// <para>The pricing plan Amazon Resource Names (ARNs) to retrieve information. </para>
+        /// <para>The pricing plan Amazon Resource Names (ARNs) to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             {
                 context.Filters_Arn = new List<System.String>(this.Filters_Arn);
             }
+            context.Filters_AutoAssociate = this.Filters_AutoAssociate;
             context.Filters_PricingPlan = this.Filters_PricingPlan;
             if (this.Filters_Status != null)
             {
@@ -197,6 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (requestFilters_filters_Arn != null)
             {
                 request.Filters.Arns = requestFilters_filters_Arn;
+                requestFiltersIsNull = false;
+            }
+            System.Boolean? requestFilters_filters_AutoAssociate = null;
+            if (cmdletContext.Filters_AutoAssociate != null)
+            {
+                requestFilters_filters_AutoAssociate = cmdletContext.Filters_AutoAssociate.Value;
+            }
+            if (requestFilters_filters_AutoAssociate != null)
+            {
+                request.Filters.AutoAssociate = requestFilters_filters_AutoAssociate.Value;
                 requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_PricingPlan = null;
@@ -295,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         {
             public System.String BillingPeriod { get; set; }
             public List<System.String> Filters_Arn { get; set; }
+            public System.Boolean? Filters_AutoAssociate { get; set; }
             public System.String Filters_PricingPlan { get; set; }
             public List<System.String> Filters_Status { get; set; }
             public System.Int32? MaxResult { get; set; }

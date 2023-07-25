@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and
-        /// reads your on-premises storage system.</para>
+        /// reads your on-premises storage system. You can only specify one ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

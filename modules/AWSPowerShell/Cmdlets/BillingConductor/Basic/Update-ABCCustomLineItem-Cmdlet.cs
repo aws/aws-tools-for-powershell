@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter BillingPeriodRange_ExclusiveEndBillingPeriod
         /// <summary>
         /// <para>
-        /// <para> The inclusive end billing period that defines a billing period range where a custom
-        /// line is applied. </para>
+        /// <para>The inclusive end billing period that defines a billing period range where a custom
+        /// line is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter BillingPeriodRange_InclusiveStartBillingPeriod
         /// <summary>
         /// <para>
-        /// <para> The inclusive start billing period that defines a billing period range where a custom
-        /// line is applied. </para>
+        /// <para>The inclusive start billing period that defines a billing period range where a custom
+        /// line is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

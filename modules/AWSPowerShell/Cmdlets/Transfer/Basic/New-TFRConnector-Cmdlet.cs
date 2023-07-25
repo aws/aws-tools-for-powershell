@@ -29,9 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Creates the connector, which captures the parameters for an outbound connection for
-    /// the AS2 protocol. The connector is required for sending files to an externally hosted
-    /// AS2 server. For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create
+    /// the AS2 or SFTP protocol. The connector is required for sending files to an externally
+    /// hosted AS2 or SFTP server. For more details about AS2 connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create
     /// AS2 connectors</a>.
+    /// 
+    ///  <note><para>
+    /// You must specify exactly one configuration object: either for AS2 (<code>As2Config</code>)
+    /// or SFTP (<code>SftpConfig</code>).
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "TFRConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -208,10 +213,26 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter SftpConfig_TrustedHostKey
+        /// <summary>
+        /// <para>
+        /// <para>The public portion of the host key, or keys, that are used to authenticate the user
+        /// to the external server to which you are connecting. You can use the <code>ssh-keyscan</code>
+        /// command against the SFTP server to retrieve the necessary key.</para><para>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
+        /// <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with
+        /// spaces between each element.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the key type is <code>ssh-rsa</code>.</para></li><li><para>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>,
+        /// or <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SftpConfig_TrustedHostKeys")]
+        public System.String[] SftpConfig_TrustedHostKey { get; set; }
+        #endregion
+        
         #region Parameter Url
         /// <summary>
         /// <para>
-        /// <para>The URL of the partner's AS2 endpoint.</para>
+        /// <para>The URL of the partner's AS2 or SFTP endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -223,6 +244,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Url { get; set; }
+        #endregion
+        
+        #region Parameter SftpConfig_UserSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The identifiers for the secrets (in Amazon Web Services Secrets Manager) that contain
+        /// the SFTP user's private keys or passwords.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SftpConfig_UserSecretId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -284,6 +316,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.As2Config_PartnerProfileId = this.As2Config_PartnerProfileId;
             context.As2Config_SigningAlgorithm = this.As2Config_SigningAlgorithm;
             context.LoggingRole = this.LoggingRole;
+            if (this.SftpConfig_TrustedHostKey != null)
+            {
+                context.SftpConfig_TrustedHostKey = new List<System.String>(this.SftpConfig_TrustedHostKey);
+            }
+            context.SftpConfig_UserSecretId = this.SftpConfig_UserSecretId;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
@@ -418,6 +455,35 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
             }
+            
+             // populate SftpConfig
+            var requestSftpConfigIsNull = true;
+            request.SftpConfig = new Amazon.Transfer.Model.SftpConnectorConfig();
+            List<System.String> requestSftpConfig_sftpConfig_TrustedHostKey = null;
+            if (cmdletContext.SftpConfig_TrustedHostKey != null)
+            {
+                requestSftpConfig_sftpConfig_TrustedHostKey = cmdletContext.SftpConfig_TrustedHostKey;
+            }
+            if (requestSftpConfig_sftpConfig_TrustedHostKey != null)
+            {
+                request.SftpConfig.TrustedHostKeys = requestSftpConfig_sftpConfig_TrustedHostKey;
+                requestSftpConfigIsNull = false;
+            }
+            System.String requestSftpConfig_sftpConfig_UserSecretId = null;
+            if (cmdletContext.SftpConfig_UserSecretId != null)
+            {
+                requestSftpConfig_sftpConfig_UserSecretId = cmdletContext.SftpConfig_UserSecretId;
+            }
+            if (requestSftpConfig_sftpConfig_UserSecretId != null)
+            {
+                request.SftpConfig.UserSecretId = requestSftpConfig_sftpConfig_UserSecretId;
+                requestSftpConfigIsNull = false;
+            }
+             // determine if request.SftpConfig should be set to null
+            if (requestSftpConfigIsNull)
+            {
+                request.SftpConfig = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -498,6 +564,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String As2Config_PartnerProfileId { get; set; }
             public Amazon.Transfer.SigningAlg As2Config_SigningAlgorithm { get; set; }
             public System.String LoggingRole { get; set; }
+            public List<System.String> SftpConfig_TrustedHostKey { get; set; }
+            public System.String SftpConfig_UserSecretId { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
             public System.String Url { get; set; }
             public System.Func<Amazon.Transfer.Model.CreateConnectorResponse, NewTFRConnectorCmdlet, object> Select { get; set; } =

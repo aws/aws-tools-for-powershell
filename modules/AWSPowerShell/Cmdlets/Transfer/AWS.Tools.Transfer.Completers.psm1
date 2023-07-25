@@ -362,6 +362,7 @@ $TFR_SelectMap = @{
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",
+               "Test-TFRConnection",
                "Test-TFRIdentityProvider",
                "Remove-TFRResourceTag",
                "Update-TFRAccess",

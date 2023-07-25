@@ -15073,11 +15073,23 @@ $CPF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CustomerProfiles.AttributeMatchingModel
+        {
+            ($_ -eq "New-CPFDomain/RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel") -Or
+            ($_ -eq "Update-CPFDomain/RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel")
+        }
+        {
+            $v = "MANY_TO_MANY","ONE_TO_ONE"
+            break
+        }
+
         # Amazon.CustomerProfiles.ConflictResolvingModel
         {
             ($_ -eq "Get-CPFAutoMergingPreview/ConflictResolution_ConflictResolvingModel") -Or
             ($_ -eq "New-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
-            ($_ -eq "Update-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel")
+            ($_ -eq "Update-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "New-CPFDomain/RuleBasedMatching_ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "Update-CPFDomain/RuleBasedMatching_ConflictResolution_ConflictResolvingModel")
         }
         {
             $v = "RECENCY","SOURCE"
@@ -15118,6 +15130,13 @@ $CPF_Completers = {
         "Search-CPFProfile/LogicalOperator"
         {
             $v = "AND","OR"
+            break
+        }
+
+        # Amazon.CustomerProfiles.MatchType
+        "Get-CPFSimilarProfile/MatchType"
+        {
+            $v = "ML_BASED_MATCHING","RULE_BASED_MATCHING"
             break
         }
 
@@ -15217,7 +15236,10 @@ $CPF_map = @{
     "LogicalOperator"=@("Search-CPFProfile")
     "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
+    "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
+    "RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Statistic"=@("New-CPFCalculatedAttributeDefinition")
     "Status"=@("Get-CPFWorkflowList")
     "WorkflowType"=@("Get-CPFWorkflowList","New-CPFIntegrationWorkflow")
@@ -15298,6 +15320,7 @@ $CPF_SelectMap = @{
                "Get-CPFMatch",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFSimilarProfile",
                "Get-CPFWorkflow",
                "Get-CPFWorkflowStep",
                "Get-CPFAccountIntegrationList",
@@ -15310,6 +15333,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
+               "Get-CPFRuleBasedMatchList",
                "Get-CPFResourceTag",
                "Get-CPFWorkflowList",
                "Merge-CPFProfile",
@@ -15777,6 +15801,36 @@ $DSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DataSync.AzureAccessTier
+        {
+            ($_ -eq "New-DSYNLocationAzureBlob/AccessTier") -Or
+            ($_ -eq "Update-DSYNLocationAzureBlob/AccessTier")
+        }
+        {
+            $v = "ARCHIVE","COOL","HOT"
+            break
+        }
+
+        # Amazon.DataSync.AzureBlobAuthenticationType
+        {
+            ($_ -eq "New-DSYNLocationAzureBlob/AuthenticationType") -Or
+            ($_ -eq "Update-DSYNLocationAzureBlob/AuthenticationType")
+        }
+        {
+            $v = "SAS"
+            break
+        }
+
+        # Amazon.DataSync.AzureBlobType
+        {
+            ($_ -eq "New-DSYNLocationAzureBlob/BlobType") -Or
+            ($_ -eq "Update-DSYNLocationAzureBlob/BlobType")
+        }
+        {
+            $v = "BLOCK"
+            break
+        }
+
         # Amazon.DataSync.DiscoveryResourceType
         {
             ($_ -eq "Get-DSYNStorageSystemResource/ResourceType") -Or
@@ -15882,7 +15936,9 @@ $DSYN_Completers = {
 }
 
 $DSYN_map = @{
-    "AuthenticationType"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
+    "AccessTier"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
+    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
+    "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "InTransitEncryption"=@("New-DSYNLocationEfs")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
     "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
@@ -15948,6 +16004,7 @@ $DSYN_SelectMap = @{
     "Select"=@("Add-DSYNStorageSystem",
                "Stop-DSYNTaskExecution",
                "New-DSYNAgent",
+               "New-DSYNLocationAzureBlob",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxLustre",
                "New-DSYNLocationFsxOntap",
@@ -15964,6 +16021,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNTask",
                "Get-DSYNAgent",
                "Get-DSYNDiscoveryJob",
+               "Get-DSYNLocationAzureBlob",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
                "Get-DSYNLocationFsxOntap",
@@ -15995,6 +16053,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
                "Update-DSYNDiscoveryJob",
+               "Update-DSYNLocationAzureBlob",
                "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",
@@ -34260,7 +34319,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.11","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
             break
         }
 
@@ -59257,6 +59316,7 @@ $TFR_SelectMap = @{
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",
+               "Test-TFRConnection",
                "Test-TFRIdentityProvider",
                "Remove-TFRResourceTag",
                "Update-TFRAccess",

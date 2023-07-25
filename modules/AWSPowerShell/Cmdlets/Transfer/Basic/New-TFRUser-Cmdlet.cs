@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// that your Identity and Access Management (IAM) role provides access to paths in <code>Target</code>.
         /// This value can be set only when <code>HomeDirectoryType</code> is set to <i>LOGICAL</i>.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example.</para><para><code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code></para><para>In most cases, you can use this value instead of the session policy to lock your user
         /// down to the designated home directory ("<code>chroot</code>"). To do this, you can
-        /// set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
-        /// parameter value.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para>
+        /// set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the value
+        /// the user should see for their home directory when they log in.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

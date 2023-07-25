@@ -227,6 +227,17 @@ namespace Amazon.PowerShell.Cmdlets.STS
         public Amazon.SecurityToken.Model.PolicyDescriptorType[] PolicyArn { get; set; }
         #endregion
         
+        #region Parameter ProvidedContext
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvidedContexts")]
+        public Amazon.SecurityToken.Model.ProvidedContext[] ProvidedContext { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -435,6 +446,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
             {
                 context.PolicyArn = new List<Amazon.SecurityToken.Model.PolicyDescriptorType>(this.PolicyArn);
             }
+            if (this.ProvidedContext != null)
+            {
+                context.ProvidedContext = new List<Amazon.SecurityToken.Model.ProvidedContext>(this.ProvidedContext);
+            }
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -491,6 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
             if (cmdletContext.PolicyArn != null)
             {
                 request.PolicyArns = cmdletContext.PolicyArn;
+            }
+            if (cmdletContext.ProvidedContext != null)
+            {
+                request.ProvidedContexts = cmdletContext.ProvidedContext;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -585,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             public System.String ExternalId { get; set; }
             public System.String Policy { get; set; }
             public List<Amazon.SecurityToken.Model.PolicyDescriptorType> PolicyArn { get; set; }
+            public List<Amazon.SecurityToken.Model.ProvidedContext> ProvidedContext { get; set; }
             public System.String RoleArn { get; set; }
             public System.String RoleSessionName { get; set; }
             public System.String SerialNumber { get; set; }

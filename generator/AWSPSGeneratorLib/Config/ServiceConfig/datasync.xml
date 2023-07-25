@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocationAzureBlob" OutputProperty="LocationArn" Verb="New" Noun="LocationAzureBlob" ShouldProcessTarget="ContainerUrl" PipelineParameter="ContainerUrl" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationEfs" OutputProperty="LocationArn" Verb="New" Noun="LocationEfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -101,6 +105,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDiscoveryJob" OutputProperty="*" Verb="Get" Noun="DiscoveryJob" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocationAzureBlob" OutputProperty="*" Verb="Get" Noun="LocationAzureBlob" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,6 +233,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDiscoveryJob" Verb="Update" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationAzureBlob" Verb="Update" Noun="LocationAzureBlob" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

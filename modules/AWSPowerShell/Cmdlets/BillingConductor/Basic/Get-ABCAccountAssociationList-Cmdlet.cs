@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_AccountId
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services account ID to filter on. </para>
+        /// <para>The Amazon Web Services account ID to filter on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// <summary>
         /// <para>
         /// <para><code>MONITORED</code>: linked accounts that are associated to billing groups.</para><para><code>UNMONITORED</code>: linked accounts that are not associated to billing groups.</para><para><code>Billing Group Arn</code>: linked accounts that are associated to the provided
-        /// Billing Group Arn. </para>
+        /// Billing Group Arn.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

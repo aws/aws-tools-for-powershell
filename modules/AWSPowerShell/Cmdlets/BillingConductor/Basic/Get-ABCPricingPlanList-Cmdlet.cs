@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_Arn
         /// <summary>
         /// <para>
-        /// <para>A list of pricing plan Amazon Resource Names (ARNs) to retrieve information. </para>
+        /// <para>A list of pricing plan Amazon Resource Names (ARNs) to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -22,56 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EMRServerless;
-using Amazon.EMRServerless.Model;
+using Amazon.DataSync;
+using Amazon.DataSync.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMRServerless
+namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates and returns a URL that you can use to access the application UIs for a job
-    /// run.
-    /// 
-    ///  
-    /// <para>
-    /// For jobs in a running state, the application UI is a live user interface such as the
-    /// Spark or Tez web UI. For completed jobs, the application UI is a persistent application
-    /// user interface such as the Spark History Server or persistent Tez UI.
-    /// </para><note><para>
-    /// The URL is valid for one hour after you generate it. To access the application UI
-    /// after that hour elapses, you must invoke the API again to generate a new URL.
-    /// </para></note>
+    /// Provides details about how an DataSync transfer location for Microsoft Azure Blob
+    /// Storage is configured.
     /// </summary>
-    [Cmdlet("Get", "EMRServerlessDashboardForJobRun")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the EMR Serverless GetDashboardForJobRun API operation.", Operation = new[] {"GetDashboardForJobRun"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.GetDashboardForJobRunResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EMRServerless.Model.GetDashboardForJobRunResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EMRServerless.Model.GetDashboardForJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSYNLocationAzureBlob")]
+    [OutputType("Amazon.DataSync.Model.DescribeLocationAzureBlobResponse")]
+    [AWSCmdlet("Calls the AWS DataSync DescribeLocationAzureBlob API operation.", Operation = new[] {"DescribeLocationAzureBlob"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationAzureBlobResponse))]
+    [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationAzureBlobResponse",
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationAzureBlobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEMRServerlessDashboardForJobRunCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
+    public partial class GetDSYNLocationAzureBlobCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationId
+        #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the application.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationId { get; set; }
-        #endregion
-        
-        #region Parameter JobRunId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the job run.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of your Azure Blob Storage transfer location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,26 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobRunId { get; set; }
+        public System.String LocationArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Url'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRServerless.Model.GetDashboardForJobRunResponse).
-        /// Specifying the name of a property of type Amazon.EMRServerless.Model.GetDashboardForJobRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.DescribeLocationAzureBlobResponse).
+        /// Specifying the name of a property of type Amazon.DataSync.Model.DescribeLocationAzureBlobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Url";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobRunId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LocationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.GetDashboardForJobRunResponse, GetEMRServerlessDashboardForJobRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.DescribeLocationAzureBlobResponse, GetDSYNLocationAzureBlobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,21 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobRunId;
+                context.Select = (response, cmdlet) => this.LocationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationId = this.ApplicationId;
+            context.LocationArn = this.LocationArn;
             #if MODULAR
-            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.JobRunId = this.JobRunId;
-            #if MODULAR
-            if (this.JobRunId == null && ParameterWasBound(nameof(this.JobRunId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter JobRunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EMRServerless.Model.GetDashboardForJobRunRequest();
+            var request = new Amazon.DataSync.Model.DescribeLocationAzureBlobRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.LocationArn != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.JobRunId != null)
-            {
-                request.JobRunId = cmdletContext.JobRunId;
+                request.LocationArn = cmdletContext.LocationArn;
             }
             
             CmdletOutput output;
@@ -202,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         #region AWS Service Operation Call
         
-        private Amazon.EMRServerless.Model.GetDashboardForJobRunResponse CallAWSServiceOperation(IAmazonEMRServerless client, Amazon.EMRServerless.Model.GetDashboardForJobRunRequest request)
+        private Amazon.DataSync.Model.DescribeLocationAzureBlobResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.DescribeLocationAzureBlobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EMR Serverless", "GetDashboardForJobRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "DescribeLocationAzureBlob");
             try
             {
                 #if DESKTOP
-                return client.GetDashboardForJobRun(request);
+                return client.DescribeLocationAzureBlob(request);
                 #elif CORECLR
-                return client.GetDashboardForJobRunAsync(request).GetAwaiter().GetResult();
+                return client.DescribeLocationAzureBlobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.String JobRunId { get; set; }
-            public System.Func<Amazon.EMRServerless.Model.GetDashboardForJobRunResponse, GetEMRServerlessDashboardForJobRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Url;
+            public System.String LocationArn { get; set; }
+            public System.Func<Amazon.DataSync.Model.DescribeLocationAzureBlobResponse, GetDSYNLocationAzureBlobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

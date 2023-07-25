@@ -80,6 +80,36 @@ $DSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DataSync.AzureAccessTier
+        {
+            ($_ -eq "New-DSYNLocationAzureBlob/AccessTier") -Or
+            ($_ -eq "Update-DSYNLocationAzureBlob/AccessTier")
+        }
+        {
+            $v = "ARCHIVE","COOL","HOT"
+            break
+        }
+
+        # Amazon.DataSync.AzureBlobAuthenticationType
+        {
+            ($_ -eq "New-DSYNLocationAzureBlob/AuthenticationType") -Or
+            ($_ -eq "Update-DSYNLocationAzureBlob/AuthenticationType")
+        }
+        {
+            $v = "SAS"
+            break
+        }
+
+        # Amazon.DataSync.AzureBlobType
+        {
+            ($_ -eq "New-DSYNLocationAzureBlob/BlobType") -Or
+            ($_ -eq "Update-DSYNLocationAzureBlob/BlobType")
+        }
+        {
+            $v = "BLOCK"
+            break
+        }
+
         # Amazon.DataSync.DiscoveryResourceType
         {
             ($_ -eq "Get-DSYNStorageSystemResource/ResourceType") -Or
@@ -185,7 +215,9 @@ $DSYN_Completers = {
 }
 
 $DSYN_map = @{
-    "AuthenticationType"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
+    "AccessTier"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
+    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
+    "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "InTransitEncryption"=@("New-DSYNLocationEfs")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
     "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
@@ -251,6 +283,7 @@ $DSYN_SelectMap = @{
     "Select"=@("Add-DSYNStorageSystem",
                "Stop-DSYNTaskExecution",
                "New-DSYNAgent",
+               "New-DSYNLocationAzureBlob",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxLustre",
                "New-DSYNLocationFsxOntap",
@@ -267,6 +300,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNTask",
                "Get-DSYNAgent",
                "Get-DSYNDiscoveryJob",
+               "Get-DSYNLocationAzureBlob",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
                "Get-DSYNLocationFsxOntap",
@@ -298,6 +332,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
                "Update-DSYNDiscoveryJob",
+               "Update-DSYNLocationAzureBlob",
                "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",

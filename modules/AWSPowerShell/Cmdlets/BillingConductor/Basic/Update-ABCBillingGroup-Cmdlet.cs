@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter AccountGrouping_AutoAssociate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if this billing group will automatically associate newly added Amazon Web
+        /// Services accounts that join your consolidated billing family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccountGrouping_AutoAssociate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -164,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountGrouping_AutoAssociate = this.AccountGrouping_AutoAssociate;
             context.Arn = this.Arn;
             #if MODULAR
             if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
@@ -191,6 +203,25 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             // create request
             var request = new Amazon.BillingConductor.Model.UpdateBillingGroupRequest();
             
+            
+             // populate AccountGrouping
+            var requestAccountGroupingIsNull = true;
+            request.AccountGrouping = new Amazon.BillingConductor.Model.UpdateBillingGroupAccountGrouping();
+            System.Boolean? requestAccountGrouping_accountGrouping_AutoAssociate = null;
+            if (cmdletContext.AccountGrouping_AutoAssociate != null)
+            {
+                requestAccountGrouping_accountGrouping_AutoAssociate = cmdletContext.AccountGrouping_AutoAssociate.Value;
+            }
+            if (requestAccountGrouping_accountGrouping_AutoAssociate != null)
+            {
+                request.AccountGrouping.AutoAssociate = requestAccountGrouping_accountGrouping_AutoAssociate.Value;
+                requestAccountGroupingIsNull = false;
+            }
+             // determine if request.AccountGrouping should be set to null
+            if (requestAccountGroupingIsNull)
+            {
+                request.AccountGrouping = null;
+            }
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
@@ -287,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccountGrouping_AutoAssociate { get; set; }
             public System.String Arn { get; set; }
             public System.String ComputationPreference_PricingPlanArn { get; set; }
             public System.String Description { get; set; }

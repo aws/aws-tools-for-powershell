@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about a task.
+    /// Provides information about an DataSync transfer task.
     /// </summary>
     [Cmdlet("Get", "DSYNTask")]
     [OutputType("Amazon.DataSync.Model.DescribeTaskResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task to describe.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the transfer task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

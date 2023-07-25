@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The CA certificate identifier to use for the DB instance6's server certificate.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+        /// <para>The CA certificate identifier to use for the DB instance's server certificate.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
         /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>
         /// and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
         /// Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora

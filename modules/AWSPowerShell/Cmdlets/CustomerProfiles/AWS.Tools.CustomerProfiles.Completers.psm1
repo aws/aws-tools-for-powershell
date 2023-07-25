@@ -80,11 +80,23 @@ $CPF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CustomerProfiles.AttributeMatchingModel
+        {
+            ($_ -eq "New-CPFDomain/RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel") -Or
+            ($_ -eq "Update-CPFDomain/RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel")
+        }
+        {
+            $v = "MANY_TO_MANY","ONE_TO_ONE"
+            break
+        }
+
         # Amazon.CustomerProfiles.ConflictResolvingModel
         {
             ($_ -eq "Get-CPFAutoMergingPreview/ConflictResolution_ConflictResolvingModel") -Or
             ($_ -eq "New-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
-            ($_ -eq "Update-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel")
+            ($_ -eq "Update-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "New-CPFDomain/RuleBasedMatching_ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "Update-CPFDomain/RuleBasedMatching_ConflictResolution_ConflictResolvingModel")
         }
         {
             $v = "RECENCY","SOURCE"
@@ -125,6 +137,13 @@ $CPF_Completers = {
         "Search-CPFProfile/LogicalOperator"
         {
             $v = "AND","OR"
+            break
+        }
+
+        # Amazon.CustomerProfiles.MatchType
+        "Get-CPFSimilarProfile/MatchType"
+        {
+            $v = "ML_BASED_MATCHING","RULE_BASED_MATCHING"
             break
         }
 
@@ -224,7 +243,10 @@ $CPF_map = @{
     "LogicalOperator"=@("Search-CPFProfile")
     "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
+    "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
+    "RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Statistic"=@("New-CPFCalculatedAttributeDefinition")
     "Status"=@("Get-CPFWorkflowList")
     "WorkflowType"=@("Get-CPFWorkflowList","New-CPFIntegrationWorkflow")
@@ -305,6 +327,7 @@ $CPF_SelectMap = @{
                "Get-CPFMatch",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFSimilarProfile",
                "Get-CPFWorkflow",
                "Get-CPFWorkflowStep",
                "Get-CPFAccountIntegrationList",
@@ -317,6 +340,7 @@ $CPF_SelectMap = @{
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
+               "Get-CPFRuleBasedMatchList",
                "Get-CPFResourceTag",
                "Get-CPFWorkflowList",
                "Merge-CPFProfile",

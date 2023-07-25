@@ -22,52 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.BillingConductor;
-using Amazon.BillingConductor.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ABC
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Describes a pricing rule that can be associated to a pricing plan, or set of pricing
-    /// plans.
+    /// Returns a set of <code>MatchIds</code> that belong to the given domain.
     /// </summary>
-    [Cmdlet("Get", "ABCPricingRuleList")]
-    [OutputType("Amazon.BillingConductor.Model.ListPricingRulesResponse")]
-    [AWSCmdlet("Calls the AWSBillingConductor ListPricingRules API operation.", Operation = new[] {"ListPricingRules"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.ListPricingRulesResponse))]
-    [AWSCmdletOutput("Amazon.BillingConductor.Model.ListPricingRulesResponse",
-        "This cmdlet returns an Amazon.BillingConductor.Model.ListPricingRulesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CPFRuleBasedMatchList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListRuleBasedMatches API operation.", Operation = new[] {"ListRuleBasedMatches"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse))]
+    [AWSCmdletOutput("System.String or Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetABCPricingRuleListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
+    public partial class GetCPFRuleBasedMatchListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter Filters_Arn
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>A list containing the pricing rule Amazon Resource Names (ARNs) to include in the
-        /// API response.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters_Arns")]
-        public System.String[] Filters_Arn { get; set; }
-        #endregion
-        
-        #region Parameter BillingPeriod
-        /// <summary>
-        /// <para>
-        /// <para> The preferred billing period to get the pricing plan. </para>
-        /// </para>
-        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String BillingPeriod { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of pricing rules to retrieve. </para>
+        /// <para>The maximum number of <code>MatchIds</code> returned per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token that's used on subsequent call to get pricing rules. </para>
+        /// <para>The pagination token from the previous <code>ListRuleBasedMatches</code> API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,21 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BillingConductor.Model.ListPricingRulesResponse).
-        /// Specifying the name of a property of type Amazon.BillingConductor.Model.ListPricingRulesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MatchIds'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "MatchIds";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BillingPeriod parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BillingPeriod' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BillingPeriod' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BillingConductor.Model.ListPricingRulesResponse, GetABCPricingRuleListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse, GetCPFRuleBasedMatchListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,14 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BillingPeriod;
+                context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BillingPeriod = this.BillingPeriod;
-            if (this.Filters_Arn != null)
+            context.DomainName = this.DomainName;
+            #if MODULAR
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                context.Filters_Arn = new List<System.String>(this.Filters_Arn);
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -152,30 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BillingConductor.Model.ListPricingRulesRequest();
+            var request = new Amazon.CustomerProfiles.Model.ListRuleBasedMatchesRequest();
             
-            if (cmdletContext.BillingPeriod != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.BillingPeriod = cmdletContext.BillingPeriod;
-            }
-            
-             // populate Filters
-            var requestFiltersIsNull = true;
-            request.Filters = new Amazon.BillingConductor.Model.ListPricingRulesFilter();
-            List<System.String> requestFilters_filters_Arn = null;
-            if (cmdletContext.Filters_Arn != null)
-            {
-                requestFilters_filters_Arn = cmdletContext.Filters_Arn;
-            }
-            if (requestFilters_filters_Arn != null)
-            {
-                request.Filters.Arns = requestFilters_filters_Arn;
-                requestFiltersIsNull = false;
-            }
-             // determine if request.Filters should be set to null
-            if (requestFiltersIsNull)
-            {
-                request.Filters = null;
+                request.DomainName = cmdletContext.DomainName;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -218,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         #region AWS Service Operation Call
         
-        private Amazon.BillingConductor.Model.ListPricingRulesResponse CallAWSServiceOperation(IAmazonBillingConductor client, Amazon.BillingConductor.Model.ListPricingRulesRequest request)
+        private Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.ListRuleBasedMatchesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSBillingConductor", "ListPricingRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "ListRuleBasedMatches");
             try
             {
                 #if DESKTOP
-                return client.ListPricingRules(request);
+                return client.ListRuleBasedMatches(request);
                 #elif CORECLR
-                return client.ListPricingRulesAsync(request).GetAwaiter().GetResult();
+                return client.ListRuleBasedMatchesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,12 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BillingPeriod { get; set; }
-            public List<System.String> Filters_Arn { get; set; }
+            public System.String DomainName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.BillingConductor.Model.ListPricingRulesResponse, GetABCPricingRuleListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse, GetCPFRuleBasedMatchListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MatchIds;
         }
         
     }

@@ -211,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TestConnection" OutputProperty="*" Verb="Test" Noun="Connection" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TestIdentityProvider" OutputProperty="*" Verb="Test" Noun="IdentityProvider" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

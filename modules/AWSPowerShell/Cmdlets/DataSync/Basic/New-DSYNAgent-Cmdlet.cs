@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>Specifies the Amazon Resource Name (ARN) of the security group that protects your
         /// task's <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
         /// interfaces</a> when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">using
-        /// a virtual private cloud (VPC) endpoint</a>.</para>
+        /// a virtual private cloud (VPC) endpoint</a>. You can only specify one ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies the ARN of the subnet where you want to run your DataSync task when using
         /// a VPC endpoint. This is the subnet where DataSync creates and manages the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-        /// interfaces</a> for your transfer.</para>
+        /// interfaces</a> for your transfer. You can only specify one ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

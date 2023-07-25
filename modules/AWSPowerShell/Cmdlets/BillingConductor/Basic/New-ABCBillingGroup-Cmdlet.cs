@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        #region Parameter AccountGrouping_AutoAssociate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if this billing group will automatically associate newly added Amazon Web
+        /// Services accounts that join your consolidated billing family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccountGrouping_AutoAssociate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -56,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter AccountGrouping_LinkedAccountId
         /// <summary>
         /// <para>
-        /// <para> The account IDs that make up the billing group. Account IDs must be a part of the
-        /// consolidated billing family, and not associated with another billing group. </para>
+        /// <para>The account IDs that make up the billing group. Account IDs must be a part of the
+        /// consolidated billing family, and not associated with another billing group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -202,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountGrouping_AutoAssociate = this.AccountGrouping_AutoAssociate;
             if (this.AccountGrouping_LinkedAccountId != null)
             {
                 context.AccountGrouping_LinkedAccountId = new List<System.String>(this.AccountGrouping_LinkedAccountId);
@@ -257,6 +269,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
              // populate AccountGrouping
             var requestAccountGroupingIsNull = true;
             request.AccountGrouping = new Amazon.BillingConductor.Model.AccountGrouping();
+            System.Boolean? requestAccountGrouping_accountGrouping_AutoAssociate = null;
+            if (cmdletContext.AccountGrouping_AutoAssociate != null)
+            {
+                requestAccountGrouping_accountGrouping_AutoAssociate = cmdletContext.AccountGrouping_AutoAssociate.Value;
+            }
+            if (requestAccountGrouping_accountGrouping_AutoAssociate != null)
+            {
+                request.AccountGrouping.AutoAssociate = requestAccountGrouping_accountGrouping_AutoAssociate.Value;
+                requestAccountGroupingIsNull = false;
+            }
             List<System.String> requestAccountGrouping_accountGrouping_LinkedAccountId = null;
             if (cmdletContext.AccountGrouping_LinkedAccountId != null)
             {
@@ -372,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccountGrouping_AutoAssociate { get; set; }
             public List<System.String> AccountGrouping_LinkedAccountId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ComputationPreference_PricingPlanArn { get; set; }

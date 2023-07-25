@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Percentage_AssociatedValue
         /// <summary>
         /// <para>
-        /// <para> A list of resource ARNs to associate to the percentage custom line item. </para>
+        /// <para>A list of resource ARNs to associate to the percentage custom line item.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Flat_ChargeValue
         /// <summary>
         /// <para>
-        /// <para> The custom line item's fixed charge value in USD. </para>
+        /// <para>The custom line item's fixed charge value in USD.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter BillingPeriodRange_ExclusiveEndBillingPeriod
         /// <summary>
         /// <para>
-        /// <para> The inclusive end billing period that defines a billing period range where a custom
-        /// line is applied. </para>
+        /// <para>The inclusive end billing period that defines a billing period range where a custom
+        /// line is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter BillingPeriodRange_InclusiveStartBillingPeriod
         /// <summary>
         /// <para>
-        /// <para> The inclusive start billing period that defines a billing period range where a custom
-        /// line is applied. </para>
+        /// <para>The inclusive start billing period that defines a billing period range where a custom
+        /// line is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Percentage_PercentageValue
         /// <summary>
         /// <para>
-        /// <para> The custom line item's percentage value. This will be multiplied against the combined
+        /// <para>The custom line item's percentage value. This will be multiplied against the combined
         /// value of its associated resources to determine its charge value. </para>
         /// </para>
         /// </summary>
@@ -168,8 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ChargeDetails_Type
         /// <summary>
         /// <para>
-        /// <para> The type of the custom line item that indicates whether the charge is a fee or credit.
-        /// </para>
+        /// <para>The type of the custom line item that indicates whether the charge is a fee or credit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

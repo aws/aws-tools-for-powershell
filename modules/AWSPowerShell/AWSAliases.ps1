@@ -5973,6 +5973,8 @@ Set-Alias -Name Get-CPFMatches -Value Get-CPFMatch
 Set-Alias -Name CPF-GetMatches -Value Get-CPFMatch
 Set-Alias -Name CPF-GetProfileObjectType -Value Get-CPFProfileObjectType
 Set-Alias -Name CPF-GetProfileObjectTypeTemplate -Value Get-CPFProfileObjectTypeTemplate
+Set-Alias -Name Get-CPFSimilarProfiles -Value Get-CPFSimilarProfile
+Set-Alias -Name CPF-GetSimilarProfiles -Value Get-CPFSimilarProfile
 Set-Alias -Name CPF-GetWorkflow -Value Get-CPFWorkflow
 Set-Alias -Name Get-CPFWorkflowSteps -Value Get-CPFWorkflowStep
 Set-Alias -Name CPF-GetWorkflowSteps -Value Get-CPFWorkflowStep
@@ -6006,6 +6008,9 @@ Set-Alias -Name CPF-ListProfileObjectTypes -Value Get-CPFProfileObjectTypeList
 Set-Alias -Name List-CPFProfileObjectTypeTemplates -Value Get-CPFProfileObjectTypeTemplateList
 Set-Alias -Name List-CPFProfileObjectTypeTemplateList -Value Get-CPFProfileObjectTypeTemplateList
 Set-Alias -Name CPF-ListProfileObjectTypeTemplates -Value Get-CPFProfileObjectTypeTemplateList
+Set-Alias -Name List-CPFRuleBasedMatches -Value Get-CPFRuleBasedMatchList
+Set-Alias -Name List-CPFRuleBasedMatchList -Value Get-CPFRuleBasedMatchList
+Set-Alias -Name CPF-ListRuleBasedMatches -Value Get-CPFRuleBasedMatchList
 Set-Alias -Name CPF-ListTagsForResource -Value Get-CPFResourceTag
 Set-Alias -Name List-CPFWorkflows -Value Get-CPFWorkflowList
 Set-Alias -Name List-CPFWorkflowList -Value Get-CPFWorkflowList
@@ -6200,6 +6205,8 @@ Set-Alias -Name Cancel-DSYNTaskExecution -Value Stop-DSYNTaskExecution
 Set-Alias -Name DSYN-CancelTaskExecution -Value Stop-DSYNTaskExecution
 Set-Alias -Name Create-DSYNAgent -Value New-DSYNAgent
 Set-Alias -Name DSYN-CreateAgent -Value New-DSYNAgent
+Set-Alias -Name Create-DSYNLocationAzureBlob -Value New-DSYNLocationAzureBlob
+Set-Alias -Name DSYN-CreateLocationAzureBlob -Value New-DSYNLocationAzureBlob
 Set-Alias -Name Create-DSYNLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name DSYN-CreateLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name Create-DSYNLocationFsxLustre -Value New-DSYNLocationFsxLustre
@@ -6235,6 +6242,8 @@ Set-Alias -Name Describe-DSYNAgent -Value Get-DSYNAgent
 Set-Alias -Name DSYN-DescribeAgent -Value Get-DSYNAgent
 Set-Alias -Name Describe-DSYNDiscoveryJob -Value Get-DSYNDiscoveryJob
 Set-Alias -Name DSYN-DescribeDiscoveryJob -Value Get-DSYNDiscoveryJob
+Set-Alias -Name Describe-DSYNLocationAzureBlob -Value Get-DSYNLocationAzureBlob
+Set-Alias -Name DSYN-DescribeLocationAzureBlob -Value Get-DSYNLocationAzureBlob
 Set-Alias -Name Describe-DSYNLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name DSYN-DescribeLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name Describe-DSYNLocationFsxLustre -Value Get-DSYNLocationFsxLustre
@@ -6301,6 +6310,7 @@ Set-Alias -Name DSYN-TagResource -Value Add-DSYNResourceTag
 Set-Alias -Name DSYN-UntagResource -Value Remove-DSYNResourceTag
 Set-Alias -Name DSYN-UpdateAgent -Value Update-DSYNAgent
 Set-Alias -Name DSYN-UpdateDiscoveryJob -Value Update-DSYNDiscoveryJob
+Set-Alias -Name DSYN-UpdateLocationAzureBlob -Value Update-DSYNLocationAzureBlob
 Set-Alias -Name Update-DSYNLocationHdfs -Value Update-DSYNLocationHdf
 Set-Alias -Name DSYN-UpdateLocationHdfs -Value Update-DSYNLocationHdf
 Set-Alias -Name DSYN-UpdateLocationNfs -Value Update-DSYNLocationNfs
@@ -25071,6 +25081,7 @@ Set-Alias -Name TFR-StartFileTransfer -Value Start-TFRFileTransfer
 Set-Alias -Name TFR-StartServer -Value Start-TFRServer
 Set-Alias -Name TFR-StopServer -Value Stop-TFRServer
 Set-Alias -Name TFR-TagResource -Value Add-TFRResourceTag
+Set-Alias -Name TFR-TestConnection -Value Test-TFRConnection
 Set-Alias -Name TFR-TestIdentityProvider -Value Test-TFRIdentityProvider
 Set-Alias -Name TFR-UntagResource -Value Remove-TFRResourceTag
 Set-Alias -Name TFR-UpdateAccess -Value Update-TFRAccess

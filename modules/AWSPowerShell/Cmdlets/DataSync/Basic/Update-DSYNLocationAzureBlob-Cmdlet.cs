@@ -28,35 +28,78 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates some of the parameters of a previously created location for Network File System
-    /// (NFS) access. For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating
-    /// a location for NFS</a>.
+    /// Modifies some configurations of the Microsoft Azure Blob Storage transfer location
+    /// that you're using with DataSync.
     /// </summary>
-    [Cmdlet("Update", "DSYNLocationNfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "DSYNLocationAzureBlob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS DataSync UpdateLocationNfs API operation.", Operation = new[] {"UpdateLocationNfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationNfsResponse))]
-    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationNfsResponse",
+    [AWSCmdlet("Calls the AWS DataSync UpdateLocationAzureBlob API operation.", Operation = new[] {"UpdateLocationAzureBlob"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationAzureBlobResponse))]
+    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationAzureBlobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateLocationNfsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.UpdateLocationAzureBlobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateDSYNLocationNfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class UpdateDSYNLocationAzureBlobCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
-        #region Parameter OnPremConfig_AgentArn
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        #region Parameter AccessTier
         /// <summary>
         /// <para>
-        /// <para>ARNs of the agents to use for an NFS location.</para>
+        /// <para>Specifies the access tier that you want your objects or files transferred into. This
+        /// only applies when using the location as a transfer destination. For more information,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access
+        /// tiers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OnPremConfig_AgentArns")]
-        public System.String[] OnPremConfig_AgentArn { get; set; }
+        [AWSConstantClassSource("Amazon.DataSync.AzureAccessTier")]
+        public Amazon.DataSync.AzureAccessTier AccessTier { get; set; }
+        #endregion
+        
+        #region Parameter AgentArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with
+        /// your Azure Blob Storage container.</para><para>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html">Using
+        /// multiple agents for your transfer</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentArns")]
+        public System.String[] AgentArn { get; set; }
+        #endregion
+        
+        #region Parameter AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the authentication method DataSync uses to access your Azure Blob Storage.
+        /// DataSync can access blob storage using a shared access signature (SAS).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.AzureBlobAuthenticationType")]
+        public Amazon.DataSync.AzureBlobAuthenticationType AuthenticationType { get; set; }
+        #endregion
+        
+        #region Parameter BlobType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of blob that you want your objects or files to be when transferring
+        /// them into Azure Blob Storage. Currently, DataSync only supports moving data into Azure
+        /// Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure
+        /// Blob Storage documentation</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.AzureBlobType")]
+        public Amazon.DataSync.AzureBlobType BlobType { get; set; }
         #endregion
         
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the NFS location that you want to update.</para>
+        /// <para>Specifies the ARN of the Azure Blob Storage transfer location that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,44 +116,30 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies the subdirectory in your NFS file system that DataSync uses to read from
-        /// or write to during a transfer. The NFS path should be exported by the NFS server,
-        /// or a subdirectory of that path. The path should be such that it can be mounted by
-        /// other NFS clients in your network.</para><para>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>"
-        /// from an NFS client that has access to your server. You can specify any directory that
-        /// appears in the results, and any subdirectory of that directory. Ensure that the NFS
-        /// export is accessible without Kerberos authentication. </para><para>To transfer all the data in the folder that you specified, DataSync must have permissions
-        /// to read all the data. To ensure this, either configure the NFS export with <code>no_root_squash</code>,
-        /// or ensure that the files you want DataSync to access have permissions that allow read
-        /// access for all users. Doing either option enables the agent to read the files. For
-        /// the agent to access directories, you must additionally enable all execute access.</para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on Snowcone</a> for more information.</para>
+        /// <para>Specifies path segments if you want to limit your transfer to a virtual directory
+        /// in your container (for example, <code>/my/images</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Subdirectory { get; set; }
         #endregion
         
-        #region Parameter MountOptions_Version
+        #region Parameter SasConfiguration_Token
         /// <summary>
         /// <para>
-        /// <para>Specifies the NFS version that you want DataSync to use when mounting your NFS share.
-        /// If the server refuses to use the version specified, the task fails.</para><para>You can specify the following options:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync chooses NFS version 4.1.</para></li><li><para><code>NFS3</code>: Stateless protocol version that allows for asynchronous writes
-        /// on the server.</para></li><li><para><code>NFSv4_0</code>: Stateful, firewall-friendly protocol version that supports
-        /// delegations and pseudo file systems.</para></li><li><para><code>NFSv4_1</code>: Stateful protocol version that supports sessions, directory
-        /// delegations, and parallel data processing. NFS version 4.1 also includes all features
-        /// available in version 4.0.</para></li></ul><note><para>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</para></note>
+        /// <para>Specifies a SAS token that provides permissions at the Azure storage account, container,
+        /// or folder level.</para><para>The token is part of the SAS URI string that comes after the storage resource URI
+        /// and a question mark. A token looks something like this:</para><para><code>sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataSync.NfsVersion")]
-        public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
+        public System.String SasConfiguration_Token { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateLocationNfsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateLocationAzureBlobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocationArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNLocationNfs (UpdateLocationNfs)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNLocationAzureBlob (UpdateLocationAzureBlob)"))
             {
                 return;
             }
@@ -156,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateLocationNfsResponse, UpdateDSYNLocationNfsCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateLocationAzureBlobResponse, UpdateDSYNLocationAzureBlobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -168,6 +197,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = (response, cmdlet) => this.LocationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessTier = this.AccessTier;
+            if (this.AgentArn != null)
+            {
+                context.AgentArn = new List<System.String>(this.AgentArn);
+            }
+            context.AuthenticationType = this.AuthenticationType;
+            context.BlobType = this.BlobType;
             context.LocationArn = this.LocationArn;
             #if MODULAR
             if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
@@ -175,11 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MountOptions_Version = this.MountOptions_Version;
-            if (this.OnPremConfig_AgentArn != null)
-            {
-                context.OnPremConfig_AgentArn = new List<System.String>(this.OnPremConfig_AgentArn);
-            }
+            context.SasConfiguration_Token = this.SasConfiguration_Token;
             context.Subdirectory = this.Subdirectory;
             
             // allow further manipulation of loaded context prior to processing
@@ -195,49 +227,46 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.UpdateLocationNfsRequest();
+            var request = new Amazon.DataSync.Model.UpdateLocationAzureBlobRequest();
             
+            if (cmdletContext.AccessTier != null)
+            {
+                request.AccessTier = cmdletContext.AccessTier;
+            }
+            if (cmdletContext.AgentArn != null)
+            {
+                request.AgentArns = cmdletContext.AgentArn;
+            }
+            if (cmdletContext.AuthenticationType != null)
+            {
+                request.AuthenticationType = cmdletContext.AuthenticationType;
+            }
+            if (cmdletContext.BlobType != null)
+            {
+                request.BlobType = cmdletContext.BlobType;
+            }
             if (cmdletContext.LocationArn != null)
             {
                 request.LocationArn = cmdletContext.LocationArn;
             }
             
-             // populate MountOptions
-            var requestMountOptionsIsNull = true;
-            request.MountOptions = new Amazon.DataSync.Model.NfsMountOptions();
-            Amazon.DataSync.NfsVersion requestMountOptions_mountOptions_Version = null;
-            if (cmdletContext.MountOptions_Version != null)
+             // populate SasConfiguration
+            var requestSasConfigurationIsNull = true;
+            request.SasConfiguration = new Amazon.DataSync.Model.AzureBlobSasConfiguration();
+            System.String requestSasConfiguration_sasConfiguration_Token = null;
+            if (cmdletContext.SasConfiguration_Token != null)
             {
-                requestMountOptions_mountOptions_Version = cmdletContext.MountOptions_Version;
+                requestSasConfiguration_sasConfiguration_Token = cmdletContext.SasConfiguration_Token;
             }
-            if (requestMountOptions_mountOptions_Version != null)
+            if (requestSasConfiguration_sasConfiguration_Token != null)
             {
-                request.MountOptions.Version = requestMountOptions_mountOptions_Version;
-                requestMountOptionsIsNull = false;
+                request.SasConfiguration.Token = requestSasConfiguration_sasConfiguration_Token;
+                requestSasConfigurationIsNull = false;
             }
-             // determine if request.MountOptions should be set to null
-            if (requestMountOptionsIsNull)
+             // determine if request.SasConfiguration should be set to null
+            if (requestSasConfigurationIsNull)
             {
-                request.MountOptions = null;
-            }
-            
-             // populate OnPremConfig
-            var requestOnPremConfigIsNull = true;
-            request.OnPremConfig = new Amazon.DataSync.Model.OnPremConfig();
-            List<System.String> requestOnPremConfig_onPremConfig_AgentArn = null;
-            if (cmdletContext.OnPremConfig_AgentArn != null)
-            {
-                requestOnPremConfig_onPremConfig_AgentArn = cmdletContext.OnPremConfig_AgentArn;
-            }
-            if (requestOnPremConfig_onPremConfig_AgentArn != null)
-            {
-                request.OnPremConfig.AgentArns = requestOnPremConfig_onPremConfig_AgentArn;
-                requestOnPremConfigIsNull = false;
-            }
-             // determine if request.OnPremConfig should be set to null
-            if (requestOnPremConfigIsNull)
-            {
-                request.OnPremConfig = null;
+                request.SasConfiguration = null;
             }
             if (cmdletContext.Subdirectory != null)
             {
@@ -276,15 +305,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.UpdateLocationNfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateLocationNfsRequest request)
+        private Amazon.DataSync.Model.UpdateLocationAzureBlobResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateLocationAzureBlobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateLocationNfs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateLocationAzureBlob");
             try
             {
                 #if DESKTOP
-                return client.UpdateLocationNfs(request);
+                return client.UpdateLocationAzureBlob(request);
                 #elif CORECLR
-                return client.UpdateLocationNfsAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLocationAzureBlobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -304,11 +333,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DataSync.AzureAccessTier AccessTier { get; set; }
+            public List<System.String> AgentArn { get; set; }
+            public Amazon.DataSync.AzureBlobAuthenticationType AuthenticationType { get; set; }
+            public Amazon.DataSync.AzureBlobType BlobType { get; set; }
             public System.String LocationArn { get; set; }
-            public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
-            public List<System.String> OnPremConfig_AgentArn { get; set; }
+            public System.String SasConfiguration_Token { get; set; }
             public System.String Subdirectory { get; set; }
-            public System.Func<Amazon.DataSync.Model.UpdateLocationNfsResponse, UpdateDSYNLocationNfsCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DataSync.Model.UpdateLocationAzureBlobResponse, UpdateDSYNLocationAzureBlobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
