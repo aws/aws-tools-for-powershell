@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission.</para>
+        /// <para>The Amazon Resource Name (ARN) that gives AWS HealthLake access permission.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated Data Store ID.</para>
+        /// <para>The AWS-generated data store ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3Uri is the user specified S3 location of the FHIR data to be imported into Amazon
+        /// <para>The S3Uri is the user specified S3 location of the FHIR data to be imported into AWS
         /// HealthLake. </para>
         /// </para>
         /// </summary>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         /// <summary>
         /// <para>
         /// <para> The S3Uri is the user specified S3 location of the FHIR data to be imported into
-        /// Amazon HealthLake. </para>
+        /// AWS HealthLake. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

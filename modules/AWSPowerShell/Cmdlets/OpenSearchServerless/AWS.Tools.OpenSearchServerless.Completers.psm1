@@ -103,7 +103,7 @@ $OSS_Completers = {
         # Amazon.OpenSearchServerless.CollectionType
         "New-OSSCollection/Type"
         {
-            $v = "SEARCH","TIMESERIES"
+            $v = "SEARCH","TIMESERIES","VECTORSEARCH"
             break
         }
 

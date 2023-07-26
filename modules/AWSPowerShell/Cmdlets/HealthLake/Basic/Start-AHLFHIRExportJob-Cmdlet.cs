@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS generated ID for the Data Store from which files are being exported for an
+        /// <para>The AWS generated ID for the data store from which files are being exported for an
         /// export job.</para>
         /// </para>
         /// </summary>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         /// <summary>
         /// <para>
         /// <para> The S3Uri is the user specified S3 location of the FHIR data to be imported into
-        /// Amazon HealthLake. </para>
+        /// AWS HealthLake. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

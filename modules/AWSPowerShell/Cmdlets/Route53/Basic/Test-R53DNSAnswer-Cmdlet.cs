@@ -35,7 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// This call only supports querying public hosted zones.
-    /// </para>
+    /// </para><note><para>
+    /// The <code>TestDnsAnswer </code> returns information similar to what you would expect
+    /// from the answer section of the <code>dig</code> command. Therefore, if you query for
+    /// the name servers of a subdomain that point to the parent name servers, those will
+    /// not be returned.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Test", "R53DNSAnswer")]
     [OutputType("Amazon.Route53.Model.TestDNSAnswerResponse")]

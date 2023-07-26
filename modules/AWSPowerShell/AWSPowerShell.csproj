@@ -442,6 +442,9 @@
     <Reference Include="AWSSDK.EMRServerless">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRServerless.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EntityResolution">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EntityResolution.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
@@ -675,6 +678,9 @@
     </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedBlockchain.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ManagedBlockchainQuery">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedBlockchainQuery.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedGrafana">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedGrafana.dll</HintPath>
@@ -1476,6 +1482,9 @@
     <Reference Include="AWSSDK.EMRServerless">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EMRServerless.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EntityResolution">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EntityResolution.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
@@ -1709,6 +1718,9 @@
     </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedBlockchain.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ManagedBlockchainQuery">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedBlockchainQuery.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedGrafana">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedGrafana.dll</HintPath>

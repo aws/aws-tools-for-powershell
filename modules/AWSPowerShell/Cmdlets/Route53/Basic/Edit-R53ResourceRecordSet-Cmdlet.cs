@@ -83,11 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// update by using <code>ChangeResourceRecordSets</code>. 
     /// </para><para><b>Change Propagation to Route 53 DNS Servers</b></para><para>
     /// When you submit a <code>ChangeResourceRecordSets</code> request, Route 53 propagates
-    /// your changes to all of the Route 53 authoritative DNS servers. While your changes
-    /// are propagating, <code>GetChange</code> returns a status of <code>PENDING</code>.
-    /// When propagation is complete, <code>GetChange</code> returns a status of <code>INSYNC</code>.
-    /// Changes generally propagate to all Route 53 name servers within 60 seconds. For more
-    /// information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>.
+    /// your changes to all of the Route 53 authoritative DNS servers managing the hosted
+    /// zone. While your changes are propagating, <code>GetChange</code> returns a status
+    /// of <code>PENDING</code>. When propagation is complete, <code>GetChange</code> returns
+    /// a status of <code>INSYNC</code>. Changes generally propagate to all Route 53 name
+    /// servers managing the hosted zone within 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>.
     /// </para><para><b>Limits on ChangeResourceRecordSets Requests</b></para><para>
     /// For information about the limits on a <code>ChangeResourceRecordSets</code> request,
     /// see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>

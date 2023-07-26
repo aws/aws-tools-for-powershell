@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the import job with the specified Data Store
+        /// <para> This parameter limits the response to the import job with the specified data store
         /// ID. </para>
         /// </para>
         /// </summary>

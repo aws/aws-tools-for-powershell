@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS generated ID for the Data Store from which files are being exported from for
+        /// <para>The AWS generated ID for the data store from which files are being exported from for
         /// an export job.</para>
         /// </para>
         /// </summary>

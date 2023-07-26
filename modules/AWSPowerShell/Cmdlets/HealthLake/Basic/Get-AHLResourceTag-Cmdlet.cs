@@ -28,7 +28,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Returns a list of all existing tags associated with a Data Store.
+    /// Returns a list of all existing tags associated with a data store.
     /// </summary>
     [Cmdlet("Get", "AHLResourceTag")]
     [OutputType("Amazon.HealthLake.Model.Tag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name(ARN) of the Data Store for which tags are being added. </para>
+        /// <para> The Amazon Resource Name(ARN) of the data store for which tags are being added. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

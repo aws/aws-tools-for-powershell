@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>managedblockchain-query</C2jFilename>
+    <AssemblyName>ManagedBlockchainQuery</AssemblyName>
+    <ServiceNounPrefix>MBCQ</ServiceNounPrefix>
+    <ServiceName>Amazon Managed Blockchain Query</ServiceName>
+    <ServiceClientInterface>IAmazonManagedBlockchainQuery</ServiceClientInterface>
+    <ServiceClient>AmazonManagedBlockchainQueryClient</ServiceClient>
+    <ServiceModuleGuid>036E0ECD-C43C-4C3A-B401-0DA71DF8001C</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetTokenBalance" OutputProperty="*" Verb="Get" Noun="BatchTokenBalance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTokenBalance" OutputProperty="*" Verb="Get" Noun="TokenBalance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransaction" OutputProperty="Transaction" Verb="Get" Noun="Transaction" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTokenBalances" OutputProperty="TokenBalances" Verb="Get" Noun="TokenBalanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTransactionEvents" OutputProperty="Events" Verb="Get" Noun="TransactionEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTransactions" OutputProperty="Transactions" Verb="Get" Noun="TransactionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

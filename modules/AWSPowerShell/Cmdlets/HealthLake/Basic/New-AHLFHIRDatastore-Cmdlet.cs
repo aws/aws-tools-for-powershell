@@ -28,7 +28,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Creates a Data Store that can ingest and export FHIR formatted data.
+    /// Creates a data store that can ingest and export FHIR formatted data.
     /// </summary>
     [Cmdlet("New", "AHLFHIRDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.HealthLake.Model.CreateFHIRDatastoreResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter IdentityProviderConfiguration_AuthorizationStrategy
         /// <summary>
         /// <para>
-        /// <para>The authorization strategy that you selected when you created the Data Store.</para>
+        /// <para>The authorization strategy that you selected when you created the data store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter KmsEncryptionConfig_CmkType
         /// <summary>
         /// <para>
-        /// <para> The type of customer-managed-key(CMK) used for encyrption. The two types of supported
+        /// <para> The type of customer-managed-key(CMK) used for encryption. The two types of supported
         /// CMKs are customer owned CMKs and AWS owned CMKs. </para>
         /// </para>
         /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreName
         /// <summary>
         /// <para>
-        /// <para>The user generated name for the Data Store.</para>
+        /// <para>The user generated name for the data store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreTypeVersion
         /// <summary>
         /// <para>
-        /// <para>The FHIR version of the Data Store. The only supported version is R4.</para>
+        /// <para>The FHIR version of the data store. The only supported version is R4.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter IdentityProviderConfiguration_FineGrainedAuthorizationEnabled
         /// <summary>
         /// <para>
-        /// <para>If you enabled fine-grained authorization when you created the Data Store.</para>
+        /// <para>If you enabled fine-grained authorization when you created the data store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter KmsEncryptionConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+        /// <para> The KMS encryption key id/alias used to encrypt the data store contents at rest.
         /// </para>
         /// </para>
         /// </summary>
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> Resource tags that are applied to a Data Store when it is created. </para>
+        /// <para> Resource tags that are applied to a data store when it is created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

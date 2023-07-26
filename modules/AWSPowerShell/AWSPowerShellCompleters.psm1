@@ -23123,6 +23123,127 @@ $MES_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MES_SelectCompleters $MES_SelectMap
+# Argument completions for service AWS EntityResolution
+
+
+$ERES_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EntityResolution.AttributeMatchingModel
+        {
+            ($_ -eq "New-ERESMatchingWorkflow/ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel") -Or
+            ($_ -eq "Update-ERESMatchingWorkflow/ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel")
+        }
+        {
+            $v = "MANY_TO_MANY","ONE_TO_ONE"
+            break
+        }
+
+        # Amazon.EntityResolution.IncrementalRunType
+        {
+            ($_ -eq "New-ERESMatchingWorkflow/IncrementalRunConfig_IncrementalRunType") -Or
+            ($_ -eq "Update-ERESMatchingWorkflow/IncrementalRunConfig_IncrementalRunType")
+        }
+        {
+            $v = "IMMEDIATE"
+            break
+        }
+
+        # Amazon.EntityResolution.ResolutionType
+        {
+            ($_ -eq "New-ERESMatchingWorkflow/ResolutionTechniques_ResolutionType") -Or
+            ($_ -eq "Update-ERESMatchingWorkflow/ResolutionTechniques_ResolutionType")
+        }
+        {
+            $v = "ML_MATCHING","RULE_MATCHING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ERES_map = @{
+    "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+}
+
+_awsArgumentCompleterRegistration $ERES_Completers $ERES_map
+
+$ERES_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ERES.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ERES_SelectMap = @{
+    "Select"=@("New-ERESMatchingWorkflow",
+               "New-ERESSchemaMapping",
+               "Remove-ERESMatchingWorkflow",
+               "Remove-ERESSchemaMapping",
+               "Get-ERESMatchId",
+               "Get-ERESMatchingJob",
+               "Get-ERESMatchingWorkflow",
+               "Get-ERESSchemaMapping",
+               "Get-ERESMatchingJobList",
+               "Get-ERESMatchingWorkflowList",
+               "Get-ERESSchemaMappingList",
+               "Get-ERESResourceTag",
+               "Start-ERESMatchingJob",
+               "Add-ERESResourceTag",
+               "Remove-ERESResourceTag",
+               "Update-ERESMatchingWorkflow")
+}
+
+_awsArgumentCompleterRegistration $ERES_SelectCompleters $ERES_SelectMap
 # Argument completions for service Amazon Elasticsearch
 
 
@@ -37255,6 +37376,116 @@ $MBC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MBC_SelectCompleters $MBC_SelectMap
+# Argument completions for service Amazon Managed Blockchain Query
+
+
+$MBCQ_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ManagedBlockchainQuery.ListTransactionsSortBy
+        "Get-MBCQTransactionList/Sort_SortBy"
+        {
+            $v = "TRANSACTION_TIMESTAMP"
+            break
+        }
+
+        # Amazon.ManagedBlockchainQuery.QueryNetwork
+        {
+            ($_ -eq "Get-MBCQTransaction/Network") -Or
+            ($_ -eq "Get-MBCQTransactionEventList/Network") -Or
+            ($_ -eq "Get-MBCQTransactionList/Network") -Or
+            ($_ -eq "Get-MBCQTokenBalanceList/TokenFilter_Network") -Or
+            ($_ -eq "Get-MBCQTokenBalance/TokenIdentifier_Network")
+        }
+        {
+            $v = "BITCOIN_MAINNET","ETHEREUM_MAINNET"
+            break
+        }
+
+        # Amazon.ManagedBlockchainQuery.SortOrder
+        "Get-MBCQTransactionList/Sort_SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MBCQ_map = @{
+    "Network"=@("Get-MBCQTransaction","Get-MBCQTransactionEventList","Get-MBCQTransactionList")
+    "Sort_SortBy"=@("Get-MBCQTransactionList")
+    "Sort_SortOrder"=@("Get-MBCQTransactionList")
+    "TokenFilter_Network"=@("Get-MBCQTokenBalanceList")
+    "TokenIdentifier_Network"=@("Get-MBCQTokenBalance")
+}
+
+_awsArgumentCompleterRegistration $MBCQ_Completers $MBCQ_map
+
+$MBCQ_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MBCQ.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MBCQ_SelectMap = @{
+    "Select"=@("Get-MBCQBatchTokenBalance",
+               "Get-MBCQTokenBalance",
+               "Get-MBCQTransaction",
+               "Get-MBCQTokenBalanceList",
+               "Get-MBCQTransactionEventList",
+               "Get-MBCQTransactionList")
+}
+
+_awsArgumentCompleterRegistration $MBCQ_SelectCompleters $MBCQ_SelectMap
 # Argument completions for service AWS Marketplace Catalog Service
 
 
@@ -42805,7 +43036,7 @@ $OSS_Completers = {
         # Amazon.OpenSearchServerless.CollectionType
         "New-OSSCollection/Type"
         {
-            $v = "SEARCH","TIMESERIES"
+            $v = "SEARCH","TIMESERIES","VECTORSEARCH"
             break
         }
 
@@ -45695,7 +45926,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 
@@ -45732,7 +45963,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
