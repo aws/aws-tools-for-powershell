@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// in a wait state.
     /// </para></li><li><para><b>If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
     /// API call.</b></para></li></ol><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
-    /// EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/completing-lifecycle-hooks.html">Complete
+    /// a lifecycle action</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Complete", "ASLifecycleAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

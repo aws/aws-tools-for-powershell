@@ -355,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount by which to scale, based on the specified adjustment type. A positive value
         /// adds to the current capacity while a negative number removes from the current capacity.
-        /// For exact capacity, you must specify a positive value.</para><para>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other
+        /// For exact capacity, you must specify a non-negative value.</para><para>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other
         /// policy type.) </para>
         /// </para>
         /// </summary>

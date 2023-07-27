@@ -28,7 +28,14 @@ using Amazon.EBS.Model;
 namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
-    /// Returns information about the blocks in an Amazon Elastic Block Store snapshot.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the blocks in an Amazon Elastic Block Store snapshot.
+    /// 
+    ///  <note><para>
+    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
+    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
+    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBSSnapshotBlockList")]
     [OutputType("Amazon.EBS.Model.Block")]

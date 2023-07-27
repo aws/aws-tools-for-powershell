@@ -1,4 +1,7 @@
-﻿### 4.1.379 (2023-07-26 21:37Z)
+﻿### 4.1.380 (2023-07-27 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.608.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.379 (2023-07-26 21:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.607.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EntityResolution. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ERES and can be listed using the command 'Get-AWSCmdletName -Service ERES'.
   * Amazon Managed Blockchain Query. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MBCQ and can be listed using the command 'Get-AWSCmdletName -Service MBCQ'.

@@ -35,7 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     /// <para>
     /// After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html">
     /// PutSnapshotBlock</a> to write blocks of data to the snapshot.
-    /// </para>
+    /// </para><note><para>
+    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
+    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
+    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "EBSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EBS.Model.StartSnapshotResponse")]

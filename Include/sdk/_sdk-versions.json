@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.607.0",
+    "ProductVersion" : "3.7.608.0",
     "CoreVersion"    : "3.7.200.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -14,7 +14,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.200.5",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.5"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.202.1",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.5"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.202.1",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.5"
@@ -1138,7 +1138,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.200.5",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.5"
@@ -1730,7 +1730,7 @@
             "InPreview"               : false
         },
         "EBS"                             : {
-            "Version" : "3.7.200.5",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.5"

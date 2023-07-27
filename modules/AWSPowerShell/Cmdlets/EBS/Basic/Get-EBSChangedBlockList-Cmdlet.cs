@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
     /// Returns information about the blocks that are different between two Amazon Elastic
-    /// Block Store snapshots of the same volume/snapshot lineage.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Block Store snapshots of the same volume/snapshot lineage.
+    /// 
+    ///  <note><para>
+    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
+    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
+    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBSChangedBlockList")]
     [OutputType("Amazon.EBS.Model.ChangedBlock")]

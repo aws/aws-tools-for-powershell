@@ -34,7 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     ///  
     /// <para>
     /// Data written to a snapshot must be aligned with 512-KiB sectors.
-    /// </para>
+    /// </para><note><para>
+    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
+    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
+    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "EBSSnapshotBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EBS.Model.PutSnapshotBlockResponse")]
