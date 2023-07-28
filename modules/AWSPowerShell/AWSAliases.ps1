@@ -1013,6 +1013,7 @@ Set-Alias -Name ACP-ListReportDefinitions -Value Get-ACPReportDefinitionList
 Set-Alias -Name Put-ACPReportDefinition -Value Write-ACPReportDefinition
 Set-Alias -Name ACP-PutReportDefinition -Value Write-ACPReportDefinition
 Set-Alias -Name ACP-UpdateReportDefinition -Value Update-ACPReportDefinition
+Set-Alias -Name CWAI-AddWorkload -Value Add-CWAIWorkload
 Set-Alias -Name Create-CWAIApplication -Value New-CWAIApplication
 Set-Alias -Name CWAI-CreateApplication -Value New-CWAIApplication
 Set-Alias -Name Create-CWAIComponent -Value New-CWAIComponent
@@ -1042,6 +1043,8 @@ Set-Alias -Name CWAI-DescribeProblem -Value Get-CWAIProblem
 Set-Alias -Name Describe-CWAIProblemObservations -Value Get-CWAIProblemObservation
 Set-Alias -Name Describe-CWAIProblemObservation -Value Get-CWAIProblemObservation
 Set-Alias -Name CWAI-DescribeProblemObservations -Value Get-CWAIProblemObservation
+Set-Alias -Name Describe-CWAIWorkload -Value Get-CWAIWorkload
+Set-Alias -Name CWAI-DescribeWorkload -Value Get-CWAIWorkload
 Set-Alias -Name List-CWAIApplications -Value Get-CWAIApplicationList
 Set-Alias -Name List-CWAIApplicationList -Value Get-CWAIApplicationList
 Set-Alias -Name CWAI-ListApplications -Value Get-CWAIApplicationList
@@ -1061,12 +1064,18 @@ Set-Alias -Name List-CWAIProblems -Value Get-CWAIProblemList
 Set-Alias -Name List-CWAIProblemList -Value Get-CWAIProblemList
 Set-Alias -Name CWAI-ListProblems -Value Get-CWAIProblemList
 Set-Alias -Name CWAI-ListTagsForResource -Value Get-CWAIResourceTag
+Set-Alias -Name List-CWAIWorkloads -Value Get-CWAIWorkloadList
+Set-Alias -Name List-CWAIWorkloadList -Value Get-CWAIWorkloadList
+Set-Alias -Name CWAI-ListWorkloads -Value Get-CWAIWorkloadList
+Set-Alias -Name CWAI-RemoveWorkload -Value Remove-CWAIWorkload
 Set-Alias -Name CWAI-TagResource -Value Add-CWAIResourceTag
 Set-Alias -Name CWAI-UntagResource -Value Remove-CWAIResourceTag
 Set-Alias -Name CWAI-UpdateApplication -Value Update-CWAIApplication
 Set-Alias -Name CWAI-UpdateComponent -Value Update-CWAIComponent
 Set-Alias -Name CWAI-UpdateComponentConfiguration -Value Update-CWAIComponentConfiguration
 Set-Alias -Name CWAI-UpdateLogPattern -Value Update-CWAILogPattern
+Set-Alias -Name CWAI-UpdateProblem -Value Update-CWAIProblem
+Set-Alias -Name CWAI-UpdateWorkload -Value Update-CWAIWorkload
 Set-Alias -Name Create-AMSHGatewayRoute -Value New-AMSHGatewayRoute
 Set-Alias -Name AMSH-CreateGatewayRoute -Value New-AMSHGatewayRoute
 Set-Alias -Name Create-AMSHMesh -Value New-AMSHMesh
@@ -14250,6 +14259,8 @@ Set-Alias -Name Describe-MSKCluster -Value Get-MSKCluster
 Set-Alias -Name MSK-DescribeCluster -Value Get-MSKCluster
 Set-Alias -Name Describe-MSKClusterOperation -Value Get-MSKClusterOperation
 Set-Alias -Name MSK-DescribeClusterOperation -Value Get-MSKClusterOperation
+Set-Alias -Name Describe-MSKClusterOperationV2 -Value Get-MSKClusterOperationV2
+Set-Alias -Name MSK-DescribeClusterOperationV2 -Value Get-MSKClusterOperationV2
 Set-Alias -Name Describe-MSKClusterV2 -Value Get-MSKClusterV2
 Set-Alias -Name MSK-DescribeClusterV2 -Value Get-MSKClusterV2
 Set-Alias -Name Describe-MSKConfiguration -Value Get-MSKConfiguration
@@ -14269,6 +14280,9 @@ Set-Alias -Name MSK-ListClientVpcConnections -Value Get-MSKClientVpcConnectionLi
 Set-Alias -Name List-MSKClusterOperations -Value Get-MSKClusterOperationList
 Set-Alias -Name List-MSKClusterOperationList -Value Get-MSKClusterOperationList
 Set-Alias -Name MSK-ListClusterOperations -Value Get-MSKClusterOperationList
+Set-Alias -Name List-MSKClusterOperationsV2 -Value Get-MSKClusterOperationsV2List
+Set-Alias -Name List-MSKClusterOperationsV2List -Value Get-MSKClusterOperationsV2List
+Set-Alias -Name MSK-ListClusterOperationsV2 -Value Get-MSKClusterOperationsV2List
 Set-Alias -Name List-MSKClusters -Value Get-MSKClusterList
 Set-Alias -Name List-MSKClusterList -Value Get-MSKClusterList
 Set-Alias -Name MSK-ListClusters -Value Get-MSKClusterList

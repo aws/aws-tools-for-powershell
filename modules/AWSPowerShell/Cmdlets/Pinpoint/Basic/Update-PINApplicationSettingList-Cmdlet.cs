@@ -58,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter TimeframeCap_Cap
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of messages that all journeys can send to an endpoint during the
+        /// specified timeframe. The maximum value is 100. If set to 0, this limit will not apply.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteApplicationSettingsRequest_JourneyLimits_TimeframeCap_Cap")]
+        public System.Int32? TimeframeCap_Cap { get; set; }
+        #endregion
+        
         #region Parameter WriteApplicationSettingsRequest_CloudWatchMetricsEnabled
         /// <summary>
         /// <para>
@@ -80,6 +92,30 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteApplicationSettingsRequest_Limits_Daily")]
         public System.Int32? Limits_Daily { get; set; }
+        #endregion
+        
+        #region Parameter JourneyLimits_DailyCap
+        /// <summary>
+        /// <para>
+        /// <para>The daily number of messages that an endpoint can receive from all journeys. The maximum
+        /// value is 100. If set to 0, this limit will not apply.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteApplicationSettingsRequest_JourneyLimits_DailyCap")]
+        public System.Int32? JourneyLimits_DailyCap { get; set; }
+        #endregion
+        
+        #region Parameter TimeframeCap_Day
+        /// <summary>
+        /// <para>
+        /// <para>The length of the timeframe in days. The maximum value is 30. If set to 0, this limit
+        /// will not apply.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteApplicationSettingsRequest_JourneyLimits_TimeframeCap_Days")]
+        public System.Int32? TimeframeCap_Day { get; set; }
         #endregion
         
         #region Parameter QuietTime_End
@@ -197,6 +233,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Int32? Limits_Total { get; set; }
         #endregion
         
+        #region Parameter JourneyLimits_TotalCap
+        /// <summary>
+        /// <para>
+        /// <para>The default maximum number of messages that a single journey can sent to a single
+        /// endpoint. The maximum value is 100. If set to 0, this limit will not apply.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteApplicationSettingsRequest_JourneyLimits_TotalCap")]
+        public System.Int32? JourneyLimits_TotalCap { get; set; }
+        #endregion
+        
         #region Parameter CampaignHook_WebUrl
         /// <summary>
         /// <para>
@@ -282,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.CampaignHook_WebUrl = this.CampaignHook_WebUrl;
             context.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled = this.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled;
             context.WriteApplicationSettingsRequest_EventTaggingEnabled = this.WriteApplicationSettingsRequest_EventTaggingEnabled;
+            context.JourneyLimits_DailyCap = this.JourneyLimits_DailyCap;
+            context.TimeframeCap_Cap = this.TimeframeCap_Cap;
+            context.TimeframeCap_Day = this.TimeframeCap_Day;
+            context.JourneyLimits_TotalCap = this.JourneyLimits_TotalCap;
             context.Limits_Daily = this.Limits_Daily;
             context.Limits_MaximumDuration = this.Limits_MaximumDuration;
             context.Limits_MessagesPerSecond = this.Limits_MessagesPerSecond;
@@ -411,6 +463,76 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook != null)
             {
                 request.WriteApplicationSettingsRequest.CampaignHook = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook;
+                requestWriteApplicationSettingsRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.ApplicationSettingsJourneyLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits = null;
+            
+             // populate JourneyLimits
+            var requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimitsIsNull = true;
+            requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits = new Amazon.Pinpoint.Model.ApplicationSettingsJourneyLimits();
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_DailyCap = null;
+            if (cmdletContext.JourneyLimits_DailyCap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_DailyCap = cmdletContext.JourneyLimits_DailyCap.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_DailyCap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits.DailyCap = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_DailyCap.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimitsIsNull = false;
+            }
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_TotalCap = null;
+            if (cmdletContext.JourneyLimits_TotalCap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_TotalCap = cmdletContext.JourneyLimits_TotalCap.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_TotalCap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits.TotalCap = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_journeyLimits_TotalCap.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimitsIsNull = false;
+            }
+            Amazon.Pinpoint.Model.JourneyTimeframeCap requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap = null;
+            
+             // populate TimeframeCap
+            var requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCapIsNull = true;
+            requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap = new Amazon.Pinpoint.Model.JourneyTimeframeCap();
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Cap = null;
+            if (cmdletContext.TimeframeCap_Cap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Cap = cmdletContext.TimeframeCap_Cap.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Cap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap.Cap = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Cap.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCapIsNull = false;
+            }
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Day = null;
+            if (cmdletContext.TimeframeCap_Day != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Day = cmdletContext.TimeframeCap_Day.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Day != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap.Days = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap_timeframeCap_Day.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCapIsNull = false;
+            }
+             // determine if requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap should be set to null
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCapIsNull)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap = null;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits.TimeframeCap = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits_writeApplicationSettingsRequest_JourneyLimits_TimeframeCap;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimitsIsNull = false;
+            }
+             // determine if requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits should be set to null
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimitsIsNull)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits = null;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits != null)
+            {
+                request.WriteApplicationSettingsRequest.JourneyLimits = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits;
                 requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
@@ -550,6 +672,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String CampaignHook_WebUrl { get; set; }
             public System.Boolean? WriteApplicationSettingsRequest_CloudWatchMetricsEnabled { get; set; }
             public System.Boolean? WriteApplicationSettingsRequest_EventTaggingEnabled { get; set; }
+            public System.Int32? JourneyLimits_DailyCap { get; set; }
+            public System.Int32? TimeframeCap_Cap { get; set; }
+            public System.Int32? TimeframeCap_Day { get; set; }
+            public System.Int32? JourneyLimits_TotalCap { get; set; }
             public System.Int32? Limits_Daily { get; set; }
             public System.Int32? Limits_MaximumDuration { get; set; }
             public System.Int32? Limits_MessagesPerSecond { get; set; }

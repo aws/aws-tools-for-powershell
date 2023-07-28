@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-CWAIResourceTag', 
+        'Add-CWAIWorkload', 
         'Get-CWAIApplication', 
         'Get-CWAIApplicationList', 
         'Get-CWAIComponent', 
@@ -102,6 +103,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWAIProblemList', 
         'Get-CWAIProblemObservation', 
         'Get-CWAIResourceTag', 
+        'Get-CWAIWorkload', 
+        'Get-CWAIWorkloadList', 
         'New-CWAIApplication', 
         'New-CWAIComponent', 
         'New-CWAILogPattern', 
@@ -109,10 +112,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWAIComponent', 
         'Remove-CWAILogPattern', 
         'Remove-CWAIResourceTag', 
+        'Remove-CWAIWorkload', 
         'Update-CWAIApplication', 
         'Update-CWAIComponent', 
         'Update-CWAIComponentConfiguration', 
-        'Update-CWAILogPattern')
+        'Update-CWAILogPattern', 
+        'Update-CWAIProblem', 
+        'Update-CWAIWorkload')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -194,9 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts have public
-        /// keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        /// If not, this field is <code>false</code>.</para>
+        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts in the
+        /// list are configured as trusted signers. If not, this field is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

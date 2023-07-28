@@ -154,7 +154,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFFunction/FunctionConfig_Runtime")
         }
         {
-            $v = "cloudfront-js-1.0"
+            $v = "cloudfront-js-1.0","cloudfront-js-2.0"
             break
         }
 

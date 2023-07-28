@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAIApplicationListCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the resource group owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -107,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.ListApplicationsResponse, GetCWAIApplicationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountId = this.AccountId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -137,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request and set iteration invariants
             var request = new Amazon.ApplicationInsights.Model.ListApplicationsRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -196,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             
             // create request and set iteration invariants
             var request = new Amazon.ApplicationInsights.Model.ListApplicationsRequest();
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -315,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.ListApplicationsResponse, GetCWAIApplicationListCmdlet, object> Select { get; set; } =

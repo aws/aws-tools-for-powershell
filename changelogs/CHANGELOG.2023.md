@@ -1,4 +1,47 @@
-﻿### 4.1.381 (2023-07-28 03:29Z)
+﻿### 4.1.382 (2023-07-28 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.609.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Modified cmdlet New-CFNStack: added parameter RetainExceptOnCreate.
+    * Modified cmdlet Start-CFNChangeSet: added parameter RetainExceptOnCreate.
+    * Modified cmdlet Undo-CFNStack: added parameter RetainExceptOnCreate.
+    * Modified cmdlet Update-CFNStack: added parameter RetainExceptOnCreate.
+  * Amazon CloudFront
+    * Modified cmdlet Copy-CFDistribution: added parameter Enabled.
+  * Amazon CloudWatch Application Insights
+    * Added cmdlet Add-CWAIWorkload leveraging the AddWorkload service API.
+    * Added cmdlet Get-CWAIWorkload leveraging the DescribeWorkload service API.
+    * Added cmdlet Get-CWAIWorkloadList leveraging the ListWorkloads service API.
+    * Added cmdlet Remove-CWAIWorkload leveraging the RemoveWorkload service API.
+    * Added cmdlet Update-CWAIProblem leveraging the UpdateProblem service API.
+    * Added cmdlet Update-CWAIWorkload leveraging the UpdateWorkload service API.
+    * Modified cmdlet Get-CWAIApplication: added parameter AccountId.
+    * Modified cmdlet Get-CWAIApplicationList: added parameter AccountId.
+    * Modified cmdlet Get-CWAIComponent: added parameter AccountId.
+    * Modified cmdlet Get-CWAIComponentConfiguration: added parameter AccountId.
+    * Modified cmdlet Get-CWAIComponentConfigurationRecommendation: added parameter RecommendationType.
+    * Modified cmdlet Get-CWAIComponentList: added parameter AccountId.
+    * Modified cmdlet Get-CWAIConfigurationHistoryList: added parameter AccountId.
+    * Modified cmdlet Get-CWAILogPattern: added parameter AccountId.
+    * Modified cmdlet Get-CWAILogPatternList: added parameter AccountId.
+    * Modified cmdlet Get-CWAILogPatternSetList: added parameter AccountId.
+    * Modified cmdlet Get-CWAIObservation: added parameter AccountId.
+    * Modified cmdlet Get-CWAIProblem: added parameter AccountId.
+    * Modified cmdlet Get-CWAIProblemList: added parameters AccountId and Visibility.
+    * Modified cmdlet Get-CWAIProblemObservation: added parameter AccountId.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Get-MSKClusterOperationsV2List leveraging the ListClusterOperationsV2 service API.
+    * Added cmdlet Get-MSKClusterOperationV2 leveraging the DescribeClusterOperationV2 service API.
+  * Amazon Pinpoint
+    * Modified cmdlet New-PINCampaign: added parameters InAppTemplate_Name and InAppTemplate_Version.
+    * Modified cmdlet New-PINJourney: added parameters Limits_TotalCap, TimeframeCap_Cap and TimeframeCap_Day.
+    * Modified cmdlet Send-PINMessage: added parameters GCMMessage_PreferredAuthenticationMethod, InAppTemplate_Name and InAppTemplate_Version.
+    * Modified cmdlet Send-PINUserMessageBatch: added parameters GCMMessage_PreferredAuthenticationMethod, InAppTemplate_Name and InAppTemplate_Version.
+    * Modified cmdlet Update-PINApplicationSettingList: added parameters JourneyLimits_DailyCap, JourneyLimits_TotalCap, TimeframeCap_Cap and TimeframeCap_Day.
+    * Modified cmdlet Update-PINCampaign: added parameters InAppTemplate_Name and InAppTemplate_Version.
+    * Modified cmdlet Update-PINGcmChannel: added parameters GCMChannelRequest_DefaultAuthenticationMethod and GCMChannelRequest_ServiceJson.
+    * Modified cmdlet Update-PINJourney: added parameters Limits_TotalCap, TimeframeCap_Cap and TimeframeCap_Day.
+
+### 4.1.381 (2023-07-28 03:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.608.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.380 (2023-07-27 21:13Z)

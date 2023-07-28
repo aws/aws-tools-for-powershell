@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAILogPatternCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the resource group owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter PatternName
         /// <summary>
         /// <para>
@@ -137,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.PatternName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.PatternName = this.PatternName;
             #if MODULAR
             if (this.PatternName == null && ParameterWasBound(nameof(this.PatternName)))
@@ -174,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.DescribeLogPatternRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.PatternName != null)
             {
                 request.PatternName = cmdletContext.PatternName;
@@ -247,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String PatternName { get; set; }
             public System.String PatternSetName { get; set; }
             public System.String ResourceGroupName { get; set; }

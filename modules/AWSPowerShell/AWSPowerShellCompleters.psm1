@@ -2952,13 +2952,39 @@ $CWAI_Completers = {
             break
         }
 
+        # Amazon.ApplicationInsights.RecommendationType
+        "Get-CWAIComponentConfigurationRecommendation/RecommendationType"
+        {
+            $v = "ALL","INFRA_ONLY","WORKLOAD_ONLY"
+            break
+        }
+
         # Amazon.ApplicationInsights.Tier
         {
             ($_ -eq "Get-CWAIComponentConfigurationRecommendation/Tier") -Or
-            ($_ -eq "Update-CWAIComponentConfiguration/Tier")
+            ($_ -eq "Update-CWAIComponentConfiguration/Tier") -Or
+            ($_ -eq "Add-CWAIWorkload/WorkloadConfiguration_Tier") -Or
+            ($_ -eq "Update-CWAIWorkload/WorkloadConfiguration_Tier")
         }
         {
-            $v = "ACTIVE_DIRECTORY","CUSTOM","DEFAULT","DOT_NET_CORE","DOT_NET_WEB","DOT_NET_WEB_TIER","DOT_NET_WORKER","JAVA_JMX","MYSQL","ORACLE","POSTGRESQL","SAP_HANA_HIGH_AVAILABILITY","SAP_HANA_MULTI_NODE","SAP_HANA_SINGLE_NODE","SHAREPOINT","SQL_SERVER","SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP","SQL_SERVER_FAILOVER_CLUSTER_INSTANCE"
+            $v = "ACTIVE_DIRECTORY","CUSTOM","DEFAULT","DOT_NET_CORE","DOT_NET_WEB","DOT_NET_WEB_TIER","DOT_NET_WORKER","JAVA_JMX","MYSQL","ORACLE","POSTGRESQL","SAP_HANA_HIGH_AVAILABILITY","SAP_HANA_MULTI_NODE","SAP_HANA_SINGLE_NODE","SAP_NETWEAVER_DISTRIBUTED","SAP_NETWEAVER_HIGH_AVAILABILITY","SAP_NETWEAVER_STANDARD","SHAREPOINT","SQL_SERVER","SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP","SQL_SERVER_FAILOVER_CLUSTER_INSTANCE"
+            break
+        }
+
+        # Amazon.ApplicationInsights.UpdateStatus
+        "Update-CWAIProblem/UpdateStatus"
+        {
+            $v = "RESOLVED"
+            break
+        }
+
+        # Amazon.ApplicationInsights.Visibility
+        {
+            ($_ -eq "Get-CWAIProblemList/Visibility") -Or
+            ($_ -eq "Update-CWAIProblem/Visibility")
+        }
+        {
+            $v = "IGNORED","VISIBLE"
             break
         }
 
@@ -2973,7 +2999,11 @@ $CWAI_Completers = {
 $CWAI_map = @{
     "EventStatus"=@("Get-CWAIConfigurationHistoryList")
     "GroupingType"=@("New-CWAIApplication")
+    "RecommendationType"=@("Get-CWAIComponentConfigurationRecommendation")
     "Tier"=@("Get-CWAIComponentConfigurationRecommendation","Update-CWAIComponentConfiguration")
+    "UpdateStatus"=@("Update-CWAIProblem")
+    "Visibility"=@("Get-CWAIProblemList","Update-CWAIProblem")
+    "WorkloadConfiguration_Tier"=@("Add-CWAIWorkload","Update-CWAIWorkload")
 }
 
 _awsArgumentCompleterRegistration $CWAI_Completers $CWAI_map
@@ -3026,7 +3056,8 @@ $CWAI_SelectCompleters = {
 }
 
 $CWAI_SelectMap = @{
-    "Select"=@("New-CWAIApplication",
+    "Select"=@("Add-CWAIWorkload",
+               "New-CWAIApplication",
                "New-CWAIComponent",
                "New-CWAILogPattern",
                "Remove-CWAIApplication",
@@ -3040,6 +3071,7 @@ $CWAI_SelectMap = @{
                "Get-CWAIObservation",
                "Get-CWAIProblem",
                "Get-CWAIProblemObservation",
+               "Get-CWAIWorkload",
                "Get-CWAIApplicationList",
                "Get-CWAIComponentList",
                "Get-CWAIConfigurationHistoryList",
@@ -3047,12 +3079,16 @@ $CWAI_SelectMap = @{
                "Get-CWAILogPatternSetList",
                "Get-CWAIProblemList",
                "Get-CWAIResourceTag",
+               "Get-CWAIWorkloadList",
+               "Remove-CWAIWorkload",
                "Add-CWAIResourceTag",
                "Remove-CWAIResourceTag",
                "Update-CWAIApplication",
                "Update-CWAIComponent",
                "Update-CWAIComponentConfiguration",
-               "Update-CWAILogPattern")
+               "Update-CWAILogPattern",
+               "Update-CWAIProblem",
+               "Update-CWAIWorkload")
 }
 
 _awsArgumentCompleterRegistration $CWAI_SelectCompleters $CWAI_SelectMap
@@ -9185,7 +9221,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFFunction/FunctionConfig_Runtime")
         }
         {
-            $v = "cloudfront-js-1.0"
+            $v = "cloudfront-js-1.0","cloudfront-js-2.0"
             break
         }
 
@@ -14055,7 +14091,7 @@ $CONN_Completers = {
         # Amazon.Connect.PhoneNumberType
         "Search-CONNAvailablePhoneNumber/PhoneNumberType"
         {
-            $v = "DID","TOLL_FREE"
+            $v = "DID","SHARED","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
             break
         }
 
@@ -32475,6 +32511,7 @@ $MSK_SelectMap = @{
                "Remove-MSKVpcConnection",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
+               "Get-MSKClusterOperationV2",
                "Get-MSKClusterV2",
                "Get-MSKConfiguration",
                "Get-MSKConfigurationRevision",
@@ -32484,6 +32521,7 @@ $MSK_SelectMap = @{
                "Get-MSKCompatibleKafkaVersion",
                "Get-MSKClientVpcConnectionList",
                "Get-MSKClusterOperationList",
+               "Get-MSKClusterOperationsV2List",
                "Get-MSKClusterList",
                "Get-MSKClustersV2List",
                "Get-MSKConfigurationRevisionList",

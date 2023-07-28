@@ -37,7 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// After you create a staging distribution, you can use <code>UpdateDistribution</code>
     /// to modify the staging distribution's configuration. Then you can use <code>CreateContinuousDeploymentPolicy</code>
     /// to incrementally move traffic to the staging distribution.
-    /// </para>
+    /// </para><para>
+    /// This API operation requires the following IAM permissions:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html">CopyDistribution</a></para></li></ul>
     /// </summary>
     [Cmdlet("Copy", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CopyDistributionResponse")]
@@ -67,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CallerReference { get; set; }
+        #endregion
+        
+        #region Parameter Enabled
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean flag to specify the state of the staging distribution when it's created.
+        /// When you set this value to <code>True</code>, the staging distribution is enabled.
+        /// When you set this value to <code>False</code>, the staging distribution is disabled.</para><para>If you omit this field, the default value is <code>True</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Enabled { get; set; }
         #endregion
         
         #region Parameter IfMatch
@@ -159,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter CallerReference which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Enabled = this.Enabled;
             context.IfMatch = this.IfMatch;
             context.PrimaryDistributionId = this.PrimaryDistributionId;
             #if MODULAR
@@ -187,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (cmdletContext.CallerReference != null)
             {
                 request.CallerReference = cmdletContext.CallerReference;
+            }
+            if (cmdletContext.Enabled != null)
+            {
+                request.Enabled = cmdletContext.Enabled.Value;
             }
             if (cmdletContext.IfMatch != null)
             {
@@ -262,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CallerReference { get; set; }
+            public System.Boolean? Enabled { get; set; }
             public System.String IfMatch { get; set; }
             public System.String PrimaryDistributionId { get; set; }
             public System.Boolean? Staging { get; set; }

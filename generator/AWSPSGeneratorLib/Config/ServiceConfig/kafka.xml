@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterOperationV2" OutputProperty="ClusterOperationInfo" Verb="Get" Noun="ClusterOperationV2" PipelineParameter="ClusterOperationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterV2" OutputProperty="ClusterInfo" Verb="Get" Noun="ClusterV2" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +107,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterOperationsV2" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationsV2List" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

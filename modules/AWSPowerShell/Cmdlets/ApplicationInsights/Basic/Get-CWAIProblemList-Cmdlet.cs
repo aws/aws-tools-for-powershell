@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAIProblemListCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the resource group owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter ComponentName
         /// <summary>
         /// <para>
@@ -80,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? StartTime { get; set; }
+        #endregion
+        
+        #region Parameter Visibility
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not you can view the problem. If not specified, visible and ignored
+        /// problems are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationInsights.Visibility")]
+        public Amazon.ApplicationInsights.Visibility Visibility { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -169,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ResourceGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.ComponentName = this.ComponentName;
             context.EndTime = this.EndTime;
             context.MaxResult = this.MaxResult;
@@ -184,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             context.NextToken = this.NextToken;
             context.ResourceGroupName = this.ResourceGroupName;
             context.StartTime = this.StartTime;
+            context.Visibility = this.Visibility;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request and set iteration invariants
             var request = new Amazon.ApplicationInsights.Model.ListProblemsRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.ComponentName != null)
             {
                 request.ComponentName = cmdletContext.ComponentName;
@@ -224,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
+            }
+            if (cmdletContext.Visibility != null)
+            {
+                request.Visibility = cmdletContext.Visibility;
             }
             
             // Initialize loop variant and commence piping
@@ -280,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             
             // create request and set iteration invariants
             var request = new Amazon.ApplicationInsights.Model.ListProblemsRequest();
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.ComponentName != null)
             {
                 request.ComponentName = cmdletContext.ComponentName;
@@ -295,6 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
+            }
+            if (cmdletContext.Visibility != null)
+            {
+                request.Visibility = cmdletContext.Visibility;
             }
             
             // Initialize loop variants and commence piping
@@ -415,12 +455,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String ComponentName { get; set; }
             public System.DateTime? EndTime { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResourceGroupName { get; set; }
             public System.DateTime? StartTime { get; set; }
+            public Amazon.ApplicationInsights.Visibility Visibility { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.ListProblemsResponse, GetCWAIProblemListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProblemList;
         }

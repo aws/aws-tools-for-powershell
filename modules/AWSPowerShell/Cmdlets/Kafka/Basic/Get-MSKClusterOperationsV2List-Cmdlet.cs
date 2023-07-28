@@ -22,95 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ApplicationInsights;
-using Amazon.ApplicationInsights.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWAI
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Lists the INFO, WARN, and ERROR events for periodic configuration updates performed
-    /// by Application Insights. Examples of events represented are: 
-    /// 
-    ///  <ul><li><para>
-    /// INFO: creating a new alarm or updating an alarm threshold.
-    /// </para></li><li><para>
-    /// WARN: alarm not created due to insufficient data points used to predict thresholds.
-    /// </para></li><li><para>
-    /// ERROR: alarm not created due to permission errors or exceeding quotas. 
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all the operations that have been performed on the specified MSK
+    /// cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWAIConfigurationHistoryList")]
-    [OutputType("Amazon.ApplicationInsights.Model.ConfigurationEvent")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights ListConfigurationHistory API operation.", Operation = new[] {"ListConfigurationHistory"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse))]
-    [AWSCmdletOutput("Amazon.ApplicationInsights.Model.ConfigurationEvent or Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse",
-        "This cmdlet returns a collection of Amazon.ApplicationInsights.Model.ConfigurationEvent objects.",
-        "The service call response (type Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MSKClusterOperationsV2List")]
+    [OutputType("Amazon.Kafka.Model.ClusterOperationV2Summary")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListClusterOperationsV2 API operation.", Operation = new[] {"ListClusterOperationsV2"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListClusterOperationsV2Response))]
+    [AWSCmdletOutput("Amazon.Kafka.Model.ClusterOperationV2Summary or Amazon.Kafka.Model.ListClusterOperationsV2Response",
+        "This cmdlet returns a collection of Amazon.Kafka.Model.ClusterOperationV2Summary objects.",
+        "The service call response (type Amazon.Kafka.Model.ListClusterOperationsV2Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWAIConfigurationHistoryListCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
+    public partial class GetMSKClusterOperationsV2ListCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
-        #region Parameter AccountId
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the resource group owner.</para>
+        /// The arn of the cluster whose operations are
+        /// being requested.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>The end time of the event.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? EndTime { get; set; }
-        #endregion
-        
-        #region Parameter EventStatus
-        /// <summary>
-        /// <para>
-        /// <para>The status of the configuration update event. Possible values include INFO, WARN,
-        /// and ERROR.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ApplicationInsights.ConfigurationEventStatus")]
-        public Amazon.ApplicationInsights.ConfigurationEventStatus EventStatus { get; set; }
-        #endregion
-        
-        #region Parameter ResourceGroupName
-        /// <summary>
-        /// <para>
-        /// <para>Resource group to which the application belongs. </para>
-        /// </para>
-        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ResourceGroupName { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>The start time of the event. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? StartTime { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClusterArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results returned by <code>ListConfigurationHistory</code> in
-        /// paginated output. When this parameter is used, <code>ListConfigurationHistory</code>
-        /// returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListConfigurationHistory</code> request with the returned <code>NextToken</code>
-        /// value. If this parameter is not used, then <code>ListConfigurationHistory</code> returns
-        /// all results. </para>
+        /// The maxResults of the query.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,11 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code>
-        /// request where <code>MaxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>NextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para>
+        /// The nextToken of the query.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -138,21 +86,21 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EventList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterOperationInfoList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.ListClusterOperationsV2Response).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.ListClusterOperationsV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EventList";
+        public string Select { get; set; } = "ClusterOperationInfoList";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -180,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse, GetCWAIConfigurationHistoryListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.ListClusterOperationsV2Response, GetMSKClusterOperationsV2ListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -189,16 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceGroupName;
+                context.Select = (response, cmdlet) => this.ClusterArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            context.EndTime = this.EndTime;
-            context.EventStatus = this.EventStatus;
+            context.ClusterArn = this.ClusterArn;
+            #if MODULAR
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ResourceGroupName = this.ResourceGroupName;
-            context.StartTime = this.StartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -217,31 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationInsights.Model.ListConfigurationHistoryRequest();
+            var request = new Amazon.Kafka.Model.ListClusterOperationsV2Request();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.AccountId = cmdletContext.AccountId;
-            }
-            if (cmdletContext.EndTime != null)
-            {
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
-            if (cmdletContext.EventStatus != null)
-            {
-                request.EventStatus = cmdletContext.EventStatus;
+                request.ClusterArn = cmdletContext.ClusterArn;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ResourceGroupName != null)
-            {
-                request.ResourceGroupName = cmdletContext.ResourceGroupName;
-            }
-            if (cmdletContext.StartTime != null)
-            {
-                request.StartTime = cmdletContext.StartTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -300,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.ListConfigurationHistoryRequest request)
+        private Amazon.Kafka.Model.ListClusterOperationsV2Response CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListClusterOperationsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "ListConfigurationHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListClusterOperationsV2");
             try
             {
                 #if DESKTOP
-                return client.ListConfigurationHistory(request);
+                return client.ListClusterOperationsV2(request);
                 #elif CORECLR
-                return client.ListConfigurationHistoryAsync(request).GetAwaiter().GetResult();
+                return client.ListClusterOperationsV2Async(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -328,15 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.DateTime? EndTime { get; set; }
-            public Amazon.ApplicationInsights.ConfigurationEventStatus EventStatus { get; set; }
+            public System.String ClusterArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceGroupName { get; set; }
-            public System.DateTime? StartTime { get; set; }
-            public System.Func<Amazon.ApplicationInsights.Model.ListConfigurationHistoryResponse, GetCWAIConfigurationHistoryListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EventList;
+            public System.Func<Amazon.Kafka.Model.ListClusterOperationsV2Response, GetMSKClusterOperationsV2ListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ClusterOperationInfoList;
         }
         
     }

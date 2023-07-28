@@ -180,6 +180,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] ResourceType { get; set; }
         #endregion
         
+        #region Parameter RetainExceptOnCreate
+        /// <summary>
+        /// <para>
+        /// <para>This deletion policy deletes newly created resources, but retains existing resources,
+        /// when a stack operation is rolled back. This ensures new, empty, and unused resources
+        /// are deleted, while critical resources and their data are retained. <code>RetainExceptOnCreate</code>
+        /// can be specified for any resource that supports the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+        /// DeletionPolicy</a> attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetainExceptOnCreate { get; set; }
+        #endregion
+        
         #region Parameter RoleARN
         /// <summary>
         /// <para>
@@ -421,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.ResourceType = new List<System.String>(this.ResourceType);
             }
+            context.RetainExceptOnCreate = this.RetainExceptOnCreate;
             context.RoleARN = this.RoleARN;
             context.RollbackConfiguration_MonitoringTimeInMinute = this.RollbackConfiguration_MonitoringTimeInMinute;
             if (this.RollbackConfiguration_RollbackTrigger != null)
@@ -484,6 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceTypes = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.RetainExceptOnCreate != null)
+            {
+                request.RetainExceptOnCreate = cmdletContext.RetainExceptOnCreate.Value;
             }
             if (cmdletContext.RoleARN != null)
             {
@@ -621,6 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
             public List<System.String> ResourceType { get; set; }
+            public System.Boolean? RetainExceptOnCreate { get; set; }
             public System.String RoleARN { get; set; }
             public System.Int32? RollbackConfiguration_MonitoringTimeInMinute { get; set; }
             public List<Amazon.CloudFormation.Model.RollbackTrigger> RollbackConfiguration_RollbackTrigger { get; set; }

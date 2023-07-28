@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAIProblemObservationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the resource group owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter ProblemId
         /// <summary>
         /// <para>
@@ -103,6 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ProblemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.ProblemId = this.ProblemId;
             #if MODULAR
             if (this.ProblemId == null && ParameterWasBound(nameof(this.ProblemId)))
@@ -126,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.DescribeProblemObservationsRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.ProblemId != null)
             {
                 request.ProblemId = cmdletContext.ProblemId;
@@ -191,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String ProblemId { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.DescribeProblemObservationsResponse, GetCWAIProblemObservationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RelatedObservations;

@@ -28,7 +28,10 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Create a new distribution with tags.
+    /// Create a new distribution with tags. This API operation requires the following IAM
+    /// permissions:
+    /// 
+    ///  <ul><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TagResource.html">TagResource</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "CFDistributionWithTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateDistributionWithTagsResponse")]
@@ -198,9 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts have public
-        /// keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        /// If not, this field is <code>false</code>.</para>
+        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts in the
+        /// list are configured as trusted signers. If not, this field is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

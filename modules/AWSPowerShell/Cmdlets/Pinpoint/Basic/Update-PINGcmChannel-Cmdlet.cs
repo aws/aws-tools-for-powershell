@@ -48,14 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// you received from Google to communicate with Google services.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GCMChannelRequest_ApiKey { get; set; }
         #endregion
         
@@ -77,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter GCMChannelRequest_DefaultAuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The default authentication method used for GCM. Values are either "TOKEN" or "KEY".
+        /// Defaults to "KEY".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GCMChannelRequest_DefaultAuthenticationMethod { get; set; }
+        #endregion
+        
         #region Parameter GCMChannelRequest_Enabled
         /// <summary>
         /// <para>
@@ -85,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? GCMChannelRequest_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter GCMChannelRequest_ServiceJson
+        /// <summary>
+        /// <para>
+        /// <para>The contents of the JSON file provided by Google during registration in order to generate
+        /// an access token for authentication. For more information see <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1">Migrate
+        /// from legacy FCM APIs to HTTP v1</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GCMChannelRequest_ServiceJson { get; set; }
         #endregion
         
         #region Parameter Select
@@ -157,13 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             #endif
             context.GCMChannelRequest_ApiKey = this.GCMChannelRequest_ApiKey;
-            #if MODULAR
-            if (this.GCMChannelRequest_ApiKey == null && ParameterWasBound(nameof(this.GCMChannelRequest_ApiKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GCMChannelRequest_ApiKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.GCMChannelRequest_DefaultAuthenticationMethod = this.GCMChannelRequest_DefaultAuthenticationMethod;
             context.GCMChannelRequest_Enabled = this.GCMChannelRequest_Enabled;
+            context.GCMChannelRequest_ServiceJson = this.GCMChannelRequest_ServiceJson;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.GCMChannelRequest.ApiKey = requestGCMChannelRequest_gCMChannelRequest_ApiKey;
                 requestGCMChannelRequestIsNull = false;
             }
+            System.String requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod = null;
+            if (cmdletContext.GCMChannelRequest_DefaultAuthenticationMethod != null)
+            {
+                requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod = cmdletContext.GCMChannelRequest_DefaultAuthenticationMethod;
+            }
+            if (requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod != null)
+            {
+                request.GCMChannelRequest.DefaultAuthenticationMethod = requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod;
+                requestGCMChannelRequestIsNull = false;
+            }
             System.Boolean? requestGCMChannelRequest_gCMChannelRequest_Enabled = null;
             if (cmdletContext.GCMChannelRequest_Enabled != null)
             {
@@ -206,6 +228,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestGCMChannelRequest_gCMChannelRequest_Enabled != null)
             {
                 request.GCMChannelRequest.Enabled = requestGCMChannelRequest_gCMChannelRequest_Enabled.Value;
+                requestGCMChannelRequestIsNull = false;
+            }
+            System.String requestGCMChannelRequest_gCMChannelRequest_ServiceJson = null;
+            if (cmdletContext.GCMChannelRequest_ServiceJson != null)
+            {
+                requestGCMChannelRequest_gCMChannelRequest_ServiceJson = cmdletContext.GCMChannelRequest_ServiceJson;
+            }
+            if (requestGCMChannelRequest_gCMChannelRequest_ServiceJson != null)
+            {
+                request.GCMChannelRequest.ServiceJson = requestGCMChannelRequest_gCMChannelRequest_ServiceJson;
                 requestGCMChannelRequestIsNull = false;
             }
              // determine if request.GCMChannelRequest should be set to null
@@ -276,7 +308,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.String ApplicationId { get; set; }
             public System.String GCMChannelRequest_ApiKey { get; set; }
+            public System.String GCMChannelRequest_DefaultAuthenticationMethod { get; set; }
             public System.Boolean? GCMChannelRequest_Enabled { get; set; }
+            public System.String GCMChannelRequest_ServiceJson { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdateGcmChannelResponse, UpdatePINGcmChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GCMChannelResponse;
         }

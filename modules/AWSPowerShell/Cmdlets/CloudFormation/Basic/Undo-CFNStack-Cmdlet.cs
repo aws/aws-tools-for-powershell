@@ -62,6 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter RetainExceptOnCreate
+        /// <summary>
+        /// <para>
+        /// <para>This deletion policy deletes newly created resources, but retains existing resources,
+        /// when a stack operation is rolled back. This ensures new, empty, and unused resources
+        /// are deleted, while critical resources and their data are retained. <code>RetainExceptOnCreate</code>
+        /// can be specified for any resource that supports the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+        /// DeletionPolicy</a> attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetainExceptOnCreate { get; set; }
+        #endregion
+        
         #region Parameter RoleARN
         /// <summary>
         /// <para>
@@ -153,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.RetainExceptOnCreate = this.RetainExceptOnCreate;
             context.RoleARN = this.RoleARN;
             context.StackName = this.StackName;
             #if MODULAR
@@ -180,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.RetainExceptOnCreate != null)
+            {
+                request.RetainExceptOnCreate = cmdletContext.RetainExceptOnCreate.Value;
             }
             if (cmdletContext.RoleARN != null)
             {
@@ -251,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? RetainExceptOnCreate { get; set; }
             public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }
             public System.Func<Amazon.CloudFormation.Model.RollbackStackResponse, UndoCFNStackCmdlet, object> Select { get; set; } =

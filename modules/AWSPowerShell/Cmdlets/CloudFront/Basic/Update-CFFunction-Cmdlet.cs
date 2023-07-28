@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter FunctionConfig_Runtime
         /// <summary>
         /// <para>
-        /// <para>The function's runtime environment. The only valid value is <code>cloudfront-js-1.0</code>.</para>
+        /// <para>The function's runtime environment verion.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

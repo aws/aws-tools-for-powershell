@@ -709,6 +709,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailTemplate_Name { get; set; }
         #endregion
         
+        #region Parameter InAppTemplate_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the message template to use for the message. If specified, this value
+        /// must match the name of an existing message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SendUsersMessageRequest_TemplateConfiguration_InAppTemplate_Name")]
+        public System.String InAppTemplate_Name { get; set; }
+        #endregion
+        
         #region Parameter PushTemplate_Name
         /// <summary>
         /// <para>
@@ -785,6 +797,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String APNSMessage_PreferredAuthenticationMethod { get; set; }
         #endregion
         
+        #region Parameter GCMMessage_PreferredAuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The preferred authentication method, with valid values "KEY" or "TOKEN". If a value
+        /// isn't provided then the <b>DefaultAuthenticationMethod</b> is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SendUsersMessageRequest_MessageConfiguration_GCMMessage_PreferredAuthenticationMethod")]
+        public System.String GCMMessage_PreferredAuthenticationMethod { get; set; }
+        #endregion
+        
         #region Parameter APNSMessage_Priority
         /// <summary>
         /// <para>
@@ -807,9 +831,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter GCMMessage_Priority
         /// <summary>
         /// <para>
-        /// <para>para&gt;normal - The notification might be delayed. Delivery is optimized for battery
+        /// <para>para&gt;normal – The notification might be delayed. Delivery is optimized for battery
         /// usage on the recipient's device. Use this value unless immediate delivery is required.</para>
-        /// /listitem&gt; <li><para>high - The notification is sent immediately and might wake a sleeping device.</para></li>/para&gt; 
+        /// /listitem&gt; <li><para>high – The notification is sent immediately and might wake a sleeping device.</para></li>/para&gt; 
         /// <para>Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the
         /// notification message to FCM.</para><para>The equivalent values for Apple Push Notification service (APNs) are 5, for normal,
         /// and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint
@@ -1420,6 +1444,23 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailTemplate_Version { get; set; }
         #endregion
         
+        #region Parameter InAppTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active
+        /// version</i> of the template. The <i>active version</i> is typically the version of
+        /// a template that's been most recently reviewed and approved for use, depending on your
+        /// workflow. It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SendUsersMessageRequest_TemplateConfiguration_InAppTemplate_Version")]
+        public System.String InAppTemplate_Version { get; set; }
+        #endregion
+        
         #region Parameter PushTemplate_Version
         /// <summary>
         /// <para>
@@ -1789,6 +1830,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.GCMMessage_IconReference = this.GCMMessage_IconReference;
             context.GCMMessage_ImageIconUrl = this.GCMMessage_ImageIconUrl;
             context.GCMMessage_ImageUrl = this.GCMMessage_ImageUrl;
+            context.GCMMessage_PreferredAuthenticationMethod = this.GCMMessage_PreferredAuthenticationMethod;
             context.GCMMessage_Priority = this.GCMMessage_Priority;
             context.GCMMessage_RawContent = this.GCMMessage_RawContent;
             context.GCMMessage_RestrictedPackageName = this.GCMMessage_RestrictedPackageName;
@@ -1872,6 +1914,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.VoiceMessage_VoiceId = this.VoiceMessage_VoiceId;
             context.EmailTemplate_Name = this.EmailTemplate_Name;
             context.EmailTemplate_Version = this.EmailTemplate_Version;
+            context.InAppTemplate_Name = this.InAppTemplate_Name;
+            context.InAppTemplate_Version = this.InAppTemplate_Version;
             context.PushTemplate_Name = this.PushTemplate_Name;
             context.PushTemplate_Version = this.PushTemplate_Version;
             context.SMSTemplate_Name = this.SMSTemplate_Name;
@@ -1989,6 +2033,41 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_EmailTemplate != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration.EmailTemplate = requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_EmailTemplate;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfigurationIsNull = false;
+                }
+                Amazon.Pinpoint.Model.Template requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate = null;
+                
+                 // populate InAppTemplate
+                var requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplateIsNull = true;
+                requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate = new Amazon.Pinpoint.Model.Template();
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Name = null;
+                if (cmdletContext.InAppTemplate_Name != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Name = cmdletContext.InAppTemplate_Name;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Name != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate.Name = requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Name;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplateIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Version = null;
+                if (cmdletContext.InAppTemplate_Version != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Version = cmdletContext.InAppTemplate_Version;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Version != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate.Version = requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate_inAppTemplate_Version;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplateIsNull = false;
+                }
+                 // determine if requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate should be set to null
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplateIsNull)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate = null;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration.InAppTemplate = requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_InAppTemplate;
                     requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.Template requestSendUsersMessageRequest_sendUsersMessageRequest_TemplateConfiguration_sendUsersMessageRequest_TemplateConfiguration_PushTemplate = null;
@@ -2942,191 +3021,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.ADMMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_ADMMessage;
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
-                Amazon.Pinpoint.Model.GCMMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = null;
-                
-                 // populate GCMMessage
-                var requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = true;
-                requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = new Amazon.Pinpoint.Model.GCMMessage();
-                Amazon.Pinpoint.Action requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action = null;
-                if (cmdletContext.GCMMessage_Action != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action = cmdletContext.GCMMessage_Action;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Action = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body = null;
-                if (cmdletContext.GCMMessage_Body != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body = cmdletContext.GCMMessage_Body;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Body = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey = null;
-                if (cmdletContext.GCMMessage_CollapseKey != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey = cmdletContext.GCMMessage_CollapseKey;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.CollapseKey = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                Dictionary<System.String, System.String> requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data = null;
-                if (cmdletContext.GCMMessage_Data != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data = cmdletContext.GCMMessage_Data;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Data = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference = null;
-                if (cmdletContext.GCMMessage_IconReference != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference = cmdletContext.GCMMessage_IconReference;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.IconReference = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl = null;
-                if (cmdletContext.GCMMessage_ImageIconUrl != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl = cmdletContext.GCMMessage_ImageIconUrl;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.ImageIconUrl = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl = null;
-                if (cmdletContext.GCMMessage_ImageUrl != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl = cmdletContext.GCMMessage_ImageUrl;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.ImageUrl = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority = null;
-                if (cmdletContext.GCMMessage_Priority != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority = cmdletContext.GCMMessage_Priority;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Priority = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent = null;
-                if (cmdletContext.GCMMessage_RawContent != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent = cmdletContext.GCMMessage_RawContent;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.RawContent = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName = null;
-                if (cmdletContext.GCMMessage_RestrictedPackageName != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName = cmdletContext.GCMMessage_RestrictedPackageName;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.RestrictedPackageName = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.Boolean? requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush = null;
-                if (cmdletContext.GCMMessage_SilentPush != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush = cmdletContext.GCMMessage_SilentPush.Value;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.SilentPush = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush.Value;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl = null;
-                if (cmdletContext.GCMMessage_SmallImageIconUrl != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl = cmdletContext.GCMMessage_SmallImageIconUrl;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.SmallImageIconUrl = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound = null;
-                if (cmdletContext.GCMMessage_Sound != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound = cmdletContext.GCMMessage_Sound;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Sound = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                Dictionary<System.String, List<System.String>> requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution = null;
-                if (cmdletContext.GCMMessage_Substitution != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution = cmdletContext.GCMMessage_Substitution;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Substitutions = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.Int32? requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = null;
-                if (cmdletContext.GCMMessage_TimeToLive != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = cmdletContext.GCMMessage_TimeToLive.Value;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.TimeToLive = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive.Value;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title = null;
-                if (cmdletContext.GCMMessage_Title != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title = cmdletContext.GCMMessage_Title;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Title = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url = null;
-                if (cmdletContext.GCMMessage_Url != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url = cmdletContext.GCMMessage_Url;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Url = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
-                }
-                 // determine if requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage should be set to null
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = null;
-                }
-                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage != null)
-                {
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.GCMMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage;
-                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
-                }
                 Amazon.Pinpoint.Model.APNSMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_APNSMessage = null;
                 
                  // populate APNSMessage
@@ -3322,6 +3216,201 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.APNSMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_APNSMessage;
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
+                Amazon.Pinpoint.Model.GCMMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = null;
+                
+                 // populate GCMMessage
+                var requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = true;
+                requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = new Amazon.Pinpoint.Model.GCMMessage();
+                Amazon.Pinpoint.Action requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action = null;
+                if (cmdletContext.GCMMessage_Action != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action = cmdletContext.GCMMessage_Action;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Action = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Action;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body = null;
+                if (cmdletContext.GCMMessage_Body != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body = cmdletContext.GCMMessage_Body;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Body = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Body;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey = null;
+                if (cmdletContext.GCMMessage_CollapseKey != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey = cmdletContext.GCMMessage_CollapseKey;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.CollapseKey = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_CollapseKey;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                Dictionary<System.String, System.String> requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data = null;
+                if (cmdletContext.GCMMessage_Data != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data = cmdletContext.GCMMessage_Data;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Data = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Data;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference = null;
+                if (cmdletContext.GCMMessage_IconReference != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference = cmdletContext.GCMMessage_IconReference;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.IconReference = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_IconReference;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl = null;
+                if (cmdletContext.GCMMessage_ImageIconUrl != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl = cmdletContext.GCMMessage_ImageIconUrl;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.ImageIconUrl = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl = null;
+                if (cmdletContext.GCMMessage_ImageUrl != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl = cmdletContext.GCMMessage_ImageUrl;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.ImageUrl = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_PreferredAuthenticationMethod = null;
+                if (cmdletContext.GCMMessage_PreferredAuthenticationMethod != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_PreferredAuthenticationMethod = cmdletContext.GCMMessage_PreferredAuthenticationMethod;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_PreferredAuthenticationMethod != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.PreferredAuthenticationMethod = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_PreferredAuthenticationMethod;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority = null;
+                if (cmdletContext.GCMMessage_Priority != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority = cmdletContext.GCMMessage_Priority;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Priority = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent = null;
+                if (cmdletContext.GCMMessage_RawContent != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent = cmdletContext.GCMMessage_RawContent;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.RawContent = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName = null;
+                if (cmdletContext.GCMMessage_RestrictedPackageName != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName = cmdletContext.GCMMessage_RestrictedPackageName;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.RestrictedPackageName = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_RestrictedPackageName;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.Boolean? requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush = null;
+                if (cmdletContext.GCMMessage_SilentPush != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush = cmdletContext.GCMMessage_SilentPush.Value;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.SilentPush = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush.Value;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl = null;
+                if (cmdletContext.GCMMessage_SmallImageIconUrl != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl = cmdletContext.GCMMessage_SmallImageIconUrl;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.SmallImageIconUrl = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_SmallImageIconUrl;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound = null;
+                if (cmdletContext.GCMMessage_Sound != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound = cmdletContext.GCMMessage_Sound;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Sound = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Sound;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                Dictionary<System.String, List<System.String>> requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution = null;
+                if (cmdletContext.GCMMessage_Substitution != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution = cmdletContext.GCMMessage_Substitution;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Substitutions = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.Int32? requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = null;
+                if (cmdletContext.GCMMessage_TimeToLive != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = cmdletContext.GCMMessage_TimeToLive.Value;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.TimeToLive = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive.Value;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title = null;
+                if (cmdletContext.GCMMessage_Title != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title = cmdletContext.GCMMessage_Title;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Title = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url = null;
+                if (cmdletContext.GCMMessage_Url != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url = cmdletContext.GCMMessage_Url;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage.Url = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage_gCMMessage_Url;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull = false;
+                }
+                 // determine if requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage should be set to null
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessageIsNull)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = null;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.GCMMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
+                }
                  // determine if requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration should be set to null
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull)
                 {
@@ -3484,6 +3573,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String GCMMessage_IconReference { get; set; }
             public System.String GCMMessage_ImageIconUrl { get; set; }
             public System.String GCMMessage_ImageUrl { get; set; }
+            public System.String GCMMessage_PreferredAuthenticationMethod { get; set; }
             public System.String GCMMessage_Priority { get; set; }
             public System.String GCMMessage_RawContent { get; set; }
             public System.String GCMMessage_RestrictedPackageName { get; set; }
@@ -3510,6 +3600,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String VoiceMessage_VoiceId { get; set; }
             public System.String EmailTemplate_Name { get; set; }
             public System.String EmailTemplate_Version { get; set; }
+            public System.String InAppTemplate_Name { get; set; }
+            public System.String InAppTemplate_Version { get; set; }
             public System.String PushTemplate_Name { get; set; }
             public System.String PushTemplate_Version { get; set; }
             public System.String SMSTemplate_Name { get; set; }

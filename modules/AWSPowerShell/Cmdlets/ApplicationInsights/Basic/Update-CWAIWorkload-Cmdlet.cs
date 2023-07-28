@@ -28,28 +28,27 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Describes the recommended monitoring configuration of the component.
+    /// Adds a workload to a component. Each component can have at most five workloads.
     /// </summary>
-    [Cmdlet("Get", "CWAIComponentConfigurationRecommendation")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeComponentConfigurationRecommendation API operation.", Operation = new[] {"DescribeComponentConfigurationRecommendation"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CWAIWorkload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ApplicationInsights.Model.UpdateWorkloadResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights UpdateWorkload API operation.", Operation = new[] {"UpdateWorkload"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.UpdateWorkloadResponse))]
+    [AWSCmdletOutput("Amazon.ApplicationInsights.Model.UpdateWorkloadResponse",
+        "This cmdlet returns an Amazon.ApplicationInsights.Model.UpdateWorkloadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWAIComponentConfigurationRecommendationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
+    public partial class UpdateCWAIWorkloadCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
         #region Parameter ComponentName
         /// <summary>
         /// <para>
-        /// <para>The name of the component.</para>
+        /// <para> The name of the component. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -57,15 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ComponentName { get; set; }
         #endregion
         
-        #region Parameter RecommendationType
+        #region Parameter WorkloadConfiguration_Configuration
         /// <summary>
         /// <para>
-        /// <para>The recommended configuration type.</para>
+        /// <para>The configuration settings of the workload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ApplicationInsights.RecommendationType")]
-        public Amazon.ApplicationInsights.RecommendationType RecommendationType { get; set; }
+        public System.String WorkloadConfiguration_Configuration { get; set; }
         #endregion
         
         #region Parameter ResourceGroupName
@@ -85,42 +83,56 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ResourceGroupName { get; set; }
         #endregion
         
-        #region Parameter Tier
+        #region Parameter WorkloadConfiguration_Tier
         /// <summary>
         /// <para>
-        /// <para>The tier of the application component.</para>
+        /// <para>The configuration of the workload tier.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.ApplicationInsights.Tier")]
-        public Amazon.ApplicationInsights.Tier Tier { get; set; }
+        public Amazon.ApplicationInsights.Tier WorkloadConfiguration_Tier { get; set; }
+        #endregion
+        
+        #region Parameter WorkloadId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkloadId { get; set; }
+        #endregion
+        
+        #region Parameter WorkloadConfiguration_WorkloadName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkloadConfiguration_WorkloadName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ComponentConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.UpdateWorkloadResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.UpdateWorkloadResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ComponentConfiguration";
+        public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Force
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ComponentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ComponentName' instead. This parameter will be removed in a future version.
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComponentName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -128,26 +140,22 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CWAIWorkload (UpdateWorkload)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse, GetCWAIComponentConfigurationRecommendationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.UpdateWorkloadResponse, UpdateCWAIWorkloadCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ComponentName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComponentName = this.ComponentName;
             #if MODULAR
             if (this.ComponentName == null && ParameterWasBound(nameof(this.ComponentName)))
@@ -155,7 +163,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter ComponentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RecommendationType = this.RecommendationType;
             context.ResourceGroupName = this.ResourceGroupName;
             #if MODULAR
             if (this.ResourceGroupName == null && ParameterWasBound(nameof(this.ResourceGroupName)))
@@ -163,13 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter ResourceGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Tier = this.Tier;
-            #if MODULAR
-            if (this.Tier == null && ParameterWasBound(nameof(this.Tier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.WorkloadConfiguration_Configuration = this.WorkloadConfiguration_Configuration;
+            context.WorkloadConfiguration_Tier = this.WorkloadConfiguration_Tier;
+            context.WorkloadConfiguration_WorkloadName = this.WorkloadConfiguration_WorkloadName;
+            context.WorkloadId = this.WorkloadId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,23 +188,58 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationRequest();
+            var request = new Amazon.ApplicationInsights.Model.UpdateWorkloadRequest();
             
             if (cmdletContext.ComponentName != null)
             {
                 request.ComponentName = cmdletContext.ComponentName;
             }
-            if (cmdletContext.RecommendationType != null)
-            {
-                request.RecommendationType = cmdletContext.RecommendationType;
-            }
             if (cmdletContext.ResourceGroupName != null)
             {
                 request.ResourceGroupName = cmdletContext.ResourceGroupName;
             }
-            if (cmdletContext.Tier != null)
+            
+             // populate WorkloadConfiguration
+            var requestWorkloadConfigurationIsNull = true;
+            request.WorkloadConfiguration = new Amazon.ApplicationInsights.Model.WorkloadConfiguration();
+            System.String requestWorkloadConfiguration_workloadConfiguration_Configuration = null;
+            if (cmdletContext.WorkloadConfiguration_Configuration != null)
             {
-                request.Tier = cmdletContext.Tier;
+                requestWorkloadConfiguration_workloadConfiguration_Configuration = cmdletContext.WorkloadConfiguration_Configuration;
+            }
+            if (requestWorkloadConfiguration_workloadConfiguration_Configuration != null)
+            {
+                request.WorkloadConfiguration.Configuration = requestWorkloadConfiguration_workloadConfiguration_Configuration;
+                requestWorkloadConfigurationIsNull = false;
+            }
+            Amazon.ApplicationInsights.Tier requestWorkloadConfiguration_workloadConfiguration_Tier = null;
+            if (cmdletContext.WorkloadConfiguration_Tier != null)
+            {
+                requestWorkloadConfiguration_workloadConfiguration_Tier = cmdletContext.WorkloadConfiguration_Tier;
+            }
+            if (requestWorkloadConfiguration_workloadConfiguration_Tier != null)
+            {
+                request.WorkloadConfiguration.Tier = requestWorkloadConfiguration_workloadConfiguration_Tier;
+                requestWorkloadConfigurationIsNull = false;
+            }
+            System.String requestWorkloadConfiguration_workloadConfiguration_WorkloadName = null;
+            if (cmdletContext.WorkloadConfiguration_WorkloadName != null)
+            {
+                requestWorkloadConfiguration_workloadConfiguration_WorkloadName = cmdletContext.WorkloadConfiguration_WorkloadName;
+            }
+            if (requestWorkloadConfiguration_workloadConfiguration_WorkloadName != null)
+            {
+                request.WorkloadConfiguration.WorkloadName = requestWorkloadConfiguration_workloadConfiguration_WorkloadName;
+                requestWorkloadConfigurationIsNull = false;
+            }
+             // determine if request.WorkloadConfiguration should be set to null
+            if (requestWorkloadConfigurationIsNull)
+            {
+                request.WorkloadConfiguration = null;
+            }
+            if (cmdletContext.WorkloadId != null)
+            {
+                request.WorkloadId = cmdletContext.WorkloadId;
             }
             
             CmdletOutput output;
@@ -235,15 +274,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationRequest request)
+        private Amazon.ApplicationInsights.Model.UpdateWorkloadResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.UpdateWorkloadRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "DescribeComponentConfigurationRecommendation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "UpdateWorkload");
             try
             {
                 #if DESKTOP
-                return client.DescribeComponentConfigurationRecommendation(request);
+                return client.UpdateWorkload(request);
                 #elif CORECLR
-                return client.DescribeComponentConfigurationRecommendationAsync(request).GetAwaiter().GetResult();
+                return client.UpdateWorkloadAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -264,11 +303,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ComponentName { get; set; }
-            public Amazon.ApplicationInsights.RecommendationType RecommendationType { get; set; }
             public System.String ResourceGroupName { get; set; }
-            public Amazon.ApplicationInsights.Tier Tier { get; set; }
-            public System.Func<Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse, GetCWAIComponentConfigurationRecommendationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ComponentConfiguration;
+            public System.String WorkloadConfiguration_Configuration { get; set; }
+            public Amazon.ApplicationInsights.Tier WorkloadConfiguration_Tier { get; set; }
+            public System.String WorkloadConfiguration_WorkloadName { get; set; }
+            public System.String WorkloadId { get; set; }
+            public System.Func<Amazon.ApplicationInsights.Model.UpdateWorkloadResponse, UpdateCWAIWorkloadCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

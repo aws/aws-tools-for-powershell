@@ -94,6 +94,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MSKClusterList', 
         'Get-MSKClusterOperation', 
         'Get-MSKClusterOperationList', 
+        'Get-MSKClusterOperationsV2List', 
+        'Get-MSKClusterOperationV2', 
         'Get-MSKClusterPolicy', 
         'Get-MSKClustersV2List', 
         'Get-MSKClusterV2', 

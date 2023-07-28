@@ -227,7 +227,7 @@ $CONN_Completers = {
         # Amazon.Connect.PhoneNumberType
         "Search-CONNAvailablePhoneNumber/PhoneNumberType"
         {
-            $v = "DID","TOLL_FREE"
+            $v = "DID","SHARED","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
             break
         }
 

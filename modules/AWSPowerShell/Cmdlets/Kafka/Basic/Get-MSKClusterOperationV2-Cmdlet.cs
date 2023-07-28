@@ -22,38 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ApplicationInsights;
-using Amazon.ApplicationInsights.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWAI
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Describes the application.
+    /// Returns a description of the cluster operation specified by the ARN.
     /// </summary>
-    [Cmdlet("Get", "CWAIApplication")]
-    [OutputType("Amazon.ApplicationInsights.Model.ApplicationInfo")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeApplication API operation.", Operation = new[] {"DescribeApplication"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeApplicationResponse))]
-    [AWSCmdletOutput("Amazon.ApplicationInsights.Model.ApplicationInfo or Amazon.ApplicationInsights.Model.DescribeApplicationResponse",
-        "This cmdlet returns an Amazon.ApplicationInsights.Model.ApplicationInfo object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MSKClusterOperationV2")]
+    [OutputType("Amazon.Kafka.Model.ClusterOperationV2")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DescribeClusterOperationV2 API operation.", Operation = new[] {"DescribeClusterOperationV2"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeClusterOperationV2Response))]
+    [AWSCmdletOutput("Amazon.Kafka.Model.ClusterOperationV2 or Amazon.Kafka.Model.DescribeClusterOperationV2Response",
+        "This cmdlet returns an Amazon.Kafka.Model.ClusterOperationV2 object.",
+        "The service call response (type Amazon.Kafka.Model.DescribeClusterOperationV2Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWAIApplicationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
+    public partial class GetMSKClusterOperationV2Cmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
-        #region Parameter AccountId
+        #region Parameter ClusterOperationArn
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the resource group owner.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the resource group.</para>
+        /// ARN of the cluster operation to describe.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,26 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceGroupName { get; set; }
+        public System.String ClusterOperationArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationInfo'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.DescribeApplicationResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.DescribeApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterOperationInfo'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.DescribeClusterOperationV2Response).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.DescribeClusterOperationV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationInfo";
+        public string Select { get; set; } = "ClusterOperationInfo";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterOperationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterOperationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterOperationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -101,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.DescribeApplicationResponse, GetCWAIApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.DescribeClusterOperationV2Response, GetMSKClusterOperationV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -110,15 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceGroupName;
+                context.Select = (response, cmdlet) => this.ClusterOperationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            context.ResourceGroupName = this.ResourceGroupName;
+            context.ClusterOperationArn = this.ClusterOperationArn;
             #if MODULAR
-            if (this.ResourceGroupName == null && ParameterWasBound(nameof(this.ResourceGroupName)))
+            if (this.ClusterOperationArn == null && ParameterWasBound(nameof(this.ClusterOperationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterOperationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -135,15 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationInsights.Model.DescribeApplicationRequest();
+            var request = new Amazon.Kafka.Model.DescribeClusterOperationV2Request();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.ClusterOperationArn != null)
             {
-                request.AccountId = cmdletContext.AccountId;
-            }
-            if (cmdletContext.ResourceGroupName != null)
-            {
-                request.ResourceGroupName = cmdletContext.ResourceGroupName;
+                request.ClusterOperationArn = cmdletContext.ClusterOperationArn;
             }
             
             CmdletOutput output;
@@ -178,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationInsights.Model.DescribeApplicationResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.DescribeApplicationRequest request)
+        private Amazon.Kafka.Model.DescribeClusterOperationV2Response CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DescribeClusterOperationV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "DescribeApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DescribeClusterOperationV2");
             try
             {
                 #if DESKTOP
-                return client.DescribeApplication(request);
+                return client.DescribeClusterOperationV2(request);
                 #elif CORECLR
-                return client.DescribeApplicationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeClusterOperationV2Async(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String ResourceGroupName { get; set; }
-            public System.Func<Amazon.ApplicationInsights.Model.DescribeApplicationResponse, GetCWAIApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationInfo;
+            public System.String ClusterOperationArn { get; set; }
+            public System.Func<Amazon.Kafka.Model.DescribeClusterOperationV2Response, GetMSKClusterOperationV2Cmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ClusterOperationInfo;
         }
         
     }

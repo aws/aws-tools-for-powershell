@@ -28,27 +28,17 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Describes an application problem.
+    /// Updates the visibility of the problem or specifies the problem as <code>RESOLVED</code>.
     /// </summary>
-    [Cmdlet("Get", "CWAIProblem")]
-    [OutputType("Amazon.ApplicationInsights.Model.Problem")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeProblem API operation.", Operation = new[] {"DescribeProblem"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeProblemResponse))]
-    [AWSCmdletOutput("Amazon.ApplicationInsights.Model.Problem or Amazon.ApplicationInsights.Model.DescribeProblemResponse",
-        "This cmdlet returns an Amazon.ApplicationInsights.Model.Problem object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeProblemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CWAIProblem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights UpdateProblem API operation.", Operation = new[] {"UpdateProblem"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.UpdateProblemResponse))]
+    [AWSCmdletOutput("None or Amazon.ApplicationInsights.Model.UpdateProblemResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ApplicationInsights.Model.UpdateProblemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWAIProblemCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
+    public partial class UpdateCWAIProblemCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
-        
-        #region Parameter AccountId
-        /// <summary>
-        /// <para>
-        /// <para>The AWS account ID for the owner of the resource group affected by the problem.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
-        #endregion
         
         #region Parameter ProblemId
         /// <summary>
@@ -67,15 +57,39 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ProblemId { get; set; }
         #endregion
         
+        #region Parameter UpdateStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the problem. Arguments can be passed for only problems that show a status
+        /// of <code>RECOVERING</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationInsights.UpdateStatus")]
+        public Amazon.ApplicationInsights.UpdateStatus UpdateStatus { get; set; }
+        #endregion
+        
+        #region Parameter Visibility
+        /// <summary>
+        /// <para>
+        /// <para>The visibility of a problem. When you pass a value of <code>IGNORED</code>, the problem
+        /// is removed from the default view, and all notifications for the problem are suspended.
+        /// When <code>VISIBLE</code> is passed, the <code>IGNORED</code> action is reversed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationInsights.Visibility")]
+        public Amazon.ApplicationInsights.Visibility Visibility { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Problem'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.DescribeProblemResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.DescribeProblemResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.UpdateProblemResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Problem";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -88,10 +102,26 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProblemId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CWAIProblem (UpdateProblem)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -101,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.DescribeProblemResponse, GetCWAIProblemCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.UpdateProblemResponse, UpdateCWAIProblemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -113,7 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ProblemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
             context.ProblemId = this.ProblemId;
             #if MODULAR
             if (this.ProblemId == null && ParameterWasBound(nameof(this.ProblemId)))
@@ -121,6 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter ProblemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UpdateStatus = this.UpdateStatus;
+            context.Visibility = this.Visibility;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -135,15 +166,19 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationInsights.Model.DescribeProblemRequest();
+            var request = new Amazon.ApplicationInsights.Model.UpdateProblemRequest();
             
-            if (cmdletContext.AccountId != null)
-            {
-                request.AccountId = cmdletContext.AccountId;
-            }
             if (cmdletContext.ProblemId != null)
             {
                 request.ProblemId = cmdletContext.ProblemId;
+            }
+            if (cmdletContext.UpdateStatus != null)
+            {
+                request.UpdateStatus = cmdletContext.UpdateStatus;
+            }
+            if (cmdletContext.Visibility != null)
+            {
+                request.Visibility = cmdletContext.Visibility;
             }
             
             CmdletOutput output;
@@ -178,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationInsights.Model.DescribeProblemResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.DescribeProblemRequest request)
+        private Amazon.ApplicationInsights.Model.UpdateProblemResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.UpdateProblemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "DescribeProblem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "UpdateProblem");
             try
             {
                 #if DESKTOP
-                return client.DescribeProblem(request);
+                return client.UpdateProblem(request);
                 #elif CORECLR
-                return client.DescribeProblemAsync(request).GetAwaiter().GetResult();
+                return client.UpdateProblemAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,10 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
             public System.String ProblemId { get; set; }
-            public System.Func<Amazon.ApplicationInsights.Model.DescribeProblemResponse, GetCWAIProblemCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Problem;
+            public Amazon.ApplicationInsights.UpdateStatus UpdateStatus { get; set; }
+            public Amazon.ApplicationInsights.Visibility Visibility { get; set; }
+            public System.Func<Amazon.ApplicationInsights.Model.UpdateProblemResponse, UpdateCWAIProblemCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

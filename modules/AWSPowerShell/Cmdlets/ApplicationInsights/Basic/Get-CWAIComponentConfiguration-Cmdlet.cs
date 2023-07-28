@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAIComponentConfigurationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the resource group owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter ComponentName
         /// <summary>
         /// <para>
@@ -119,6 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ComponentName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.ComponentName = this.ComponentName;
             #if MODULAR
             if (this.ComponentName == null && ParameterWasBound(nameof(this.ComponentName)))
@@ -149,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.ComponentName != null)
             {
                 request.ComponentName = cmdletContext.ComponentName;
@@ -218,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String ComponentName { get; set; }
             public System.String ResourceGroupName { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.DescribeComponentConfigurationResponse, GetCWAIComponentConfigurationCmdlet, object> Select { get; set; } =

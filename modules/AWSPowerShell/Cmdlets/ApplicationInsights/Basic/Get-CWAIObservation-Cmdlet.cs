@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAIObservationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the resource group owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter ObservationId
         /// <summary>
         /// <para>
@@ -103,6 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ObservationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.ObservationId = this.ObservationId;
             #if MODULAR
             if (this.ObservationId == null && ParameterWasBound(nameof(this.ObservationId)))
@@ -126,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.DescribeObservationRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.ObservationId != null)
             {
                 request.ObservationId = cmdletContext.ObservationId;
@@ -191,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String ObservationId { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.DescribeObservationResponse, GetCWAIObservationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Observation;

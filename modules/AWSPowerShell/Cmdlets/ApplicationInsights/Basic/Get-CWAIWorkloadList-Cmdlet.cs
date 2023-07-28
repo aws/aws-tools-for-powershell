@@ -28,21 +28,22 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Describes a component and lists the resources that are grouped together in a component.
+    /// Lists the workloads that are configured on a given component.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWAIComponent")]
-    [OutputType("Amazon.ApplicationInsights.Model.DescribeComponentResponse")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeComponent API operation.", Operation = new[] {"DescribeComponent"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeComponentResponse))]
-    [AWSCmdletOutput("Amazon.ApplicationInsights.Model.DescribeComponentResponse",
-        "This cmdlet returns an Amazon.ApplicationInsights.Model.DescribeComponentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWAIWorkloadList")]
+    [OutputType("Amazon.ApplicationInsights.Model.Workload")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Insights ListWorkloads API operation.", Operation = new[] {"ListWorkloads"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.ListWorkloadsResponse))]
+    [AWSCmdletOutput("Amazon.ApplicationInsights.Model.Workload or Amazon.ApplicationInsights.Model.ListWorkloadsResponse",
+        "This cmdlet returns a collection of Amazon.ApplicationInsights.Model.Workload objects.",
+        "The service call response (type Amazon.ApplicationInsights.Model.ListWorkloadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWAIComponentCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
+    public partial class GetCWAIWorkloadListCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the resource group owner.</para>
+        /// <para>The AWS account ID of the owner of the workload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -83,25 +84,51 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ResourceGroupName { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
+        /// results, make another call with the returned <code>NextToken</code> value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token to request the next page of results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.DescribeComponentResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.DescribeComponentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkloadList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationInsights.Model.ListWorkloadsResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationInsights.Model.ListWorkloadsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "WorkloadList";
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter NoAutoIteration
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ComponentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ComponentName' instead. This parameter will be removed in a future version.
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComponentName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -114,21 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.DescribeComponentResponse, GetCWAIComponentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationInsights.Model.ListWorkloadsResponse, GetCWAIWorkloadListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ComponentName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountId = this.AccountId;
             context.ComponentName = this.ComponentName;
             #if MODULAR
@@ -137,6 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter ComponentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.ResourceGroupName = this.ResourceGroupName;
             #if MODULAR
             if (this.ResourceGroupName == null && ParameterWasBound(nameof(this.ResourceGroupName)))
@@ -157,8 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.ApplicationInsights.Model.DescribeComponentRequest();
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
+            var request = new Amazon.ApplicationInsights.Model.ListWorkloadsRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -168,32 +189,60 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             {
                 request.ComponentName = cmdletContext.ComponentName;
             }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.ResourceGroupName != null)
             {
                 request.ResourceGroupName = cmdletContext.ResourceGroupName;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -205,15 +254,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationInsights.Model.DescribeComponentResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.DescribeComponentRequest request)
+        private Amazon.ApplicationInsights.Model.ListWorkloadsResponse CallAWSServiceOperation(IAmazonApplicationInsights client, Amazon.ApplicationInsights.Model.ListWorkloadsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "DescribeComponent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Insights", "ListWorkloads");
             try
             {
                 #if DESKTOP
-                return client.DescribeComponent(request);
+                return client.ListWorkloads(request);
                 #elif CORECLR
-                return client.DescribeComponentAsync(request).GetAwaiter().GetResult();
+                return client.ListWorkloadsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,9 +284,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         {
             public System.String AccountId { get; set; }
             public System.String ComponentName { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.String ResourceGroupName { get; set; }
-            public System.Func<Amazon.ApplicationInsights.Model.DescribeComponentResponse, GetCWAIComponentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.ApplicationInsights.Model.ListWorkloadsResponse, GetCWAIWorkloadListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.WorkloadList;
         }
         
     }

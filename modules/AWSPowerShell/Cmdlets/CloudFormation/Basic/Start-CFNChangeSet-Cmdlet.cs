@@ -105,6 +105,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.Boolean? DisableRollback { get; set; }
         #endregion
         
+        #region Parameter RetainExceptOnCreate
+        /// <summary>
+        /// <para>
+        /// <para>This deletion policy deletes newly created resources, but retains existing resources,
+        /// when a stack operation is rolled back. This ensures new, empty, and unused resources
+        /// are deleted, while critical resources and their data are retained. <code>RetainExceptOnCreate</code>
+        /// can be specified for any resource that supports the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+        /// DeletionPolicy</a> attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetainExceptOnCreate { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -186,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
             context.DisableRollback = this.DisableRollback;
+            context.RetainExceptOnCreate = this.RetainExceptOnCreate;
             context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
@@ -214,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.DisableRollback != null)
             {
                 request.DisableRollback = cmdletContext.DisableRollback.Value;
+            }
+            if (cmdletContext.RetainExceptOnCreate != null)
+            {
+                request.RetainExceptOnCreate = cmdletContext.RetainExceptOnCreate.Value;
             }
             if (cmdletContext.StackName != null)
             {
@@ -283,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String ChangeSetName { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.Boolean? DisableRollback { get; set; }
+            public System.Boolean? RetainExceptOnCreate { get; set; }
             public System.String StackName { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ExecuteChangeSetResponse, StartCFNChangeSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
