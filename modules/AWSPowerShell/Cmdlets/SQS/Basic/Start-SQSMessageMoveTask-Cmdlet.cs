@@ -32,12 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// destination queue.
     /// 
     ///  <note><ul><li><para>
-    /// This action is currently limited to supporting message redrive from dead-letter queues
-    /// (DLQs) only. In this context, the source queue is the dead-letter queue (DLQ), while
-    /// the destination queue can be the original source queue (from which the messages were
-    /// driven to the dead-letter-queue), or a custom destination queue. 
+    /// This action is currently limited to supporting message redrive from queues that are
+    /// configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter
+    /// queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter
+    /// queues, such as Lambda or Amazon SNS topics, are currently not supported.
     /// </para></li><li><para>
-    /// Currently, only standard queues are supported.
+    /// In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source
+    /// queue is the DLQ, while the destination queue can be the original source queue (from
+    /// which the messages were driven to the dead-letter-queue), or a custom destination
+    /// queue.
+    /// </para></li><li><para>
+    /// Currently, only standard queues support redrive. FIFO queues don't support redrive.
     /// </para></li><li><para>
     /// Only one active message movement task is supported per queue at any given time.
     /// </para></li></ul></note>
@@ -82,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The ARN of the queue that contains the messages to be moved to another queue. Currently,
-        /// only dead-letter queue (DLQ) ARNs are accepted.</para>
+        /// only ARNs of dead-letter queues (DLQs) whose sources are other Amazon SQS queues are
+        /// accepted. DLQs whose sources are non-SQS queues, such as Lambda or Amazon SNS topics,
+        /// are not currently supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

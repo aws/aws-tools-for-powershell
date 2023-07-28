@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.608.0",
+    "ProductVersion" : "3.7.608.1",
     "CoreVersion"    : "3.7.200.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -362,7 +362,7 @@
             "InPreview"               : false
         },
         "SQS"                       : {
-            "Version" : "3.7.200.5",
+            "Version" : "3.7.200.6",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.5"

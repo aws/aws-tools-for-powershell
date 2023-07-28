@@ -28,7 +28,8 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Deletes the messages in a queue specified by the <code>QueueURL</code> parameter.
+    /// Deletes available messages in a queue (including in-flight messages) specified by
+    /// the <code>QueueURL</code> parameter.
     /// 
     ///  <important><para>
     /// When you use the <code>PurgeQueue</code> action, you can't retrieve any messages deleted

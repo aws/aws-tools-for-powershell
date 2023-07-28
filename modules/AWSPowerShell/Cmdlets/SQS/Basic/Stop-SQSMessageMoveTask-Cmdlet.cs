@@ -28,13 +28,20 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Cancels a specified message movement task.
+    /// Cancels a specified message movement task. A message movement can only be cancelled
+    /// when the current status is RUNNING. Cancelling a message movement task does not revert
+    /// the messages that have already been moved. It can only stop the messages that have
+    /// not been moved yet.
     /// 
     ///  <note><ul><li><para>
-    /// A message movement can only be cancelled when the current status is RUNNING.
+    /// This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter
+    /// queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue
+    /// (DLQ), while the destination queue can be the original source queue (from which the
+    /// messages were driven to the dead-letter-queue), or a custom destination queue. 
     /// </para></li><li><para>
-    /// Cancelling a message movement task does not revert the messages that have already
-    /// been moved. It can only stop the messages that have not been moved yet.
+    /// Currently, only standard queues are supported.
+    /// </para></li><li><para>
+    /// Only one active message movement task is supported per queue at any given time.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Stop", "SQSMessageMoveTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

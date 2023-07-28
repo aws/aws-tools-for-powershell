@@ -29,6 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Gets the most recent message movement tasks (up to 10) under a specific source queue.
+    /// 
+    ///  <note><ul><li><para>
+    /// This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter
+    /// queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue
+    /// (DLQ), while the destination queue can be the original source queue (from which the
+    /// messages were driven to the dead-letter-queue), or a custom destination queue. 
+    /// </para></li><li><para>
+    /// Currently, only standard queues are supported.
+    /// </para></li><li><para>
+    /// Only one active message movement task is supported per queue at any given time.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "SQSMessageMoveTask")]
     [OutputType("Amazon.SQS.Model.ListMessageMoveTasksResultEntry")]
