@@ -80,6 +80,13 @@ $CRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CleanRooms.AnalysisFormat
+        "New-CRSAnalysisTemplate/Format"
+        {
+            $v = "SQL"
+            break
+        }
+
         # Amazon.CleanRooms.AnalysisMethod
         "New-CRSConfiguredTable/AnalysisMethod"
         {
@@ -90,7 +97,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.AnalysisRuleType
         "Get-CRSSchemaAnalysisRule/Type"
         {
-            $v = "AGGREGATION","LIST"
+            $v = "AGGREGATION","CUSTOM","LIST"
             break
         }
 
@@ -109,7 +116,7 @@ $CRS_Completers = {
             ($_ -eq "Update-CRSConfiguredTableAnalysisRule/AnalysisRuleType")
         }
         {
-            $v = "AGGREGATION","LIST"
+            $v = "AGGREGATION","CUSTOM","LIST"
             break
         }
 
@@ -194,6 +201,7 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "Format"=@("New-CRSAnalysisTemplate")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "ResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("Start-CRSProtectedQuery")
@@ -253,19 +261,24 @@ $CRS_SelectCompleters = {
 }
 
 $CRS_SelectMap = @{
-    "Select"=@("Get-CRSBatchSchema",
+    "Select"=@("Get-CRSBatchCollaborationAnalysisTemplate",
+               "Get-CRSBatchSchema",
+               "New-CRSAnalysisTemplate",
                "New-CRSCollaboration",
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
                "New-CRSConfiguredTableAssociation",
                "New-CRSMembership",
+               "Remove-CRSAnalysisTemplate",
                "Remove-CRSCollaboration",
                "Remove-CRSConfiguredTable",
                "Remove-CRSConfiguredTableAnalysisRule",
                "Remove-CRSConfiguredTableAssociation",
                "Remove-CRSMember",
                "Remove-CRSMembership",
+               "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
+               "Get-CRSCollaborationAnalysisTemplate",
                "Get-CRSConfiguredTable",
                "Get-CRSConfiguredTableAnalysisRule",
                "Get-CRSConfiguredTableAssociation",
@@ -273,6 +286,8 @@ $CRS_SelectMap = @{
                "Get-CRSProtectedQuery",
                "Get-CRSSchema",
                "Get-CRSSchemaAnalysisRule",
+               "Get-CRSAnalysisTemplateList",
+               "Get-CRSCollaborationAnalysisTemplateList",
                "Get-CRSCollaborationList",
                "Get-CRSConfiguredTableAssociationList",
                "Get-CRSConfiguredTableList",
@@ -284,6 +299,7 @@ $CRS_SelectMap = @{
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",
                "Remove-CRSResourceTag",
+               "Update-CRSAnalysisTemplate",
                "Update-CRSCollaboration",
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",

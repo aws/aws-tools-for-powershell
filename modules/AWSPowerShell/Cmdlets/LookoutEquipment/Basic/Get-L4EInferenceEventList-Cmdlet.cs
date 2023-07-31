@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para>Returns all the inference events with an end start time equal to or greater than less
-        /// than the end time given</para>
+        /// than the end time given.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

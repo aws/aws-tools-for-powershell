@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-INS2FindingList', 
         'Get-INS2FindingsReportStatus', 
         'Get-INS2GetAccountStatus', 
+        'Get-INS2GetFindingDetail', 
         'Get-INS2GetFreeTrialInfo', 
         'Get-INS2Member', 
         'Get-INS2MemberList', 

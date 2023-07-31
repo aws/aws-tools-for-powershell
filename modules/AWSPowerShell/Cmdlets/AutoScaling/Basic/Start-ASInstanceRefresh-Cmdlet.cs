@@ -71,13 +71,26 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class StartASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        #region Parameter AlarmSpecification_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>The names of one or more CloudWatch alarms to monitor for the instance refresh.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Preferences_AlarmSpecification_Alarms")]
+        public System.String[] AlarmSpecification_Alarm { get; set; }
+        #endregion
+        
         #region Parameter Preferences_AutoRollback
         /// <summary>
         /// <para>
         /// <para>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration
-        /// if the instance refresh fails. The default is <code>false</code>.</para><para>A rollback is not supported in the following situations: </para><ul><li><para>There is no desired configuration specified for the instance refresh.</para></li><li><para>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems
+        /// if the instance refresh fails or a CloudWatch alarm threshold is met. The default
+        /// is <code>false</code>.</para><para>A rollback is not supported in the following situations: </para><ul><li><para>There is no desired configuration specified for the instance refresh.</para></li><li><para>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems
         /// Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</para></li><li><para>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code>
-        /// version.</para></li></ul>
+        /// version.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-refresh-rollback.html">Undo
+        /// changes with a rollback</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             context.DesiredConfiguration_MixedInstancesPolicy = this.DesiredConfiguration_MixedInstancesPolicy;
+            if (this.AlarmSpecification_Alarm != null)
+            {
+                context.AlarmSpecification_Alarm = new List<System.String>(this.AlarmSpecification_Alarm);
+            }
             context.Preferences_AutoRollback = this.Preferences_AutoRollback;
             context.Preferences_CheckpointDelay = this.Preferences_CheckpointDelay;
             if (this.Preferences_CheckpointPercentage != null)
@@ -528,6 +545,31 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 request.Preferences.StandbyInstances = requestPreferences_preferences_StandbyInstance;
                 requestPreferencesIsNull = false;
             }
+            Amazon.AutoScaling.Model.AlarmSpecification requestPreferences_preferences_AlarmSpecification = null;
+            
+             // populate AlarmSpecification
+            var requestPreferences_preferences_AlarmSpecificationIsNull = true;
+            requestPreferences_preferences_AlarmSpecification = new Amazon.AutoScaling.Model.AlarmSpecification();
+            List<System.String> requestPreferences_preferences_AlarmSpecification_alarmSpecification_Alarm = null;
+            if (cmdletContext.AlarmSpecification_Alarm != null)
+            {
+                requestPreferences_preferences_AlarmSpecification_alarmSpecification_Alarm = cmdletContext.AlarmSpecification_Alarm;
+            }
+            if (requestPreferences_preferences_AlarmSpecification_alarmSpecification_Alarm != null)
+            {
+                requestPreferences_preferences_AlarmSpecification.Alarms = requestPreferences_preferences_AlarmSpecification_alarmSpecification_Alarm;
+                requestPreferences_preferences_AlarmSpecificationIsNull = false;
+            }
+             // determine if requestPreferences_preferences_AlarmSpecification should be set to null
+            if (requestPreferences_preferences_AlarmSpecificationIsNull)
+            {
+                requestPreferences_preferences_AlarmSpecification = null;
+            }
+            if (requestPreferences_preferences_AlarmSpecification != null)
+            {
+                request.Preferences.AlarmSpecification = requestPreferences_preferences_AlarmSpecification;
+                requestPreferencesIsNull = false;
+            }
              // determine if request.Preferences should be set to null
             if (requestPreferencesIsNull)
             {
@@ -603,6 +645,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String LaunchTemplate_LaunchTemplateName { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
             public Amazon.AutoScaling.Model.MixedInstancesPolicy DesiredConfiguration_MixedInstancesPolicy { get; set; }
+            public List<System.String> AlarmSpecification_Alarm { get; set; }
             public System.Boolean? Preferences_AutoRollback { get; set; }
             public System.Int32? Preferences_CheckpointDelay { get; set; }
             public List<System.Int32> Preferences_CheckpointPercentage { get; set; }

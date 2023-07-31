@@ -94,6 +94,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.CreationType
+        "Get-OMICSReadSetList/Filter_CreationType"
+        {
+            $v = "IMPORT","UPLOAD"
+            break
+        }
+
         # Amazon.Omics.EncryptionType
         {
             ($_ -eq "New-OMICSAnnotationStore/SseConfig_Type") -Or
@@ -250,6 +257,7 @@ $OMICS_map = @{
     "Accelerators"=@("New-OMICSWorkflow")
     "Engine"=@("New-OMICSWorkflow")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
+    "Filter_CreationType"=@("Get-OMICSReadSetList")
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")

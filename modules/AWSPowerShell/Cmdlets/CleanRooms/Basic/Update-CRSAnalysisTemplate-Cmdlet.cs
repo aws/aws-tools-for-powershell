@@ -22,31 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeStarconnections;
-using Amazon.CodeStarconnections.Model;
+using Amazon.CleanRooms;
+using Amazon.CleanRooms.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CSTC
+namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates a connection that can then be given to other Amazon Web Services services
-    /// like CodePipeline so that it can access third-party code repositories. The connection
-    /// is in pending status until the third-party connection handshake is completed from
-    /// the console.
+    /// Updates the analysis template metadata.
     /// </summary>
-    [Cmdlet("New", "CSTCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS CodeStar Connections CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.CreateConnectionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CodeStarconnections.Model.CreateConnectionResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeStarconnections.Model.CreateConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CRSAnalysisTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CleanRooms.Model.AnalysisTemplate")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service UpdateAnalysisTemplate API operation.", Operation = new[] {"UpdateAnalysisTemplate"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse))]
+    [AWSCmdletOutput("Amazon.CleanRooms.Model.AnalysisTemplate or Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse",
+        "This cmdlet returns an Amazon.CleanRooms.Model.AnalysisTemplate object.",
+        "The service call response (type Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCSTCConnectionCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
+    public partial class UpdateCRSAnalysisTemplateCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
-        #region Parameter ConnectionName
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter AnalysisTemplateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the connection to be created.</para>
+        /// <para>The identifier for the analysis template resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,58 +56,53 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionName { get; set; }
+        public System.String AnalysisTemplateIdentifier { get; set; }
         #endregion
         
-        #region Parameter HostArn
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</para>
+        /// <para>A new description for the analysis template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String HostArn { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter ProviderType
+        #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the external provider where your third-party code repository is configured.</para>
+        /// <para>The identifier for a membership resource.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CodeStarconnections.ProviderType")]
-        public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The key-value pair to use when tagging the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.CodeStarconnections.Model.Tag[] Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MembershipIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectionArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeStarconnections.Model.CreateConnectionResponse).
-        /// Specifying the name of a property of type Amazon.CodeStarconnections.Model.CreateConnectionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnalysisTemplate'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse).
+        /// Specifying the name of a property of type Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ConnectionArn";
+        public string Select { get; set; } = "AnalysisTemplate";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AnalysisTemplateIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AnalysisTemplateIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnalysisTemplateIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -128,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CSTCConnection (CreateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AnalysisTemplateIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CRSAnalysisTemplate (UpdateAnalysisTemplate)"))
             {
                 return;
             }
@@ -142,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeStarconnections.Model.CreateConnectionResponse, NewCSTCConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse, UpdateCRSAnalysisTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -151,22 +145,24 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionName;
+                context.Select = (response, cmdlet) => this.AnalysisTemplateIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConnectionName = this.ConnectionName;
+            context.AnalysisTemplateIdentifier = this.AnalysisTemplateIdentifier;
             #if MODULAR
-            if (this.ConnectionName == null && ParameterWasBound(nameof(this.ConnectionName)))
+            if (this.AnalysisTemplateIdentifier == null && ParameterWasBound(nameof(this.AnalysisTemplateIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnalysisTemplateIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.HostArn = this.HostArn;
-            context.ProviderType = this.ProviderType;
-            if (this.Tag != null)
+            context.Description = this.Description;
+            context.MembershipIdentifier = this.MembershipIdentifier;
+            #if MODULAR
+            if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
             {
-                context.Tag = new List<Amazon.CodeStarconnections.Model.Tag>(this.Tag);
+                WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,23 +177,19 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStarconnections.Model.CreateConnectionRequest();
+            var request = new Amazon.CleanRooms.Model.UpdateAnalysisTemplateRequest();
             
-            if (cmdletContext.ConnectionName != null)
+            if (cmdletContext.AnalysisTemplateIdentifier != null)
             {
-                request.ConnectionName = cmdletContext.ConnectionName;
+                request.AnalysisTemplateIdentifier = cmdletContext.AnalysisTemplateIdentifier;
             }
-            if (cmdletContext.HostArn != null)
+            if (cmdletContext.Description != null)
             {
-                request.HostArn = cmdletContext.HostArn;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.ProviderType != null)
+            if (cmdletContext.MembershipIdentifier != null)
             {
-                request.ProviderType = cmdletContext.ProviderType;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
             }
             
             CmdletOutput output;
@@ -232,15 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStarconnections.Model.CreateConnectionResponse CallAWSServiceOperation(IAmazonCodeStarconnections client, Amazon.CodeStarconnections.Model.CreateConnectionRequest request)
+        private Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.UpdateAnalysisTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar Connections", "CreateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "UpdateAnalysisTemplate");
             try
             {
                 #if DESKTOP
-                return client.CreateConnection(request);
+                return client.UpdateAnalysisTemplate(request);
                 #elif CORECLR
-                return client.CreateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.UpdateAnalysisTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,12 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionName { get; set; }
-            public System.String HostArn { get; set; }
-            public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
-            public List<Amazon.CodeStarconnections.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.CodeStarconnections.Model.CreateConnectionResponse, NewCSTCConnectionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ConnectionArn;
+            public System.String AnalysisTemplateIdentifier { get; set; }
+            public System.String Description { get; set; }
+            public System.String MembershipIdentifier { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.UpdateAnalysisTemplateResponse, UpdateCRSAnalysisTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnalysisTemplate;
         }
         
     }

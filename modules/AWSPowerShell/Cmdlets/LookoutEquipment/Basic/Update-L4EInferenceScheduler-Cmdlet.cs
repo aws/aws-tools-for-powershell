@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DataOutputConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID number for the AWS KMS key used to encrypt the inference output. </para>
+        /// <para>The ID number for the KMS key key used to encrypt the inference output. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

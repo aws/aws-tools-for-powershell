@@ -22,28 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeStarconnections;
-using Amazon.CodeStarconnections.Model;
+using Amazon.LookoutEquipment;
+using Amazon.LookoutEquipment.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CSTC
+namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Removes tags from an Amazon Web Services resource.
+    /// Deletes the resource policy attached to the resource.
     /// </summary>
-    [Cmdlet("Remove", "CSTCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "L4EResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS CodeStar Connections UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.CodeStarconnections.Model.UntagResourceResponse",
+    [AWSCmdlet("Calls the Amazon Lookout for Equipment DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarconnections.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCSTCResourceTagCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
+    public partial class RemoveL4EResourcePolicyCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to remove tags from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which the resource policy should
+        /// be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,28 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The list of keys for the tags to be removed from the resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeStarconnections.Model.UntagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CSTCResourceTag (UntagResource)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-L4EResourcePolicy (DeleteResourcePolicy)"))
             {
                 return;
             }
@@ -124,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeStarconnections.Model.UntagResourceResponse, RemoveCSTCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse, RemoveL4EResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,16 +126,6 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,15 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStarconnections.Model.UntagResourceRequest();
+            var request = new Amazon.LookoutEquipment.Model.DeleteResourcePolicyRequest();
             
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -210,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStarconnections.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCodeStarconnections client, Amazon.CodeStarconnections.Model.UntagResourceRequest request)
+        private Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonLookoutEquipment client, Amazon.LookoutEquipment.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar Connections", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Equipment", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,8 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.CodeStarconnections.Model.UntagResourceResponse, RemoveCSTCResourceTagCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LookoutEquipment.Model.DeleteResourcePolicyResponse, RemoveL4EResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

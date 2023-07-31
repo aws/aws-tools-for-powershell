@@ -77,9 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter S3InputConfiguration_KeyPattern
         /// <summary>
         /// <para>
-        /// <para> Pattern for matching the Amazon S3 files which will be used for ingestion. If no
-        /// KeyPattern is provided, we will use the default hierarchy file structure, which is
-        /// same as KeyPattern {prefix}/{component_name}/* </para>
+        /// <para> The pattern for matching the Amazon S3 files that will be used for ingestion. If
+        /// the schema was created previously without any KeyPattern, then the default KeyPattern
+        /// {prefix}/{component_name}/* is used to download files from Amazon S3 according to
+        /// the schema. This field is required when ingestion is being done for the first time.</para><para>Valid Values: {prefix}/{component_name}_* | {prefix}/{component_name}/* | {prefix}/{component_name}[DELIMITER]*
+        /// (Allowed delimiters : space, dot, underscore, hyphen)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

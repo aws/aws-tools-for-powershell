@@ -80,6 +80,16 @@ $SCH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Scheduler.ActionAfterCompletion
+        {
+            ($_ -eq "New-SCHSchedule/ActionAfterCompletion") -Or
+            ($_ -eq "Update-SCHSchedule/ActionAfterCompletion")
+        }
+        {
+            $v = "DELETE","NONE"
+            break
+        }
+
         # Amazon.Scheduler.AssignPublicIp
         {
             ($_ -eq "New-SCHSchedule/Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
@@ -140,6 +150,7 @@ $SCH_Completers = {
 }
 
 $SCH_map = @{
+    "ActionAfterCompletion"=@("New-SCHSchedule","Update-SCHSchedule")
     "FlexibleTimeWindow_Mode"=@("New-SCHSchedule","Update-SCHSchedule")
     "State"=@("Get-SCHScheduleList","New-SCHSchedule","Update-SCHSchedule")
     "Target_EcsParameters_LaunchType"=@("New-SCHSchedule","Update-SCHSchedule")

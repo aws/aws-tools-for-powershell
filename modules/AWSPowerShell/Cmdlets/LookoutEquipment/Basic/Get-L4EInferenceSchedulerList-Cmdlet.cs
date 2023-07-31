@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Specifies the current status of the inference schedulers to list.</para>
+        /// <para>Specifies the current status of the inference schedulers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

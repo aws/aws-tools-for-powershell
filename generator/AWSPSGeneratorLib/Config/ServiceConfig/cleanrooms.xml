@@ -18,7 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetCollaborationAnalysisTemplate" OutputProperty="*" Verb="Get" Noun="BatchCollaborationAnalysisTemplate" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetSchema" OutputProperty="*" Verb="Get" Noun="BatchSchema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="New" Noun="AnalysisTemplate" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMembership" OutputProperty="Membership" Verb="New" Noun="Membership" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnalysisTemplate" Verb="Remove" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,7 +78,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Get" Noun="AnalysisTemplate" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCollaboration" OutputProperty="Collaboration" Verb="Get" Noun="Collaboration" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationAnalysisTemplate" OutputProperty="CollaborationAnalysisTemplate" Verb="Get" Noun="CollaborationAnalysisTemplate" PipelineParameter="AnalysisTemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +115,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSchemaAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="SchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnalysisTemplates" OutputProperty="AnalysisTemplateSummaries" Verb="Get" Noun="AnalysisTemplateList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationAnalysisTemplates" OutputProperty="CollaborationAnalysisTemplateSummaries" Verb="Get" Noun="CollaborationAnalysisTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,6 +167,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Update" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

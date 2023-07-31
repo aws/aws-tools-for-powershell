@@ -383,6 +383,7 @@ $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
                "Get-INS2GetAccountStatus",
                "Get-INS2BatchGetCodeSnippet",
+               "Get-INS2GetFindingDetail",
                "Get-INS2GetFreeTrialInfo",
                "Get-INS2BatchMemberEc2DeepInspectionStatus",
                "Update-INS2BatchMemberEc2DeepInspectionStatus",

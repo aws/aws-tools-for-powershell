@@ -34,15 +34,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries
     /// for the domain or subdomain name by using the resource record sets that <code>CreateTrafficPolicyInstance</code>
     /// created.
-    /// 
-    ///  <note><para>
-    /// After you submit an <code>CreateTrafficPolicyInstance</code> request, there's a brief
-    /// delay while Amazon Route 53 creates the resource record sets that are specified in
-    /// the traffic policy definition. Use <code>GetTrafficPolicyInstance</code> with the
-    /// <code>id</code> of new traffic policy instance to confirm that the <code>CreateTrafficPolicyInstance</code>
-    /// request completed successfully. For more information, see the <code>State</code> response
-    /// element.
-    /// </para></note>
     /// </summary>
     [Cmdlet("New", "R53TrafficPolicyInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateTrafficPolicyInstanceResponse")]

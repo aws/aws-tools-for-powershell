@@ -22,28 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeStarconnections;
-using Amazon.CodeStarconnections.Model;
+using Amazon.CleanRooms;
+using Amazon.CleanRooms.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CSTC
+namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Removes tags from an Amazon Web Services resource.
+    /// Lists analysis templates within a collaboration.
     /// </summary>
-    [Cmdlet("Remove", "CSTCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS CodeStar Connections UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.CodeStarconnections.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarconnections.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CRSCollaborationAnalysisTemplateList")]
+    [OutputType("Amazon.CleanRooms.Model.CollaborationAnalysisTemplateSummary")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service ListCollaborationAnalysisTemplates API operation.", Operation = new[] {"ListCollaborationAnalysisTemplates"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse))]
+    [AWSCmdletOutput("Amazon.CleanRooms.Model.CollaborationAnalysisTemplateSummary or Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse",
+        "This cmdlet returns a collection of Amazon.CleanRooms.Model.CollaborationAnalysisTemplateSummary objects.",
+        "The service call response (type Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCSTCResourceTagCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
+    public partial class GetCRSCollaborationAnalysisTemplateListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter CollaborationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to remove tags from.</para>
+        /// <para>A unique identifier for the collaboration that the analysis templates belong to. Currently
+        /// accepts collaboration ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,67 +55,55 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String CollaborationIdentifier { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The list of keys for the tags to be removed from the resource.</para>
+        /// <para>The maximum size of the results that is returned per call.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token value retrieved from a previous call to access the next page of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeStarconnections.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CollaborationAnalysisTemplateSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse).
+        /// Specifying the name of a property of type Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "CollaborationAnalysisTemplateSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CollaborationIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CSTCResourceTag (UntagResource)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -124,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeStarconnections.Model.UntagResourceResponse, RemoveCSTCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse, GetCRSCollaborationAnalysisTemplateListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -133,26 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.CollaborationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.CollaborationIdentifier = this.CollaborationIdentifier;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,15 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStarconnections.Model.UntagResourceRequest();
+            var request = new Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.CollaborationIdentifier != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -210,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStarconnections.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCodeStarconnections client, Amazon.CodeStarconnections.Model.UntagResourceRequest request)
+        private Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar Connections", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "ListCollaborationAnalysisTemplates");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.ListCollaborationAnalysisTemplates(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.ListCollaborationAnalysisTemplatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,10 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.CodeStarconnections.Model.UntagResourceResponse, RemoveCSTCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String CollaborationIdentifier { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.ListCollaborationAnalysisTemplatesResponse, GetCRSCollaborationAnalysisTemplateListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CollaborationAnalysisTemplateSummaries;
         }
         
     }

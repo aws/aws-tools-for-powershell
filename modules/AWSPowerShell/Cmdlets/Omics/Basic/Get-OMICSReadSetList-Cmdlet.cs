@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.DateTime? Filter_CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter Filter_CreationType
+        /// <summary>
+        /// <para>
+        /// <para> The creation type of the read set. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.CreationType")]
+        public Amazon.Omics.CreationType Filter_CreationType { get; set; }
+        #endregion
+        
         #region Parameter Filter_GeneratedFrom
         /// <summary>
         /// <para>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Filter_CreatedAfter = this.Filter_CreatedAfter;
             context.Filter_CreatedBefore = this.Filter_CreatedBefore;
+            context.Filter_CreationType = this.Filter_CreationType;
             context.Filter_GeneratedFrom = this.Filter_GeneratedFrom;
             context.Filter_Name = this.Filter_Name;
             context.Filter_ReferenceArn = this.Filter_ReferenceArn;
@@ -261,6 +273,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestFilter_filter_CreatedBefore != null)
             {
                 request.Filter.CreatedBefore = requestFilter_filter_CreatedBefore.Value;
+                requestFilterIsNull = false;
+            }
+            Amazon.Omics.CreationType requestFilter_filter_CreationType = null;
+            if (cmdletContext.Filter_CreationType != null)
+            {
+                requestFilter_filter_CreationType = cmdletContext.Filter_CreationType;
+            }
+            if (requestFilter_filter_CreationType != null)
+            {
+                request.Filter.CreationType = requestFilter_filter_CreationType;
                 requestFilterIsNull = false;
             }
             System.String requestFilter_filter_GeneratedFrom = null;
@@ -403,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public System.DateTime? Filter_CreatedAfter { get; set; }
             public System.DateTime? Filter_CreatedBefore { get; set; }
+            public Amazon.Omics.CreationType Filter_CreationType { get; set; }
             public System.String Filter_GeneratedFrom { get; set; }
             public System.String Filter_Name { get; set; }
             public System.String Filter_ReferenceArn { get; set; }

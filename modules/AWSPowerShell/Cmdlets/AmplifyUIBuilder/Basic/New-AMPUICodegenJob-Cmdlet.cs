@@ -28,7 +28,7 @@ using Amazon.AmplifyUIBuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
-    /// Starts a code generation job for for a specified Amplify app and backend environment.
+    /// Starts a code generation job for a specified Amplify app and backend environment.
     /// </summary>
     [Cmdlet("New", "AMPUICodegenJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AmplifyUIBuilder.Model.CodegenJob")]
@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public Amazon.AmplifyUIBuilder.CodegenJobGenericDataSourceType GenericDataSchema_DataSourceType { get; set; }
         #endregion
         
+        #region Parameter ApiConfiguration_DataStoreConfig
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for an application using DataStore APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_DataStoreConfig")]
+        public Amazon.AmplifyUIBuilder.Model.DataStoreRenderConfig ApiConfiguration_DataStoreConfig { get; set; }
+        #endregion
+        
         #region Parameter GenericDataSchema_Enum
         /// <summary>
         /// <para>
@@ -107,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentName { get; set; }
+        #endregion
+        
+        #region Parameter GraphQLConfig_FragmentsFilePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the GraphQL fragments file, relative to the component output directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_FragmentsFilePath")]
+        public System.String GraphQLConfig_FragmentsFilePath { get; set; }
         #endregion
         
         #region Parameter React_InlineSourceMap
@@ -165,6 +187,28 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public Amazon.AmplifyUIBuilder.JSModule React_Module { get; set; }
         #endregion
         
+        #region Parameter GraphQLConfig_MutationsFilePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the GraphQL mutations file, relative to the component output directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_MutationsFilePath")]
+        public System.String GraphQLConfig_MutationsFilePath { get; set; }
+        #endregion
+        
+        #region Parameter ApiConfiguration_NoApiConfig
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for an application with no API being used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_NoApiConfig")]
+        public Amazon.AmplifyUIBuilder.Model.NoApiRenderConfig ApiConfiguration_NoApiConfig { get; set; }
+        #endregion
+        
         #region Parameter GenericDataSchema_NonModel
         /// <summary>
         /// <para>
@@ -174,6 +218,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CodegenJobToCreate_GenericDataSchema_NonModels")]
         public System.Collections.Hashtable GenericDataSchema_NonModel { get; set; }
+        #endregion
+        
+        #region Parameter GraphQLConfig_QueriesFilePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the GraphQL queries file, relative to the component output directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_QueriesFilePath")]
+        public System.String GraphQLConfig_QueriesFilePath { get; set; }
         #endregion
         
         #region Parameter React_RenderTypeDeclaration
@@ -199,6 +254,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public Amazon.AmplifyUIBuilder.JSScript React_Script { get; set; }
         #endregion
         
+        #region Parameter GraphQLConfig_SubscriptionsFilePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the GraphQL subscriptions file, relative to the component output directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_SubscriptionsFilePath")]
+        public System.String GraphQLConfig_SubscriptionsFilePath { get; set; }
+        #endregion
+        
         #region Parameter CodegenJobToCreate_Tag
         /// <summary>
         /// <para>
@@ -220,6 +286,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         [Alias("CodegenJobToCreate_RenderConfig_React_Target")]
         [AWSConstantClassSource("Amazon.AmplifyUIBuilder.JSTarget")]
         public Amazon.AmplifyUIBuilder.JSTarget React_Target { get; set; }
+        #endregion
+        
+        #region Parameter GraphQLConfig_TypesFilePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the GraphQL types file, relative to the component output directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_TypesFilePath")]
+        public System.String GraphQLConfig_TypesFilePath { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -311,6 +388,13 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                     context.GenericDataSchema_NonModel.Add((String)hashKey, (CodegenGenericDataNonModel)(this.GenericDataSchema_NonModel[hashKey]));
                 }
             }
+            context.ApiConfiguration_DataStoreConfig = this.ApiConfiguration_DataStoreConfig;
+            context.GraphQLConfig_FragmentsFilePath = this.GraphQLConfig_FragmentsFilePath;
+            context.GraphQLConfig_MutationsFilePath = this.GraphQLConfig_MutationsFilePath;
+            context.GraphQLConfig_QueriesFilePath = this.GraphQLConfig_QueriesFilePath;
+            context.GraphQLConfig_SubscriptionsFilePath = this.GraphQLConfig_SubscriptionsFilePath;
+            context.GraphQLConfig_TypesFilePath = this.GraphQLConfig_TypesFilePath;
+            context.ApiConfiguration_NoApiConfig = this.ApiConfiguration_NoApiConfig;
             context.React_InlineSourceMap = this.React_InlineSourceMap;
             context.React_Module = this.React_Module;
             context.React_RenderTypeDeclaration = this.React_RenderTypeDeclaration;
@@ -437,6 +521,106 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_Target != null)
             {
                 requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React.Target = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_Target;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_ReactIsNull = false;
+            }
+            Amazon.AmplifyUIBuilder.Model.ApiConfiguration requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration = null;
+            
+             // populate ApiConfiguration
+            var requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfigurationIsNull = true;
+            requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration = new Amazon.AmplifyUIBuilder.Model.ApiConfiguration();
+            Amazon.AmplifyUIBuilder.Model.DataStoreRenderConfig requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_DataStoreConfig = null;
+            if (cmdletContext.ApiConfiguration_DataStoreConfig != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_DataStoreConfig = cmdletContext.ApiConfiguration_DataStoreConfig;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_DataStoreConfig != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration.DataStoreConfig = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_DataStoreConfig;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfigurationIsNull = false;
+            }
+            Amazon.AmplifyUIBuilder.Model.NoApiRenderConfig requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_NoApiConfig = null;
+            if (cmdletContext.ApiConfiguration_NoApiConfig != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_NoApiConfig = cmdletContext.ApiConfiguration_NoApiConfig;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_NoApiConfig != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration.NoApiConfig = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_apiConfiguration_NoApiConfig;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfigurationIsNull = false;
+            }
+            Amazon.AmplifyUIBuilder.Model.GraphQLRenderConfig requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig = null;
+            
+             // populate GraphQLConfig
+            var requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull = true;
+            requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig = new Amazon.AmplifyUIBuilder.Model.GraphQLRenderConfig();
+            System.String requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_FragmentsFilePath = null;
+            if (cmdletContext.GraphQLConfig_FragmentsFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_FragmentsFilePath = cmdletContext.GraphQLConfig_FragmentsFilePath;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_FragmentsFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig.FragmentsFilePath = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_FragmentsFilePath;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull = false;
+            }
+            System.String requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_MutationsFilePath = null;
+            if (cmdletContext.GraphQLConfig_MutationsFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_MutationsFilePath = cmdletContext.GraphQLConfig_MutationsFilePath;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_MutationsFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig.MutationsFilePath = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_MutationsFilePath;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull = false;
+            }
+            System.String requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_QueriesFilePath = null;
+            if (cmdletContext.GraphQLConfig_QueriesFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_QueriesFilePath = cmdletContext.GraphQLConfig_QueriesFilePath;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_QueriesFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig.QueriesFilePath = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_QueriesFilePath;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull = false;
+            }
+            System.String requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_SubscriptionsFilePath = null;
+            if (cmdletContext.GraphQLConfig_SubscriptionsFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_SubscriptionsFilePath = cmdletContext.GraphQLConfig_SubscriptionsFilePath;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_SubscriptionsFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig.SubscriptionsFilePath = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_SubscriptionsFilePath;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull = false;
+            }
+            System.String requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_TypesFilePath = null;
+            if (cmdletContext.GraphQLConfig_TypesFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_TypesFilePath = cmdletContext.GraphQLConfig_TypesFilePath;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_TypesFilePath != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig.TypesFilePath = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig_graphQLConfig_TypesFilePath;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull = false;
+            }
+             // determine if requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig should be set to null
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfigIsNull)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig = null;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration.GraphQLConfig = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration_codegenJobToCreate_RenderConfig_React_ApiConfiguration_GraphQLConfig;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfigurationIsNull = false;
+            }
+             // determine if requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration should be set to null
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfigurationIsNull)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration = null;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React.ApiConfiguration = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_codegenJobToCreate_RenderConfig_React_ApiConfiguration;
                 requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_ReactIsNull = false;
             }
              // determine if requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React should be set to null
@@ -628,6 +812,13 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.CodegenGenericDataEnum> GenericDataSchema_Enum { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.CodegenGenericDataModel> GenericDataSchema_Model { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.CodegenGenericDataNonModel> GenericDataSchema_NonModel { get; set; }
+            public Amazon.AmplifyUIBuilder.Model.DataStoreRenderConfig ApiConfiguration_DataStoreConfig { get; set; }
+            public System.String GraphQLConfig_FragmentsFilePath { get; set; }
+            public System.String GraphQLConfig_MutationsFilePath { get; set; }
+            public System.String GraphQLConfig_QueriesFilePath { get; set; }
+            public System.String GraphQLConfig_SubscriptionsFilePath { get; set; }
+            public System.String GraphQLConfig_TypesFilePath { get; set; }
+            public Amazon.AmplifyUIBuilder.Model.NoApiRenderConfig ApiConfiguration_NoApiConfig { get; set; }
             public System.Boolean? React_InlineSourceMap { get; set; }
             public Amazon.AmplifyUIBuilder.JSModule React_Module { get; set; }
             public System.Boolean? React_RenderTypeDeclaration { get; set; }

@@ -107,7 +107,7 @@ $L4E_Completers = {
         # Amazon.LookoutEquipment.IngestionJobStatus
         "Get-L4EDataIngestionJobList/Status"
         {
-            $v = "FAILED","IN_PROGRESS","SUCCESS"
+            $v = "FAILED","IMPORT_IN_PROGRESS","IN_PROGRESS","SUCCESS"
             break
         }
 
@@ -121,7 +121,21 @@ $L4E_Completers = {
         # Amazon.LookoutEquipment.ModelStatus
         "Get-L4EModelList/Status"
         {
-            $v = "FAILED","IN_PROGRESS","SUCCESS"
+            $v = "FAILED","IMPORT_IN_PROGRESS","IN_PROGRESS","SUCCESS"
+            break
+        }
+
+        # Amazon.LookoutEquipment.ModelVersionSourceType
+        "Get-L4EModelVersionList/SourceType"
+        {
+            $v = "IMPORT","RETRAINING","TRAINING"
+            break
+        }
+
+        # Amazon.LookoutEquipment.ModelVersionStatus
+        "Get-L4EModelVersionList/Status"
+        {
+            $v = "CANCELED","FAILED","IMPORT_IN_PROGRESS","IN_PROGRESS","SUCCESS"
             break
         }
 
@@ -144,7 +158,8 @@ $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
     "Rating"=@("New-L4ELabel")
-    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList")
+    "SourceType"=@("Get-L4EModelVersionList")
+    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList","Get-L4EModelVersionList")
 }
 
 _awsArgumentCompleterRegistration $L4E_Completers $L4E_map
@@ -207,12 +222,17 @@ $L4E_SelectMap = @{
                "Remove-L4ELabel",
                "Remove-L4ELabelGroup",
                "Remove-L4EModel",
+               "Remove-L4EResourcePolicy",
                "Get-L4EDataIngestionJob",
                "Get-L4EDataset",
                "Get-L4EInferenceScheduler",
                "Get-L4ELabel",
                "Get-L4ELabelGroup",
                "Get-L4EModel",
+               "Get-L4EModelVersion",
+               "Get-L4EResourcePolicy",
+               "Import-L4EDataset",
+               "Import-L4EModelVersion",
                "Get-L4EDataIngestionJobList",
                "Get-L4EDatasetList",
                "Get-L4EInferenceEventList",
@@ -221,13 +241,16 @@ $L4E_SelectMap = @{
                "Get-L4ELabelGroupList",
                "Get-L4ELabelList",
                "Get-L4EModelList",
+               "Get-L4EModelVersionList",
                "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
+               "Write-L4EResourcePolicy",
                "Start-L4EDataIngestionJob",
                "Start-L4EInferenceScheduler",
                "Stop-L4EInferenceScheduler",
                "Add-L4EResourceTag",
                "Remove-L4EResourceTag",
+               "Update-L4EActiveModelVersion",
                "Update-L4EInferenceScheduler",
                "Update-L4ELabelGroup")
 }

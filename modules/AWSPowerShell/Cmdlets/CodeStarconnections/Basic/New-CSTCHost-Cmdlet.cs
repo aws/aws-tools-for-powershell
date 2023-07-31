@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the host to be created. The name must be unique in the calling AWS account.</para>
+        /// <para>The name of the host to be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

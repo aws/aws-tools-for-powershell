@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataIngestionJob" OutputProperty="*" Verb="Get" Noun="DataIngestionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,6 +84,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelVersion" OutputProperty="*" Verb="Get" Noun="ModelVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportDataset" OutputProperty="*" Verb="Import" Noun="Dataset" ShouldProcessTarget="SourceDatasetArn" PipelineParameter="SourceDatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportModelVersion" OutputProperty="*" Verb="Import" Noun="ModelVersion" ShouldProcessTarget="SourceModelVersionArn" PipelineParameter="SourceModelVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,11 +135,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListModelVersions" OutputProperty="ModelVersionSummaries" Verb="Get" Noun="ModelVersionList" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSensorStatistics" OutputProperty="SensorStatisticsSummaries" Verb="Get" Noun="SensorStatisticList" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +168,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateActiveModelVersion" OutputProperty="*" Verb="Update" Noun="ActiveModelVersion" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

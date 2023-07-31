@@ -301,6 +301,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnableLocalWriteForwarding
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether read replicas can forward write operations to the writer DB instance
+        /// in the DB cluster. By default, write operations aren't allowed on reader DB instances.</para><para>Valid for: Aurora DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableLocalWriteForwarding { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogsExportConfiguration_EnableLogType
         /// <summary>
         /// <para>
@@ -767,6 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnableLocalWriteForwarding = this.EnableLocalWriteForwarding;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
@@ -914,6 +926,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
+            }
+            if (cmdletContext.EnableLocalWriteForwarding != null)
+            {
+                request.EnableLocalWriteForwarding = cmdletContext.EnableLocalWriteForwarding.Value;
             }
             if (cmdletContext.EnablePerformanceInsight != null)
             {
@@ -1174,6 +1190,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnableLocalWriteForwarding { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }

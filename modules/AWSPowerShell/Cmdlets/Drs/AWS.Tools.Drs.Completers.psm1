@@ -138,7 +138,7 @@ $EDRS_Completers = {
             ($_ -eq "Update-EDRSLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod")
         }
         {
-            $v = "BASIC","NONE"
+            $v = "BASIC","IN_AWS","NONE"
             break
         }
 

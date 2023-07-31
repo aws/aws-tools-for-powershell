@@ -360,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_NetworkProtocol
         /// <summary>
         /// <para>
-        /// <para>Details on the ingress source addresses used to filter findings.</para>
+        /// <para>Details on network protocol used to filter findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

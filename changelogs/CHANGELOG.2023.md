@@ -1,4 +1,42 @@
-﻿### 4.1.382 (2023-07-28 21:26Z)
+﻿### 4.1.383 (2023-07-31 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.610.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify UI Builder
+    * Modified cmdlet New-AMPUICodegenJob: added parameters ApiConfiguration_DataStoreConfig, ApiConfiguration_NoApiConfig, GraphQLConfig_FragmentsFilePath, GraphQLConfig_MutationsFilePath, GraphQLConfig_QueriesFilePath, GraphQLConfig_SubscriptionsFilePath and GraphQLConfig_TypesFilePath.
+  * Amazon Auto Scaling
+    * Modified cmdlet Start-ASInstanceRefresh: added parameter AlarmSpecification_Alarm.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSAnalysisTemplate leveraging the GetAnalysisTemplate service API.
+    * Added cmdlet Get-CRSAnalysisTemplateList leveraging the ListAnalysisTemplates service API.
+    * Added cmdlet Get-CRSBatchCollaborationAnalysisTemplate leveraging the BatchGetCollaborationAnalysisTemplate service API.
+    * Added cmdlet Get-CRSCollaborationAnalysisTemplate leveraging the GetCollaborationAnalysisTemplate service API.
+    * Added cmdlet Get-CRSCollaborationAnalysisTemplateList leveraging the ListCollaborationAnalysisTemplates service API.
+    * Added cmdlet New-CRSAnalysisTemplate leveraging the CreateAnalysisTemplate service API.
+    * Added cmdlet Remove-CRSAnalysisTemplate leveraging the DeleteAnalysisTemplate service API.
+    * Added cmdlet Update-CRSAnalysisTemplate leveraging the UpdateAnalysisTemplate service API.
+    * Modified cmdlet New-CRSConfiguredTableAnalysisRule: added parameters Custom_AllowedAnalysis and Custom_AllowedAnalysisProvider.
+    * Modified cmdlet Start-CRSProtectedQuery: added parameters SqlParameters_AnalysisTemplateArn and SqlParameters_Parameter.
+    * Modified cmdlet Update-CRSConfiguredTableAnalysisRule: added parameters Custom_AllowedAnalysis and Custom_AllowedAnalysisProvider.
+  * Amazon EventBridge Scheduler
+    * Modified cmdlet New-SCHSchedule: added parameter ActionAfterCompletion.
+    * Modified cmdlet Update-SCHSchedule: added parameter ActionAfterCompletion.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2GetFindingDetail leveraging the BatchGetFindingDetails service API.
+  * Amazon Lookout for Equipment
+    * Added cmdlet Get-L4EModelVersion leveraging the DescribeModelVersion service API.
+    * Added cmdlet Get-L4EModelVersionList leveraging the ListModelVersions service API.
+    * Added cmdlet Get-L4EResourcePolicy leveraging the DescribeResourcePolicy service API.
+    * Added cmdlet Import-L4EDataset leveraging the ImportDataset service API.
+    * Added cmdlet Import-L4EModelVersion leveraging the ImportModelVersion service API.
+    * Added cmdlet Remove-L4EResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Update-L4EActiveModelVersion leveraging the UpdateActiveModelVersion service API.
+    * Added cmdlet Write-L4EResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon Omics
+    * Modified cmdlet Get-OMICSReadSetList: added parameter Filter_CreationType.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameter EnableLocalWriteForwarding.
+    * Modified cmdlet New-RDSDBCluster: added parameter EnableLocalWriteForwarding.
+
+### 4.1.382 (2023-07-28 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.609.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Modified cmdlet New-CFNStack: added parameter RetainExceptOnCreate.

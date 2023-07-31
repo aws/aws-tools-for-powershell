@@ -8212,6 +8212,13 @@ $CRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CleanRooms.AnalysisFormat
+        "New-CRSAnalysisTemplate/Format"
+        {
+            $v = "SQL"
+            break
+        }
+
         # Amazon.CleanRooms.AnalysisMethod
         "New-CRSConfiguredTable/AnalysisMethod"
         {
@@ -8222,7 +8229,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.AnalysisRuleType
         "Get-CRSSchemaAnalysisRule/Type"
         {
-            $v = "AGGREGATION","LIST"
+            $v = "AGGREGATION","CUSTOM","LIST"
             break
         }
 
@@ -8241,7 +8248,7 @@ $CRS_Completers = {
             ($_ -eq "Update-CRSConfiguredTableAnalysisRule/AnalysisRuleType")
         }
         {
-            $v = "AGGREGATION","LIST"
+            $v = "AGGREGATION","CUSTOM","LIST"
             break
         }
 
@@ -8326,6 +8333,7 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "Format"=@("New-CRSAnalysisTemplate")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "ResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("Start-CRSProtectedQuery")
@@ -8385,19 +8393,24 @@ $CRS_SelectCompleters = {
 }
 
 $CRS_SelectMap = @{
-    "Select"=@("Get-CRSBatchSchema",
+    "Select"=@("Get-CRSBatchCollaborationAnalysisTemplate",
+               "Get-CRSBatchSchema",
+               "New-CRSAnalysisTemplate",
                "New-CRSCollaboration",
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
                "New-CRSConfiguredTableAssociation",
                "New-CRSMembership",
+               "Remove-CRSAnalysisTemplate",
                "Remove-CRSCollaboration",
                "Remove-CRSConfiguredTable",
                "Remove-CRSConfiguredTableAnalysisRule",
                "Remove-CRSConfiguredTableAssociation",
                "Remove-CRSMember",
                "Remove-CRSMembership",
+               "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
+               "Get-CRSCollaborationAnalysisTemplate",
                "Get-CRSConfiguredTable",
                "Get-CRSConfiguredTableAnalysisRule",
                "Get-CRSConfiguredTableAssociation",
@@ -8405,6 +8418,8 @@ $CRS_SelectMap = @{
                "Get-CRSProtectedQuery",
                "Get-CRSSchema",
                "Get-CRSSchemaAnalysisRule",
+               "Get-CRSAnalysisTemplateList",
+               "Get-CRSCollaborationAnalysisTemplateList",
                "Get-CRSCollaborationList",
                "Get-CRSConfiguredTableAssociationList",
                "Get-CRSConfiguredTableList",
@@ -8416,6 +8431,7 @@ $CRS_SelectMap = @{
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",
                "Remove-CRSResourceTag",
+               "Update-CRSAnalysisTemplate",
                "Update-CRSCollaboration",
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",
@@ -12239,7 +12255,7 @@ $CSTC_Completers = {
             ($_ -eq "Get-CSTCConnectionList/ProviderTypeFilter")
         }
         {
-            $v = "Bitbucket","GitHub","GitHubEnterpriseServer"
+            $v = "Bitbucket","GitHub","GitHubEnterpriseServer","GitLab"
             break
         }
 
@@ -17949,7 +17965,7 @@ $EDRS_Completers = {
             ($_ -eq "Update-EDRSLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod")
         }
         {
-            $v = "BASIC","NONE"
+            $v = "BASIC","IN_AWS","NONE"
             break
         }
 
@@ -29263,6 +29279,7 @@ $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
                "Get-INS2GetAccountStatus",
                "Get-INS2BatchGetCodeSnippet",
+               "Get-INS2GetFindingDetail",
                "Get-INS2GetFreeTrialInfo",
                "Get-INS2BatchMemberEc2DeepInspectionStatus",
                "Update-INS2BatchMemberEc2DeepInspectionStatus",
@@ -36177,7 +36194,7 @@ $L4E_Completers = {
         # Amazon.LookoutEquipment.IngestionJobStatus
         "Get-L4EDataIngestionJobList/Status"
         {
-            $v = "FAILED","IN_PROGRESS","SUCCESS"
+            $v = "FAILED","IMPORT_IN_PROGRESS","IN_PROGRESS","SUCCESS"
             break
         }
 
@@ -36191,7 +36208,21 @@ $L4E_Completers = {
         # Amazon.LookoutEquipment.ModelStatus
         "Get-L4EModelList/Status"
         {
-            $v = "FAILED","IN_PROGRESS","SUCCESS"
+            $v = "FAILED","IMPORT_IN_PROGRESS","IN_PROGRESS","SUCCESS"
+            break
+        }
+
+        # Amazon.LookoutEquipment.ModelVersionSourceType
+        "Get-L4EModelVersionList/SourceType"
+        {
+            $v = "IMPORT","RETRAINING","TRAINING"
+            break
+        }
+
+        # Amazon.LookoutEquipment.ModelVersionStatus
+        "Get-L4EModelVersionList/Status"
+        {
+            $v = "CANCELED","FAILED","IMPORT_IN_PROGRESS","IN_PROGRESS","SUCCESS"
             break
         }
 
@@ -36214,7 +36245,8 @@ $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
     "Rating"=@("New-L4ELabel")
-    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList")
+    "SourceType"=@("Get-L4EModelVersionList")
+    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList","Get-L4EModelVersionList")
 }
 
 _awsArgumentCompleterRegistration $L4E_Completers $L4E_map
@@ -36277,12 +36309,17 @@ $L4E_SelectMap = @{
                "Remove-L4ELabel",
                "Remove-L4ELabelGroup",
                "Remove-L4EModel",
+               "Remove-L4EResourcePolicy",
                "Get-L4EDataIngestionJob",
                "Get-L4EDataset",
                "Get-L4EInferenceScheduler",
                "Get-L4ELabel",
                "Get-L4ELabelGroup",
                "Get-L4EModel",
+               "Get-L4EModelVersion",
+               "Get-L4EResourcePolicy",
+               "Import-L4EDataset",
+               "Import-L4EModelVersion",
                "Get-L4EDataIngestionJobList",
                "Get-L4EDatasetList",
                "Get-L4EInferenceEventList",
@@ -36291,13 +36328,16 @@ $L4E_SelectMap = @{
                "Get-L4ELabelGroupList",
                "Get-L4ELabelList",
                "Get-L4EModelList",
+               "Get-L4EModelVersionList",
                "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
+               "Write-L4EResourcePolicy",
                "Start-L4EDataIngestionJob",
                "Start-L4EInferenceScheduler",
                "Stop-L4EInferenceScheduler",
                "Add-L4EResourceTag",
                "Remove-L4EResourceTag",
+               "Update-L4EActiveModelVersion",
                "Update-L4EInferenceScheduler",
                "Update-L4ELabelGroup")
 }
@@ -42497,6 +42537,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.CreationType
+        "Get-OMICSReadSetList/Filter_CreationType"
+        {
+            $v = "IMPORT","UPLOAD"
+            break
+        }
+
         # Amazon.Omics.EncryptionType
         {
             ($_ -eq "New-OMICSAnnotationStore/SseConfig_Type") -Or
@@ -42653,6 +42700,7 @@ $OMICS_map = @{
     "Accelerators"=@("New-OMICSWorkflow")
     "Engine"=@("New-OMICSWorkflow")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
+    "Filter_CreationType"=@("Get-OMICSReadSetList")
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
@@ -49576,7 +49624,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -49645,7 +49693,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -54014,6 +54062,16 @@ $SCH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Scheduler.ActionAfterCompletion
+        {
+            ($_ -eq "New-SCHSchedule/ActionAfterCompletion") -Or
+            ($_ -eq "Update-SCHSchedule/ActionAfterCompletion")
+        }
+        {
+            $v = "DELETE","NONE"
+            break
+        }
+
         # Amazon.Scheduler.AssignPublicIp
         {
             ($_ -eq "New-SCHSchedule/Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
@@ -54074,6 +54132,7 @@ $SCH_Completers = {
 }
 
 $SCH_map = @{
+    "ActionAfterCompletion"=@("New-SCHSchedule","Update-SCHSchedule")
     "FlexibleTimeWindow_Mode"=@("New-SCHSchedule","Update-SCHSchedule")
     "State"=@("Get-SCHScheduleList","New-SCHSchedule","Update-SCHSchedule")
     "Target_EcsParameters_LaunchType"=@("New-SCHSchedule","Update-SCHSchedule")

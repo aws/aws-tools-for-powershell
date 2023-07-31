@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetFindingDetails" OutputProperty="*" Verb="Get" Noun="GetFindingDetail" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetFreeTrialInfo" OutputProperty="*" Verb="Get" Noun="GetFreeTrialInfo" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

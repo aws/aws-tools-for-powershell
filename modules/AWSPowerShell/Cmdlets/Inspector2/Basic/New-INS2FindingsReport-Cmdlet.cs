@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter S3Destination_KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix of the Amazon S3 bucket used to export findings.</para>
+        /// <para>The prefix that the findings will be written under.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_NetworkProtocol
         /// <summary>
         /// <para>
-        /// <para>Details on the ingress source addresses used to filter findings.</para>
+        /// <para>Details on network protocol used to filter findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

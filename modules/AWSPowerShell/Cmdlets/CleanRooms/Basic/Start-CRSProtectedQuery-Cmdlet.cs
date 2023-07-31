@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter SqlParameters_AnalysisTemplateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SqlParameters_AnalysisTemplateArn { get; set; }
+        #endregion
+        
         #region Parameter S3_Bucket
         /// <summary>
         /// <para>
@@ -82,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MembershipIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter SqlParameters_Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The protected query SQL parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SqlParameters_Parameters")]
+        public System.Collections.Hashtable SqlParameters_Parameter { get; set; }
         #endregion
         
         #region Parameter SqlParameters_QueryString
@@ -195,6 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.S3_Bucket = this.S3_Bucket;
             context.S3_KeyPrefix = this.S3_KeyPrefix;
             context.S3_ResultFormat = this.S3_ResultFormat;
+            context.SqlParameters_AnalysisTemplateArn = this.SqlParameters_AnalysisTemplateArn;
+            if (this.SqlParameters_Parameter != null)
+            {
+                context.SqlParameters_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SqlParameters_Parameter.Keys)
+                {
+                    context.SqlParameters_Parameter.Add((String)hashKey, (String)(this.SqlParameters_Parameter[hashKey]));
+                }
+            }
             context.SqlParameters_QueryString = this.SqlParameters_QueryString;
             context.Type = this.Type;
             #if MODULAR
@@ -296,6 +326,26 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate SqlParameters
             var requestSqlParametersIsNull = true;
             request.SqlParameters = new Amazon.CleanRooms.Model.ProtectedQuerySQLParameters();
+            System.String requestSqlParameters_sqlParameters_AnalysisTemplateArn = null;
+            if (cmdletContext.SqlParameters_AnalysisTemplateArn != null)
+            {
+                requestSqlParameters_sqlParameters_AnalysisTemplateArn = cmdletContext.SqlParameters_AnalysisTemplateArn;
+            }
+            if (requestSqlParameters_sqlParameters_AnalysisTemplateArn != null)
+            {
+                request.SqlParameters.AnalysisTemplateArn = requestSqlParameters_sqlParameters_AnalysisTemplateArn;
+                requestSqlParametersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestSqlParameters_sqlParameters_Parameter = null;
+            if (cmdletContext.SqlParameters_Parameter != null)
+            {
+                requestSqlParameters_sqlParameters_Parameter = cmdletContext.SqlParameters_Parameter;
+            }
+            if (requestSqlParameters_sqlParameters_Parameter != null)
+            {
+                request.SqlParameters.Parameters = requestSqlParameters_sqlParameters_Parameter;
+                requestSqlParametersIsNull = false;
+            }
             System.String requestSqlParameters_sqlParameters_QueryString = null;
             if (cmdletContext.SqlParameters_QueryString != null)
             {
@@ -380,6 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String S3_Bucket { get; set; }
             public System.String S3_KeyPrefix { get; set; }
             public Amazon.CleanRooms.ResultFormat S3_ResultFormat { get; set; }
+            public System.String SqlParameters_AnalysisTemplateArn { get; set; }
+            public Dictionary<System.String, System.String> SqlParameters_Parameter { get; set; }
             public System.String SqlParameters_QueryString { get; set; }
             public Amazon.CleanRooms.ProtectedQueryType Type { get; set; }
             public System.Func<Amazon.CleanRooms.Model.StartProtectedQueryResponse, StartCRSProtectedQueryCmdlet, object> Select { get; set; } =

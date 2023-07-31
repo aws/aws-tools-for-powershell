@@ -101,8 +101,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-L4ELabelList', 
         'Get-L4EModel', 
         'Get-L4EModelList', 
+        'Get-L4EModelVersion', 
+        'Get-L4EModelVersionList', 
+        'Get-L4EResourcePolicy', 
         'Get-L4EResourceTag', 
         'Get-L4ESensorStatisticList', 
+        'Import-L4EDataset', 
+        'Import-L4EModelVersion', 
         'New-L4EDataset', 
         'New-L4EInferenceScheduler', 
         'New-L4ELabel', 
@@ -113,12 +118,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-L4ELabel', 
         'Remove-L4ELabelGroup', 
         'Remove-L4EModel', 
+        'Remove-L4EResourcePolicy', 
         'Remove-L4EResourceTag', 
         'Start-L4EDataIngestionJob', 
         'Start-L4EInferenceScheduler', 
         'Stop-L4EInferenceScheduler', 
+        'Update-L4EActiveModelVersion', 
         'Update-L4EInferenceScheduler', 
-        'Update-L4ELabelGroup')
+        'Update-L4ELabelGroup', 
+        'Write-L4EResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

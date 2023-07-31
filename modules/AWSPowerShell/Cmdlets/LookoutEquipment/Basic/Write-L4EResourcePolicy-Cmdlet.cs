@@ -22,31 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeStarconnections;
-using Amazon.CodeStarconnections.Model;
+using Amazon.LookoutEquipment;
+using Amazon.LookoutEquipment.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CSTC
+namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Creates a connection that can then be given to other Amazon Web Services services
-    /// like CodePipeline so that it can access third-party code repositories. The connection
-    /// is in pending status until the third-party connection handshake is completed from
-    /// the console.
+    /// Creates a resource control policy for a given resource.
     /// </summary>
-    [Cmdlet("New", "CSTCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS CodeStar Connections CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.CreateConnectionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CodeStarconnections.Model.CreateConnectionResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeStarconnections.Model.CreateConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "L4EResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.LookoutEquipment.Model.PutResourcePolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Lookout for Equipment PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.LookoutEquipment.Model.PutResourcePolicyResponse",
+        "This cmdlet returns an Amazon.LookoutEquipment.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCSTCConnectionCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
+    public partial class WriteL4EResourcePolicyCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
-        #region Parameter ConnectionName
+        #region Parameter PolicyRevisionId
         /// <summary>
         /// <para>
-        /// <para>The name of the connection to be created.</para>
+        /// <para>A unique identifier for a revision of the resource policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PolicyRevisionId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which the policy is being created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,58 +63,54 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter HostArn
+        #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</para>
+        /// <para>The JSON-formatted resource policy to create.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourcePolicy { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the request. If you do not set the client request token, Amazon
+        /// Lookout for Equipment generates one. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String HostArn { get; set; }
-        #endregion
-        
-        #region Parameter ProviderType
-        /// <summary>
-        /// <para>
-        /// <para>The name of the external provider where your third-party code repository is configured.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CodeStarconnections.ProviderType")]
-        public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The key-value pair to use when tagging the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.CodeStarconnections.Model.Tag[] Tag { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectionArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeStarconnections.Model.CreateConnectionResponse).
-        /// Specifying the name of a property of type Amazon.CodeStarconnections.Model.CreateConnectionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LookoutEquipment.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.LookoutEquipment.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ConnectionArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -128,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CSTCConnection (CreateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-L4EResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -142,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeStarconnections.Model.CreateConnectionResponse, NewCSTCConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LookoutEquipment.Model.PutResourcePolicyResponse, WriteL4EResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -151,22 +153,25 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConnectionName = this.ConnectionName;
+            context.ClientToken = this.ClientToken;
+            context.PolicyRevisionId = this.PolicyRevisionId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ConnectionName == null && ParameterWasBound(nameof(this.ConnectionName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.HostArn = this.HostArn;
-            context.ProviderType = this.ProviderType;
-            if (this.Tag != null)
+            context.ResourcePolicy = this.ResourcePolicy;
+            #if MODULAR
+            if (this.ResourcePolicy == null && ParameterWasBound(nameof(this.ResourcePolicy)))
             {
-                context.Tag = new List<Amazon.CodeStarconnections.Model.Tag>(this.Tag);
+                WriteWarning("You are passing $null as a value for parameter ResourcePolicy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,23 +186,23 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStarconnections.Model.CreateConnectionRequest();
+            var request = new Amazon.LookoutEquipment.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.ConnectionName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ConnectionName = cmdletContext.ConnectionName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.HostArn != null)
+            if (cmdletContext.PolicyRevisionId != null)
             {
-                request.HostArn = cmdletContext.HostArn;
+                request.PolicyRevisionId = cmdletContext.PolicyRevisionId;
             }
-            if (cmdletContext.ProviderType != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ProviderType = cmdletContext.ProviderType;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.ResourcePolicy != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.ResourcePolicy = cmdletContext.ResourcePolicy;
             }
             
             CmdletOutput output;
@@ -232,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStarconnections.Model.CreateConnectionResponse CallAWSServiceOperation(IAmazonCodeStarconnections client, Amazon.CodeStarconnections.Model.CreateConnectionRequest request)
+        private Amazon.LookoutEquipment.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonLookoutEquipment client, Amazon.LookoutEquipment.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar Connections", "CreateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Equipment", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.CreateConnection(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.CreateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,12 +265,12 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionName { get; set; }
-            public System.String HostArn { get; set; }
-            public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
-            public List<Amazon.CodeStarconnections.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.CodeStarconnections.Model.CreateConnectionResponse, NewCSTCConnectionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ConnectionArn;
+            public System.String ClientToken { get; set; }
+            public System.String PolicyRevisionId { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.String ResourcePolicy { get; set; }
+            public System.Func<Amazon.LookoutEquipment.Model.PutResourcePolicyResponse, WriteL4EResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

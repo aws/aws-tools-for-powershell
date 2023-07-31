@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     public partial class UpdateSCHScheduleCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {
         
+        #region Parameter ActionAfterCompletion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the action that EventBridge Scheduler applies to the schedule after the
+        /// schedule completes invoking the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Scheduler.ActionAfterCompletion")]
+        public Amazon.Scheduler.ActionAfterCompletion ActionAfterCompletion { get; set; }
+        #endregion
+        
         #region Parameter Target_Arn
         /// <summary>
         /// <para>
@@ -419,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para> The expression that defines when the schedule runs. The following formats are supported.
-        /// </para><ul><li><para><code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code></para></li><li><para><code>rate</code> expression - <code>rate(unit value)</code></para></li><li><para><code>cron</code> expression - <code>cron(fields)</code></para></li></ul><para> You can use <code>at</code> expressions to create one-time schedules that invoke
+        /// </para><ul><li><para><code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code></para></li><li><para><code>rate</code> expression - <code>rate(value unit)</code></para></li><li><para><code>cron</code> expression - <code>cron(fields)</code></para></li></ul><para> You can use <code>at</code> expressions to create one-time schedules that invoke
         /// a target once, at the time and in the time zone, that you specify. You can use <code>rate</code>
         /// and <code>cron</code> expressions to create recurring schedules. Rate-based schedules
         /// are useful when you want to invoke a target at regular intervals, such as every 15
@@ -625,6 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ActionAfterCompletion = this.ActionAfterCompletion;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.EndDate = this.EndDate;
@@ -740,6 +753,10 @@ namespace Amazon.PowerShell.Cmdlets.SCH
             // create request
             var request = new Amazon.Scheduler.Model.UpdateScheduleRequest();
             
+            if (cmdletContext.ActionAfterCompletion != null)
+            {
+                request.ActionAfterCompletion = cmdletContext.ActionAfterCompletion;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -1284,6 +1301,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Scheduler.ActionAfterCompletion ActionAfterCompletion { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.DateTime? EndDate { get; set; }
