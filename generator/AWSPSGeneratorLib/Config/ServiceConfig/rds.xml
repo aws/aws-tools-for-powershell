@@ -184,6 +184,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBClusterAutomatedBackup" OutputProperty="DBClusterAutomatedBackup" Verb="Remove" Noun="DBClusterAutomatedBackup" ShouldProcessTarget="DbClusterResourceId" PipelineParameter="DbClusterResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDBClusterEndpoint" OutputProperty="*" Verb="Remove" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -253,6 +257,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSCertificates">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusterAutomatedBackups" OutputProperty="DBClusterAutomatedBackups" Verb="Get" Noun="DBClusterAutomatedBackup" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

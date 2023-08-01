@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ContainerConfig_Domain { get; set; }
         #endregion
         
+        #region Parameter Stairs_DurationInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Defines how long each traffic step should be.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_TrafficPattern_Stairs_DurationInSeconds")]
+        public System.Int32? Stairs_DurationInSecond { get; set; }
+        #endregion
+        
         #region Parameter InputConfig_EndpointConfiguration
         /// <summary>
         /// <para>
@@ -85,6 +96,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InputConfig_Endpoints")]
         public Amazon.SageMaker.Model.EndpointInfo[] InputConfig_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter StoppingConditions_FlatInvocation
+        /// <summary>
+        /// <para>
+        /// <para>Stops a load test when the number of invocations (TPS) peaks and flattens, which means
+        /// that the instance has reached capacity. The default value is <code>Stop</code>. If
+        /// you want the load test to continue after invocations have flattened, set the value
+        /// to <code>Continue</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StoppingConditions_FlatInvocations")]
+        [AWSConstantClassSource("Amazon.SageMaker.FlatInvocations")]
+        public Amazon.SageMaker.FlatInvocations StoppingConditions_FlatInvocation { get; set; }
         #endregion
         
         #region Parameter ContainerConfig_Framework
@@ -122,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputConfig_JobDurationInSecond
         /// <summary>
         /// <para>
-        /// <para>Specifies the maximum duration of the job, in seconds.&gt;</para>
+        /// <para>Specifies the maximum duration of the job, in seconds. The maximum value is 7200.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,6 +294,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ContainerConfig_NearestModelName { get; set; }
         #endregion
         
+        #region Parameter Stairs_NumberOfStep
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how many steps to perform during traffic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_TrafficPattern_Stairs_NumberOfSteps")]
+        public System.Int32? Stairs_NumberOfStep { get; set; }
+        #endregion
+        
         #region Parameter TrafficPattern_Phase
         /// <summary>
         /// <para>
@@ -410,13 +447,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrafficPattern_TrafficType
         /// <summary>
         /// <para>
-        /// <para>Defines the traffic patterns.</para>
+        /// <para>Defines the traffic patterns. Choose either <code>PHASES</code> or <code>STAIRS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InputConfig_TrafficPattern_TrafficType")]
         [AWSConstantClassSource("Amazon.SageMaker.TrafficType")]
         public Amazon.SageMaker.TrafficType TrafficPattern_TrafficType { get; set; }
+        #endregion
+        
+        #region Parameter Stairs_UsersPerStep
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how many new users to spawn in each step.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_TrafficPattern_Stairs_UsersPerStep")]
+        public System.Int32? Stairs_UsersPerStep { get; set; }
         #endregion
         
         #region Parameter InputConfig_VolumeKmsKeyId
@@ -533,6 +581,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.TrafficPattern_Phase = new List<Amazon.SageMaker.Model.Phase>(this.TrafficPattern_Phase);
             }
+            context.Stairs_DurationInSecond = this.Stairs_DurationInSecond;
+            context.Stairs_NumberOfStep = this.Stairs_NumberOfStep;
+            context.Stairs_UsersPerStep = this.Stairs_UsersPerStep;
             context.TrafficPattern_TrafficType = this.TrafficPattern_TrafficType;
             context.InputConfig_VolumeKmsKeyId = this.InputConfig_VolumeKmsKeyId;
             if (this.VpcConfig_SecurityGroupId != null)
@@ -567,6 +618,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StoppingConditions_FlatInvocation = this.StoppingConditions_FlatInvocation;
             context.StoppingConditions_MaxInvocation = this.StoppingConditions_MaxInvocation;
             if (this.StoppingConditions_ModelLatencyThreshold != null)
             {
@@ -691,41 +743,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.InputConfig.ResourceLimit = requestInputConfig_inputConfig_ResourceLimit;
                 requestInputConfigIsNull = false;
             }
-            Amazon.SageMaker.Model.TrafficPattern requestInputConfig_inputConfig_TrafficPattern = null;
-            
-             // populate TrafficPattern
-            var requestInputConfig_inputConfig_TrafficPatternIsNull = true;
-            requestInputConfig_inputConfig_TrafficPattern = new Amazon.SageMaker.Model.TrafficPattern();
-            List<Amazon.SageMaker.Model.Phase> requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase = null;
-            if (cmdletContext.TrafficPattern_Phase != null)
-            {
-                requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase = cmdletContext.TrafficPattern_Phase;
-            }
-            if (requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase != null)
-            {
-                requestInputConfig_inputConfig_TrafficPattern.Phases = requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase;
-                requestInputConfig_inputConfig_TrafficPatternIsNull = false;
-            }
-            Amazon.SageMaker.TrafficType requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType = null;
-            if (cmdletContext.TrafficPattern_TrafficType != null)
-            {
-                requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType = cmdletContext.TrafficPattern_TrafficType;
-            }
-            if (requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType != null)
-            {
-                requestInputConfig_inputConfig_TrafficPattern.TrafficType = requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType;
-                requestInputConfig_inputConfig_TrafficPatternIsNull = false;
-            }
-             // determine if requestInputConfig_inputConfig_TrafficPattern should be set to null
-            if (requestInputConfig_inputConfig_TrafficPatternIsNull)
-            {
-                requestInputConfig_inputConfig_TrafficPattern = null;
-            }
-            if (requestInputConfig_inputConfig_TrafficPattern != null)
-            {
-                request.InputConfig.TrafficPattern = requestInputConfig_inputConfig_TrafficPattern;
-                requestInputConfigIsNull = false;
-            }
             Amazon.SageMaker.Model.RecommendationJobVpcConfig requestInputConfig_inputConfig_VpcConfig = null;
             
              // populate VpcConfig
@@ -759,6 +776,86 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_VpcConfig != null)
             {
                 request.InputConfig.VpcConfig = requestInputConfig_inputConfig_VpcConfig;
+                requestInputConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.TrafficPattern requestInputConfig_inputConfig_TrafficPattern = null;
+            
+             // populate TrafficPattern
+            var requestInputConfig_inputConfig_TrafficPatternIsNull = true;
+            requestInputConfig_inputConfig_TrafficPattern = new Amazon.SageMaker.Model.TrafficPattern();
+            List<Amazon.SageMaker.Model.Phase> requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase = null;
+            if (cmdletContext.TrafficPattern_Phase != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase = cmdletContext.TrafficPattern_Phase;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern.Phases = requestInputConfig_inputConfig_TrafficPattern_trafficPattern_Phase;
+                requestInputConfig_inputConfig_TrafficPatternIsNull = false;
+            }
+            Amazon.SageMaker.TrafficType requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType = null;
+            if (cmdletContext.TrafficPattern_TrafficType != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType = cmdletContext.TrafficPattern_TrafficType;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern.TrafficType = requestInputConfig_inputConfig_TrafficPattern_trafficPattern_TrafficType;
+                requestInputConfig_inputConfig_TrafficPatternIsNull = false;
+            }
+            Amazon.SageMaker.Model.Stairs requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs = null;
+            
+             // populate Stairs
+            var requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_StairsIsNull = true;
+            requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs = new Amazon.SageMaker.Model.Stairs();
+            System.Int32? requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_DurationInSecond = null;
+            if (cmdletContext.Stairs_DurationInSecond != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_DurationInSecond = cmdletContext.Stairs_DurationInSecond.Value;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_DurationInSecond != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs.DurationInSeconds = requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_DurationInSecond.Value;
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_StairsIsNull = false;
+            }
+            System.Int32? requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_NumberOfStep = null;
+            if (cmdletContext.Stairs_NumberOfStep != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_NumberOfStep = cmdletContext.Stairs_NumberOfStep.Value;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_NumberOfStep != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs.NumberOfSteps = requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_NumberOfStep.Value;
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_StairsIsNull = false;
+            }
+            System.Int32? requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_UsersPerStep = null;
+            if (cmdletContext.Stairs_UsersPerStep != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_UsersPerStep = cmdletContext.Stairs_UsersPerStep.Value;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_UsersPerStep != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs.UsersPerStep = requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs_stairs_UsersPerStep.Value;
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_StairsIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs should be set to null
+            if (requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_StairsIsNull)
+            {
+                requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs = null;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs != null)
+            {
+                requestInputConfig_inputConfig_TrafficPattern.Stairs = requestInputConfig_inputConfig_TrafficPattern_inputConfig_TrafficPattern_Stairs;
+                requestInputConfig_inputConfig_TrafficPatternIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_TrafficPattern should be set to null
+            if (requestInputConfig_inputConfig_TrafficPatternIsNull)
+            {
+                requestInputConfig_inputConfig_TrafficPattern = null;
+            }
+            if (requestInputConfig_inputConfig_TrafficPattern != null)
+            {
+                request.InputConfig.TrafficPattern = requestInputConfig_inputConfig_TrafficPattern;
                 requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.RecommendationJobContainerConfig requestInputConfig_inputConfig_ContainerConfig = null;
@@ -960,6 +1057,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate StoppingConditions
             var requestStoppingConditionsIsNull = true;
             request.StoppingConditions = new Amazon.SageMaker.Model.RecommendationJobStoppingConditions();
+            Amazon.SageMaker.FlatInvocations requestStoppingConditions_stoppingConditions_FlatInvocation = null;
+            if (cmdletContext.StoppingConditions_FlatInvocation != null)
+            {
+                requestStoppingConditions_stoppingConditions_FlatInvocation = cmdletContext.StoppingConditions_FlatInvocation;
+            }
+            if (requestStoppingConditions_stoppingConditions_FlatInvocation != null)
+            {
+                request.StoppingConditions.FlatInvocations = requestStoppingConditions_stoppingConditions_FlatInvocation;
+                requestStoppingConditionsIsNull = false;
+            }
             System.Int32? requestStoppingConditions_stoppingConditions_MaxInvocation = null;
             if (cmdletContext.StoppingConditions_MaxInvocation != null)
             {
@@ -1068,6 +1175,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? ResourceLimit_MaxNumberOfTest { get; set; }
             public System.Int32? ResourceLimit_MaxParallelOfTest { get; set; }
             public List<Amazon.SageMaker.Model.Phase> TrafficPattern_Phase { get; set; }
+            public System.Int32? Stairs_DurationInSecond { get; set; }
+            public System.Int32? Stairs_NumberOfStep { get; set; }
+            public System.Int32? Stairs_UsersPerStep { get; set; }
             public Amazon.SageMaker.TrafficType TrafficPattern_TrafficType { get; set; }
             public System.String InputConfig_VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
@@ -1078,6 +1188,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String CompiledOutputConfig_S3OutputUri { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String RoleArn { get; set; }
+            public Amazon.SageMaker.FlatInvocations StoppingConditions_FlatInvocation { get; set; }
             public System.Int32? StoppingConditions_MaxInvocation { get; set; }
             public List<Amazon.SageMaker.Model.ModelLatencyThreshold> StoppingConditions_ModelLatencyThreshold { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

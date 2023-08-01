@@ -756,9 +756,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_DatabaseMode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to use default or custom replication behavior for PostgreSQL-compatible
-        /// endpoints. You can use this setting to specify replication behavior for endpoints
-        /// that require additional configuration, such as Babelfish endpoints.</para>
+        /// <para>Specifies the default behavior of the replication's handling of PostgreSQL- compatible
+        /// endpoints that require some additional configuration, such as Babelfish endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

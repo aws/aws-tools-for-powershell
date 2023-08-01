@@ -414,15 +414,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The identifier of the source DB cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceDBClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter SourceDbClusterResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource ID of the source DB cluster from which to restore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceDbClusterResourceId { get; set; }
         #endregion
         
         #region Parameter StorageType
@@ -603,12 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
-            #if MODULAR
-            if (this.SourceDBClusterIdentifier == null && ParameterWasBound(nameof(this.SourceDBClusterIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceDBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.SourceDbClusterResourceId = this.SourceDbClusterResourceId;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
@@ -820,6 +818,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.SourceDBClusterIdentifier = cmdletContext.SourceDBClusterIdentifier;
             }
+            if (cmdletContext.SourceDbClusterResourceId != null)
+            {
+                request.SourceDbClusterResourceId = cmdletContext.SourceDbClusterResourceId;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -936,6 +938,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
+            public System.String SourceDbClusterResourceId { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }

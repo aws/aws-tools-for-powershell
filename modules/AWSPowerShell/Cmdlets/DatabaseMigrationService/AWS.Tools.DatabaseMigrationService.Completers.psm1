@@ -510,6 +510,7 @@ $DMS_SelectMap = @{
                "Get-DMSEndpoint",
                "Get-DMSEndpointSetting",
                "Get-DMSEndpointType",
+               "Get-DMSEngineVersion",
                "Get-DMSEventCategory",
                "Get-DMSEvent",
                "Get-DMSEventSubscription",

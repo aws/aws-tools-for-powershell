@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>(Optional) The user-supplied instance identifier. If this parameter is specified,
         /// it must match the identifier of an existing DB instance. It returns information from
-        /// the specific DB instance' automated backup. This parameter isn't case-sensitive.</para>
+        /// the specific DB instance's automated backup. This parameter isn't case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><code>status</code></para><ul><li><para><code>active</code> - automated backups for current instances</para></li><li><para><code>retained</code> - automated backups for deleted instances and after backup
-        /// replication is stopped</para></li><li><para><code>creating</code> - automated backups that are waiting for the first automated
-        /// snapshot to be available</para></li></ul></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource
+        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><code>status</code></para><ul><li><para><code>active</code> - Automated backups for current instances.</para></li><li><para><code>creating</code> - Automated backups that are waiting for the first automated
+        /// snapshot to be available.</para></li><li><para><code>retained</code> - Automated backups for deleted instances and after backup
+        /// replication is stopped.</para></li></ul></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource
         /// Names (ARNs). The results list includes only information about the DB instance automated
         /// backups identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource
         /// Names (ARNs). The results list includes only information about the DB instance resources

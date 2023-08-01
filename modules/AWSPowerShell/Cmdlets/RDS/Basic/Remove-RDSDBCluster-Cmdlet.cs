@@ -71,6 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DeleteAutomatedBackup
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to remove automated backups immediately after the DB
+        /// cluster is deleted. This parameter isn't case-sensitive. The default is to remove
+        /// automated backups immediately after the DB cluster is deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeleteAutomatedBackups")]
+        public System.Boolean? DeleteAutomatedBackup { get; set; }
+        #endregion
+        
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
@@ -167,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeleteAutomatedBackup = this.DeleteAutomatedBackup;
             context.FinalDBSnapshotIdentifier = this.FinalDBSnapshotIdentifier;
             context.SkipFinalSnapshot = this.SkipFinalSnapshot;
             
@@ -188,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.DeleteAutomatedBackup != null)
+            {
+                request.DeleteAutomatedBackups = cmdletContext.DeleteAutomatedBackup.Value;
             }
             if (cmdletContext.FinalDBSnapshotIdentifier != null)
             {
@@ -259,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBClusterIdentifier { get; set; }
+            public System.Boolean? DeleteAutomatedBackup { get; set; }
             public System.String FinalDBSnapshotIdentifier { get; set; }
             public System.Boolean? SkipFinalSnapshot { get; set; }
             public System.Func<Amazon.RDS.Model.DeleteDBClusterResponse, RemoveRDSDBClusterCmdlet, object> Select { get; set; } =

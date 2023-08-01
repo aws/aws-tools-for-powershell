@@ -137,6 +137,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEngineVersions" OutputProperty="EngineVersions" Verb="Get" Noun="EngineVersion" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventCategories" OutputProperty="EventCategoryGroupList" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

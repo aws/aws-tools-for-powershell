@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// Either don't set the service role (<code>serviceRole</code>) parameter or set it to
     /// the <b>AWSBatchServiceRole</b> service-linked role.
     /// </para></li><li><para>
-    /// Set the allocation strategy (<code>allocationStrategy</code>) parameter to <code>BEST_FIT_PROGRESSIVE</code>
-    /// or <code>SPOT_CAPACITY_OPTIMIZED</code>.
+    /// Set the allocation strategy (<code>allocationStrategy</code>) parameter to <code>BEST_FIT_PROGRESSIVE</code>,
+    /// <code>SPOT_CAPACITY_OPTIMIZED</code>, or <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>.
     /// </para></li><li><para>
     /// Set the update to latest image version (<code>updateToLatestImageVersion</code>) parameter
     /// to <code>true</code>. The <code>updateToLatestImageVersion</code> parameter is used
@@ -146,7 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// Batch selects new instance types.</para></dd><dt>SPOT_CAPACITY_OPTIMIZED</dt><dd><para>Batch selects one or more instance types that are large enough to meet the requirements
         /// of the jobs in the queue. Its preference is for instance types that are less likely
         /// to be interrupted. This allocation strategy is only available for Spot Instance compute
-        /// resources.</para></dd></dl><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+        /// resources.</para></dd><dt>SPOT_PRICE_CAPACITY_OPTIMIZED</dt><dd><para>The price and capacity optimized allocation strategy looks at both price and capacity
+        /// to select the Spot Instance pools that are the least likely to be interrupted and
+        /// have the lowest possible price. This allocation strategy is only available for Spot
+        /// Instance compute resources.</para></dd></dl><para>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
         /// strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
         /// using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to meet your
         /// capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by
@@ -315,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of vCPUs that a compute environment can support.</para><note><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+        /// <para>The maximum number of vCPUs that a compute environment can support.</para><note><para>With <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code> and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
         /// allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code>
         /// strategy using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to
         /// meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code>

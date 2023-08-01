@@ -5538,7 +5538,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRAllocationStrategy
         "New-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
-            $v = "BEST_FIT","BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED"
+            $v = "BEST_FIT","BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
             break
         }
 
@@ -5555,7 +5555,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRUpdateAllocationStrategy
         "Update-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
-            $v = "BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED"
+            $v = "BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
             break
         }
 
@@ -17618,6 +17618,7 @@ $DMS_SelectMap = @{
                "Get-DMSEndpoint",
                "Get-DMSEndpointSetting",
                "Get-DMSEndpointType",
+               "Get-DMSEngineVersion",
                "Get-DMSEventCategory",
                "Get-DMSEvent",
                "Get-DMSEventSubscription",
@@ -29340,6 +29341,18 @@ $CWIM_Completers = {
             break
         }
 
+        # Amazon.InternetMonitor.LocalHealthEventsConfigStatus
+        {
+            ($_ -eq "New-CWIMMonitor/HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "Update-CWIMMonitor/HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "New-CWIMMonitor/HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "Update-CWIMMonitor/HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.InternetMonitor.LogDeliveryStatus
         {
             ($_ -eq "New-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus") -Or
@@ -29367,6 +29380,8 @@ $CWIM_Completers = {
 
 $CWIM_map = @{
     "EventStatus"=@("Get-CWIMHealthEventList")
+    "HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
+    "HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "Status"=@("Update-CWIMMonitor")
 }
@@ -46012,7 +46027,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-BE","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 
@@ -46049,7 +46064,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -47902,6 +47917,7 @@ $RDS_SelectMap = @{
                "Remove-RDSBlueGreenDeployment",
                "Remove-RDSCustomDBEngineVersion",
                "Remove-RDSDBCluster",
+               "Remove-RDSDBClusterAutomatedBackup",
                "Remove-RDSDBClusterEndpoint",
                "Remove-RDSDBClusterParameterGroup",
                "Remove-RDSDBClusterSnapshot",
@@ -47920,6 +47936,7 @@ $RDS_SelectMap = @{
                "Get-RDSAccountAttribute",
                "Get-RDSBlueGreenDeployment",
                "Get-RDSCertificate",
+               "Get-RDSDBClusterAutomatedBackup",
                "Get-RDSDBClusterBacktrackList",
                "Get-RDSDBClusterEndpoint",
                "Get-RDSDBClusterParameterGroup",
@@ -52059,6 +52076,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.FlatInvocations
+        "New-SMInferenceRecommendationsJob/StoppingConditions_FlatInvocations"
+        {
+            $v = "Continue","Stop"
+            break
+        }
+
         # Amazon.SageMaker.Framework
         "New-SMCompilationJob/InputConfig_Framework"
         {
@@ -52897,7 +52921,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrafficType
         "New-SMInferenceRecommendationsJob/InputConfig_TrafficPattern_TrafficType"
         {
-            $v = "PHASES"
+            $v = "PHASES","STAIRS"
             break
         }
 
@@ -53095,6 +53119,7 @@ $SM_map = @{
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
+    "StoppingConditions_FlatInvocations"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")

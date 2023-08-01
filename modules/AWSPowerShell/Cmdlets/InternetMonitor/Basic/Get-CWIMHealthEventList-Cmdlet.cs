@@ -29,9 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
     /// Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns
-    /// all information for health events including the client location information the network
-    /// cause and status, event start and end time, percentage of total traffic impacted,
-    /// and status.
+    /// information for health events including the event start and end time and the status.
     /// 
     ///  <note><para>
     /// Health events that have start times during the time frame that is requested are not

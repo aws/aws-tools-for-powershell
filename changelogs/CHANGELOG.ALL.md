@@ -1,4 +1,22 @@
-﻿### 4.1.383 (2023-07-31 21:22Z)
+﻿### 4.1.384 (2023-08-01 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.611.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Internet Monitor
+    * Modified cmdlet New-CWIMMonitor: added parameters AvailabilityLocalHealthEventsConfig_HealthScoreThreshold, AvailabilityLocalHealthEventsConfig_MinTrafficImpact, AvailabilityLocalHealthEventsConfig_Status, PerformanceLocalHealthEventsConfig_HealthScoreThreshold, PerformanceLocalHealthEventsConfig_MinTrafficImpact and PerformanceLocalHealthEventsConfig_Status.
+    * Modified cmdlet Update-CWIMMonitor: added parameters AvailabilityLocalHealthEventsConfig_HealthScoreThreshold, AvailabilityLocalHealthEventsConfig_MinTrafficImpact, AvailabilityLocalHealthEventsConfig_Status, PerformanceLocalHealthEventsConfig_HealthScoreThreshold, PerformanceLocalHealthEventsConfig_MinTrafficImpact and PerformanceLocalHealthEventsConfig_Status.
+  * Amazon Database Migration Service
+    * Added cmdlet Get-DMSEngineVersion leveraging the DescribeEngineVersions service API.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet Update-EMLInputDevice: added parameter AvailabilityZone.
+  * Amazon Relational Database Service
+    * Added cmdlet Get-RDSDBClusterAutomatedBackup leveraging the DescribeDBClusterAutomatedBackups service API.
+    * Added cmdlet Remove-RDSDBClusterAutomatedBackup leveraging the DeleteDBClusterAutomatedBackup service API.
+    * Modified cmdlet Get-RDSDBClusterSnapshot: added parameter DbClusterResourceId.
+    * Modified cmdlet Remove-RDSDBCluster: added parameter DeleteAutomatedBackup.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameter SourceDbClusterResourceId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameters Stairs_DurationInSecond, Stairs_NumberOfStep, Stairs_UsersPerStep and StoppingConditions_FlatInvocation.
+
+### 4.1.383 (2023-07-31 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.610.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify UI Builder
     * Modified cmdlet New-AMPUICodegenJob: added parameters ApiConfiguration_DataStoreConfig, ApiConfiguration_NoApiConfig, GraphQLConfig_FragmentsFilePath, GraphQLConfig_MutationsFilePath, GraphQLConfig_QueriesFilePath, GraphQLConfig_SubscriptionsFilePath and GraphQLConfig_TypesFilePath.

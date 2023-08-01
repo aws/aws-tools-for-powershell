@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class UpdateEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        #region Parameter AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// The Availability Zone you want associated
+        /// with this input device.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZone { get; set; }
+        #endregion
+        
         #region Parameter HdDeviceSettings_ConfiguredInput
         /// <summary>
         /// <para>
@@ -202,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 context.Select = (response, cmdlet) => this.InputDeviceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AvailabilityZone = this.AvailabilityZone;
             context.HdDeviceSettings_ConfiguredInput = this.HdDeviceSettings_ConfiguredInput;
             context.HdDeviceSettings_LatencyMs = this.HdDeviceSettings_LatencyMs;
             context.HdDeviceSettings_MaxBitrate = this.HdDeviceSettings_MaxBitrate;
@@ -232,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // create request
             var request = new Amazon.MediaLive.Model.UpdateInputDeviceRequest();
             
+            if (cmdletContext.AvailabilityZone != null)
+            {
+                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
             
              // populate HdDeviceSettings
             var requestHdDeviceSettingsIsNull = true;
@@ -379,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AvailabilityZone { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput HdDeviceSettings_ConfiguredInput { get; set; }
             public System.Int32? HdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? HdDeviceSettings_MaxBitrate { get; set; }

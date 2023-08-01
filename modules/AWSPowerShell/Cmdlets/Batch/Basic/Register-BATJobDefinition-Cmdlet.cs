@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
-        /// <code>X86_64</code> and <code> ARM64</code>.</para><note><para>This parameter must be set to <code>X86_64</code> for Windows containers.</para></note>
+        /// <code>X86_64</code> and <code>ARM64</code>.</para><note><para>This parameter must be set to <code>X86_64</code> for Windows containers.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

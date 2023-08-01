@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DbClusterResourceId
+        /// <summary>
+        /// <para>
+        /// <para>A specific DB cluster resource ID to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DbClusterResourceId { get; set; }
+        #endregion
+        
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
@@ -207,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.DbClusterResourceId = this.DbClusterResourceId;
             context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             if (this.Filter != null)
             {
@@ -248,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.DbClusterResourceId != null)
+            {
+                request.DbClusterResourceId = cmdletContext.DbClusterResourceId;
             }
             if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
@@ -331,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.DbClusterResourceId != null)
+            {
+                request.DbClusterResourceId = cmdletContext.DbClusterResourceId;
             }
             if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
@@ -465,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBClusterIdentifier { get; set; }
+            public System.String DbClusterResourceId { get; set; }
             public System.String DBClusterSnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Filter> Filter { get; set; }
             public System.Boolean? IncludePublic { get; set; }

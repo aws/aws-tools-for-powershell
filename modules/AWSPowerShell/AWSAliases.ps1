@@ -6916,6 +6916,9 @@ Set-Alias -Name DMS-DescribeEndpointSettings -Value Get-DMSEndpointSetting
 Set-Alias -Name Describe-DMSEndpointTypes -Value Get-DMSEndpointType
 Set-Alias -Name Describe-DMSEndpointType -Value Get-DMSEndpointType
 Set-Alias -Name DMS-DescribeEndpointTypes -Value Get-DMSEndpointType
+Set-Alias -Name Describe-DMSEngineVersions -Value Get-DMSEngineVersion
+Set-Alias -Name Describe-DMSEngineVersion -Value Get-DMSEngineVersion
+Set-Alias -Name DMS-DescribeEngineVersions -Value Get-DMSEngineVersion
 Set-Alias -Name Describe-DMSEventCategories -Value Get-DMSEventCategory
 Set-Alias -Name Describe-DMSEventCategory -Value Get-DMSEventCategory
 Set-Alias -Name DMS-DescribeEventCategories -Value Get-DMSEventCategory
@@ -20243,6 +20246,8 @@ Set-Alias -Name Delete-RDSCustomDBEngineVersion -Value Remove-RDSCustomDBEngineV
 Set-Alias -Name RDS-DeleteCustomDBEngineVersion -Value Remove-RDSCustomDBEngineVersion
 Set-Alias -Name Delete-RDSDBCluster -Value Remove-RDSDBCluster
 Set-Alias -Name RDS-DeleteDBCluster -Value Remove-RDSDBCluster
+Set-Alias -Name Delete-RDSDBClusterAutomatedBackup -Value Remove-RDSDBClusterAutomatedBackup
+Set-Alias -Name RDS-DeleteDBClusterAutomatedBackup -Value Remove-RDSDBClusterAutomatedBackup
 Set-Alias -Name Delete-RDSDBClusterEndpoint -Value Remove-RDSDBClusterEndpoint
 Set-Alias -Name RDS-DeleteDBClusterEndpoint -Value Remove-RDSDBClusterEndpoint
 Set-Alias -Name Delete-RDSDBClusterParameterGroup -Value Remove-RDSDBClusterParameterGroup
@@ -20283,6 +20288,9 @@ Set-Alias -Name RDS-DescribeBlueGreenDeployments -Value Get-RDSBlueGreenDeployme
 Set-Alias -Name Describe-RDSCertificates -Value Get-RDSCertificate
 Set-Alias -Name Describe-RDSCertificate -Value Get-RDSCertificate
 Set-Alias -Name RDS-DescribeCertificates -Value Get-RDSCertificate
+Set-Alias -Name Describe-RDSDBClusterAutomatedBackups -Value Get-RDSDBClusterAutomatedBackup
+Set-Alias -Name Describe-RDSDBClusterAutomatedBackup -Value Get-RDSDBClusterAutomatedBackup
+Set-Alias -Name RDS-DescribeDBClusterAutomatedBackups -Value Get-RDSDBClusterAutomatedBackup
 Set-Alias -Name Describe-RDSDBClusterBacktracks -Value Get-RDSDBClusterBacktrackList
 Set-Alias -Name Describe-RDSDBClusterBacktrackList -Value Get-RDSDBClusterBacktrackList
 Set-Alias -Name RDS-DescribeDBClusterBacktracks -Value Get-RDSDBClusterBacktrackList

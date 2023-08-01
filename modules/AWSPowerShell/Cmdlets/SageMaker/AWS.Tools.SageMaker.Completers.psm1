@@ -431,6 +431,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.FlatInvocations
+        "New-SMInferenceRecommendationsJob/StoppingConditions_FlatInvocations"
+        {
+            $v = "Continue","Stop"
+            break
+        }
+
         # Amazon.SageMaker.Framework
         "New-SMCompilationJob/InputConfig_Framework"
         {
@@ -1269,7 +1276,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrafficType
         "New-SMInferenceRecommendationsJob/InputConfig_TrafficPattern_TrafficType"
         {
-            $v = "PHASES"
+            $v = "PHASES","STAIRS"
             break
         }
 
@@ -1467,6 +1474,7 @@ $SM_map = @{
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
+    "StoppingConditions_FlatInvocations"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")

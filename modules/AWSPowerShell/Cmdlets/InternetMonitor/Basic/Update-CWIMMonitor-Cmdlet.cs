@@ -28,9 +28,10 @@ using Amazon.InternetMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
-    /// Updates a monitor. You can update a monitor to change the maximum number of city-networks
-    /// (locations and ASNs or internet service providers), to add or remove resources, or
-    /// to change the status of the monitor. Note that you can't change the name of a monitor.
+    /// Updates a monitor. You can update a monitor to change the percentage of traffic to
+    /// monitor or the maximum number of city-networks (locations and ASNs), to add or remove
+    /// resources, or to change the status of the monitor. Note that you can't change the
+    /// name of a monitor.
     /// 
     ///  
     /// <para>
@@ -80,6 +81,28 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public System.String S3Config_BucketPrefix { get; set; }
         #endregion
         
+        #region Parameter AvailabilityLocalHealthEventsConfig_HealthScoreThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The health event threshold percentage set for a local health score.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HealthEventsConfig_AvailabilityLocalHealthEventsConfig_HealthScoreThreshold")]
+        public System.Double? AvailabilityLocalHealthEventsConfig_HealthScoreThreshold { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceLocalHealthEventsConfig_HealthScoreThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The health event threshold percentage set for a local health score.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HealthEventsConfig_PerformanceLocalHealthEventsConfig_HealthScoreThreshold")]
+        public System.Double? PerformanceLocalHealthEventsConfig_HealthScoreThreshold { get; set; }
+        #endregion
+        
         #region Parameter S3Config_LogDeliveryStatus
         /// <summary>
         /// <para>
@@ -95,14 +118,40 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter MaxCityNetworksToMonitor
         /// <summary>
         /// <para>
-        /// <para>The maximum number of city-networks to monitor for your resources. A city-network
+        /// <para>The maximum number of city-networks to monitor for your application. A city-network
         /// is the location (city) where clients access your application resources from and the
-        /// network or ASN, such as an internet service provider, that clients access the resources
-        /// through.</para>
+        /// ASN or network provider, such as an internet service provider (ISP), that clients
+        /// access the resources through. Setting this limit can help control billing costs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MaxCityNetworksToMonitor { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityLocalHealthEventsConfig_MinTrafficImpact
+        /// <summary>
+        /// <para>
+        /// <para>The minimum percentage of overall traffic for an application that must be impacted
+        /// by an issue before Internet Monitor creates an event when a threshold is crossed for
+        /// a local health score.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HealthEventsConfig_AvailabilityLocalHealthEventsConfig_MinTrafficImpact")]
+        public System.Double? AvailabilityLocalHealthEventsConfig_MinTrafficImpact { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceLocalHealthEventsConfig_MinTrafficImpact
+        /// <summary>
+        /// <para>
+        /// <para>The minimum percentage of overall traffic for an application that must be impacted
+        /// by an issue before Internet Monitor creates an event when a threshold is crossed for
+        /// a local health score.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HealthEventsConfig_PerformanceLocalHealthEventsConfig_MinTrafficImpact")]
+        public System.Double? PerformanceLocalHealthEventsConfig_MinTrafficImpact { get; set; }
         #endregion
         
         #region Parameter MonitorName
@@ -136,10 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The resources to include in a monitor, which you provide as a set of Amazon Resource
-        /// Names (ARNs).</para><para>You can add a combination of Amazon Virtual Private Clouds (VPCs) and Amazon CloudFront
-        /// distributions, or you can add Amazon WorkSpaces directories. You can't add all three
-        /// types of resources.</para><note><para>If you add only VPC resources, at least one VPC must have an Internet Gateway attached
-        /// to it, to make sure that it has internet connectivity.</para></note>
+        /// Names (ARNs). Resources can be VPCs, NLBs, Amazon CloudFront distributions, or Amazon
+        /// WorkSpaces directories.</para><para>You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces
+        /// directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together
+        /// with any other resources.</para><note><para>If you add only Amazon Virtual Private Clouds resources, at least one VPC must have
+        /// an Internet Gateway attached to it, to make sure that it has internet connectivity.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,6 +205,34 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] ResourcesToRemove { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityLocalHealthEventsConfig_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of whether Internet Monitor creates a health event based on a threshold
+        /// percentage set for a local health score. The status can be <code>ENABLED</code> or
+        /// <code>DISABLED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status")]
+        [AWSConstantClassSource("Amazon.InternetMonitor.LocalHealthEventsConfigStatus")]
+        public Amazon.InternetMonitor.LocalHealthEventsConfigStatus AvailabilityLocalHealthEventsConfig_Status { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceLocalHealthEventsConfig_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of whether Internet Monitor creates a health event based on a threshold
+        /// percentage set for a local health score. The status can be <code>ENABLED</code> or
+        /// <code>DISABLED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status")]
+        [AWSConstantClassSource("Amazon.InternetMonitor.LocalHealthEventsConfigStatus")]
+        public Amazon.InternetMonitor.LocalHealthEventsConfigStatus PerformanceLocalHealthEventsConfig_Status { get; set; }
         #endregion
         
         #region Parameter Status
@@ -174,7 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The percentage of the internet-facing traffic for your application that you want to
-        /// monitor with this monitor.</para>
+        /// monitor with this monitor. If you set a city-networks maximum, that limit overrides
+        /// the traffic percentage that you set.</para><para>To learn more, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMTrafficPercentage.html">Choosing
+        /// an application traffic percentage to monitor </a> in the Amazon CloudWatch Internet
+        /// Monitor section of the <i>CloudWatch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +337,13 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.AvailabilityLocalHealthEventsConfig_HealthScoreThreshold = this.AvailabilityLocalHealthEventsConfig_HealthScoreThreshold;
+            context.AvailabilityLocalHealthEventsConfig_MinTrafficImpact = this.AvailabilityLocalHealthEventsConfig_MinTrafficImpact;
+            context.AvailabilityLocalHealthEventsConfig_Status = this.AvailabilityLocalHealthEventsConfig_Status;
             context.HealthEventsConfig_AvailabilityScoreThreshold = this.HealthEventsConfig_AvailabilityScoreThreshold;
+            context.PerformanceLocalHealthEventsConfig_HealthScoreThreshold = this.PerformanceLocalHealthEventsConfig_HealthScoreThreshold;
+            context.PerformanceLocalHealthEventsConfig_MinTrafficImpact = this.PerformanceLocalHealthEventsConfig_MinTrafficImpact;
+            context.PerformanceLocalHealthEventsConfig_Status = this.PerformanceLocalHealthEventsConfig_Status;
             context.HealthEventsConfig_PerformanceScoreThreshold = this.HealthEventsConfig_PerformanceScoreThreshold;
             context.S3Config_BucketName = this.S3Config_BucketName;
             context.S3Config_BucketPrefix = this.S3Config_BucketPrefix;
@@ -321,6 +408,96 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             if (requestHealthEventsConfig_healthEventsConfig_PerformanceScoreThreshold != null)
             {
                 request.HealthEventsConfig.PerformanceScoreThreshold = requestHealthEventsConfig_healthEventsConfig_PerformanceScoreThreshold.Value;
+                requestHealthEventsConfigIsNull = false;
+            }
+            Amazon.InternetMonitor.Model.LocalHealthEventsConfig requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig = null;
+            
+             // populate AvailabilityLocalHealthEventsConfig
+            var requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfigIsNull = true;
+            requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig = new Amazon.InternetMonitor.Model.LocalHealthEventsConfig();
+            System.Double? requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_HealthScoreThreshold = null;
+            if (cmdletContext.AvailabilityLocalHealthEventsConfig_HealthScoreThreshold != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_HealthScoreThreshold = cmdletContext.AvailabilityLocalHealthEventsConfig_HealthScoreThreshold.Value;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_HealthScoreThreshold != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig.HealthScoreThreshold = requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_HealthScoreThreshold.Value;
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfigIsNull = false;
+            }
+            System.Double? requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_MinTrafficImpact = null;
+            if (cmdletContext.AvailabilityLocalHealthEventsConfig_MinTrafficImpact != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_MinTrafficImpact = cmdletContext.AvailabilityLocalHealthEventsConfig_MinTrafficImpact.Value;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_MinTrafficImpact != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig.MinTrafficImpact = requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_MinTrafficImpact.Value;
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfigIsNull = false;
+            }
+            Amazon.InternetMonitor.LocalHealthEventsConfigStatus requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_Status = null;
+            if (cmdletContext.AvailabilityLocalHealthEventsConfig_Status != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_Status = cmdletContext.AvailabilityLocalHealthEventsConfig_Status;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_Status != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig.Status = requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig_availabilityLocalHealthEventsConfig_Status;
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfigIsNull = false;
+            }
+             // determine if requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig should be set to null
+            if (requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfigIsNull)
+            {
+                requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig = null;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig != null)
+            {
+                request.HealthEventsConfig.AvailabilityLocalHealthEventsConfig = requestHealthEventsConfig_healthEventsConfig_AvailabilityLocalHealthEventsConfig;
+                requestHealthEventsConfigIsNull = false;
+            }
+            Amazon.InternetMonitor.Model.LocalHealthEventsConfig requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig = null;
+            
+             // populate PerformanceLocalHealthEventsConfig
+            var requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfigIsNull = true;
+            requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig = new Amazon.InternetMonitor.Model.LocalHealthEventsConfig();
+            System.Double? requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_HealthScoreThreshold = null;
+            if (cmdletContext.PerformanceLocalHealthEventsConfig_HealthScoreThreshold != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_HealthScoreThreshold = cmdletContext.PerformanceLocalHealthEventsConfig_HealthScoreThreshold.Value;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_HealthScoreThreshold != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig.HealthScoreThreshold = requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_HealthScoreThreshold.Value;
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfigIsNull = false;
+            }
+            System.Double? requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_MinTrafficImpact = null;
+            if (cmdletContext.PerformanceLocalHealthEventsConfig_MinTrafficImpact != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_MinTrafficImpact = cmdletContext.PerformanceLocalHealthEventsConfig_MinTrafficImpact.Value;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_MinTrafficImpact != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig.MinTrafficImpact = requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_MinTrafficImpact.Value;
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfigIsNull = false;
+            }
+            Amazon.InternetMonitor.LocalHealthEventsConfigStatus requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_Status = null;
+            if (cmdletContext.PerformanceLocalHealthEventsConfig_Status != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_Status = cmdletContext.PerformanceLocalHealthEventsConfig_Status;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_Status != null)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig.Status = requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig_performanceLocalHealthEventsConfig_Status;
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfigIsNull = false;
+            }
+             // determine if requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig should be set to null
+            if (requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfigIsNull)
+            {
+                requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig = null;
+            }
+            if (requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig != null)
+            {
+                request.HealthEventsConfig.PerformanceLocalHealthEventsConfig = requestHealthEventsConfig_healthEventsConfig_PerformanceLocalHealthEventsConfig;
                 requestHealthEventsConfigIsNull = false;
             }
              // determine if request.HealthEventsConfig should be set to null
@@ -468,7 +645,13 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Double? AvailabilityLocalHealthEventsConfig_HealthScoreThreshold { get; set; }
+            public System.Double? AvailabilityLocalHealthEventsConfig_MinTrafficImpact { get; set; }
+            public Amazon.InternetMonitor.LocalHealthEventsConfigStatus AvailabilityLocalHealthEventsConfig_Status { get; set; }
             public System.Double? HealthEventsConfig_AvailabilityScoreThreshold { get; set; }
+            public System.Double? PerformanceLocalHealthEventsConfig_HealthScoreThreshold { get; set; }
+            public System.Double? PerformanceLocalHealthEventsConfig_MinTrafficImpact { get; set; }
+            public Amazon.InternetMonitor.LocalHealthEventsConfigStatus PerformanceLocalHealthEventsConfig_Status { get; set; }
             public System.Double? HealthEventsConfig_PerformanceScoreThreshold { get; set; }
             public System.String S3Config_BucketName { get; set; }
             public System.String S3Config_BucketPrefix { get; set; }

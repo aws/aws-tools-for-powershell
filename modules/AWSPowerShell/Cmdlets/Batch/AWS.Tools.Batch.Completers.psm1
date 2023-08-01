@@ -107,7 +107,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRAllocationStrategy
         "New-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
-            $v = "BEST_FIT","BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED"
+            $v = "BEST_FIT","BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
             break
         }
 
@@ -124,7 +124,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRUpdateAllocationStrategy
         "Update-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
-            $v = "BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED"
+            $v = "BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
             break
         }
 

@@ -87,6 +87,18 @@ $CWIM_Completers = {
             break
         }
 
+        # Amazon.InternetMonitor.LocalHealthEventsConfigStatus
+        {
+            ($_ -eq "New-CWIMMonitor/HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "Update-CWIMMonitor/HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "New-CWIMMonitor/HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "Update-CWIMMonitor/HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.InternetMonitor.LogDeliveryStatus
         {
             ($_ -eq "New-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus") -Or
@@ -114,6 +126,8 @@ $CWIM_Completers = {
 
 $CWIM_map = @{
     "EventStatus"=@("Get-CWIMHealthEventList")
+    "HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
+    "HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "Status"=@("Update-CWIMMonitor")
 }
