@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The name of a budget. The name must be unique within an account. The <code>:</code>
-        /// and <code>\</code> characters aren't allowed in <code>BudgetName</code>.</para>
+        /// and <code>\</code> characters, and the "/action/" substring, aren't allowed in <code>BudgetName</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

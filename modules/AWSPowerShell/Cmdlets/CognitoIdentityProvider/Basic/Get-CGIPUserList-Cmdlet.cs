@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the users in the Amazon Cognito user pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.ListUsers<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGIPUserList")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserType")]
@@ -45,8 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>
-        /// <para>An array of strings, where each string is the name of a user attribute to be returned
-        /// for each user in the search results. If the array is null, all attributes are returned.</para>
+        /// <para>A JSON array of user attribute names, for example <code>given_name</code>, that you
+        /// want Amazon Cognito to include in the response for each user. When you don't provide
+        /// an <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for
+        /// each user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

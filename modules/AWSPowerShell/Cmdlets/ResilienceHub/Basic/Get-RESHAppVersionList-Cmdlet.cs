@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
+        /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
         /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
@@ -60,12 +60,32 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AppArn { get; set; }
         #endregion
         
+        #region Parameter EndTime
+        /// <summary>
+        /// <para>
+        /// <para>Upper limit of the time range to filter the application versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? EndTime { get; set; }
+        #endregion
+        
+        #region Parameter StartTime
+        /// <summary>
+        /// <para>
+        /// <para>Lower limit of the time range to filter the application versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartTime { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to include in the response. If more results exist than
-        /// the specified <code>MaxResults</code> value, a token is included in the response so
-        /// that the remaining results can be retrieved.</para>
+        /// <para>Maximum number of results to include in the response. If more results exist than the
+        /// specified <code>MaxResults</code> value, a token is included in the response so that
+        /// the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,8 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EndTime = this.EndTime;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.StartTime = this.StartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,9 +198,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             {
                 request.AppArn = cmdletContext.AppArn;
             }
+            if (cmdletContext.EndTime != null)
+            {
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.StartTime != null)
+            {
+                request.StartTime = cmdletContext.StartTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -266,8 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public System.DateTime? EndTime { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.DateTime? StartTime { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.ListAppVersionsResponse, GetRESHAppVersionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AppVersions;
         }

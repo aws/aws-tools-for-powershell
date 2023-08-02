@@ -28,12 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Forgets the device, as an administrator.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminForgetDevice
     /// </summary>
     [Cmdlet("Stop", "CGIPDeviceTrackingAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

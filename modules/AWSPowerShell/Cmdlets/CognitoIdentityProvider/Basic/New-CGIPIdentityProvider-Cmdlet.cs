@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates an IdP for a user pool.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.CreateIdentityProvider
     /// </summary>
     [Cmdlet("New", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]

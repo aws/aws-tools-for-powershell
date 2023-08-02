@@ -28,22 +28,40 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.UpdateResourceServer
+    /// Sets up or modifies the detailed activity logging configuration of a user pool.
     /// </summary>
-    [Cmdlet("Update", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider UpdateResourceServer API operation.", Operation = new[] {"UpdateResourceServer"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ResourceServerType or Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.ResourceServerType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "CGIPLogDeliveryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider SetLogDeliveryConfiguration API operation.", Operation = new[] {"SetLogDeliveryConfiguration"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType or Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse",
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCGIPResourceServerCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class SetCGIPLogDeliveryConfigurationCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter Identifier
+        #region Parameter LogConfiguration
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource server.</para>
+        /// <para>A collection of all of the detailed activity logging configurations for a user pool.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("LogConfigurations")]
+        public Amazon.CognitoIdentityProvider.Model.LogConfigurationType[] LogConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter UserPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the user pool where you want to configure detailed activity logging .</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,71 +72,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the resource server.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Scope
-        /// <summary>
-        /// <para>
-        /// <para>The scope values to be set for the resource server.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Scopes")]
-        public Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType[] Scope { get; set; }
-        #endregion
-        
-        #region Parameter UserPoolId
-        /// <summary>
-        /// <para>
-        /// <para>The user pool ID for the user pool.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceServer'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'LogDeliveryConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResourceServer";
+        public string Select { get; set; } = "LogDeliveryConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserPoolId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -138,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CGIPResourceServer (UpdateResourceServer)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserPoolId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-CGIPLogDeliveryConfiguration (SetLogDeliveryConfiguration)"))
             {
                 return;
             }
@@ -152,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse, UpdateCGIPResourceServerCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse, SetCGIPLogDeliveryConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -161,27 +134,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.UserPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.LogConfiguration != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.LogConfiguration = new List<Amazon.CognitoIdentityProvider.Model.LogConfigurationType>(this.LogConfiguration);
+            }
+            #if MODULAR
+            if (this.LogConfiguration == null && ParameterWasBound(nameof(this.LogConfiguration)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LogConfiguration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Scope != null)
-            {
-                context.Scope = new List<Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType>(this.Scope);
-            }
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -203,19 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.UpdateResourceServerRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationRequest();
             
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.LogConfiguration != null)
             {
-                request.Identifier = cmdletContext.Identifier;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Scope != null)
-            {
-                request.Scopes = cmdletContext.Scope;
+                request.LogConfigurations = cmdletContext.LogConfiguration;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -254,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateResourceServerRequest request)
+        private Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateResourceServer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "SetLogDeliveryConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UpdateResourceServer(request);
+                return client.SetLogDeliveryConfiguration(request);
                 #elif CORECLR
-                return client.UpdateResourceServerAsync(request).GetAwaiter().GetResult();
+                return client.SetLogDeliveryConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -282,12 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Identifier { get; set; }
-            public System.String Name { get; set; }
-            public List<Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType> Scope { get; set; }
+            public List<Amazon.CognitoIdentityProvider.Model.LogConfigurationType> LogConfiguration { get; set; }
             public System.String UserPoolId { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse, UpdateCGIPResourceServerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResourceServer;
+            public System.Func<Amazon.CognitoIdentityProvider.Model.SetLogDeliveryConfigurationResponse, SetCGIPLogDeliveryConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.LogDeliveryConfiguration;
         }
         
     }

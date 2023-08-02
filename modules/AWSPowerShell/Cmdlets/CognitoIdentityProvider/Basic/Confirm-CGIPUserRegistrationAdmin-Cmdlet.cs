@@ -28,13 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Confirms user registration as an admin without using a confirmation code. Works on
-    /// any user.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminConfirmSignUp
     /// </summary>
     [Cmdlet("Confirm", "CGIPUserRegistrationAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -28,12 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Adds the specified user to the specified group.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminAddUserToGroup
     /// </summary>
     [Cmdlet("Add", "CGIPUserToGroupAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

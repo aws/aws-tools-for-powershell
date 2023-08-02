@@ -204,6 +204,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SMResourceCatalogList', 
         'Get-SMResourceTagList', 
         'Get-SMSagemakerServicecatalogPortfolioStatus', 
+        'Get-SMScalingConfigurationRecommendation', 
         'Get-SMSearchSuggestion', 
         'Get-SMSpace', 
         'Get-SMSpaceList', 

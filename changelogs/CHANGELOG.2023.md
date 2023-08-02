@@ -1,4 +1,19 @@
-﻿### 4.1.384 (2023-08-01 21:20Z)
+﻿### 4.1.385 (2023-08-02 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.612.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPLogDeliveryConfiguration leveraging the GetLogDeliveryConfiguration service API.
+    * Added cmdlet Set-CGIPLogDeliveryConfiguration leveraging the SetLogDeliveryConfiguration service API.
+  * Amazon Resilience Hub
+    * Added cmdlet Get-RESHAppAssessmentComplianceDriftList leveraging the ListAppAssessmentComplianceDrifts service API.
+    * Added cmdlet Set-RESHUpdateRecommendationStatus leveraging the BatchUpdateRecommendationStatus service API.
+    * Modified cmdlet Get-RESHAppVersionList: added parameters EndTime and StartTime.
+    * Modified cmdlet New-RESHApp: added parameters EventSubscription, PermissionModel_CrossAccountRoleArn, PermissionModel_InvokerRoleName and PermissionModel_Type.
+    * Modified cmdlet Publish-RESHAppVersion: added parameter VersionName.
+    * Modified cmdlet Update-RESHApp: added parameters EventSubscription, PermissionModel_CrossAccountRoleArn, PermissionModel_InvokerRoleName and PermissionModel_Type.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMScalingConfigurationRecommendation leveraging the GetScalingConfigurationRecommendation service API.
+
+### 4.1.384 (2023-08-01 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.611.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor
     * Modified cmdlet New-CWIMMonitor: added parameters AvailabilityLocalHealthEventsConfig_HealthScoreThreshold, AvailabilityLocalHealthEventsConfig_MinTrafficImpact, AvailabilityLocalHealthEventsConfig_Status, PerformanceLocalHealthEventsConfig_HealthScoreThreshold, PerformanceLocalHealthEventsConfig_MinTrafficImpact and PerformanceLocalHealthEventsConfig_Status.

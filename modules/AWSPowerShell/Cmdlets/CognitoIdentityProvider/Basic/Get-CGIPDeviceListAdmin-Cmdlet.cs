@@ -28,12 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists devices, as an administrator.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminListDevices<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGIPDeviceListAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.DeviceType")]

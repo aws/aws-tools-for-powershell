@@ -28,15 +28,15 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Describes the Resilience Hub application version.
+    /// Enables you to include or exclude one or more operational recommendations.
     /// </summary>
-    [Cmdlet("Get", "RESHAppVersion")]
-    [OutputType("Amazon.ResilienceHub.Model.DescribeAppVersionResponse")]
-    [AWSCmdlet("Calls the AWS Resilience Hub DescribeAppVersion API operation.", Operation = new[] {"DescribeAppVersion"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DescribeAppVersionResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.DescribeAppVersionResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.DescribeAppVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "RESHUpdateRecommendationStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse")]
+    [AWSCmdlet("Calls the AWS Resilience Hub BatchUpdateRecommendationStatus API operation.", Operation = new[] {"BatchUpdateRecommendationStatus"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse))]
+    [AWSCmdletOutput("Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse",
+        "This cmdlet returns an Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRESHAppVersionCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class SetRESHUpdateRecommendationStatusCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
         #region Parameter AppArn
@@ -59,28 +59,29 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AppArn { get; set; }
         #endregion
         
-        #region Parameter AppVersion
+        #region Parameter RequestEntry
         /// <summary>
         /// <para>
-        /// <para>Resilience Hub application version.</para>
+        /// <para>Defines the list of operational recommendations that need to be included or excluded.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppVersion { get; set; }
+        [Alias("RequestEntries")]
+        public Amazon.ResilienceHub.Model.UpdateRecommendationStatusRequestEntry[] RequestEntry { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.DescribeAppVersionResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.DescribeAppVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse).
+        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +98,26 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-RESHUpdateRecommendationStatus (BatchUpdateRecommendationStatus)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -110,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.DescribeAppVersionResponse, GetRESHAppVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse, SetRESHUpdateRecommendationStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,11 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AppVersion = this.AppVersion;
-            #if MODULAR
-            if (this.AppVersion == null && ParameterWasBound(nameof(this.AppVersion)))
+            if (this.RequestEntry != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AppVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.RequestEntry = new List<Amazon.ResilienceHub.Model.UpdateRecommendationStatusRequestEntry>(this.RequestEntry);
+            }
+            #if MODULAR
+            if (this.RequestEntry == null && ParameterWasBound(nameof(this.RequestEntry)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RequestEntry which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResilienceHub.Model.DescribeAppVersionRequest();
+            var request = new Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusRequest();
             
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
             }
-            if (cmdletContext.AppVersion != null)
+            if (cmdletContext.RequestEntry != null)
             {
-                request.AppVersion = cmdletContext.AppVersion;
+                request.RequestEntries = cmdletContext.RequestEntry;
             }
             
             CmdletOutput output;
@@ -193,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.DescribeAppVersionResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.DescribeAppVersionRequest request)
+        private Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "DescribeAppVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "BatchUpdateRecommendationStatus");
             try
             {
                 #if DESKTOP
-                return client.DescribeAppVersion(request);
+                return client.BatchUpdateRecommendationStatus(request);
                 #elif CORECLR
-                return client.DescribeAppVersionAsync(request).GetAwaiter().GetResult();
+                return client.BatchUpdateRecommendationStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
-            public System.String AppVersion { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.DescribeAppVersionResponse, GetRESHAppVersionCmdlet, object> Select { get; set; } =
+            public List<Amazon.ResilienceHub.Model.UpdateRecommendationStatusRequestEntry> RequestEntry { get; set; }
+            public System.Func<Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse, SetRESHUpdateRecommendationStatusCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

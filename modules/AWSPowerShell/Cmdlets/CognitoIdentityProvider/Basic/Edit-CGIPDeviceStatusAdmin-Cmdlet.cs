@@ -28,12 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the device status as an administrator.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminUpdateDeviceStatus
     /// </summary>
     [Cmdlet("Edit", "CGIPDeviceStatusAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

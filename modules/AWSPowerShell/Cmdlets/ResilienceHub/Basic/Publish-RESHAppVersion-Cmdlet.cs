@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
+        /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
         /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the application version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -128,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -210,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public System.String VersionName { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.PublishAppVersionResponse, PublishRESHAppVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -22,30 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResilienceHub;
-using Amazon.ResilienceHub.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RESH
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Describes the Resilience Hub application version.
+    /// Gets the detailed activity logging configuration for a user pool.
     /// </summary>
-    [Cmdlet("Get", "RESHAppVersion")]
-    [OutputType("Amazon.ResilienceHub.Model.DescribeAppVersionResponse")]
-    [AWSCmdlet("Calls the AWS Resilience Hub DescribeAppVersion API operation.", Operation = new[] {"DescribeAppVersion"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DescribeAppVersionResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.DescribeAppVersionResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.DescribeAppVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIPLogDeliveryConfiguration")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetLogDeliveryConfiguration API operation.", Operation = new[] {"GetLogDeliveryConfiguration"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType or Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse",
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRESHAppVersionCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class GetCGIPLogDeliveryConfigurationCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter AppArn
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
-        /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
+        /// <para>The ID of the user pool where you want to view detailed activity logging configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,43 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppArn { get; set; }
-        #endregion
-        
-        #region Parameter AppVersion
-        /// <summary>
-        /// <para>
-        /// <para>Resilience Hub application version.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppVersion { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.DescribeAppVersionResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.DescribeAppVersionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'LogDeliveryConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "LogDeliveryConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserPoolId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.DescribeAppVersionResponse, GetRESHAppVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse, GetCGIPLogDeliveryConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,21 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AppArn;
+                context.Select = (response, cmdlet) => this.UserPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppArn = this.AppArn;
+            context.UserPoolId = this.UserPoolId;
             #if MODULAR
-            if (this.AppArn == null && ParameterWasBound(nameof(this.AppArn)))
+            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.AppVersion = this.AppVersion;
-            #if MODULAR
-            if (this.AppVersion == null && ParameterWasBound(nameof(this.AppVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AppVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResilienceHub.Model.DescribeAppVersionRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationRequest();
             
-            if (cmdletContext.AppArn != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.AppArn = cmdletContext.AppArn;
-            }
-            if (cmdletContext.AppVersion != null)
-            {
-                request.AppVersion = cmdletContext.AppVersion;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
@@ -193,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.DescribeAppVersionResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.DescribeAppVersionRequest request)
+        private Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "DescribeAppVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetLogDeliveryConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DescribeAppVersion(request);
+                return client.GetLogDeliveryConfiguration(request);
                 #elif CORECLR
-                return client.DescribeAppVersionAsync(request).GetAwaiter().GetResult();
+                return client.GetLogDeliveryConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppArn { get; set; }
-            public System.String AppVersion { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.DescribeAppVersionResponse, GetRESHAppVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String UserPoolId { get; set; }
+            public System.Func<Amazon.CognitoIdentityProvider.Model.GetLogDeliveryConfigurationResponse, GetCGIPLogDeliveryConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.LogDeliveryConfiguration;
         }
         
     }

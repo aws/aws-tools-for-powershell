@@ -28,13 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates the user pool client.
-    /// 
-    ///  
-    /// <para>
-    /// When you create a new user pool client, token revocation is automatically activated.
-    /// For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.CreateUserPoolClient
     /// </summary>
     [Cmdlet("New", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserPoolClientType")]
@@ -53,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
         /// <code>days</code> for the value that you set in the <code>AccessTokenValidity</code>
-        /// parameter. The default <code>AccessTokenValidity</code> time unit is hours.</para>
+        /// parameter. The default <code>AccessTokenValidity</code> time unit is hours. <code>AccessTokenValidity</code>
+        /// duration can range from five minutes to one day.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlowsUserPoolClient
         /// <summary>
         /// <para>
-        /// <para>Set to true if the client is allowed to follow the OAuth protocol when interacting
-        /// with Amazon Cognito user pools.</para>
+        /// <para>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</para><para><code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you
+        /// can configure the following features in your app client.</para><ul><li><para><code>CallBackURLs</code>: Callback URLs.</para></li><li><para><code>LogoutURLs</code>: Sign-out redirect URLs.</para></li><li><para><code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</para></li><li><para><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client
+        /// credentials OAuth 2.0 grants.</para></li></ul><para>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console
+        /// or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code>
+        /// or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code>
+        /// in a request with the CLI or SDKs, it defaults to <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,7 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
         /// <code>days</code> for the value that you set in the <code>IdTokenValidity</code> parameter.
-        /// The default <code>IdTokenValidity</code> time unit is hours.</para>
+        /// The default <code>IdTokenValidity</code> time unit is hours. <code>IdTokenValidity</code>
+        /// duration can range from five minutes to one day.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code>
         /// value in your API request.</para><para>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code>
         /// as <code>hours</code>, your user can authenticate their session with their ID token
-        /// for 10 hours.</para><para>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+        /// for 10 hours.</para><para>The default time unit for <code>IdTokenValidity</code> in an API request is hours.
         /// <i>Valid range</i> is displayed below in seconds.</para><para>If you don't specify otherwise in the configuration of your app client, your ID tokens
         /// are valid for one hour.</para>
         /// </para>
@@ -342,7 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
         /// <code>days</code> for the value that you set in the <code>RefreshTokenValidity</code>
-        /// parameter. The default <code>RefreshTokenValidity</code> time unit is days.</para>
+        /// parameter. The default <code>RefreshTokenValidity</code> time unit is days. <code>RefreshTokenValidity</code>
+        /// duration can range from 60 minutes to 10 years.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

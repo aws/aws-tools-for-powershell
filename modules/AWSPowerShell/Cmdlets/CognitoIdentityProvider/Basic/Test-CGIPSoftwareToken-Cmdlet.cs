@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Use this API to register a user's entered time-based one-time password (TOTP) code
     /// and mark the user's software token MFA status as "verified" if successful. The request
     /// takes an access token or a session string, but not both.
+    /// 
+    ///  <note><para>
+    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you can't use IAM credentials to authorize
+    /// requests, and you can't grant IAM permissions in policies. For more information about
+    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito native and OIDC APIs</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Test", "CGIPSoftwareToken")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.VerifySoftwareTokenResponse")]
@@ -42,8 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter AccessToken
         /// <summary>

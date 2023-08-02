@@ -1710,6 +1710,7 @@ $SM_SelectMap = @{
                "Get-SMLineageGroupPolicy",
                "Get-SMModelPackageGroupPolicy",
                "Get-SMSagemakerServicecatalogPortfolioStatus",
+               "Get-SMScalingConfigurationRecommendation",
                "Get-SMSearchSuggestion",
                "Import-SMHubContent",
                "Get-SMActionList",

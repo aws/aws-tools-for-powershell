@@ -28,9 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Provides feedback for an authentication event indicating if it was from a valid user.
-    /// This feedback is used for improving the risk evaluation decision for the user pool
-    /// as part of Amazon Cognito advanced security.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminUpdateAuthEventFeedback
     /// </summary>
     [Cmdlet("Update", "CGIPAuthEventFeedbackAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -64,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter FeedbackValue
         /// <summary>
         /// <para>
-        /// <para>The authentication event feedback value.</para>
+        /// <para>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
+        /// value of <code>valid</code>, you tell Amazon Cognito that you trust a user session
+        /// where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code>
+        /// value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user
+        /// session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

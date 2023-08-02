@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web
-        /// Services resource. Each tag consists of a key/value pair.</para>
+        /// <para>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services
+        /// resource. Each tag consists of a key/value pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

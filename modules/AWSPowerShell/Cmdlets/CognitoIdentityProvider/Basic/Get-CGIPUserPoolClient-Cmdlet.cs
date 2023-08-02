@@ -28,8 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Client method for returning the configuration information and metadata of the specified
-    /// user pool app client.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.DescribeUserPoolClient
     /// </summary>
     [Cmdlet("Get", "CGIPUserPoolClient")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserPoolClientType")]

@@ -28,17 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Signs out a user from all devices. You must sign <code>AdminUserGlobalSignOut</code>
-    /// requests with Amazon Web Services credentials. It also invalidates all refresh tokens
-    /// that Amazon Cognito has issued to a user. The user's current access and ID tokens
-    /// remain valid until they expire. By default, access and ID tokens expire one hour after
-    /// they're issued. A user can still use a hosted UI cookie to retrieve new tokens for
-    /// the duration of the cookie validity period of 1 hour.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminUserGlobalSignOut
     /// </summary>
     [Cmdlet("Disconnect", "CGIPUserGlobalAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

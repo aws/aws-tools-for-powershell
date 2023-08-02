@@ -28,28 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Responds to an authentication challenge, as an administrator.
-    /// 
-    ///  <note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
-    /// carriers require you to register an origination phone number before you can send SMS
-    /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
-    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise,
-    /// Amazon Cognito users who must receive SMS messages might not be able to sign up, activate
-    /// their accounts, or sign in.
-    /// </para><para>
-    /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon Simple Notification Service might place your account in the SMS sandbox.
-    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you can send messages only to verified phone numbers. After you test
-    /// your app while in the sandbox environment, you can move out of the sandbox and into
-    /// production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>.
-    /// </para></note><para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminRespondToAuthChallenge
     /// </summary>
     [Cmdlet("Send", "CGIPAuthChallengeResponseAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeResponse")]
@@ -113,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// not an alias (such as an email address or phone number). To make this simpler, the
         /// <code>AdminInitiateAuth</code> response includes the actual username value in the
         /// <code>USERNAMEUSER_ID_FOR_SRP</code> attribute. This happens even if you specified
-        /// an alias in your call to <code>AdminInitiateAuth</code>.</para>
+        /// an alias in your call to <code>AdminInitiateAuth</code>.</para><para>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
+        /// secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
+        /// with user devices in your user pool</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

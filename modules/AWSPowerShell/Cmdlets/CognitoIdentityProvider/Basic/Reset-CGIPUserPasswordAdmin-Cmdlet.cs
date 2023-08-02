@@ -28,38 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Resets the specified user's password in a user pool as an administrator. Works on
-    /// any user.
-    /// 
-    ///  
-    /// <para>
-    /// When a developer calls this API, the current password is invalidated, so it must be
-    /// changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException
-    /// exception back and should direct the user down the flow to reset the password, which
-    /// is the same as the forgot password flow. In addition, if the user pool has phone verification
-    /// selected and a verified phone number exists for the user, or if email verification
-    /// is selected and a verified email exists for the user, calling this API will also result
-    /// in sending a message to the end user with the code to change their password.
-    /// </para><note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
-    /// carriers require you to register an origination phone number before you can send SMS
-    /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
-    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise,
-    /// Amazon Cognito users who must receive SMS messages might not be able to sign up, activate
-    /// their accounts, or sign in.
-    /// </para><para>
-    /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon Simple Notification Service might place your account in the SMS sandbox.
-    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you can send messages only to verified phone numbers. After you test
-    /// your app while in the sandbox environment, you can move out of the sandbox and into
-    /// production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>.
-    /// </para></note><para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminResetUserPassword
     /// </summary>
     [Cmdlet("Reset", "CGIPUserPasswordAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

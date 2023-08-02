@@ -28,20 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets the specified user's password in a user pool as an administrator. Works on any
-    /// user. 
-    /// 
-    ///  
-    /// <para>
-    /// The password can be temporary or permanent. If it is temporary, the user status enters
-    /// the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to sign in,
-    /// the InitiateAuth/AdminInitiateAuth response will contain the <code>NEW_PASSWORD_REQUIRED</code>
-    /// challenge. If the user doesn't sign in before it expires, the user won't be able to
-    /// sign in, and an administrator must reset their password. 
-    /// </para><para>
-    /// Once the user has set a new password, or the password is permanent, the user status
-    /// is set to <code>Confirmed</code>.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminSetUserPassword
     /// </summary>
     [Cmdlet("Set", "CGIPUserPasswordAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -763,6 +763,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetScalingConfigurationRecommendation" OutputProperty="*" Verb="Get" Noun="ScalingConfigurationRecommendation" PipelineParameter="InferenceRecommendationsJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSearchSuggestions" OutputProperty="PropertyNameSuggestions" Verb="Get" Noun="SearchSuggestion" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

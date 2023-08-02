@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
+        /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
         /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppComponent
         /// <summary>
         /// <para>
-        /// <para>The list of Application Components that this resource belongs to. If an Application
-        /// Component is not part of the Resilience Hub application, it will be added.</para>
+        /// <para>List of Application Components that this resource belongs to. If an Application Component
+        /// is not part of the Resilience Hub application, it will be added.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account that owns the physical resource.</para>
+        /// <para>Amazon Web Services account that owns the physical resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services region that owns the physical resource.</para>
+        /// <para>Amazon Web Services region that owns the physical resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter LogicalResourceId_EksSourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource
+        /// <para>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource
         /// belongs to.</para><note><para>This parameter accepts values in "eks-cluster/namespace" format.</para></note>
         /// </para>
         /// </summary>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter LogicalResourceId_Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource.</para>
+        /// <para>Identifier of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter PhysicalResourceId
         /// <summary>
         /// <para>
-        /// <para>The physical identifier of the resource.</para>
+        /// <para>Physical identifier of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the resource.</para>
+        /// <para>Name of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource.</para>
+        /// <para>Type of resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Adds additional user attributes to the user pool schema.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AddCustomAttributes
     /// </summary>
     [Cmdlet("Add", "CGIPCustomAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new OAuth2.0 resource server and defines custom scopes within it.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.CreateResourceServer
     /// </summary>
     [Cmdlet("New", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]

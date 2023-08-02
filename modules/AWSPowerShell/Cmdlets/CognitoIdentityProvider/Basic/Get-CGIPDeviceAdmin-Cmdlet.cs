@@ -28,12 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the device, as an administrator.
-    /// 
-    ///  
-    /// <para>
-    /// Calling this action requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminGetDevice
     /// </summary>
     [Cmdlet("Get", "CGIPDeviceAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.DeviceType")]

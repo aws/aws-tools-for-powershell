@@ -28,29 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the specified user pool with the specified attributes. You can get a list
-    /// of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.
-    /// If you don't provide a value for an attribute, it will be set to the default value.
-    /// 
-    /// 
-    ///  <note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
-    /// carriers require you to register an origination phone number before you can send SMS
-    /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
-    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise,
-    /// Amazon Cognito users who must receive SMS messages might not be able to sign up, activate
-    /// their accounts, or sign in.
-    /// </para><para>
-    /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon Simple Notification Service might place your account in the SMS sandbox.
-    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you can send messages only to verified phone numbers. After you test
-    /// your app while in the sandbox environment, you can move out of the sandbox and into
-    /// production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>.
-    /// </para></note>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.UpdateUserPool
     /// </summary>
     [Cmdlet("Update", "CGIPUserPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -65,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolAddOns_AdvancedSecurityMode
         /// <summary>
         /// <para>
-        /// <para>The advanced security mode.</para>
+        /// <para>The operating mode of advanced security features in your user pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// new phone number or email address. Amazon Cognito doesn’t change the value of the
         /// attribute until your user responds to the verification message and confirms the new
         /// value.</para><para>You can verify an updated email address or phone number with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html">VerifyUserAttribute</a>
-        /// API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a>
-        /// or <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>
+        /// API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>
         /// API and set <code>email_verified</code> or <code>phone_number_verified</code> to true.</para><para>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool
         /// doesn't require that your users verify attribute changes before Amazon Cognito updates
         /// them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code>
@@ -663,9 +640,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailConfiguration_SourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of a verified email address in Amazon SES. Amazon Cognito uses this email
-        /// address in one of the following ways, depending on the value that you specify for
-        /// the <code>EmailSendingAccount</code> parameter:</para><ul><li><para>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the
+        /// <para>The ARN of a verified email address or an address from a verified domain in Amazon
+        /// SES. You can set a <code>SourceArn</code> email from a verified domain only with an
+        /// API request. You can set a verified email address, but not an address in a verified
+        /// domain, in the Amazon Cognito console. Amazon Cognito uses the email address that
+        /// you provide in one of the following ways, depending on the value that you specify
+        /// for the <code>EmailSendingAccount</code> parameter:</para><ul><li><para>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the
         /// custom FROM address when it emails your users using its built-in email account.</para></li><li><para>If you specify <code>DEVELOPER</code>, Amazon Cognito emails your users with this
         /// address by calling Amazon SES on your behalf.</para></li></ul><para>The Region value of the <code>SourceArn</code> parameter must indicate a supported
         /// Amazon Web Services Region of your user pool. Typically, the Region in the <code>SourceArn</code>

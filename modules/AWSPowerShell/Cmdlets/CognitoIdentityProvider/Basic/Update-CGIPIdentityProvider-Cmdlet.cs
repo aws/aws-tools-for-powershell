@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates IdP information for a user pool.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.UpdateIdentityProvider
     /// </summary>
     [Cmdlet("Update", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]

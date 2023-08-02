@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new domain for a user pool.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.CreateUserPoolDomain
     /// </summary>
     [Cmdlet("New", "CGIPUserPoolDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

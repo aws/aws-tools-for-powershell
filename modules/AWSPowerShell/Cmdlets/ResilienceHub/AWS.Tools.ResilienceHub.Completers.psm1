@@ -114,13 +114,23 @@ $RESH_Completers = {
             break
         }
 
+        # Amazon.ResilienceHub.PermissionModelType
+        {
+            ($_ -eq "New-RESHApp/PermissionModel_Type") -Or
+            ($_ -eq "Update-RESHApp/PermissionModel_Type")
+        }
+        {
+            $v = "LegacyIAMUser","RoleBased"
+            break
+        }
+
         # Amazon.ResilienceHub.ResiliencyPolicyTier
         {
             ($_ -eq "New-RESHResiliencyPolicy/Tier") -Or
             ($_ -eq "Update-RESHResiliencyPolicy/Tier")
         }
         {
-            $v = "CoreServices","Critical","Important","MissionCritical","NonCritical"
+            $v = "CoreServices","Critical","Important","MissionCritical","NonCritical","NotApplicable"
             break
         }
 
@@ -153,6 +163,7 @@ $RESH_map = @{
     "Format"=@("New-RESHRecommendationTemplate")
     "ImportStrategy"=@("Import-RESHResourcesToDraftAppVersion")
     "Invoker"=@("Get-RESHAppAssessmentList")
+    "PermissionModel_Type"=@("New-RESHApp","Update-RESHApp")
     "Tier"=@("New-RESHResiliencyPolicy","Update-RESHResiliencyPolicy")
 }
 
@@ -207,6 +218,7 @@ $RESH_SelectCompleters = {
 
 $RESH_SelectMap = @{
     "Select"=@("Add-RESHDraftAppVersionResourceMapping",
+               "Set-RESHUpdateRecommendationStatus",
                "New-RESHApp",
                "New-RESHAppVersionAppComponent",
                "New-RESHAppVersionResource",
@@ -230,6 +242,7 @@ $RESH_SelectMap = @{
                "Get-RESHResiliencyPolicy",
                "Import-RESHResourcesToDraftAppVersion",
                "Get-RESHAlarmRecommendationList",
+               "Get-RESHAppAssessmentComplianceDriftList",
                "Get-RESHAppAssessmentList",
                "Get-RESHAppComponentComplianceList",
                "Get-RESHAppComponentRecommendationList",

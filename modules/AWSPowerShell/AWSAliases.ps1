@@ -4911,6 +4911,7 @@ Set-Alias -Name CGIP-GetCSVHeader -Value Get-CGIPCSVHeader
 Set-Alias -Name CGIP-GetDevice -Value Get-CGIPDevice
 Set-Alias -Name CGIP-GetGroup -Value Get-CGIPGroup
 Set-Alias -Name CGIP-GetIdentityProviderByIdentifier -Value Get-CGIPIdentityProviderByIdentifier
+Set-Alias -Name CGIP-GetLogDeliveryConfiguration -Value Get-CGIPLogDeliveryConfiguration
 Set-Alias -Name CGIP-GetSigningCertificate -Value Get-CGIPSigningCertificate
 Set-Alias -Name CGIP-GetUICustomization -Value Get-CGIPUICustomization
 Set-Alias -Name CGIP-GetUser -Value Get-CGIPUser
@@ -4954,6 +4955,7 @@ Set-Alias -Name Respond-CGIPToAuthChallenge -Value Send-CGIPAuthChallengeRespons
 Set-Alias -Name Respond-CGIPAuthChallengeResponse -Value Send-CGIPAuthChallengeResponse
 Set-Alias -Name CGIP-RespondToAuthChallenge -Value Send-CGIPAuthChallengeResponse
 Set-Alias -Name CGIP-RevokeToken -Value Revoke-CGIPToken
+Set-Alias -Name CGIP-SetLogDeliveryConfiguration -Value Set-CGIPLogDeliveryConfiguration
 Set-Alias -Name CGIP-SetRiskConfiguration -Value Set-CGIPRiskConfiguration
 Set-Alias -Name CGIP-SetUICustomization -Value Set-CGIPUICustomization
 Set-Alias -Name CGIP-SetUserMFAPreference -Value Set-CGIPUserMFAPreference
@@ -21002,6 +21004,8 @@ Set-Alias -Name REK-UpdateDatasetEntries -Value Update-REKDatasetEntry
 Set-Alias -Name REK-UpdateStreamProcessor -Value Update-REKStreamProcessor
 Set-Alias -Name Add-RESHDraftAppVersionResourceMappings -Value Add-RESHDraftAppVersionResourceMapping
 Set-Alias -Name RESH-AddDraftAppVersionResourceMappings -Value Add-RESHDraftAppVersionResourceMapping
+Set-Alias -Name Batch-RESHUpdateRecommendationStatus -Value Set-RESHUpdateRecommendationStatus
+Set-Alias -Name RESH-BatchUpdateRecommendationStatus -Value Set-RESHUpdateRecommendationStatus
 Set-Alias -Name Create-RESHApp -Value New-RESHApp
 Set-Alias -Name RESH-CreateApp -Value New-RESHApp
 Set-Alias -Name Create-RESHAppVersionAppComponent -Value New-RESHAppVersionAppComponent
@@ -21048,6 +21052,9 @@ Set-Alias -Name RESH-ImportResourcesToDraftAppVersion -Value Import-RESHResource
 Set-Alias -Name List-RESHAlarmRecommendations -Value Get-RESHAlarmRecommendationList
 Set-Alias -Name List-RESHAlarmRecommendationList -Value Get-RESHAlarmRecommendationList
 Set-Alias -Name RESH-ListAlarmRecommendations -Value Get-RESHAlarmRecommendationList
+Set-Alias -Name List-RESHAppAssessmentComplianceDrifts -Value Get-RESHAppAssessmentComplianceDriftList
+Set-Alias -Name List-RESHAppAssessmentComplianceDriftList -Value Get-RESHAppAssessmentComplianceDriftList
+Set-Alias -Name RESH-ListAppAssessmentComplianceDrifts -Value Get-RESHAppAssessmentComplianceDriftList
 Set-Alias -Name List-RESHAppAssessments -Value Get-RESHAppAssessmentList
 Set-Alias -Name List-RESHAppAssessmentList -Value Get-RESHAppAssessmentList
 Set-Alias -Name RESH-ListAppAssessments -Value Get-RESHAppAssessmentList
@@ -22384,6 +22391,7 @@ Set-Alias -Name SM-GetDeviceFleetReport -Value Get-SMDeviceFleetReport
 Set-Alias -Name SM-GetLineageGroupPolicy -Value Get-SMLineageGroupPolicy
 Set-Alias -Name SM-GetModelPackageGroupPolicy -Value Get-SMModelPackageGroupPolicy
 Set-Alias -Name SM-GetSagemakerServicecatalogPortfolioStatus -Value Get-SMSagemakerServicecatalogPortfolioStatus
+Set-Alias -Name SM-GetScalingConfigurationRecommendation -Value Get-SMScalingConfigurationRecommendation
 Set-Alias -Name Get-SMSearchSuggestions -Value Get-SMSearchSuggestion
 Set-Alias -Name SM-GetSearchSuggestions -Value Get-SMSearchSuggestion
 Set-Alias -Name SM-ImportHubContent -Value Import-SMHubContent

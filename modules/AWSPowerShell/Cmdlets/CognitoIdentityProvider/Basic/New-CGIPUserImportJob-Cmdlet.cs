@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates the user import job.
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.CreateUserImportJob
     /// </summary>
     [Cmdlet("New", "CGIPUserImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserImportJobType")]

@@ -265,6 +265,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLogDeliveryConfiguration" OutputProperty="LogDeliveryConfiguration" Verb="Get" Noun="LogDeliveryConfiguration" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSigningCertificate" OutputProperty="Certificate" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -347,6 +351,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeToken" Verb="Revoke" Noun="Token" ShouldProcessTarget="ClientId" PipelineParameter="Token" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetLogDeliveryConfiguration" OutputProperty="LogDeliveryConfiguration" Verb="Set" Noun="LogDeliveryConfiguration" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

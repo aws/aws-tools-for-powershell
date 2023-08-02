@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateRecommendationStatus" OutputProperty="*" Verb="Set" Noun="UpdateRecommendationStatus" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateApp" OutputProperty="App" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAlarmRecommendations" OutputProperty="AlarmRecommendations" Verb="Get" Noun="AlarmRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppAssessmentComplianceDrifts" OutputProperty="ComplianceDrifts" Verb="Get" Noun="AppAssessmentComplianceDriftList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,26 +28,41 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists the suggested resiliency policies for the Resilience Hub applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List of compliance drifts that were detected while running an assessment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RESHSuggestedResiliencyPolicyList")]
-    [OutputType("Amazon.ResilienceHub.Model.ResiliencyPolicy")]
-    [AWSCmdlet("Calls the AWS Resilience Hub ListSuggestedResiliencyPolicies API operation.", Operation = new[] {"ListSuggestedResiliencyPolicies"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.ResiliencyPolicy or Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse",
-        "This cmdlet returns a collection of Amazon.ResilienceHub.Model.ResiliencyPolicy objects.",
-        "The service call response (type Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RESHAppAssessmentComplianceDriftList")]
+    [OutputType("Amazon.ResilienceHub.Model.ComplianceDrift")]
+    [AWSCmdlet("Calls the AWS Resilience Hub ListAppAssessmentComplianceDrifts API operation.", Operation = new[] {"ListAppAssessmentComplianceDrifts"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse))]
+    [AWSCmdletOutput("Amazon.ResilienceHub.Model.ComplianceDrift or Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse",
+        "This cmdlet returns a collection of Amazon.ResilienceHub.Model.ComplianceDrift objects.",
+        "The service call response (type Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRESHSuggestedResiliencyPolicyListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class GetRESHAppAssessmentComplianceDriftListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
+        #region Parameter AssessmentArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>.
+        /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AssessmentArn { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to include in the response. If more results exist than the
-        /// specified <code>MaxResults</code> value, a token is included in the response so that
-        /// the remaining results can be retrieved.</para>
+        /// <para>Indicates the maximum number of applications requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Null, or the token from a previous call to get the next set of results.</para>
+        /// <para>Indicates the unique token number of the next application to be checked for compliance
+        /// and regulatory requirements from the list of applications.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -71,13 +87,23 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResiliencyPolicies'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ComplianceDrifts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse).
+        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResiliencyPolicies";
+        public string Select { get; set; } = "ComplianceDrifts";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AssessmentArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssessmentArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssessmentArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -100,11 +126,28 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse, GetRESHSuggestedResiliencyPolicyListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse, GetRESHAppAssessmentComplianceDriftListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.AssessmentArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssessmentArn = this.AssessmentArn;
+            #if MODULAR
+            if (this.AssessmentArn == null && ParameterWasBound(nameof(this.AssessmentArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AssessmentArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -120,11 +163,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesRequest();
+            var request = new Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsRequest();
             
+            if (cmdletContext.AssessmentArn != null)
+            {
+                request.AssessmentArn = cmdletContext.AssessmentArn;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -186,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesRequest request)
+        private Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ListSuggestedResiliencyPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ListAppAssessmentComplianceDrifts");
             try
             {
                 #if DESKTOP
-                return client.ListSuggestedResiliencyPolicies(request);
+                return client.ListAppAssessmentComplianceDrifts(request);
                 #elif CORECLR
-                return client.ListSuggestedResiliencyPoliciesAsync(request).GetAwaiter().GetResult();
+                return client.ListAppAssessmentComplianceDriftsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,10 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssessmentArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.ListSuggestedResiliencyPoliciesResponse, GetRESHSuggestedResiliencyPolicyListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResiliencyPolicies;
+            public System.Func<Amazon.ResilienceHub.Model.ListAppAssessmentComplianceDriftsResponse, GetRESHAppAssessmentComplianceDriftListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ComplianceDrifts;
         }
         
     }

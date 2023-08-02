@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Allows a user to enter a confirmation code to reset a forgotten password.
+    /// 
+    ///  <note><para>
+    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you can't use IAM credentials to authorize
+    /// requests, and you can't grant IAM permissions in policies. For more information about
+    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito native and OIDC APIs</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Confirm", "CGIPForgotPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -153,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A keyed-hash message authentication code (HMAC) calculated using the secret key of
-        /// a user pool client and username plus the client ID in the message.</para>
+        /// a user pool client and username plus the client ID in the message. For more information
+        /// about <code>SecretHash</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
+        /// secret hash values</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

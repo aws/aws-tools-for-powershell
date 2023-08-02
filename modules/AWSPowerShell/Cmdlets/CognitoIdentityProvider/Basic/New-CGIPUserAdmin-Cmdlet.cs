@@ -28,42 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new user in the specified user pool.
-    /// 
-    ///  
-    /// <para>
-    /// If <code>MessageAction</code> isn't set, the default is to send a welcome message
-    /// via email or phone (SMS).
-    /// </para><note><para>
-    /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
-    /// carriers require you to register an origination phone number before you can send SMS
-    /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
-    /// must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon
-    /// Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise,
-    /// Amazon Cognito users who must receive SMS messages might not be able to sign up, activate
-    /// their accounts, or sign in.
-    /// </para><para>
-    /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Service, Amazon Simple Notification Service might place your account in the SMS sandbox.
-    /// In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
-    /// mode</a></i>, you can send messages only to verified phone numbers. After you test
-    /// your app while in the sandbox environment, you can move out of the sandbox and into
-    /// production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
-    /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
-    /// Guide</i>.
-    /// </para></note><para>
-    /// This message is based on a template that you configured in your call to create or
-    /// update a user pool. This template includes your custom sign-up instructions and placeholders
-    /// for user name and temporary password.
-    /// </para><para>
-    /// Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
-    /// for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email.
-    /// 
-    /// </para><para>
-    /// In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
-    /// they sign in and change their password.
-    /// </para><para><code>AdminCreateUser</code> requires developer credentials.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminCreateUser
     /// </summary>
     [Cmdlet("New", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserType")]
@@ -151,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// the user must enter the temporary password in the sign-in page, along with a new password
         /// to be used in all future sign-ins.</para><para>This parameter isn't required. If you don't specify a value, Amazon Cognito generates
         /// one for you.</para><para>The temporary password can only be used until the user account expiration limit that
-        /// you specified when you created the user pool. To reset the account after that time
-        /// limit, you must call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code>
-        /// for the <code>MessageAction</code> parameter.</para>
+        /// you set for your user pool. To reset the account after that time limit, you must call
+        /// <code>AdminCreateUser</code> again and specify <code>RESEND</code> for the <code>MessageAction</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

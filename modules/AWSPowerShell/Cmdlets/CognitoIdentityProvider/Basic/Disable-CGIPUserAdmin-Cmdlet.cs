@@ -28,15 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deactivates a user and revokes all access tokens for the user. A deactivated user
-    /// can't sign in, but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code>
-    /// API requests.
-    /// 
-    ///  
-    /// <para>
-    /// You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code>
-    /// permissions.
-    /// </para>
+    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminDisableUser
     /// </summary>
     [Cmdlet("Disable", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
