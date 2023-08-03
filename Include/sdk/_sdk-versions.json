@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.612.0",
+    "ProductVersion" : "3.7.613.0",
     "CoreVersion"    : "3.7.200.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -14,7 +14,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.202.2",
+            "Version" : "3.7.202.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.9"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.203.4",
+            "Version" : "3.7.204.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.9"
@@ -522,7 +522,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.201.1",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.9"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.205.0",
+            "Version" : "3.7.206.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.9"
@@ -1018,7 +1018,7 @@
             "InPreview"               : false
         },
         "Cloud9"                          : {
-            "Version" : "3.7.200.9",
+            "Version" : "3.7.200.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.9"

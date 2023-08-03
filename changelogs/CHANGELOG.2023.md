@@ -1,4 +1,39 @@
-﻿### 4.1.385 (2023-08-02 21:18Z)
+﻿### 4.1.386 (2023-08-03 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.613.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Database Migration Service
+    * Added cmdlet Edit-DMSConversionConfiguration leveraging the ModifyConversionConfiguration service API.
+    * Added cmdlet Edit-DMSDataProvider leveraging the ModifyDataProvider service API.
+    * Added cmdlet Edit-DMSInstanceProfile leveraging the ModifyInstanceProfile service API.
+    * Added cmdlet Edit-DMSMigrationProject leveraging the ModifyMigrationProject service API.
+    * Added cmdlet Export-DMSMetadataModelAssessment leveraging the ExportMetadataModelAssessment service API.
+    * Added cmdlet Get-DMSConversionConfiguration leveraging the DescribeConversionConfiguration service API.
+    * Added cmdlet Get-DMSDataProvider leveraging the DescribeDataProviders service API.
+    * Added cmdlet Get-DMSExtensionPackAssociation leveraging the DescribeExtensionPackAssociations service API.
+    * Added cmdlet Get-DMSInstanceProfile leveraging the DescribeInstanceProfiles service API.
+    * Added cmdlet Get-DMSMetadataModelAssessment leveraging the DescribeMetadataModelAssessments service API.
+    * Added cmdlet Get-DMSMetadataModelConversion leveraging the DescribeMetadataModelConversions service API.
+    * Added cmdlet Get-DMSMetadataModelExportsAsScript leveraging the DescribeMetadataModelExportsAsScript service API.
+    * Added cmdlet Get-DMSMetadataModelExportsToTarget leveraging the DescribeMetadataModelExportsToTarget service API.
+    * Added cmdlet Get-DMSMetadataModelImport leveraging the DescribeMetadataModelImports service API.
+    * Added cmdlet Get-DMSMigrationProject leveraging the DescribeMigrationProjects service API.
+    * Added cmdlet New-DMSDataProvider leveraging the CreateDataProvider service API.
+    * Added cmdlet New-DMSInstanceProfile leveraging the CreateInstanceProfile service API.
+    * Added cmdlet New-DMSMigrationProject leveraging the CreateMigrationProject service API.
+    * Added cmdlet Remove-DMSDataProvider leveraging the DeleteDataProvider service API.
+    * Added cmdlet Remove-DMSInstanceProfile leveraging the DeleteInstanceProfile service API.
+    * Added cmdlet Remove-DMSMigrationProject leveraging the DeleteMigrationProject service API.
+    * Added cmdlet Start-DMSExtensionPackAssociation leveraging the StartExtensionPackAssociation service API.
+    * Added cmdlet Start-DMSMetadataModelAssessment leveraging the StartMetadataModelAssessment service API.
+    * Added cmdlet Start-DMSMetadataModelConversion leveraging the StartMetadataModelConversion service API.
+    * Added cmdlet Start-DMSMetadataModelExportAsScript leveraging the StartMetadataModelExportAsScript service API.
+    * Added cmdlet Start-DMSMetadataModelExportToTarget leveraging the StartMetadataModelExportToTarget service API.
+    * Added cmdlet Start-DMSMetadataModelImport leveraging the StartMetadataModelImport service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Instance: added parameter EnablePrimaryIpv6.
+    * Modified cmdlet Edit-EC2NetworkInterfaceAttribute: added parameter EnablePrimaryIpv6.
+    * Modified cmdlet New-EC2NetworkInterface: added parameter EnablePrimaryIpv6.
+
+### 4.1.385 (2023-08-02 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.612.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Added cmdlet Get-CGIPLogDeliveryConfiguration leveraging the GetLogDeliveryConfiguration service API.

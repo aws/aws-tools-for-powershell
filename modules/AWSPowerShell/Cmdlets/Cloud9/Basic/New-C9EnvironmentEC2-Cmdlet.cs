@@ -110,9 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <para>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
         /// To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon
         /// EC2 Systems Manager (SSM) path.</para><para>The default Amazon Linux AMI is currently used if the parameter isn't explicitly assigned
-        /// a value in the request. </para><para>In the future the parameter for Amazon Linux will no longer be available when you
-        /// specify an AMI for your instance. Amazon Linux 2 will then become the default AMI,
-        /// which is used to launch your instance if no parameter is explicitly defined.</para><para><b>AMI aliases </b></para><ul><li><para><b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para><b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li></ul>
+        /// a value in the request. Because Amazon Linux AMI has ended standard support as of
+        /// December 31, 2020, we recommend you choose Amazon Linux 2, which includes long term
+        /// support through 2023.</para><para>From December 31, 2023, the parameter for Amazon Linux will no longer be available
+        /// when you specify an AMI for your instance. Amazon Linux 2 will then become the default
+        /// AMI, which is used to launch your instance if no parameter is explicitly defined.</para><para><b>AMI aliases </b></para><ul><li><para><b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para><b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -172,6 +172,14 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.DmsSslModeValue
         {
+            ($_ -eq "Edit-DMSDataProvider/Settings_MicrosoftSqlServerSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_MicrosoftSqlServerSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/Settings_MySqlSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_MySqlSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/Settings_OracleSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_OracleSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/Settings_PostgreSqlSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_PostgreSqlSettings_SslMode") -Or
             ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
             ($_ -eq "New-DMSEndpoint/SslMode")
         }
@@ -276,6 +284,16 @@ $DMS_Completers = {
         }
         {
             $v = "none","one"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.OriginTypeValue
+        {
+            ($_ -eq "Start-DMSMetadataModelExportAsScript/Origin") -Or
+            ($_ -eq "Start-DMSMetadataModelImport/Origin")
+        }
+        {
+            $v = "SOURCE","TARGET"
             break
         }
 
@@ -410,6 +428,7 @@ $DMS_map = @{
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
     "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -426,6 +445,10 @@ $DMS_map = @{
     "S3Settings_EncodingType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_ParquetVersion"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "Settings_MicrosoftSqlServerSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "Settings_MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "Settings_OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "Settings_PostgreSqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
@@ -485,19 +508,25 @@ $DMS_SelectMap = @{
                "Complete-DMSPendingMaintenanceAction",
                "Start-DMSBatchRecommendation",
                "Stop-DMSReplicationTaskAssessmentRun",
+               "New-DMSDataProvider",
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
                "New-DMSFleetAdvisorCollector",
+               "New-DMSInstanceProfile",
+               "New-DMSMigrationProject",
                "New-DMSReplicationConfig",
                "New-DMSReplicationInstance",
                "New-DMSReplicationSubnetGroup",
                "New-DMSReplicationTask",
                "Remove-DMSCertificate",
                "Remove-DMSConnection",
+               "Remove-DMSDataProvider",
                "Remove-DMSEndpoint",
                "Remove-DMSEventSubscription",
                "Remove-DMSFleetAdvisorCollector",
                "Remove-DMSFleetAdvisorDatabaseId",
+               "Remove-DMSInstanceProfile",
+               "Remove-DMSMigrationProject",
                "Remove-DMSReplicationConfig",
                "Remove-DMSReplicationInstance",
                "Remove-DMSReplicationSubnetGroup",
@@ -507,6 +536,8 @@ $DMS_SelectMap = @{
                "Get-DMSApplicableIndividualAssessment",
                "Get-DMSCertificate",
                "Get-DMSConnection",
+               "Get-DMSConversionConfiguration",
+               "Get-DMSDataProvider",
                "Get-DMSEndpoint",
                "Get-DMSEndpointSetting",
                "Get-DMSEndpointType",
@@ -514,11 +545,19 @@ $DMS_SelectMap = @{
                "Get-DMSEventCategory",
                "Get-DMSEvent",
                "Get-DMSEventSubscription",
+               "Get-DMSExtensionPackAssociation",
                "Get-DMSFleetAdvisorCollector",
                "Get-DMSFleetAdvisorDatabase",
                "Get-DMSFleetAdvisorLsaAnalysis",
                "Get-DMSFleetAdvisorSchemaObjectSummary",
                "Get-DMSFleetAdvisorSchema",
+               "Get-DMSInstanceProfile",
+               "Get-DMSMetadataModelAssessment",
+               "Get-DMSMetadataModelConversion",
+               "Get-DMSMetadataModelExportsAsScript",
+               "Get-DMSMetadataModelExportsToTarget",
+               "Get-DMSMetadataModelImport",
+               "Get-DMSMigrationProject",
                "Get-DMSOrderableReplicationInstance",
                "Get-DMSPendingMaintenanceAction",
                "Get-DMSRecommendationLimitation",
@@ -536,10 +575,15 @@ $DMS_SelectMap = @{
                "Get-DMSReplicationTask",
                "Get-DMSSchema",
                "Get-DMSTableStatistic",
+               "Export-DMSMetadataModelAssessment",
                "Import-DMSCertificate",
                "Get-DMSResourceTag",
+               "Edit-DMSConversionConfiguration",
+               "Edit-DMSDataProvider",
                "Edit-DMSEndpoint",
                "Edit-DMSEventSubscription",
+               "Edit-DMSInstanceProfile",
+               "Edit-DMSMigrationProject",
                "Edit-DMSReplicationConfig",
                "Edit-DMSReplicationInstance",
                "Edit-DMSReplicationSubnetGroup",
@@ -551,6 +595,12 @@ $DMS_SelectMap = @{
                "Restore-DMSTable",
                "Remove-DMSResourceTag",
                "Start-DMSFleetAdvisorLsaAnalysis",
+               "Start-DMSExtensionPackAssociation",
+               "Start-DMSMetadataModelAssessment",
+               "Start-DMSMetadataModelConversion",
+               "Start-DMSMetadataModelExportAsScript",
+               "Start-DMSMetadataModelExportToTarget",
+               "Start-DMSMetadataModelImport",
                "Start-DMSRecommendation",
                "Start-DMSReplication",
                "Start-DMSReplicationTask",

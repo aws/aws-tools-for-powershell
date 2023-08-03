@@ -17282,6 +17282,14 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.DmsSslModeValue
         {
+            ($_ -eq "Edit-DMSDataProvider/Settings_MicrosoftSqlServerSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_MicrosoftSqlServerSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/Settings_MySqlSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_MySqlSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/Settings_OracleSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_OracleSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/Settings_PostgreSqlSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/Settings_PostgreSqlSettings_SslMode") -Or
             ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
             ($_ -eq "New-DMSEndpoint/SslMode")
         }
@@ -17386,6 +17394,16 @@ $DMS_Completers = {
         }
         {
             $v = "none","one"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.OriginTypeValue
+        {
+            ($_ -eq "Start-DMSMetadataModelExportAsScript/Origin") -Or
+            ($_ -eq "Start-DMSMetadataModelImport/Origin")
+        }
+        {
+            $v = "SOURCE","TARGET"
             break
         }
 
@@ -17520,6 +17538,7 @@ $DMS_map = @{
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
     "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -17536,6 +17555,10 @@ $DMS_map = @{
     "S3Settings_EncodingType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_ParquetVersion"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "Settings_MicrosoftSqlServerSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "Settings_MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "Settings_OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "Settings_PostgreSqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
@@ -17595,19 +17618,25 @@ $DMS_SelectMap = @{
                "Complete-DMSPendingMaintenanceAction",
                "Start-DMSBatchRecommendation",
                "Stop-DMSReplicationTaskAssessmentRun",
+               "New-DMSDataProvider",
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
                "New-DMSFleetAdvisorCollector",
+               "New-DMSInstanceProfile",
+               "New-DMSMigrationProject",
                "New-DMSReplicationConfig",
                "New-DMSReplicationInstance",
                "New-DMSReplicationSubnetGroup",
                "New-DMSReplicationTask",
                "Remove-DMSCertificate",
                "Remove-DMSConnection",
+               "Remove-DMSDataProvider",
                "Remove-DMSEndpoint",
                "Remove-DMSEventSubscription",
                "Remove-DMSFleetAdvisorCollector",
                "Remove-DMSFleetAdvisorDatabaseId",
+               "Remove-DMSInstanceProfile",
+               "Remove-DMSMigrationProject",
                "Remove-DMSReplicationConfig",
                "Remove-DMSReplicationInstance",
                "Remove-DMSReplicationSubnetGroup",
@@ -17617,6 +17646,8 @@ $DMS_SelectMap = @{
                "Get-DMSApplicableIndividualAssessment",
                "Get-DMSCertificate",
                "Get-DMSConnection",
+               "Get-DMSConversionConfiguration",
+               "Get-DMSDataProvider",
                "Get-DMSEndpoint",
                "Get-DMSEndpointSetting",
                "Get-DMSEndpointType",
@@ -17624,11 +17655,19 @@ $DMS_SelectMap = @{
                "Get-DMSEventCategory",
                "Get-DMSEvent",
                "Get-DMSEventSubscription",
+               "Get-DMSExtensionPackAssociation",
                "Get-DMSFleetAdvisorCollector",
                "Get-DMSFleetAdvisorDatabase",
                "Get-DMSFleetAdvisorLsaAnalysis",
                "Get-DMSFleetAdvisorSchemaObjectSummary",
                "Get-DMSFleetAdvisorSchema",
+               "Get-DMSInstanceProfile",
+               "Get-DMSMetadataModelAssessment",
+               "Get-DMSMetadataModelConversion",
+               "Get-DMSMetadataModelExportsAsScript",
+               "Get-DMSMetadataModelExportsToTarget",
+               "Get-DMSMetadataModelImport",
+               "Get-DMSMigrationProject",
                "Get-DMSOrderableReplicationInstance",
                "Get-DMSPendingMaintenanceAction",
                "Get-DMSRecommendationLimitation",
@@ -17646,10 +17685,15 @@ $DMS_SelectMap = @{
                "Get-DMSReplicationTask",
                "Get-DMSSchema",
                "Get-DMSTableStatistic",
+               "Export-DMSMetadataModelAssessment",
                "Import-DMSCertificate",
                "Get-DMSResourceTag",
+               "Edit-DMSConversionConfiguration",
+               "Edit-DMSDataProvider",
                "Edit-DMSEndpoint",
                "Edit-DMSEventSubscription",
+               "Edit-DMSInstanceProfile",
+               "Edit-DMSMigrationProject",
                "Edit-DMSReplicationConfig",
                "Edit-DMSReplicationInstance",
                "Edit-DMSReplicationSubnetGroup",
@@ -17661,6 +17705,12 @@ $DMS_SelectMap = @{
                "Restore-DMSTable",
                "Remove-DMSResourceTag",
                "Start-DMSFleetAdvisorLsaAnalysis",
+               "Start-DMSExtensionPackAssociation",
+               "Start-DMSMetadataModelAssessment",
+               "Start-DMSMetadataModelConversion",
+               "Start-DMSMetadataModelExportAsScript",
+               "Start-DMSMetadataModelExportToTarget",
+               "Start-DMSMetadataModelImport",
                "Start-DMSRecommendation",
                "Start-DMSReplication",
                "Start-DMSReplicationTask",
@@ -52950,7 +53000,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p5.48xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
             break
         }
 

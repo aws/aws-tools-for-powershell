@@ -309,6 +309,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? EnclaveOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter EnablePrimaryIpv6
+        /// <summary>
+        /// <para>
+        /// <para>If you’re launching an instance into a dual-stack or IPv6-only subnet, you can enable
+        /// assigning a primary IPv6 address. A primary IPv6 address is an IPv6 GUA address associated
+        /// with an ENI that you have enabled to use a primary IPv6 address. Use this option if
+        /// an instance relies on its IPv6 address not changing. When you launch the instance,
+        /// Amazon Web Services will automatically assign an IPv6 address associated with the
+        /// ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6
+        /// GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA
+        /// address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address
+        /// until the instance is terminated or the network interface is detached. If you have
+        /// multiple IPv6 addresses associated with an ENI attached to your instance and you enable
+        /// a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes
+        /// the primary IPv6 address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePrimaryIpv6 { get; set; }
+        #endregion
+        
         #region Parameter PrivateDnsNameOptions_EnableResourceNameDnsAAAARecord
         /// <summary>
         /// <para>
@@ -861,6 +882,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ElasticInferenceAccelerator = new List<Amazon.EC2.Model.ElasticInferenceAccelerator>(this.ElasticInferenceAccelerator);
             }
+            context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             context.EnclaveOptions_Enabled = this.EnclaveOptions_Enabled;
             context.HibernationOptions_Configured = this.HibernationOptions_Configured;
             context.IamInstanceProfile_Arn = this.IamInstanceProfile_Arn;
@@ -1068,6 +1090,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ElasticInferenceAccelerator != null)
             {
                 request.ElasticInferenceAccelerators = cmdletContext.ElasticInferenceAccelerator;
+            }
+            if (cmdletContext.EnablePrimaryIpv6 != null)
+            {
+                request.EnablePrimaryIpv6 = cmdletContext.EnablePrimaryIpv6.Value;
             }
             
              // populate EnclaveOptions
@@ -1510,6 +1536,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? EbsOptimized { get; set; }
             public List<Amazon.EC2.Model.ElasticGpuSpecification> ElasticGpuSpecification { get; set; }
             public List<Amazon.EC2.Model.ElasticInferenceAccelerator> ElasticInferenceAccelerator { get; set; }
+            public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public System.Boolean? EnclaveOptions_Enabled { get; set; }
             public System.Boolean? HibernationOptions_Configured { get; set; }
             public System.String IamInstanceProfile_Arn { get; set; }

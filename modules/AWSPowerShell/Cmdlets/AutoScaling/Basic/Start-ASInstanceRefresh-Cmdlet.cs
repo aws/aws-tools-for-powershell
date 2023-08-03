@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AlarmSpecification_Alarm
         /// <summary>
         /// <para>
-        /// <para>The names of one or more CloudWatch alarms to monitor for the instance refresh.</para>
+        /// <para>The names of one or more CloudWatch alarms to monitor for the instance refresh. You
+        /// can specify up to 10 alarms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

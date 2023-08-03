@@ -72,6 +72,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EnablePrimaryIpv6
+        /// <summary>
+        /// <para>
+        /// <para>If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have
+        /// the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6
+        /// GUA address associated with an ENI that you have enabled to use a primary IPv6 address.
+        /// Use this option if the instance that this ENI will be attached to relies on its IPv6
+        /// address not changing. Amazon Web Services will automatically assign an IPv6 address
+        /// associated with the ENI attached to your instance to be the primary IPv6 address.
+        /// Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When
+        /// you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made
+        /// the primary IPv6 address until the instance is terminated or the network interface
+        /// is detached. If you have multiple IPv6 addresses associated with an ENI attached to
+        /// your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated
+        /// with the ENI becomes the primary IPv6 address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePrimaryIpv6 { get; set; }
+        #endregion
+        
         #region Parameter EnaSrdSpecification_EnaSrdEnabled
         /// <summary>
         /// <para>
@@ -203,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Attachment_AttachmentId = this.Attachment_AttachmentId;
             context.Attachment_DeleteOnTermination = this.Attachment_DeleteOnTermination;
             context.Description = this.Description;
+            context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             context.EnaSrdSpecification_EnaSrdEnabled = this.EnaSrdSpecification_EnaSrdEnabled;
             context.EnaSrdUdpSpecification_EnaSrdUdpEnabled = this.EnaSrdUdpSpecification_EnaSrdUdpEnabled;
             if (this.Group != null)
@@ -265,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnablePrimaryIpv6 != null)
+            {
+                request.EnablePrimaryIpv6 = cmdletContext.EnablePrimaryIpv6.Value;
             }
             
              // populate EnaSrdSpecification
@@ -386,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Attachment_AttachmentId { get; set; }
             public System.Boolean? Attachment_DeleteOnTermination { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public System.Boolean? EnaSrdSpecification_EnaSrdEnabled { get; set; }
             public System.Boolean? EnaSrdUdpSpecification_EnaSrdUdpEnabled { get; set; }
             public List<System.String> Group { get; set; }

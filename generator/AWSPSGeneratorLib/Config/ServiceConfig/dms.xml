@@ -37,6 +37,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataProvider" OutputProperty="DataProvider" Verb="New" Noun="DataProvider" ShouldProcessTarget="DataProviderName" PipelineParameter="Engine" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" OutputProperty="Endpoint" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -46,6 +50,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFleetAdvisorCollector" OutputProperty="CollectorReferencedId" Verb="New" Noun="FleetAdvisorCollector" ShouldProcessTarget="CollectorName" PipelineParameter="CollectorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceProfile" OutputProperty="InstanceProfile" Verb="New" Noun="InstanceProfile" ShouldProcessTarget="InstanceProfileName" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMigrationProject" OutputProperty="MigrationProject" Verb="New" Noun="MigrationProject" ShouldProcessTarget="MigrationProjectName" PipelineParameter="MigrationProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -73,6 +85,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataProvider" OutputProperty="DataProvider" Verb="Remove" Noun="DataProvider" ShouldProcessTarget="DataProviderIdentifier" PipelineParameter="DataProviderIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEndpoint" OutputProperty="Endpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -86,6 +102,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFleetAdvisorDatabases" OutputProperty="DatabaseIds" Verb="Remove" Noun="FleetAdvisorDatabaseId" ShouldProcessTarget="DatabaseIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstanceProfile" OutputProperty="InstanceProfile" Verb="Remove" Noun="InstanceProfile" ShouldProcessTarget="InstanceProfileIdentifier" PipelineParameter="InstanceProfileIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMigrationProject" OutputProperty="MigrationProject" Verb="Remove" Noun="MigrationProject" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -125,6 +149,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConversionConfiguration" OutputProperty="*" Verb="Get" Noun="ConversionConfiguration" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataProviders" OutputProperty="DataProviders" Verb="Get" Noun="DataProvider" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -153,6 +185,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExtensionPackAssociations" OutputProperty="Requests" Verb="Get" Noun="ExtensionPackAssociation" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetAdvisorCollectors" OutputProperty="Collectors" Verb="Get" Noun="FleetAdvisorCollector" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -170,6 +206,34 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetAdvisorSchemas" OutputProperty="FleetAdvisorSchemas" Verb="Get" Noun="FleetAdvisorSchema" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceProfiles" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfile" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelAssessments" OutputProperty="Requests" Verb="Get" Noun="MetadataModelAssessment" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelConversions" OutputProperty="Requests" Verb="Get" Noun="MetadataModelConversion" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelExportsAsScript" OutputProperty="Requests" Verb="Get" Noun="MetadataModelExportsAsScript" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelExportsToTarget" OutputProperty="Requests" Verb="Get" Noun="MetadataModelExportsToTarget" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelImports" OutputProperty="Requests" Verb="Get" Noun="MetadataModelImport" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMigrationProjects" OutputProperty="MigrationProjects" Verb="Get" Noun="MigrationProject" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -241,6 +305,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportMetadataModelAssessment" OutputProperty="*" Verb="Export" Noun="MetadataModelAssessment" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportCertificate" OutputProperty="Certificate" Verb="Import" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="CertificatePem" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -249,11 +317,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyConversionConfiguration" OutputProperty="MigrationProjectIdentifier" Verb="Edit" Noun="ConversionConfiguration" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDataProvider" OutputProperty="DataProvider" Verb="Edit" Noun="DataProvider" ShouldProcessTarget="DataProviderIdentifier" PipelineParameter="DataProviderIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyEndpoint" OutputProperty="Endpoint" Verb="Edit" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceProfile" OutputProperty="InstanceProfile" Verb="Edit" Noun="InstanceProfile" ShouldProcessTarget="InstanceProfileIdentifier" PipelineParameter="InstanceProfileIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyMigrationProject" OutputProperty="MigrationProject" Verb="Edit" Noun="MigrationProject" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -298,6 +382,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RunFleetAdvisorLsaAnalysis" OutputProperty="LsaAnalysisId" Verb="Start" Noun="FleetAdvisorLsaAnalysis" PipelineParameter="LsaAnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExtensionPackAssociation" OutputProperty="RequestIdentifier" Verb="Start" Noun="ExtensionPackAssociation" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataModelAssessment" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelAssessment" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataModelConversion" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelConversion" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataModelExportAsScript" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelExportAsScript" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataModelExportToTarget" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelExportToTarget" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataModelImport" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelImport" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
