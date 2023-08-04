@@ -39,6 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class NewCONNRoutingProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter AgentAvailabilityTimer
+        /// <summary>
+        /// <para>
+        /// <para>Whether agents with this routing profile will have their routing order calculated
+        /// based on <i>time since their last inbound contact</i> or <i>longest idle time</i>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.AgentAvailabilityTimer")]
+        public Amazon.Connect.AgentAvailabilityTimer AgentAvailabilityTimer { get; set; }
+        #endregion
+        
         #region Parameter DefaultOutboundQueueId
         /// <summary>
         /// <para>
@@ -216,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AgentAvailabilityTimer = this.AgentAvailabilityTimer;
             context.DefaultOutboundQueueId = this.DefaultOutboundQueueId;
             #if MODULAR
             if (this.DefaultOutboundQueueId == null && ParameterWasBound(nameof(this.DefaultOutboundQueueId)))
@@ -282,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.CreateRoutingProfileRequest();
             
+            if (cmdletContext.AgentAvailabilityTimer != null)
+            {
+                request.AgentAvailabilityTimer = cmdletContext.AgentAvailabilityTimer;
+            }
             if (cmdletContext.DefaultOutboundQueueId != null)
             {
                 request.DefaultOutboundQueueId = cmdletContext.DefaultOutboundQueueId;
@@ -371,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Connect.AgentAvailabilityTimer AgentAvailabilityTimer { get; set; }
             public System.String DefaultOutboundQueueId { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }

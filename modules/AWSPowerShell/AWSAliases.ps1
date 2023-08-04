@@ -5830,6 +5830,7 @@ Set-Alias -Name CONN-UpdateQueueOutboundCallerConfig -Value Update-CONNQueueOutb
 Set-Alias -Name CONN-UpdateQueueStatus -Value Update-CONNQueueStatus
 Set-Alias -Name CONN-UpdateQuickConnectConfig -Value Update-CONNQuickConnectConfig
 Set-Alias -Name CONN-UpdateQuickConnectName -Value Update-CONNQuickConnectName
+Set-Alias -Name CONN-UpdateRoutingProfileAgentAvailabilityTimer -Value Update-CONNRoutingProfileAgentAvailabilityTimer
 Set-Alias -Name CONN-UpdateRoutingProfileConcurrency -Value Update-CONNRoutingProfileConcurrency
 Set-Alias -Name CONN-UpdateRoutingProfileDefaultOutboundQueue -Value Update-CONNRoutingProfileDefaultOutboundQueue
 Set-Alias -Name CONN-UpdateRoutingProfileName -Value Update-CONNRoutingProfileName

@@ -28,8 +28,18 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Network File System (NFS) file server that DataSync can
+    /// Creates an endpoint for a Network File System (NFS) file server that DataSync can
     /// use for a data transfer.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring
+    /// transfers to or from an NFS file server</a>.
+    /// </para><note><para>
+    /// If you're copying data to or from an Snowcone device, you can also use <code>CreateLocationNfs</code>
+    /// to create your transfer location. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/nfs-on-snowcone.html">Configuring
+    /// transfers with Snowcone</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "DSYNLocationNfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter OnPremConfig_AgentArn
         /// <summary>
         /// <para>
-        /// <para>ARNs of the agents to use for an NFS location.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the agents connecting to a transfer location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,10 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
-        /// <para>Specifies the IP address or domain name of your NFS file server. An agent that is
-        /// installed on-premises uses this hostname to mount the NFS server in a network. </para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on Snowcone</a> for more information.</para><note><para>You must specify be an IP version 4 address or Domain Name System (DNS)-compliant
-        /// name.</para></note>
+        /// <para>Specifies the Domain Name System (DNS) name or IP version 4 address of the NFS file
+        /// server that your DataSync agent connects to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,18 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies the subdirectory in the NFS file server that DataSync transfers to or from.
-        /// The NFS path should be a path that's exported by the NFS server, or a subdirectory
-        /// of that path. The path should be such that it can be mounted by other NFS clients
-        /// in your network. </para><para>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>"
-        /// from an NFS client that has access to your server. You can specify any directory that
-        /// appears in the results, and any subdirectory of that directory. Ensure that the NFS
-        /// export is accessible without Kerberos authentication. </para><para>To transfer all the data in the folder you specified, DataSync needs to have permissions
-        /// to read all the data. To ensure this, either configure the NFS export with <code>no_root_squash,</code>
-        /// or ensure that the permissions for all of the files that you want DataSync allow read
-        /// access for all users. Doing either enables the agent to read the files. For the agent
-        /// to access directories, you must additionally enable all execute access.</para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on Snowcone</a> for more information.</para>
+        /// <para>Specifies the export path in your NFS file server that you want DataSync to mount.</para><para>This path (or a subdirectory of the path) is where DataSync transfers data to or from.
+        /// For information on configuring an export for DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs">Accessing
+        /// NFS file servers</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

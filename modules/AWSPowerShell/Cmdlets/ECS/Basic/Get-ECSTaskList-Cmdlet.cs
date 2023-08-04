@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// Recently stopped tasks might appear in the returned results. Currently, stopped tasks
-    /// appear in the returned results for at least one hour.
+    /// Recently stopped tasks might appear in the returned results. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSTaskList")]

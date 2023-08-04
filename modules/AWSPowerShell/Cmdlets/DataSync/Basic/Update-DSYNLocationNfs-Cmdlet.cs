@@ -28,9 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates some of the parameters of a previously created location for Network File System
-    /// (NFS) access. For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating
-    /// a location for NFS</a>.
+    /// Modifies some configurations of the Network File System (NFS) transfer location that
+    /// you're using with DataSync.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring
+    /// transfers to or from an NFS file server</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "DSYNLocationNfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter OnPremConfig_AgentArn
         /// <summary>
         /// <para>
-        /// <para>ARNs of the agents to use for an NFS location.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the agents connecting to a transfer location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the NFS location that you want to update.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the NFS transfer location that you want
+        /// to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,18 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies the subdirectory in your NFS file system that DataSync uses to read from
-        /// or write to during a transfer. The NFS path should be exported by the NFS server,
-        /// or a subdirectory of that path. The path should be such that it can be mounted by
-        /// other NFS clients in your network.</para><para>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>"
-        /// from an NFS client that has access to your server. You can specify any directory that
-        /// appears in the results, and any subdirectory of that directory. Ensure that the NFS
-        /// export is accessible without Kerberos authentication. </para><para>To transfer all the data in the folder that you specified, DataSync must have permissions
-        /// to read all the data. To ensure this, either configure the NFS export with <code>no_root_squash</code>,
-        /// or ensure that the files you want DataSync to access have permissions that allow read
-        /// access for all users. Doing either option enables the agent to read the files. For
-        /// the agent to access directories, you must additionally enable all execute access.</para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on Snowcone</a> for more information.</para>
+        /// <para>Specifies the export path in your NFS file server that you want DataSync to mount.</para><para>This path (or a subdirectory of the path) is where DataSync transfers data to or from.
+        /// For information on configuring an export for DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs">Accessing
+        /// NFS file servers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

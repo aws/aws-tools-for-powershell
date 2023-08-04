@@ -227,7 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>
-        /// <para>The task definition for the tasks in the task set to use.</para>
+        /// <para>The task definition for the tasks in the task set to use. If a revision isn't specified,
+        /// the latest <code>ACTIVE</code> revision is used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

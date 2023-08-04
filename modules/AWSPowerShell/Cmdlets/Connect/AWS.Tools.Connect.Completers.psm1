@@ -80,6 +80,16 @@ $CONN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Connect.AgentAvailabilityTimer
+        {
+            ($_ -eq "New-CONNRoutingProfile/AgentAvailabilityTimer") -Or
+            ($_ -eq "Update-CONNRoutingProfileAgentAvailabilityTimer/AgentAvailabilityTimer")
+        }
+        {
+            $v = "TIME_SINCE_LAST_ACTIVITY","TIME_SINCE_LAST_INBOUND"
+            break
+        }
+
         # Amazon.Connect.AgentStatusState
         {
             ($_ -eq "New-CONNAgentStatus/State") -Or
@@ -367,6 +377,7 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
@@ -633,6 +644,7 @@ $CONN_SelectMap = @{
                "Update-CONNQueueStatus",
                "Update-CONNQuickConnectConfig",
                "Update-CONNQuickConnectName",
+               "Update-CONNRoutingProfileAgentAvailabilityTimer",
                "Update-CONNRoutingProfileConcurrency",
                "Update-CONNRoutingProfileDefaultOutboundQueue",
                "Update-CONNRoutingProfileName",

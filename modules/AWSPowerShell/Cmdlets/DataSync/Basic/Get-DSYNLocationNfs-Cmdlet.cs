@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata, such as the path information, about an NFS location.
+    /// Provides details about how an DataSync transfer location for a Network File System
+    /// (NFS) file server is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationNfs")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationNfsResponse")]
@@ -42,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NFS location to describe.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the NFS location that you want information
+        /// about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

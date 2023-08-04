@@ -1,4 +1,10 @@
-﻿### 4.1.386 (2023-08-03 21:09Z)
+﻿### 4.1.387 (2023-08-04 21:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.614.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNRoutingProfileAgentAvailabilityTimer leveraging the UpdateRoutingProfileAgentAvailabilityTimer service API.
+    * Modified cmdlet New-CONNRoutingProfile: added parameter AgentAvailabilityTimer.
+
+### 4.1.386 (2023-08-03 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.613.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Added cmdlet Edit-DMSConversionConfiguration leveraging the ModifyConversionConfiguration service API.

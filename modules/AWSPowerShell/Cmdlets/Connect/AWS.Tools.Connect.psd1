@@ -265,6 +265,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CONNQueueStatus', 
         'Update-CONNQuickConnectConfig', 
         'Update-CONNQuickConnectName', 
+        'Update-CONNRoutingProfileAgentAvailabilityTimer', 
         'Update-CONNRoutingProfileConcurrency', 
         'Update-CONNRoutingProfileDefaultOutboundQueue', 
         'Update-CONNRoutingProfileName', 
