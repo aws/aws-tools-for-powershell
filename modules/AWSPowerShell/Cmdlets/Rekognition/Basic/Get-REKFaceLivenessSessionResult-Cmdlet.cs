@@ -32,8 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// as input, which was created using <code>CreateFaceLivenessSession</code>. Returns
     /// the corresponding Face Liveness confidence score, a reference image that includes
     /// a face bounding box, and audit images that also contain face bounding boxes. The Face
-    /// Liveness confidence score ranges from 0 to 100. The reference image can optionally
-    /// be returned.
+    /// Liveness confidence score ranges from 0 to 100. 
+    /// 
+    ///  
+    /// <para>
+    /// The number of audit images returned by <code>GetFaceLivenessSessionResults</code>
+    /// is defined by the <code>AuditImagesLimit</code> paramater when calling <code>CreateFaceLivenessSession</code>.
+    /// Reference images are always returned when possible.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "REKFaceLivenessSessionResult")]
     [OutputType("Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse")]

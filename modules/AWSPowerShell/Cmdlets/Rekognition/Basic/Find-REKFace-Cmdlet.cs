@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// [<code>"DEFAULT", "FACE_OCCLUDED"</code>] or just [<code>"FACE_OCCLUDED"</code>].
         /// You can request for all facial attributes by using [<code>"ALL"]</code>. Requesting
         /// more attributes may increase response time.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical "AND"
-        /// operator to determine which attributes to return (in this case, all attributes). </para>
+        /// operator to determine which attributes to return (in this case, all attributes). </para><para>Note that while the FaceOccluded and EyeDirection attributes are supported when using
+        /// <code>DetectFaces</code>, they aren't supported when analyzing videos with <code>StartFaceDetection</code>
+        /// and <code>GetFaceDetection</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

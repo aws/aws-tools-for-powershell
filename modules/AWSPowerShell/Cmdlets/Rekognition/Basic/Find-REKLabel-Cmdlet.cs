@@ -55,10 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting
     /// Labels in an Image</a>.
     /// </para><para>
-    /// You can specify <code>MinConfidence</code> to control the confidence threshold for
-    /// the labels returned. The default is 55%. You can also add the <code>MaxLabels</code>
+    /// When getting labels, you can specify <code>MinConfidence</code> to control the confidence
+    /// threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code>
     /// parameter to limit the number of labels returned. The default and upper limit is 1000
-    /// labels.
+    /// labels. These arguments are only valid when supplying GENERAL_LABELS as a feature
+    /// type.
     /// </para><para><b>Response Elements</b></para><para>
     ///  For each object, scene, and concept the API returns one or more labels. The API returns
     /// the following types of information about labels:
@@ -225,7 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Maximum number of labels you want the service to return in the response. The service
-        /// returns the specified number of highest confidence labels. </para>
+        /// returns the specified number of highest confidence labels. Only valid when GENERAL_LABELS
+        /// is specified as a feature type in the Feature input parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>Specifies the minimum confidence level for the labels to return. Amazon Rekognition
         /// doesn't return any labels with confidence lower than this specified value.</para><para>If <code>MinConfidence</code> is not specified, the operation returns labels with
-        /// a confidence values greater than or equal to 55 percent.</para>
+        /// a confidence values greater than or equal to 55 percent. Only valid when GENERAL_LABELS
+        /// is specified as a feature type in the Feature input parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

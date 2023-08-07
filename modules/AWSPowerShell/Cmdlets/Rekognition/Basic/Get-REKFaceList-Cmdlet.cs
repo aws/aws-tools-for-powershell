@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter FaceId
         /// <summary>
         /// <para>
-        /// <para>An array of face IDs to match when listing faces in a collection.</para>
+        /// <para>An array of face IDs to filter results with when listing faces in a collection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>An array of user IDs to match when listing faces in a collection.</para>
+        /// <para>An array of user IDs to filter results with when listing faces in a collection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// SNS topic is <code>SUCCEEDED</code>. if so, call <code>GetTextDetection</code> and
     /// pass the job identifier (<code>JobId</code>) from the initial call of <code>StartLabelDetection</code>.
     /// </para><para><code>GetTextDetection</code> returns an array of detected text (<code>TextDetections</code>)
-    /// sorted by the time the text was detected, up to 50 words per frame of video.
+    /// sorted by the time the text was detected, up to 100 words per frame of video.
     /// </para><para>
     /// Each element of the array includes the detected text, the precentage confidence in
     /// the acuracy of the detected text, the time the text was detected, bounding box information

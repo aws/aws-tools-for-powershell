@@ -30,11 +30,19 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
     /// which you can use to start streaming Face Liveness video and get the results for a
-    /// Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings
-    /// parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference
-    /// images and audit images. You can use <code>AuditImagesLimit</code> to limit the number
-    /// of audit images returned. This number is between 0 and 4. By default, it is set to
-    /// 0. The limit is best effort and based on the duration of the selfie-video.
+    /// Face Liveness session. 
+    /// 
+    ///  
+    /// <para>
+    /// You can use the <code>OutputConfig</code> option in the Settings parameter to provide
+    /// an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit
+    /// images. If no Amazon S3 bucket is defined, raw bytes are sent instead. 
+    /// </para><para>
+    /// You can use <code>AuditImagesLimit</code> to limit the number of audit images returned
+    /// when <code>GetFaceLivenessSessionResults</code> is called. This number is between
+    /// 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration
+    /// of the selfie-video. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "REKFaceLivenessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

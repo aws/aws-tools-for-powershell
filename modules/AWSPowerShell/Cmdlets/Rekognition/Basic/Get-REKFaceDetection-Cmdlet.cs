@@ -49,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// results. To get the next page of results, call <code>GetFaceDetection</code> and populate
     /// the <code>NextToken</code> request parameter with the token value returned from the
     /// previous call to <code>GetFaceDetection</code>.
+    /// </para><para>
+    /// Note that for the <code>GetFaceDetection</code> operation, the returned values for
+    /// <code>FaceOccluded</code> and <code>EyeDirection</code> will always be "null".
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKFaceDetection")]

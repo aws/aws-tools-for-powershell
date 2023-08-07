@@ -37,7 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// </para></li><li><para>
     /// If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code>
     /// provided. 
-    /// </para></li></ul>
+    /// </para></li></ul><important><para>
+    /// If <code>StorageStatus</code> is enabled, direct peer-to-peer (master-viewer) connections
+    /// no longer occur. Peers connect directly to the storage session. You must call the
+    /// <code>JoinStorageSession</code> API to trigger an SDP offer send and establish a connection
+    /// between a peer and the storage session. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "KVMediaStorageConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
