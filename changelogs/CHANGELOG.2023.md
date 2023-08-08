@@ -1,4 +1,17 @@
-﻿### 4.1.388 (2023-08-07 21:24Z)
+﻿### 4.1.389 (2023-08-08 21:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.616.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Added cmdlet Get-BAKProtectedResourcesByBackupVaultList leveraging the ListProtectedResourcesByBackupVault service API.
+    * Added cmdlet New-BAKLogicallyAirGappedBackupVault leveraging the CreateLogicallyAirGappedBackupVault service API.
+    * Modified cmdlet Get-BAKBackupVault: added parameter BackupVaultAccountId.
+    * Modified cmdlet Get-BAKBackupVaultList: added parameters ByShared and ByVaultType.
+    * Modified cmdlet Get-BAKRecoveryPoint: added parameter BackupVaultAccountId.
+    * Modified cmdlet Get-BAKRecoveryPointRestoreMetadata: added parameter BackupVaultAccountId.
+    * Modified cmdlet Get-BAKRecoveryPointsByBackupVaultList: added parameter BackupVaultAccountId.
+  * Amazon ElastiCache
+    * Added cmdlet Test-ECMigration leveraging the TestMigration service API.
+
+### 4.1.388 (2023-08-07 21:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.615.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.387 (2023-08-04 21:30Z)

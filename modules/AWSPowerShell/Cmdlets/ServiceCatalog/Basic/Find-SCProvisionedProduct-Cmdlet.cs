@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>
         /// <para>The search filters.</para><para>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>,
         /// <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>, <code>idempotencyToken</code>,
-        /// <code>name</code>, <code>physicalId</code>, <code>productId</code>, <code>provisioningArtifact</code>,
+        /// <code>name</code>, <code>physicalId</code>, <code>productId</code>, <code>provisioningArtifactId</code>,
         /// <code>type</code>, <code>status</code>, <code>tags</code>, <code>userArn</code>, <code>userArnSession</code>,
         /// <code>lastProvisioningRecordId</code>, <code>lastSuccessfulProvisioningRecordId</code>,
         /// <code>productName</code>, and <code>provisioningArtifactName</code>.</para><para>Example: <code>"SearchQuery":["status:AVAILABLE"]</code></para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Value
         /// <summary>
         /// <para>
-        /// <para>The user to which the access level applies. The only supported value is <code>Self</code>.</para>
+        /// <para>The user to which the access level applies. The only supported value is <code>self</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

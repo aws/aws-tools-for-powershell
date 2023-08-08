@@ -5156,6 +5156,13 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.VaultType
+        "Get-BAKBackupVaultList/ByVaultType"
+        {
+            $v = "BACKUP_VAULT","LOGICALLY_AIR_GAPPED_BACKUP_VAULT"
+            break
+        }
+
 
     }
 
@@ -5167,6 +5174,7 @@ $BAK_Completers = {
 $BAK_map = @{
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList")
+    "ByVaultType"=@("Get-BAKBackupVaultList")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -5225,6 +5233,7 @@ $BAK_SelectMap = @{
                "New-BAKBackupVault",
                "New-BAKFramework",
                "New-BAKLegalHold",
+               "New-BAKLogicallyAirGappedBackupVault",
                "New-BAKReportPlan",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
@@ -5268,6 +5277,7 @@ $BAK_SelectMap = @{
                "Get-BAKFrameworkList",
                "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
+               "Get-BAKProtectedResourcesByBackupVaultList",
                "Get-BAKRecoveryPointsByBackupVaultList",
                "Get-BAKRecoveryPointsByLegalHoldList",
                "Get-BAKRecoveryPointsByResourceList",
@@ -21803,7 +21813,8 @@ $EC_SelectMap = @{
                "Reset-ECCacheParameterGroup",
                "Revoke-ECCacheSecurityGroupIngress",
                "Start-ECMigration",
-               "Test-ECFailover")
+               "Test-ECFailover",
+               "Test-ECMigration")
 }
 
 _awsArgumentCompleterRegistration $EC_SelectCompleters $EC_SelectMap
@@ -54994,7 +55005,7 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.ProductType
         "New-SCProduct/ProductType"
         {
-            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE","TERRAFORM_OPEN_SOURCE"
+            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE","TERRAFORM_CLOUD","TERRAFORM_OPEN_SOURCE"
             break
         }
 
@@ -55028,7 +55039,7 @@ $SC_Completers = {
             ($_ -eq "New-SCProduct/ProvisioningArtifactParameters_Type")
         }
         {
-            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE_AMI","MARKETPLACE_CAR","TERRAFORM_OPEN_SOURCE"
+            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE_AMI","MARKETPLACE_CAR","TERRAFORM_CLOUD","TERRAFORM_OPEN_SOURCE"
             break
         }
 

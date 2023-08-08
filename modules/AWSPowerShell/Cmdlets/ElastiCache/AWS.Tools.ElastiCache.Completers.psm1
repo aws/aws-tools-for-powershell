@@ -300,7 +300,8 @@ $EC_SelectMap = @{
                "Reset-ECCacheParameterGroup",
                "Revoke-ECCacheSecurityGroupIngress",
                "Start-ECMigration",
-               "Test-ECFailover")
+               "Test-ECFailover",
+               "Test-ECMigration")
 }
 
 _awsArgumentCompleterRegistration $EC_SelectCompleters $EC_SelectMap

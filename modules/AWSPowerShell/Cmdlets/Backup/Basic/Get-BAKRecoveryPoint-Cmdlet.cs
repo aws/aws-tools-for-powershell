@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKRecoveryPointCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        #region Parameter BackupVaultAccountId
+        /// <summary>
+        /// <para>
+        /// <para>This is the account ID of the specified backup vault.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BackupVaultAccountId { get; set; }
+        #endregion
+        
         #region Parameter BackupVaultName
         /// <summary>
         /// <para>
@@ -123,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = (response, cmdlet) => this.RecoveryPointArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BackupVaultAccountId = this.BackupVaultAccountId;
             context.BackupVaultName = this.BackupVaultName;
             #if MODULAR
             if (this.BackupVaultName == null && ParameterWasBound(nameof(this.BackupVaultName)))
@@ -153,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request
             var request = new Amazon.Backup.Model.DescribeRecoveryPointRequest();
             
+            if (cmdletContext.BackupVaultAccountId != null)
+            {
+                request.BackupVaultAccountId = cmdletContext.BackupVaultAccountId;
+            }
             if (cmdletContext.BackupVaultName != null)
             {
                 request.BackupVaultName = cmdletContext.BackupVaultName;
@@ -222,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BackupVaultAccountId { get; set; }
             public System.String BackupVaultName { get; set; }
             public System.String RecoveryPointArn { get; set; }
             public System.Func<Amazon.Backup.Model.DescribeRecoveryPointResponse, GetBAKRecoveryPointCmdlet, object> Select { get; set; } =

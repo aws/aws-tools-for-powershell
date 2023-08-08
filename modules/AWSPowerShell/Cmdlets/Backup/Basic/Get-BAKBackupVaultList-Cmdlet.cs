@@ -40,6 +40,27 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKBackupVaultListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        #region Parameter ByShared
+        /// <summary>
+        /// <para>
+        /// <para>This parameter will sort the list of vaults by shared vaults.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ByShared { get; set; }
+        #endregion
+        
+        #region Parameter ByVaultType
+        /// <summary>
+        /// <para>
+        /// <para>This parameter will sort the list of vaults by vault type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Backup.VaultType")]
+        public Amazon.Backup.VaultType ByVaultType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -109,6 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = CreateSelectDelegate<Amazon.Backup.Model.ListBackupVaultsResponse, GetBAKBackupVaultListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ByShared = this.ByShared;
+            context.ByVaultType = this.ByVaultType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -139,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListBackupVaultsRequest();
             
+            if (cmdletContext.ByShared != null)
+            {
+                request.ByShared = cmdletContext.ByShared.Value;
+            }
+            if (cmdletContext.ByVaultType != null)
+            {
+                request.ByVaultType = cmdletContext.ByVaultType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -198,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListBackupVaultsRequest();
+            if (cmdletContext.ByShared != null)
+            {
+                request.ByShared = cmdletContext.ByShared.Value;
+            }
+            if (cmdletContext.ByVaultType != null)
+            {
+                request.ByVaultType = cmdletContext.ByVaultType;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -317,6 +356,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ByShared { get; set; }
+            public Amazon.Backup.VaultType ByVaultType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Backup.Model.ListBackupVaultsResponse, GetBAKBackupVaultListCmdlet, object> Select { get; set; } =

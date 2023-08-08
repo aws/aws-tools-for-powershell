@@ -22,39 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.ElastiCache;
+using Amazon.ElastiCache.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Returns metadata about a backup vault specified by its name.
+    /// Async API to test connection between source and target replication group.
     /// </summary>
-    [Cmdlet("Get", "BAKBackupVault")]
-    [OutputType("Amazon.Backup.Model.DescribeBackupVaultResponse")]
-    [AWSCmdlet("Calls the AWS Backup DescribeBackupVault API operation.", Operation = new[] {"DescribeBackupVault"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeBackupVaultResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.DescribeBackupVaultResponse",
-        "This cmdlet returns an Amazon.Backup.Model.DescribeBackupVaultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "ECMigration")]
+    [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
+    [AWSCmdlet("Calls the Amazon ElastiCache TestMigration API operation.", Operation = new[] {"TestMigration"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.TestMigrationResponse))]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup or Amazon.ElastiCache.Model.TestMigrationResponse",
+        "This cmdlet returns an Amazon.ElastiCache.Model.ReplicationGroup object.",
+        "The service call response (type Amazon.ElastiCache.Model.TestMigrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBAKBackupVaultCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class TestECMigrationCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
-        #region Parameter BackupVaultAccountId
+        #region Parameter CustomerNodeEndpointList
         /// <summary>
         /// <para>
-        /// <para>This is the account ID of the specified backup vault.</para>
+        /// <para> List of endpoints from which data should be migrated. List should have only one element.
+        /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String BackupVaultAccountId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public Amazon.ElastiCache.Model.CustomerNodeEndpoint[] CustomerNodeEndpointList { get; set; }
         #endregion
         
-        #region Parameter BackupVaultName
+        #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of a logical container where backups are stored. Backup vaults are identified
-        /// by names that are unique to the account used to create them and the Amazon Web Services
-        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// <para> The ID of the replication group to which data is to be migrated. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,26 +72,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupVaultName { get; set; }
+        public System.String ReplicationGroupId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.DescribeBackupVaultResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.DescribeBackupVaultResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplicationGroup'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElastiCache.Model.TestMigrationResponse).
+        /// Specifying the name of a property of type Amazon.ElastiCache.Model.TestMigrationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ReplicationGroup";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupVaultName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupVaultName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ReplicationGroupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReplicationGroupId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupVaultName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReplicationGroupId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -102,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.DescribeBackupVaultResponse, GetBAKBackupVaultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElastiCache.Model.TestMigrationResponse, TestECMigrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -111,15 +118,24 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupVaultName;
+                context.Select = (response, cmdlet) => this.ReplicationGroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupVaultAccountId = this.BackupVaultAccountId;
-            context.BackupVaultName = this.BackupVaultName;
-            #if MODULAR
-            if (this.BackupVaultName == null && ParameterWasBound(nameof(this.BackupVaultName)))
+            if (this.CustomerNodeEndpointList != null)
             {
-                WriteWarning("You are passing $null as a value for parameter BackupVaultName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CustomerNodeEndpointList = new List<Amazon.ElastiCache.Model.CustomerNodeEndpoint>(this.CustomerNodeEndpointList);
+            }
+            #if MODULAR
+            if (this.CustomerNodeEndpointList == null && ParameterWasBound(nameof(this.CustomerNodeEndpointList)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomerNodeEndpointList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ReplicationGroupId = this.ReplicationGroupId;
+            #if MODULAR
+            if (this.ReplicationGroupId == null && ParameterWasBound(nameof(this.ReplicationGroupId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ReplicationGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,15 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.DescribeBackupVaultRequest();
+            var request = new Amazon.ElastiCache.Model.TestMigrationRequest();
             
-            if (cmdletContext.BackupVaultAccountId != null)
+            if (cmdletContext.CustomerNodeEndpointList != null)
             {
-                request.BackupVaultAccountId = cmdletContext.BackupVaultAccountId;
+                request.CustomerNodeEndpointList = cmdletContext.CustomerNodeEndpointList;
             }
-            if (cmdletContext.BackupVaultName != null)
+            if (cmdletContext.ReplicationGroupId != null)
             {
-                request.BackupVaultName = cmdletContext.BackupVaultName;
+                request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
             }
             
             CmdletOutput output;
@@ -179,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.DescribeBackupVaultResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.DescribeBackupVaultRequest request)
+        private Amazon.ElastiCache.Model.TestMigrationResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.TestMigrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "DescribeBackupVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "TestMigration");
             try
             {
                 #if DESKTOP
-                return client.DescribeBackupVault(request);
+                return client.TestMigration(request);
                 #elif CORECLR
-                return client.DescribeBackupVaultAsync(request).GetAwaiter().GetResult();
+                return client.TestMigrationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,10 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupVaultAccountId { get; set; }
-            public System.String BackupVaultName { get; set; }
-            public System.Func<Amazon.Backup.Model.DescribeBackupVaultResponse, GetBAKBackupVaultCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<Amazon.ElastiCache.Model.CustomerNodeEndpoint> CustomerNodeEndpointList { get; set; }
+            public System.String ReplicationGroupId { get; set; }
+            public System.Func<Amazon.ElastiCache.Model.TestMigrationResponse, TestECMigrationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ReplicationGroup;
         }
         
     }

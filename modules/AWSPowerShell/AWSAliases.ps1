@@ -1993,6 +1993,8 @@ Set-Alias -Name Create-BAKFramework -Value New-BAKFramework
 Set-Alias -Name BAK-CreateFramework -Value New-BAKFramework
 Set-Alias -Name Create-BAKLegalHold -Value New-BAKLegalHold
 Set-Alias -Name BAK-CreateLegalHold -Value New-BAKLegalHold
+Set-Alias -Name Create-BAKLogicallyAirGappedBackupVault -Value New-BAKLogicallyAirGappedBackupVault
+Set-Alias -Name BAK-CreateLogicallyAirGappedBackupVault -Value New-BAKLogicallyAirGappedBackupVault
 Set-Alias -Name Create-BAKReportPlan -Value New-BAKReportPlan
 Set-Alias -Name BAK-CreateReportPlan -Value New-BAKReportPlan
 Set-Alias -Name Delete-BAKBackupPlan -Value Remove-BAKBackupPlan
@@ -2085,6 +2087,9 @@ Set-Alias -Name BAK-ListLegalHolds -Value Get-BAKLegalHoldList
 Set-Alias -Name List-BAKProtectedResources -Value Get-BAKProtectedResourceList
 Set-Alias -Name List-BAKProtectedResourceList -Value Get-BAKProtectedResourceList
 Set-Alias -Name BAK-ListProtectedResources -Value Get-BAKProtectedResourceList
+Set-Alias -Name List-BAKProtectedResourcesByBackupVault -Value Get-BAKProtectedResourcesByBackupVaultList
+Set-Alias -Name List-BAKProtectedResourcesByBackupVaultList -Value Get-BAKProtectedResourcesByBackupVaultList
+Set-Alias -Name BAK-ListProtectedResourcesByBackupVault -Value Get-BAKProtectedResourcesByBackupVaultList
 Set-Alias -Name List-BAKRecoveryPointsByBackupVault -Value Get-BAKRecoveryPointsByBackupVaultList
 Set-Alias -Name List-BAKRecoveryPointsByBackupVaultList -Value Get-BAKRecoveryPointsByBackupVaultList
 Set-Alias -Name BAK-ListRecoveryPointsByBackupVault -Value Get-BAKRecoveryPointsByBackupVaultList
@@ -9291,6 +9296,7 @@ Set-Alias -Name EC-ResetCacheParameterGroup -Value Reset-ECCacheParameterGroup
 Set-Alias -Name EC-RevokeCacheSecurityGroupIngress -Value Revoke-ECCacheSecurityGroupIngress
 Set-Alias -Name EC-StartMigration -Value Start-ECMigration
 Set-Alias -Name EC-TestFailover -Value Test-ECFailover
+Set-Alias -Name EC-TestMigration -Value Test-ECMigration
 Set-Alias -Name Abort-EBEnvironmentUpdate -Value Stop-EBEnvironmentUpdate
 Set-Alias -Name EB-AbortEnvironmentUpdate -Value Stop-EBEnvironmentUpdate
 Set-Alias -Name Apply-EBEnvironmentManagedAction -Value Submit-EBEnvironmentManagedAction

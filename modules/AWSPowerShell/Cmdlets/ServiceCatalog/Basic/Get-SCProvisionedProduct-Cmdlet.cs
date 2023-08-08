@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Value
         /// <summary>
         /// <para>
-        /// <para>The user to which the access level applies. The only supported value is <code>Self</code>.</para>
+        /// <para>The user to which the access level applies. The only supported value is <code>self</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

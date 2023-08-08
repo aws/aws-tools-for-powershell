@@ -45,6 +45,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLogicallyAirGappedBackupVault" OutputProperty="*" Verb="New" Noun="LogicallyAirGappedBackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReportPlan" OutputProperty="*" Verb="New" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -197,7 +201,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -214,6 +218,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectedResourcesByBackupVault" OutputProperty="Results" Verb="Get" Noun="ProtectedResourcesByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <para>
     /// The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation
     /// is <code>IN_PROGRESS</code>, as the share is not available to recipient entities.
-    /// In this case, you must wait for the portfolio share to be COMPLETED.
+    /// In this case, you must wait for the portfolio share to be completed.
     /// </para><para>
     /// You must provide the <code>accountId</code> or organization node in the input, but
     /// not both.

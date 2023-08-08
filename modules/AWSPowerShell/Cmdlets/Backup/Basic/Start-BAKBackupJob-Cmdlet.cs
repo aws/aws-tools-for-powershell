@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>A value in minutes during which a successfully started backup must complete, or else
         /// Backup will cancel the job. This value is optional. This value begins counting down
         /// from when the backup was scheduled. It does not add additional time for <code>StartWindowMinutes</code>,
-        /// or if the backup started later than scheduled.</para>
+        /// or if the backup started later than scheduled.</para><para>Like <code>StartWindowMinutes</code>, this parameter has a maximum value of 100 years
+        /// (52,560,000 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>A value in minutes after a backup is scheduled before a job will be canceled if it
         /// doesn't start successfully. This value is optional, and the default is 8 hours. If
-        /// this value is included, it must be at least 60 minutes to avoid errors.</para><para>During the start window, the backup job status remains in <code>CREATED</code> status
+        /// this value is included, it must be at least 60 minutes to avoid errors.</para><para>This parameter has a maximum value of 100 years (52,560,000 minutes).</para><para>During the start window, the backup job status remains in <code>CREATED</code> status
         /// until it has successfully begun or until the start window time has run out. If within
         /// the start window time Backup receives an error that allows the job to be retried,
         /// Backup will automatically retry to begin the job at least every 10 minutes until the

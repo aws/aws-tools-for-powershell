@@ -118,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>If set to true, Service Catalog stops validating the specified provisioning artifact
-        /// even if it is invalid.</para>
+        /// even if it is invalid. </para><para>Service Catalog does not support template validation for the <code>TERRAFORM_OS</code>
+        /// product type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,8 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_Type
         /// <summary>
         /// <para>
-        /// <para>The type of provisioning artifact.</para><ul><li><para><code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</para></li><li><para><code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</para></li><li><para><code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon
-        /// Web Services Resources</para></li><li><para><code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</para></li></ul>
+        /// <para>The type of provisioning artifact.</para><ul><li><para><code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</para></li><li><para><code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

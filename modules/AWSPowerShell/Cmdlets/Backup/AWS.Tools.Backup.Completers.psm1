@@ -101,6 +101,13 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.VaultType
+        "Get-BAKBackupVaultList/ByVaultType"
+        {
+            $v = "BACKUP_VAULT","LOGICALLY_AIR_GAPPED_BACKUP_VAULT"
+            break
+        }
+
 
     }
 
@@ -112,6 +119,7 @@ $BAK_Completers = {
 $BAK_map = @{
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList")
+    "ByVaultType"=@("Get-BAKBackupVaultList")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -170,6 +178,7 @@ $BAK_SelectMap = @{
                "New-BAKBackupVault",
                "New-BAKFramework",
                "New-BAKLegalHold",
+               "New-BAKLogicallyAirGappedBackupVault",
                "New-BAKReportPlan",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
@@ -213,6 +222,7 @@ $BAK_SelectMap = @{
                "Get-BAKFrameworkList",
                "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
+               "Get-BAKProtectedResourcesByBackupVaultList",
                "Get-BAKRecoveryPointsByBackupVaultList",
                "Get-BAKRecoveryPointsByLegalHoldList",
                "Get-BAKRecoveryPointsByResourceList",

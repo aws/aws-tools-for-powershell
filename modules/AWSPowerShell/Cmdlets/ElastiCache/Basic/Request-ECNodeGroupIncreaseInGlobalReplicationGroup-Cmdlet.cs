@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NodeGroupCount
         /// <summary>
         /// <para>
-        /// <para>The number of node groups you wish to add</para>
+        /// <para>Total number of node groups you want</para>
         /// </para>
         /// </summary>
         #if !MODULAR

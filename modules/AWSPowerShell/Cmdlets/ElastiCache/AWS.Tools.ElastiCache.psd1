@@ -150,7 +150,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ECMigration', 
         'Start-ECUpdateActionBatch', 
         'Stop-ECUpdateActionBatch', 
-        'Test-ECFailover')
+        'Test-ECFailover', 
+        'Test-ECMigration')
 
     # Variables to export from this module
     VariablesToExport = '*'

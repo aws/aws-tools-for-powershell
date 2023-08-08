@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     ///  
     /// <para>
     ///  Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets,
-    /// and non-root nested stacks are not supported. 
+    /// and non-root nested stacks, are not supported. 
     /// </para><para>
     ///  The CloudFormation stack must have one of the following statuses to be imported:
     /// <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>,
@@ -44,13 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
     ///  Import of the resource requires that the CloudFormation stack template matches the
     /// associated Service Catalog product provisioning artifact. 
     /// </para><note><para>
-    ///  When you import an existing CloudFormation stack into a portfolio, constraints that
-    /// are associated with the product aren't applied during the import process. The constraints
-    /// are applied after you call <code>UpdateProvisionedProduct</code> for the provisioned
-    /// product. 
+    ///  When you import an existing CloudFormation stack into a portfolio, Service Catalog
+    /// does not apply the product's associated constraints during the import process. Service
+    /// Catalog applies the constraints after you call <code>UpdateProvisionedProduct</code>
+    /// for the provisioned product. 
     /// </para></note><para>
     ///  The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
     /// and <code>cloudformation:DescribeStacks</code> IAM policy permissions. 
+    /// </para><para>
+    /// You can only import one provisioned product at a time. The product's CloudFormation
+    /// stack must have the <code>IMPORT_COMPLETE</code> status before you import another.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Import", "SCAsProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
