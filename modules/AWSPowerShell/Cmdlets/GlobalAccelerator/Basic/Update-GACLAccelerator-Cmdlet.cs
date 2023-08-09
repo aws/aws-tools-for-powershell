@@ -28,13 +28,28 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Update an accelerator. 
+    /// Update an accelerator to make changes, such as the following: 
     /// 
-    ///  <important><para>
+    ///  <ul><li><para>
+    /// Change the name of the accelerator.
+    /// </para></li><li><para>
+    /// Disable the accelerator so that it no longer accepts or routes traffic, or so that
+    /// you can delete it.
+    /// </para></li><li><para>
+    /// Enable the accelerator, if it is disabled.
+    /// </para></li><li><para>
+    /// Change the IP address type to dual-stack if it is IPv4, or change the IP address type
+    /// to IPv4 if it's dual-stack.
+    /// </para></li></ul><para>
+    /// Be aware that static IP addresses remain assigned to your accelerator for as long
+    /// as it exists, even if you disable the accelerator and it no longer accepts or routes
+    /// traffic. However, when you delete the accelerator, you lose the static IP addresses
+    /// that are assigned to it, so you can no longer route traffic by using them.
+    /// </para><important><para>
     /// Global Accelerator is a global service that supports endpoints in multiple Amazon
     /// Web Services Regions but you must specify the US West (Oregon) Region to create, update,
     /// or otherwise work with accelerators. That is, for example, specify <code>--region
-    /// us-west-2</code> on AWS CLI commands.
+    /// us-west-2</code> on Amazon Web Services CLI commands.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "GACLAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

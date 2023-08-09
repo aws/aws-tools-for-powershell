@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files.
         /// The IAM permission <code>fsx:BypassSnaplockEnterpriseRetention</code> is also required
         /// to delete SnapLock Enterprise volumes with unexpired WORM files. The default value
-        /// is <code>false</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-delete-volume">
-        /// Deleting a SnapLock volume </a>. </para>
+        /// is <code>false</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-delete-volume.html">
+        /// Deleting a SnapLock volume</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

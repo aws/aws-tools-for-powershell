@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// Create an endpoint group for the specified listener. An endpoint group is a collection
     /// of endpoints in one Amazon Web Services Region. A resource must be valid and active
     /// when you add it as an endpoint.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about endpoint types and requirements for endpoints that you
+    /// can add to Global Accelerator, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html">
+    /// Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "GACLEndpointGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.EndpointGroup")]

@@ -36,15 +36,20 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// 
     ///  
     /// <para>
-    /// There are two advantages to using <code>AddEndpoints</code> to add endpoints:
+    /// There are two advantages to using <code>AddEndpoints</code> to add endpoints in Global
+    /// Accelerator:
     /// </para><ul><li><para>
     /// It's faster, because Global Accelerator only has to resolve the new endpoints that
-    /// you're adding.
+    /// you're adding, rather than resolving new and existing endpoints.
     /// </para></li><li><para>
-    /// It's more convenient, because you don't need to specify all of the current endpoints
-    /// that are already in the endpoint group in addition to the new endpoints that you want
+    /// It's more convenient, because you don't need to specify the current endpoints that
+    /// are already in the endpoint group, in addition to the new endpoints that you want
     /// to add.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For information about endpoint types and requirements for endpoints that you can add
+    /// to Global Accelerator, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html">
+    /// Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "GACLEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.AddEndpointsResponse")]

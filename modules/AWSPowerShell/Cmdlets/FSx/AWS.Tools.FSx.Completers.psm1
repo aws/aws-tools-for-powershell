@@ -174,7 +174,7 @@ $FSX_Completers = {
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DeploymentType")
         }
         {
-            $v = "SINGLE_AZ_1","SINGLE_AZ_2"
+            $v = "MULTI_AZ_1","SINGLE_AZ_1","SINGLE_AZ_2"
             break
         }
 
@@ -244,7 +244,8 @@ $FSX_Completers = {
         # Amazon.FSx.StorageType
         {
             ($_ -eq "New-FSXFileSystem/StorageType") -Or
-            ($_ -eq "New-FSXFileSystemFromBackup/StorageType")
+            ($_ -eq "New-FSXFileSystemFromBackup/StorageType") -Or
+            ($_ -eq "Update-FSXFileSystem/StorageType")
         }
         {
             $v = "HDD","SSD"
@@ -266,6 +267,13 @@ $FSX_Completers = {
         }
         {
             $v = "ALL","AUTO","NONE","SNAPSHOT_ONLY"
+            break
+        }
+
+        # Amazon.FSx.Unit
+        "New-FSXDataRepositoryTask/ReleaseConfiguration_DurationSinceLastAccess_Unit"
+        {
+            $v = "DAYS"
             break
         }
 
@@ -304,10 +312,11 @@ $FSX_map = @{
     "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "OpenZFSConfiguration_OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
     "OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
+    "ReleaseConfiguration_DurationSinceLastAccess_Unit"=@("New-FSXDataRepositoryTask")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
     "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
-    "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
+    "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "Type"=@("New-FSXDataRepositoryTask")
     "VolumeType"=@("New-FSXVolume")
 }

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelCardName
         /// <summary>
         /// <para>
-        /// <para>The name of the model card to describe.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the model card to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

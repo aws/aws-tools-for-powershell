@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelCardName
         /// <summary>
         /// <para>
-        /// <para>List model card versions for the model card with the specified name.</para>
+        /// <para>List model card versions for the model card with the specified name or Amazon Resource
+        /// Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

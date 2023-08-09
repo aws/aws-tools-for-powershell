@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// range from 21 to 29. For example, <code>{'ANDROID_PLATFORM': 28}</code>.</para></li><li><para><code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler options if
         /// compiling for ARM 32-bit platform with NEON support.</para></li></ul></li><li><para><code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options passed
         /// in as a JSON string. For example, <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores
-        /// 2 -O2\""</code>. </para><para>For information about supported compiler options, see <a href="https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md">
-        /// Neuron Compiler CLI</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><code>TargetDevice</code> supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
+        /// 2 -O2\""</code>. </para><para>For information about supported compiler options, see <a href="https://awsdocs-neuron.readthedocs-hosted.com/en/latest/compiler/neuronx-cc/api-reference-guide/neuron-compiler-cli-reference-guide.html">
+        /// Neuron Compiler CLI Reference Guide</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><code>TargetDevice</code> supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
         /// tar.gz file. For example, <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
         /// Labels inside the txt file should be separated by newlines.</para></li></ul></li><li><para><code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the
         /// following compiler options:</para><ul><li><para><code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class NewCHMVOPhoneNumberOrderCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter E164PhoneNumber
@@ -59,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("E164PhoneNumbers")]
         public System.String[] E164PhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name assigned to one or more phone numbers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter ProductType
@@ -150,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 WriteWarning("You are passing $null as a value for parameter E164PhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Name = this.Name;
             context.ProductType = this.ProductType;
             #if MODULAR
             if (this.ProductType == null && ParameterWasBound(nameof(this.ProductType)))
@@ -176,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (cmdletContext.E164PhoneNumber != null)
             {
                 request.E164PhoneNumbers = cmdletContext.E164PhoneNumber;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.ProductType != null)
             {
@@ -243,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> E164PhoneNumber { get; set; }
+            public System.String Name { get; set; }
             public Amazon.ChimeSDKVoice.PhoneNumberProductType ProductType { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.CreatePhoneNumberOrderResponse, NewCHMVOPhoneNumberOrderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PhoneNumberOrder;

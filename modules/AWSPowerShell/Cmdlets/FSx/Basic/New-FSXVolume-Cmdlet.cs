@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete
         /// WORM files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code>
         /// is a terminal state. If privileged delete is permanently disabled on a SnapLock volume,
-        /// you can't re-enable it. The default value is <code>DISABLED</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#privileged-delete">Privileged
+        /// you can't re-enable it. The default value is <code>DISABLED</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged
         /// delete</a>. </para>
         /// </para>
         /// </summary>
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// deleted by authorized users before their retention periods expire using privileged
         /// delete. This retention mode is used to advance an organization's data integrity and
         /// internal compliance or to test retention settings before using SnapLock Compliance.
-        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.htmlFile">SnapLock
+        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html">SnapLock
         /// Enterprise</a>. </para></li></ul>
         /// </para>
         /// </summary>

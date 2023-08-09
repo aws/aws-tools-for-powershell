@@ -1,4 +1,15 @@
-﻿### 4.1.389 (2023-08-08 21:21Z)
+﻿### 4.1.390 (2023-08-09 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.617.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Voice
+    * Modified cmdlet New-CHMVOPhoneNumberOrder: added parameter Name.
+    * Modified cmdlet Update-CHMVOPhoneNumber: added parameter Name.
+  * Amazon FSx
+    * Modified cmdlet New-FSXDataRepositoryTask: added parameters DurationSinceLastAccess_Unit and DurationSinceLastAccess_Value.
+    * Modified cmdlet New-FSXFileSystem: added parameters OpenZFSConfiguration_EndpointIpAddressRange, OpenZFSConfiguration_PreferredSubnetId and OpenZFSConfiguration_RouteTableId.
+    * Modified cmdlet New-FSXFileSystemFromBackup: added parameters OpenZFSConfiguration_EndpointIpAddressRange, OpenZFSConfiguration_PreferredSubnetId and OpenZFSConfiguration_RouteTableId.
+    * Modified cmdlet Update-FSXFileSystem: added parameters OpenZFSConfiguration_AddRouteTableId, OpenZFSConfiguration_RemoveRouteTableId and StorageType.
+
+### 4.1.389 (2023-08-08 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.616.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Added cmdlet Get-BAKProtectedResourcesByBackupVaultList leveraging the ListProtectedResourcesByBackupVault service API.

@@ -28,16 +28,27 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates an Amazon FSx for Lustre data repository task. You use data repository tasks
-    /// to perform bulk operations between your Amazon FSx file system and its linked data
-    /// repositories. An example of a data repository task is exporting any data and metadata
-    /// changes, including POSIX metadata, to files, directories, and symbolic links (symlinks)
-    /// from your FSx file system to a linked data repository. A <code>CreateDataRepositoryTask</code>
-    /// operation will fail if a data repository is not linked to the FSx file system. To
-    /// learn more about data repository tasks, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data
+    /// Creates an Amazon FSx for Lustre data repository task. A <code>CreateDataRepositoryTask</code>
+    /// operation will fail if a data repository is not linked to the FSx file system.
+    /// 
+    ///  
+    /// <para>
+    /// You use import and export data repository tasks to perform bulk operations between
+    /// your FSx for Lustre file system and its linked data repositories. An example of a
+    /// data repository task is exporting any data and metadata changes, including POSIX metadata,
+    /// to files, directories, and symbolic links (symlinks) from your FSx file system to
+    /// a linked data repository.
+    /// </para><para>
+    /// You use release data repository tasks to release data from your file system for files
+    /// that are archived to S3. The metadata of released files remains on the file system
+    /// so users or applications can still access released files by reading the files again,
+    /// which will restore data from Amazon S3 to the FSx for Lustre file system.
+    /// </para><para>
+    /// To learn more about data repository tasks, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data
     /// Repository Tasks</a>. To learn more about linking a data repository to your file system,
     /// see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking
     /// your file system to an S3 bucket</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "FSXDataRepositoryTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.DataRepositoryTask")]
@@ -142,15 +153,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A list of paths for the data repository task to use when the task is processed. If
-        /// a path that you provide isn't valid, the task fails.</para><ul><li><para>For export tasks, the list contains paths on the Amazon FSx file system from which
+        /// a path that you provide isn't valid, the task fails. If you don't provide paths, the
+        /// default behavior is to export all files to S3 (for export tasks), import all files
+        /// from S3 (for import tasks), or release all archived files that meet the last accessed
+        /// time criteria (for release tasks).</para><ul><li><para>For export tasks, the list contains paths on the FSx for Lustre file system from which
         /// the files are exported to the Amazon S3 bucket. The default path is the file system
         /// root directory. The paths you provide need to be relative to the mount point of the
         /// file system. If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code>
         /// is a directory or file on the file system you want to export, then the path to provide
         /// is <code>path1</code>.</para></li><li><para>For import tasks, the list contains paths in the Amazon S3 bucket from which POSIX
-        /// metadata changes are imported to the Amazon FSx file system. The path can be an S3
-        /// bucket or prefix in the format <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code>
-        /// is optional).</para></li></ul>
+        /// metadata changes are imported to the FSx for Lustre file system. The path can be an
+        /// S3 bucket or prefix in the format <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code>
+        /// is optional). </para></li><li><para>For release tasks, the list contains directory or file paths on the FSx for Lustre
+        /// file system from which to release archived files. If a directory is specified, files
+        /// within the directory are released. If a file path is specified, only that file is
+        /// released. To release all archived files in the file system, specify a forward slash
+        /// (/) as the path.</para><note><para>A file must also meet the last accessed time criteria specified in for the file to
+        /// be released.</para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of data repository task to create.</para>
+        /// <para>Specifies the type of data repository task to create.</para><ul><li><para><code>EXPORT_TO_REPOSITORY</code> tasks export from your Amazon FSx for Lustre file
+        /// system to a linked data repository.</para></li><li><para><code>IMPORT_METADATA_FROM_REPOSITORY</code> tasks import metadata changes from a
+        /// linked S3 bucket to your Amazon FSx for Lustre file system.</para></li><li><para><code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in your Amazon FSx
+        /// for Lustre file system that are archived and that meet your specified release criteria.</para></li><li><para><code>AUTO_RELEASE_DATA</code> tasks automatically release files from an Amazon File
+        /// Cache resource.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -199,6 +222,37 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.FSx.DataRepositoryTaskType")]
         public Amazon.FSx.DataRepositoryTaskType Type { get; set; }
+        #endregion
+        
+        #region Parameter DurationSinceLastAccess_Unit
+        /// <summary>
+        /// <para>
+        /// <para>The unit of time used by the <code>Value</code> parameter to determine if a file can
+        /// be released, based on when it was last accessed. <code>DAYS</code> is the only supported
+        /// value. This is a required parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReleaseConfiguration_DurationSinceLastAccess_Unit")]
+        [AWSConstantClassSource("Amazon.FSx.Unit")]
+        public Amazon.FSx.Unit DurationSinceLastAccess_Unit { get; set; }
+        #endregion
+        
+        #region Parameter DurationSinceLastAccess_Value
+        /// <summary>
+        /// <para>
+        /// <para>An integer that represents the minimum amount of time (in days) since a file was last
+        /// accessed in the file system. Only archived files with a <code>MAX(atime, ctime, mtime)</code>
+        /// timestamp that is more than this amount of time in the past (relative to the task
+        /// create time) will be released. The default of <code>Value</code> is <code>0</code>.
+        /// This is a required parameter.</para><note><para>If an archived file meets the last accessed time criteria, its file or directory path
+        /// must also be specified in the <code>Paths</code> parameter of the operation in order
+        /// for the file to be released.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReleaseConfiguration_DurationSinceLastAccess_Value")]
+        public System.Int64? DurationSinceLastAccess_Value { get; set; }
         #endregion
         
         #region Parameter Select
@@ -276,6 +330,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 context.Path = new List<System.String>(this.Path);
             }
+            context.DurationSinceLastAccess_Unit = this.DurationSinceLastAccess_Unit;
+            context.DurationSinceLastAccess_Value = this.DurationSinceLastAccess_Value;
             context.Report_Enabled = this.Report_Enabled;
             #if MODULAR
             if (this.Report_Enabled == null && ParameterWasBound(nameof(this.Report_Enabled)))
@@ -328,6 +384,50 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.Path != null)
             {
                 request.Paths = cmdletContext.Path;
+            }
+            
+             // populate ReleaseConfiguration
+            var requestReleaseConfigurationIsNull = true;
+            request.ReleaseConfiguration = new Amazon.FSx.Model.ReleaseConfiguration();
+            Amazon.FSx.Model.DurationSinceLastAccess requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess = null;
+            
+             // populate DurationSinceLastAccess
+            var requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccessIsNull = true;
+            requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess = new Amazon.FSx.Model.DurationSinceLastAccess();
+            Amazon.FSx.Unit requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Unit = null;
+            if (cmdletContext.DurationSinceLastAccess_Unit != null)
+            {
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Unit = cmdletContext.DurationSinceLastAccess_Unit;
+            }
+            if (requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Unit != null)
+            {
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess.Unit = requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Unit;
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccessIsNull = false;
+            }
+            System.Int64? requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Value = null;
+            if (cmdletContext.DurationSinceLastAccess_Value != null)
+            {
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Value = cmdletContext.DurationSinceLastAccess_Value.Value;
+            }
+            if (requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Value != null)
+            {
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess.Value = requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess_durationSinceLastAccess_Value.Value;
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccessIsNull = false;
+            }
+             // determine if requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess should be set to null
+            if (requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccessIsNull)
+            {
+                requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess = null;
+            }
+            if (requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess != null)
+            {
+                request.ReleaseConfiguration.DurationSinceLastAccess = requestReleaseConfiguration_releaseConfiguration_DurationSinceLastAccess;
+                requestReleaseConfigurationIsNull = false;
+            }
+             // determine if request.ReleaseConfiguration should be set to null
+            if (requestReleaseConfigurationIsNull)
+            {
+                request.ReleaseConfiguration = null;
             }
             
              // populate Report
@@ -451,6 +551,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
             public List<System.String> Path { get; set; }
+            public Amazon.FSx.Unit DurationSinceLastAccess_Unit { get; set; }
+            public System.Int64? DurationSinceLastAccess_Value { get; set; }
             public System.Boolean? Report_Enabled { get; set; }
             public Amazon.FSx.ReportFormat Report_Format { get; set; }
             public System.String Report_Path { get; set; }

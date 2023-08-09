@@ -29,17 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
     /// Cancels an existing Amazon FSx for Lustre data repository task if that task is in
-    /// either the <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel a
-    /// task, Amazon FSx does the following.
+    /// either the <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel am
+    /// export task, Amazon FSx does the following.
     /// 
     ///  <ul><li><para>
     /// Any files that FSx has already exported are not reverted.
     /// </para></li><li><para>
-    /// FSx continues to export any files that are "in-flight" when the cancel operation is
+    /// FSx continues to export any files that are in-flight when the cancel operation is
     /// received.
     /// </para></li><li><para>
     /// FSx does not export any files that have not yet been exported.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For a release task, Amazon FSx will stop releasing files upon cancellation. Any files
+    /// that have already been released will remain in the released state.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "FSXDataRepositoryTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.CancelDataRepositoryTaskResponse")]

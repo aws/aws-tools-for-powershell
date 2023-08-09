@@ -223,8 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies the file system deployment type. Single AZ deployment types are configured
         /// for redundancy within a single Availability Zone in an Amazon Web Services Region
-        /// . Valid values are the following:</para><ul><li><para><code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities
-        /// of 64 - 4,096 MBps. <code>Single_AZ_1</code> is available in all Amazon Web Services
+        /// . Valid values are the following:</para><ul><li><para><code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured
+        /// for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones
+        /// (AZs). <code>Multi_AZ_1</code> is available in the following Amazon Web Services Regions:
+        /// </para></li><li><para><code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities
+        /// of 64 - 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services
         /// Regions where Amazon FSx for OpenZFS is available.</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
         /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
         /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)
@@ -252,6 +255,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OntapConfiguration_EndpointIpAddressRange { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_EndpointIpAddressRange
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+        /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
+        /// Amazon FSx selects an available /28 IP address range for you from one of the VPC's
+        /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
+        /// in the same VPC/route tables.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
         #endregion
         
         #region Parameter FileSystemType
@@ -385,6 +402,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OntapConfiguration_PreferredSubnetId { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_PreferredSubnetId
+        /// <summary>
+        /// <para>
+        /// <para>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This
+        /// specifies the subnet in which you want the preferred file server to be located.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpenZFSConfiguration_PreferredSubnetId { get; set; }
+        #endregion
+        
         #region Parameter RootVolumeConfiguration_ReadOnly
         /// <summary>
         /// <para>
@@ -426,6 +454,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OntapConfiguration_RouteTableIds")]
         public System.String[] OntapConfiguration_RouteTableId { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_RouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
+        /// file system's endpoints will be created. You should specify all VPC route tables associated
+        /// with the subnets in which your clients are located. By default, Amazon FSx selects
+        /// your VPC's default route table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_RouteTableIds")]
+        public System.String[] OpenZFSConfiguration_RouteTableId { get; set; }
         #endregion
         
         #region Parameter SecurityGroupId
@@ -664,6 +706,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OpenZFSConfiguration_DeploymentType = this.OpenZFSConfiguration_DeploymentType;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Iops = this.OpenZFSConfiguration_DiskIopsConfiguration_Iops;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Mode = this.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
+            context.OpenZFSConfiguration_EndpointIpAddressRange = this.OpenZFSConfiguration_EndpointIpAddressRange;
+            context.OpenZFSConfiguration_PreferredSubnetId = this.OpenZFSConfiguration_PreferredSubnetId;
             context.RootVolumeConfiguration_CopyTagsToSnapshot = this.RootVolumeConfiguration_CopyTagsToSnapshot;
             context.RootVolumeConfiguration_DataCompressionType = this.RootVolumeConfiguration_DataCompressionType;
             if (this.RootVolumeConfiguration_NfsExport != null)
@@ -675,6 +719,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (this.RootVolumeConfiguration_UserAndGroupQuota != null)
             {
                 context.RootVolumeConfiguration_UserAndGroupQuota = new List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota>(this.RootVolumeConfiguration_UserAndGroupQuota);
+            }
+            if (this.OpenZFSConfiguration_RouteTableId != null)
+            {
+                context.OpenZFSConfiguration_RouteTableId = new List<System.String>(this.OpenZFSConfiguration_RouteTableId);
             }
             context.OpenZFSConfiguration_ThroughputCapacity = this.OpenZFSConfiguration_ThroughputCapacity;
             context.OpenZFSConfiguration_WeeklyMaintenanceStartTime = this.OpenZFSConfiguration_WeeklyMaintenanceStartTime;
@@ -929,6 +977,36 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OpenZFSConfiguration.DeploymentType = requestOpenZFSConfiguration_openZFSConfiguration_DeploymentType;
                 requestOpenZFSConfigurationIsNull = false;
             }
+            System.String requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpAddressRange = null;
+            if (cmdletContext.OpenZFSConfiguration_EndpointIpAddressRange != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpAddressRange = cmdletContext.OpenZFSConfiguration_EndpointIpAddressRange;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpAddressRange != null)
+            {
+                request.OpenZFSConfiguration.EndpointIpAddressRange = requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpAddressRange;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            System.String requestOpenZFSConfiguration_openZFSConfiguration_PreferredSubnetId = null;
+            if (cmdletContext.OpenZFSConfiguration_PreferredSubnetId != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_PreferredSubnetId = cmdletContext.OpenZFSConfiguration_PreferredSubnetId;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_PreferredSubnetId != null)
+            {
+                request.OpenZFSConfiguration.PreferredSubnetId = requestOpenZFSConfiguration_openZFSConfiguration_PreferredSubnetId;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            List<System.String> requestOpenZFSConfiguration_openZFSConfiguration_RouteTableId = null;
+            if (cmdletContext.OpenZFSConfiguration_RouteTableId != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_RouteTableId = cmdletContext.OpenZFSConfiguration_RouteTableId;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_RouteTableId != null)
+            {
+                request.OpenZFSConfiguration.RouteTableIds = requestOpenZFSConfiguration_openZFSConfiguration_RouteTableId;
+                requestOpenZFSConfigurationIsNull = false;
+            }
             System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_ThroughputCapacity = null;
             if (cmdletContext.OpenZFSConfiguration_ThroughputCapacity != null)
             {
@@ -1172,12 +1250,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.OpenZFSDeploymentType OpenZFSConfiguration_DeploymentType { get; set; }
             public System.Int64? OpenZFSConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
+            public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
+            public System.String OpenZFSConfiguration_PreferredSubnetId { get; set; }
             public System.Boolean? RootVolumeConfiguration_CopyTagsToSnapshot { get; set; }
             public Amazon.FSx.OpenZFSDataCompressionType RootVolumeConfiguration_DataCompressionType { get; set; }
             public List<Amazon.FSx.Model.OpenZFSNfsExport> RootVolumeConfiguration_NfsExport { get; set; }
             public System.Boolean? RootVolumeConfiguration_ReadOnly { get; set; }
             public System.Int32? RootVolumeConfiguration_RecordSizeKiB { get; set; }
             public List<Amazon.FSx.Model.OpenZFSUserOrGroupQuota> RootVolumeConfiguration_UserAndGroupQuota { get; set; }
+            public List<System.String> OpenZFSConfiguration_RouteTableId { get; set; }
             public System.Int32? OpenZFSConfiguration_ThroughputCapacity { get; set; }
             public System.String OpenZFSConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public List<System.String> SecurityGroupId { get; set; }

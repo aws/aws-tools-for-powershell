@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         public System.String CallingName { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name assigned to one or more phone numbers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>
@@ -156,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CallingName = this.CallingName;
+            context.Name = this.Name;
             context.PhoneNumberId = this.PhoneNumberId;
             #if MODULAR
             if (this.PhoneNumberId == null && ParameterWasBound(nameof(this.PhoneNumberId)))
@@ -183,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (cmdletContext.CallingName != null)
             {
                 request.CallingName = cmdletContext.CallingName;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.PhoneNumberId != null)
             {
@@ -254,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CallingName { get; set; }
+            public System.String Name { get; set; }
             public System.String PhoneNumberId { get; set; }
             public Amazon.ChimeSDKVoice.PhoneNumberProductType ProductType { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.UpdatePhoneNumberResponse, UpdateCHMVOPhoneNumberCmdlet, object> Select { get; set; } =

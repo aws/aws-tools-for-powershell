@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     ///  
     /// <para>
     /// For FSx for Windows File Server file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AuditLogConfiguration</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>SelfManagedActiveDirectoryConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><code>AuditLogConfiguration</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>SelfManagedActiveDirectoryConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>StorageType</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for Lustre file systems, you can update the following properties:
     /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>LogConfiguration</code></para></li><li><para><code>LustreRootSquashConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for ONTAP file systems, you can update the following properties:
@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OntapConfiguration_AddRouteTableIds")]
         public System.String[] OntapConfiguration_AddRouteTableId { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_AddRouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route tables to associate
+        /// (add) with your Amazon FSx for OpenZFS file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_AddRouteTableIds")]
+        public System.String[] OpenZFSConfiguration_AddRouteTableId { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_AutomaticBackupRetentionDay
@@ -254,6 +266,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] OntapConfiguration_RemoveRouteTableId { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_RemoveRouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) A list of IDs of existing virtual private cloud (VPC) route tables
+        /// to disassociate (remove) from your Amazon FSx for OpenZFS file system. You can use
+        /// the API operation to retrieve the list of VPC route table IDs for a file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_RemoveRouteTableIds")]
+        public System.String[] OpenZFSConfiguration_RemoveRouteTableId { get; set; }
+        #endregion
+        
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
@@ -282,6 +307,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.StorageType")]
+        public Amazon.FSx.StorageType StorageType { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_ThroughputCapacity
@@ -426,15 +462,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             context.OntapConfiguration_ThroughputCapacity = this.OntapConfiguration_ThroughputCapacity;
             context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
+            if (this.OpenZFSConfiguration_AddRouteTableId != null)
+            {
+                context.OpenZFSConfiguration_AddRouteTableId = new List<System.String>(this.OpenZFSConfiguration_AddRouteTableId);
+            }
             context.OpenZFSConfiguration_AutomaticBackupRetentionDay = this.OpenZFSConfiguration_AutomaticBackupRetentionDay;
             context.OpenZFSConfiguration_CopyTagsToBackup = this.OpenZFSConfiguration_CopyTagsToBackup;
             context.OpenZFSConfiguration_CopyTagsToVolume = this.OpenZFSConfiguration_CopyTagsToVolume;
             context.OpenZFSConfiguration_DailyAutomaticBackupStartTime = this.OpenZFSConfiguration_DailyAutomaticBackupStartTime;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Iops = this.OpenZFSConfiguration_DiskIopsConfiguration_Iops;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Mode = this.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
+            if (this.OpenZFSConfiguration_RemoveRouteTableId != null)
+            {
+                context.OpenZFSConfiguration_RemoveRouteTableId = new List<System.String>(this.OpenZFSConfiguration_RemoveRouteTableId);
+            }
             context.OpenZFSConfiguration_ThroughputCapacity = this.OpenZFSConfiguration_ThroughputCapacity;
             context.OpenZFSConfiguration_WeeklyMaintenanceStartTime = this.OpenZFSConfiguration_WeeklyMaintenanceStartTime;
             context.StorageCapacity = this.StorageCapacity;
+            context.StorageType = this.StorageType;
             context.WindowsConfiguration = this.WindowsConfiguration;
             
             // allow further manipulation of loaded context prior to processing
@@ -582,6 +627,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate OpenZFSConfiguration
             var requestOpenZFSConfigurationIsNull = true;
             request.OpenZFSConfiguration = new Amazon.FSx.Model.UpdateFileSystemOpenZFSConfiguration();
+            List<System.String> requestOpenZFSConfiguration_openZFSConfiguration_AddRouteTableId = null;
+            if (cmdletContext.OpenZFSConfiguration_AddRouteTableId != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_AddRouteTableId = cmdletContext.OpenZFSConfiguration_AddRouteTableId;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_AddRouteTableId != null)
+            {
+                request.OpenZFSConfiguration.AddRouteTableIds = requestOpenZFSConfiguration_openZFSConfiguration_AddRouteTableId;
+                requestOpenZFSConfigurationIsNull = false;
+            }
             System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_AutomaticBackupRetentionDay = null;
             if (cmdletContext.OpenZFSConfiguration_AutomaticBackupRetentionDay != null)
             {
@@ -620,6 +675,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOpenZFSConfiguration_openZFSConfiguration_DailyAutomaticBackupStartTime != null)
             {
                 request.OpenZFSConfiguration.DailyAutomaticBackupStartTime = requestOpenZFSConfiguration_openZFSConfiguration_DailyAutomaticBackupStartTime;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            List<System.String> requestOpenZFSConfiguration_openZFSConfiguration_RemoveRouteTableId = null;
+            if (cmdletContext.OpenZFSConfiguration_RemoveRouteTableId != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_RemoveRouteTableId = cmdletContext.OpenZFSConfiguration_RemoveRouteTableId;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_RemoveRouteTableId != null)
+            {
+                request.OpenZFSConfiguration.RemoveRouteTableIds = requestOpenZFSConfiguration_openZFSConfiguration_RemoveRouteTableId;
                 requestOpenZFSConfigurationIsNull = false;
             }
             System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_ThroughputCapacity = null;
@@ -685,6 +750,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.StorageCapacity != null)
             {
                 request.StorageCapacity = cmdletContext.StorageCapacity.Value;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             if (cmdletContext.WindowsConfiguration != null)
             {
@@ -763,15 +832,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public List<System.String> OntapConfiguration_RemoveRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
             public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
+            public List<System.String> OpenZFSConfiguration_AddRouteTableId { get; set; }
             public System.Int32? OpenZFSConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.Boolean? OpenZFSConfiguration_CopyTagsToBackup { get; set; }
             public System.Boolean? OpenZFSConfiguration_CopyTagsToVolume { get; set; }
             public System.String OpenZFSConfiguration_DailyAutomaticBackupStartTime { get; set; }
             public System.Int64? OpenZFSConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
+            public List<System.String> OpenZFSConfiguration_RemoveRouteTableId { get; set; }
             public System.Int32? OpenZFSConfiguration_ThroughputCapacity { get; set; }
             public System.String OpenZFSConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public System.Int32? StorageCapacity { get; set; }
+            public Amazon.FSx.StorageType StorageType { get; set; }
             public Amazon.FSx.Model.UpdateFileSystemWindowsConfiguration WindowsConfiguration { get; set; }
             public System.Func<Amazon.FSx.Model.UpdateFileSystemResponse, UpdateFSXFileSystemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FileSystem;
