@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specify the pagination token from a previous request to retrieve the next page of
+        /// <para>Specifies the pagination token from a previous request to retrieve the next page of
         /// results.</para>
         /// </para>
         /// </summary>

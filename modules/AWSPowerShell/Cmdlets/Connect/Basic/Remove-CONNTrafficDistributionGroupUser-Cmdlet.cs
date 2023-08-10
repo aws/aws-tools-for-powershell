@@ -22,50 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticLoadBalancingV2;
-using Amazon.ElasticLoadBalancingV2.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ELB2
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Associates the specified security groups with the specified Application Load Balancer
-    /// or Network Load Balancer. The specified security groups override the previously associated
-    /// security groups.
-    /// 
-    ///  
-    /// <para>
-    /// You can't perform this operation on a Network Load Balancer unless you specified a
-    /// security group for the load balancer when you created it.
-    /// </para><para>
-    /// You can't associate a security group with a Gateway Load Balancer.
-    /// </para>
+    /// Disassociates an agent from a traffic distribution group.
     /// </summary>
-    [Cmdlet("Set", "ELB2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetSecurityGroups API operation.", Operation = new[] {"SetSecurityGroups"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CONNTrafficDistributionGroupUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service DisassociateTrafficDistributionGroupUser API operation.", Operation = new[] {"DisassociateTrafficDistributionGroupUser"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetELB2SecurityGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class RemoveCONNTrafficDistributionGroupUserCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to evaluate inbound security group rules for traffic sent to a Network
-        /// Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum")]
-        public Amazon.ElasticLoadBalancingV2.EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter LoadBalancerArn
+        #region Parameter TrafficDistributionGroupId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the load balancer.</para>
+        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN if
+        /// the API is being called in the Region where the traffic distribution group was created.
+        /// The ARN must be provided if the call is from the replicated Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,44 +74,42 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LoadBalancerArn { get; set; }
+        public System.String TrafficDistributionGroupId { get; set; }
         #endregion
         
-        #region Parameter SecurityGroup
+        #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups.</para>
+        /// <para>The identifier for the user. This can be the ID or the ARN of the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("SecurityGroups")]
-        public System.String[] SecurityGroup { get; set; }
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecurityGroupIds'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse).
-        /// Specifying the name of a property of type Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecurityGroupIds";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LoadBalancerArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LoadBalancerArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TrafficDistributionGroupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TrafficDistributionGroupId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LoadBalancerArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrafficDistributionGroupId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -133,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LoadBalancerArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-ELB2SecurityGroup (SetSecurityGroups)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrafficDistributionGroupId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNTrafficDistributionGroupUser (DisassociateTrafficDistributionGroupUser)"))
             {
                 return;
             }
@@ -147,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse, SetELB2SecurityGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse, RemoveCONNTrafficDistributionGroupUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,25 +152,28 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LoadBalancerArn;
+                context.Select = (response, cmdlet) => this.TrafficDistributionGroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = this.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
-            context.LoadBalancerArn = this.LoadBalancerArn;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.LoadBalancerArn == null && ParameterWasBound(nameof(this.LoadBalancerArn)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LoadBalancerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.SecurityGroup != null)
-            {
-                context.SecurityGroup = new List<System.String>(this.SecurityGroup);
-            }
+            context.TrafficDistributionGroupId = this.TrafficDistributionGroupId;
             #if MODULAR
-            if (this.SecurityGroup == null && ParameterWasBound(nameof(this.SecurityGroup)))
+            if (this.TrafficDistributionGroupId == null && ParameterWasBound(nameof(this.TrafficDistributionGroupId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SecurityGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TrafficDistributionGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UserId = this.UserId;
+            #if MODULAR
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -191,19 +190,19 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsRequest();
+            var request = new Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserRequest();
             
-            if (cmdletContext.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = cmdletContext.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.LoadBalancerArn != null)
+            if (cmdletContext.TrafficDistributionGroupId != null)
             {
-                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
+                request.TrafficDistributionGroupId = cmdletContext.TrafficDistributionGroupId;
             }
-            if (cmdletContext.SecurityGroup != null)
+            if (cmdletContext.UserId != null)
             {
-                request.SecurityGroups = cmdletContext.SecurityGroup;
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -238,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsRequest request)
+        private Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetSecurityGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DisassociateTrafficDistributionGroupUser");
             try
             {
                 #if DESKTOP
-                return client.SetSecurityGroups(request);
+                return client.DisassociateTrafficDistributionGroupUser(request);
                 #elif CORECLR
-                return client.SetSecurityGroupsAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateTrafficDistributionGroupUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,11 +265,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.ElasticLoadBalancingV2.EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
-            public System.String LoadBalancerArn { get; set; }
-            public List<System.String> SecurityGroup { get; set; }
-            public System.Func<Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse, SetELB2SecurityGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecurityGroupIds;
+            public System.String InstanceId { get; set; }
+            public System.String TrafficDistributionGroupId { get; set; }
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse, RemoveCONNTrafficDistributionGroupUserCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -80,6 +80,13 @@ $ELB2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticLoadBalancingV2.EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
+        "Set-ELB2SecurityGroup/EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
+        {
+            $v = "off","on"
+            break
+        }
+
         # Amazon.ElasticLoadBalancingV2.IpAddressType
         {
             ($_ -eq "New-ELB2LoadBalancer/IpAddressType") -Or
@@ -144,6 +151,7 @@ $ELB2_Completers = {
 }
 
 $ELB2_map = @{
+    "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"=@("Set-ELB2SecurityGroup")
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
     "IpAddressType"=@("New-ELB2LoadBalancer","New-ELB2TargetGroup","Set-ELB2IpAddressType","Set-ELB2Subnet")
     "LoadBalancerType"=@("Get-ELB2SSLPolicy")

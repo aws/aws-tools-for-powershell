@@ -1,4 +1,14 @@
-﻿### 4.1.390 (2023-08-09 21:19Z)
+﻿### 4.1.391 (2023-08-10 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.618.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNTrafficDistributionGroupUser leveraging the AssociateTrafficDistributionGroupUser service API.
+    * Added cmdlet Get-CONNTrafficDistributionGroupUserList leveraging the ListTrafficDistributionGroupUsers service API.
+    * Added cmdlet Remove-CONNTrafficDistributionGroupUser leveraging the DisassociateTrafficDistributionGroupUser service API.
+    * Modified cmdlet Update-CONNTrafficDistribution: added parameters AgentConfig_Distribution and SignInConfig_Distribution.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet Set-ELB2SecurityGroup: added parameter EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic.
+
+### 4.1.390 (2023-08-09 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.617.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet New-CHMVOPhoneNumberOrder: added parameter Name.

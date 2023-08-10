@@ -114,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>[Application Load Balancers] The IDs of the security groups for the load balancer.</para>
+        /// <para>[Application Load Balancers and Network Load Balancers] The IDs of the security groups
+        /// for the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

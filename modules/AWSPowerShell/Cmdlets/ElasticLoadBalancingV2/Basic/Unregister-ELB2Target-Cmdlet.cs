@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Deregisters the specified targets from the specified target group. After the targets
     /// are deregistered, they no longer receive traffic from the load balancer.
+    /// 
+    ///  
+    /// <para>
+    /// Note: If the specified target does not exist, the action returns successfully.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "ELB2Target", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

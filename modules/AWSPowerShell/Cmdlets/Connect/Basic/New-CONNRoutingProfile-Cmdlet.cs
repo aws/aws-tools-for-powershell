@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Whether agents with this routing profile will have their routing order calculated
-        /// based on <i>time since their last inbound contact</i> or <i>longest idle time</i>.
+        /// based on <i>longest idle time</i> or <i>time since their last inbound contact</i>.
         /// </para>
         /// </para>
         /// </summary>

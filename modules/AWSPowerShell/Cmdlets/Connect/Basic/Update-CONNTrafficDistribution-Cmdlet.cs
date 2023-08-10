@@ -30,8 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Updates the traffic distribution for a given traffic distribution group. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>.
+    /// If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code>
+    /// and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code>
+    /// is returned.
+    /// </para></note><para>
     /// For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update
     /// telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon
     /// Connect Administrator Guide</i>. 
@@ -46,6 +50,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     )]
     public partial class UpdateCONNTrafficDistributionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentConfig_Distribution
+        /// <summary>
+        /// <para>
+        /// <para>Information about traffic distributions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentConfig_Distributions")]
+        public Amazon.Connect.Model.Distribution[] AgentConfig_Distribution { get; set; }
+        #endregion
+        
+        #region Parameter SignInConfig_Distribution
+        /// <summary>
+        /// <para>
+        /// <para>Information about traffic distributions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SignInConfig_Distributions")]
+        public Amazon.Connect.Model.SignInDistribution[] SignInConfig_Distribution { get; set; }
+        #endregion
         
         #region Parameter TelephonyConfig_Distribution
         /// <summary>
@@ -138,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AgentConfig_Distribution != null)
+            {
+                context.AgentConfig_Distribution = new List<Amazon.Connect.Model.Distribution>(this.AgentConfig_Distribution);
+            }
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -145,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SignInConfig_Distribution != null)
+            {
+                context.SignInConfig_Distribution = new List<Amazon.Connect.Model.SignInDistribution>(this.SignInConfig_Distribution);
+            }
             if (this.TelephonyConfig_Distribution != null)
             {
                 context.TelephonyConfig_Distribution = new List<Amazon.Connect.Model.Distribution>(this.TelephonyConfig_Distribution);
@@ -165,9 +199,47 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.UpdateTrafficDistributionRequest();
             
+            
+             // populate AgentConfig
+            var requestAgentConfigIsNull = true;
+            request.AgentConfig = new Amazon.Connect.Model.AgentConfig();
+            List<Amazon.Connect.Model.Distribution> requestAgentConfig_agentConfig_Distribution = null;
+            if (cmdletContext.AgentConfig_Distribution != null)
+            {
+                requestAgentConfig_agentConfig_Distribution = cmdletContext.AgentConfig_Distribution;
+            }
+            if (requestAgentConfig_agentConfig_Distribution != null)
+            {
+                request.AgentConfig.Distributions = requestAgentConfig_agentConfig_Distribution;
+                requestAgentConfigIsNull = false;
+            }
+             // determine if request.AgentConfig should be set to null
+            if (requestAgentConfigIsNull)
+            {
+                request.AgentConfig = null;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            
+             // populate SignInConfig
+            var requestSignInConfigIsNull = true;
+            request.SignInConfig = new Amazon.Connect.Model.SignInConfig();
+            List<Amazon.Connect.Model.SignInDistribution> requestSignInConfig_signInConfig_Distribution = null;
+            if (cmdletContext.SignInConfig_Distribution != null)
+            {
+                requestSignInConfig_signInConfig_Distribution = cmdletContext.SignInConfig_Distribution;
+            }
+            if (requestSignInConfig_signInConfig_Distribution != null)
+            {
+                request.SignInConfig.Distributions = requestSignInConfig_signInConfig_Distribution;
+                requestSignInConfigIsNull = false;
+            }
+             // determine if request.SignInConfig should be set to null
+            if (requestSignInConfigIsNull)
+            {
+                request.SignInConfig = null;
             }
             
              // populate TelephonyConfig
@@ -249,7 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.Distribution> AgentConfig_Distribution { get; set; }
             public System.String Id { get; set; }
+            public List<Amazon.Connect.Model.SignInDistribution> SignInConfig_Distribution { get; set; }
             public List<Amazon.Connect.Model.Distribution> TelephonyConfig_Distribution { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateTrafficDistributionResponse, UpdateCONNTrafficDistributionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

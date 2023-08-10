@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the user.</para>
+        /// <para>The identifier for the user. This can be the ID or the ARN of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

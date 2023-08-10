@@ -68,6 +68,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTrafficDistributionGroupUser" Verb="Add" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ClaimPhoneNumber" OutputProperty="*" Verb="Request" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -356,6 +360,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTrafficDistributionGroupUser" Verb="Remove" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DismissUserContact" Verb="Write" Noun="UserContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -521,6 +529,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTrafficDistributionGroups" OutputProperty="TrafficDistributionGroupSummaryList" Verb="Get" Noun="TrafficDistributionGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrafficDistributionGroupUsers" OutputProperty="TrafficDistributionGroupUserSummaryList" Verb="Get" Noun="TrafficDistributionGroupUserList" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

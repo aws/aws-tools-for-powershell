@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// cases, you specify the <code>ConnectorId</code>. Depending on the direction of the
     /// transfer, you also specify the following items:
     /// </para><ul><li><para>
-    /// If you are transferring file from a partner's SFTP server to a Transfer Family server,
+    /// If you are transferring file from a partner's SFTP server to Amazon Web Services storage,
     /// you specify one or more <code>RetreiveFilePaths</code> to identify the files you want
     /// to transfer, and a <code>LocalDirectoryPath</code> to specify the destination folder.
     /// </para></li><li><para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>One or more source paths for the Transfer Family server. Each string represents a
-        /// source file path for one outbound file transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.</para>
+        /// source file path for one outbound file transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.</para><note><para>Replace <code><i>DOC-EXAMPLE-BUCKET</i></code>with one of your actual buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

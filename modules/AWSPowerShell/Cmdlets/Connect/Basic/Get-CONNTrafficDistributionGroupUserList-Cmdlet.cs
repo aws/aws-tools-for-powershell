@@ -28,78 +28,35 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Lists phone numbers claimed to your Amazon Connect instance or traffic distribution
-    /// group. If the provided <code>TargetArn</code> is a traffic distribution group, you
-    /// can call this API in both Amazon Web Services Regions associated with traffic distribution
-    /// group.
-    /// 
-    ///  
-    /// <para>
-    /// For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set
-    /// Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator
-    /// Guide</i>.
-    /// </para><note><ul><li><para>
-    /// When given an instance ARN, <code>ListPhoneNumbersV2</code> returns only the phone
-    /// numbers claimed to the instance.
-    /// </para></li><li><para>
-    /// When given a traffic distribution group ARN <code>ListPhoneNumbersV2</code> returns
-    /// only the phone numbers claimed to the traffic distribution group.
-    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists traffic distribution group users.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNPhoneNumbersV2List")]
-    [OutputType("Amazon.Connect.Model.ListPhoneNumbersSummary")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListPhoneNumbersV2 API operation.", Operation = new[] {"ListPhoneNumbersV2"}, SelectReturnType = typeof(Amazon.Connect.Model.ListPhoneNumbersV2Response))]
-    [AWSCmdletOutput("Amazon.Connect.Model.ListPhoneNumbersSummary or Amazon.Connect.Model.ListPhoneNumbersV2Response",
-        "This cmdlet returns a collection of Amazon.Connect.Model.ListPhoneNumbersSummary objects.",
-        "The service call response (type Amazon.Connect.Model.ListPhoneNumbersV2Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CONNTrafficDistributionGroupUserList")]
+    [OutputType("Amazon.Connect.Model.TrafficDistributionGroupUserSummary")]
+    [AWSCmdlet("Calls the Amazon Connect Service ListTrafficDistributionGroupUsers API operation.", Operation = new[] {"ListTrafficDistributionGroupUsers"}, SelectReturnType = typeof(Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.TrafficDistributionGroupUserSummary or Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse",
+        "This cmdlet returns a collection of Amazon.Connect.Model.TrafficDistributionGroupUserSummary objects.",
+        "The service call response (type Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNPhoneNumbersV2ListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCONNTrafficDistributionGroupUserListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter PhoneNumberCountryCode
+        #region Parameter TrafficDistributionGroupId
         /// <summary>
         /// <para>
-        /// <para>The ISO country code.</para>
+        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN if
+        /// the API is being called in the Region where the traffic distribution group was created.
+        /// The ARN must be provided if the call is from the replicated Region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PhoneNumberCountryCodes")]
-        public System.String[] PhoneNumberCountryCode { get; set; }
-        #endregion
-        
-        #region Parameter PhoneNumberPrefix
-        /// <summary>
-        /// <para>
-        /// <para>The prefix of the phone number. If provided, it must contain <code>+</code> as part
-        /// of the country code.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PhoneNumberPrefix { get; set; }
-        #endregion
-        
-        #region Parameter PhoneNumberType
-        /// <summary>
-        /// <para>
-        /// <para>The type of phone number.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PhoneNumberTypes")]
-        public System.String[] PhoneNumberType { get; set; }
-        #endregion
-        
-        #region Parameter TargetArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
-        /// groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided,
-        /// this API lists numbers claimed to all the Amazon Connect instances belonging to your
-        /// account in the same Amazon Web Services Region as the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TargetArn { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TrafficDistributionGroupId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -130,13 +87,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ListPhoneNumbersSummaryList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListPhoneNumbersV2Response).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListPhoneNumbersV2Response will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TrafficDistributionGroupUserSummaryList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ListPhoneNumbersSummaryList";
+        public string Select { get; set; } = "TrafficDistributionGroupUserSummaryList";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the TrafficDistributionGroupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TrafficDistributionGroupId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrafficDistributionGroupId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -159,23 +126,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListPhoneNumbersV2Response, GetCONNPhoneNumbersV2ListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse, GetCONNTrafficDistributionGroupUserListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.TrafficDistributionGroupId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.PhoneNumberCountryCode != null)
+            context.TrafficDistributionGroupId = this.TrafficDistributionGroupId;
+            #if MODULAR
+            if (this.TrafficDistributionGroupId == null && ParameterWasBound(nameof(this.TrafficDistributionGroupId)))
             {
-                context.PhoneNumberCountryCode = new List<System.String>(this.PhoneNumberCountryCode);
+                WriteWarning("You are passing $null as a value for parameter TrafficDistributionGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.PhoneNumberPrefix = this.PhoneNumberPrefix;
-            if (this.PhoneNumberType != null)
-            {
-                context.PhoneNumberType = new List<System.String>(this.PhoneNumberType);
-            }
-            context.TargetArn = this.TargetArn;
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,30 +163,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListPhoneNumbersV2Request();
+            var request = new Amazon.Connect.Model.ListTrafficDistributionGroupUsersRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.PhoneNumberCountryCode != null)
+            if (cmdletContext.TrafficDistributionGroupId != null)
             {
-                request.PhoneNumberCountryCodes = cmdletContext.PhoneNumberCountryCode;
-            }
-            if (cmdletContext.PhoneNumberPrefix != null)
-            {
-                request.PhoneNumberPrefix = cmdletContext.PhoneNumberPrefix;
-            }
-            if (cmdletContext.PhoneNumberType != null)
-            {
-                request.PhoneNumberTypes = cmdletContext.PhoneNumberType;
-            }
-            if (cmdletContext.TargetArn != null)
-            {
-                request.TargetArn = cmdletContext.TargetArn;
+                request.TrafficDistributionGroupId = cmdletContext.TrafficDistributionGroupId;
             }
             
             // Initialize loop variant and commence piping
@@ -271,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListPhoneNumbersV2Response CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListPhoneNumbersV2Request request)
+        private Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListTrafficDistributionGroupUsersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListPhoneNumbersV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListTrafficDistributionGroupUsers");
             try
             {
                 #if DESKTOP
-                return client.ListPhoneNumbersV2(request);
+                return client.ListTrafficDistributionGroupUsers(request);
                 #elif CORECLR
-                return client.ListPhoneNumbersV2Async(request).GetAwaiter().GetResult();
+                return client.ListTrafficDistributionGroupUsersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -301,12 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> PhoneNumberCountryCode { get; set; }
-            public System.String PhoneNumberPrefix { get; set; }
-            public List<System.String> PhoneNumberType { get; set; }
-            public System.String TargetArn { get; set; }
-            public System.Func<Amazon.Connect.Model.ListPhoneNumbersV2Response, GetCONNPhoneNumbersV2ListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ListPhoneNumbersSummaryList;
+            public System.String TrafficDistributionGroupId { get; set; }
+            public System.Func<Amazon.Connect.Model.ListTrafficDistributionGroupUsersResponse, GetCONNTrafficDistributionGroupUserListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TrafficDistributionGroupUserSummaryList;
         }
         
     }

@@ -5503,6 +5503,8 @@ Set-Alias -Name Associate-CONNRoutingProfileQueue -Value Join-CONNRoutingProfile
 Set-Alias -Name CONN-AssociateRoutingProfileQueues -Value Join-CONNRoutingProfileQueue
 Set-Alias -Name Associate-CONNSecurityKey -Value Add-CONNSecurityKey
 Set-Alias -Name CONN-AssociateSecurityKey -Value Add-CONNSecurityKey
+Set-Alias -Name Associate-CONNTrafficDistributionGroupUser -Value Add-CONNTrafficDistributionGroupUser
+Set-Alias -Name CONN-AssociateTrafficDistributionGroupUser -Value Add-CONNTrafficDistributionGroupUser
 Set-Alias -Name Claim-CONNPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name CONN-ClaimPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name Create-CONNAgentStatus -Value New-CONNAgentStatus
@@ -5649,6 +5651,8 @@ Set-Alias -Name Disassociate-CONNRoutingProfileQueue -Value Disconnect-CONNRouti
 Set-Alias -Name CONN-DisassociateRoutingProfileQueues -Value Disconnect-CONNRoutingProfileQueue
 Set-Alias -Name Disassociate-CONNSecurityKey -Value Remove-CONNSecurityKey
 Set-Alias -Name CONN-DisassociateSecurityKey -Value Remove-CONNSecurityKey
+Set-Alias -Name Disassociate-CONNTrafficDistributionGroupUser -Value Remove-CONNTrafficDistributionGroupUser
+Set-Alias -Name CONN-DisassociateTrafficDistributionGroupUser -Value Remove-CONNTrafficDistributionGroupUser
 Set-Alias -Name Dismiss-CONNUserContact -Value Write-CONNUserContact
 Set-Alias -Name CONN-DismissUserContact -Value Write-CONNUserContact
 Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
@@ -5755,6 +5759,9 @@ Set-Alias -Name CONN-ListTaskTemplates -Value Get-CONNTaskTemplateList
 Set-Alias -Name List-CONNTrafficDistributionGroups -Value Get-CONNTrafficDistributionGroupList
 Set-Alias -Name List-CONNTrafficDistributionGroupList -Value Get-CONNTrafficDistributionGroupList
 Set-Alias -Name CONN-ListTrafficDistributionGroups -Value Get-CONNTrafficDistributionGroupList
+Set-Alias -Name List-CONNTrafficDistributionGroupUsers -Value Get-CONNTrafficDistributionGroupUserList
+Set-Alias -Name List-CONNTrafficDistributionGroupUserList -Value Get-CONNTrafficDistributionGroupUserList
+Set-Alias -Name CONN-ListTrafficDistributionGroupUsers -Value Get-CONNTrafficDistributionGroupUserList
 Set-Alias -Name List-CONNUseCases -Value Get-CONNUseCaseList
 Set-Alias -Name List-CONNUseCaseList -Value Get-CONNUseCaseList
 Set-Alias -Name CONN-ListUseCases -Value Get-CONNUseCaseList
