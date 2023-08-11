@@ -29,9 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Enables or disables email sending across your entire Amazon SES account in the current
-    /// AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms
-    /// to temporarily pause email sending across your Amazon SES account in a given AWS Region
-    /// when reputation metrics (such as your bounce or complaint rates) reach certain thresholds.
+    /// Amazon Web Services Region. You can use this operation in conjunction with Amazon
+    /// CloudWatch alarms to temporarily pause email sending across your Amazon SES account
+    /// in a given Amazon Web Services Region when reputation metrics (such as your bounce
+    /// or complaint rates) reach certain thresholds.
     /// 
     ///  
     /// <para>
@@ -52,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>Describes whether email sending is enabled or disabled for your Amazon SES account
-        /// in the current AWS Region.</para>
+        /// in the current Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

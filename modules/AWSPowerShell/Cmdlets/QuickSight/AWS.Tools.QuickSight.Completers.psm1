@@ -108,7 +108,7 @@ $QS_Completers = {
         # Amazon.QuickSight.AuthenticationMethodOption
         "New-QSAccountSubscription/AuthenticationMethod"
         {
-            $v = "ACTIVE_DIRECTORY","IAM_AND_QUICKSIGHT","IAM_ONLY"
+            $v = "ACTIVE_DIRECTORY","IAM_AND_QUICKSIGHT","IAM_IDENTITY_CENTER","IAM_ONLY"
             break
         }
 
@@ -208,7 +208,7 @@ $QS_Completers = {
         # Amazon.QuickSight.IdentityType
         "Register-QSUser/IdentityType"
         {
-            $v = "IAM","QUICKSIGHT"
+            $v = "IAM","IAM_IDENTITY_CENTER","QUICKSIGHT"
             break
         }
 

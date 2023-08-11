@@ -29,16 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Returns a list of sending authorization policies that are attached to the given identity
-    /// (an email address or a domain). This API returns only a list. If you want the actual
-    /// policy content, you can use <code>GetIdentityPolicies</code>.
+    /// (an email address or a domain). This operation returns only a list. To get the actual
+    /// policy content, use <code>GetIdentityPolicies</code>.
     /// 
     ///  <note><para>
-    /// This API is for the identity owner only. If you have not verified the identity, this
-    /// API will return an error.
+    /// This operation is for the identity owner only. If you have not verified the identity,
+    /// it returns an error.
     /// </para></note><para>
     /// Sending authorization is a feature that enables an identity owner to authorize other
     /// senders to use its identities. For information about using sending authorization,
-    /// see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+    /// see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The identity that is associated with the policy for which the policies will be listed.
+        /// <para>The identity that is associated with the policy for which the policies are listed.
         /// You can specify an identity by using its name or by using its Amazon Resource Name
-        /// (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para><para>To successfully call this API, you must own the identity.</para>
+        /// (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para><para>To successfully call this operation, you must own the identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

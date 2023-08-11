@@ -29,12 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Returns a list containing all of the identities (email addresses and domains) for
-    /// your AWS account in the current AWS Region, regardless of verification status.
+    /// your Amazon Web Services account in the current Amazon Web Services Region, regardless
+    /// of verification status.
     /// 
     ///  
     /// <para>
     /// You can execute this operation no more than once per second.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// It's recommended that for successive pagination calls of this API, you continue to
+    /// the use the same parameter/value pairs as used in the original call, e.g., if you
+    /// used <code>IdentityType=Domain</code> in the the original call and received a <code>NextToken</code>
+    /// in the response, you should continue providing the <code>IdentityType=Domain</code>
+    /// parameter for further <code>NextToken</code> calls; however, if you didn't provide
+    /// the <code>IdentityType</code> parameter in the original call, then continue to not
+    /// provide it for successive pagination calls. Using this protocol will ensure consistent
+    /// results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SESIdentity")]
     [OutputType("System.String")]
@@ -50,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The type of the identities to list. Possible values are "EmailAddress" and "Domain".
-        /// If this parameter is omitted, then all identities will be listed.</para>
+        /// If this parameter is omitted, then all identities are listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

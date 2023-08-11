@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <para>
     /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon
     /// SES Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The identity (email address or domain) that you want to set the Amazon SNS topic for.</para><important><para>You can only specify a verified identity for this parameter.</para></important><para>You can specify an identity by using its name or by using its Amazon Resource Name
+        /// <para>The identity (email address or domain) for the Amazon SNS topic.</para><important><para>You can only specify a verified identity for this parameter.</para></important><para>You can specify an identity by using its name or by using its Amazon Resource Name
         /// (ARN). The following examples are all valid identities: <code>sender@example.com</code>,
         /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para>
         /// </para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter NotificationType
         /// <summary>
         /// <para>
-        /// <para>The type of notifications that will be published to the specified Amazon SNS topic.</para>
+        /// <para>The type of notifications that are published to the specified Amazon SNS topic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

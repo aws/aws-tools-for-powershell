@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
     /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom verification email template that you want to retrieve.</para>
+        /// <para>The name of the custom verification email template to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Generates and sends a bounce message to the sender of an email you received through
-    /// Amazon SES. You can only use this API on an email up to 24 hours after you receive
+    /// Amazon SES. You can only use this operation on an email up to 24 hours after you receive
     /// it.
     /// 
     ///  <note><para>
-    /// You cannot use this API to send generic bounces for mail that was not received by
-    /// Amazon SES.
+    /// You cannot use this operation to send generic bounces for mail that was not received
+    /// by Amazon SES.
     /// </para></note><para>
-    /// For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
+    /// For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
         /// that is associated with the sending authorization policy that permits you to use the
         /// address in the "From" header of the bounce. For more information about sending authorization,
-        /// see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>Human-readable text for the bounce message to explain the failure. If not specified,
-        /// the text will be auto-generated based on the bounced recipient information.</para>
+        /// the text is auto-generated based on the bounced recipient information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

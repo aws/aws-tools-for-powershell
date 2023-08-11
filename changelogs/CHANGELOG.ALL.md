@@ -1,4 +1,7 @@
-﻿### 4.1.391 (2023-08-10 21:27Z)
+﻿### 4.1.392 (2023-08-11 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.619.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.391 (2023-08-10 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.618.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Add-CONNTrafficDistributionGroupUser leveraging the AssociateTrafficDistributionGroupUser service API.

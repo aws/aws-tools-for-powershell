@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon
+    /// For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -51,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter IpFilter_Cidr
         /// <summary>
         /// <para>
-        /// <para>A single IP address or a range of IP addresses that you want to block or allow, specified
-        /// in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address
-        /// is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information
-        /// about CIDR notation, see <a href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>.</para>
+        /// <para>A single IP address or a range of IP addresses to block or allow, specified in Classless
+        /// Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1.
+        /// An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR
+        /// notation, see <a href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Filter_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the IP address filter. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The name of the IP address filter. The name must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain 64 characters or fewer.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

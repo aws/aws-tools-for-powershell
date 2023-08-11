@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon
     /// Simple Notification Service (Amazon SNS).
     /// </para></note><para>
-    /// An event destination is the AWS service to which Amazon SES publishes the email sending
-    /// events associated with a configuration set. For information about using configuration
-    /// sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+    /// An event destination is the Amazon Web Services service to which Amazon SES publishes
+    /// the email sending events associated with a configuration set. For information about
+    /// using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -123,7 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter EventDestination_MatchingEventType
         /// <summary>
         /// <para>
-        /// <para>The type of email sending events to publish to the event destination.</para>
+        /// <para>The type of email sending events to publish to the event destination.</para><ul><li><para><code>send</code> - The call was successful and Amazon SES is attempting to deliver
+        /// the email.</para></li><li><para><code>reject</code> - Amazon SES determined that the email contained a virus and
+        /// rejected it.</para></li><li><para><code>bounce</code> - The recipient's mail server permanently rejected the email.
+        /// This corresponds to a hard bounce.</para></li><li><para><code>complaint</code> - The recipient marked the email as spam.</para></li><li><para><code>delivery</code> - Amazon SES successfully delivered the email to the recipient's
+        /// mail server.</para></li><li><para><code>open</code> - The recipient received the email and opened it in their email
+        /// client.</para></li><li><para><code>click</code> - The recipient clicked one or more links in the email.</para></li><li><para><code>renderingFailure</code> - Amazon SES did not send the email because of a template
+        /// rendering issue.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter EventDestination_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the event destination. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The name of the event destination. The name must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</para></li><li><para>Contain 64 characters or fewer.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -159,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter SNSDestination_TopicARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon SNS topic that email sending events will be published to. An
-        /// example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>.
-        /// For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
+        /// <para>The ARN of the Amazon SNS topic for email sending events. You can find the ARN of
+        /// a topic by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html">ListTopics</a>
+        /// Amazon SNS operation.</para><para>For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
         /// SNS Developer Guide</a>.</para>
         /// </para>
         /// </summary>

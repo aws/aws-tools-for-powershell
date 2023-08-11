@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon
+    /// For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
+    /// For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -51,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter RuleSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the rule set to create. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The name of the rule set to create. The name must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain 64 characters or fewer.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

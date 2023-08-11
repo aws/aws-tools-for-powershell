@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     public partial class UpdateAMPBBackendAuthCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter PasswordPolicy_AdditionalConstraint
         /// <summary>
         /// <para>

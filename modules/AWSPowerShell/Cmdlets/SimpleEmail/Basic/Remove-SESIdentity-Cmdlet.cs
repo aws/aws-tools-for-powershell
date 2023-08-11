@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The identity to be removed from the list of identities for the AWS Account.</para>
+        /// <para>The identity to be removed from the list of identities for the Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

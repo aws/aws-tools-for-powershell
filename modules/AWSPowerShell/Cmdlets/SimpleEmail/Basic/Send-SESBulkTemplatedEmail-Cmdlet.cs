@@ -33,33 +33,32 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
-    /// call to the API must meet the following requirements:
+    /// To send email using this operation, your call must meet the following requirements:
     /// </para><ul><li><para>
     /// The call must refer to an existing email template. You can create email templates
-    /// using the <a>CreateTemplate</a> operation.
+    /// using <a>CreateTemplate</a>.
     /// </para></li><li><para>
     /// The message must be sent from a verified email address or domain.
     /// </para></li><li><para>
-    /// If your account is still in the Amazon SES sandbox, you may only send to verified
+    /// If your account is still in the Amazon SES sandbox, you may send only to verified
     /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
-    /// Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+    /// Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">Verifying
     /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
     /// The maximum message size is 10 MB.
     /// </para></li><li><para>
     /// Each <code>Destination</code> parameter must include at least one recipient email
     /// address. The recipient address can be a To: address, a CC: address, or a BCC: address.
     /// If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
-    /// the entire message will be rejected, even if the message contains other recipients
-    /// that are valid.
+    /// the entire message is rejected, even if the message contains other recipients that
+    /// are valid.
     /// </para></li><li><para>
     /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
     /// fields. If you need to send an email message to a larger audience, you can divide
     /// your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code>
     /// operation several times to send the message to each group.
     /// </para></li><li><para>
-    /// The number of destinations you can contact in a single call to the API may be limited
-    /// by your account's maximum sending rate.
+    /// The number of destinations you can contact in a single call can be limited by your
+    /// account's maximum sending rate.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Send", "SESBulkTemplatedEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -111,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>One or more <code>Destination</code> objects. All of the recipients in a <code>Destination</code>
-        /// will receive the same version of the email. You can specify up to 50 <code>Destination</code>
+        /// receive the same version of the email. You can specify up to 50 <code>Destination</code>
         /// objects within a <code>Destinations</code> array.</para>
         /// </para>
         /// </summary>
@@ -131,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The reply-to email address(es) for the message. If the recipient replies to the message,
-        /// each reply-to address will receive the reply.</para>
+        /// each reply-to address receives the reply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,12 +141,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ReturnPath
         /// <summary>
         /// <para>
-        /// <para>The email address that bounces and complaints will be forwarded to when feedback forwarding
+        /// <para>The email address that bounces and complaints are forwarded to when feedback forwarding
         /// is enabled. If the message cannot be delivered to the recipient, then an error message
-        /// will be returned from the recipient's ISP; this message will then be forwarded to
-        /// the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code>
-        /// parameter is never overwritten. This email address must be either individually verified
-        /// with Amazon SES, or from a domain that has been verified with Amazon SES. </para>
+        /// is returned from the recipient's ISP; this message is forwarded to the email address
+        /// specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter
+        /// is never overwritten. This email address must be either individually verified with
+        /// Amazon SES, or from a domain that has been verified with Amazon SES. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// email address specified in the <code>ReturnPath</code> parameter.</para><para>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>)
         /// attaches a policy to it that authorizes you to use <code>feedback@example.com</code>,
         /// then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
-        /// and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -175,19 +174,19 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>The email address that is sending the email. This email address must be either individually
         /// verified with Amazon SES, or from a domain that has been verified with Amazon SES.
-        /// For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
+        /// For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html">Amazon
         /// SES Developer Guide</a>.</para><para>If you are sending on behalf of another user and have been permitted to do so by a
         /// sending authorization policy, then you must also specify the <code>SourceArn</code>
-        /// parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para><note><para>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>.
-        /// For this reason, the <i>local part</i> of a source email address (the part of the
-        /// email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit
-        /// ASCII characters</a>. If the <i>domain part</i> of an address (the part after the
-        /// @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described
-        /// in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name
-        /// (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters
-        /// must be encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC
-        /// 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</para></note>
+        /// For this reason, the email address string must be 7-bit ASCII. If you want to send
+        /// to or from email addresses that contain Unicode characters in the domain part of an
+        /// address, you must encode the domain using Punycode. Punycode is not permitted in the
+        /// local part of the email address (the part before the @ sign) nor in the "friendly
+        /// from" name. If you want to use Unicode characters in the "friendly from" name, you
+        /// must encode the "friendly from" name using MIME encoded-word syntax, as described
+        /// in <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-raw.html">Sending
+        /// raw email using the Amazon SES API</a>. For more information about Punycode, see <a href="http://tools.ietf.org/html/rfc3492">RFC 3492</a>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -209,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// for the email address specified in the <code>Source</code> parameter.</para><para>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>)
         /// attaches a policy to it that authorizes you to send from <code>user@example.com</code>,
         /// then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
-        /// and the <code>Source</code> to be <code>user@example.com</code>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// and the <code>Source</code> to be <code>user@example.com</code>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>

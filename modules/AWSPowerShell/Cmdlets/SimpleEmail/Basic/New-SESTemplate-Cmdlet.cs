@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Creates an email template. Email templates enable you to send personalized email to
-    /// one or more destinations in a single API operation. For more information, see the
-    /// <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon
+    /// one or more destinations in a single operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html">Amazon
     /// SES Developer Guide</a>.
     /// 
     ///  
@@ -51,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Template
         /// <summary>
         /// <para>
-        /// <para>The content of the email, composed of a subject line, an HTML part, and a text-only
-        /// part.</para>
+        /// <para>The content of the email, composed of a subject line and either an HTML part or a
+        /// text-only part.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon
+    /// For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter After
         /// <summary>
         /// <para>
-        /// <para>The name of an existing rule after which the new rule will be placed. If this parameter
-        /// is null, the new rule will be inserted at the beginning of the rule list.</para>
+        /// <para>The name of an existing rule after which the new rule is placed. If this parameter
+        /// is null, the new rule is inserted at the beginning of the rule list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Rule_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the receipt rule. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The name of the receipt rule. The name must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-),
+        /// or periods (.). </para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain 64 characters or fewer.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The recipient domains and email addresses that the receipt rule applies to. If this
-        /// field is not specified, this rule will match all recipients under all verified domains.</para>
+        /// field is not specified, this rule matches all recipients on all verified domains.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter RuleSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the rule set that the receipt rule will be added to.</para>
+        /// <para>The name of the rule set where the receipt rule is added.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>Specifies whether Amazon SES should require that incoming email is delivered over
         /// a connection encrypted with Transport Layer Security (TLS). If this parameter is set
-        /// to <code>Require</code>, Amazon SES will bounce emails that are not received over
-        /// TLS. The default is <code>Optional</code>.</para>
+        /// to <code>Require</code>, Amazon SES bounces emails that are not received over TLS.
+        /// The default is <code>Optional</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// This operation is throttled at one request per second and can only get notification
     /// attributes for up to 100 identities at a time.
     /// </para><para>
-    /// For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon
     /// SES Developer Guide</a>.
     /// </para>
     /// </summary>

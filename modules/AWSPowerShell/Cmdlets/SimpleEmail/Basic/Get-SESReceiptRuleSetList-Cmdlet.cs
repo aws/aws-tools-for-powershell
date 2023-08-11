@@ -28,14 +28,14 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Lists the receipt rule sets that exist under your AWS account in the current AWS Region.
-    /// If there are additional receipt rule sets to be retrieved, you will receive a <code>NextToken</code>
-    /// that you can provide to the next call to <code>ListReceiptRuleSets</code> to retrieve
-    /// the additional entries.
+    /// Lists the receipt rule sets that exist under your Amazon Web Services account in the
+    /// current Amazon Web Services Region. If there are additional receipt rule sets to be
+    /// retrieved, you receive a <code>NextToken</code> that you can provide to the next call
+    /// to <code>ListReceiptRuleSets</code> to retrieve the additional entries.
     /// 
     ///  
     /// <para>
-    /// For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
+    /// For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>
     /// You can execute this operation no more than once per second.

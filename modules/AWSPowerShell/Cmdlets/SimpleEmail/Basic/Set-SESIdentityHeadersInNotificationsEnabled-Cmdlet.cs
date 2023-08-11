@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <para>
     /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon
     /// SES Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications
         /// of the specified notification type. A value of <code>true</code> specifies that Amazon
-        /// SES will include headers in notifications, and a value of <code>false</code> specifies
-        /// that Amazon SES will not include headers in notifications.</para><para>This value can only be set when <code>NotificationType</code> is already set to use
+        /// SES includes headers in notifications, and a value of <code>false</code> specifies
+        /// that Amazon SES does not include headers in notifications.</para><para>This value can only be set when <code>NotificationType</code> is already set to use
         /// a particular Amazon SNS topic.</para>
         /// </para>
         /// </summary>

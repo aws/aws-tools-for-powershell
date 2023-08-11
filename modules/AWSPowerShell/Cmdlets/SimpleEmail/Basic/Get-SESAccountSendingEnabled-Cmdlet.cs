@@ -28,7 +28,7 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Returns the email sending status of the Amazon SES account for the current region.
+    /// Returns the email sending status of the Amazon SES account for the current Region.
     /// 
     ///  
     /// <para>

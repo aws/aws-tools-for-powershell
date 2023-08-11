@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to specify the delivery options for.</para>
+        /// <para>The name of the configuration set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

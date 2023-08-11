@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </para></note><para>
     /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon
     /// SES Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -56,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ForwardingEnabled
         /// <summary>
         /// <para>
-        /// <para>Sets whether Amazon SES will forward bounce and complaint notifications as email.
-        /// <code>true</code> specifies that Amazon SES will forward bounce and complaint notifications
-        /// as email, in addition to any Amazon SNS topic publishing otherwise specified. <code>false</code>
-        /// specifies that Amazon SES will publish bounce and complaint notifications only through
+        /// <para>Sets whether Amazon SES forwards bounce and complaint notifications as email. <code>true</code>
+        /// specifies that Amazon SES forwards bounce and complaint notifications as email, in
+        /// addition to any Amazon SNS topic publishing otherwise specified. <code>false</code>
+        /// specifies that Amazon SES publishes bounce and complaint notifications only through
         /// Amazon SNS. This value can only be set to <code>false</code> when Amazon SNS topics
         /// are set for both <code>Bounce</code> and <code>Complaint</code> notification types.</para>
         /// </para>

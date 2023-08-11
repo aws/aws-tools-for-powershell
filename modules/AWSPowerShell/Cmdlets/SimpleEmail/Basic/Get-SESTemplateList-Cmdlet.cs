@@ -28,7 +28,8 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Lists the email templates present in your Amazon SES account in the current AWS Region.
+    /// Lists the email templates present in your Amazon SES account in the current Amazon
+    /// Web Services Region.
     /// 
     ///  
     /// <para>
@@ -49,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The maximum number of templates to return. This value must be at least 1 and less
-        /// than or equal to 10. If you do not specify a value, or if you specify a value less
-        /// than 1 or greater than 10, the operation will return up to 10 results.</para>
+        /// than or equal to 100. If more than 100 items are requested, the page size will automatically
+        /// set to 100. If you do not specify a value, 10 is the default page size. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
