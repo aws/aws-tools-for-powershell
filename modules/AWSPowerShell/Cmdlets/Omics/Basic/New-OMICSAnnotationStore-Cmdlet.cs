@@ -152,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public Amazon.Omics.EncryptionType SseConfig_Type { get; set; }
         #endregion
         
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para> The name given to an annotation store version to distinguish it from other versions.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -256,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -390,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
+            }
             
             CmdletOutput output;
             
@@ -461,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public Dictionary<System.String, System.String> TsvStoreOptions_FormatToHeader { get; set; }
             public List<Dictionary<System.String, System.String>> TsvStoreOptions_Schema { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String VersionName { get; set; }
             public System.Func<Amazon.Omics.Model.CreateAnnotationStoreResponse, NewOMICSAnnotationStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SendFilePath
         /// <summary>
         /// <para>
-        /// <para>One or more source paths for the Transfer Family server. Each string represents a
-        /// source file path for one outbound file transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.</para><note><para>Replace <code><i>DOC-EXAMPLE-BUCKET</i></code>with one of your actual buckets.</para></note>
+        /// <para>One or more source paths for the Amazon S3 storage. Each string represents a source
+        /// file path for one outbound file transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.</para><note><para>Replace <code><i>DOC-EXAMPLE-BUCKET</i></code> with one of your actual buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

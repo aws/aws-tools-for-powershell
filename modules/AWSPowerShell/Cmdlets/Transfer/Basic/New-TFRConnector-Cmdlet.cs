@@ -257,8 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SftpConfig_UserSecretId
         /// <summary>
         /// <para>
-        /// <para>The identifiers for the secrets (in Amazon Web Services Secrets Manager) that contain
-        /// the SFTP user's private keys or passwords.</para>
+        /// <para>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains
+        /// the SFTP user's private key, password, or both. The identifier can be either the Amazon
+        /// Resource Name (ARN) or the name of the secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

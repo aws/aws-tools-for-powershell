@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class GetEMPChannelListCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

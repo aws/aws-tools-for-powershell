@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AcceptShare" OutputProperty="Status" Verb="Receive" Noun="Share" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteReadSet" OutputProperty="Errors" Verb="Remove" Noun="ReadSet" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAnnotationStoreVersion" OutputProperty="*" Verb="New" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMultipartReadSetUpload" OutputProperty="*" Verb="New" Noun="MultipartReadSetUpload" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateShare" OutputProperty="*" Verb="New" Noun="Share" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVariantStore" OutputProperty="*" Verb="New" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -74,6 +86,12 @@
         <ServiceOperation MethodName="DeleteAnnotationStore" OutputProperty="Status" Verb="Remove" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="Compel" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnnotationStoreVersions" OutputProperty="Errors" Verb="Remove" Noun="AnnotationStoreVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,6 +115,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteShare" OutputProperty="Status" Verb="Remove" Noun="Share" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteVariantStore" OutputProperty="Status" Verb="Remove" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="Compel" AutoApplyAlias="false" />
@@ -112,6 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAnnotationStore" OutputProperty="*" Verb="Get" Noun="AnnotationStore" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAnnotationStoreVersion" OutputProperty="*" Verb="Get" Noun="AnnotationStoreVersion" PipelineParameter="VersionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,6 +193,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetShare" OutputProperty="Share" Verb="Get" Noun="Share" PipelineParameter="ShareId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVariantImportJob" OutputProperty="*" Verb="Get" Noun="VariantImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -184,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAnnotationStores" OutputProperty="AnnotationStores" Verb="Get" Noun="AnnotationStoreList" PipelineParameter="Filter_Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnnotationStoreVersions" OutputProperty="AnnotationStoreVersions" Verb="Get" Noun="AnnotationStoreVersionList" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -236,6 +270,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSequenceStores" OutputProperty="SequenceStores" Verb="Get" Noun="SequenceStoreList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListShares" OutputProperty="Shares" Verb="Get" Noun="ShareList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -292,6 +330,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnnotationStore" OutputProperty="*" Verb="Update" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnnotationStoreVersion" OutputProperty="*" Verb="Update" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

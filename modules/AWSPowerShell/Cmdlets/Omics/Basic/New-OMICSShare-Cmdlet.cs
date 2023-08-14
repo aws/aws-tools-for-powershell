@@ -22,83 +22,78 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MediaPackage;
-using Amazon.MediaPackage.Model;
+using Amazon.Omics;
+using Amazon.Omics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMP
+namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a new Channel.
+    /// Creates a share offer that can be accepted outside the account by a subscriber. The
+    /// share is created by the owner and accepted by the principal subscriber.
     /// </summary>
-    [Cmdlet("New", "EMPChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.MediaPackage.Model.CreateChannelResponse")]
-    [AWSCmdlet("Calls the AWS Elemental MediaPackage CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.CreateChannelResponse))]
-    [AWSCmdletOutput("Amazon.MediaPackage.Model.CreateChannelResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.CreateChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "OMICSShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Omics.Model.CreateShareResponse")]
+    [AWSCmdlet("Calls the Amazon Omics CreateShare API operation.", Operation = new[] {"CreateShare"}, SelectReturnType = typeof(Amazon.Omics.Model.CreateShareResponse))]
+    [AWSCmdletOutput("Amazon.Omics.Model.CreateShareResponse",
+        "This cmdlet returns an Amazon.Omics.Model.CreateShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEMPChannelCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
+    public partial class NewOMICSShareCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter Description
+        #region Parameter PrincipalSubscriber
         /// <summary>
         /// <para>
-        /// A short text description of the Channel.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Id
-        /// <summary>
-        /// <para>
-        /// The ID of the Channel. The ID must be unique within
-        /// the region and itcannot be changed after a Channel is created.
+        /// <para> The principal subscriber is the account being given access to the analytics store
+        /// data through the share offer. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String PrincipalSubscriber { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The resource ARN for the analytics store to be shared. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter ShareName
+        /// <summary>
+        /// <para>
+        /// <para> A name given to the share. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String ShareName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackage.Model.CreateChannelResponse).
-        /// Specifying the name of a property of type Amazon.MediaPackage.Model.CreateChannelResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.CreateShareResponse).
+        /// Specifying the name of a property of type Amazon.Omics.Model.CreateShareResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -116,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMPChannel (CreateChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OMICSShare (CreateShare)"))
             {
                 return;
             }
@@ -127,37 +122,26 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaPackage.Model.CreateChannelResponse, NewEMPChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.CreateShareResponse, NewOMICSShareCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Id;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.Id = this.Id;
+            context.PrincipalSubscriber = this.PrincipalSubscriber;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.PrincipalSubscriber == null && ParameterWasBound(nameof(this.PrincipalSubscriber)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PrincipalSubscriber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.ResourceArn = this.ResourceArn;
+            #if MODULAR
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.ShareName = this.ShareName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +156,19 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MediaPackage.Model.CreateChannelRequest();
+            var request = new Amazon.Omics.Model.CreateShareRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.PrincipalSubscriber != null)
             {
-                request.Description = cmdletContext.Description;
+                request.PrincipalSubscriber = cmdletContext.PrincipalSubscriber;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Id = cmdletContext.Id;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.ShareName != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.ShareName = cmdletContext.ShareName;
             }
             
             CmdletOutput output;
@@ -219,15 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaPackage.Model.CreateChannelResponse CallAWSServiceOperation(IAmazonMediaPackage client, Amazon.MediaPackage.Model.CreateChannelRequest request)
+        private Amazon.Omics.Model.CreateShareResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.CreateShareRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage", "CreateChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "CreateShare");
             try
             {
                 #if DESKTOP
-                return client.CreateChannel(request);
+                return client.CreateShare(request);
                 #elif CORECLR
-                return client.CreateChannelAsync(request).GetAwaiter().GetResult();
+                return client.CreateShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String Id { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.MediaPackage.Model.CreateChannelResponse, NewEMPChannelCmdlet, object> Select { get; set; } =
+            public System.String PrincipalSubscriber { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.String ShareName { get; set; }
+            public System.Func<Amazon.Omics.Model.CreateShareResponse, NewOMICSShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

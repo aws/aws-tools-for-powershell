@@ -22,29 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MediaPackage;
-using Amazon.MediaPackage.Model;
+using Amazon.Omics;
+using Amazon.Omics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMP
+namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets details about a Channel.
+    /// Retrieves the metadata for a share.
     /// </summary>
-    [Cmdlet("Get", "EMPChannel")]
-    [OutputType("Amazon.MediaPackage.Model.DescribeChannelResponse")]
-    [AWSCmdlet("Calls the AWS Elemental MediaPackage DescribeChannel API operation.", Operation = new[] {"DescribeChannel"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.DescribeChannelResponse))]
-    [AWSCmdletOutput("Amazon.MediaPackage.Model.DescribeChannelResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.DescribeChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OMICSShare")]
+    [OutputType("Amazon.Omics.Model.ShareDetails")]
+    [AWSCmdlet("Calls the Amazon Omics GetShare API operation.", Operation = new[] {"GetShare"}, SelectReturnType = typeof(Amazon.Omics.Model.GetShareResponse))]
+    [AWSCmdletOutput("Amazon.Omics.Model.ShareDetails or Amazon.Omics.Model.GetShareResponse",
+        "This cmdlet returns an Amazon.Omics.Model.ShareDetails object.",
+        "The service call response (type Amazon.Omics.Model.GetShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEMPChannelCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
+    public partial class GetOMICSShareCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter Id
+        #region Parameter ShareId
         /// <summary>
         /// <para>
-        /// The ID of a Channel.
+        /// <para> The generated ID for a share. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,26 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String ShareId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackage.Model.DescribeChannelResponse).
-        /// Specifying the name of a property of type Amazon.MediaPackage.Model.DescribeChannelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Share'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.GetShareResponse).
+        /// Specifying the name of a property of type Amazon.Omics.Model.GetShareResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Share";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ShareId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ShareId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ShareId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaPackage.Model.DescribeChannelResponse, GetEMPChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.GetShareResponse, GetOMICSShareCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -101,14 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.ShareId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.ShareId = this.ShareId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.ShareId == null && ParameterWasBound(nameof(this.ShareId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ShareId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -125,11 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MediaPackage.Model.DescribeChannelRequest();
+            var request = new Amazon.Omics.Model.GetShareRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ShareId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.ShareId = cmdletContext.ShareId;
             }
             
             CmdletOutput output;
@@ -164,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaPackage.Model.DescribeChannelResponse CallAWSServiceOperation(IAmazonMediaPackage client, Amazon.MediaPackage.Model.DescribeChannelRequest request)
+        private Amazon.Omics.Model.GetShareResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.GetShareRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage", "DescribeChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "GetShare");
             try
             {
                 #if DESKTOP
-                return client.DescribeChannel(request);
+                return client.GetShare(request);
                 #elif CORECLR
-                return client.DescribeChannelAsync(request).GetAwaiter().GetResult();
+                return client.GetShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -192,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.Func<Amazon.MediaPackage.Model.DescribeChannelResponse, GetEMPChannelCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ShareId { get; set; }
+            public System.Func<Amazon.Omics.Model.GetShareResponse, GetOMICSShareCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Share;
         }
         
     }

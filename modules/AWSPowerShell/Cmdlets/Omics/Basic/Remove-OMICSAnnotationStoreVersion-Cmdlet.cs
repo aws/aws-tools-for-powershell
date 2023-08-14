@@ -22,40 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MediaPackage;
-using Amazon.MediaPackage.Model;
+using Amazon.Omics;
+using Amazon.Omics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMP
+namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a new Channel.
+    /// Deletes one or multiple versions of an annotation store.
     /// </summary>
-    [Cmdlet("New", "EMPChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.MediaPackage.Model.CreateChannelResponse")]
-    [AWSCmdlet("Calls the AWS Elemental MediaPackage CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.CreateChannelResponse))]
-    [AWSCmdletOutput("Amazon.MediaPackage.Model.CreateChannelResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.CreateChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "OMICSAnnotationStoreVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Omics.Model.VersionDeleteError")]
+    [AWSCmdlet("Calls the Amazon Omics DeleteAnnotationStoreVersions API operation.", Operation = new[] {"DeleteAnnotationStoreVersions"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse))]
+    [AWSCmdletOutput("Amazon.Omics.Model.VersionDeleteError or Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse",
+        "This cmdlet returns a collection of Amazon.Omics.Model.VersionDeleteError objects.",
+        "The service call response (type Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEMPChannelCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
+    public partial class RemoveOMICSAnnotationStoreVersionCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter Description
+        #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// A short text description of the Channel.
+        /// <para> Forces the deletion of an annotation store version when imports are in-progress..
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        public System.Boolean? Enforce { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// The ID of the Channel. The ID must be unique within
-        /// the region and itcannot be changed after a Channel is created.
+        /// <para> The name of the annotation store from which versions are being deleted. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,37 +65,44 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter Version
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The versions of an annotation store to be deleted. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Versions")]
+        public System.String[] Version { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackage.Model.CreateChannelResponse).
-        /// Specifying the name of a property of type Amazon.MediaPackage.Model.CreateChannelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Errors'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse).
+        /// Specifying the name of a property of type Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Errors";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMPChannel (CreateChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OMICSAnnotationStoreVersion (DeleteAnnotationStoreVersions)"))
             {
                 return;
             }
@@ -130,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaPackage.Model.CreateChannelResponse, NewEMPChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse, RemoveOMICSAnnotationStoreVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,25 +145,27 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.Id = this.Id;
+            context.Enforce = this.Enforce;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.Version != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                context.Version = new List<System.String>(this.Version);
             }
+            #if MODULAR
+            if (this.Version == null && ParameterWasBound(nameof(this.Version)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Version which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MediaPackage.Model.CreateChannelRequest();
+            var request = new Amazon.Omics.Model.DeleteAnnotationStoreVersionsRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.Enforce != null)
             {
-                request.Description = cmdletContext.Description;
+                request.Force = cmdletContext.Enforce.Value;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.Name != null)
             {
-                request.Id = cmdletContext.Id;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.Version != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.Versions = cmdletContext.Version;
             }
             
             CmdletOutput output;
@@ -219,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaPackage.Model.CreateChannelResponse CallAWSServiceOperation(IAmazonMediaPackage client, Amazon.MediaPackage.Model.CreateChannelRequest request)
+        private Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.DeleteAnnotationStoreVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage", "CreateChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "DeleteAnnotationStoreVersions");
             try
             {
                 #if DESKTOP
-                return client.CreateChannel(request);
+                return client.DeleteAnnotationStoreVersions(request);
                 #elif CORECLR
-                return client.CreateChannelAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAnnotationStoreVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,11 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String Id { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.MediaPackage.Model.CreateChannelResponse, NewEMPChannelCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Boolean? Enforce { get; set; }
+            public System.String Name { get; set; }
+            public List<System.String> Version { get; set; }
+            public System.Func<Amazon.Omics.Model.DeleteAnnotationStoreVersionsResponse, RemoveOMICSAnnotationStoreVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Errors;
         }
         
     }

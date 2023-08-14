@@ -234,6 +234,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String ReadOptions_Sep { get; set; }
         #endregion
         
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the annotation store version. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'JobId'.
@@ -340,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #endif
             context.RunLeftNormalization = this.RunLeftNormalization;
+            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -540,6 +551,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 request.RunLeftNormalization = cmdletContext.RunLeftNormalization.Value;
             }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
+            }
             
             CmdletOutput output;
             
@@ -617,6 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public List<Amazon.Omics.Model.AnnotationImportItemSource> Item { get; set; }
             public System.String RoleArn { get; set; }
             public System.Boolean? RunLeftNormalization { get; set; }
+            public System.String VersionName { get; set; }
             public System.Func<Amazon.Omics.Model.StartAnnotationImportJobResponse, StartOMICSAnnotationImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;
         }

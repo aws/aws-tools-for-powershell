@@ -1,4 +1,20 @@
-﻿### 4.1.392 (2023-08-11 21:22Z)
+﻿### 4.1.393 (2023-08-14 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.620.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Omics
+    * Added cmdlet Get-OMICSAnnotationStoreVersion leveraging the GetAnnotationStoreVersion service API.
+    * Added cmdlet Get-OMICSAnnotationStoreVersionList leveraging the ListAnnotationStoreVersions service API.
+    * Added cmdlet Get-OMICSShare leveraging the GetShare service API.
+    * Added cmdlet Get-OMICSShareList leveraging the ListShares service API.
+    * Added cmdlet New-OMICSAnnotationStoreVersion leveraging the CreateAnnotationStoreVersion service API.
+    * Added cmdlet New-OMICSShare leveraging the CreateShare service API.
+    * Added cmdlet Receive-OMICSShare leveraging the AcceptShare service API.
+    * Added cmdlet Remove-OMICSAnnotationStoreVersion leveraging the DeleteAnnotationStoreVersions service API.
+    * Added cmdlet Remove-OMICSShare leveraging the DeleteShare service API.
+    * Added cmdlet Update-OMICSAnnotationStoreVersion leveraging the UpdateAnnotationStoreVersion service API.
+    * Modified cmdlet New-OMICSAnnotationStore: added parameter VersionName.
+    * Modified cmdlet Start-OMICSAnnotationImportJob: added parameter VersionName.
+
+### 4.1.392 (2023-08-11 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.619.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.391 (2023-08-10 21:27Z)

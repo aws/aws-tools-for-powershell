@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class UpdateEMPChannelCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

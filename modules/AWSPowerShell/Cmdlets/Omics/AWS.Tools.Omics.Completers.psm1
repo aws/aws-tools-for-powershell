@@ -88,7 +88,10 @@ $OMICS_Completers = {
         }
 
         # Amazon.Omics.AnnotationType
-        "New-OMICSAnnotationStore/StoreOptions_TsvStoreOptions_AnnotationType"
+        {
+            ($_ -eq "New-OMICSAnnotationStore/StoreOptions_TsvStoreOptions_AnnotationType") -Or
+            ($_ -eq "New-OMICSAnnotationStoreVersion/VersionOptions_TsvVersionOptions_AnnotationType")
+        }
         {
             $v = "CHR_POS","CHR_POS_REF_ALT","CHR_START_END_ONE_BASE","CHR_START_END_REF_ALT_ONE_BASE","CHR_START_END_REF_ALT_ZERO_BASE","CHR_START_END_ZERO_BASE","GENERIC"
             break
@@ -189,6 +192,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.ResourceOwner
+        "Get-OMICSShareList/ResourceOwner"
+        {
+            $v = "OTHER","SELF"
+            break
+        }
+
         # Amazon.Omics.RunLogLevel
         "Start-OMICSRun/LogLevel"
         {
@@ -227,6 +237,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.VersionStatus
+        "Get-OMICSAnnotationStoreVersionList/Filter_Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
         # Amazon.Omics.WorkflowEngine
         "New-OMICSWorkflow/Engine"
         {
@@ -258,15 +275,17 @@ $OMICS_map = @{
     "Engine"=@("New-OMICSWorkflow")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
-    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
+    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
+    "ResourceOwner"=@("Get-OMICSShareList")
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
     "StoreFormat"=@("New-OMICSAnnotationStore")
     "StoreOptions_TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
     "Type"=@("Get-OMICSWorkflow","Get-OMICSWorkflowList")
+    "VersionOptions_TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")
     "WorkflowType"=@("Start-OMICSRun")
 }
 
@@ -321,28 +340,34 @@ $OMICS_SelectCompleters = {
 
 $OMICS_SelectMap = @{
     "Select"=@("Remove-OMICSMultipartReadSetUpload",
+               "Receive-OMICSShare",
                "Remove-OMICSReadSet",
                "Stop-OMICSAnnotationImportJob",
                "Stop-OMICSRun",
                "Stop-OMICSVariantImportJob",
                "Complete-OMICSMultipartReadSetUpload",
                "New-OMICSAnnotationStore",
+               "New-OMICSAnnotationStoreVersion",
                "New-OMICSMultipartReadSetUpload",
                "New-OMICSReferenceStore",
                "New-OMICSRunGroup",
                "New-OMICSSequenceStore",
+               "New-OMICSShare",
                "New-OMICSVariantStore",
                "New-OMICSWorkflow",
                "Remove-OMICSAnnotationStore",
+               "Remove-OMICSAnnotationStoreVersion",
                "Remove-OMICSReference",
                "Remove-OMICSReferenceStore",
                "Remove-OMICSRun",
                "Remove-OMICSRunGroup",
                "Remove-OMICSSequenceStore",
+               "Remove-OMICSShare",
                "Remove-OMICSVariantStore",
                "Remove-OMICSWorkflow",
                "Get-OMICSAnnotationImportJob",
                "Get-OMICSAnnotationStore",
+               "Get-OMICSAnnotationStoreVersion",
                "Get-OMICSReadSet",
                "Get-OMICSReadSetActivationJob",
                "Get-OMICSReadSetExportJob",
@@ -356,11 +381,13 @@ $OMICS_SelectMap = @{
                "Get-OMICSRunGroup",
                "Get-OMICSRunTask",
                "Get-OMICSSequenceStore",
+               "Get-OMICSShare",
                "Get-OMICSVariantImportJob",
                "Get-OMICSVariantStore",
                "Get-OMICSWorkflow",
                "Get-OMICSAnnotationImportJobList",
                "Get-OMICSAnnotationStoreList",
+               "Get-OMICSAnnotationStoreVersionList",
                "Get-OMICSMultipartReadSetUploadList",
                "Get-OMICSReadSetActivationJobList",
                "Get-OMICSReadSetExportJobList",
@@ -374,6 +401,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSRunList",
                "Get-OMICSRunTaskList",
                "Get-OMICSSequenceStoreList",
+               "Get-OMICSShareList",
                "Get-OMICSResourceTag",
                "Get-OMICSVariantImportJobList",
                "Get-OMICSVariantStoreList",
@@ -388,6 +416,7 @@ $OMICS_SelectMap = @{
                "Add-OMICSResourceTag",
                "Remove-OMICSResourceTag",
                "Update-OMICSAnnotationStore",
+               "Update-OMICSAnnotationStoreVersion",
                "Update-OMICSRunGroup",
                "Update-OMICSVariantStore",
                "Update-OMICSWorkflow",

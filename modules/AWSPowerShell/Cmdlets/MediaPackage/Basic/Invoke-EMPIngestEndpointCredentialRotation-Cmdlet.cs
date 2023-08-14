@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class InvokeEMPIngestEndpointCredentialRotationCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>
