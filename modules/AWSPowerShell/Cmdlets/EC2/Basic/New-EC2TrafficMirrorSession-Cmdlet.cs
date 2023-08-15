@@ -89,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// a subset of the packet, set this to the length (in bytes) that you want to mirror.
         /// For example, if you set this value to 100, then the first 100 bytes that meet the
         /// filter criteria are copied to the target.</para><para>If you do not want to mirror the entire packet, use the <code>PacketLength</code>
-        /// parameter to specify the number of bytes in each packet to mirror.</para>
+        /// parameter to specify the number of bytes in each packet to mirror.</para><para>For sessions with Network Load Balancer (NLB) Traffic Mirror targets the default <code>PacketLength</code>
+        /// will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code>
+        /// greater than 8500 will result in an error response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -168,6 +168,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String CsvClassifier_QuoteSymbol { get; set; }
         #endregion
         
+        #region Parameter CsvClassifier_Serde
+        /// <summary>
+        /// <para>
+        /// <para>Sets the SerDe for processing CSV in the classifier, which will be applied in the
+        /// Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>,
+        /// and <code>None</code>. You can specify the <code>None</code> value when you want the
+        /// crawler to do the detection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.CsvSerdeOption")]
+        public Amazon.Glue.CsvSerdeOption CsvClassifier_Serde { get; set; }
+        #endregion
+        
         #region Parameter XMLClassifier
         /// <summary>
         /// <para>
@@ -234,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.CsvClassifier_Name = this.CsvClassifier_Name;
             context.CsvClassifier_QuoteSymbol = this.CsvClassifier_QuoteSymbol;
+            context.CsvClassifier_Serde = this.CsvClassifier_Serde;
             context.GrokClassifier = this.GrokClassifier;
             context.JsonClassifier_JsonPath = this.JsonClassifier_JsonPath;
             context.JsonClassifier_Name = this.JsonClassifier_Name;
@@ -348,6 +363,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 request.CsvClassifier.QuoteSymbol = requestCsvClassifier_csvClassifier_QuoteSymbol;
                 requestCsvClassifierIsNull = false;
             }
+            Amazon.Glue.CsvSerdeOption requestCsvClassifier_csvClassifier_Serde = null;
+            if (cmdletContext.CsvClassifier_Serde != null)
+            {
+                requestCsvClassifier_csvClassifier_Serde = cmdletContext.CsvClassifier_Serde;
+            }
+            if (requestCsvClassifier_csvClassifier_Serde != null)
+            {
+                request.CsvClassifier.Serde = requestCsvClassifier_csvClassifier_Serde;
+                requestCsvClassifierIsNull = false;
+            }
              // determine if request.CsvClassifier should be set to null
             if (requestCsvClassifierIsNull)
             {
@@ -460,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<System.String> CsvClassifier_Header { get; set; }
             public System.String CsvClassifier_Name { get; set; }
             public System.String CsvClassifier_QuoteSymbol { get; set; }
+            public Amazon.Glue.CsvSerdeOption CsvClassifier_Serde { get; set; }
             public Amazon.Glue.Model.UpdateGrokClassifierRequest GrokClassifier { get; set; }
             public System.String JsonClassifier_JsonPath { get; set; }
             public System.String JsonClassifier_Name { get; set; }

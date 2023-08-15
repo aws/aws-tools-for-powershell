@@ -124,6 +124,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.CsvSerdeOption
+        {
+            ($_ -eq "New-GLUEClassifier/CsvClassifier_Serde") -Or
+            ($_ -eq "Update-GLUEClassifier/CsvClassifier_Serde")
+        }
+        {
+            $v = "LazySimpleSerDe","None","OpenCSVSerDe"
+            break
+        }
+
         # Amazon.Glue.DataFormat
         {
             ($_ -eq "Get-GLUESchemaVersionValidity/DataFormat") -Or
@@ -335,6 +345,7 @@ $GLUE_map = @{
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
+    "CsvClassifier_Serde"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
     "EnableHybrid"=@("Set-GLUEResourcePolicy")

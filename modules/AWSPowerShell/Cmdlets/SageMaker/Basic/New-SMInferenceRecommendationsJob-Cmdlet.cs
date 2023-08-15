@@ -418,6 +418,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] ContainerConfig_SupportedInstanceType { get; set; }
         #endregion
         
+        #region Parameter ContainerConfig_SupportedResponseMIMEType
+        /// <summary>
+        /// <para>
+        /// <para>The supported MIME types for the output data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_SupportedResponseMIMETypes")]
+        public System.String[] ContainerConfig_SupportedResponseMIMEType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -562,6 +573,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (this.ContainerConfig_SupportedInstanceType != null)
             {
                 context.ContainerConfig_SupportedInstanceType = new List<System.String>(this.ContainerConfig_SupportedInstanceType);
+            }
+            if (this.ContainerConfig_SupportedResponseMIMEType != null)
+            {
+                context.ContainerConfig_SupportedResponseMIMEType = new List<System.String>(this.ContainerConfig_SupportedResponseMIMEType);
             }
             context.ContainerConfig_Task = this.ContainerConfig_Task;
             if (this.InputConfig_EndpointConfiguration != null)
@@ -933,6 +948,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestInputConfig_inputConfig_ContainerConfig.SupportedInstanceTypes = requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedInstanceType;
                 requestInputConfig_inputConfig_ContainerConfigIsNull = false;
             }
+            List<System.String> requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedResponseMIMEType = null;
+            if (cmdletContext.ContainerConfig_SupportedResponseMIMEType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedResponseMIMEType = cmdletContext.ContainerConfig_SupportedResponseMIMEType;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedResponseMIMEType != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.SupportedResponseMIMETypes = requestInputConfig_inputConfig_ContainerConfig_containerConfig_SupportedResponseMIMEType;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
             System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_Task = null;
             if (cmdletContext.ContainerConfig_Task != null)
             {
@@ -1166,6 +1191,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> PayloadConfig_SupportedContentType { get; set; }
             public Amazon.SageMaker.RecommendationJobSupportedEndpointType ContainerConfig_SupportedEndpointType { get; set; }
             public List<System.String> ContainerConfig_SupportedInstanceType { get; set; }
+            public List<System.String> ContainerConfig_SupportedResponseMIMEType { get; set; }
             public System.String ContainerConfig_Task { get; set; }
             public List<Amazon.SageMaker.Model.EndpointInputConfiguration> InputConfig_EndpointConfiguration { get; set; }
             public List<Amazon.SageMaker.Model.EndpointInfo> InputConfig_Endpoint { get; set; }

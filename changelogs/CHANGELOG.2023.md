@@ -1,4 +1,20 @@
-﻿### 4.1.393 (2023-08-14 21:18Z)
+﻿### 4.1.394 (2023-08-15 21:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.621.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEClassifier: added parameter CsvClassifier_Serde.
+    * Modified cmdlet Update-GLUEClassifier: added parameter CsvClassifier_Serde.
+  * Amazon Performance Insights
+    * Added cmdlet Add-PIResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-PIPerformanceAnalysisReport leveraging the GetPerformanceAnalysisReport service API.
+    * Added cmdlet Get-PIPerformanceAnalysisReportList leveraging the ListPerformanceAnalysisReports service API.
+    * Added cmdlet Get-PIResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-PIPerformanceAnalysisReport leveraging the CreatePerformanceAnalysisReport service API.
+    * Added cmdlet Remove-PIPerformanceAnalysisReport leveraging the DeletePerformanceAnalysisReport service API.
+    * Added cmdlet Remove-PIResourceTag leveraging the UntagResource service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameter ContainerConfig_SupportedResponseMIMEType.
+
+### 4.1.393 (2023-08-14 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.620.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Omics
     * Added cmdlet Get-OMICSAnnotationStoreVersion leveraging the GetAnnotationStoreVersion service API.

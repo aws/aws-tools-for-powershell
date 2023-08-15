@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a subnet CIDR reservation. For information about subnet CIDR reservations,
-    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet
-    /// CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// Creates a subnet CIDR reservation. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet
+    /// CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">Assign
+    /// prefixes to network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2SubnetCidrReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SubnetCidrReservation")]
@@ -72,12 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservationType
         /// <summary>
         /// <para>
-        /// <para>The type of reservation.</para><para>The following are valid values:</para><ul><li><para><code>prefix</code>: The Amazon EC2 Prefix Delegation feature assigns the IP addresses
-        /// to network interfaces that are associated with an instance. For information about
-        /// Prefix Delegation, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix
-        /// Delegation for Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.</para></li><li><para><code>explicit</code>: You manually assign the IP addresses to resources that reside
-        /// in your subnet. </para></li></ul>
+        /// <para>The type of reservation. The reservation type determines how the reserved IP addresses
+        /// are assigned to resources.</para><ul><li><para><code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to network
+        /// interfaces.</para></li><li><para><code>explicit</code> - You assign the reserved IP addresses to network interfaces.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

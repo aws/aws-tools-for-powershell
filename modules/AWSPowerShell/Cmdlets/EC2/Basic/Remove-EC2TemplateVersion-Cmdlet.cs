@@ -28,10 +28,21 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes one or more versions of a launch template. You cannot delete the default version
-    /// of a launch template; you must first assign a different version as the default. If
-    /// the default version is the only version for the launch template, you must delete the
-    /// entire launch template using <a>DeleteLaunchTemplate</a>.
+    /// Deletes one or more versions of a launch template.
+    /// 
+    ///  
+    /// <para>
+    /// You can't delete the default version of a launch template; you must first assign a
+    /// different version as the default. If the default version is the only version for the
+    /// launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.
+    /// </para><para>
+    /// You can delete up to 200 launch template versions in a single request. To delete more
+    /// than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which deletes
+    /// the launch template and all of its versions.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version">Delete
+    /// a launch template version</a> in the <i>EC2 User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2TemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse")]
@@ -67,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version numbers of one or more launch template versions to delete.</para>
+        /// <para>The version numbers of one or more launch template versions to delete. You can specify
+        /// up to 200 launch template version numbers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class MoveR53DDomainToAnotherAwsAccountCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

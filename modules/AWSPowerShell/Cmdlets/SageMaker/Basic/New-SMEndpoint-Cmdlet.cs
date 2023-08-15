@@ -36,10 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  
     /// <para>
     ///  Use this API to deploy models using SageMaker hosting services. 
-    /// </para><para>
-    /// For an example that calls this method when deploying a model to SageMaker hosting
-    /// services, see the <a href="https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb">Create
-    /// Endpoint example notebook.</a></para><note><para>
+    /// </para><note><para>
     ///  You must not delete an <code>EndpointConfig</code> that is in use by an endpoint
     /// that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
     /// operations are being performed on the endpoint. To update an endpoint, you must create

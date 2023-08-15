@@ -80,6 +80,13 @@ $PI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PI.AcceptLanguage
+        "Get-PIPerformanceAnalysisReport/AcceptLanguage"
+        {
+            $v = "EN_US"
+            break
+        }
+
         # Amazon.PI.PeriodAlignment
         "Get-PIResourceMetric/PeriodAlignment"
         {
@@ -89,15 +96,29 @@ $PI_Completers = {
 
         # Amazon.PI.ServiceType
         {
+            ($_ -eq "Add-PIResourceTag/ServiceType") -Or
             ($_ -eq "Get-PIAvailableResourceDimensionList/ServiceType") -Or
             ($_ -eq "Get-PIAvailableResourceMetricList/ServiceType") -Or
             ($_ -eq "Get-PIDimensionKey/ServiceType") -Or
             ($_ -eq "Get-PIDimensionKeyDetail/ServiceType") -Or
+            ($_ -eq "Get-PIPerformanceAnalysisReport/ServiceType") -Or
+            ($_ -eq "Get-PIPerformanceAnalysisReportList/ServiceType") -Or
             ($_ -eq "Get-PIResourceMetadata/ServiceType") -Or
-            ($_ -eq "Get-PIResourceMetric/ServiceType")
+            ($_ -eq "Get-PIResourceMetric/ServiceType") -Or
+            ($_ -eq "Get-PIResourceTag/ServiceType") -Or
+            ($_ -eq "New-PIPerformanceAnalysisReport/ServiceType") -Or
+            ($_ -eq "Remove-PIPerformanceAnalysisReport/ServiceType") -Or
+            ($_ -eq "Remove-PIResourceTag/ServiceType")
         }
         {
             $v = "DOCDB","RDS"
+            break
+        }
+
+        # Amazon.PI.TextFormat
+        "Get-PIPerformanceAnalysisReport/TextFormat"
+        {
+            $v = "MARKDOWN","PLAIN_TEXT"
             break
         }
 
@@ -110,8 +131,10 @@ $PI_Completers = {
 }
 
 $PI_map = @{
+    "AcceptLanguage"=@("Get-PIPerformanceAnalysisReport")
     "PeriodAlignment"=@("Get-PIResourceMetric")
-    "ServiceType"=@("Get-PIAvailableResourceDimensionList","Get-PIAvailableResourceMetricList","Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIResourceMetadata","Get-PIResourceMetric")
+    "ServiceType"=@("Add-PIResourceTag","Get-PIAvailableResourceDimensionList","Get-PIAvailableResourceMetricList","Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIPerformanceAnalysisReport","Get-PIPerformanceAnalysisReportList","Get-PIResourceMetadata","Get-PIResourceMetric","Get-PIResourceTag","New-PIPerformanceAnalysisReport","Remove-PIPerformanceAnalysisReport","Remove-PIResourceTag")
+    "TextFormat"=@("Get-PIPerformanceAnalysisReport")
 }
 
 _awsArgumentCompleterRegistration $PI_Completers $PI_map
@@ -164,12 +187,19 @@ $PI_SelectCompleters = {
 }
 
 $PI_SelectMap = @{
-    "Select"=@("Get-PIDimensionKey",
+    "Select"=@("New-PIPerformanceAnalysisReport",
+               "Remove-PIPerformanceAnalysisReport",
+               "Get-PIDimensionKey",
                "Get-PIDimensionKeyDetail",
+               "Get-PIPerformanceAnalysisReport",
                "Get-PIResourceMetadata",
                "Get-PIResourceMetric",
                "Get-PIAvailableResourceDimensionList",
-               "Get-PIAvailableResourceMetricList")
+               "Get-PIAvailableResourceMetricList",
+               "Get-PIPerformanceAnalysisReportList",
+               "Get-PIResourceTag",
+               "Add-PIResourceTag",
+               "Remove-PIResourceTag")
 }
 
 _awsArgumentCompleterRegistration $PI_SelectCompleters $PI_SelectMap
