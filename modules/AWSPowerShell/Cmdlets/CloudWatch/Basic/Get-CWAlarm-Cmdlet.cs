@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>Use this parameter to specify whether you want the operation to return metric alarms
-        /// or composite alarms. If you omit this parameter, only metric alarms are returned.</para>
+        /// or composite alarms. If you omit this parameter, only metric alarms are returned,
+        /// even if composite alarms exist in the account.</para><para>For example, if you omit this parameter or specify <code>MetricAlarms</code>, the
+        /// operation returns only a list of metric alarms. It does not return any composite alarms,
+        /// even if composite alarms exist in the account.</para><para>If you specify <code>CompositeAlarms</code>, the operation returns only a list of
+        /// composite alarms, and does not return any metric alarms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

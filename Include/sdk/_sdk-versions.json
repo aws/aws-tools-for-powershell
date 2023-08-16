@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.621.0",
+    "ProductVersion" : "3.7.622.0",
     "CoreVersion"    : "3.7.200.18",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -78,7 +78,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "3.7.200.18",
+            "Version" : "3.7.200.19",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.18"
@@ -2066,7 +2066,7 @@
             "InPreview"               : false
         },
         "LexModelsV2"                     : {
-            "Version" : "3.7.202.16",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.200.18"

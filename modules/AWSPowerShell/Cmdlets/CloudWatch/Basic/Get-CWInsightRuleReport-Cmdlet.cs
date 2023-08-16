@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter OrderBy
         /// <summary>
         /// <para>
-        /// <para>Determines what statistic to use to rank the contributors. Valid values are SUM and
-        /// MAXIMUM.</para>
+        /// <para>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code>
+        /// and <code>Maximum</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,7 @@
-﻿### 4.1.394 (2023-08-15 21:31Z)
+﻿### 4.1.395 (2023-08-16 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.622.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.394 (2023-08-15 21:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.621.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet New-GLUEClassifier: added parameter CsvClassifier_Serde.
