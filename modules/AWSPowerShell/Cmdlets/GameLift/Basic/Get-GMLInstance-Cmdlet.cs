@@ -28,29 +28,32 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information about a fleet's instances, including instance IDs, connection
-    /// data, and status. 
+    /// Retrieves information about the EC2 instances in an Amazon GameLift managed fleet,
+    /// including instance ID, connection data, and status. You can use this operation with
+    /// a multi-location fleet to get location-specific instance information. As an alternative,
+    /// use the operations <a>ListCompute</a> and <a>DescribeCompute</a> to retrieve information
+    /// for compute resources, including EC2 and Anywhere fleets.
     /// 
     ///  
     /// <para>
-    /// This operation can be used in the following ways:
+    /// You can call this operation in the following ways:
     /// </para><ul><li><para>
-    /// To get information on all instances that are deployed to a fleet's home Region, provide
-    /// the fleet ID.
+    /// To get information on all instances in a fleet's home Region, specify the fleet ID.
     /// </para></li><li><para>
-    /// To get information on all instances that are deployed to a fleet's remote location,
-    /// provide the fleet ID and location name.
+    /// To get information on all instances in a fleet's remote location, specify the fleet
+    /// ID and location name.
     /// </para></li><li><para>
-    /// To get information on a specific instance in a fleet, provide the fleet ID and instance
+    /// To get information on a specific instance in a fleet, specify the fleet ID and instance
     /// ID.
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
-    /// If successful, an <code>Instance</code> object is returned for each requested instance.
-    /// Instances are not returned in any particular order. 
+    /// If successful, this operation returns <code>Instance</code> objects for each requested
+    /// instance, listed in no particular order. If you call this operation for an Anywhere
+    /// fleet, you receive an InvalidRequestException.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
-    /// Access Fleet Instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
-    /// Fleet Issues</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// connect to fleet instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
+    /// fleet issues</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLInstance")]

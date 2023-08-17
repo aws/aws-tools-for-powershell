@@ -1,4 +1,10 @@
-﻿### 4.1.395 (2023-08-16 21:18Z)
+﻿### 4.1.396 (2023-08-17 21:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.623.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VpcEndpoint: added parameter SubnetConfiguration.
+    * Modified cmdlet New-EC2VpcEndpoint: added parameter SubnetConfiguration.
+
+### 4.1.395 (2023-08-16 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.622.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.394 (2023-08-15 21:31Z)

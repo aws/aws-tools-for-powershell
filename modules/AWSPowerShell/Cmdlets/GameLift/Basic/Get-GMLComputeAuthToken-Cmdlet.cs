@@ -28,10 +28,21 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Requests an authentication token from Amazon GameLift. The authentication token is
-    /// used by your game server to authenticate with Amazon GameLift. Each authentication
-    /// token has an expiration time. To continue using the compute resource to host your
-    /// game server, regularly retrieve a new authorization token.
+    /// Requests an authentication token from Amazon GameLift for a registered compute in
+    /// an Anywhere fleet. The game servers that are running on the compute use this token
+    /// to authenticate with the Amazon GameLift service. Each server process must provide
+    /// a valid authentication token in its call to the Amazon GameLift server SDK action
+    /// <code>InitSDK()</code>.
+    /// 
+    ///  
+    /// <para>
+    /// Authentication tokens are valid for a limited time span. Use a mechanism to regularly
+    /// request a fresh authentication token before the current token expires.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html">Create
+    /// an Anywhere fleet</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html">Test
+    /// your integration</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">Server
+    /// SDK reference guides</a> (for version 5.x)
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLComputeAuthToken")]
     [OutputType("Amazon.GameLift.Model.GetComputeAuthTokenResponse")]

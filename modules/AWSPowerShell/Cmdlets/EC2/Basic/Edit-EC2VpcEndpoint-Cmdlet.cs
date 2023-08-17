@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The IDs of the security groups to associate with the network
-        /// interface.</para>
+        /// <para>(Interface endpoint) The IDs of the security groups to associate with the endpoint
+        /// network interfaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The IDs of the security groups to disassociate from the network
-        /// interface.</para>
+        /// <para>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint
+        /// network interfaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,6 +179,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ResetPolicy { get; set; }
+        #endregion
+        
+        #region Parameter SubnetConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The subnet configurations for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SubnetConfigurations")]
+        public Amazon.EC2.Model.SubnetConfiguration[] SubnetConfiguration { get; set; }
         #endregion
         
         #region Parameter VpcEndpointId
@@ -289,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.RemoveSubnetId = new List<System.String>(this.RemoveSubnetId);
             }
             context.ResetPolicy = this.ResetPolicy;
+            if (this.SubnetConfiguration != null)
+            {
+                context.SubnetConfiguration = new List<Amazon.EC2.Model.SubnetConfiguration>(this.SubnetConfiguration);
+            }
             context.VpcEndpointId = this.VpcEndpointId;
             #if MODULAR
             if (this.VpcEndpointId == null && ParameterWasBound(nameof(this.VpcEndpointId)))
@@ -381,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ResetPolicy = cmdletContext.ResetPolicy.Value;
             }
+            if (cmdletContext.SubnetConfiguration != null)
+            {
+                request.SubnetConfigurations = cmdletContext.SubnetConfiguration;
+            }
             if (cmdletContext.VpcEndpointId != null)
             {
                 request.VpcEndpointId = cmdletContext.VpcEndpointId;
@@ -458,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> RemoveSecurityGroupId { get; set; }
             public List<System.String> RemoveSubnetId { get; set; }
             public System.Boolean? ResetPolicy { get; set; }
+            public List<Amazon.EC2.Model.SubnetConfiguration> SubnetConfiguration { get; set; }
             public System.String VpcEndpointId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcEndpointResponse, EditEC2VpcEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

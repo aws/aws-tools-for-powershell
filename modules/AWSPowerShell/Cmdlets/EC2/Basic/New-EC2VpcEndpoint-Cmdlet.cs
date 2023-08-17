@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>(Interface endpoint) The IDs of the security groups to associate with the endpoint
-        /// network interface. If this parameter is not specified, we use the default security
+        /// network interfaces. If this parameter is not specified, we use the default security
         /// group for the VPC.</para>
         /// </para>
         /// </summary>
@@ -149,11 +149,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ServiceName { get; set; }
         #endregion
         
+        #region Parameter SubnetConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The subnet configurations for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SubnetConfigurations")]
+        public Amazon.EC2.Model.SubnetConfiguration[] SubnetConfiguration { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to
-        /// create an endpoint network interface. For a Gateway Load Balancer endpoint, you can
+        /// create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can
         /// specify only one subnet.</para>
         /// </para>
         /// </summary>
@@ -296,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ServiceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SubnetConfiguration != null)
+            {
+                context.SubnetConfiguration = new List<Amazon.EC2.Model.SubnetConfiguration>(this.SubnetConfiguration);
+            }
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -385,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ServiceName = cmdletContext.ServiceName;
             }
+            if (cmdletContext.SubnetConfiguration != null)
+            {
+                request.SubnetConfigurations = cmdletContext.SubnetConfiguration;
+            }
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetIds = cmdletContext.SubnetId;
@@ -471,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> RouteTableId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String ServiceName { get; set; }
+            public List<Amazon.EC2.Model.SubnetConfiguration> SubnetConfiguration { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.VpcEndpointType VpcEndpointType { get; set; }

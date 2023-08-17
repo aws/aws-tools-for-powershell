@@ -28,8 +28,19 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves all compute resources registered to a fleet in your Amazon Web Services
-    /// account. You can filter the result set by location.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the compute resources in an Amazon GameLift fleet. You can request information
+    /// for either managed EC2 fleets or Anywhere fleets. 
+    /// 
+    ///  
+    /// <para>
+    /// To request a list of computes, specify the fleet ID. You can filter the result set
+    /// by location. Use the pagination parameters to retrieve results in a set of sequential
+    /// pages.
+    /// </para><para>
+    /// If successful, this operation returns the compute resource for the requested fleet.
+    /// For managed EC2 fleets, it returns a list of EC2 instances. For Anywhere fleets, it
+    /// returns a list of registered compute names.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLComputeList")]
     [OutputType("Amazon.GameLift.Model.Compute")]
@@ -44,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet the compute resources are registered to.</para>
+        /// <para>A unique identifier for the fleet to retrieve compute resources for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The name of the custom location that the compute resources are assigned to.</para>
+        /// <para>The name of a location to retrieve compute resources for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

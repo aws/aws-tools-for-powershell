@@ -118,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NewGameSessionProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>The game session protection policy to apply to all new instances created in this fleet.
-        /// Instances that already exist are not affected. You can set protection for individual
-        /// instances using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>
+        /// <para>The game session protection policy to apply to all new game sessions created in this
+        /// fleet. Game sessions that already exist are not affected. You can set protection for
+        /// individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>
         /// .</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
         /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>

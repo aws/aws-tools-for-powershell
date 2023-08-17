@@ -80,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
-        /// This value must fall between the minimum and maximum size limits.</para>
+        /// This value must fall between the minimum and maximum size limits. Changes in desired
+        /// instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
+        /// settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

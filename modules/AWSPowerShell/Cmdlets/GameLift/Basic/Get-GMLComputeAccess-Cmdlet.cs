@@ -28,25 +28,25 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Requests remote access to a fleet instance. Remote access is useful for debugging,
-    /// gathering benchmarking data, or observing activity in real time. 
+    /// Requests authorization to remotely connect to a compute resource in an Amazon GameLift
+    /// fleet. Call this action to connect to an instance in a managed EC2 fleet if the fleet's
+    /// game build uses Amazon GameLift server SDK 5.x or later. To connect to instances with
+    /// game builds that use server SDK 4.x or earlier, call <a>GetInstanceAccess</a>.
     /// 
     ///  
     /// <para>
-    /// To remotely access an instance, you need credentials that match the operating system
-    /// of the instance. For a Windows instance, Amazon GameLift returns a user name and password
-    /// as strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon
-    /// GameLift returns a user name and RSA private key, also as strings, for use with an
-    /// SSH client. The private key must be saved in the proper format to a <code>.pem</code>
-    /// file before using. If you're making this request using the CLI, saving the secret
-    /// can be handled as part of the <code>GetInstanceAccess</code> request, as shown in
-    /// one of the examples for this operation. 
+    /// To request access to a compute, identify the specific EC2 instance and the fleet it
+    /// belongs to. You can retrieve instances for a managed EC2 fleet by calling <a>ListCompute</a>.
+    /// 
     /// </para><para>
-    /// To request access to a specific instance, specify the IDs of both the instance and
-    /// the fleet it belongs to.
+    /// If successful, this operation returns a set of temporary Amazon Web Services credentials,
+    /// including a two-part access key and a session token. Use these credentials with Amazon
+    /// EC2 Systems Manager (SSM) to start a session with the compute. For more details, see
+    /// <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli">
+    /// Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
-    /// Access Fleet Instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
-    /// Fleet Issues</a></para>
+    /// connect to fleet instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
+    /// fleet issues</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLComputeAccess")]
     [OutputType("Amazon.GameLift.Model.GetComputeAccessResponse")]
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ComputeName
         /// <summary>
         /// <para>
-        /// <para>The name of the compute resource you are requesting credentials for.</para>
+        /// <para>A unique identifier for the compute resource that you want to connect to. You can
+        /// use either a registered compute name or an instance ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet that the compute resource is registered to.</para>
+        /// <para>A unique identifier for the fleet that contains the compute resource you want to connect
+        /// to. You can use either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -31,15 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
     /// groups.</b><para>
     /// Updates information about a registered game server to help Amazon GameLift FleetIQ
-    /// to track game server availability. This operation is called by a game server process
+    /// track game server availability. This operation is called by a game server process
     /// that is running on an instance in a game server group. 
     /// </para><para>
     /// Use this operation to update the following types of game server information. You can
     /// make all three types of updates in the same request:
     /// </para><ul><li><para>
-    /// To update the game server's utilization status, identify the game server and game
-    /// server group and specify the current utilization status. Use this status to identify
-    /// when game servers are currently hosting games and when they are available to be claimed.
+    /// To update the game server's utilization status from <code>AVAILABLE</code> (when the
+    /// game server is available to be claimed) to <code>UTILIZED</code> (when the game server
+    /// is currently hosting games). Identify the game server and game server group and specify
+    /// the new utilization status. You can't change the status from to <code>UTILIZED</code>
+    /// to <code>AVAILABLE</code> .
     /// </para></li><li><para>
     /// To report health status, identify the game server and game server group and set health
     /// check to <code>HEALTHY</code>. If a game server does not report health status for
@@ -125,7 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter UtilizationStatus
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the game server is available or is currently hosting gameplay.</para>
+        /// <para>Indicates if the game server is available or is currently hosting gameplay. You can
+        /// update a game server status from <code>AVAILABLE</code> to <code>UTILIZED</code>,
+        /// but you can't change a the status from <code>UTILIZED</code> to <code>AVAILABLE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

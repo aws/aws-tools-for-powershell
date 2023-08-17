@@ -28,8 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Removes a compute resource from the specified fleet. Deregister your compute resources
-    /// before you delete the compute.
+    /// Removes a compute resource from an Amazon GameLift Anywhere fleet. Deregistered computes
+    /// can no longer host game sessions through Amazon GameLift.
     /// </summary>
     [Cmdlet("Unregister", "GMLCompute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ComputeName
         /// <summary>
         /// <para>
-        /// <para>The name of the compute resource you want to delete.</para>
+        /// <para>The name of the compute resource to remove from the specified Anywhere fleet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>&gt;A unique identifier for the fleet the compute resource is registered to.</para>
+        /// <para>A unique identifier for the fleet the compute resource is currently registered to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

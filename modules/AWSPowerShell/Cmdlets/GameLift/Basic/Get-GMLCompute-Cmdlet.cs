@@ -28,9 +28,18 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves properties for a compute resource. To request a compute resource specify
-    /// the fleet ID and compute name. If successful, Amazon GameLift returns an object containing
-    /// the build properties.
+    /// Retrieves properties for a compute resource in an Amazon GameLift fleet. Call <a>ListCompute</a>
+    /// to get a list of compute resources in a fleet. You can request information for computes
+    /// in either managed EC2 fleets or Anywhere fleets. 
+    /// 
+    ///  
+    /// <para>
+    /// To request compute properties, specify the compute name and fleet ID.
+    /// </para><para>
+    /// If successful, this operation returns details for the requested compute resource.
+    /// For managed EC2 fleets, this operation returns the fleet's EC2 instances. For Anywhere
+    /// fleets, this operation returns the fleet's registered computes. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GMLCompute")]
     [OutputType("Amazon.GameLift.Model.Compute")]
@@ -45,8 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ComputeName
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with the compute resource registered to your
-        /// fleet.</para>
+        /// <para>The unique identifier of the compute resource to retrieve properties for. For an Anywhere
+        /// fleet compute, use the registered compute name. For a managed EC2 fleet instance,
+        /// use the instance ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet the compute is registered to.</para>
+        /// <para>A unique identifier for the fleet that the compute is registered to. You can use either
+        /// the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
