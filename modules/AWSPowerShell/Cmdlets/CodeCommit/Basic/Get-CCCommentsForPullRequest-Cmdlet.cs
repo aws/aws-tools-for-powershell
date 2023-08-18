@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The full commit ID of the commit in the source branch that was the tip of the branch
-        /// at the time the comment was made.</para>
+        /// at the time the comment was made. Requirement is conditional: <code>afterCommitId</code>
+        /// must be specified when <code>repositoryName</code> is included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The full commit ID of the commit in the destination branch that was the tip of the
-        /// branch at the time the pull request was created.</para>
+        /// branch at the time the pull request was created. Requirement is conditional: <code>beforeCommitId</code>
+        /// must be specified when <code>repositoryName</code> is included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository that contains the pull request.</para>
+        /// <para>The name of the repository that contains the pull request. Requirement is conditional:
+        /// <code>repositoryName</code> must be specified when <code>beforeCommitId</code> and
+        /// <code>afterCommitId</code> are included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// Can be used to delete member accounts that belong to an organization as well as member
-    /// accounts that were invited manually.
+    /// You can invoke this API only to delete accounts that became members through invitation.
+    /// You can't invoke this API to delete accounts that belong to an Organizations organization.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

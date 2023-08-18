@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter DefaultBranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the branch to set as the default.</para>
+        /// <para>The name of the branch to set as the default branch.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository to set or change the default branch for.</para>
+        /// <para>The name of the repository for which you want to set or change the default branch.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

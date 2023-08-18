@@ -28,8 +28,8 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Adds or updates a file in a branch in an AWS CodeCommit repository, and generates
-    /// a commit for the addition in the specified branch.
+    /// Adds or updates a file in a branch in an CodeCommit repository, and generates a commit
+    /// for the addition in the specified branch.
     /// </summary>
     [Cmdlet("Write", "CCFile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeCommit.Model.PutFileResponse")]

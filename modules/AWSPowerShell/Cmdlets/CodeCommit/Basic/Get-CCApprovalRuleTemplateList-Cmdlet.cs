@@ -28,8 +28,9 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Lists all approval rule templates in the specified AWS Region in your AWS account.
-    /// If an AWS Region is not specified, the AWS Region where you are signed in is used.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all approval rule templates in the specified Amazon Web Services Region in your
+    /// Amazon Web Services account. If an Amazon Web Services Region is not specified, the
+    /// Amazon Web Services Region where you are signed in is used.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CCApprovalRuleTemplateList")]
     [OutputType("System.String")]

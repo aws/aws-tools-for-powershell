@@ -1,4 +1,9 @@
-﻿### 4.1.396 (2023-08-17 21:29Z)
+﻿### 4.1.397 (2023-08-18 21:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.625.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeCommit
+    * Added cmdlet Get-CCFileCommitHistoryList leveraging the ListFileCommitHistory service API.
+
+### 4.1.396 (2023-08-17 21:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.623.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2VpcEndpoint: added parameter SubnetConfiguration.

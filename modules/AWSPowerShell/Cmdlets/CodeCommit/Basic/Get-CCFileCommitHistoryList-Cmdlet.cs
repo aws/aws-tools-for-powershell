@@ -28,25 +28,52 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Gets information about Amazon Web Servicestags for a specified Amazon Resource Name
-    /// (ARN) in CodeCommit. For a list of valid resources in CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit
-    /// Resources and Operations</a> in the<i> CodeCommit User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of commits and changes to a specified file.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CCResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS CodeCommit ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CodeCommit.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CodeCommit.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CCFileCommitHistoryList")]
+    [OutputType("Amazon.CodeCommit.Model.FileVersion")]
+    [AWSCmdlet("Calls the AWS CodeCommit ListFileCommitHistory API operation.", Operation = new[] {"ListFileCommitHistory"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.ListFileCommitHistoryResponse))]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.FileVersion or Amazon.CodeCommit.Model.ListFileCommitHistoryResponse",
+        "This cmdlet returns a collection of Amazon.CodeCommit.Model.FileVersion objects.",
+        "The service call response (type Amazon.CodeCommit.Model.ListFileCommitHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCCResourceTagCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class GetCCFileCommitHistoryListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter CommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to get information
-        /// about tags, if any.</para>
+        /// <para>The fully quaified reference that identifies the commit that contains the file. For
+        /// example, you can specify a full commit ID, a tag, a branch name, or a reference such
+        /// as <code>refs/heads/main</code>. If none is provided, the head commit is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CommitSpecifier { get; set; }
+        #endregion
+        
+        #region Parameter FilePath
+        /// <summary>
+        /// <para>
+        /// <para>The full path of the file whose history you want to retrieve, including the name of
+        /// the file.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FilePath { get; set; }
+        #endregion
+        
+        #region Parameter RepositoryName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the repository that contains the file.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,14 +84,24 @@ namespace Amazon.PowerShell.Cmdlets.CC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String RepositoryName { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>A non-zero, non-negative integer used to limit the number of returned results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
-        /// results.</para>
+        /// <para>An enumeration token that allows the operation to batch the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -77,21 +114,21 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCommit.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.CodeCommit.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RevisionDag'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCommit.Model.ListFileCommitHistoryResponse).
+        /// Specifying the name of a property of type Amazon.CodeCommit.Model.ListFileCommitHistoryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "RevisionDag";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the RepositoryName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^RepositoryName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RepositoryName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeCommit.Model.ListTagsForResourceResponse, GetCCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeCommit.Model.ListFileCommitHistoryResponse, GetCCFileCommitHistoryListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,15 +165,24 @@ namespace Amazon.PowerShell.Cmdlets.CC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.RepositoryName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.NextToken = this.NextToken;
-            context.ResourceArn = this.ResourceArn;
+            context.CommitSpecifier = this.CommitSpecifier;
+            context.FilePath = this.FilePath;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.FilePath == null && ParameterWasBound(nameof(this.FilePath)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FilePath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.RepositoryName = this.RepositoryName;
+            #if MODULAR
+            if (this.RepositoryName == null && ParameterWasBound(nameof(this.RepositoryName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RepositoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -157,11 +203,23 @@ namespace Amazon.PowerShell.Cmdlets.CC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CodeCommit.Model.ListTagsForResourceRequest();
+            var request = new Amazon.CodeCommit.Model.ListFileCommitHistoryRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.CommitSpecifier != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.CommitSpecifier = cmdletContext.CommitSpecifier;
+            }
+            if (cmdletContext.FilePath != null)
+            {
+                request.FilePath = cmdletContext.FilePath;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.RepositoryName != null)
+            {
+                request.RepositoryName = cmdletContext.RepositoryName;
             }
             
             // Initialize loop variant and commence piping
@@ -220,15 +278,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeCommit.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.ListTagsForResourceRequest request)
+        private Amazon.CodeCommit.Model.ListFileCommitHistoryResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.ListFileCommitHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "ListFileCommitHistory");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.ListFileCommitHistory(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.ListFileCommitHistoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,10 +306,13 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CommitSpecifier { get; set; }
+            public System.String FilePath { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.CodeCommit.Model.ListTagsForResourceResponse, GetCCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String RepositoryName { get; set; }
+            public System.Func<Amazon.CodeCommit.Model.ListFileCommitHistoryResponse, GetCCFileCommitHistoryListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RevisionDag;
         }
         
     }

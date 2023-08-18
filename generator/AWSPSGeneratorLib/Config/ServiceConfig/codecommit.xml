@@ -199,6 +199,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFileCommitHistory" OutputProperty="RevisionDag" Verb="Get" Noun="FileCommitHistoryList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPullRequests" OutputProperty="PullRequestIds" Verb="Get" Noun="PullRequestList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -28,14 +28,13 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disables Security Hub in your account only in the current Region. To disable Security
-    /// Hub in all Regions, you must submit one request per Region where you have enabled
-    /// Security Hub.
+    /// Disables Security Hub in your account only in the current Amazon Web Services Region.
+    /// To disable Security Hub in all Regions, you must submit one request per Region where
+    /// you have enabled Security Hub.
     /// 
     ///  
     /// <para>
-    /// When you disable Security Hub for an administrator account, it doesn't disable Security
-    /// Hub for any associated member accounts.
+    /// You can't disable Security Hub in an account that is currently the Security Hub administrator.
     /// </para><para>
     /// When you disable Security Hub, your existing findings and insights and any Security
     /// Hub configuration settings are deleted after 90 days and cannot be recovered. Any

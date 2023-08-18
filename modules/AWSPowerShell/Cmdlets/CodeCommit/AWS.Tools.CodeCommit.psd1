@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCCommitBatch', 
         'Get-CCDifferenceList', 
         'Get-CCFile', 
+        'Get-CCFileCommitHistoryList', 
         'Get-CCFileMergeConflict', 
         'Get-CCFileMergeConflictBatch', 
         'Get-CCFolder', 

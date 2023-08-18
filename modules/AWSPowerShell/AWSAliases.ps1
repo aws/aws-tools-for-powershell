@@ -4360,6 +4360,9 @@ Set-Alias -Name CC-ListAssociatedApprovalRuleTemplatesForRepository -Value Get-C
 Set-Alias -Name List-CCBranches -Value Get-CCBranchList
 Set-Alias -Name List-CCBranchList -Value Get-CCBranchList
 Set-Alias -Name CC-ListBranches -Value Get-CCBranchList
+Set-Alias -Name List-CCFileCommitHistory -Value Get-CCFileCommitHistoryList
+Set-Alias -Name List-CCFileCommitHistoryList -Value Get-CCFileCommitHistoryList
+Set-Alias -Name CC-ListFileCommitHistory -Value Get-CCFileCommitHistoryList
 Set-Alias -Name List-CCPullRequests -Value Get-CCPullRequestList
 Set-Alias -Name List-CCPullRequestList -Value Get-CCPullRequestList
 Set-Alias -Name CC-ListPullRequests -Value Get-CCPullRequestList

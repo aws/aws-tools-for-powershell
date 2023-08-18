@@ -307,6 +307,7 @@ $CC_SelectMap = @{
                "Get-CCApprovalRuleTemplateList",
                "Get-CCAssociatedApprovalRuleTemplatesForRepositoryList",
                "Get-CCBranchList",
+               "Get-CCFileCommitHistoryList",
                "Get-CCPullRequestList",
                "Get-CCRepositoryList",
                "Get-CCRepositoriesForApprovalRuleTemplateList",

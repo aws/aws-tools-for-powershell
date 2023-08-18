@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>The fully quaified reference that identifies the commit that contains the file. For
         /// example, you can specify a full commit ID, a tag, a branch name, or a reference such
-        /// as refs/heads/master. If none is provided, the head commit is used.</para>
+        /// as refs/heads/main. If none is provided, the head commit is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

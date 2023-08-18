@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>An enumeration token that allows the operation to batch the results of the operation.
         /// Batch sizes are 1,000 for list repository operations. When the client sends the token
-        /// back to AWS CodeCommit, another page of 1,000 records is retrieved.</para>
+        /// back to CodeCommit, another page of 1,000 records is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
