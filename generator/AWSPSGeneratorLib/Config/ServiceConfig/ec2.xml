@@ -714,7 +714,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKeyPair" Verb="Remove" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKeyPair" OutputProperty="*" Verb="Remove" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

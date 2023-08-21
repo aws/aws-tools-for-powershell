@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class UpdateFINSPKxEnvironmentNetworkCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        #region Parameter TransitGatewayConfiguration_AttachmentNetworkAclConfiguration
+        /// <summary>
+        /// <para>
+        /// <para> The rules that define how you manage the outbound traffic from kdb network to your
+        /// internal network. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Finspace.Model.NetworkACLEntry[] TransitGatewayConfiguration_AttachmentNetworkAclConfiguration { get; set; }
+        #endregion
+        
         #region Parameter CustomDNSConfiguration
         /// <summary>
         /// <para>
@@ -182,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TransitGatewayConfiguration_AttachmentNetworkAclConfiguration != null)
+            {
+                context.TransitGatewayConfiguration_AttachmentNetworkAclConfiguration = new List<Amazon.Finspace.Model.NetworkACLEntry>(this.TransitGatewayConfiguration_AttachmentNetworkAclConfiguration);
+            }
             context.TransitGatewayConfiguration_RoutableCIDRSpace = this.TransitGatewayConfiguration_RoutableCIDRSpace;
             context.TransitGatewayConfiguration_TransitGatewayID = this.TransitGatewayConfiguration_TransitGatewayID;
             
@@ -216,6 +231,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
              // populate TransitGatewayConfiguration
             var requestTransitGatewayConfigurationIsNull = true;
             request.TransitGatewayConfiguration = new Amazon.Finspace.Model.TransitGatewayConfiguration();
+            List<Amazon.Finspace.Model.NetworkACLEntry> requestTransitGatewayConfiguration_transitGatewayConfiguration_AttachmentNetworkAclConfiguration = null;
+            if (cmdletContext.TransitGatewayConfiguration_AttachmentNetworkAclConfiguration != null)
+            {
+                requestTransitGatewayConfiguration_transitGatewayConfiguration_AttachmentNetworkAclConfiguration = cmdletContext.TransitGatewayConfiguration_AttachmentNetworkAclConfiguration;
+            }
+            if (requestTransitGatewayConfiguration_transitGatewayConfiguration_AttachmentNetworkAclConfiguration != null)
+            {
+                request.TransitGatewayConfiguration.AttachmentNetworkAclConfiguration = requestTransitGatewayConfiguration_transitGatewayConfiguration_AttachmentNetworkAclConfiguration;
+                requestTransitGatewayConfigurationIsNull = false;
+            }
             System.String requestTransitGatewayConfiguration_transitGatewayConfiguration_RoutableCIDRSpace = null;
             if (cmdletContext.TransitGatewayConfiguration_RoutableCIDRSpace != null)
             {
@@ -305,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             public System.String ClientToken { get; set; }
             public List<Amazon.Finspace.Model.CustomDNSServer> CustomDNSConfiguration { get; set; }
             public System.String EnvironmentId { get; set; }
+            public List<Amazon.Finspace.Model.NetworkACLEntry> TransitGatewayConfiguration_AttachmentNetworkAclConfiguration { get; set; }
             public System.String TransitGatewayConfiguration_RoutableCIDRSpace { get; set; }
             public System.String TransitGatewayConfiguration_TransitGatewayID { get; set; }
             public System.Func<Amazon.Finspace.Model.UpdateKxEnvironmentNetworkResponse, UpdateFINSPKxEnvironmentNetworkCmdlet, object> Select { get; set; } =

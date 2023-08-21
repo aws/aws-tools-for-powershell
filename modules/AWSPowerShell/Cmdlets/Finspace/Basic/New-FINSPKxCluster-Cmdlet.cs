@@ -367,7 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter SavedownStorageConfiguration_Size
         /// <summary>
         /// <para>
-        /// <para>The size of temporary storage in bytes.</para>
+        /// <para>The size of temporary storage in gibibytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

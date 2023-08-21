@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para> The sort order ofr returned values, either ascending or descending. </para>
+        /// <para> The sort order for returned values, either ascending or descending. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

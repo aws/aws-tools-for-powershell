@@ -82,6 +82,20 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public Amazon.Finspace.Model.KxDatabaseConfiguration[] Databases { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_DeploymentStrategy
+        /// <summary>
+        /// <para>
+        /// <para> The type of deployment that you want on a cluster. </para><ul><li><para>ROLLING – This options loads the updated database by stopping the exiting q process
+        /// and starting a new q process with updated configuration.</para></li><li><para>NO_RESTART – This option loads the updated database on the running q process without
+        /// stopping it. This option is quicker as it reduces the turn around time to update a
+        /// kdb database changeset configuration on a cluster.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Finspace.KxDeploymentStrategy")]
+        public Amazon.Finspace.KxDeploymentStrategy DeploymentConfiguration_DeploymentStrategy { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
@@ -188,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter Databases which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeploymentConfiguration_DeploymentStrategy = this.DeploymentConfiguration_DeploymentStrategy;
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
@@ -222,6 +237,25 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (cmdletContext.Databases != null)
             {
                 request.Databases = cmdletContext.Databases;
+            }
+            
+             // populate DeploymentConfiguration
+            var requestDeploymentConfigurationIsNull = true;
+            request.DeploymentConfiguration = new Amazon.Finspace.Model.KxDeploymentConfiguration();
+            Amazon.Finspace.KxDeploymentStrategy requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy = null;
+            if (cmdletContext.DeploymentConfiguration_DeploymentStrategy != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy = cmdletContext.DeploymentConfiguration_DeploymentStrategy;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy != null)
+            {
+                request.DeploymentConfiguration.DeploymentStrategy = requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy;
+                requestDeploymentConfigurationIsNull = false;
+            }
+             // determine if request.DeploymentConfiguration should be set to null
+            if (requestDeploymentConfigurationIsNull)
+            {
+                request.DeploymentConfiguration = null;
             }
             if (cmdletContext.EnvironmentId != null)
             {
@@ -291,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             public System.String ClientToken { get; set; }
             public System.String ClusterName { get; set; }
             public List<Amazon.Finspace.Model.KxDatabaseConfiguration> Databases { get; set; }
+            public Amazon.Finspace.KxDeploymentStrategy DeploymentConfiguration_DeploymentStrategy { get; set; }
             public System.String EnvironmentId { get; set; }
             public System.Func<Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse, UpdateFINSPKxClusterDatabasisCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

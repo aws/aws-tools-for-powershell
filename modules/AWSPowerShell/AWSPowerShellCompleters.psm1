@@ -24194,6 +24194,13 @@ $FINSP_Completers = {
             break
         }
 
+        # Amazon.Finspace.KxDeploymentStrategy
+        "Update-FINSPKxClusterDatabasis/DeploymentConfiguration_DeploymentStrategy"
+        {
+            $v = "NO_RESTART","ROLLING"
+            break
+        }
+
         # Amazon.Finspace.KxSavedownStorageType
         "New-FINSPKxCluster/SavedownStorageConfiguration_Type"
         {
@@ -24213,6 +24220,7 @@ $FINSP_map = @{
     "AutoScalingConfiguration_AutoScalingMetric"=@("New-FINSPKxCluster")
     "AzMode"=@("New-FINSPKxCluster")
     "ClusterType"=@("Get-FINSPKxClusterList","New-FINSPKxCluster")
+    "DeploymentConfiguration_DeploymentStrategy"=@("Update-FINSPKxClusterDatabasis")
     "FederationMode"=@("New-FINSPEnvironment","Update-FINSPEnvironment")
     "SavedownStorageConfiguration_Type"=@("New-FINSPKxCluster")
     "VpcConfiguration_IpAddressType"=@("New-FINSPKxCluster")
@@ -48192,6 +48200,7 @@ $RDS_SelectMap = @{
                "Stop-RDSDBInstance",
                "Stop-RDSDBInstanceAutomatedBackupsReplication",
                "Switch-RDSBlueGreenDeployment",
+               "Request-RDSSwitchoverGlobalCluster",
                "Convert-RDSReadReplicaToNewPrimary")
 }
 

@@ -357,6 +357,7 @@ $RDS_SelectMap = @{
                "Stop-RDSDBInstance",
                "Stop-RDSDBInstanceAutomatedBackupsReplication",
                "Switch-RDSBlueGreenDeployment",
+               "Request-RDSSwitchoverGlobalCluster",
                "Convert-RDSReadReplicaToNewPrimary")
 }
 

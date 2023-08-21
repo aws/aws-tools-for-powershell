@@ -1,4 +1,13 @@
-﻿### 4.1.397 (2023-08-18 21:31Z)
+﻿### 4.1.398 (2023-08-21 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.626.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon FinSpace User Environment Management Service
+    * Modified cmdlet Update-FINSPKxClusterDatabasis: added parameter DeploymentConfiguration_DeploymentStrategy.
+    * Modified cmdlet Update-FINSPKxEnvironmentNetwork: added parameter TransitGatewayConfiguration_AttachmentNetworkAclConfiguration.
+  * Amazon Relational Database Service
+    * Added cmdlet Request-RDSSwitchoverGlobalCluster leveraging the SwitchoverGlobalCluster service API.
+    * Modified cmdlet Start-RDSFailoverGlobalCluster: added parameters AllowDataLoss and Switchover.
+
+### 4.1.397 (2023-08-18 21:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.625.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeCommit
     * Added cmdlet Get-CCFileCommitHistoryList leveraging the ListFileCommitHistory service API.

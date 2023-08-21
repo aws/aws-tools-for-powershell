@@ -20592,6 +20592,9 @@ Set-Alias -Name RDS-StopDBInstance -Value Stop-RDSDBInstance
 Set-Alias -Name RDS-StopDBInstanceAutomatedBackupsReplication -Value Stop-RDSDBInstanceAutomatedBackupsReplication
 Set-Alias -Name Switchover-RDSBlueGreenDeployment -Value Switch-RDSBlueGreenDeployment
 Set-Alias -Name RDS-SwitchoverBlueGreenDeployment -Value Switch-RDSBlueGreenDeployment
+Set-Alias -Name Switchover-RDSGlobalCluster -Value Request-RDSSwitchoverGlobalCluster
+Set-Alias -Name Switchover-RDSSwitchoverGlobalCluster -Value Request-RDSSwitchoverGlobalCluster
+Set-Alias -Name RDS-SwitchoverGlobalCluster -Value Request-RDSSwitchoverGlobalCluster
 Set-Alias -Name Switchover-RDSReadReplica -Value Convert-RDSReadReplicaToNewPrimary
 Set-Alias -Name Switchover-RDSReadReplicaToNewPrimary -Value Convert-RDSReadReplicaToNewPrimary
 Set-Alias -Name RDS-SwitchoverReadReplica -Value Convert-RDSReadReplicaToNewPrimary

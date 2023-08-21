@@ -28,72 +28,41 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Promotes the specified secondary DB cluster to be the primary DB cluster in the global
-    /// database cluster to fail over or switch over a global database. Switchover operations
-    /// were previously called "managed planned failovers."
+    /// Switches over the specified secondary DB cluster to be the new primary DB cluster
+    /// in the global database cluster. Switchover operations were previously called "managed
+    /// planned failovers."
     /// 
-    ///  <note><para>
-    /// Although this operation can be used either to fail over or to switch over a global
-    /// database cluster, its intended use is for global database failover. To switch over
-    /// a global database cluster, we recommend that you use the <a>SwitchoverGlobalCluster</a>
-    /// operation instead.
-    /// </para></note><para>
-    /// How you use this operation depends on whether you are failing over or switching over
-    /// your global database cluster:
-    /// </para><ul><li><para>
-    /// Failing over - Specify the <code>AllowDataLoss</code> parameter and don't specify
-    /// the <code>Switchover</code> parameter.
-    /// </para></li><li><para>
-    /// Switching over - Specify the <code>Switchover</code> parameter or omit it, but don't
-    /// specify the <code>AllowDataLoss</code> parameter.
-    /// </para></li></ul><para><b>About failing over and switching over</b></para><para>
-    /// While failing over and switching over a global database cluster both change the primary
-    /// DB cluster, you use these operations for different reasons:
-    /// </para><ul><li><para><i>Failing over</i> - Use this operation to respond to an unplanned event, such as
-    /// a Regional disaster in the primary Region. Failing over can result in a loss of write
-    /// transaction data that wasn't replicated to the chosen secondary before the failover
-    /// event occurred. However, the recovery process that promotes a DB instance on the chosen
-    /// seconday DB cluster to be the primary writer DB instance guarantees that the data
-    /// is in a transactionally consistent state.
-    /// </para><para>
-    /// For more information about failing over an Amazon Aurora global database, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-failover.managed-unplanned">Performing
-    /// managed failovers for Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.
-    /// </para></li><li><para><i>Switching over</i> - Use this operation on a healthy global database cluster for
-    /// planned events, such as Regional rotation or to fail back to the original primary
-    /// DB cluster after a failover operation. With this operation, there is no data loss.
-    /// </para><para>
-    /// For more information about switching over an Amazon Aurora global database, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Performing
-    /// switchovers for Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.
-    /// </para></li></ul>
+    ///  
+    /// <para>
+    /// Aurora promotes the specified secondary cluster to assume full read/write capabilities
+    /// and demotes the current primary cluster to a secondary (read-only) cluster, maintaining
+    /// the orginal replication topology. All secondary clusters are synchronized with the
+    /// primary at the beginning of the process so the new primary continues operations for
+    /// the Aurora global database without losing any data. Your database is unavailable for
+    /// a short time while the primary and selected secondary clusters are assuming their
+    /// new roles. For more information about switching over an Aurora global database, see
+    /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Performing
+    /// switchovers for Amazon Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><note><para>
+    /// This operation is intended for controlled environments, for operations such as "regional
+    /// rotation" or to fall back to the original primary after a global database failover.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Start", "RDSFailoverGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Request", "RDSSwitchoverGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.GlobalCluster")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service FailoverGlobalCluster API operation.", Operation = new[] {"FailoverGlobalCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.FailoverGlobalClusterResponse))]
-    [AWSCmdletOutput("Amazon.RDS.Model.GlobalCluster or Amazon.RDS.Model.FailoverGlobalClusterResponse",
+    [AWSCmdlet("Calls the Amazon Relational Database Service SwitchoverGlobalCluster API operation.", Operation = new[] {"SwitchoverGlobalCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.SwitchoverGlobalClusterResponse))]
+    [AWSCmdletOutput("Amazon.RDS.Model.GlobalCluster or Amazon.RDS.Model.SwitchoverGlobalClusterResponse",
         "This cmdlet returns an Amazon.RDS.Model.GlobalCluster object.",
-        "The service call response (type Amazon.RDS.Model.FailoverGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.SwitchoverGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartRDSFailoverGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RequestRDSSwitchoverGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
-        
-        #region Parameter AllowDataLoss
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to allow data loss for this global database cluster operation. Allowing
-        /// data loss triggers a global failover operation.</para><para>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation
-        /// defaults to a switchover.</para><para>Constraints:</para><ul><li><para>Can't be specified together with the <code>Switchover</code> parameter.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? AllowDataLoss { get; set; }
-        #endregion
         
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the global database cluster (Aurora global database) this operation
-        /// should apply to. The identifier is the unique key assigned by the user when the Aurora
-        /// global database is created. In other words, it's the name of the Aurora global database.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global database cluster.</para></li></ul>
+        /// <para>The identifier of the global database cluster to switch over. This parameter isn't
+        /// case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global database cluster (Aurora global database).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,22 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String GlobalClusterIdentifier { get; set; }
         #endregion
         
-        #region Parameter Switchover
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to switch over this global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified together with the <code>AllowDataLoss</code> parameter.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? Switchover { get; set; }
-        #endregion
-        
         #region Parameter TargetDbClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the secondary Aurora DB cluster that you want to promote to the
-        /// primary for the global database cluster. Use the Amazon Resource Name (ARN) for the
-        /// identifier so that Aurora can locate the cluster in its Amazon Web Services Region.</para>
+        /// <para>The identifier of the secondary Aurora DB cluster to promote to the new primary for
+        /// the global database cluster. Use the Amazon Resource Name (ARN) for the identifier
+        /// so that Aurora can locate the cluster in its Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GlobalCluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.FailoverGlobalClusterResponse).
-        /// Specifying the name of a property of type Amazon.RDS.Model.FailoverGlobalClusterResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.SwitchoverGlobalClusterResponse).
+        /// Specifying the name of a property of type Amazon.RDS.Model.SwitchoverGlobalClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GlobalClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-RDSFailoverGlobalCluster (FailoverGlobalCluster)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-RDSSwitchoverGlobalCluster (SwitchoverGlobalCluster)"))
             {
                 return;
             }
@@ -186,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.FailoverGlobalClusterResponse, StartRDSFailoverGlobalClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RDS.Model.SwitchoverGlobalClusterResponse, RequestRDSSwitchoverGlobalClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -198,7 +157,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.GlobalClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AllowDataLoss = this.AllowDataLoss;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             #if MODULAR
             if (this.GlobalClusterIdentifier == null && ParameterWasBound(nameof(this.GlobalClusterIdentifier)))
@@ -206,7 +164,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter GlobalClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Switchover = this.Switchover;
             context.TargetDbClusterIdentifier = this.TargetDbClusterIdentifier;
             #if MODULAR
             if (this.TargetDbClusterIdentifier == null && ParameterWasBound(nameof(this.TargetDbClusterIdentifier)))
@@ -228,19 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.FailoverGlobalClusterRequest();
+            var request = new Amazon.RDS.Model.SwitchoverGlobalClusterRequest();
             
-            if (cmdletContext.AllowDataLoss != null)
-            {
-                request.AllowDataLoss = cmdletContext.AllowDataLoss.Value;
-            }
             if (cmdletContext.GlobalClusterIdentifier != null)
             {
                 request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
-            }
-            if (cmdletContext.Switchover != null)
-            {
-                request.Switchover = cmdletContext.Switchover.Value;
             }
             if (cmdletContext.TargetDbClusterIdentifier != null)
             {
@@ -279,15 +228,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.FailoverGlobalClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.FailoverGlobalClusterRequest request)
+        private Amazon.RDS.Model.SwitchoverGlobalClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.SwitchoverGlobalClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "FailoverGlobalCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "SwitchoverGlobalCluster");
             try
             {
                 #if DESKTOP
-                return client.FailoverGlobalCluster(request);
+                return client.SwitchoverGlobalCluster(request);
                 #elif CORECLR
-                return client.FailoverGlobalClusterAsync(request).GetAwaiter().GetResult();
+                return client.SwitchoverGlobalClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -307,11 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AllowDataLoss { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }
-            public System.Boolean? Switchover { get; set; }
             public System.String TargetDbClusterIdentifier { get; set; }
-            public System.Func<Amazon.RDS.Model.FailoverGlobalClusterResponse, StartRDSFailoverGlobalClusterCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.RDS.Model.SwitchoverGlobalClusterResponse, RequestRDSSwitchoverGlobalClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GlobalCluster;
         }
         

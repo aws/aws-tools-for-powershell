@@ -31,11 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Deletes the specified key pair, by removing the public key from Amazon EC2.
     /// </summary>
     [Cmdlet("Remove", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.EC2.Model.DeleteKeyPairResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteKeyPair API operation.", Operation = new[] {"DeleteKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteKeyPairResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteKeyPairResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteKeyPairResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.DeleteKeyPairResponse",
+        "This cmdlet returns an Amazon.EC2.Model.DeleteKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -62,8 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteKeyPairResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteKeyPairResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String KeyName { get; set; }
             public System.String KeyPairId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteKeyPairResponse, RemoveEC2KeyPairCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }
