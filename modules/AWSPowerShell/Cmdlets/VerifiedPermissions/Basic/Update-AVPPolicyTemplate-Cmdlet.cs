@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class UpdateAVPPolicyTemplateCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

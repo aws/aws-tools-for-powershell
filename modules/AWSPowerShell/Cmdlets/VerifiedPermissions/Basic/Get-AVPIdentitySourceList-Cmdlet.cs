@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class GetAVPIdentitySourceListCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -74,14 +78,14 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the total number of results that you want included on each page of the response.
-        /// If you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
-        /// response element is returned with a value (not null). Include the specified value
-        /// as the <code>NextToken</code> request parameter in the next call to the operation
-        /// to get the next part of the results. Note that the service might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>Specifies the total number of results that you want included in each response. If
+        /// additional items exist beyond the number you specify, the <code>NextToken</code> response
+        /// element is returned with a value (not null). Include the specified value as the <code>NextToken</code>
+        /// request parameter in the next call to the operation to get the next set of results.
+        /// Note that the service might return fewer results than the maximum even when there
+        /// are more results available. You should check <code>NextToken</code> after every operation
+        /// to ensure that you receive all of the results.</para><para>If you do not specify this parameter, the operation defaults to 10 identity sources
+        /// per response. You can specify a maximum of 200 identity sources per response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

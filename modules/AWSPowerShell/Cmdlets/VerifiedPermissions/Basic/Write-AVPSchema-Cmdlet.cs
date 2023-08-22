@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class WriteAVPSchemaCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Definition_CedarJson
         /// <summary>
         /// <para>

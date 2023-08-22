@@ -33,12 +33,30 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// parameter. You can directly update only static policies. To change a template-linked
     /// policy, you must update the template instead, using <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html">UpdatePolicyTemplate</a>.
     /// 
-    ///  <note><para>
+    ///  <note><ul><li><para>
     /// If policy validation is enabled in the policy store, then updating a static policy
     /// causes Verified Permissions to validate the policy against the schema in the policy
     /// store. If the updated static policy doesn't pass validation, the operation fails and
     /// the update isn't stored.
-    /// </para></note>
+    /// </para></li><li><para>
+    /// When you edit a static policy, You can change only certain elements of a static policy:
+    /// </para><ul><li><para>
+    /// The action referenced by the policy. 
+    /// </para></li><li><para>
+    /// A condition clause, such as when and unless. 
+    /// </para></li></ul><para>
+    /// You can't change these elements of a static policy: 
+    /// </para><ul><li><para>
+    /// Changing a policy from a static policy to a template-linked policy. 
+    /// </para></li><li><para>
+    /// Changing the effect of a static policy from permit or forbid. 
+    /// </para></li><li><para>
+    /// The principal referenced by a static policy. 
+    /// </para></li><li><para>
+    /// The resource referenced by a static policy. 
+    /// </para></li></ul></li><li><para>
+    /// To update a template-linked policy, you must update the template instead. 
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Update", "AVPPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VerifiedPermissions.Model.UpdatePolicyResponse")]
@@ -48,6 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     )]
     public partial class UpdateAVPPolicyCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter Static_Description
         /// <summary>

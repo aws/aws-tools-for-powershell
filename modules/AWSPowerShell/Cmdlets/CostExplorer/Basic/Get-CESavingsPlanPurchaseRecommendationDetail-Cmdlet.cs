@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
     /// Retrieves the details for a Savings Plan recommendation. These details include the
-    /// hourly data-points that construct the new cost, coverage, and utilization charts.
+    /// hourly data-points that construct the cost, coverage, and utilization charts.
     /// </summary>
     [Cmdlet("Get", "CESavingsPlanPurchaseRecommendationDetail")]
     [OutputType("Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse")]

@@ -154,6 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String Manifest { get; set; }
         #endregion
         
+        #region Parameter SourceCustomDbEngineVersionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceCustomDbEngineVersionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -163,6 +173,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter UseAwsProvidedLatestImage
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseAwsProvidedLatestImage { get; set; }
         #endregion
         
         #region Parameter Select
@@ -227,10 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ImageId = this.ImageId;
             context.KMSKeyId = this.KMSKeyId;
             context.Manifest = this.Manifest;
+            context.SourceCustomDbEngineVersionIdentifier = this.SourceCustomDbEngineVersionIdentifier;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            context.UseAwsProvidedLatestImage = this.UseAwsProvidedLatestImage;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -279,9 +301,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Manifest = cmdletContext.Manifest;
             }
+            if (cmdletContext.SourceCustomDbEngineVersionIdentifier != null)
+            {
+                request.SourceCustomDbEngineVersionIdentifier = cmdletContext.SourceCustomDbEngineVersionIdentifier;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.UseAwsProvidedLatestImage != null)
+            {
+                request.UseAwsProvidedLatestImage = cmdletContext.UseAwsProvidedLatestImage.Value;
             }
             
             CmdletOutput output;
@@ -352,7 +382,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String ImageId { get; set; }
             public System.String KMSKeyId { get; set; }
             public System.String Manifest { get; set; }
+            public System.String SourceCustomDbEngineVersionIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public System.Boolean? UseAwsProvidedLatestImage { get; set; }
             public System.Func<Amazon.RDS.Model.CreateCustomDBEngineVersionResponse, NewRDSCustomDBEngineVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class TestAVPAuthorizationCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Action_ActionId
         /// <summary>
         /// <para>

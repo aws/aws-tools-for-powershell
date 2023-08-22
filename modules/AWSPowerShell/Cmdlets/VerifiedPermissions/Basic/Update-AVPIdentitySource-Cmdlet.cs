@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class UpdateAVPIdentitySourceCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CognitoUserPoolConfiguration_ClientId
         /// <summary>
         /// <para>

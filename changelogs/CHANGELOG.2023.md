@@ -1,4 +1,9 @@
-﻿### 4.1.398 (2023-08-21 21:17Z)
+﻿### 4.1.399 (2023-08-22 22:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.627.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSCustomDBEngineVersion: added parameters SourceCustomDbEngineVersionIdentifier and UseAwsProvidedLatestImage.
+
+### 4.1.398 (2023-08-21 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.626.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon FinSpace User Environment Management Service
     * Modified cmdlet Update-FINSPKxClusterDatabasis: added parameter DeploymentConfiguration_DeploymentStrategy.

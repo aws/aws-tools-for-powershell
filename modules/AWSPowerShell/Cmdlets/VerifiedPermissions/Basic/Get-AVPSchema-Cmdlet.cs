@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class GetAVPSchemaCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>
