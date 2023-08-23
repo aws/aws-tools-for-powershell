@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CustomerId
         /// <summary>
         /// <para>
-        /// <para>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</para>
+        /// <para>An Amazon Web Services Marketplace customer identifier, when integrating with the
+        /// Amazon Web Services SaaS Marketplace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

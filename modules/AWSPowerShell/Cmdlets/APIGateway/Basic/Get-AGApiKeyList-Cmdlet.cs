@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CustomerId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a customer in AWS Marketplace or an external system, such as a developer
-        /// portal.</para>
+        /// <para>The identifier of a customer in Amazon Web Services Marketplace or an external system,
+        /// such as a developer portal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

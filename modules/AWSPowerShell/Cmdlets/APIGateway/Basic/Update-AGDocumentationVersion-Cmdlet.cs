@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated RestApi..</para>
+        /// <para>The string identifier of the associated RestApi.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

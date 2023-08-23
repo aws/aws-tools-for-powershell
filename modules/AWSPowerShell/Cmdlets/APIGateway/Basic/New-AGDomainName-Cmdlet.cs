@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint
-        /// for this domain name. AWS Certificate Manager is the only supported source.</para>
+        /// <para>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized
+        /// endpoint for this domain name. Certificate Manager is the only supported source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RegionalCertificateArn
         /// <summary>
         /// <para>
-        /// <para>The reference to an AWS-managed certificate that will be used by regional endpoint
-        /// for this domain name. AWS Certificate Manager is the only supported source.</para>
+        /// <para>The reference to an Amazon Web Services-managed certificate that will be used by regional
+        /// endpoint for this domain name. Certificate Manager is the only supported source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

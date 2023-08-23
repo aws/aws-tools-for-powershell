@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>) any existing
-        /// DocumentationParts definition or to merge (<code>MERGE</code>) the new definition
-        /// into the existing one. The default value is <code>MERGE</code>.</para>
+        /// <para>A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing
+        /// DocumentationParts definition or to merge (<code>merge</code>) the new definition
+        /// into the existing one. The default value is <code>merge</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
