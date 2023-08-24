@@ -28,7 +28,7 @@ using Amazon.MediaConvert.Model;
 namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
-    /// Retrieve the JSON for a specific completed transcoding job.
+    /// Retrieve the JSON for a specific transcoding job.
     /// </summary>
     [Cmdlet("Get", "EMCJob")]
     [OutputType("Amazon.MediaConvert.Model.Job")]

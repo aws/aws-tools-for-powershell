@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// Updates the specified identity source to use a new identity provider (IdP) source,
     /// or to change the mapping of identities from the IdP to a different principal entity
     /// type.
+    /// 
+    ///  <note><para>
+    /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
+    /// propagate through the service and be visible in the results of other Verified Permissions
+    /// operations.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "AVPIdentitySource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VerifiedPermissions.Model.UpdateIdentitySourceResponse")]

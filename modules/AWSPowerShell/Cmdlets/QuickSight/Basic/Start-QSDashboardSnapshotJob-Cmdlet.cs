@@ -34,6 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     ///  <ul><li><para>
     /// 1 paginated PDF
     /// </para></li><li><para>
+    /// 1 Excel workbook
+    /// </para></li><li><para>
     /// 5 CSVs
     /// </para></li></ul><para>
     /// Poll job descriptions with a <code>DescribeDashboardSnapshotJob</code> API call. Once

@@ -117,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.ResourcePermission[] Permission { get; set; }
         #endregion
         
+        #region Parameter SharingModel
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter that determines the sharing scope of the folder. The default
+        /// value for this parameter is <code>ACCOUNT</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.SharingModel")]
+        public Amazon.QuickSight.SharingModel SharingModel { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -211,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Permission = new List<Amazon.QuickSight.Model.ResourcePermission>(this.Permission);
             }
+            context.SharingModel = this.SharingModel;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
@@ -254,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.Permission != null)
             {
                 request.Permissions = cmdletContext.Permission;
+            }
+            if (cmdletContext.SharingModel != null)
+            {
+                request.SharingModel = cmdletContext.SharingModel;
             }
             if (cmdletContext.Tag != null)
             {
@@ -326,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String Name { get; set; }
             public System.String ParentFolderArn { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> Permission { get; set; }
+            public Amazon.QuickSight.SharingModel SharingModel { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateFolderResponse, NewQSFolderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset (the dashboard, analysis, or dataset) that you want to delete.</para>
+        /// <para>The ID of the asset that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,8 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter MemberType
         /// <summary>
         /// <para>
-        /// <para>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and
-        /// <code>DATASET</code></para>
+        /// <para>The member type of the asset that you want to delete from a folder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

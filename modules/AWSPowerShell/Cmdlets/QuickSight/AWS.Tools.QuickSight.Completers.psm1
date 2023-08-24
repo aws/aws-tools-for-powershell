@@ -312,6 +312,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.SharingModel
+        "New-QSFolder/SharingModel"
+        {
+            $v = "ACCOUNT","NAMESPACE"
+            break
+        }
+
         # Amazon.QuickSight.SheetContentType
         {
             ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
@@ -410,6 +417,7 @@ $QS_map = @{
     "Schedule_RefreshType"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Schedule_ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "SharingModel"=@("New-QSFolder")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
 }

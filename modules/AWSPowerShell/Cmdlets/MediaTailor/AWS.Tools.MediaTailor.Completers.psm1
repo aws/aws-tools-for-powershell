@@ -86,7 +86,7 @@ $EMT_Completers = {
             ($_ -eq "Update-EMTSourceLocation/AccessConfiguration_AccessType")
         }
         {
-            $v = "S3_SIGV4","SECRETS_MANAGER_ACCESS_TOKEN"
+            $v = "AUTODETECT_SIGV4","S3_SIGV4","SECRETS_MANAGER_ACCESS_TOKEN"
             break
         }
 

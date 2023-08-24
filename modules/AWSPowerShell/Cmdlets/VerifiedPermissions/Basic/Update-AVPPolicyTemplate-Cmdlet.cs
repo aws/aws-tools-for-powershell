@@ -35,7 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     ///  <important><para>
     /// Changes you make to the policy template content are immediately reflected in authorization
     /// decisions that involve all template-linked policies instantiated from this template.
-    /// </para></important>
+    /// </para></important><note><para>
+    /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
+    /// propagate through the service and be visible in the results of other Verified Permissions
+    /// operations.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "AVPPolicyTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VerifiedPermissions.Model.UpdatePolicyTemplateResponse")]

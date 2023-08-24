@@ -42,6 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// </para></li></ul><note><para>
     /// Creating a policy causes it to be validated against the schema in the policy store.
     /// If the policy doesn't pass validation, the operation fails and the policy isn't stored.
+    /// </para></note><note><para>
+    /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
+    /// propagate through the service and be visible in the results of other Verified Permissions
+    /// operations.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "AVPPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for <code>aurora-mysql</code> (Aurora
-        /// MySQL), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>Examples: <code>5.7.mysql_aurora.2.07.1</code>, <code>8.0.mysql_aurora.3.02.0</code></para>
+        /// MySQL), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>Examples: <code>5.7.mysql_aurora.2.12.0</code>, <code>8.0.mysql_aurora.3.04.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -485,7 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.5, 5.6, and 5.7 are supported.</para><para>Example: <code>5.6.40</code>, <code>5.7.28</code></para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.7 and 8.0 are supported.</para><para>Example: <code>5.7.40</code>, <code>8.0.28</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

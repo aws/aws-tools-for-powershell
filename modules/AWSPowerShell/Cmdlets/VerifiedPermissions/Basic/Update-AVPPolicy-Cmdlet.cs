@@ -56,7 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// The resource referenced by a static policy. 
     /// </para></li></ul></li><li><para>
     /// To update a template-linked policy, you must update the template instead. 
-    /// </para></li></ul></note>
+    /// </para></li></ul></note><note><para>
+    /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
+    /// propagate through the service and be visible in the results of other Verified Permissions
+    /// operations.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "AVPPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VerifiedPermissions.Model.UpdatePolicyResponse")]

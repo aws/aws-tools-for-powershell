@@ -54,6 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// Where <code>IdentityType</code> is the string that you provide to the <code>PrincipalEntityType</code>
     /// parameter for this operation. The <code>CognitoUserPoolId</code> and <code>CognitoClientId</code>
     /// are defined by the Amazon Cognito user pool.
+    /// </para></note><note><para>
+    /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
+    /// propagate through the service and be visible in the results of other Verified Permissions
+    /// operations.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "AVPIdentitySource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
