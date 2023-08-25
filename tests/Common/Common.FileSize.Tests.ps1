@@ -45,7 +45,7 @@ Describe -Tag "Smoke" "Common.FileSize" {
         }
 
         It "FileSize with invalid value" {
-            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("15.12.45MB") } | Should -Throw 'Exception calling ".ctor" with "1" argument(s): "The input string ''15.12.45'' was not in a correct format."'
+            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("15.12.45MB") } | Should -Throw 'Exception calling ".ctor" with "1" argument(s): "Input string was not in a correct format."'
         }
 
         It "FileSize with unsupported suffix" {
