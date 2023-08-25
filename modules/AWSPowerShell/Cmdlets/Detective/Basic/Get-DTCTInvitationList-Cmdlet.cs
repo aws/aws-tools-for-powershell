@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class GetDTCTInvitationListCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

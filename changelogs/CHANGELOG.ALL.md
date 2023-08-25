@@ -1,4 +1,7 @@
-﻿### 4.1.401 (2023-08-24 22:46Z)
+﻿### 4.1.402 (2023-08-25 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.630.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.401 (2023-08-24 22:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.629.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Modified cmdlet Get-QSFolderPermission: added parameters MaxResult, Namespace, NextToken and NoAutoIteration.

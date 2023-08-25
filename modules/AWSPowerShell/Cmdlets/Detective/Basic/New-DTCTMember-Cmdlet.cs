@@ -69,6 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class NewDTCTMemberCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Account
         /// <summary>
         /// <para>
