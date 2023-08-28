@@ -1,4 +1,19 @@
-﻿### 4.1.402 (2023-08-25 21:15Z)
+﻿### 4.1.403 (2023-08-28 21:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.631.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Compute Optimizer
+    * Added cmdlet Export-COLicenseRecommendation leveraging the ExportLicenseRecommendations service API.
+    * Added cmdlet Get-COLicenseRecommendation leveraging the GetLicenseRecommendations service API.
+  * Amazon Service Quotas
+    * Modified cmdlet Get-SQRequestedServiceQuotaChangeHistoryByQuotaList: added parameter QuotaRequestedAtLevel.
+    * Modified cmdlet Get-SQRequestedServiceQuotaChangeHistoryList: added parameter QuotaRequestedAtLevel.
+    * Modified cmdlet Get-SQServiceQuota: added parameter ContextId.
+    * Modified cmdlet Get-SQServiceQuotaList: added parameters QuotaAppliedAtLevel and QuotaCode.
+    * Modified cmdlet Request-SQServiceQuotaIncrease: added parameter ContextId.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWUserSetting: added parameters AdditionalEncryptionContext, CookieSynchronizationConfiguration_Allowlist, CookieSynchronizationConfiguration_Blocklist and CustomerManagedKey.
+    * Modified cmdlet Update-WSWUserSetting: added parameters CookieSynchronizationConfiguration_Allowlist and CookieSynchronizationConfiguration_Blocklist.
+
+### 4.1.402 (2023-08-25 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.630.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.401 (2023-08-24 22:46Z)

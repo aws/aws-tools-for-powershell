@@ -44,6 +44,38 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        #region Parameter AdditionalEncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>The additional encryption context of the user settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AdditionalEncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter CookieSynchronizationConfiguration_Allowlist
+        /// <summary>
+        /// <para>
+        /// <para>The list of cookie specifications that are allowed to be synchronized to the remote
+        /// browser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.WorkSpacesWeb.Model.CookieSpecification[] CookieSynchronizationConfiguration_Allowlist { get; set; }
+        #endregion
+        
+        #region Parameter CookieSynchronizationConfiguration_Blocklist
+        /// <summary>
+        /// <para>
+        /// <para>The list of cookie specifications that are blocked from being synchronized to the
+        /// remote browser.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.WorkSpacesWeb.Model.CookieSpecification[] CookieSynchronizationConfiguration_Blocklist { get; set; }
+        #endregion
+        
         #region Parameter CopyAllowed
         /// <summary>
         /// <para>
@@ -59,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.WorkSpacesWeb.EnabledType")]
         public Amazon.WorkSpacesWeb.EnabledType CopyAllowed { get; set; }
+        #endregion
+        
+        #region Parameter CustomerManagedKey
+        /// <summary>
+        /// <para>
+        /// <para>The customer managed key used to encrypt sensitive information in the user settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerManagedKey { get; set; }
         #endregion
         
         #region Parameter DisconnectTimeoutInMinute
@@ -221,7 +263,23 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 context.Select = CreateSelectDelegate<Amazon.WorkSpacesWeb.Model.CreateUserSettingsResponse, NewWSWUserSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AdditionalEncryptionContext != null)
+            {
+                context.AdditionalEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AdditionalEncryptionContext.Keys)
+                {
+                    context.AdditionalEncryptionContext.Add((String)hashKey, (String)(this.AdditionalEncryptionContext[hashKey]));
+                }
+            }
             context.ClientToken = this.ClientToken;
+            if (this.CookieSynchronizationConfiguration_Allowlist != null)
+            {
+                context.CookieSynchronizationConfiguration_Allowlist = new List<Amazon.WorkSpacesWeb.Model.CookieSpecification>(this.CookieSynchronizationConfiguration_Allowlist);
+            }
+            if (this.CookieSynchronizationConfiguration_Blocklist != null)
+            {
+                context.CookieSynchronizationConfiguration_Blocklist = new List<Amazon.WorkSpacesWeb.Model.CookieSpecification>(this.CookieSynchronizationConfiguration_Blocklist);
+            }
             context.CopyAllowed = this.CopyAllowed;
             #if MODULAR
             if (this.CopyAllowed == null && ParameterWasBound(nameof(this.CopyAllowed)))
@@ -229,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 WriteWarning("You are passing $null as a value for parameter CopyAllowed which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomerManagedKey = this.CustomerManagedKey;
             context.DisconnectTimeoutInMinute = this.DisconnectTimeoutInMinute;
             context.DownloadAllowed = this.DownloadAllowed;
             #if MODULAR
@@ -279,13 +338,50 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             // create request
             var request = new Amazon.WorkSpacesWeb.Model.CreateUserSettingsRequest();
             
+            if (cmdletContext.AdditionalEncryptionContext != null)
+            {
+                request.AdditionalEncryptionContext = cmdletContext.AdditionalEncryptionContext;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            
+             // populate CookieSynchronizationConfiguration
+            var requestCookieSynchronizationConfigurationIsNull = true;
+            request.CookieSynchronizationConfiguration = new Amazon.WorkSpacesWeb.Model.CookieSynchronizationConfiguration();
+            List<Amazon.WorkSpacesWeb.Model.CookieSpecification> requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Allowlist = null;
+            if (cmdletContext.CookieSynchronizationConfiguration_Allowlist != null)
+            {
+                requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Allowlist = cmdletContext.CookieSynchronizationConfiguration_Allowlist;
+            }
+            if (requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Allowlist != null)
+            {
+                request.CookieSynchronizationConfiguration.Allowlist = requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Allowlist;
+                requestCookieSynchronizationConfigurationIsNull = false;
+            }
+            List<Amazon.WorkSpacesWeb.Model.CookieSpecification> requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Blocklist = null;
+            if (cmdletContext.CookieSynchronizationConfiguration_Blocklist != null)
+            {
+                requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Blocklist = cmdletContext.CookieSynchronizationConfiguration_Blocklist;
+            }
+            if (requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Blocklist != null)
+            {
+                request.CookieSynchronizationConfiguration.Blocklist = requestCookieSynchronizationConfiguration_cookieSynchronizationConfiguration_Blocklist;
+                requestCookieSynchronizationConfigurationIsNull = false;
+            }
+             // determine if request.CookieSynchronizationConfiguration should be set to null
+            if (requestCookieSynchronizationConfigurationIsNull)
+            {
+                request.CookieSynchronizationConfiguration = null;
+            }
             if (cmdletContext.CopyAllowed != null)
             {
                 request.CopyAllowed = cmdletContext.CopyAllowed;
+            }
+            if (cmdletContext.CustomerManagedKey != null)
+            {
+                request.CustomerManagedKey = cmdletContext.CustomerManagedKey;
             }
             if (cmdletContext.DisconnectTimeoutInMinute != null)
             {
@@ -376,8 +472,12 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> AdditionalEncryptionContext { get; set; }
             public System.String ClientToken { get; set; }
+            public List<Amazon.WorkSpacesWeb.Model.CookieSpecification> CookieSynchronizationConfiguration_Allowlist { get; set; }
+            public List<Amazon.WorkSpacesWeb.Model.CookieSpecification> CookieSynchronizationConfiguration_Blocklist { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType CopyAllowed { get; set; }
+            public System.String CustomerManagedKey { get; set; }
             public System.Int32? DisconnectTimeoutInMinute { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType DownloadAllowed { get; set; }
             public System.Int32? IdleDisconnectTimeoutInMinute { get; set; }

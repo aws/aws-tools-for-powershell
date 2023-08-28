@@ -80,13 +80,24 @@ $SQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ServiceQuotas.AppliedLevelEnum
+        {
+            ($_ -eq "Get-SQServiceQuotaList/QuotaAppliedAtLevel") -Or
+            ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryByQuotaList/QuotaRequestedAtLevel") -Or
+            ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryList/QuotaRequestedAtLevel")
+        }
+        {
+            $v = "ACCOUNT","ALL","RESOURCE"
+            break
+        }
+
         # Amazon.ServiceQuotas.RequestStatus
         {
             ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryByQuotaList/Status") -Or
             ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryList/Status")
         }
         {
-            $v = "APPROVED","CASE_CLOSED","CASE_OPENED","DENIED","PENDING"
+            $v = "APPROVED","CASE_CLOSED","CASE_OPENED","DENIED","INVALID_REQUEST","NOT_APPROVED","PENDING"
             break
         }
 
@@ -99,6 +110,8 @@ $SQ_Completers = {
 }
 
 $SQ_map = @{
+    "QuotaAppliedAtLevel"=@("Get-SQServiceQuotaList")
+    "QuotaRequestedAtLevel"=@("Get-SQRequestedServiceQuotaChangeHistoryByQuotaList","Get-SQRequestedServiceQuotaChangeHistoryList")
     "Status"=@("Get-SQRequestedServiceQuotaChangeHistoryByQuotaList","Get-SQRequestedServiceQuotaChangeHistoryList")
 }
 

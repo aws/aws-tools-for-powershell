@@ -100,7 +100,8 @@ $CO_Completers = {
             ($_ -eq "Export-COEBSVolumeRecommendation/FileFormat") -Or
             ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat") -Or
             ($_ -eq "Export-COECSServiceRecommendation/FileFormat") -Or
-            ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat")
+            ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat") -Or
+            ($_ -eq "Export-COLicenseRecommendation/FileFormat")
         }
         {
             $v = "Csv"
@@ -131,7 +132,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","NotApplicable"
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","License","NotApplicable"
             break
         }
 
@@ -164,7 +165,7 @@ $CO_Completers = {
 $CO_map = @{
     "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
-    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation")
+    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation")
     "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
@@ -229,6 +230,7 @@ $CO_SelectMap = @{
                "Export-COEC2InstanceRecommendation",
                "Export-COECSServiceRecommendation",
                "Export-COLambdaFunctionRecommendation",
+               "Export-COLicenseRecommendation",
                "Get-COAutoScalingGroupRecommendation",
                "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",
@@ -239,6 +241,7 @@ $CO_SelectMap = @{
                "Get-COEnrollmentStatus",
                "Get-COEnrollmentStatusesForOrganization",
                "Get-COLambdaFunctionRecommendation",
+               "Get-COLicenseRecommendation",
                "Get-CORecommendationPreference",
                "Get-CORecommendationSummary",
                "Write-CORecommendationPreference",

@@ -34,12 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     ///  
     /// <para>
     /// For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
-    /// Organization Policies</a>.
+    /// Organizations policies</a>.
     /// </para><para>
     /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
     /// permission.
     /// </para><para>
-    /// This operation can be called only from the organization's management account.
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ORGPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

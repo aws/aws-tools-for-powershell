@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>If provided, the new content for the resource policy. The text must be correctly formatted
         /// JSON that complies with the syntax for the resource policy's type. For more information,
-        /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
-        /// Control Policy Syntax</a> in the <i>Organizations User Guide.</i></para>
+        /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP
+        /// syntax</a> in the <i>Organizations User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

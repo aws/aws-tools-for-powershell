@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Internet Services Pvt. Ltd (AISPL), an Amazon Web Services seller in India, you can
     /// invite only other AISPL accounts to your organization. You can't combine accounts
     /// from AISPL and Amazon Web Services or from any other Amazon Web Services seller. For
-    /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
-    /// Billing in India</a>.
+    /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilling-India.html">Consolidated
+    /// billing in India</a>.
     /// </para></li><li><para>
     /// If you receive an exception that indicates that you exceeded your account limits for
     /// the organization or that the operation failed because your organization is still initializing,

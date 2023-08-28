@@ -13489,7 +13489,8 @@ $CO_Completers = {
             ($_ -eq "Export-COEBSVolumeRecommendation/FileFormat") -Or
             ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat") -Or
             ($_ -eq "Export-COECSServiceRecommendation/FileFormat") -Or
-            ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat")
+            ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat") -Or
+            ($_ -eq "Export-COLicenseRecommendation/FileFormat")
         }
         {
             $v = "Csv"
@@ -13520,7 +13521,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","NotApplicable"
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","License","NotApplicable"
             break
         }
 
@@ -13553,7 +13554,7 @@ $CO_Completers = {
 $CO_map = @{
     "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
-    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation")
+    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation")
     "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
@@ -13618,6 +13619,7 @@ $CO_SelectMap = @{
                "Export-COEC2InstanceRecommendation",
                "Export-COECSServiceRecommendation",
                "Export-COLambdaFunctionRecommendation",
+               "Export-COLicenseRecommendation",
                "Get-COAutoScalingGroupRecommendation",
                "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",
@@ -13628,6 +13630,7 @@ $CO_SelectMap = @{
                "Get-COEnrollmentStatus",
                "Get-COEnrollmentStatusesForOrganization",
                "Get-COLambdaFunctionRecommendation",
+               "Get-COLicenseRecommendation",
                "Get-CORecommendationPreference",
                "Get-CORecommendationSummary",
                "Write-CORecommendationPreference",
@@ -55605,13 +55608,24 @@ $SQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ServiceQuotas.AppliedLevelEnum
+        {
+            ($_ -eq "Get-SQServiceQuotaList/QuotaAppliedAtLevel") -Or
+            ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryByQuotaList/QuotaRequestedAtLevel") -Or
+            ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryList/QuotaRequestedAtLevel")
+        }
+        {
+            $v = "ACCOUNT","ALL","RESOURCE"
+            break
+        }
+
         # Amazon.ServiceQuotas.RequestStatus
         {
             ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryByQuotaList/Status") -Or
             ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryList/Status")
         }
         {
-            $v = "APPROVED","CASE_CLOSED","CASE_OPENED","DENIED","PENDING"
+            $v = "APPROVED","CASE_CLOSED","CASE_OPENED","DENIED","INVALID_REQUEST","NOT_APPROVED","PENDING"
             break
         }
 
@@ -55624,6 +55638,8 @@ $SQ_Completers = {
 }
 
 $SQ_map = @{
+    "QuotaAppliedAtLevel"=@("Get-SQServiceQuotaList")
+    "QuotaRequestedAtLevel"=@("Get-SQRequestedServiceQuotaChangeHistoryByQuotaList","Get-SQRequestedServiceQuotaChangeHistoryList")
     "Status"=@("Get-SQRequestedServiceQuotaChangeHistoryByQuotaList","Get-SQRequestedServiceQuotaChangeHistoryList")
 }
 

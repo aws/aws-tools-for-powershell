@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
     /// Disables your quota request template. After a template is disabled, the quota increase
-    /// requests in the template are not applied to new accounts in your organization. Disabling
-    /// a quota request template does not apply its quota increase requests.
+    /// requests in the template are not applied to new Amazon Web Services accounts in your
+    /// organization. Disabling a quota request template does not apply its quota increase
+    /// requests.
     /// </summary>
     [Cmdlet("Unregister", "SQServiceQuotaTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

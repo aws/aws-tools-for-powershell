@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region.</para>
+        /// <para>Specifies the Amazon Web Services Region for which you made the request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>The quota identifier.</para>
+        /// <para>Specifies the quota identifier. To find the quota code for a specific quota, use the
+        /// <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response
+        /// in the output for the quota you want.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>The service identifier.</para>
+        /// <para>Specifies the service identifier. To find the service code value for an Amazon Web
+        /// Services service, use the <a>ListServices</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

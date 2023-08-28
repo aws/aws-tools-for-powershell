@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>The ID of the quota increase request.</para>
+        /// <para>Specifies the ID of the quota increase request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

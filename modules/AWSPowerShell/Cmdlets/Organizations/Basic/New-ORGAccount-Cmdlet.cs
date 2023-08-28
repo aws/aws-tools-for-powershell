@@ -42,12 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para></li><li><para>
     /// Check the CloudTrail log for the <code>CreateAccountResult</code> event. For information
     /// on using CloudTrail with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration">Logging
-    /// and monitoring in Organizations</a> in the <i>Organizations User Guide.</i></para></li></ul><para>
+    /// and monitoring in Organizations</a> in the <i>Organizations User Guide</i>.
+    /// </para></li></ul><para>
     /// The user who calls the API to create an account must have the <code>organizations:CreateAccount</code>
     /// permission. If you enabled all features in the organization, Organizations creates
     /// the required service-linked role named <code>AWSServiceRoleForOrganizations</code>.
     /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">Organizations
-    /// and Service-Linked Roles</a> in the <i>Organizations User Guide</i>.
+    /// and service-linked roles</a> in the <i>Organizations User Guide</i>.
     /// </para><para>
     /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
     /// permission.
@@ -61,15 +62,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// This operation can be called only from the organization's management account.
     /// </para><para>
     /// For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
-    /// an Amazon Web Services account in Your Organization</a> in the <i>Organizations User
-    /// Guide.</i></para><important><ul><li><para>
+    /// a member account in your organization</a> in the <i>Organizations User Guide</i>.
+    /// </para><important><ul><li><para>
     /// When you create an account in an organization using the Organizations console, API,
     /// or CLI commands, the information required for the account to operate as a standalone
     /// account, such as a payment method and signing the end user license agreement (EULA)
     /// is <i>not</i> automatically collected. If you must remove an account from your organization
-    /// later, you can do so only after you provide the missing information. Follow the steps
-    /// at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
-    /// To leave an organization as a member account</a> in the <i>Organizations User Guide</i>.
+    /// later, you can do so only after you provide the missing information. For more information,
+    /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations
+    /// before removing an account from an organization</a> in the <i>Organizations User Guide</i>.
     /// </para></li><li><para>
     /// If you get an exception that indicates that you exceeded your account limits for the
     /// organization, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon
@@ -83,15 +84,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// You can only close an account from the Billing and Cost Management console, and you
     /// must be signed in as the root user. For information on the requirements and process
     /// for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing
-    /// an Amazon Web Services account</a> in the <i>Organizations User Guide</i>.
+    /// a member account in your organization</a> in the <i>Organizations User Guide</i>.
     /// </para></li></ul></important><note><para>
     /// When you create a member account with this operation, you can choose whether to create
     /// the account with the <b>IAM User and Role Access to Billing Information</b> switch
     /// enabled. If you enable it, IAM users and roles that have appropriate permissions can
     /// view billing information for the account. If you disable it, only the account root
     /// user can access billing information. For information about how to disable this switch
-    /// for an account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
-    /// Access to Your Billing Information and Tools</a>.
+    /// for an account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html#grantaccess">Granting
+    /// access to your billing information and tools</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -153,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>If set to <code>ALLOW</code>, the new account enables IAM users to access account
         /// billing information <i>if</i> they have the required permissions. If set to <code>DENY</code>,
         /// only the root user of the new account can access account billing information. For
-        /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-        /// Access to the Billing and Cost Management Console</a> in the <i>Amazon Web Services
+        /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About
+        /// IAM access to the Billing and Cost Management console</a> in the <i>Amazon Web Services
         /// Billing and Cost Management User Guide</i>.</para><para>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
         /// IAM users and roles with the required permissions can access billing information for
         /// the new account.</para>
@@ -172,11 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// member account. This role trusts the management account, allowing users in the management
         /// account to assume the role, as permitted by the management account administrator.
         /// The role has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
-        /// the following links:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing
-        /// and Administering the Member Accounts in Your Organization</a> in the <i>Organizations
-        /// User Guide</i></para></li><li><para>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:
-        /// Delegate Access Across Amazon Web Services accounts Using IAM Roles</a> in the <i>IAM
-        /// User Guide</i></para></li></ul><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate
+        /// the following links:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Creating
+        /// the OrganizationAccountAccessRole in an invited member account</a> in the <i>Organizations
+        /// User Guide</i></para></li><li><para>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">IAM
+        /// Tutorial: Delegate access across Amazon Web Services accounts using IAM roles</a>
+        /// in the <i>IAM User Guide</i></para></li></ul><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate
         /// this parameter. The pattern can include uppercase letters, lowercase letters, digits
         /// with no spaces, and any of the following characters: =,.@-</para>
         /// </para>

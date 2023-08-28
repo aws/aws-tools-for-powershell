@@ -43,9 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// documentation for the other Amazon Web Services service.
     /// </para></important><para>
     /// For more information about enabling services to integrate with Organizations, see
-    /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
-    /// Organizations with Other Amazon Web Services Services</a> in the <i>Organizations
-    /// User Guide.</i></para><para>
+    /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using
+    /// Organizations with other Amazon Web Services services</a> in the <i>Organizations
+    /// User Guide</i>.
+    /// </para><para>
     /// You can only call this operation from the organization's management account and only
     /// if the organization has <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
     /// all features</a>.

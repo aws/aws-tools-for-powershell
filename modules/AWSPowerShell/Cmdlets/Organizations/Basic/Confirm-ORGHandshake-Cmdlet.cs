@@ -42,16 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// permission. If you enabled all features in the organization, the user must also have
     /// the <code>iam:CreateServiceLinkedRole</code> permission so that Organizations can
     /// create the required service-linked role named <code>AWSServiceRoleForOrganizations</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">Organizations
-    /// and Service-Linked Roles</a> in the <i>Organizations User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integrate_services-using_slrs">Organizations
+    /// and service-linked roles</a> in the <i>Organizations User Guide</i>.
     /// </para></li><li><para><b>Enable all features final confirmation</b> handshake: only a principal from the
     /// management account.
     /// </para><para>
     /// For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting
     /// an Amazon Web Services account to join your organization</a> in the <i>Organizations
-    /// User Guide.</i> For more information about requests to enable all features in the
+    /// User Guide</i>. For more information about requests to enable all features in the
     /// organization, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
-    /// all features in your organization</a> in the <i>Organizations User Guide.</i></para></li></ul><para>
+    /// all features in your organization</a> in the <i>Organizations User Guide</i>.
+    /// </para></li></ul><para>
     /// After you accept a handshake, it continues to appear in the results of relevant APIs
     /// for only 30 days. After that, it's deleted.
     /// </para>

@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// you first use <a>ListRoots</a> to see the status of policy types for a specified root,
     /// and then use this operation.
     /// </para><para>
-    /// This operation can be called only from the organization's management account.
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para><para>
     ///  To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.
     /// </para>

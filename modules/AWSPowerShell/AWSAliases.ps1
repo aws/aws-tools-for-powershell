@@ -5269,6 +5269,8 @@ Set-Alias -Name Export-COECSServiceRecommendations -Value Export-COECSServiceRec
 Set-Alias -Name CO-ExportECSServiceRecommendations -Value Export-COECSServiceRecommendation
 Set-Alias -Name Export-COLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
 Set-Alias -Name CO-ExportLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
+Set-Alias -Name Export-COLicenseRecommendations -Value Export-COLicenseRecommendation
+Set-Alias -Name CO-ExportLicenseRecommendations -Value Export-COLicenseRecommendation
 Set-Alias -Name Get-COAutoScalingGroupRecommendations -Value Get-COAutoScalingGroupRecommendation
 Set-Alias -Name CO-GetAutoScalingGroupRecommendations -Value Get-COAutoScalingGroupRecommendation
 Set-Alias -Name Get-COEBSVolumeRecommendations -Value Get-COEBSVolumeRecommendation
@@ -5287,6 +5289,8 @@ Set-Alias -Name CO-GetEnrollmentStatus -Value Get-COEnrollmentStatus
 Set-Alias -Name CO-GetEnrollmentStatusesForOrganization -Value Get-COEnrollmentStatusesForOrganization
 Set-Alias -Name Get-COLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
 Set-Alias -Name CO-GetLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
+Set-Alias -Name Get-COLicenseRecommendations -Value Get-COLicenseRecommendation
+Set-Alias -Name CO-GetLicenseRecommendations -Value Get-COLicenseRecommendation
 Set-Alias -Name Get-CORecommendationPreferences -Value Get-CORecommendationPreference
 Set-Alias -Name CO-GetRecommendationPreferences -Value Get-CORecommendationPreference
 Set-Alias -Name Get-CORecommendationSummaries -Value Get-CORecommendationSummary

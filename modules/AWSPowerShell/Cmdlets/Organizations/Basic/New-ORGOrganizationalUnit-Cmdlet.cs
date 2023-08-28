@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     ///  
     /// <para>
     /// For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing
-    /// Organizational Units</a> in the <i>Organizations User Guide.</i></para><para>
+    /// organizational units (OUs)</a> in the <i>Organizations User Guide</i>.
+    /// </para><para>
     /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
     /// permission.
     /// </para><para>

@@ -42,10 +42,24 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public partial class GetSQServiceQuotaCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
+        #region Parameter ContextId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Web Services account or resource to which the quota applies.
+        /// The value in this field depends on the context scope associated with the specified
+        /// service quota.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextId { get; set; }
+        #endregion
+        
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>The quota identifier.</para>
+        /// <para>Specifies the quota identifier. To find the quota code for a specific quota, use the
+        /// <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response
+        /// in the output for the quota you want.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>The service identifier.</para>
+        /// <para>Specifies the service identifier. To find the service code value for an Amazon Web
+        /// Services service, use the <a>ListServices</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
                 context.Select = (response, cmdlet) => this.QuotaCode;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContextId = this.ContextId;
             context.QuotaCode = this.QuotaCode;
             #if MODULAR
             if (this.QuotaCode == null && ParameterWasBound(nameof(this.QuotaCode)))
@@ -152,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.SQ
             // create request
             var request = new Amazon.ServiceQuotas.Model.GetServiceQuotaRequest();
             
+            if (cmdletContext.ContextId != null)
+            {
+                request.ContextId = cmdletContext.ContextId;
+            }
             if (cmdletContext.QuotaCode != null)
             {
                 request.QuotaCode = cmdletContext.QuotaCode;
@@ -221,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContextId { get; set; }
             public System.String QuotaCode { get; set; }
             public System.String ServiceCode { get; set; }
             public System.Func<Amazon.ServiceQuotas.Model.GetServiceQuotaResponse, GetSQServiceQuotaCmdlet, object> Select { get; set; } =

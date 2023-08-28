@@ -57,18 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para></li></ul><para>
     /// Amazon Web Services uses the payment method to charge for any billable (not free tier)
     /// Amazon Web Services activity that occurs while the account isn't attached to an organization.
-    /// Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
-    /// To leave an organization when all required account information has not yet been provided</a>
-    /// in the <i>Organizations User Guide.</i></para></li><li><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations
+    /// before removing an account from an organization</a> in the <i>Organizations User Guide</i>.
+    /// </para></li><li><para>
     /// The account that you want to leave must not be a delegated administrator account for
     /// any Amazon Web Services service enabled for your organization. If the account is a
     /// delegated administrator, you must first change the delegated administrator account
     /// to another account that is remaining in the organization.
     /// </para></li><li><para>
     /// You can leave an organization only after you enable IAM user access to billing in
-    /// your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-    /// Access to the Billing and Cost Management Console</a> in the <i>Amazon Web Services
-    /// Billing and Cost Management User Guide.</i></para></li><li><para>
+    /// your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About
+    /// IAM access to the Billing and Cost Management console</a> in the <i>Amazon Web Services
+    /// Billing and Cost Management User Guide</i>.
+    /// </para></li><li><para>
     /// After the account leaves the organization, all tags that were attached to the account
     /// object in the organization are deleted. Amazon Web Services accounts outside of an
     /// organization do not support tags.
@@ -76,6 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// A newly created account has a waiting period before it can be removed from its organization.
     /// If you get an error that indicates that a wait period is required, then try again
     /// in a few days.
+    /// </para></li><li><para>
+    /// If you are using an organization principal to call <code>LeaveOrganization</code>
+    /// across multiple accounts, you can only do this up to 5 accounts per second in a single
+    /// organization.
     /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

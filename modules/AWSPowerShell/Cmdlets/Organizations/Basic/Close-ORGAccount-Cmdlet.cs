@@ -47,14 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Check the CloudTrail log for the <code>CloseAccountResult</code> event that gets published
     /// after the account closes successfully. For information on using CloudTrail with Organizations,
     /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration">Logging
-    /// and monitoring in Organizations</a> in the <i>Organizations User Guide.</i></para></li></ul><note><ul><li><para>
+    /// and monitoring in Organizations</a> in the <i>Organizations User Guide</i>.
+    /// </para></li></ul><note><ul><li><para>
     /// You can close only 10% of member accounts, between 10 and 200, within a rolling 30
     /// day period. This quota is not bound by a calendar month, but starts when you close
-    /// an account.
-    /// </para><para>
-    /// After you reach this limit, you can close additional accounts in the Billing console.
-    /// For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/close-account.html">Closing
-    /// an account</a> in the Amazon Web Services Billing and Cost Management User Guide.
+    /// an account. After you reach this limit, you can close additional accounts. For more
+    /// information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing
+    /// a member account in your organization</a> in the <i>Organizations User Guide</i>.
+    /// 
     /// </para></li><li><para>
     /// To reinstate a closed account, contact Amazon Web Services Support within the 90-day
     /// grace period while the account is in SUSPENDED status. 
@@ -64,9 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// accounts. To learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
     /// Closing an Amazon Web Services GovCloud (US) account</a> in the <i> Amazon Web Services
     /// GovCloud User Guide</i>.
-    /// </para></li></ul></note><para>
-    /// For more information about closing accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing
-    /// an Amazon Web Services account</a> in the <i>Organizations User Guide.</i></para>
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Close", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

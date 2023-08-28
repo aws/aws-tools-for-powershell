@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportLicenseRecommendations" OutputProperty="*" Verb="Export" Noun="LicenseRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAutoScalingGroupRecommendations" OutputProperty="AutoScalingGroupRecommendations" Verb="Get" Noun="AutoScalingGroupRecommendation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLambdaFunctionRecommendations" OutputProperty="LambdaFunctionRecommendations" Verb="Get" Noun="LambdaFunctionRecommendation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLicenseRecommendations" OutputProperty="*" Verb="Get" Noun="LicenseRecommendation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

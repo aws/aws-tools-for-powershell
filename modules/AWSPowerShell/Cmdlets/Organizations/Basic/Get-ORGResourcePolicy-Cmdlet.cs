@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// You can only call this operation from the organization's management account or by
+    /// This operation can be called only from the organization's management account or by
     /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para>
     /// </summary>

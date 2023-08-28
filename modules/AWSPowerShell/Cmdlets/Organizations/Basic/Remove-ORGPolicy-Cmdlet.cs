@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the organization's management account.
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ORGPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
