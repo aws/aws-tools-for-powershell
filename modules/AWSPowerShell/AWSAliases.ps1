@@ -23519,6 +23519,8 @@ Set-Alias -Name SQ-UntagResource -Value Remove-SQResourceTag
 Set-Alias -Name Batch-SES2GetMetricData -Value Get-SES2BatchMetricData
 Set-Alias -Name Batch-SES2BatchMetricData -Value Get-SES2BatchMetricData
 Set-Alias -Name SES2-BatchGetMetricData -Value Get-SES2BatchMetricData
+Set-Alias -Name Cancel-SES2ExportJob -Value Stop-SES2ExportJob
+Set-Alias -Name SES2-CancelExportJob -Value Stop-SES2ExportJob
 Set-Alias -Name Create-SES2ConfigurationSet -Value New-SES2ConfigurationSet
 Set-Alias -Name SES2-CreateConfigurationSet -Value New-SES2ConfigurationSet
 Set-Alias -Name Create-SES2ConfigurationSetEventDestination -Value New-SES2ConfigurationSetEventDestination
@@ -23539,6 +23541,8 @@ Set-Alias -Name Create-SES2EmailIdentityPolicy -Value New-SES2EmailIdentityPolic
 Set-Alias -Name SES2-CreateEmailIdentityPolicy -Value New-SES2EmailIdentityPolicy
 Set-Alias -Name Create-SES2EmailTemplate -Value New-SES2EmailTemplate
 Set-Alias -Name SES2-CreateEmailTemplate -Value New-SES2EmailTemplate
+Set-Alias -Name Create-SES2ExportJob -Value New-SES2ExportJob
+Set-Alias -Name SES2-CreateExportJob -Value New-SES2ExportJob
 Set-Alias -Name Create-SES2ImportJob -Value New-SES2ImportJob
 Set-Alias -Name SES2-CreateImportJob -Value New-SES2ImportJob
 Set-Alias -Name Delete-SES2ConfigurationSet -Value Remove-SES2ConfigurationSet
@@ -23583,7 +23587,10 @@ Set-Alias -Name SES2-GetEmailIdentity -Value Get-SES2EmailIdentity
 Set-Alias -Name Get-SES2EmailIdentityPolicies -Value Get-SES2EmailIdentityPolicy
 Set-Alias -Name SES2-GetEmailIdentityPolicies -Value Get-SES2EmailIdentityPolicy
 Set-Alias -Name SES2-GetEmailTemplate -Value Get-SES2EmailTemplate
+Set-Alias -Name SES2-GetExportJob -Value Get-SES2ExportJob
 Set-Alias -Name SES2-GetImportJob -Value Get-SES2ImportJob
+Set-Alias -Name Get-SES2MessageInsights -Value Get-SES2MessageInsight
+Set-Alias -Name SES2-GetMessageInsights -Value Get-SES2MessageInsight
 Set-Alias -Name SES2-GetSuppressedDestination -Value Get-SES2SuppressedDestination
 Set-Alias -Name List-SES2ConfigurationSets -Value Get-SES2ConfigurationSetList
 Set-Alias -Name List-SES2ConfigurationSetList -Value Get-SES2ConfigurationSetList
@@ -23612,6 +23619,9 @@ Set-Alias -Name SES2-ListEmailIdentities -Value Get-SES2EmailIdentityList
 Set-Alias -Name List-SES2EmailTemplates -Value Get-SES2EmailTemplateList
 Set-Alias -Name List-SES2EmailTemplateList -Value Get-SES2EmailTemplateList
 Set-Alias -Name SES2-ListEmailTemplates -Value Get-SES2EmailTemplateList
+Set-Alias -Name List-SES2ExportJobs -Value Get-SES2ExportJobList
+Set-Alias -Name List-SES2ExportJobList -Value Get-SES2ExportJobList
+Set-Alias -Name SES2-ListExportJobs -Value Get-SES2ExportJobList
 Set-Alias -Name List-SES2ImportJobs -Value Get-SES2ImportJobList
 Set-Alias -Name List-SES2ImportJobList -Value Get-SES2ImportJobList
 Set-Alias -Name SES2-ListImportJobs -Value Get-SES2ImportJobList

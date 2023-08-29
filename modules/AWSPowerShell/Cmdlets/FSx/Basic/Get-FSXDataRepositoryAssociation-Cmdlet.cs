@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data
     /// repository associations, if one or more <code>AssociationIds</code> values are provided
     /// in the request, or if filters are used in the request. Data repository associations
-    /// are supported on Amazon File Cache resources and all FSx for Lustre 2.12 and newer
+    /// are supported on Amazon File Cache resources and all FSx for Lustre 2.12 and 2,15
     /// file systems, excluding <code>scratch_1</code> deployment type.
     /// 
     ///  

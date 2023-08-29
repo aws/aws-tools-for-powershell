@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.631.0",
+    "ProductVersion" : "3.7.632.0",
     "CoreVersion"    : "3.7.201.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -538,7 +538,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.201.18",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.201.7"
@@ -1298,7 +1298,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.201.13",
+            "Version" : "3.7.201.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.201.7"
@@ -1578,7 +1578,7 @@
             "InPreview"               : false
         },
         "SimpleEmailV2"                   : {
-            "Version" : "3.7.200.27",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.201.7"
@@ -2634,7 +2634,7 @@
             "InPreview"               : false
         },
         "Omics"                               : {
-            "Version" : "3.7.203.10",
+            "Version" : "3.7.204.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.201.7"

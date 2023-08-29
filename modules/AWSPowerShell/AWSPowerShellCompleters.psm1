@@ -42782,6 +42782,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.RunRetentionMode
+        "Start-OMICSRun/RetentionMode"
+        {
+            $v = "REMOVE","RETAIN"
+            break
+        }
+
         # Amazon.Omics.RunStatus
         "Get-OMICSRunList/Status"
         {
@@ -42855,6 +42862,7 @@ $OMICS_map = @{
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
+    "RetentionMode"=@("Start-OMICSRun")
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
@@ -55745,7 +55753,10 @@ $SES2_Completers = {
         }
 
         # Amazon.SimpleEmailV2.DataFormat
-        "New-SES2ImportJob/ImportDataSource_DataFormat"
+        {
+            ($_ -eq "New-SES2ExportJob/ExportDestination_DataFormat") -Or
+            ($_ -eq "New-SES2ImportJob/ImportDataSource_DataFormat")
+        }
         {
             $v = "CSV","JSON"
             break
@@ -55765,6 +55776,13 @@ $SES2_Completers = {
         }
         {
             $v = "RSA_1024_BIT","RSA_2048_BIT"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.ExportSourceType
+        "Get-SES2ExportJobList/ExportSourceType"
+        {
+            $v = "MESSAGE_INSIGHTS","METRICS_DATA"
             break
         }
 
@@ -55790,10 +55808,24 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.JobStatus
+        "Get-SES2ExportJobList/JobStatus"
+        {
+            $v = "CANCELLED","COMPLETED","CREATED","FAILED","PROCESSING"
+            break
+        }
+
         # Amazon.SimpleEmailV2.MailType
         "Write-SES2AccountDetail/MailType"
         {
             $v = "MARKETING","TRANSACTIONAL"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.MetricNamespace
+        "New-SES2ExportJob/ExportDataSource_MetricsDataSource_Namespace"
+        {
+            $v = "VDM"
             break
         }
 
@@ -55851,11 +55883,15 @@ $SES2_map = @{
     "ContactLanguage"=@("Write-SES2AccountDetail")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
     "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
+    "ExportDataSource_MetricsDataSource_Namespace"=@("New-SES2ExportJob")
+    "ExportDestination_DataFormat"=@("New-SES2ExportJob")
+    "ExportSourceType"=@("Get-SES2ExportJobList")
     "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
     "ImportDestination_ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
     "ImportDestination_SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
     "ImportDestinationType"=@("Get-SES2ImportJobList")
+    "JobStatus"=@("Get-SES2ExportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "Reason"=@("Write-SES2SuppressedDestination")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
@@ -55920,6 +55956,7 @@ $SES2_SelectCompleters = {
 
 $SES2_SelectMap = @{
     "Select"=@("Get-SES2BatchMetricData",
+               "Stop-SES2ExportJob",
                "New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
                "New-SES2Contact",
@@ -55930,6 +55967,7 @@ $SES2_SelectMap = @{
                "New-SES2EmailIdentity",
                "New-SES2EmailIdentityPolicy",
                "New-SES2EmailTemplate",
+               "New-SES2ExportJob",
                "New-SES2ImportJob",
                "Remove-SES2ConfigurationSet",
                "Remove-SES2ConfigurationSetEventDestination",
@@ -55958,7 +55996,9 @@ $SES2_SelectMap = @{
                "Get-SES2EmailIdentity",
                "Get-SES2EmailIdentityPolicy",
                "Get-SES2EmailTemplate",
+               "Get-SES2ExportJob",
                "Get-SES2ImportJob",
+               "Get-SES2MessageInsight",
                "Get-SES2SuppressedDestination",
                "Get-SES2ConfigurationSetList",
                "Get-SES2ContactListCollection",
@@ -55969,6 +56009,7 @@ $SES2_SelectMap = @{
                "Get-SES2DomainDeliverabilityCampaignList",
                "Get-SES2EmailIdentityList",
                "Get-SES2EmailTemplateList",
+               "Get-SES2ExportJobList",
                "Get-SES2ImportJobList",
                "Get-SES2RecommendationList",
                "Get-SES2SuppressedDestinationList",

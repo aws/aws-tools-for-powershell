@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For FSx for ONTAP file systems, you can update the following properties:
     /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
+    /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "FSXFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.FileSystem")]
@@ -337,9 +337,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per
-        /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
-        /// or 4096 MB/s.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
-        /// 7680, or 10240 MB/s.</para></li></ul>
+        /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320,
+        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
+        /// or 4096 MB/s.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

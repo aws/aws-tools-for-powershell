@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// a linked data repository.
     /// </para><para>
     /// You use release data repository tasks to release data from your file system for files
-    /// that are archived to S3. The metadata of released files remains on the file system
+    /// that are exported to S3. The metadata of released files remains on the file system
     /// so users or applications can still access released files by reading the files again,
     /// which will restore data from Amazon S3 to the FSx for Lustre file system.
     /// </para><para>
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>A list of paths for the data repository task to use when the task is processed. If
         /// a path that you provide isn't valid, the task fails. If you don't provide paths, the
         /// default behavior is to export all files to S3 (for export tasks), import all files
-        /// from S3 (for import tasks), or release all archived files that meet the last accessed
+        /// from S3 (for import tasks), or release all exported files that meet the last accessed
         /// time criteria (for release tasks).</para><ul><li><para>For export tasks, the list contains paths on the FSx for Lustre file system from which
         /// the files are exported to the Amazon S3 bucket. The default path is the file system
         /// root directory. The paths you provide need to be relative to the mount point of the
@@ -165,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// metadata changes are imported to the FSx for Lustre file system. The path can be an
         /// S3 bucket or prefix in the format <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code>
         /// is optional). </para></li><li><para>For release tasks, the list contains directory or file paths on the FSx for Lustre
-        /// file system from which to release archived files. If a directory is specified, files
+        /// file system from which to release exported files. If a directory is specified, files
         /// within the directory are released. If a file path is specified, only that file is
-        /// released. To release all archived files in the file system, specify a forward slash
+        /// released. To release all exported files in the file system, specify a forward slash
         /// (/) as the path.</para><note><para>A file must also meet the last accessed time criteria specified in for the file to
         /// be released.</para></note></li></ul>
         /// </para>
@@ -209,7 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Specifies the type of data repository task to create.</para><ul><li><para><code>EXPORT_TO_REPOSITORY</code> tasks export from your Amazon FSx for Lustre file
         /// system to a linked data repository.</para></li><li><para><code>IMPORT_METADATA_FROM_REPOSITORY</code> tasks import metadata changes from a
         /// linked S3 bucket to your Amazon FSx for Lustre file system.</para></li><li><para><code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in your Amazon FSx
-        /// for Lustre file system that are archived and that meet your specified release criteria.</para></li><li><para><code>AUTO_RELEASE_DATA</code> tasks automatically release files from an Amazon File
+        /// for Lustre file system that have been exported to a linked S3 bucket and that meet
+        /// your specified release criteria.</para></li><li><para><code>AUTO_RELEASE_DATA</code> tasks automatically release files from an Amazon File
         /// Cache resource.</para></li></ul>
         /// </para>
         /// </summary>
@@ -242,10 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>An integer that represents the minimum amount of time (in days) since a file was last
-        /// accessed in the file system. Only archived files with a <code>MAX(atime, ctime, mtime)</code>
+        /// accessed in the file system. Only exported files with a <code>MAX(atime, ctime, mtime)</code>
         /// timestamp that is more than this amount of time in the past (relative to the task
         /// create time) will be released. The default of <code>Value</code> is <code>0</code>.
-        /// This is a required parameter.</para><note><para>If an archived file meets the last accessed time criteria, its file or directory path
+        /// This is a required parameter.</para><note><para>If an exported file meets the last accessed time criteria, its file or directory path
         /// must also be specified in the <code>Paths</code> parameter of the operation in order
         /// for the file to be released.</para></note>
         /// </para>

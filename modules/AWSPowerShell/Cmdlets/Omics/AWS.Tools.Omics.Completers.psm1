@@ -206,6 +206,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.RunRetentionMode
+        "Start-OMICSRun/RetentionMode"
+        {
+            $v = "REMOVE","RETAIN"
+            break
+        }
+
         # Amazon.Omics.RunStatus
         "Get-OMICSRunList/Status"
         {
@@ -279,6 +286,7 @@ $OMICS_map = @{
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
+    "RetentionMode"=@("Start-OMICSRun")
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")

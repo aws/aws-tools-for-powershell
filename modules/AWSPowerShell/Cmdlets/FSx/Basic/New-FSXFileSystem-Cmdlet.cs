@@ -225,13 +225,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for redundancy within a single Availability Zone in an Amazon Web Services Region
         /// . Valid values are the following:</para><ul><li><para><code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured
         /// for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones
-        /// (AZs). <code>Multi_AZ_1</code> is available in the following Amazon Web Services Regions:
-        /// </para></li><li><para><code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities
-        /// of 64 - 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services
-        /// Regions where Amazon FSx for OpenZFS is available.</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
+        /// (AZs). <code>Multi_AZ_1</code> is available only in the US East (N. Virginia), US
+        /// East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and
+        /// Europe (Ireland) Amazon Web Services Regions.</para></li><li><para><code>SINGLE_AZ_1</code>- Creates file systems with throughput capacities of 64 -
+        /// 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services Regions
+        /// where Amazon FSx for OpenZFS is available.</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
         /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
-        /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)
-        /// Amazon Web Services Regions.</para></li></ul><para>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
+        /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore),
+        /// Asia Pacific (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
         /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File
         /// system performance</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>
@@ -293,8 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>(Optional) For FSx for Lustre file systems, sets the Lustre version for the file system
-        /// that you're creating. Valid values are <code>2.10</code> and <code>2.12</code>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 is supported by all Lustre deployment types. <code>2.12</code> is required when
-        /// setting FSx for Lustre <code>DeploymentType</code> to <code>PERSISTENT_2</code>.</para></li></ul><para>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set
+        /// that you're creating. Valid values are <code>2.10</code>, <code>2.12</code>m and <code>2.15</code>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code> or <code>2.15</code>
+        /// is required when setting FSx for Lustre <code>DeploymentType</code> to <code>PERSISTENT_2</code>.</para></li></ul><para>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set
         /// to <code>PERSISTENT_2</code>, then the default is <code>2.12</code>.</para><note><para>If you set <code>FileSystemTypeVersion</code> to <code>2.10</code> for a <code>PERSISTENT_2</code>
         /// Lustre deployment type, the <code>CreateFileSystem</code> operation fails.</para></note>
         /// </para>
@@ -445,10 +446,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_RouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
-        /// file system's endpoints will be created. You should specify all VPC route tables associated
-        /// with the subnets in which your clients are located. By default, Amazon FSx selects
-        /// your VPC's default route table.</para>
+        /// <para>(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for
+        /// routing traffic to the correct file server. You should specify all virtual private
+        /// cloud (VPC) route tables associated with the subnets in which your clients are located.
+        /// By default, Amazon FSx selects your VPC's default route table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,10 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_RouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
-        /// file system's endpoints will be created. You should specify all VPC route tables associated
-        /// with the subnets in which your clients are located. By default, Amazon FSx selects
-        /// your VPC's default route table.</para>
+        /// <para>(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for
+        /// routing traffic to the correct file server. You should specify all virtual private
+        /// cloud (VPC) route tables associated with the subnets in which your clients are located.
+        /// By default, Amazon FSx selects your VPC's default route table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -582,9 +583,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes
-        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
-        /// or 4096 MBps.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
-        /// 7680, or 10240 MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
+        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320,
+        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
+        /// or 4096 MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

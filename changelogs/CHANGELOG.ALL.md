@@ -1,4 +1,15 @@
-﻿### 4.1.403 (2023-08-28 21:34Z)
+﻿### 4.1.404 (2023-08-29 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.632.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRun: added parameter RetentionMode.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2ExportJob leveraging the GetExportJob service API.
+    * Added cmdlet Get-SES2ExportJobList leveraging the ListExportJobs service API.
+    * Added cmdlet Get-SES2MessageInsight leveraging the GetMessageInsights service API.
+    * Added cmdlet New-SES2ExportJob leveraging the CreateExportJob service API.
+    * Added cmdlet Stop-SES2ExportJob leveraging the CancelExportJob service API.
+
+### 4.1.403 (2023-08-28 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.631.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Compute Optimizer
     * Added cmdlet Export-COLicenseRecommendation leveraging the ExportLicenseRecommendations service API.

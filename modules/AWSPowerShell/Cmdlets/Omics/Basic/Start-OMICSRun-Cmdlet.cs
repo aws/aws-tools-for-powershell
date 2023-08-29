@@ -28,7 +28,15 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a run.
+    /// Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
+    /// remaining parameters are copied from the previous run.
+    /// 
+    ///  
+    /// <para>
+    /// The total number of runs in your account is subject to a quota per Region. To avoid
+    /// needing to delete runs manually, you can set the retention mode to <code>REMOVE</code>.
+    /// Runs with this setting are deleted automatically when the run quoata is exceeded.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "OMICSRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.StartRunResponse")]
@@ -101,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String RequestId { get; set; }
         #endregion
         
+        #region Parameter RetentionMode
+        /// <summary>
+        /// <para>
+        /// <para>The retention mode for the run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.RunRetentionMode")]
+        public Amazon.Omics.RunRetentionMode RetentionMode { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -131,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RunId
         /// <summary>
         /// <para>
-        /// <para>The run's ID.</para>
+        /// <para>The ID of a run to duplicate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowType
         /// <summary>
         /// <para>
-        /// <para>The run's workflows type.</para>
+        /// <para>The run's workflow type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.Parameter = this.Parameter;
             context.Priority = this.Priority;
             context.RequestId = this.RequestId;
+            context.RetentionMode = this.RetentionMode;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -307,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.RequestId != null)
             {
                 request.RequestId = cmdletContext.RequestId;
+            }
+            if (cmdletContext.RetentionMode != null)
+            {
+                request.RetentionMode = cmdletContext.RetentionMode;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -403,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.Management.Automation.PSObject Parameter { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String RequestId { get; set; }
+            public Amazon.Omics.RunRetentionMode RetentionMode { get; set; }
             public System.String RoleArn { get; set; }
             public System.String RunGroupId { get; set; }
             public System.String RunId { get; set; }
