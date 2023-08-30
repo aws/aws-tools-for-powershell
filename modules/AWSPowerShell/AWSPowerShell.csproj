@@ -757,6 +757,9 @@
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Neptune.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Neptunedata">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Neptunedata.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
@@ -801,6 +804,9 @@
     </Reference>
     <Reference Include="AWSSDK.PaymentCryptographyData">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PaymentCryptographyData.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PcaConnectorAd">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PcaConnectorAd.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Personalize.dll</HintPath>
@@ -1797,6 +1803,9 @@
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Neptune.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Neptunedata">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Neptunedata.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
@@ -1841,6 +1850,9 @@
     </Reference>
     <Reference Include="AWSSDK.PaymentCryptographyData">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PaymentCryptographyData.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PcaConnectorAd">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PcaConnectorAd.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Personalize.dll</HintPath>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class GetAUDMSettingCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

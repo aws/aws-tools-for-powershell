@@ -28,7 +28,7 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates a protected query that is started by Clean Rooms .
+    /// Creates a protected query that is started by Clean Rooms.
     /// </summary>
     [Cmdlet("Start", "CRSProtectedQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.ProtectedQuery")]

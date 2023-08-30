@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pca-connector-ad</C2jFilename>
+    <AssemblyName>PcaConnectorAd</AssemblyName>
+    <ServiceNounPrefix>PCAAD</ServiceNounPrefix>
+    <ServiceName>Pca Connector Ad</ServiceName>
+    <ServiceClientInterface>IAmazonPcaConnectorAd</ServiceClientInterface>
+    <ServiceClient>AmazonPcaConnectorAdClient</ServiceClient>
+    <ServiceModuleGuid>4af6c4a9-a1be-46e4-8fd1-276b735eeb26</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDirectoryRegistration" OutputProperty="DirectoryRegistrationArn" Verb="New" Noun="DirectoryRegistration" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServicePrincipalName" Verb="New" Noun="ServicePrincipalName" ShouldProcessTarget="DirectoryRegistrationArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplate" OutputProperty="TemplateArn" Verb="New" Noun="Template" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" />
+                <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV2_CertificateValidity_ValidityPeriod_Period" NewName="Definition_TemplateV2_CertificateValidity_ValidityPeriod_Period" />
+                <Param Name="Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType" NewName="Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" NewName="Definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms" NewName="Definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_NoSecurityExtension" NewName="Definition_TemplateV2_EnrollmentFlags_NoSecurityExtension" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" NewName="Definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_UserInteractionRequired" NewName="Definition_TemplateV2_EnrollmentFlags_UserInteractionRequired" />
+                <Param Name="Definition_TemplateV2_Extensions_ApplicationPolicies_Critical" NewName="Definition_TemplateV2_Extensions_ApplicationPolicies_Critical" />
+                <Param Name="Definition_TemplateV2_Extensions_ApplicationPolicies_Policies" NewName="Definition_TemplateV2_Extensions_ApplicationPolicies_Policies" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_Critical" NewName="Definition_TemplateV2_Extensions_KeyUsage_Critical" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation" />
+                <Param Name="Definition_TemplateV2_GeneralFlags_AutoEnrollment" NewName="Definition_TemplateV2_GeneralFlags_AutoEnrollment" />
+                <Param Name="Definition_TemplateV2_GeneralFlags_MachineType" NewName="Definition_TemplateV2_GeneralFlags_MachineType" />
+                <Param Name="Definition_TemplateV2_PrivateKeyAttributes_CryptoProviders" NewName="Definition_TemplateV2_PrivateKeyAttributes_CryptoProviders" />
+                <Param Name="Definition_TemplateV2_PrivateKeyAttributes_KeySpec" NewName="Definition_TemplateV2_PrivateKeyAttributes_KeySpec" />
+                <Param Name="Definition_TemplateV2_PrivateKeyAttributes_MinimalKeyLength" NewName="Definition_TemplateV2_PrivateKeyAttributes_MinimalKeyLength" />
+                <Param Name="Definition_TemplateV2_PrivateKeyFlags_ClientVersion" NewName="Definition_TemplateV2_PrivateKeyFlags_ClientVersion" />
+                <Param Name="Definition_TemplateV2_PrivateKeyFlags_ExportableKey" NewName="Definition_TemplateV2_PrivateKeyFlags_ExportableKey" />
+                <Param Name="Definition_TemplateV2_PrivateKeyFlags_StrongKeyProtectionRequired" NewName="Definition_TemplateV2_PrivateKeyFlags_StrongKeyProtectionRequired" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireCommonName" NewName="Definition_TemplateV2_SubjectNameFlags_RequireCommonName" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath" NewName="Definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn" NewName="Definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireEmail" NewName="Definition_TemplateV2_SubjectNameFlags_RequireEmail" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireDns" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireDns" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireEmail" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireEmail" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireSpn" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireSpn" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireUpn" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireUpn" />
+                <Param Name="Definition_TemplateV2_SupersededTemplates" NewName="Definition_TemplateV2_SupersededTemplates" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV3_CertificateValidity_RenewalPeriod_Period" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_ValidityPeriod_Period" NewName="Definition_TemplateV3_CertificateValidity_ValidityPeriod_Period" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType" NewName="Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" NewName="Definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms" NewName="Definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_NoSecurityExtension" NewName="Definition_TemplateV3_EnrollmentFlags_NoSecurityExtension" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" NewName="Definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_UserInteractionRequired" NewName="Definition_TemplateV3_EnrollmentFlags_UserInteractionRequired" />
+                <Param Name="Definition_TemplateV3_Extensions_ApplicationPolicies_Critical" NewName="Definition_TemplateV3_Extensions_ApplicationPolicies_Critical" />
+                <Param Name="Definition_TemplateV3_Extensions_ApplicationPolicies_Policies" NewName="Definition_TemplateV3_Extensions_ApplicationPolicies_Policies" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_Critical" NewName="Definition_TemplateV3_Extensions_KeyUsage_Critical" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation" />
+                <Param Name="Definition_TemplateV3_GeneralFlags_AutoEnrollment" NewName="Definition_TemplateV3_GeneralFlags_AutoEnrollment" />
+                <Param Name="Definition_TemplateV3_GeneralFlags_MachineType" NewName="Definition_TemplateV3_GeneralFlags_MachineType" />
+                <Param Name="Definition_TemplateV3_HashAlgorithm" NewName="Definition_TemplateV3_HashAlgorithm" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_Algorithm" NewName="Definition_TemplateV3_PrivateKeyAttributes_Algorithm" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_CryptoProviders" NewName="Definition_TemplateV3_PrivateKeyAttributes_CryptoProviders" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeySpec" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeySpec" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_MinimalKeyLength" NewName="Definition_TemplateV3_PrivateKeyAttributes_MinimalKeyLength" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_ClientVersion" NewName="Definition_TemplateV3_PrivateKeyFlags_ClientVersion" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_ExportableKey" NewName="Definition_TemplateV3_PrivateKeyFlags_ExportableKey" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" NewName="Definition_TemplateV3_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_StrongKeyProtectionRequired" NewName="Definition_TemplateV3_PrivateKeyFlags_StrongKeyProtectionRequired" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireCommonName" NewName="Definition_TemplateV3_SubjectNameFlags_RequireCommonName" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath" NewName="Definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn" NewName="Definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireEmail" NewName="Definition_TemplateV3_SubjectNameFlags_RequireEmail" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireDns" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireDns" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireEmail" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireEmail" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireSpn" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireSpn" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireUpn" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireUpn" />
+                <Param Name="Definition_TemplateV3_SupersededTemplates" NewName="Definition_TemplateV3_SupersededTemplates" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV4_CertificateValidity_RenewalPeriod_Period" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_ValidityPeriod_Period" NewName="Definition_TemplateV4_CertificateValidity_ValidityPeriod_Period" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType" NewName="Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" NewName="Definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms" NewName="Definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_NoSecurityExtension" NewName="Definition_TemplateV4_EnrollmentFlags_NoSecurityExtension" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" NewName="Definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_UserInteractionRequired" NewName="Definition_TemplateV4_EnrollmentFlags_UserInteractionRequired" />
+                <Param Name="Definition_TemplateV4_Extensions_ApplicationPolicies_Critical" NewName="Definition_TemplateV4_Extensions_ApplicationPolicies_Critical" />
+                <Param Name="Definition_TemplateV4_Extensions_ApplicationPolicies_Policies" NewName="Definition_TemplateV4_Extensions_ApplicationPolicies_Policies" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_Critical" NewName="Definition_TemplateV4_Extensions_KeyUsage_Critical" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation" />
+                <Param Name="Definition_TemplateV4_GeneralFlags_AutoEnrollment" NewName="Definition_TemplateV4_GeneralFlags_AutoEnrollment" />
+                <Param Name="Definition_TemplateV4_GeneralFlags_MachineType" NewName="Definition_TemplateV4_GeneralFlags_MachineType" />
+                <Param Name="Definition_TemplateV4_HashAlgorithm" NewName="Definition_TemplateV4_HashAlgorithm" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_Algorithm" NewName="Definition_TemplateV4_PrivateKeyAttributes_Algorithm" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_CryptoProviders" NewName="Definition_TemplateV4_PrivateKeyAttributes_CryptoProviders" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeySpec" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeySpec" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_MinimalKeyLength" NewName="Definition_TemplateV4_PrivateKeyAttributes_MinimalKeyLength" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_ClientVersion" NewName="Definition_TemplateV4_PrivateKeyFlags_ClientVersion" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_ExportableKey" NewName="Definition_TemplateV4_PrivateKeyFlags_ExportableKey" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" NewName="Definition_TemplateV4_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_RequireSameKeyRenewal" NewName="Definition_TemplateV4_PrivateKeyFlags_RequireSameKeyRenewal" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_StrongKeyProtectionRequired" NewName="Definition_TemplateV4_PrivateKeyFlags_StrongKeyProtectionRequired" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_UseLegacyProvider" NewName="Definition_TemplateV4_PrivateKeyFlags_UseLegacyProvider" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireCommonName" NewName="Definition_TemplateV4_SubjectNameFlags_RequireCommonName" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath" NewName="Definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn" NewName="Definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireEmail" NewName="Definition_TemplateV4_SubjectNameFlags_RequireEmail" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireDns" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireDns" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireEmail" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireEmail" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireSpn" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireSpn" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireUpn" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireUpn" />
+                <Param Name="Definition_TemplateV4_SupersededTemplates" NewName="Definition_TemplateV4_SupersededTemplates" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplateGroupAccessControlEntry" Verb="New" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="TemplateArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDirectoryRegistration" Verb="Remove" Noun="DirectoryRegistration" ShouldProcessTarget="DirectoryRegistrationArn" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServicePrincipalName" Verb="Remove" Noun="ServicePrincipalName" ShouldProcessTarget="ConnectorArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplateGroupAccessControlEntry" Verb="Remove" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="GroupSecurityIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDirectoryRegistration" OutputProperty="DirectoryRegistration" Verb="Get" Noun="DirectoryRegistration" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServicePrincipalName" OutputProperty="ServicePrincipalName" Verb="Get" Noun="ServicePrincipalName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemplateGroupAccessControlEntry" OutputProperty="AccessControlEntry" Verb="Get" Noun="TemplateGroupAccessControlEntry" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDirectoryRegistrations" OutputProperty="DirectoryRegistrations" Verb="Get" Noun="DirectoryRegistrationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServicePrincipalNames" OutputProperty="ServicePrincipalNames" Verb="Get" Noun="ServicePrincipalNameList" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateGroupAccessControlEntries" OutputProperty="AccessControlEntries" Verb="Get" Noun="TemplateGroupAccessControlEntryList" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="Templates" Verb="Get" Noun="TemplateList" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" />
+                <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV2_CertificateValidity_ValidityPeriod_Period" NewName="Definition_TemplateV2_CertificateValidity_ValidityPeriod_Period" />
+                <Param Name="Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType" NewName="Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" NewName="Definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms" NewName="Definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_NoSecurityExtension" NewName="Definition_TemplateV2_EnrollmentFlags_NoSecurityExtension" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" NewName="Definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" />
+                <Param Name="Definition_TemplateV2_EnrollmentFlags_UserInteractionRequired" NewName="Definition_TemplateV2_EnrollmentFlags_UserInteractionRequired" />
+                <Param Name="Definition_TemplateV2_Extensions_ApplicationPolicies_Critical" NewName="Definition_TemplateV2_Extensions_ApplicationPolicies_Critical" />
+                <Param Name="Definition_TemplateV2_Extensions_ApplicationPolicies_Policies" NewName="Definition_TemplateV2_Extensions_ApplicationPolicies_Policies" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_Critical" NewName="Definition_TemplateV2_Extensions_KeyUsage_Critical" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment" />
+                <Param Name="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation" NewName="Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation" />
+                <Param Name="Definition_TemplateV2_GeneralFlags_AutoEnrollment" NewName="Definition_TemplateV2_GeneralFlags_AutoEnrollment" />
+                <Param Name="Definition_TemplateV2_GeneralFlags_MachineType" NewName="Definition_TemplateV2_GeneralFlags_MachineType" />
+                <Param Name="Definition_TemplateV2_PrivateKeyAttributes_CryptoProviders" NewName="Definition_TemplateV2_PrivateKeyAttributes_CryptoProviders" />
+                <Param Name="Definition_TemplateV2_PrivateKeyAttributes_KeySpec" NewName="Definition_TemplateV2_PrivateKeyAttributes_KeySpec" />
+                <Param Name="Definition_TemplateV2_PrivateKeyAttributes_MinimalKeyLength" NewName="Definition_TemplateV2_PrivateKeyAttributes_MinimalKeyLength" />
+                <Param Name="Definition_TemplateV2_PrivateKeyFlags_ClientVersion" NewName="Definition_TemplateV2_PrivateKeyFlags_ClientVersion" />
+                <Param Name="Definition_TemplateV2_PrivateKeyFlags_ExportableKey" NewName="Definition_TemplateV2_PrivateKeyFlags_ExportableKey" />
+                <Param Name="Definition_TemplateV2_PrivateKeyFlags_StrongKeyProtectionRequired" NewName="Definition_TemplateV2_PrivateKeyFlags_StrongKeyProtectionRequired" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireCommonName" NewName="Definition_TemplateV2_SubjectNameFlags_RequireCommonName" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath" NewName="Definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn" NewName="Definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_RequireEmail" NewName="Definition_TemplateV2_SubjectNameFlags_RequireEmail" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireDns" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireDns" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireEmail" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireEmail" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireSpn" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireSpn" />
+                <Param Name="Definition_TemplateV2_SubjectNameFlags_SanRequireUpn" NewName="Definition_TemplateV2_SubjectNameFlags_SanRequireUpn" />
+                <Param Name="Definition_TemplateV2_SupersededTemplates" NewName="Definition_TemplateV2_SupersededTemplates" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV3_CertificateValidity_RenewalPeriod_Period" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_ValidityPeriod_Period" NewName="Definition_TemplateV3_CertificateValidity_ValidityPeriod_Period" />
+                <Param Name="Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType" NewName="Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" NewName="Definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms" NewName="Definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_NoSecurityExtension" NewName="Definition_TemplateV3_EnrollmentFlags_NoSecurityExtension" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" NewName="Definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" />
+                <Param Name="Definition_TemplateV3_EnrollmentFlags_UserInteractionRequired" NewName="Definition_TemplateV3_EnrollmentFlags_UserInteractionRequired" />
+                <Param Name="Definition_TemplateV3_Extensions_ApplicationPolicies_Critical" NewName="Definition_TemplateV3_Extensions_ApplicationPolicies_Critical" />
+                <Param Name="Definition_TemplateV3_Extensions_ApplicationPolicies_Policies" NewName="Definition_TemplateV3_Extensions_ApplicationPolicies_Policies" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_Critical" NewName="Definition_TemplateV3_Extensions_KeyUsage_Critical" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment" />
+                <Param Name="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation" NewName="Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation" />
+                <Param Name="Definition_TemplateV3_GeneralFlags_AutoEnrollment" NewName="Definition_TemplateV3_GeneralFlags_AutoEnrollment" />
+                <Param Name="Definition_TemplateV3_GeneralFlags_MachineType" NewName="Definition_TemplateV3_GeneralFlags_MachineType" />
+                <Param Name="Definition_TemplateV3_HashAlgorithm" NewName="Definition_TemplateV3_HashAlgorithm" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_Algorithm" NewName="Definition_TemplateV3_PrivateKeyAttributes_Algorithm" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_CryptoProviders" NewName="Definition_TemplateV3_PrivateKeyAttributes_CryptoProviders" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeySpec" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeySpec" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType" NewName="Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType" />
+                <Param Name="Definition_TemplateV3_PrivateKeyAttributes_MinimalKeyLength" NewName="Definition_TemplateV3_PrivateKeyAttributes_MinimalKeyLength" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_ClientVersion" NewName="Definition_TemplateV3_PrivateKeyFlags_ClientVersion" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_ExportableKey" NewName="Definition_TemplateV3_PrivateKeyFlags_ExportableKey" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" NewName="Definition_TemplateV3_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" />
+                <Param Name="Definition_TemplateV3_PrivateKeyFlags_StrongKeyProtectionRequired" NewName="Definition_TemplateV3_PrivateKeyFlags_StrongKeyProtectionRequired" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireCommonName" NewName="Definition_TemplateV3_SubjectNameFlags_RequireCommonName" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath" NewName="Definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn" NewName="Definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_RequireEmail" NewName="Definition_TemplateV3_SubjectNameFlags_RequireEmail" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireDns" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireDns" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireEmail" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireEmail" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireSpn" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireSpn" />
+                <Param Name="Definition_TemplateV3_SubjectNameFlags_SanRequireUpn" NewName="Definition_TemplateV3_SubjectNameFlags_SanRequireUpn" />
+                <Param Name="Definition_TemplateV3_SupersededTemplates" NewName="Definition_TemplateV3_SupersededTemplates" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV4_CertificateValidity_RenewalPeriod_Period" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_ValidityPeriod_Period" NewName="Definition_TemplateV4_CertificateValidity_ValidityPeriod_Period" />
+                <Param Name="Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType" NewName="Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" NewName="Definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms" NewName="Definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_NoSecurityExtension" NewName="Definition_TemplateV4_EnrollmentFlags_NoSecurityExtension" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" NewName="Definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore" />
+                <Param Name="Definition_TemplateV4_EnrollmentFlags_UserInteractionRequired" NewName="Definition_TemplateV4_EnrollmentFlags_UserInteractionRequired" />
+                <Param Name="Definition_TemplateV4_Extensions_ApplicationPolicies_Critical" NewName="Definition_TemplateV4_Extensions_ApplicationPolicies_Critical" />
+                <Param Name="Definition_TemplateV4_Extensions_ApplicationPolicies_Policies" NewName="Definition_TemplateV4_Extensions_ApplicationPolicies_Policies" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_Critical" NewName="Definition_TemplateV4_Extensions_KeyUsage_Critical" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment" />
+                <Param Name="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation" NewName="Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation" />
+                <Param Name="Definition_TemplateV4_GeneralFlags_AutoEnrollment" NewName="Definition_TemplateV4_GeneralFlags_AutoEnrollment" />
+                <Param Name="Definition_TemplateV4_GeneralFlags_MachineType" NewName="Definition_TemplateV4_GeneralFlags_MachineType" />
+                <Param Name="Definition_TemplateV4_HashAlgorithm" NewName="Definition_TemplateV4_HashAlgorithm" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_Algorithm" NewName="Definition_TemplateV4_PrivateKeyAttributes_Algorithm" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_CryptoProviders" NewName="Definition_TemplateV4_PrivateKeyAttributes_CryptoProviders" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeySpec" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeySpec" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Decrypt" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_KeyAgreement" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags_Sign" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType" NewName="Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType" />
+                <Param Name="Definition_TemplateV4_PrivateKeyAttributes_MinimalKeyLength" NewName="Definition_TemplateV4_PrivateKeyAttributes_MinimalKeyLength" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_ClientVersion" NewName="Definition_TemplateV4_PrivateKeyFlags_ClientVersion" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_ExportableKey" NewName="Definition_TemplateV4_PrivateKeyFlags_ExportableKey" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" NewName="Definition_TemplateV4_PrivateKeyFlags_RequireAlternateSignatureAlgorithm" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_RequireSameKeyRenewal" NewName="Definition_TemplateV4_PrivateKeyFlags_RequireSameKeyRenewal" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_StrongKeyProtectionRequired" NewName="Definition_TemplateV4_PrivateKeyFlags_StrongKeyProtectionRequired" />
+                <Param Name="Definition_TemplateV4_PrivateKeyFlags_UseLegacyProvider" NewName="Definition_TemplateV4_PrivateKeyFlags_UseLegacyProvider" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireCommonName" NewName="Definition_TemplateV4_SubjectNameFlags_RequireCommonName" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath" NewName="Definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn" NewName="Definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_RequireEmail" NewName="Definition_TemplateV4_SubjectNameFlags_RequireEmail" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireDns" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireDns" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireEmail" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireEmail" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireSpn" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireSpn" />
+                <Param Name="Definition_TemplateV4_SubjectNameFlags_SanRequireUpn" NewName="Definition_TemplateV4_SubjectNameFlags_SanRequireUpn" />
+                <Param Name="Definition_TemplateV4_SupersededTemplates" NewName="Definition_TemplateV4_SupersededTemplates" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplateGroupAccessControlEntry" Verb="Update" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="GroupSecurityIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

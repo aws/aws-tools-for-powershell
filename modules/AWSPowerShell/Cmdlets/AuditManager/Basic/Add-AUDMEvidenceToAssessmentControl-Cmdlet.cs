@@ -59,6 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class AddAUDMEvidenceToAssessmentControlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssessmentId
         /// <summary>
         /// <para>

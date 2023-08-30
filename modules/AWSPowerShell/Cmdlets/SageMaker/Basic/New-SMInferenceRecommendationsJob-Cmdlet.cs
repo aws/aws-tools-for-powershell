@@ -148,7 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputConfig_JobDurationInSecond
         /// <summary>
         /// <para>
-        /// <para>Specifies the maximum duration of the job, in seconds. The maximum value is 7200.</para>
+        /// <para>Specifies the maximum duration of the job, in seconds. The maximum value is 18,000
+        /// seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

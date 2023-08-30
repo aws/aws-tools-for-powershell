@@ -123,7 +123,7 @@ $AAR_Completers = {
         # Amazon.AppRunner.ProviderType
         "New-AARConnection/ProviderType"
         {
-            $v = "GITHUB"
+            $v = "BITBUCKET","GITHUB"
             break
         }
 

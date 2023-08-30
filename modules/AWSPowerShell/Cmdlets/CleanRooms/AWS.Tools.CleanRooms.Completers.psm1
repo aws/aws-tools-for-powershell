@@ -169,7 +169,11 @@ $CRS_Completers = {
         }
 
         # Amazon.CleanRooms.ResultFormat
-        "Start-CRSProtectedQuery/ResultConfiguration_OutputConfiguration_S3_ResultFormat"
+        {
+            ($_ -eq "New-CRSMembership/DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
+            ($_ -eq "Update-CRSMembership/DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
+            ($_ -eq "Start-CRSProtectedQuery/ResultConfiguration_OutputConfiguration_S3_ResultFormat")
+        }
         {
             $v = "CSV","PARQUET"
             break
@@ -201,6 +205,7 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
     "Format"=@("New-CRSAnalysisTemplate")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")

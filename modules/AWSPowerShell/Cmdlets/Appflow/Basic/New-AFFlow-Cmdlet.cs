@@ -344,6 +344,32 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String KmsArn { get; set; }
         #endregion
         
+        #region Parameter PaginationConfig_MaxPageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of records that Amazon AppFlow receives in each page of the response
+        /// from your SAP application. For transfers of OData records, the maximum page size is
+        /// 3,000. For transfers of data that comes from an ODP provider, the maximum page size
+        /// is 10,000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_MaxPageSize")]
+        public System.Int32? PaginationConfig_MaxPageSize { get; set; }
+        #endregion
+        
+        #region Parameter ParallelismConfig_MaxParallelism
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of processes that Amazon AppFlow runs at the same time when it
+        /// retrieves your data from your SAP application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_MaxParallelism")]
+        public System.Int32? ParallelismConfig_MaxParallelism { get; set; }
+        #endregion
+        
         #region Parameter DataTransferApi_Name
         /// <summary>
         /// <para>
@@ -823,6 +849,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.Salesforce_IncludeDeletedRecord = this.Salesforce_IncludeDeletedRecord;
             context.Salesforce_Object = this.Salesforce_Object;
             context.SAPOData_ObjectPath = this.SAPOData_ObjectPath;
+            context.PaginationConfig_MaxPageSize = this.PaginationConfig_MaxPageSize;
+            context.ParallelismConfig_MaxParallelism = this.ParallelismConfig_MaxParallelism;
             context.ServiceNow_Object = this.ServiceNow_Object;
             context.Singular_Object = this.Singular_Object;
             context.Slack_Object = this.Slack_Object;
@@ -1195,31 +1223,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Pardot = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
-            Amazon.Appflow.Model.SAPODataSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
-            
-             // populate SAPOData
-            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = true;
-            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = new Amazon.Appflow.Model.SAPODataSourceProperties();
-            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath = null;
-            if (cmdletContext.SAPOData_ObjectPath != null)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath = cmdletContext.SAPOData_ObjectPath;
-            }
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath != null)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData.ObjectPath = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = false;
-            }
-             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData should be set to null
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
-            }
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData != null)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.SAPOData = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
-            }
             Amazon.Appflow.Model.ServiceNowSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_ServiceNow = null;
             
              // populate ServiceNow
@@ -1473,6 +1476,81 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3 != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.S3 = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
+            }
+            Amazon.Appflow.Model.SAPODataSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
+            
+             // populate SAPOData
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = new Amazon.Appflow.Model.SAPODataSourceProperties();
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath = null;
+            if (cmdletContext.SAPOData_ObjectPath != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath = cmdletContext.SAPOData_ObjectPath;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData.ObjectPath = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = false;
+            }
+            Amazon.Appflow.Model.SAPODataPaginationConfig requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig = null;
+            
+             // populate PaginationConfig
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfigIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig = new Amazon.Appflow.Model.SAPODataPaginationConfig();
+            System.Int32? requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_paginationConfig_MaxPageSize = null;
+            if (cmdletContext.PaginationConfig_MaxPageSize != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_paginationConfig_MaxPageSize = cmdletContext.PaginationConfig_MaxPageSize.Value;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_paginationConfig_MaxPageSize != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig.MaxPageSize = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig_paginationConfig_MaxPageSize.Value;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfigIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfigIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData.PaginationConfig = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_PaginationConfig;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = false;
+            }
+            Amazon.Appflow.Model.SAPODataParallelismConfig requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig = null;
+            
+             // populate ParallelismConfig
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfigIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig = new Amazon.Appflow.Model.SAPODataParallelismConfig();
+            System.Int32? requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_parallelismConfig_MaxParallelism = null;
+            if (cmdletContext.ParallelismConfig_MaxParallelism != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_parallelismConfig_MaxParallelism = cmdletContext.ParallelismConfig_MaxParallelism.Value;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_parallelismConfig_MaxParallelism != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig.MaxParallelism = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig_parallelismConfig_MaxParallelism.Value;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfigIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfigIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData.ParallelismConfig = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sourceFlowConfig_SourceConnectorProperties_SAPOData_ParallelismConfig;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.SAPOData = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.SalesforceSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce = null;
@@ -1839,6 +1917,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.Boolean? Salesforce_IncludeDeletedRecord { get; set; }
             public System.String Salesforce_Object { get; set; }
             public System.String SAPOData_ObjectPath { get; set; }
+            public System.Int32? PaginationConfig_MaxPageSize { get; set; }
+            public System.Int32? ParallelismConfig_MaxParallelism { get; set; }
             public System.String ServiceNow_Object { get; set; }
             public System.String Singular_Object { get; set; }
             public System.String Slack_Object { get; set; }

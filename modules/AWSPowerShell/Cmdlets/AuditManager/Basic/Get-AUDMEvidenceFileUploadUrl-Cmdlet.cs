@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class GetAUDMEvidenceFileUploadUrlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter FileName
         /// <summary>
         /// <para>

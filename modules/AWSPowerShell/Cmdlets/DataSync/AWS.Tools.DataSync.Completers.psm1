@@ -187,6 +187,51 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.ObjectVersionIds
+        {
+            ($_ -eq "New-DSYNTask/TaskReportConfig_ObjectVersionIds") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ObjectVersionIds") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_ObjectVersionIds")
+        }
+        {
+            $v = "INCLUDE","NONE"
+            break
+        }
+
+        # Amazon.DataSync.ReportLevel
+        {
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_ReportLevel")
+        }
+        {
+            $v = "ERRORS_ONLY","SUCCESSES_AND_ERRORS"
+            break
+        }
+
+        # Amazon.DataSync.ReportOutputType
+        {
+            ($_ -eq "New-DSYNTask/TaskReportConfig_OutputType") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_OutputType") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_OutputType")
+        }
+        {
+            $v = "STANDARD","SUMMARY_ONLY"
+            break
+        }
+
         # Amazon.DataSync.S3StorageClass
         "New-DSYNLocationS3/S3StorageClass"
         {
@@ -228,6 +273,13 @@ $DSYN_map = @{
     "S3StorageClass"=@("New-DSYNLocationS3")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "SystemType"=@("Add-DSYNStorageSystem")
+    "TaskReportConfig_ObjectVersionIds"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Transferred_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Verified_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map

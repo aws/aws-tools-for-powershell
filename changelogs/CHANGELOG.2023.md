@@ -1,4 +1,19 @@
-﻿### 4.1.404 (2023-08-29 21:07Z)
+﻿### 4.1.405 (2023-08-30 21:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.633.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameters PaginationConfig_MaxPageSize and ParallelismConfig_MaxParallelism.
+    * Modified cmdlet Update-AFFlow: added parameters PaginationConfig_MaxPageSize and ParallelismConfig_MaxParallelism.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSMembership: added parameters DefaultResultConfiguration_RoleArn, S3_Bucket, S3_KeyPrefix and S3_ResultFormat.
+    * Modified cmdlet Update-CRSMembership: added parameters DefaultResultConfiguration_RoleArn, S3_Bucket, S3_KeyPrefix and S3_ResultFormat.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNTask: added parameters Deleted_ReportLevel, S3_BucketAccessRoleArn, S3_S3BucketArn, S3_Subdirectory, Skipped_ReportLevel, TaskReportConfig_ObjectVersionId, TaskReportConfig_OutputType, TaskReportConfig_ReportLevel, Transferred_ReportLevel and Verified_ReportLevel.
+    * Modified cmdlet Start-DSYNTaskExecution: added parameters Deleted_ReportLevel, S3_BucketAccessRoleArn, S3_S3BucketArn, S3_Subdirectory, Skipped_ReportLevel, TaskReportConfig_ObjectVersionId, TaskReportConfig_OutputType, TaskReportConfig_ReportLevel, Transferred_ReportLevel and Verified_ReportLevel.
+    * Modified cmdlet Update-DSYNTask: added parameters Deleted_ReportLevel, S3_BucketAccessRoleArn, S3_S3BucketArn, S3_Subdirectory, Skipped_ReportLevel, TaskReportConfig_ObjectVersionId, TaskReportConfig_OutputType, TaskReportConfig_ReportLevel, Transferred_ReportLevel and Verified_ReportLevel.
+  * Amazon NeptuneData. Added cmdlets to support the service. Cmdlets for the service have the noun prefix NEPT and can be listed using the command 'Get-AWSCmdletName -Service NEPT'.
+  * Amazon Pca Connector Ad. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCAAD and can be listed using the command 'Get-AWSCmdletName -Service PCAAD'.
+
+### 4.1.404 (2023-08-29 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.632.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Omics
     * Modified cmdlet Start-OMICSRun: added parameter RetentionMode.

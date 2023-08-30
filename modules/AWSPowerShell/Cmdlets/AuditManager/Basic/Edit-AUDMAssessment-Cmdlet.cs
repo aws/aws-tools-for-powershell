@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class EditAUDMAssessmentCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssessmentDescription
         /// <summary>
         /// <para>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// 
     ///  
     /// <para>
-    /// After you create a TLS inspection configuration, you associate it with a firewall
+    /// After you create a TLS inspection configuration, you associate it with a new firewall
     /// policy.
     /// </para><para>
     /// To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.

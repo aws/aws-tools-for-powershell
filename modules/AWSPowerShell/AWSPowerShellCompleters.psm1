@@ -3385,7 +3385,7 @@ $AAR_Completers = {
         # Amazon.AppRunner.ProviderType
         "New-AARConnection/ProviderType"
         {
-            $v = "GITHUB"
+            $v = "BITBUCKET","GITHUB"
             break
         }
 
@@ -8311,7 +8311,11 @@ $CRS_Completers = {
         }
 
         # Amazon.CleanRooms.ResultFormat
-        "Start-CRSProtectedQuery/ResultConfiguration_OutputConfiguration_S3_ResultFormat"
+        {
+            ($_ -eq "New-CRSMembership/DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
+            ($_ -eq "Update-CRSMembership/DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
+            ($_ -eq "Start-CRSProtectedQuery/ResultConfiguration_OutputConfiguration_S3_ResultFormat")
+        }
         {
             $v = "CSV","PARQUET"
             break
@@ -8343,6 +8347,7 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
     "Format"=@("New-CRSAnalysisTemplate")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
@@ -15991,6 +15996,51 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.ObjectVersionIds
+        {
+            ($_ -eq "New-DSYNTask/TaskReportConfig_ObjectVersionIds") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ObjectVersionIds") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_ObjectVersionIds")
+        }
+        {
+            $v = "INCLUDE","NONE"
+            break
+        }
+
+        # Amazon.DataSync.ReportLevel
+        {
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/TaskReportConfig_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_ReportLevel")
+        }
+        {
+            $v = "ERRORS_ONLY","SUCCESSES_AND_ERRORS"
+            break
+        }
+
+        # Amazon.DataSync.ReportOutputType
+        {
+            ($_ -eq "New-DSYNTask/TaskReportConfig_OutputType") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_OutputType") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_OutputType")
+        }
+        {
+            $v = "STANDARD","SUMMARY_ONLY"
+            break
+        }
+
         # Amazon.DataSync.S3StorageClass
         "New-DSYNLocationS3/S3StorageClass"
         {
@@ -16032,6 +16082,13 @@ $DSYN_map = @{
     "S3StorageClass"=@("New-DSYNLocationS3")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "SystemType"=@("Add-DSYNStorageSystem")
+    "TaskReportConfig_ObjectVersionIds"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Transferred_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_Overrides_Verified_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map
@@ -41964,6 +42021,211 @@ $NPT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $NPT_SelectCompleters $NPT_SelectMap
+# Argument completions for service Amazon NeptuneData
+
+
+$NEPT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Neptunedata.Action
+        "Invoke-NEPTFastReset/Action"
+        {
+            $v = "initiateDatabaseReset","performDatabaseReset"
+            break
+        }
+
+        # Amazon.Neptunedata.Encoding
+        {
+            ($_ -eq "Get-NEPTPropertygraphStream/Encoding") -Or
+            ($_ -eq "Get-NEPTSparqlStream/Encoding")
+        }
+        {
+            $v = "gzip"
+            break
+        }
+
+        # Amazon.Neptunedata.Format
+        "Start-NEPTLoaderJob/Format"
+        {
+            $v = "csv","nquads","ntriples","opencypher","rdfxml","turtle"
+            break
+        }
+
+        # Amazon.Neptunedata.GraphSummaryType
+        {
+            ($_ -eq "Get-NEPTPropertygraphSummary/Mode") -Or
+            ($_ -eq "Get-NEPTRDFGraphSummary/Mode")
+        }
+        {
+            $v = "basic","detailed"
+            break
+        }
+
+        # Amazon.Neptunedata.IteratorType
+        {
+            ($_ -eq "Get-NEPTPropertygraphStream/IteratorType") -Or
+            ($_ -eq "Get-NEPTSparqlStream/IteratorType")
+        }
+        {
+            $v = "AFTER_SEQUENCE_NUMBER","AT_SEQUENCE_NUMBER","LATEST","TRIM_HORIZON"
+            break
+        }
+
+        # Amazon.Neptunedata.Mode
+        "Start-NEPTLoaderJob/Mode"
+        {
+            $v = "AUTO","NEW","RESUME"
+            break
+        }
+
+        # Amazon.Neptunedata.OpenCypherExplainMode
+        "Invoke-NEPTOpenCypherExplainQuery/ExplainMode"
+        {
+            $v = "details","dynamic","static"
+            break
+        }
+
+        # Amazon.Neptunedata.Parallelism
+        "Start-NEPTLoaderJob/Parallelism"
+        {
+            $v = "HIGH","LOW","MEDIUM","OVERSUBSCRIBE"
+            break
+        }
+
+        # Amazon.Neptunedata.S3BucketRegion
+        "Start-NEPTLoaderJob/S3BucketRegion"
+        {
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-west-1","us-west-2"
+            break
+        }
+
+        # Amazon.Neptunedata.StatisticsAutoGenerationMode
+        {
+            ($_ -eq "Update-NEPTPropertygraphStatistic/Mode") -Or
+            ($_ -eq "Update-NEPTSparqlStatistic/Mode")
+        }
+        {
+            $v = "disableAutoCompute","enableAutoCompute","refresh"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NEPT_map = @{
+    "Action"=@("Invoke-NEPTFastReset")
+    "Encoding"=@("Get-NEPTPropertygraphStream","Get-NEPTSparqlStream")
+    "ExplainMode"=@("Invoke-NEPTOpenCypherExplainQuery")
+    "Format"=@("Start-NEPTLoaderJob")
+    "IteratorType"=@("Get-NEPTPropertygraphStream","Get-NEPTSparqlStream")
+    "Mode"=@("Get-NEPTPropertygraphSummary","Get-NEPTRDFGraphSummary","Start-NEPTLoaderJob","Update-NEPTPropertygraphStatistic","Update-NEPTSparqlStatistic")
+    "Parallelism"=@("Start-NEPTLoaderJob")
+    "S3BucketRegion"=@("Start-NEPTLoaderJob")
+}
+
+_awsArgumentCompleterRegistration $NEPT_Completers $NEPT_map
+
+$NEPT_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.NEPT.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NEPT_SelectMap = @{
+    "Select"=@("Stop-NEPTGremlinQuery",
+               "Stop-NEPTLoaderJob",
+               "Stop-NEPTMLDataProcessingJob",
+               "Stop-NEPTMLModelTrainingJob",
+               "Stop-NEPTMLModelTransformJob",
+               "Stop-NEPTOpenCypherQuery",
+               "New-NEPTMLEndpoint",
+               "Remove-NEPTMLEndpoint",
+               "Remove-NEPTPropertygraphStatistic",
+               "Remove-NEPTSparqlStatistic",
+               "Invoke-NEPTFastReset",
+               "Invoke-NEPTGremlinExplainQuery",
+               "Invoke-NEPTGremlinProfileQuery",
+               "Invoke-NEPTGremlinQuery",
+               "Invoke-NEPTOpenCypherExplainQuery",
+               "Invoke-NEPTOpenCypherQuery",
+               "Get-NEPTEngineStatus",
+               "Get-NEPTGremlinQueryStatus",
+               "Get-NEPTLoaderJobStatus",
+               "Get-NEPTMLDataProcessingJob",
+               "Get-NEPTMLEndpoint",
+               "Get-NEPTMLModelTrainingJob",
+               "Get-NEPTMLModelTransformJob",
+               "Get-NEPTOpenCypherQueryStatus",
+               "Get-NEPTPropertygraphStatistic",
+               "Get-NEPTPropertygraphStream",
+               "Get-NEPTPropertygraphSummary",
+               "Get-NEPTRDFGraphSummary",
+               "Get-NEPTSparqlStatistic",
+               "Get-NEPTSparqlStream",
+               "Get-NEPTGremlinQueryList",
+               "Get-NEPTLoaderJobList",
+               "Get-NEPTMLDataProcessingJobList",
+               "Get-NEPTMLEndpointList",
+               "Get-NEPTMLModelTrainingJobList",
+               "Get-NEPTMLModelTransformJobList",
+               "Get-NEPTOpenCypherQueryList",
+               "Update-NEPTPropertygraphStatistic",
+               "Update-NEPTSparqlStatistic",
+               "Start-NEPTLoaderJob",
+               "Start-NEPTMLDataProcessingJob",
+               "Start-NEPTMLModelTrainingJob",
+               "Start-NEPTMLModelTransformJob")
+}
+
+_awsArgumentCompleterRegistration $NEPT_SelectCompleters $NEPT_SelectMap
 # Argument completions for service AWS Network Firewall
 
 
@@ -44846,6 +45108,235 @@ $PAYCD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PAYCD_SelectCompleters $PAYCD_SelectMap
+# Argument completions for service Pca Connector Ad
+
+
+$PCAAD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PcaConnectorAd.AccessRight
+        {
+            ($_ -eq "New-PCAADTemplateGroupAccessControlEntry/AccessRights_AutoEnroll") -Or
+            ($_ -eq "Update-PCAADTemplateGroupAccessControlEntry/AccessRights_AutoEnroll") -Or
+            ($_ -eq "New-PCAADTemplateGroupAccessControlEntry/AccessRights_Enroll") -Or
+            ($_ -eq "Update-PCAADTemplateGroupAccessControlEntry/AccessRights_Enroll")
+        }
+        {
+            $v = "ALLOW","DENY"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.ClientCompatibilityV2
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV2_PrivateKeyFlags_ClientVersion") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV2_PrivateKeyFlags_ClientVersion")
+        }
+        {
+            $v = "WINDOWS_SERVER_2003","WINDOWS_SERVER_2008","WINDOWS_SERVER_2008_R2","WINDOWS_SERVER_2012","WINDOWS_SERVER_2012_R2","WINDOWS_SERVER_2016"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.ClientCompatibilityV3
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_PrivateKeyFlags_ClientVersion") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_PrivateKeyFlags_ClientVersion")
+        }
+        {
+            $v = "WINDOWS_SERVER_2008","WINDOWS_SERVER_2008_R2","WINDOWS_SERVER_2012","WINDOWS_SERVER_2012_R2","WINDOWS_SERVER_2016"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.ClientCompatibilityV4
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_PrivateKeyFlags_ClientVersion") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_PrivateKeyFlags_ClientVersion")
+        }
+        {
+            $v = "WINDOWS_SERVER_2012","WINDOWS_SERVER_2012_R2","WINDOWS_SERVER_2016"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.HashAlgorithm
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_HashAlgorithm") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_HashAlgorithm") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_HashAlgorithm") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_HashAlgorithm")
+        }
+        {
+            $v = "SHA256","SHA384","SHA512"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.KeySpec
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV2_PrivateKeyAttributes_KeySpec") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV2_PrivateKeyAttributes_KeySpec") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_PrivateKeyAttributes_KeySpec") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_PrivateKeyAttributes_KeySpec") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_PrivateKeyAttributes_KeySpec") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_PrivateKeyAttributes_KeySpec")
+        }
+        {
+            $v = "KEY_EXCHANGE","SIGNATURE"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.KeyUsagePropertyType
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType")
+        }
+        {
+            $v = "ALL"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.PrivateKeyAlgorithm
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_PrivateKeyAttributes_Algorithm") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_PrivateKeyAttributes_Algorithm") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_PrivateKeyAttributes_Algorithm") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_PrivateKeyAttributes_Algorithm")
+        }
+        {
+            $v = "ECDH_P256","ECDH_P384","ECDH_P521","RSA"
+            break
+        }
+
+        # Amazon.PcaConnectorAd.ValidityPeriodType
+        {
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType") -Or
+            ($_ -eq "New-PCAADTemplate/Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType") -Or
+            ($_ -eq "Update-PCAADTemplate/Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType")
+        }
+        {
+            $v = "DAYS","HOURS","MONTHS","WEEKS","YEARS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCAAD_map = @{
+    "AccessRights_AutoEnroll"=@("New-PCAADTemplateGroupAccessControlEntry","Update-PCAADTemplateGroupAccessControlEntry")
+    "AccessRights_Enroll"=@("New-PCAADTemplateGroupAccessControlEntry","Update-PCAADTemplateGroupAccessControlEntry")
+    "Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV2_CertificateValidity_ValidityPeriod_PeriodType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV2_PrivateKeyAttributes_KeySpec"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV2_PrivateKeyFlags_ClientVersion"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_CertificateValidity_RenewalPeriod_PeriodType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_CertificateValidity_ValidityPeriod_PeriodType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_HashAlgorithm"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_PrivateKeyAttributes_Algorithm"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_PrivateKeyAttributes_KeySpec"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV3_PrivateKeyFlags_ClientVersion"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_CertificateValidity_RenewalPeriod_PeriodType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_CertificateValidity_ValidityPeriod_PeriodType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_HashAlgorithm"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_PrivateKeyAttributes_Algorithm"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_PrivateKeyAttributes_KeySpec"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "Definition_TemplateV4_PrivateKeyFlags_ClientVersion"=@("New-PCAADTemplate","Update-PCAADTemplate")
+}
+
+_awsArgumentCompleterRegistration $PCAAD_Completers $PCAAD_map
+
+$PCAAD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PCAAD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCAAD_SelectMap = @{
+    "Select"=@("New-PCAADConnector",
+               "New-PCAADDirectoryRegistration",
+               "New-PCAADServicePrincipalName",
+               "New-PCAADTemplate",
+               "New-PCAADTemplateGroupAccessControlEntry",
+               "Remove-PCAADConnector",
+               "Remove-PCAADDirectoryRegistration",
+               "Remove-PCAADServicePrincipalName",
+               "Remove-PCAADTemplate",
+               "Remove-PCAADTemplateGroupAccessControlEntry",
+               "Get-PCAADConnector",
+               "Get-PCAADDirectoryRegistration",
+               "Get-PCAADServicePrincipalName",
+               "Get-PCAADTemplate",
+               "Get-PCAADTemplateGroupAccessControlEntry",
+               "Get-PCAADConnectorList",
+               "Get-PCAADDirectoryRegistrationList",
+               "Get-PCAADServicePrincipalNameList",
+               "Get-PCAADResourceTagList",
+               "Get-PCAADTemplateGroupAccessControlEntryList",
+               "Get-PCAADTemplateList",
+               "Add-PCAADResourceTag",
+               "Remove-PCAADResourceTag",
+               "Update-PCAADTemplate",
+               "Update-PCAADTemplateGroupAccessControlEntry")
+}
+
+_awsArgumentCompleterRegistration $PCAAD_SelectCompleters $PCAAD_SelectMap
 # Argument completions for service AWS Personalize
 
 

@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Provides information about an DataSync transfer task that's running.
+    /// Provides information about an execution of your DataSync task. You can use this operation
+    /// to help monitor the progress of an ongoing transfer or check the results of the transfer.
     /// </summary>
     [Cmdlet("Get", "DSYNTaskExecution")]
     [OutputType("Amazon.DataSync.Model.DescribeTaskExecutionResponse")]
@@ -42,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter TaskExecutionArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the transfer task that's running.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the task execution that you want information
+        /// about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
