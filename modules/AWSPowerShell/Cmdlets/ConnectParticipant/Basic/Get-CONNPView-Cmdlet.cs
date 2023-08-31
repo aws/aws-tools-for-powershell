@@ -22,41 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudHSM;
-using Amazon.CloudHSM.Model;
+using Amazon.ConnectParticipant;
+using Amazon.ConnectParticipant.Model;
 
-namespace Amazon.PowerShell.Cmdlets.HSM
+namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
-    /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
-    /// the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
-    /// Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
-    /// CloudHSM Classic API Reference</a>.
-    /// 
-    ///  
-    /// <para><b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
-    /// CloudHSM</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
-    /// CloudHSM User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
-    /// CloudHSM API Reference</a>.
-    /// </para><para>
-    /// Returns a list of all tags for the specified AWS CloudHSM resource.
-    /// </para><br/><br/>This operation is deprecated.
+    /// Retrieves the view for the specified view token.
     /// </summary>
-    [Cmdlet("Get", "HSMResourceTag")]
-    [OutputType("Amazon.CloudHSM.Model.Tag")]
-    [AWSCmdlet("Calls the AWS CloudHSM ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("Amazon.CloudHSM.Model.Tag or Amazon.CloudHSM.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of Amazon.CloudHSM.Model.Tag objects.",
-        "The service call response (type Amazon.CloudHSM.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CONNPView")]
+    [OutputType("Amazon.ConnectParticipant.Model.View")]
+    [AWSCmdlet("Calls the Amazon Connect Participant Service DescribeView API operation.", Operation = new[] {"DescribeView"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.DescribeViewResponse))]
+    [AWSCmdletOutput("Amazon.ConnectParticipant.Model.View or Amazon.ConnectParticipant.Model.DescribeViewResponse",
+        "This cmdlet returns an Amazon.ConnectParticipant.Model.View object.",
+        "The service call response (type Amazon.ConnectParticipant.Model.DescribeViewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("This API is deprecated.")]
-    public partial class GetHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class GetCONNPViewCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter ConnectionToken
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</para>
+        /// <para>The connection token.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ConnectionToken { get; set; }
+        #endregion
+        
+        #region Parameter ViewToken
+        /// <summary>
+        /// <para>
+        /// <para>An encrypted token originating from the interactive message of a ShowView block operation.
+        /// Represents the desired view.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,26 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ViewToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TagList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudHSM.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.CloudHSM.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.DescribeViewResponse).
+        /// Specifying the name of a property of type Amazon.ConnectParticipant.Model.DescribeViewResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TagList";
+        public string Select { get; set; } = "View";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ViewToken parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ViewToken' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ViewToken' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -104,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudHSM.Model.ListTagsForResourceResponse, GetHSMResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.DescribeViewResponse, GetCONNPViewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -113,14 +120,21 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ViewToken;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ConnectionToken = this.ConnectionToken;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ConnectionToken == null && ParameterWasBound(nameof(this.ConnectionToken)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ViewToken = this.ViewToken;
+            #if MODULAR
+            if (this.ViewToken == null && ParameterWasBound(nameof(this.ViewToken)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ViewToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -137,11 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudHSM.Model.ListTagsForResourceRequest();
+            var request = new Amazon.ConnectParticipant.Model.DescribeViewRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ConnectionToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ConnectionToken = cmdletContext.ConnectionToken;
+            }
+            if (cmdletContext.ViewToken != null)
+            {
+                request.ViewToken = cmdletContext.ViewToken;
             }
             
             CmdletOutput output;
@@ -176,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudHSM.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListTagsForResourceRequest request)
+        private Amazon.ConnectParticipant.Model.DescribeViewResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.DescribeViewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudHSM", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "DescribeView");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.DescribeView(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.DescribeViewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -204,9 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.CloudHSM.Model.ListTagsForResourceResponse, GetHSMResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TagList;
+            public System.String ConnectionToken { get; set; }
+            public System.String ViewToken { get; set; }
+            public System.Func<Amazon.ConnectParticipant.Model.DescribeViewResponse, GetCONNPViewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.View;
         }
         
     }

@@ -101,14 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OutboundCallConfig_ConnectQueueId { get; set; }
         #endregion
         
@@ -120,6 +113,39 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutboundCallConfig_ConnectSourcePhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter AgentlessDialerConfig_DialingCapacity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DialerConfig_AgentlessDialerConfig_DialingCapacity")]
+        public System.Double? AgentlessDialerConfig_DialingCapacity { get; set; }
+        #endregion
+        
+        #region Parameter PredictiveDialerConfig_DialingCapacity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DialerConfig_PredictiveDialerConfig_DialingCapacity")]
+        public System.Double? PredictiveDialerConfig_DialingCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ProgressiveDialerConfig_DialingCapacity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DialerConfig_ProgressiveDialerConfig_DialingCapacity")]
+        public System.Double? ProgressiveDialerConfig_DialingCapacity { get; set; }
         #endregion
         
         #region Parameter AnswerMachineDetectionConfig_EnableAnswerMachineDetection
@@ -210,8 +236,11 @@ namespace Amazon.PowerShell.Cmdlets.CCS
                 WriteWarning("You are passing $null as a value for parameter ConnectInstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AgentlessDialerConfig_DialingCapacity = this.AgentlessDialerConfig_DialingCapacity;
             context.PredictiveDialerConfig_BandwidthAllocation = this.PredictiveDialerConfig_BandwidthAllocation;
+            context.PredictiveDialerConfig_DialingCapacity = this.PredictiveDialerConfig_DialingCapacity;
             context.ProgressiveDialerConfig_BandwidthAllocation = this.ProgressiveDialerConfig_BandwidthAllocation;
+            context.ProgressiveDialerConfig_DialingCapacity = this.ProgressiveDialerConfig_DialingCapacity;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -228,12 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             }
             #endif
             context.OutboundCallConfig_ConnectQueueId = this.OutboundCallConfig_ConnectQueueId;
-            #if MODULAR
-            if (this.OutboundCallConfig_ConnectQueueId == null && ParameterWasBound(nameof(this.OutboundCallConfig_ConnectQueueId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OutboundCallConfig_ConnectQueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.OutboundCallConfig_ConnectSourcePhoneNumber = this.OutboundCallConfig_ConnectSourcePhoneNumber;
             if (this.Tag != null)
             {
@@ -267,6 +290,31 @@ namespace Amazon.PowerShell.Cmdlets.CCS
              // populate DialerConfig
             var requestDialerConfigIsNull = true;
             request.DialerConfig = new Amazon.ConnectCampaignService.Model.DialerConfig();
+            Amazon.ConnectCampaignService.Model.AgentlessDialerConfig requestDialerConfig_dialerConfig_AgentlessDialerConfig = null;
+            
+             // populate AgentlessDialerConfig
+            var requestDialerConfig_dialerConfig_AgentlessDialerConfigIsNull = true;
+            requestDialerConfig_dialerConfig_AgentlessDialerConfig = new Amazon.ConnectCampaignService.Model.AgentlessDialerConfig();
+            System.Double? requestDialerConfig_dialerConfig_AgentlessDialerConfig_agentlessDialerConfig_DialingCapacity = null;
+            if (cmdletContext.AgentlessDialerConfig_DialingCapacity != null)
+            {
+                requestDialerConfig_dialerConfig_AgentlessDialerConfig_agentlessDialerConfig_DialingCapacity = cmdletContext.AgentlessDialerConfig_DialingCapacity.Value;
+            }
+            if (requestDialerConfig_dialerConfig_AgentlessDialerConfig_agentlessDialerConfig_DialingCapacity != null)
+            {
+                requestDialerConfig_dialerConfig_AgentlessDialerConfig.DialingCapacity = requestDialerConfig_dialerConfig_AgentlessDialerConfig_agentlessDialerConfig_DialingCapacity.Value;
+                requestDialerConfig_dialerConfig_AgentlessDialerConfigIsNull = false;
+            }
+             // determine if requestDialerConfig_dialerConfig_AgentlessDialerConfig should be set to null
+            if (requestDialerConfig_dialerConfig_AgentlessDialerConfigIsNull)
+            {
+                requestDialerConfig_dialerConfig_AgentlessDialerConfig = null;
+            }
+            if (requestDialerConfig_dialerConfig_AgentlessDialerConfig != null)
+            {
+                request.DialerConfig.AgentlessDialerConfig = requestDialerConfig_dialerConfig_AgentlessDialerConfig;
+                requestDialerConfigIsNull = false;
+            }
             Amazon.ConnectCampaignService.Model.PredictiveDialerConfig requestDialerConfig_dialerConfig_PredictiveDialerConfig = null;
             
              // populate PredictiveDialerConfig
@@ -280,6 +328,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             if (requestDialerConfig_dialerConfig_PredictiveDialerConfig_predictiveDialerConfig_BandwidthAllocation != null)
             {
                 requestDialerConfig_dialerConfig_PredictiveDialerConfig.BandwidthAllocation = requestDialerConfig_dialerConfig_PredictiveDialerConfig_predictiveDialerConfig_BandwidthAllocation.Value;
+                requestDialerConfig_dialerConfig_PredictiveDialerConfigIsNull = false;
+            }
+            System.Double? requestDialerConfig_dialerConfig_PredictiveDialerConfig_predictiveDialerConfig_DialingCapacity = null;
+            if (cmdletContext.PredictiveDialerConfig_DialingCapacity != null)
+            {
+                requestDialerConfig_dialerConfig_PredictiveDialerConfig_predictiveDialerConfig_DialingCapacity = cmdletContext.PredictiveDialerConfig_DialingCapacity.Value;
+            }
+            if (requestDialerConfig_dialerConfig_PredictiveDialerConfig_predictiveDialerConfig_DialingCapacity != null)
+            {
+                requestDialerConfig_dialerConfig_PredictiveDialerConfig.DialingCapacity = requestDialerConfig_dialerConfig_PredictiveDialerConfig_predictiveDialerConfig_DialingCapacity.Value;
                 requestDialerConfig_dialerConfig_PredictiveDialerConfigIsNull = false;
             }
              // determine if requestDialerConfig_dialerConfig_PredictiveDialerConfig should be set to null
@@ -305,6 +363,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             if (requestDialerConfig_dialerConfig_ProgressiveDialerConfig_progressiveDialerConfig_BandwidthAllocation != null)
             {
                 requestDialerConfig_dialerConfig_ProgressiveDialerConfig.BandwidthAllocation = requestDialerConfig_dialerConfig_ProgressiveDialerConfig_progressiveDialerConfig_BandwidthAllocation.Value;
+                requestDialerConfig_dialerConfig_ProgressiveDialerConfigIsNull = false;
+            }
+            System.Double? requestDialerConfig_dialerConfig_ProgressiveDialerConfig_progressiveDialerConfig_DialingCapacity = null;
+            if (cmdletContext.ProgressiveDialerConfig_DialingCapacity != null)
+            {
+                requestDialerConfig_dialerConfig_ProgressiveDialerConfig_progressiveDialerConfig_DialingCapacity = cmdletContext.ProgressiveDialerConfig_DialingCapacity.Value;
+            }
+            if (requestDialerConfig_dialerConfig_ProgressiveDialerConfig_progressiveDialerConfig_DialingCapacity != null)
+            {
+                requestDialerConfig_dialerConfig_ProgressiveDialerConfig.DialingCapacity = requestDialerConfig_dialerConfig_ProgressiveDialerConfig_progressiveDialerConfig_DialingCapacity.Value;
                 requestDialerConfig_dialerConfig_ProgressiveDialerConfigIsNull = false;
             }
              // determine if requestDialerConfig_dialerConfig_ProgressiveDialerConfig should be set to null
@@ -456,8 +524,11 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectInstanceId { get; set; }
+            public System.Double? AgentlessDialerConfig_DialingCapacity { get; set; }
             public System.Double? PredictiveDialerConfig_BandwidthAllocation { get; set; }
+            public System.Double? PredictiveDialerConfig_DialingCapacity { get; set; }
             public System.Double? ProgressiveDialerConfig_BandwidthAllocation { get; set; }
+            public System.Double? ProgressiveDialerConfig_DialingCapacity { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? AnswerMachineDetectionConfig_EnableAnswerMachineDetection { get; set; }
             public System.String OutboundCallConfig_ConnectContactFlowId { get; set; }

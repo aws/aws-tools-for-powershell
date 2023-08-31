@@ -1,4 +1,19 @@
-﻿### 4.1.405 (2023-08-30 21:31Z)
+﻿### 4.1.406 (2023-08-31 22:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.635.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Campaign Service
+    * Modified cmdlet New-CCSCampaign: added parameters AgentlessDialerConfig_DialingCapacity, PredictiveDialerConfig_DialingCapacity and ProgressiveDialerConfig_DialingCapacity.
+    * Modified cmdlet Update-CCSCampaignDialerConfig: added parameters AgentlessDialerConfig_DialingCapacity, PredictiveDialerConfig_DialingCapacity and ProgressiveDialerConfig_DialingCapacity.
+  * Amazon Connect Participant Service
+    * Added cmdlet Get-CONNPView leveraging the DescribeView service API.
+  * Amazon Global Accelerator
+    * Modified cmdlet Update-GACLEndpointGroup: added parameters IsEndpointConfigurationsSet and IsPortOverridesSet.
+  * Amazon Health
+    * Added cmdlet Get-HLTHEntityAggregatesForOrganization leveraging the DescribeEntityAggregatesForOrganization service API.
+    * Modified cmdlet Get-HLTHAffectedEntitiesForOrganization: added parameter OrganizationEntityAccountFilter.
+  * Amazon SageMaker Runtime
+    * Added cmdlet Invoke-SMREndpointWithResponseStream leveraging the InvokeEndpointWithResponseStream service API.
+
+### 4.1.405 (2023-08-30 21:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.633.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Modified cmdlet New-AFFlow: added parameters PaginationConfig_MaxPageSize and ParallelismConfig_MaxParallelism.

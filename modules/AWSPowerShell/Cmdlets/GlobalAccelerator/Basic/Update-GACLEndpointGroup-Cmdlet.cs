@@ -118,6 +118,34 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         public Amazon.GlobalAccelerator.HealthCheckProtocol HealthCheckProtocol { get; set; }
         #endregion
         
+        #region Parameter IsEndpointConfigurationsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.GlobalAccelerator.Model.UpdateEndpointGroupRequest.EndpointConfigurations" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsEndpointConfigurationsSet { get; set; }
+        #endregion
+        
+        #region Parameter IsPortOverridesSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.GlobalAccelerator.Model.UpdateEndpointGroupRequest.PortOverrides" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsPortOverridesSet { get; set; }
+        #endregion
+        
         #region Parameter PortOverride
         /// <summary>
         /// <para>
@@ -223,6 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             {
                 context.EndpointConfiguration = new List<Amazon.GlobalAccelerator.Model.EndpointConfiguration>(this.EndpointConfiguration);
             }
+            context.IsEndpointConfigurationsSet = this.IsEndpointConfigurationsSet;
+            if (!ParameterWasBound(nameof(this.IsEndpointConfigurationsSet)) && this.EndpointConfiguration != null)
+            {
+                context.IsEndpointConfigurationsSet = true;
+            }
             context.EndpointGroupArn = this.EndpointGroupArn;
             #if MODULAR
             if (this.EndpointGroupArn == null && ParameterWasBound(nameof(this.EndpointGroupArn)))
@@ -237,6 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (this.PortOverride != null)
             {
                 context.PortOverride = new List<Amazon.GlobalAccelerator.Model.PortOverride>(this.PortOverride);
+            }
+            context.IsPortOverridesSet = this.IsPortOverridesSet;
+            if (!ParameterWasBound(nameof(this.IsPortOverridesSet)) && this.PortOverride != null)
+            {
+                context.IsPortOverridesSet = true;
             }
             context.ThresholdCount = this.ThresholdCount;
             context.TrafficDialPercentage = this.TrafficDialPercentage;
@@ -259,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (cmdletContext.EndpointConfiguration != null)
             {
                 request.EndpointConfigurations = cmdletContext.EndpointConfiguration;
+            }
+            if (cmdletContext.IsEndpointConfigurationsSet != null)
+            {
+                request.IsEndpointConfigurationsSet = cmdletContext.IsEndpointConfigurationsSet.Value;
             }
             if (cmdletContext.EndpointGroupArn != null)
             {
@@ -283,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (cmdletContext.PortOverride != null)
             {
                 request.PortOverrides = cmdletContext.PortOverride;
+            }
+            if (cmdletContext.IsPortOverridesSet != null)
+            {
+                request.IsPortOverridesSet = cmdletContext.IsPortOverridesSet.Value;
             }
             if (cmdletContext.ThresholdCount != null)
             {
@@ -354,12 +400,14 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.GlobalAccelerator.Model.EndpointConfiguration> EndpointConfiguration { get; set; }
+            public System.Boolean? IsEndpointConfigurationsSet { get; set; }
             public System.String EndpointGroupArn { get; set; }
             public System.Int32? HealthCheckIntervalSecond { get; set; }
             public System.String HealthCheckPath { get; set; }
             public System.Int32? HealthCheckPort { get; set; }
             public Amazon.GlobalAccelerator.HealthCheckProtocol HealthCheckProtocol { get; set; }
             public List<Amazon.GlobalAccelerator.Model.PortOverride> PortOverride { get; set; }
+            public System.Boolean? IsPortOverridesSet { get; set; }
             public System.Int32? ThresholdCount { get; set; }
             public System.Single? TrafficDialPercentage { get; set; }
             public System.Func<Amazon.GlobalAccelerator.Model.UpdateEndpointGroupResponse, UpdateGACLEndpointGroupCmdlet, object> Select { get; set; } =

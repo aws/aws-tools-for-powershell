@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// This action can potentially start a workflow to install the new certificate on the
     /// client's HSMs.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Edit", "HSMLunaClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -52,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.ModifyLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class EditHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

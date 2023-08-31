@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class NewCPFProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccountNumber
         /// <summary>
         /// <para>

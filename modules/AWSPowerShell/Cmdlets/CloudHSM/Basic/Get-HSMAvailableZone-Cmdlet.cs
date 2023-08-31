@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// CloudHSM API Reference</a>.
     /// </para><para>
     /// Lists the Availability Zones that have available AWS CloudHSM capacity.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "HSMAvailableZone")]
     [OutputType("System.String")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListAvailableZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMAvailableZoneCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

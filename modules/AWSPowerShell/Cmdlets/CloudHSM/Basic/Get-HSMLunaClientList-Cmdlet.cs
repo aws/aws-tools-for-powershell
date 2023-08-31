@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// If more results are available, the <code>NextToken</code> member of the response contains
     /// a token that you pass in the next call to <code>ListLunaClients</code> to retrieve
     /// the next set of items.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "HSMLunaClientList")]
     [OutputType("System.String")]
@@ -54,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListLunaClientsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMLunaClientListCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

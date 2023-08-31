@@ -270,15 +270,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The process namespace to use for the containers in the task. The valid values are
-        /// <code>host</code> or <code>task</code>. If <code>host</code> is specified, then all
-        /// containers within the tasks that specified the <code>host</code> PID mode on the same
-        /// container instance share the same process namespace with the host Amazon EC2 instance.
-        /// If <code>task</code> is specified, all containers within the specified task share
-        /// the same process namespace. If no value is specified, the default is a private namespace.
-        /// For more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
-        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <code>host</code> PID mode is used, be aware that there is a heightened risk
-        /// of undesired process namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><note><para>This parameter is not supported for Windows containers or tasks run on Fargate.</para></note>
+        /// <code>host</code> or <code>task</code>. On Fargate for Linux containers, the only
+        /// valid value is <code>task</code>. For example, monitoring sidecars might need <code>pidMode</code>
+        /// to access information about other containers running in the same task.</para><para>If <code>host</code> is specified, all containers within the tasks that specified
+        /// the <code>host</code> PID mode on the same container instance share the same process
+        /// namespace with the host Amazon EC2 instance.</para><para>If <code>task</code> is specified, all containers within the specified task share
+        /// the same process namespace.</para><para>If no value is specified, the default is a private namespace for each container. For
+        /// more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
+        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <code>host</code> PID mode is used, there's a heightened risk of undesired
+        /// process namespace exposure. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
+        /// security</a>.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
+        /// are using platform version <code>1.4.0</code> or later (Linux). This isn't supported
+        /// for Windows containers on Fargate.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

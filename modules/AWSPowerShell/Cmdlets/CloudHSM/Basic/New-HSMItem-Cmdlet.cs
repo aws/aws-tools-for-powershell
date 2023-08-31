@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// It can take up to 20 minutes to create and provision an HSM. You can monitor the status
     /// of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be initialized
     /// when the status changes to <code>RUNNING</code>.
-    /// </para></important>
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -58,6 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.CreateHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class NewHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class SearchCPFProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AdditionalSearchKey
         /// <summary>
         /// <para>

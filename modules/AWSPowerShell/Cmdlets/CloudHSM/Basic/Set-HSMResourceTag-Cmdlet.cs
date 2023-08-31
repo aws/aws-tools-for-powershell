@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
     /// </para><para>
     /// Each tag consists of a key and a value. Tag keys must be unique to each resource.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "HSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -51,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class SetHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

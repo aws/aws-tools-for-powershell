@@ -153,6 +153,7 @@ $HLTH_SelectMap = @{
                "Get-HLTHAffectedEntity",
                "Get-HLTHAffectedEntitiesForOrganization",
                "Get-HLTHEntityAggregate",
+               "Get-HLTHEntityAggregatesForOrganization",
                "Get-HLTHEventAggregate",
                "Get-HLTHEventDetail",
                "Get-HLTHEventDetailsForOrganization",

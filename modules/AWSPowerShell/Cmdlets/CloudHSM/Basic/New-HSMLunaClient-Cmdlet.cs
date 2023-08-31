@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// CloudHSM API Reference</a>.
     /// </para><para>
     /// Creates an HSM client.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "HSMLunaClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.CreateLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class NewHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

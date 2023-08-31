@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
     /// number.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "HSMItem")]
     [OutputType("Amazon.CloudHSM.Model.DescribeHsmResponse")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHsmResponse",
         "This cmdlet returns an Amazon.CloudHSM.Model.DescribeHsmResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// Gets the configuration files necessary to connect to all high availability partition
     /// groups the client is associated with.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "HSMConfig")]
     [OutputType("Amazon.CloudHSM.Model.GetConfigResponse")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdletOutput("Amazon.CloudHSM.Model.GetConfigResponse",
         "This cmdlet returns an Amazon.CloudHSM.Model.GetConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class NewCPFIntegrationWorkflowCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AppflowIntegration_Batch
         /// <summary>
         /// <para>

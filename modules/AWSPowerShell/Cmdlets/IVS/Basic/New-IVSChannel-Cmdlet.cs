@@ -128,34 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed
         /// the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i>
-        /// Some types generate multiple qualities (renditions) from the original input; this
-        /// automatically gives viewers the best experience for their devices and network conditions.
-        /// Some types provide transcoded video; transcoding allows higher playback quality across
-        /// a range of download speeds. Default: <code>STANDARD</code>. Valid values:</para><ul><li><para><code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input quality
-        /// to viewers. The viewer’s video-quality choice is limited to the original input. Input
-        /// resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to
-        /// 3.5 Mbps for resolutions between 480p and 1080p. Original audio is passed through.</para></li><li><para><code>STANDARD</code>: Video is transcoded: multiple qualities are generated from
-        /// the original input, to automatically give viewers the best experience for their devices
-        /// and network conditions. Transcoding allows higher playback quality across a range
-        /// of download speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps.
-        /// Audio is transcoded only for renditions 360p and below; above that, audio is passed
-        /// through. This is the default when you create a channel.</para></li><li><para><code>ADVANCED_SD</code>: Video is transcoded; multiple qualities are generated from
-        /// the original input, to automatically give viewers the best experience for their devices
-        /// and network conditions. Input resolution can be up to 1080p and bitrate can be up
-        /// to 8.5 Mbps; output is capped at SD quality (480p). You can select an optional transcode
-        /// preset (see below). Audio for all renditions is transcoded, and an audio-only rendition
-        /// is available.</para></li><li><para><code>ADVANCED_HD</code>: Video is transcoded; multiple qualities are generated from
-        /// the original input, to automatically give viewers the best experience for their devices
-        /// and network conditions. Input resolution can be up to 1080p and bitrate can be up
-        /// to 8.5 Mbps; output is capped at HD quality (720p). You can select an optional transcode
-        /// preset (see below). Audio for all renditions is transcoded, and an audio-only rendition
-        /// is available.</para></li></ul><para>Optional <i>transcode presets</i> (available for the <code>ADVANCED</code> types)
-        /// allow you to trade off available download bandwidth and video quality, to optimize
-        /// the viewing experience. There are two presets:</para><ul><li><para><i>Constrained bandwidth delivery</i> uses a lower bitrate for each quality level.
-        /// Use it if you have low download bandwidth and/or simple video content (e.g., talking
-        /// heads)</para></li><li><para><i>Higher bandwidth delivery</i> uses a higher bitrate for each quality level. Use
-        /// it if you have high download bandwidth and/or complex video content (e.g., flashes
-        /// and quick scene changes).</para></li></ul>
+        /// Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+        /// Types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -98,8 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Type of connection information required. This can be omitted if <code>ConnectParticipant</code>
-        /// is <code>true</code>.</para>
+        /// <para>Type of connection information required. If you need <code>CONNECTION_CREDENTIALS</code>
+        /// along with marking participant as connected, pass <code>CONNECTION_CREDENTIALS</code>
+        /// in <code>Type</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

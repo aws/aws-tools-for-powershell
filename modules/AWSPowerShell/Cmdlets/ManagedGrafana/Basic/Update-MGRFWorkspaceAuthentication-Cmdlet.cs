@@ -48,6 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class UpdateMGRFWorkspaceAuthenticationCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter RoleValues_Admin
         /// <summary>
         /// <para>

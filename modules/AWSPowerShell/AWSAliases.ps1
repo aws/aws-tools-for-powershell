@@ -5959,6 +5959,8 @@ Set-Alias -Name CCL-ListRealtimeContactAnalysisSegments -Value Get-CCLRealtimeCo
 Set-Alias -Name CONNP-CompleteAttachmentUpload -Value Complete-CONNPAttachmentUpload
 Set-Alias -Name Create-CONNPParticipantConnection -Value New-CONNPParticipantConnection
 Set-Alias -Name CONNP-CreateParticipantConnection -Value New-CONNPParticipantConnection
+Set-Alias -Name Describe-CONNPView -Value Get-CONNPView
+Set-Alias -Name CONNP-DescribeView -Value Get-CONNPView
 Set-Alias -Name CONNP-DisconnectParticipant -Value Disconnect-CONNPParticipant
 Set-Alias -Name CONNP-GetAttachment -Value Get-CONNPAttachment
 Set-Alias -Name CONNP-GetTranscript -Value Get-CONNPTranscript
@@ -12255,6 +12257,8 @@ Set-Alias -Name HLTH-DescribeAffectedEntitiesForOrganization -Value Get-HLTHAffe
 Set-Alias -Name Describe-HLTHEntityAggregates -Value Get-HLTHEntityAggregate
 Set-Alias -Name Describe-HLTHEntityAggregate -Value Get-HLTHEntityAggregate
 Set-Alias -Name HLTH-DescribeEntityAggregates -Value Get-HLTHEntityAggregate
+Set-Alias -Name Describe-HLTHEntityAggregatesForOrganization -Value Get-HLTHEntityAggregatesForOrganization
+Set-Alias -Name HLTH-DescribeEntityAggregatesForOrganization -Value Get-HLTHEntityAggregatesForOrganization
 Set-Alias -Name Describe-HLTHEventAggregates -Value Get-HLTHEventAggregate
 Set-Alias -Name Describe-HLTHEventAggregate -Value Get-HLTHEventAggregate
 Set-Alias -Name HLTH-DescribeEventAggregates -Value Get-HLTHEventAggregate
@@ -22032,6 +22036,7 @@ Set-Alias -Name Put-LEXSession -Value Write-LEXSession
 Set-Alias -Name LEX-PutSession -Value Write-LEXSession
 Set-Alias -Name SMR-InvokeEndpoint -Value Invoke-SMREndpoint
 Set-Alias -Name SMR-InvokeEndpointAsync -Value Invoke-SMREndpointAsync
+Set-Alias -Name SMR-InvokeEndpointWithResponseStream -Value Invoke-SMREndpointWithResponseStream
 Set-Alias -Name Delete-S3BucketAnalyticsConfiguration -Value Remove-S3BucketAnalyticsConfiguration
 Set-Alias -Name S3-DeleteBucketAnalyticsConfiguration -Value Remove-S3BucketAnalyticsConfiguration
 Set-Alias -Name Delete-S3BucketEncryption -Value Remove-S3BucketEncryption

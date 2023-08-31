@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Disconnect-CONNPParticipant', 
         'Get-CONNPAttachment', 
         'Get-CONNPTranscript', 
+        'Get-CONNPView', 
         'New-CONNPParticipantConnection', 
         'Send-CONNPEvent', 
         'Send-CONNPMessage', 

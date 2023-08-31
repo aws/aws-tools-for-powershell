@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should
     /// ensure that your AWS CloudHSM service is configured for high availability, and consider
     /// executing this operation during a maintenance window.
-    /// </para></important>
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Edit", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -54,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

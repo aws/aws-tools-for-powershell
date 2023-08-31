@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// from this API. The response from this API will not contain the result of the inference
     /// request but contain information about where you can locate it.
     /// </para><para>
-    /// Amazon SageMaker strips all <code>POST</code> headers except those supported by the
-    /// API. Amazon SageMaker might add additional headers. You should not rely on the behavior
-    /// of headers outside those enumerated in the request syntax.
+    /// Amazon SageMaker strips all POST headers except those supported by the API. Amazon
+    /// SageMaker might add additional headers. You should not rely on the behavior of headers
+    /// outside those enumerated in the request syntax. 
     /// </para><para>
     /// Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services
     /// Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #region Parameter Accept
         /// <summary>
         /// <para>
-        /// <para>The desired MIME type of the inference in the response.</para>
+        /// <para>The desired MIME type of the inference response from the model container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </para><para>The code in your model is responsible for setting or updating any custom attributes
         /// in the response. If your code does not set this value in the response, an empty value
         /// is returned. For example, if a custom attribute represents the trace ID, your model
-        /// can prepend the custom attribute with <code>Trace ID</code>: in your post-processing
+        /// can prepend the custom attribute with <code>Trace ID:</code> in your post-processing
         /// function. </para><para>This feature is currently supported in the Amazon Web Services SDKs but not in the
         /// Amazon SageMaker Python SDK. </para>
         /// </para>
@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <summary>
         /// <para>
         /// <para>The name of the endpoint that you specified when you created the endpoint using the
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html"><code>CreateEndpoint</code></a> API.</para>
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

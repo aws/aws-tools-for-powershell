@@ -14955,6 +14955,7 @@ $CONNP_SelectCompleters = {
 $CONNP_SelectMap = @{
     "Select"=@("Complete-CONNPAttachmentUpload",
                "New-CONNPParticipantConnection",
+               "Get-CONNPView",
                "Disconnect-CONNPParticipant",
                "Get-CONNPAttachment",
                "Get-CONNPTranscript",
@@ -21330,7 +21331,7 @@ $ECS_Completers = {
             ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
-            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
+            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","fargateTaskRetirementWaitPeriod","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
             break
         }
 
@@ -28054,6 +28055,7 @@ $HLTH_SelectMap = @{
                "Get-HLTHAffectedEntity",
                "Get-HLTHAffectedEntitiesForOrganization",
                "Get-HLTHEntityAggregate",
+               "Get-HLTHEntityAggregatesForOrganization",
                "Get-HLTHEventAggregate",
                "Get-HLTHEventDetail",
                "Get-HLTHEventDetailsForOrganization",
@@ -51582,7 +51584,8 @@ $SMR_SelectCompleters = {
 
 $SMR_SelectMap = @{
     "Select"=@("Invoke-SMREndpoint",
-               "Invoke-SMREndpointAsync")
+               "Invoke-SMREndpointAsync",
+               "Invoke-SMREndpointWithResponseStream")
 }
 
 _awsArgumentCompleterRegistration $SMR_SelectCompleters $SMR_SelectMap

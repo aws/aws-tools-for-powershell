@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeView" OutputProperty="View" Verb="Get" Noun="View" PipelineParameter="ViewToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

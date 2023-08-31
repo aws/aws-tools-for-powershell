@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// Deletes an HSM. After completion, this operation cannot be undone and your key material
     /// cannot be recovered.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -50,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.DeleteHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class RemoveHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

@@ -69,22 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         public System.String Locale { get; set; }
         #endregion
         
-        #region Parameter OrganizationEntityFilter
+        #region Parameter OrganizationEntityAccountFilter
         /// <summary>
         /// <para>
-        /// <para>A JSON set of elements including the <code>awsAccountId</code> and the <code>eventArn</code>.</para>
+        /// <para>A JSON set of elements including the <code>awsAccountId</code>, <code>eventArn</code>
+        /// and a set of <code>statusCodes</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("OrganizationEntityFilters")]
-        public Amazon.AWSHealth.Model.EventAccountFilter[] OrganizationEntityFilter { get; set; }
+        [Alias("OrganizationEntityAccountFilters")]
+        public Amazon.AWSHealth.Model.EntityAccountFilter[] OrganizationEntityAccountFilter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -114,6 +108,19 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationEntityFilter
+        /// <summary>
+        /// <para>
+        /// <para>A JSON set of elements including the <code>awsAccountId</code> and the <code>eventArn</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This property is deprecated, use organizationEntityAccountFilters instead.")]
+        [Alias("OrganizationEntityFilters")]
+        public Amazon.AWSHealth.Model.EventAccountFilter[] OrganizationEntityFilter { get; set; }
         #endregion
         
         #region Parameter Select
@@ -175,16 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.OrganizationEntityAccountFilter != null)
+            {
+                context.OrganizationEntityAccountFilter = new List<Amazon.AWSHealth.Model.EntityAccountFilter>(this.OrganizationEntityAccountFilter);
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.OrganizationEntityFilter != null)
             {
                 context.OrganizationEntityFilter = new List<Amazon.AWSHealth.Model.EventAccountFilter>(this.OrganizationEntityFilter);
             }
-            #if MODULAR
-            if (this.OrganizationEntityFilter == null && ParameterWasBound(nameof(this.OrganizationEntityFilter)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OrganizationEntityFilter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,10 +220,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            if (cmdletContext.OrganizationEntityAccountFilter != null)
+            {
+                request.OrganizationEntityAccountFilters = cmdletContext.OrganizationEntityAccountFilter;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.OrganizationEntityFilter != null)
             {
                 request.OrganizationEntityFilters = cmdletContext.OrganizationEntityFilter;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -305,6 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             public System.String Locale { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.AWSHealth.Model.EntityAccountFilter> OrganizationEntityAccountFilter { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.AWSHealth.Model.EventAccountFilter> OrganizationEntityFilter { get; set; }
             public System.Func<Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse, GetHLTHAffectedEntitiesForOrganizationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

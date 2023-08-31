@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// CloudHSM API Reference</a>.
     /// </para><para>
     /// Retrieves information about a high-availability partition group.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "HSMPartitionGroup")]
     [OutputType("Amazon.CloudHSM.Model.DescribeHapgResponse")]
@@ -48,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHapgResponse",
         "This cmdlet returns an Amazon.CloudHSM.Model.DescribeHapgResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

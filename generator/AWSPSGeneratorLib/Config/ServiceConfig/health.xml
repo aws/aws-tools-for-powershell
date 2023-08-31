@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEntityAggregatesForOrganization" OutputProperty="OrganizationEntityAggregates" Verb="Get" Noun="EntityAggregatesForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventAggregates" OutputProperty="EventAggregates" Verb="Get" Noun="EventAggregate" PipelineParameter="AggregateField" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

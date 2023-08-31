@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// To remove a tag, specify only the tag key to remove (not the value). To overwrite
     /// the value for an existing tag, use <a>AddTagsToResource</a>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "HSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -52,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class RemoveHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// Creates a high-availability partition group. A high-availability partition group is
     /// a group of partitions that spans multiple physical HSMs.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "HSMPartitionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -50,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CloudHSM.Model.CreateHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class NewHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         

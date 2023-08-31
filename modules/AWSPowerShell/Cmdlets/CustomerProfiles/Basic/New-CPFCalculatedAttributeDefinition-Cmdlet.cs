@@ -44,6 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class NewCPFCalculatedAttributeDefinitionCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AttributeDetails_Attribute
         /// <summary>
         /// <para>

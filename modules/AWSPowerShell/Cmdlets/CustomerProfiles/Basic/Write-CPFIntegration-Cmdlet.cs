@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class WriteCPFIntegrationCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class GetCPFProfileObjectTypeCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

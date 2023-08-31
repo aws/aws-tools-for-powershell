@@ -44,21 +44,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The resource name for which to modify the account setting. If <code>serviceLongArnFormat</code>
-        /// is specified, the ARN for your Amazon ECS services is affected. If <code>taskLongArnFormat</code>
-        /// is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code>
-        /// is specified, the ARN and resource ID for your Amazon ECS container instances is affected.
-        /// If <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
-        /// instances is affected. If <code>containerInsights</code> is specified, the default
-        /// setting for Amazon Web Services CloudWatch Container Insights for your clusters is
-        /// affected. If <code>tagResourceAuthorization</code> is specified, the opt-in option
-        /// for tagging resources on creation is affected. For information about the opt-in timeline,
-        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging
-        /// authorization timeline</a> in the <i>Amazon ECS Developer Guide</i>.</para><para>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and <code>enabled</code>
+        /// <para>The resource name for which to modify the account setting. If you specify <code>serviceLongArnFormat</code>,
+        /// the ARN for your Amazon ECS services is affected. If you specify <code>taskLongArnFormat</code>,
+        /// the ARN and resource ID for your Amazon ECS tasks is affected. If you specify <code>containerInstanceLongArnFormat</code>,
+        /// the ARN and resource ID for your Amazon ECS container instances is affected. If you
+        /// specify <code>awsvpcTrunking</code>, the ENI limit for your Amazon ECS container instances
+        /// is affected. If you specify <code>containerInsights</code>, the default setting for
+        /// Amazon Web Services CloudWatch Container Insights for your clusters is affected. If
+        /// you specify <code>tagResourceAuthorization</code>, the opt-in option for tagging resources
+        /// on creation is affected. For information about the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging
+        /// authorization timeline</a> in the <i>Amazon ECS Developer Guide</i>. If you specify
+        /// <code>fargateTaskRetirementWaitPeriod</code>, the default wait time to retire a Fargate
+        /// task due to required maintenance is affected.</para><para>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and <code>enabled</code>
         /// for the <code>value</code>, Fargate uses FIPS-140 compliant cryptographic algorithms
         /// on your tasks. For more information about FIPS-140 compliance with Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html">
         /// Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2 compliance</a>
-        /// in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>When Amazon Web Services determines that a security or infrastructure update is needed
+        /// for an Amazon ECS task hosted on Fargate, the tasks need to be stopped and new tasks
+        /// launched to replace them. Use <code>fargateTaskRetirementWaitPeriod</code> to set
+        /// the wait time to retire a Fargate task to the default. For information about the Fargate
+        /// tasks maintenance, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon
+        /// Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>,
-        /// <code>disabled</code>, <code>on</code>, and <code>off</code>.</para>
+        /// <code>disabled</code>, <code>on</code>, and <code>off</code>.</para><para>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the <code>name</code>,
+        /// the following are the valid values:</para><ul><li><para><code>0</code> - immediately retire the tasks and patch Fargate </para><para>There is no advanced notification. Your tasks are retired immediately, and Fargate
+        /// is patched without any notification.</para></li><li><para><code>7</code> -wait 7 calendar days to retire the tasks and patch Fargate </para></li><li><para><code>14</code> - wait 14 calendar days to retire the tasks and patch Fargate </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

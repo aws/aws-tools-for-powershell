@@ -124,7 +124,8 @@ $SMR_SelectCompleters = {
 
 $SMR_SelectMap = @{
     "Select"=@("Invoke-SMREndpoint",
-               "Invoke-SMREndpointAsync")
+               "Invoke-SMREndpointAsync",
+               "Invoke-SMREndpointWithResponseStream")
 }
 
 _awsArgumentCompleterRegistration $SMR_SelectCompleters $SMR_SelectMap
