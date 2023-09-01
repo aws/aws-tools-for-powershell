@@ -22,34 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IdentityStore;
-using Amazon.IdentityStore.Model;
+using Amazon.ChimeSDKMediaPipelines;
+using Amazon.ChimeSDKMediaPipelines.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IDS
+namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Retrieves membership metadata and attributes from <code>MembershipId</code> in an
-    /// identity store.
-    /// 
-    ///  <note><para>
-    /// If you have administrator access to a member account, you can use this API from the
-    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
-    /// accounts</a> in the <i>Organizations User Guide</i>. 
-    /// </para></note>
+    /// Retrieves the details of the specified speaker search task.
     /// </summary>
-    [Cmdlet("Get", "IDSGroupMembership")]
-    [OutputType("Amazon.IdentityStore.Model.DescribeGroupMembershipResponse")]
-    [AWSCmdlet("Calls the AWS Identity Store DescribeGroupMembership API operation.", Operation = new[] {"DescribeGroupMembership"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.DescribeGroupMembershipResponse))]
-    [AWSCmdletOutput("Amazon.IdentityStore.Model.DescribeGroupMembershipResponse",
-        "This cmdlet returns an Amazon.IdentityStore.Model.DescribeGroupMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CHMMPSpeakerSearchTask")]
+    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.SpeakerSearchTask")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines GetSpeakerSearchTask API operation.", Operation = new[] {"GetSpeakerSearchTask"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse))]
+    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.SpeakerSearchTask or Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse",
+        "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.SpeakerSearchTask object.",
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIDSGroupMembershipCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
+    public partial class GetCHMMPSpeakerSearchTaskCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
         
-        #region Parameter IdentityStoreId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
+        /// <para>The unique identifier of the resource to be updated. Valid values include the ID and
+        /// ARN of the media insights pipeline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,13 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IdentityStoreId { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter MembershipId
+        #region Parameter SpeakerSearchTaskId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <code>GroupMembership</code> in an identity store.</para>
+        /// <para>The ID of the speaker search task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,26 +72,26 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MembershipId { get; set; }
+        public System.String SpeakerSearchTaskId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.DescribeGroupMembershipResponse).
-        /// Specifying the name of a property of type Amazon.IdentityStore.Model.DescribeGroupMembershipResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SpeakerSearchTask'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse).
+        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "SpeakerSearchTask";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MembershipId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MembershipId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SpeakerSearchTaskId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SpeakerSearchTaskId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MembershipId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SpeakerSearchTaskId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.DescribeGroupMembershipResponse, GetIDSGroupMembershipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse, GetCHMMPSpeakerSearchTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,21 +118,21 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MembershipId;
+                context.Select = (response, cmdlet) => this.SpeakerSearchTaskId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IdentityStoreId = this.IdentityStoreId;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MembershipId = this.MembershipId;
+            context.SpeakerSearchTaskId = this.SpeakerSearchTaskId;
             #if MODULAR
-            if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
+            if (this.SpeakerSearchTaskId == null && ParameterWasBound(nameof(this.SpeakerSearchTaskId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MembershipId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SpeakerSearchTaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -154,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityStore.Model.DescribeGroupMembershipRequest();
+            var request = new Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskRequest();
             
-            if (cmdletContext.IdentityStoreId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.IdentityStoreId = cmdletContext.IdentityStoreId;
+                request.Identifier = cmdletContext.Identifier;
             }
-            if (cmdletContext.MembershipId != null)
+            if (cmdletContext.SpeakerSearchTaskId != null)
             {
-                request.MembershipId = cmdletContext.MembershipId;
+                request.SpeakerSearchTaskId = cmdletContext.SpeakerSearchTaskId;
             }
             
             CmdletOutput output;
@@ -197,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityStore.Model.DescribeGroupMembershipResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.DescribeGroupMembershipRequest request)
+        private Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "DescribeGroupMembership");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "GetSpeakerSearchTask");
             try
             {
                 #if DESKTOP
-                return client.DescribeGroupMembership(request);
+                return client.GetSpeakerSearchTask(request);
                 #elif CORECLR
-                return client.DescribeGroupMembershipAsync(request).GetAwaiter().GetResult();
+                return client.GetSpeakerSearchTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IdentityStoreId { get; set; }
-            public System.String MembershipId { get; set; }
-            public System.Func<Amazon.IdentityStore.Model.DescribeGroupMembershipResponse, GetIDSGroupMembershipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Identifier { get; set; }
+            public System.String SpeakerSearchTaskId { get; set; }
+            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.GetSpeakerSearchTaskResponse, GetCHMMPSpeakerSearchTaskCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SpeakerSearchTask;
         }
         
     }

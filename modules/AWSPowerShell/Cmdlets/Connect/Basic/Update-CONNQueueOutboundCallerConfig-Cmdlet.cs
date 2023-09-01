@@ -34,21 +34,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// Updates the outbound caller ID name, number, and outbound whisper flow for a specified
     /// queue.
-    /// </para><important><para>
-    /// If the number being used in the input is claimed to a traffic distribution group,
-    /// and you are calling this API using an instance in the Amazon Web Services Region where
-    /// the traffic distribution group was created, you can use either a full phone number
-    /// ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a>
-    /// request body parameter. However, if the number is claimed to a traffic distribution
-    /// group and you are calling this API using an instance in the alternate Amazon Web Services
-    /// Region associated with the traffic distribution group, you must provide a full phone
-    /// number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.
-    /// </para><para>
+    /// </para><important><ul><li><para>
+    /// If the phone number is claimed to a traffic distribution group that was created in
+    /// the same Region as the Amazon Connect instance where you are calling this API, then
+    /// you can use a full phone number ARN or a UUID for <code>OutboundCallerIdNumberId</code>.
+    /// However, if the phone number is claimed to a traffic distribution group that is in
+    /// one Region, and you are calling this API from an instance in another Amazon Web Services
+    /// Region that is associated with the traffic distribution group, you must provide a
+    /// full phone number ARN. If a UUID is provided in this scenario, you will receive a
+    /// <code>ResourceNotFoundException</code>.
+    /// </para></li><li><para>
     /// Only use the phone number ARN format that doesn't contain <code>instance</code> in
     /// the path, for example, <code>arn:aws:connect:us-east-1:1234567890:phone-number/uuid</code>.
     /// This is the same ARN format that is returned when you call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a>
     /// API.
-    /// </para></important>
+    /// </para></li><li><para>
+    /// If you plan to use IAM policies to allow/deny access to this API for phone number
+    /// resources claimed to a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region">Allow
+    /// or Deny queue API actions for phone numbers in a replica Region</a>.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Update", "CONNQueueOutboundCallerConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

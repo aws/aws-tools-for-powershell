@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     /// Lists all users in the identity store. Returns a paginated list of complete <code>User</code>
     /// objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute
     /// is deprecated. Instead, use the <code>GetUserId</code> API action.
+    /// 
+    ///  <note><para>
+    /// If you have administrator access to a member account, you can use this API from the
+    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
+    /// accounts</a> in the <i>Organizations User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Find", "IDSUserList")]
     [OutputType("Amazon.IdentityStore.Model.User")]

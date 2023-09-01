@@ -7428,6 +7428,13 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.VoiceAnalyticsLanguageCode
+        "Start-CHMMPVoiceToneAnalysisTask/LanguageCode"
+        {
+            $v = "en-US"
+            break
+        }
+
 
     }
 
@@ -7456,6 +7463,7 @@ $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State"=@("New-CHMMPMediaCapturePipeline")
     "KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"=@("New-CHMMPMediaInsightsPipeline")
     "KinesisVideoStreamSourceRuntimeConfiguration_MediaEncoding"=@("New-CHMMPMediaInsightsPipeline")
+    "LanguageCode"=@("Start-CHMMPVoiceToneAnalysisTask")
     "S3RecordingSinkRuntimeConfiguration_RecordingFileFormat"=@("New-CHMMPMediaInsightsPipeline")
     "SinkType"=@("New-CHMMPMediaCapturePipeline")
     "SourceType"=@("New-CHMMPMediaCapturePipeline")
@@ -7523,10 +7531,16 @@ $CHMMP_SelectMap = @{
                "Get-CHMMPMediaCapturePipeline",
                "Get-CHMMPMediaInsightsPipelineConfiguration",
                "Get-CHMMPMediaPipeline",
+               "Get-CHMMPSpeakerSearchTask",
+               "Get-CHMMPVoiceToneAnalysisTask",
                "Get-CHMMPMediaCapturePipelineList",
                "Get-CHMMPMediaInsightsPipelineConfigurationList",
                "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
+               "Start-CHMMPSpeakerSearchTask",
+               "Start-CHMMPVoiceToneAnalysisTask",
+               "Stop-CHMMPSpeakerSearchTask",
+               "Stop-CHMMPVoiceToneAnalysisTask",
                "Add-CHMMPResourceTag",
                "Remove-CHMMPResourceTag",
                "Update-CHMMPMediaInsightsPipelineConfiguration",
@@ -14243,6 +14257,23 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ViewStatus
+        {
+            ($_ -eq "New-CONNView/Status") -Or
+            ($_ -eq "Update-CONNViewContent/Status")
+        }
+        {
+            $v = "PUBLISHED","SAVED"
+            break
+        }
+
+        # Amazon.Connect.ViewType
+        "Get-CONNViewList/Type"
+        {
+            $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
         # Amazon.Connect.VocabularyLanguageCode
         {
             ($_ -eq "Add-CONNDefaultVocabulary/LanguageCode") -Or
@@ -14303,13 +14334,13 @@ $CONN_map = @{
     "SearchCriteria_TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","Update-CONNQueueStatus","Update-CONNTaskTemplate")
+    "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "TrafficType"=@("Start-CONNOutboundVoiceContact")
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
-    "Type"=@("New-CONNContactFlow")
+    "Type"=@("Get-CONNViewList","New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
 }
@@ -14396,6 +14427,8 @@ $CONN_SelectMap = @{
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
+               "New-CONNView",
+               "New-CONNViewVersion",
                "New-CONNVocabulary",
                "Disable-CONNEvaluationForm",
                "Remove-CONNContactEvaluation",
@@ -14416,6 +14449,8 @@ $CONN_SelectMap = @{
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
+               "Remove-CONNView",
+               "Remove-CONNViewVersion",
                "Remove-CONNVocabulary",
                "Get-CONNAgentStatus",
                "Get-CONNContact",
@@ -14438,6 +14473,7 @@ $CONN_SelectMap = @{
                "Get-CONNUser",
                "Get-CONNUserHierarchyGroup",
                "Get-CONNUserHierarchyStructure",
+               "Get-CONNView",
                "Get-CONNVocabulary",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
@@ -14495,6 +14531,8 @@ $CONN_SelectMap = @{
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
+               "Get-CONNViewList",
+               "Get-CONNViewVersionList",
                "Start-CONNContactMonitoring",
                "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
@@ -14563,7 +14601,9 @@ $CONN_SelectMap = @{
                "Update-CONNUserIdentityInfo",
                "Update-CONNUserPhoneConfig",
                "Update-CONNUserRoutingProfile",
-               "Update-CONNUserSecurityProfile")
+               "Update-CONNUserSecurityProfile",
+               "Update-CONNViewContent",
+               "Update-CONNViewMetadata")
 }
 
 _awsArgumentCompleterRegistration $CONN_SelectCompleters $CONN_SelectMap

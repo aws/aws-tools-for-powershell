@@ -22,36 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IdentityStore;
-using Amazon.IdentityStore.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IDS
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
-    /// store.
-    /// 
-    ///  <note><para>
-    /// If you have administrator access to a member account, you can use this API from the
-    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
-    /// accounts</a> in the <i>Organizations User Guide</i>. 
-    /// </para></note>
+    /// Updates the view metadata. Note that either <code>Name</code> or <code>Description</code>
+    /// must be provided.
     /// </summary>
-    [Cmdlet("Get", "IDSGroup")]
-    [OutputType("Amazon.IdentityStore.Model.DescribeGroupResponse")]
-    [AWSCmdlet("Calls the AWS Identity Store DescribeGroup API operation.", Operation = new[] {"DescribeGroup"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.DescribeGroupResponse))]
-    [AWSCmdletOutput("Amazon.IdentityStore.Model.DescribeGroupResponse",
-        "This cmdlet returns an Amazon.IdentityStore.Model.DescribeGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CONNViewMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service UpdateViewMetadata API operation.", Operation = new[] {"UpdateViewMetadata"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateViewMetadataResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateViewMetadataResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.UpdateViewMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIDSGroupCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
+    public partial class UpdateCONNViewMetadataCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
-        #region Parameter GroupId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The identifier for a group in the identity store.</para>
+        /// <para>The description of the view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,16 +68,24 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroupId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter IdentityStoreId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store, such as <code>d-1234567890</code>.
-        /// In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is
-        /// a randomly generated string that contains numbers and lower case letters. This value
-        /// is generated at the time that a new identity store is created.</para>
+        /// <para>The name of the view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ViewId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
+        /// be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,14 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IdentityStoreId { get; set; }
+        public System.String ViewId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.DescribeGroupResponse).
-        /// Specifying the name of a property of type Amazon.IdentityStore.Model.DescribeGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateViewMetadataResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,18 +111,34 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNViewMetadata (UpdateViewMetadata)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -119,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.DescribeGroupResponse, GetIDSGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateViewMetadataResponse, UpdateCONNViewMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,21 +157,23 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupId;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GroupId = this.GroupId;
+            context.Description = this.Description;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.GroupId == null && ParameterWasBound(nameof(this.GroupId)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter GroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IdentityStoreId = this.IdentityStoreId;
+            context.Name = this.Name;
+            context.ViewId = this.ViewId;
             #if MODULAR
-            if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
+            if (this.ViewId == null && ParameterWasBound(nameof(this.ViewId)))
             {
-                WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ViewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +190,23 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityStore.Model.DescribeGroupRequest();
+            var request = new Amazon.Connect.Model.UpdateViewMetadataRequest();
             
-            if (cmdletContext.GroupId != null)
+            if (cmdletContext.Description != null)
             {
-                request.GroupId = cmdletContext.GroupId;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.IdentityStoreId != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.IdentityStoreId = cmdletContext.IdentityStoreId;
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ViewId != null)
+            {
+                request.ViewId = cmdletContext.ViewId;
             }
             
             CmdletOutput output;
@@ -202,15 +241,15 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityStore.Model.DescribeGroupResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.DescribeGroupRequest request)
+        private Amazon.Connect.Model.UpdateViewMetadataResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateViewMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "DescribeGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateViewMetadata");
             try
             {
                 #if DESKTOP
-                return client.DescribeGroup(request);
+                return client.UpdateViewMetadata(request);
                 #elif CORECLR
-                return client.DescribeGroupAsync(request).GetAwaiter().GetResult();
+                return client.UpdateViewMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,10 +269,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GroupId { get; set; }
-            public System.String IdentityStoreId { get; set; }
-            public System.Func<Amazon.IdentityStore.Model.DescribeGroupResponse, GetIDSGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Description { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
+            public System.String ViewId { get; set; }
+            public System.Func<Amazon.Connect.Model.UpdateViewMetadataResponse, UpdateCONNViewMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

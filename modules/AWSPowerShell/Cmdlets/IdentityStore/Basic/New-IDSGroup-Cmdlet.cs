@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>A string containing the name of the group. This value is commonly displayed when the
-        /// group is referenced. "Administrator" and "AWSAdministrators" are reserved names and
-        /// can't be used for users or groups.</para>
+        /// group is referenced. <code>Administrator</code> and <code>AWSAdministrators</code>
+        /// are reserved names and can't be used for users or groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

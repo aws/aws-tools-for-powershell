@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <para>A unique string used to identify the user. The length limit is 128 characters. This
         /// value can consist of letters, accented characters, symbols, numbers, and punctuation.
         /// This value is specified at the time the user is created and stored as an attribute
-        /// of the user object in the identity store. "Administrator" and "AWSAdministrators"
+        /// of the user object in the identity store. <code>Administrator</code> and <code>AWSAdministrators</code>
         /// are reserved names and can't be used for users or groups.</para>
         /// </para>
         /// </summary>

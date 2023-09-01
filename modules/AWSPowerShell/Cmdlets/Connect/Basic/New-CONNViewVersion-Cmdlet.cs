@@ -28,34 +28,34 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Ends the specified contact. This call does not work for voice contacts that use the
-    /// following initiation methods:
+    /// Publishes a new version of the view identifier.
     /// 
-    ///  <ul><li><para>
-    /// DISCONNECT
-    /// </para></li><li><para>
-    /// TRANSFER
-    /// </para></li><li><para>
-    /// QUEUE_TRANSFER
-    /// </para></li></ul><para>
-    /// Chat and task contacts, however, can be terminated in any state, regardless of initiation
-    /// method.
+    ///  
+    /// <para>
+    /// Versions are immutable and monotonically increasing.
+    /// </para><para>
+    /// It returns the highest version if there is no change in content compared to that version.
+    /// An error is displayed if the supplied ViewContentSha256 is different from the ViewContentSha256
+    /// of the <code>$LATEST</code> alias.
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service StopContact API operation.", Operation = new[] {"StopContact"}, SelectReturnType = typeof(Amazon.Connect.Model.StopContactResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.StopContactResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.StopContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "CONNViewVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.View")]
+    [AWSCmdlet("Calls the Amazon Connect Service CreateViewVersion API operation.", Operation = new[] {"CreateViewVersion"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateViewVersionResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.View or Amazon.Connect.Model.CreateViewVersionResponse",
+        "This cmdlet returns an Amazon.Connect.Model.View object.",
+        "The service call response (type Amazon.Connect.Model.CreateViewVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopCONNContactCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class NewCONNViewVersionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ContactId
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the contact.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,14 +66,34 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter VersionDescription
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The description for the version being published.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionDescription { get; set; }
+        #endregion
+        
+        #region Parameter ViewContentSha256
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the checksum value of the latest published view content.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ViewContentSha256 { get; set; }
+        #endregion
+        
+        #region Parameter ViewId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
+        /// be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,25 +104,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ViewId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.StopContactResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.CreateViewVersionResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.CreateViewVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "View";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CONNContact (StopContact)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CONNViewVersion (CreateViewVersion)"))
             {
                 return;
             }
@@ -136,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.StopContactResponse, StopCONNContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.CreateViewVersionResponse, NewCONNViewVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,21 +166,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactId;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactId = this.ContactId;
-            #if MODULAR
-            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VersionDescription = this.VersionDescription;
+            context.ViewContentSha256 = this.ViewContentSha256;
+            context.ViewId = this.ViewId;
+            #if MODULAR
+            if (this.ViewId == null && ParameterWasBound(nameof(this.ViewId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ViewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,15 +199,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.StopContactRequest();
+            var request = new Amazon.Connect.Model.CreateViewVersionRequest();
             
-            if (cmdletContext.ContactId != null)
-            {
-                request.ContactId = cmdletContext.ContactId;
-            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.VersionDescription != null)
+            {
+                request.VersionDescription = cmdletContext.VersionDescription;
+            }
+            if (cmdletContext.ViewContentSha256 != null)
+            {
+                request.ViewContentSha256 = cmdletContext.ViewContentSha256;
+            }
+            if (cmdletContext.ViewId != null)
+            {
+                request.ViewId = cmdletContext.ViewId;
             }
             
             CmdletOutput output;
@@ -219,15 +250,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.StopContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.StopContactRequest request)
+        private Amazon.Connect.Model.CreateViewVersionResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.CreateViewVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "StopContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "CreateViewVersion");
             try
             {
                 #if DESKTOP
-                return client.StopContact(request);
+                return client.CreateViewVersion(request);
                 #elif CORECLR
-                return client.StopContactAsync(request).GetAwaiter().GetResult();
+                return client.CreateViewVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +278,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.StopContactResponse, StopCONNContactCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String VersionDescription { get; set; }
+            public System.String ViewContentSha256 { get; set; }
+            public System.String ViewId { get; set; }
+            public System.Func<Amazon.Connect.Model.CreateViewVersionResponse, NewCONNViewVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.View;
         }
         
     }

@@ -28,45 +28,45 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a traffic distribution group given an Amazon Connect instance that has been
-    /// replicated. 
+    /// Updates the view content of the given view identifier in the specified Amazon Connect
+    /// instance.
     /// 
-    ///  <note><para>
-    /// You can change the <code>SignInConfig</code> distribution only for a default <code>TrafficDistributionGroup</code>
-    /// (see the <code>IsDefault</code> parameter in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
-    /// data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code>
-    /// and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code>
-    /// is returned.
-    /// </para></note><para>
-    /// For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set
-    /// up traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>.
-    /// 
+    ///  
+    /// <para>
+    /// It performs content validation if <code>Status</code> is set to <code>SAVED</code>
+    /// and performs full content validation if <code>Status</code> is <code>PUBLISHED</code>.
+    /// Note that the <code>$SAVED</code> alias' content will always be updated, but the <code>$LATEST</code>
+    /// alias' content will only be updated if <code>Status</code> is <code>PUBLISHED</code>.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "CONNTrafficDistributionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Connect.Model.CreateTrafficDistributionGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Service CreateTrafficDistributionGroup API operation.", Operation = new[] {"CreateTrafficDistributionGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateTrafficDistributionGroupResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.CreateTrafficDistributionGroupResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateTrafficDistributionGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CONNViewContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.View")]
+    [AWSCmdlet("Calls the Amazon Connect Service UpdateViewContent API operation.", Operation = new[] {"UpdateViewContent"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateViewContentResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.View or Amazon.Connect.Model.UpdateViewContentResponse",
+        "This cmdlet returns an Amazon.Connect.Model.View object.",
+        "The service call response (type Amazon.Connect.Model.UpdateViewContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCONNTrafficDistributionGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class UpdateCONNViewContentCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter Content_Action
         /// <summary>
         /// <para>
-        /// <para>A description for the traffic distribution group.</para>
+        /// <para>A list of possible actions from the view.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        [Alias("Content_Actions")]
+        public System.String[] Content_Action { get; set; }
         #endregion
         
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance that has been replicated. You can find
-        /// the <code>instanceId</code> in the ARN of the instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,10 +80,39 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The name for the traffic distribution group. </para>
+        /// <para>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>.
+        /// The <code>PUBLISHED</code> status will initiate validation on the content.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Connect.ViewStatus")]
+        public Amazon.Connect.ViewStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter Content_Template
+        /// <summary>
+        /// <para>
+        /// <para>The view template representing the structure of the view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Template { get; set; }
+        #endregion
+        
+        #region Parameter ViewId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
+        /// be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,43 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
-        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
-        /// retries safe with idempotent APIs</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String ViewId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.CreateTrafficDistributionGroupResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.CreateTrafficDistributionGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateViewContentResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.UpdateViewContentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "View";
         #endregion
         
         #region Parameter PassThru
@@ -159,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CONNTrafficDistributionGroup (CreateTrafficDistributionGroup)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNViewContent (UpdateViewContent)"))
             {
                 return;
             }
@@ -172,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.CreateTrafficDistributionGroupResponse, NewCONNTrafficDistributionGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateViewContentResponse, UpdateCONNViewContentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -184,8 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.Description = this.Description;
+            if (this.Content_Action != null)
+            {
+                context.Content_Action = new List<System.String>(this.Content_Action);
+            }
+            context.Content_Template = this.Content_Template;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -193,21 +200,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            context.Status = this.Status;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.Status == null && ParameterWasBound(nameof(this.Status)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.ViewId = this.ViewId;
+            #if MODULAR
+            if (this.ViewId == null && ParameterWasBound(nameof(this.ViewId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter ViewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,27 +228,48 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.CreateTrafficDistributionGroupRequest();
+            var request = new Amazon.Connect.Model.UpdateViewContentRequest();
             
-            if (cmdletContext.ClientToken != null)
+            
+             // populate Content
+            var requestContentIsNull = true;
+            request.Content = new Amazon.Connect.Model.ViewInputContent();
+            List<System.String> requestContent_content_Action = null;
+            if (cmdletContext.Content_Action != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                requestContent_content_Action = cmdletContext.Content_Action;
             }
-            if (cmdletContext.Description != null)
+            if (requestContent_content_Action != null)
             {
-                request.Description = cmdletContext.Description;
+                request.Content.Actions = requestContent_content_Action;
+                requestContentIsNull = false;
+            }
+            System.String requestContent_content_Template = null;
+            if (cmdletContext.Content_Template != null)
+            {
+                requestContent_content_Template = cmdletContext.Content_Template;
+            }
+            if (requestContent_content_Template != null)
+            {
+                request.Content.Template = requestContent_content_Template;
+                requestContentIsNull = false;
+            }
+             // determine if request.Content should be set to null
+            if (requestContentIsNull)
+            {
+                request.Content = null;
             }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Status != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Status = cmdletContext.Status;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.ViewId != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.ViewId = cmdletContext.ViewId;
             }
             
             CmdletOutput output;
@@ -277,15 +304,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.CreateTrafficDistributionGroupResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.CreateTrafficDistributionGroupRequest request)
+        private Amazon.Connect.Model.UpdateViewContentResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateViewContentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "CreateTrafficDistributionGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateViewContent");
             try
             {
                 #if DESKTOP
-                return client.CreateTrafficDistributionGroup(request);
+                return client.UpdateViewContent(request);
                 #elif CORECLR
-                return client.CreateTrafficDistributionGroupAsync(request).GetAwaiter().GetResult();
+                return client.UpdateViewContentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -305,13 +332,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String Description { get; set; }
+            public List<System.String> Content_Action { get; set; }
+            public System.String Content_Template { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Connect.Model.CreateTrafficDistributionGroupResponse, NewCONNTrafficDistributionGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.Connect.ViewStatus Status { get; set; }
+            public System.String ViewId { get; set; }
+            public System.Func<Amazon.Connect.Model.UpdateViewContentResponse, UpdateCONNViewContentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.View;
         }
         
     }

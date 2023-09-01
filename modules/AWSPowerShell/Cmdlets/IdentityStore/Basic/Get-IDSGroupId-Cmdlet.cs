@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
     /// Retrieves <code>GroupId</code> in an identity store.
+    /// 
+    ///  <note><para>
+    /// If you have administrator access to a member account, you can use this API from the
+    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
+    /// accounts</a> in the <i>Organizations User Guide</i>. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IDSGroupId")]
     [OutputType("System.String")]
@@ -58,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>The value of the attribute. This is a <code>Document</code> type. This type is not
-        /// supported by Java V1, Go V1, and older versions of the AWS CLI.</para>
+        /// supported by Java V1, Go V1, and older versions of the CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

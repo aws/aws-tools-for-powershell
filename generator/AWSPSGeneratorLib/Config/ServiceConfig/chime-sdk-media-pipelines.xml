@@ -62,6 +62,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Get" Noun="SpeakerSearchTask" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Get" Noun="VoiceToneAnalysisTask" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMediaCapturePipelines" OutputProperty="MediaCapturePipelines" Verb="Get" Noun="MediaCapturePipelineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +83,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Start" Noun="SpeakerSearchTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Start" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopSpeakerSearchTask" Verb="Stop" Noun="SpeakerSearchTask" ShouldProcessTarget="SpeakerSearchTaskId" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopVoiceToneAnalysisTask" Verb="Stop" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="VoiceToneAnalysisTaskId" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1,4 +1,24 @@
-﻿### 4.1.406 (2023-08-31 22:17Z)
+﻿### 4.1.407 (2023-09-01 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.637.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Media Pipelines
+    * Added cmdlet Get-CHMMPSpeakerSearchTask leveraging the GetSpeakerSearchTask service API.
+    * Added cmdlet Get-CHMMPVoiceToneAnalysisTask leveraging the GetVoiceToneAnalysisTask service API.
+    * Added cmdlet Start-CHMMPSpeakerSearchTask leveraging the StartSpeakerSearchTask service API.
+    * Added cmdlet Start-CHMMPVoiceToneAnalysisTask leveraging the StartVoiceToneAnalysisTask service API.
+    * Added cmdlet Stop-CHMMPSpeakerSearchTask leveraging the StopSpeakerSearchTask service API.
+    * Added cmdlet Stop-CHMMPVoiceToneAnalysisTask leveraging the StopVoiceToneAnalysisTask service API.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNView leveraging the DescribeView service API.
+    * Added cmdlet Get-CONNViewList leveraging the ListViews service API.
+    * Added cmdlet Get-CONNViewVersionList leveraging the ListViewVersions service API.
+    * Added cmdlet New-CONNView leveraging the CreateView service API.
+    * Added cmdlet New-CONNViewVersion leveraging the CreateViewVersion service API.
+    * Added cmdlet Remove-CONNView leveraging the DeleteView service API.
+    * Added cmdlet Remove-CONNViewVersion leveraging the DeleteViewVersion service API.
+    * Added cmdlet Update-CONNViewContent leveraging the UpdateViewContent service API.
+    * Added cmdlet Update-CONNViewMetadata leveraging the UpdateViewMetadata service API.
+
+### 4.1.406 (2023-08-31 22:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.635.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Campaign Service
     * Modified cmdlet New-CCSCampaign: added parameters AgentlessDialerConfig_DialingCapacity, PredictiveDialerConfig_DialingCapacity and ProgressiveDialerConfig_DialingCapacity.

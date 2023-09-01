@@ -233,6 +233,13 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.VoiceAnalyticsLanguageCode
+        "Start-CHMMPVoiceToneAnalysisTask/LanguageCode"
+        {
+            $v = "en-US"
+            break
+        }
+
 
     }
 
@@ -261,6 +268,7 @@ $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State"=@("New-CHMMPMediaCapturePipeline")
     "KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"=@("New-CHMMPMediaInsightsPipeline")
     "KinesisVideoStreamSourceRuntimeConfiguration_MediaEncoding"=@("New-CHMMPMediaInsightsPipeline")
+    "LanguageCode"=@("Start-CHMMPVoiceToneAnalysisTask")
     "S3RecordingSinkRuntimeConfiguration_RecordingFileFormat"=@("New-CHMMPMediaInsightsPipeline")
     "SinkType"=@("New-CHMMPMediaCapturePipeline")
     "SourceType"=@("New-CHMMPMediaCapturePipeline")
@@ -328,10 +336,16 @@ $CHMMP_SelectMap = @{
                "Get-CHMMPMediaCapturePipeline",
                "Get-CHMMPMediaInsightsPipelineConfiguration",
                "Get-CHMMPMediaPipeline",
+               "Get-CHMMPSpeakerSearchTask",
+               "Get-CHMMPVoiceToneAnalysisTask",
                "Get-CHMMPMediaCapturePipelineList",
                "Get-CHMMPMediaInsightsPipelineConfigurationList",
                "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
+               "Start-CHMMPSpeakerSearchTask",
+               "Start-CHMMPVoiceToneAnalysisTask",
+               "Stop-CHMMPSpeakerSearchTask",
+               "Stop-CHMMPVoiceToneAnalysisTask",
                "Add-CHMMPResourceTag",
                "Remove-CHMMPResourceTag",
                "Update-CHMMPMediaInsightsPipelineConfiguration",

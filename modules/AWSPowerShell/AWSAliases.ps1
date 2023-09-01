@@ -2894,6 +2894,8 @@ Set-Alias -Name CHMMP-DeleteMediaPipeline -Value Remove-CHMMPMediaPipeline
 Set-Alias -Name CHMMP-GetMediaCapturePipeline -Value Get-CHMMPMediaCapturePipeline
 Set-Alias -Name CHMMP-GetMediaInsightsPipelineConfiguration -Value Get-CHMMPMediaInsightsPipelineConfiguration
 Set-Alias -Name CHMMP-GetMediaPipeline -Value Get-CHMMPMediaPipeline
+Set-Alias -Name CHMMP-GetSpeakerSearchTask -Value Get-CHMMPSpeakerSearchTask
+Set-Alias -Name CHMMP-GetVoiceToneAnalysisTask -Value Get-CHMMPVoiceToneAnalysisTask
 Set-Alias -Name List-CHMMPMediaCapturePipelines -Value Get-CHMMPMediaCapturePipelineList
 Set-Alias -Name List-CHMMPMediaCapturePipelineList -Value Get-CHMMPMediaCapturePipelineList
 Set-Alias -Name CHMMP-ListMediaCapturePipelines -Value Get-CHMMPMediaCapturePipelineList
@@ -2904,6 +2906,10 @@ Set-Alias -Name List-CHMMPMediaPipelines -Value Get-CHMMPMediaPipelineList
 Set-Alias -Name List-CHMMPMediaPipelineList -Value Get-CHMMPMediaPipelineList
 Set-Alias -Name CHMMP-ListMediaPipelines -Value Get-CHMMPMediaPipelineList
 Set-Alias -Name CHMMP-ListTagsForResource -Value Get-CHMMPResourceTag
+Set-Alias -Name CHMMP-StartSpeakerSearchTask -Value Start-CHMMPSpeakerSearchTask
+Set-Alias -Name CHMMP-StartVoiceToneAnalysisTask -Value Start-CHMMPVoiceToneAnalysisTask
+Set-Alias -Name CHMMP-StopSpeakerSearchTask -Value Stop-CHMMPSpeakerSearchTask
+Set-Alias -Name CHMMP-StopVoiceToneAnalysisTask -Value Stop-CHMMPVoiceToneAnalysisTask
 Set-Alias -Name CHMMP-TagResource -Value Add-CHMMPResourceTag
 Set-Alias -Name CHMMP-UntagResource -Value Remove-CHMMPResourceTag
 Set-Alias -Name CHMMP-UpdateMediaInsightsPipelineConfiguration -Value Update-CHMMPMediaInsightsPipelineConfiguration
@@ -5552,6 +5558,10 @@ Set-Alias -Name Create-CONNUser -Value New-CONNUser
 Set-Alias -Name CONN-CreateUser -Value New-CONNUser
 Set-Alias -Name Create-CONNUserHierarchyGroup -Value New-CONNUserHierarchyGroup
 Set-Alias -Name CONN-CreateUserHierarchyGroup -Value New-CONNUserHierarchyGroup
+Set-Alias -Name Create-CONNView -Value New-CONNView
+Set-Alias -Name CONN-CreateView -Value New-CONNView
+Set-Alias -Name Create-CONNViewVersion -Value New-CONNViewVersion
+Set-Alias -Name CONN-CreateViewVersion -Value New-CONNViewVersion
 Set-Alias -Name Create-CONNVocabulary -Value New-CONNVocabulary
 Set-Alias -Name CONN-CreateVocabulary -Value New-CONNVocabulary
 Set-Alias -Name Deactivate-CONNEvaluationForm -Value Disable-CONNEvaluationForm
@@ -5592,6 +5602,10 @@ Set-Alias -Name Delete-CONNUser -Value Remove-CONNUser
 Set-Alias -Name CONN-DeleteUser -Value Remove-CONNUser
 Set-Alias -Name Delete-CONNUserHierarchyGroup -Value Remove-CONNUserHierarchyGroup
 Set-Alias -Name CONN-DeleteUserHierarchyGroup -Value Remove-CONNUserHierarchyGroup
+Set-Alias -Name Delete-CONNView -Value Remove-CONNView
+Set-Alias -Name CONN-DeleteView -Value Remove-CONNView
+Set-Alias -Name Delete-CONNViewVersion -Value Remove-CONNViewVersion
+Set-Alias -Name CONN-DeleteViewVersion -Value Remove-CONNViewVersion
 Set-Alias -Name Delete-CONNVocabulary -Value Remove-CONNVocabulary
 Set-Alias -Name CONN-DeleteVocabulary -Value Remove-CONNVocabulary
 Set-Alias -Name Describe-CONNAgentStatus -Value Get-CONNAgentStatus
@@ -5636,6 +5650,8 @@ Set-Alias -Name Describe-CONNUserHierarchyGroup -Value Get-CONNUserHierarchyGrou
 Set-Alias -Name CONN-DescribeUserHierarchyGroup -Value Get-CONNUserHierarchyGroup
 Set-Alias -Name Describe-CONNUserHierarchyStructure -Value Get-CONNUserHierarchyStructure
 Set-Alias -Name CONN-DescribeUserHierarchyStructure -Value Get-CONNUserHierarchyStructure
+Set-Alias -Name Describe-CONNView -Value Get-CONNView
+Set-Alias -Name CONN-DescribeView -Value Get-CONNView
 Set-Alias -Name Describe-CONNVocabulary -Value Get-CONNVocabulary
 Set-Alias -Name CONN-DescribeVocabulary -Value Get-CONNVocabulary
 Set-Alias -Name Disassociate-CONNApprovedOrigin -Value Remove-CONNApprovedOrigin
@@ -5778,6 +5794,12 @@ Set-Alias -Name CONN-ListUserHierarchyGroups -Value Get-CONNUserHierarchyGroupLi
 Set-Alias -Name List-CONNUsers -Value Get-CONNUserList
 Set-Alias -Name List-CONNUserList -Value Get-CONNUserList
 Set-Alias -Name CONN-ListUsers -Value Get-CONNUserList
+Set-Alias -Name List-CONNViews -Value Get-CONNViewList
+Set-Alias -Name List-CONNViewList -Value Get-CONNViewList
+Set-Alias -Name CONN-ListViews -Value Get-CONNViewList
+Set-Alias -Name List-CONNViewVersions -Value Get-CONNViewVersionList
+Set-Alias -Name List-CONNViewVersionList -Value Get-CONNViewVersionList
+Set-Alias -Name CONN-ListViewVersions -Value Get-CONNViewVersionList
 Set-Alias -Name Monitor-CONNContact -Value Start-CONNContactMonitoring
 Set-Alias -Name Monitor-CONNContactMonitoring -Value Start-CONNContactMonitoring
 Set-Alias -Name CONN-MonitorContact -Value Start-CONNContactMonitoring
@@ -5867,6 +5889,8 @@ Set-Alias -Name CONN-UpdateUserPhoneConfig -Value Update-CONNUserPhoneConfig
 Set-Alias -Name CONN-UpdateUserRoutingProfile -Value Update-CONNUserRoutingProfile
 Set-Alias -Name Update-CONNUserSecurityProfiles -Value Update-CONNUserSecurityProfile
 Set-Alias -Name CONN-UpdateUserSecurityProfiles -Value Update-CONNUserSecurityProfile
+Set-Alias -Name CONN-UpdateViewContent -Value Update-CONNViewContent
+Set-Alias -Name CONN-UpdateViewMetadata -Value Update-CONNViewMetadata
 Set-Alias -Name Create-CCSCampaign -Value New-CCSCampaign
 Set-Alias -Name CCS-CreateCampaign -Value New-CCSCampaign
 Set-Alias -Name Delete-CCSCampaign -Value Remove-CCSCampaign

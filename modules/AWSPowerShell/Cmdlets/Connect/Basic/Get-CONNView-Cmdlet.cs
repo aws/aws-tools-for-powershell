@@ -22,51 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IdentityStore;
-using Amazon.IdentityStore.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IDS
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Retrieves membership metadata and attributes from <code>MembershipId</code> in an
-    /// identity store.
+    /// Retrieves the view for the specified Amazon Connect instance and view identifier.
     /// 
-    ///  <note><para>
-    /// If you have administrator access to a member account, you can use this API from the
-    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
-    /// accounts</a> in the <i>Organizations User Guide</i>. 
-    /// </para></note>
+    ///  
+    /// <para>
+    /// The view identifier can be supplied as a ViewId or ARN.
+    /// </para><para><code>$SAVED</code> needs to be supplied if a view is unpublished.
+    /// </para><para>
+    /// The view identifier can contain an optional qualifier, for example, <code>&lt;view-id&gt;:$SAVED</code>,
+    /// which is either an actual version number or an Amazon Connect managed qualifier <code>$SAVED
+    /// | $LATEST</code>. If it is not supplied, then <code>$LATEST</code> is assumed for
+    /// customer managed views and an error is returned if there is no published content available.
+    /// Version 1 is assumed for Amazon Web Services managed views.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "IDSGroupMembership")]
-    [OutputType("Amazon.IdentityStore.Model.DescribeGroupMembershipResponse")]
-    [AWSCmdlet("Calls the AWS Identity Store DescribeGroupMembership API operation.", Operation = new[] {"DescribeGroupMembership"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.DescribeGroupMembershipResponse))]
-    [AWSCmdletOutput("Amazon.IdentityStore.Model.DescribeGroupMembershipResponse",
-        "This cmdlet returns an Amazon.IdentityStore.Model.DescribeGroupMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CONNView")]
+    [OutputType("Amazon.Connect.Model.View")]
+    [AWSCmdlet("Calls the Amazon Connect Service DescribeView API operation.", Operation = new[] {"DescribeView"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeViewResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.View or Amazon.Connect.Model.DescribeViewResponse",
+        "This cmdlet returns an Amazon.Connect.Model.View object.",
+        "The service call response (type Amazon.Connect.Model.DescribeViewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIDSGroupMembershipCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
+    public partial class GetCONNViewCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter IdentityStoreId
-        /// <summary>
-        /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IdentityStoreId { get; set; }
-        #endregion
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
-        #region Parameter MembershipId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <code>GroupMembership</code> in an identity store.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,26 +69,43 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MembershipId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter ViewId
+        /// <summary>
+        /// <para>
+        /// <para>The ViewId of the view. This must be an ARN for Amazon Web Services managed views.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ViewId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.DescribeGroupMembershipResponse).
-        /// Specifying the name of a property of type Amazon.IdentityStore.Model.DescribeGroupMembershipResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeViewResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeViewResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "View";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MembershipId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MembershipId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MembershipId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.DescribeGroupMembershipResponse, GetIDSGroupMembershipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeViewResponse, GetCONNViewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,21 +132,21 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MembershipId;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IdentityStoreId = this.IdentityStoreId;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MembershipId = this.MembershipId;
+            context.ViewId = this.ViewId;
             #if MODULAR
-            if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
+            if (this.ViewId == null && ParameterWasBound(nameof(this.ViewId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MembershipId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ViewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -154,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityStore.Model.DescribeGroupMembershipRequest();
+            var request = new Amazon.Connect.Model.DescribeViewRequest();
             
-            if (cmdletContext.IdentityStoreId != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.IdentityStoreId = cmdletContext.IdentityStoreId;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.MembershipId != null)
+            if (cmdletContext.ViewId != null)
             {
-                request.MembershipId = cmdletContext.MembershipId;
+                request.ViewId = cmdletContext.ViewId;
             }
             
             CmdletOutput output;
@@ -197,15 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityStore.Model.DescribeGroupMembershipResponse CallAWSServiceOperation(IAmazonIdentityStore client, Amazon.IdentityStore.Model.DescribeGroupMembershipRequest request)
+        private Amazon.Connect.Model.DescribeViewResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeViewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity Store", "DescribeGroupMembership");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeView");
             try
             {
                 #if DESKTOP
-                return client.DescribeGroupMembership(request);
+                return client.DescribeView(request);
                 #elif CORECLR
-                return client.DescribeGroupMembershipAsync(request).GetAwaiter().GetResult();
+                return client.DescribeViewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IdentityStoreId { get; set; }
-            public System.String MembershipId { get; set; }
-            public System.Func<Amazon.IdentityStore.Model.DescribeGroupMembershipResponse, GetIDSGroupMembershipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String InstanceId { get; set; }
+            public System.String ViewId { get; set; }
+            public System.Func<Amazon.Connect.Model.DescribeViewResponse, GetCONNViewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.View;
         }
         
     }

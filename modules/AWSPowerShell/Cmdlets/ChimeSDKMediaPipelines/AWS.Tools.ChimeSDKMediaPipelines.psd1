@@ -94,6 +94,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CHMMPMediaPipeline', 
         'Get-CHMMPMediaPipelineList', 
         'Get-CHMMPResourceTag', 
+        'Get-CHMMPSpeakerSearchTask', 
+        'Get-CHMMPVoiceToneAnalysisTask', 
         'New-CHMMPMediaCapturePipeline', 
         'New-CHMMPMediaConcatenationPipeline', 
         'New-CHMMPMediaInsightsPipeline', 
@@ -103,6 +105,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CHMMPMediaInsightsPipelineConfiguration', 
         'Remove-CHMMPMediaPipeline', 
         'Remove-CHMMPResourceTag', 
+        'Start-CHMMPSpeakerSearchTask', 
+        'Start-CHMMPVoiceToneAnalysisTask', 
+        'Stop-CHMMPSpeakerSearchTask', 
+        'Stop-CHMMPVoiceToneAnalysisTask', 
         'Update-CHMMPMediaInsightsPipelineConfiguration', 
         'Update-CHMMPMediaInsightsPipelineStatus')
 
