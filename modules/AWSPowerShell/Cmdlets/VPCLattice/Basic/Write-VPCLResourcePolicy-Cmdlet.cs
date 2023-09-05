@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>An IAM policy. The policy string in JSON must not contain newlines or blank lines.</para>
+        /// <para>An IAM policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

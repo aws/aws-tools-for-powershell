@@ -136,8 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>,
         /// <code>disabled</code>, <code>on</code>, and <code>off</code>.</para><para>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the <code>name</code>,
-        /// the following are the valid values:</para><ul><li><para><code>0</code> - immediately retire the tasks and patch Fargate </para><para>There is no advanced notification. Your tasks are retired immediately, and Fargate
-        /// is patched without any notification.</para></li><li><para><code>7</code> -wait 7 calendar days to retire the tasks and patch Fargate </para></li><li><para><code>14</code> - wait 14 calendar days to retire the tasks and patch Fargate </para></li></ul>
+        /// the following are the valid values:</para><ul><li><para><code>0</code> - Amazon Web Services sends the notification, and immediately retires
+        /// the affected tasks.</para></li><li><para><code>7</code> - Amazon Web Services sends the notification, and waits 7 calendar
+        /// days to retire the tasks.</para></li><li><para><code>14</code> - Amazon Web Services sends the notification, and waits 14 calendar
+        /// days to retire the tasks.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

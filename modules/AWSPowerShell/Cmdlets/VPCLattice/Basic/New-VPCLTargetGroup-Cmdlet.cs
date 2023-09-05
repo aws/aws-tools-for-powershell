@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public Amazon.VPCLattice.IpAddressType Config_IpAddressType { get; set; }
         #endregion
         
+        #region Parameter Config_LambdaEventStructureVersion
+        /// <summary>
+        /// <para>
+        /// <para>Lambda event structure version</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.VPCLattice.LambdaEventStructureVersion")]
+        public Amazon.VPCLattice.LambdaEventStructureVersion Config_LambdaEventStructureVersion { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -341,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             context.HealthCheck_ProtocolVersion = this.HealthCheck_ProtocolVersion;
             context.HealthCheck_UnhealthyThresholdCount = this.HealthCheck_UnhealthyThresholdCount;
             context.Config_IpAddressType = this.Config_IpAddressType;
+            context.Config_LambdaEventStructureVersion = this.Config_LambdaEventStructureVersion;
             context.Config_Port = this.Config_Port;
             context.Config_Protocol = this.Config_Protocol;
             context.Config_ProtocolVersion = this.Config_ProtocolVersion;
@@ -399,6 +411,16 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestConfig_config_IpAddressType != null)
             {
                 request.Config.IpAddressType = requestConfig_config_IpAddressType;
+                requestConfigIsNull = false;
+            }
+            Amazon.VPCLattice.LambdaEventStructureVersion requestConfig_config_LambdaEventStructureVersion = null;
+            if (cmdletContext.Config_LambdaEventStructureVersion != null)
+            {
+                requestConfig_config_LambdaEventStructureVersion = cmdletContext.Config_LambdaEventStructureVersion;
+            }
+            if (requestConfig_config_LambdaEventStructureVersion != null)
+            {
+                request.Config.LambdaEventStructureVersion = requestConfig_config_LambdaEventStructureVersion;
                 requestConfigIsNull = false;
             }
             System.Int32? requestConfig_config_Port = null;
@@ -661,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public Amazon.VPCLattice.HealthCheckProtocolVersion HealthCheck_ProtocolVersion { get; set; }
             public System.Int32? HealthCheck_UnhealthyThresholdCount { get; set; }
             public Amazon.VPCLattice.IpAddressType Config_IpAddressType { get; set; }
+            public Amazon.VPCLattice.LambdaEventStructureVersion Config_LambdaEventStructureVersion { get; set; }
             public System.Int32? Config_Port { get; set; }
             public Amazon.VPCLattice.TargetGroupProtocol Config_Protocol { get; set; }
             public Amazon.VPCLattice.TargetGroupProtocolVersion Config_ProtocolVersion { get; set; }

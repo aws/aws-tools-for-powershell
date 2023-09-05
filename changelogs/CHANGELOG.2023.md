@@ -1,4 +1,14 @@
-﻿### 4.1.407 (2023-09-01 21:19Z)
+﻿### 4.1.408 (2023-09-05 21:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.638.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet New-ABCCustomLineItem: added parameter ChargeDetails_LineItemFilter.
+    * Modified cmdlet Update-ABCCustomLineItem: added parameter ChargeDetails_LineItemFilter.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameter AwsBackupRecoveryPointArn.
+  * Amazon VPC Lattice
+    * Modified cmdlet New-VPCLTargetGroup: added parameter Config_LambdaEventStructureVersion.
+
+### 4.1.407 (2023-09-01 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.637.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Media Pipelines
     * Added cmdlet Get-CHMMPSpeakerSearchTask leveraging the GetSpeakerSearchTask service API.

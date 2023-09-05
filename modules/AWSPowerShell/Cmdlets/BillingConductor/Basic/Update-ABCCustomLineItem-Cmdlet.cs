@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String BillingPeriodRange_InclusiveStartBillingPeriod { get; set; }
         #endregion
         
+        #region Parameter ChargeDetails_LineItemFilter
+        /// <summary>
+        /// <para>
+        /// <para>A representation of the line item filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChargeDetails_LineItemFilters")]
+        public Amazon.BillingConductor.Model.LineItemFilter[] ChargeDetails_LineItemFilter { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -197,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             context.BillingPeriodRange_ExclusiveEndBillingPeriod = this.BillingPeriodRange_ExclusiveEndBillingPeriod;
             context.BillingPeriodRange_InclusiveStartBillingPeriod = this.BillingPeriodRange_InclusiveStartBillingPeriod;
             context.Flat_ChargeValue = this.Flat_ChargeValue;
+            if (this.ChargeDetails_LineItemFilter != null)
+            {
+                context.ChargeDetails_LineItemFilter = new List<Amazon.BillingConductor.Model.LineItemFilter>(this.ChargeDetails_LineItemFilter);
+            }
             context.Percentage_PercentageValue = this.Percentage_PercentageValue;
             context.Description = this.Description;
             context.Name = this.Name;
@@ -253,6 +268,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
              // populate ChargeDetails
             var requestChargeDetailsIsNull = true;
             request.ChargeDetails = new Amazon.BillingConductor.Model.UpdateCustomLineItemChargeDetails();
+            List<Amazon.BillingConductor.Model.LineItemFilter> requestChargeDetails_chargeDetails_LineItemFilter = null;
+            if (cmdletContext.ChargeDetails_LineItemFilter != null)
+            {
+                requestChargeDetails_chargeDetails_LineItemFilter = cmdletContext.ChargeDetails_LineItemFilter;
+            }
+            if (requestChargeDetails_chargeDetails_LineItemFilter != null)
+            {
+                request.ChargeDetails.LineItemFilters = requestChargeDetails_chargeDetails_LineItemFilter;
+                requestChargeDetailsIsNull = false;
+            }
             Amazon.BillingConductor.Model.UpdateCustomLineItemFlatChargeDetails requestChargeDetails_chargeDetails_Flat = null;
             
              // populate Flat
@@ -381,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.String BillingPeriodRange_ExclusiveEndBillingPeriod { get; set; }
             public System.String BillingPeriodRange_InclusiveStartBillingPeriod { get; set; }
             public System.Double? Flat_ChargeValue { get; set; }
+            public List<Amazon.BillingConductor.Model.LineItemFilter> ChargeDetails_LineItemFilter { get; set; }
             public System.Double? Percentage_PercentageValue { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }

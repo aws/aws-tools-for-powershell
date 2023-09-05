@@ -109,6 +109,13 @@ $VPCL_Completers = {
             break
         }
 
+        # Amazon.VPCLattice.LambdaEventStructureVersion
+        "New-VPCLTargetGroup/Config_LambdaEventStructureVersion"
+        {
+            $v = "V1","V2"
+            break
+        }
+
         # Amazon.VPCLattice.ListenerProtocol
         "New-VPCLListener/Protocol"
         {
@@ -157,6 +164,7 @@ $VPCL_map = @{
     "Config_HealthCheck_Protocol"=@("New-VPCLTargetGroup")
     "Config_HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup")
     "Config_IpAddressType"=@("New-VPCLTargetGroup")
+    "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
     "HealthCheck_Protocol"=@("Update-VPCLTargetGroup")
