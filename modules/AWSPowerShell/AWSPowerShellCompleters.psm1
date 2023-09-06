@@ -19708,7 +19708,7 @@ $EC2_Completers = {
         # Amazon.EC2.LocationType
         "Get-EC2InstanceTypeOffering/LocationType"
         {
-            $v = "availability-zone","availability-zone-id","region"
+            $v = "availability-zone","availability-zone-id","outpost","region"
             break
         }
 
