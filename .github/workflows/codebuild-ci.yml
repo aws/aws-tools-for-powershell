@@ -7,9 +7,6 @@ on:
       - master
       - dev
       - main
-      - main-beta
-      - main-alpha
-      - main-dev
 
 permissions:
   id-token: write
