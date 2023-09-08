@@ -71,7 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         /// Service User Guide</i>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Destination_BucketName { get; set; }
         #endregion
         
@@ -167,6 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Destination_BucketName = this.Destination_BucketName;
+            #if MODULAR
+            if (this.Destination_BucketName == null && ParameterWasBound(nameof(this.Destination_BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Destination_BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Destination_ObjectKeyPrefix = this.Destination_ObjectKeyPrefix;
             context.Simulation = this.Simulation;
             #if MODULAR

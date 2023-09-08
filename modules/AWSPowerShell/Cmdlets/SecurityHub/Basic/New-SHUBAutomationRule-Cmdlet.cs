@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_AwsAccountId
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services account ID in which a finding was generated. </para>
+        /// <para> The Amazon Web Services account ID in which a finding was generated. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The name of the company for the product that generated the finding. For control-based
-        /// findings, the company is Amazon Web Services. </para>
+        /// findings, the company is Amazon Web Services. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>The unique identifier of a standard in which a control is enabled. This field consists
         /// of the resource portion of the Amazon Resource Name (ARN) returned for a standard
         /// in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a>
-        /// API response.</para>
+        /// API response.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The security control ID for which a finding was generated. Security control IDs are
-        /// the same across standards.</para>
+        /// the same across standards.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The result of a security check. This field is only used for findings generated from
-        /// controls. </para>
+        /// controls. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <code>100</code> means 100 percent confidence. For example, a data exfiltration detection
         /// based on a statistical deviation of network traffic has low confidence because an
         /// actual exfiltration hasn't been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a>
-        /// in the <i>Security Hub User Guide</i>. </para>
+        /// in the <i>Security Hub User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> A timestamp that indicates when this finding record was created. </para><para>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC
         /// 3339 section 5.6, Internet Date/Time Format</a>. The value cannot contain spaces.
-        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para>
+        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// that supports only full integers. A score of <code>0</code> means that the underlying
         /// resources have no criticality, and a score of <code>100</code> is reserved for the
         /// most critical resources. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality">Criticality</a>
-        /// in the <i>Security Hub User Guide</i>.</para>
+        /// in the <i>Security Hub User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_Description
         /// <summary>
         /// <para>
-        /// <para> A finding's description. </para>
+        /// <para> A finding's description. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para> A timestamp that indicates when the potential security issue captured by a finding
         /// was first observed by the security findings product. </para><para>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC
         /// 3339 section 5.6, Internet Date/Time Format</a>. The value cannot contain spaces.
-        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para>
+        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_GeneratorId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the solution-specific component that generated a finding. </para>
+        /// <para> The identifier for the solution-specific component that generated a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_Id
         /// <summary>
         /// <para>
-        /// <para> The product-specific identifier for a finding. </para>
+        /// <para> The product-specific identifier for a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para> A timestamp that indicates when the potential security issue captured by a finding
         /// was most recently observed by the security findings product. </para><para>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC
         /// 3339 section 5.6, Internet Date/Time Format</a>. The value cannot contain spaces.
-        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para>
+        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_NoteText
         /// <summary>
         /// <para>
-        /// <para> The text of a user-defined note that's added to a finding. </para>
+        /// <para> The text of a user-defined note that's added to a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para> The timestamp of when the note was updated. Uses the date-time format specified in
         /// <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6,
         /// Internet Date/Time Format</a>. The value cannot contain spaces. For example, <code>2020-03-22T13:22:13.933Z</code>.
-        /// </para>
+        /// </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_NoteUpdatedBy
         /// <summary>
         /// <para>
-        /// <para> The principal that created a note. </para>
+        /// <para> The principal that created a note. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) for a third-party product that generated a finding
-        /// in Security Hub. </para>
+        /// in Security Hub. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> Provides the name of the product that generated the finding. For control-based findings,
-        /// the product name is Security Hub. </para>
+        /// the product name is Security Hub. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_RecordState
         /// <summary>
         /// <para>
-        /// <para> Provides the current state of a finding. </para>
+        /// <para> Provides the current state of a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_RelatedFindingsId
         /// <summary>
         /// <para>
-        /// <para> The product-generated identifier for a related finding. </para>
+        /// <para> The product-generated identifier for a related finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_RelatedFindingsProductArn
         /// <summary>
         /// <para>
-        /// <para> The ARN for the product that generated a related finding. </para>
+        /// <para> The ARN for the product that generated a related finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_ResourceDetailsOther
         /// <summary>
         /// <para>
-        /// <para> Custom fields and values about the resource that a finding pertains to. </para>
+        /// <para> Custom fields and values about the resource that a finding pertains to. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// are identified by Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services
         /// resources that lack ARNs, this is the identifier as defined by the Amazon Web Service
         /// that created the resource. For non-Amazon Web Services resources, this is a unique
-        /// identifier that is associated with the resource. </para>
+        /// identifier that is associated with the resource. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> The partition in which the resource that the finding pertains to is located. A partition
         /// is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped
-        /// to one partition. </para>
+        /// to one partition. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The Amazon Web Services Region where the resource that a finding pertains to is located.
-        /// </para>
+        /// </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> A list of Amazon Web Services tags associated with a resource at the time the finding
-        /// was processed. </para>
+        /// was processed. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_ResourceType
         /// <summary>
         /// <para>
-        /// <para> The type of resource that the finding pertains to. </para>
+        /// <para> The type of resource that the finding pertains to. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,7 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_SeverityLabel
         /// <summary>
         /// <para>
-        /// <para> The severity value of the finding. </para>
+        /// <para> The severity value of the finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -461,7 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> Provides a URL that links to a page about the current finding in the finding product.
-        /// </para>
+        /// </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -482,7 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_Title
         /// <summary>
         /// <para>
-        /// <para> A finding's title. </para>
+        /// <para> A finding's title. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -494,7 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> One or more finding types in the format of namespace/category/classifier that classify
         /// a finding. For a list of namespaces, classifiers, and categories, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types
-        /// taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>. </para>
+        /// taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> A timestamp that indicates when the finding record was most recently updated. </para><para>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC
         /// 3339 section 5.6, Internet Date/Time Format</a>. The value cannot contain spaces.
-        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para>
+        /// For example, <code>2020-03-22T13:22:13.933Z</code>.</para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_UserDefinedField
         /// <summary>
         /// <para>
-        /// <para> A list of user-defined name and value string pairs added to a finding. </para>
+        /// <para> A list of user-defined name and value string pairs added to a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,7 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_VerificationState
         /// <summary>
         /// <para>
-        /// <para> Provides the veracity of a finding. </para>
+        /// <para> Provides the veracity of a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -537,7 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_WorkflowStatus
         /// <summary>
         /// <para>
-        /// <para> Provides information about the status of the investigation into a finding. </para>
+        /// <para> Provides information about the status of the investigation into a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
