@@ -28,8 +28,8 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Attaches an AWS managed or customer managed policy to the specified <a>PermissionSet</a>
-    /// as a permissions boundary.
+    /// Attaches an Amazon Web Services managed or customer managed policy to the specified
+    /// <a>PermissionSet</a> as a permissions boundary.
     /// </summary>
     [Cmdlet("Write", "SSOADMNPermissionsBoundaryToPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter PermissionsBoundary_ManagedPolicyArn
         /// <summary>
         /// <para>
-        /// <para>The AWS managed policy ARN that you want to attach to a permission set as a permissions
-        /// boundary.</para>
+        /// <para>The Amazon Web Services managed policy ARN that you want to attach to a permission
+        /// set as a permissions boundary.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

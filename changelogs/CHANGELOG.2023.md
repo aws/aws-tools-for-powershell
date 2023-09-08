@@ -1,4 +1,9 @@
-﻿### 4.1.410 (2023-09-08 00:20Z)
+﻿### 4.1.411 (2023-09-08 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.641.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJobV2: added parameter TimeSeriesForecastingJobConfig_HolidayConfig.
+
+### 4.1.410 (2023-09-08 00:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.640.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.409 (2023-09-06 21:15Z)

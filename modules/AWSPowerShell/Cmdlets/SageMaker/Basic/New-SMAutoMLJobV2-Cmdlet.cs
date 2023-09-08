@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>
     /// which offer backward compatibility.
     /// </para><para><code>CreateAutoMLJobV2</code> can manage tabular problem types identical to those
-    /// of its previous version <code>CreateAutoMLJob</code>, as well as non-tabular problem
-    /// types such as image or text classification.
+    /// of its previous version <code>CreateAutoMLJob</code>, as well as time-series forecasting,
+    /// and non-tabular problem types such as image or text classification.
     /// </para><para>
     /// Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
     /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
@@ -299,6 +299,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_TimeSeriesConfig_GroupingAttributeNames")]
         public System.String[] TimeSeriesConfig_GroupingAttributeName { get; set; }
+        #endregion
+        
+        #region Parameter TimeSeriesForecastingJobConfig_HolidayConfig
+        /// <summary>
+        /// <para>
+        /// <para>The collection of holiday featurization attributes used to incorporate national holiday
+        /// information into your forecasting model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_HolidayConfig")]
+        public Amazon.SageMaker.Model.HolidayConfigAttributes[] TimeSeriesForecastingJobConfig_HolidayConfig { get; set; }
         #endregion
         
         #region Parameter TimeSeriesConfig_ItemIdentifierAttributeName
@@ -821,6 +833,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.TimeSeriesForecastingJobConfig_ForecastQuantile = new List<System.String>(this.TimeSeriesForecastingJobConfig_ForecastQuantile);
             }
+            if (this.TimeSeriesForecastingJobConfig_HolidayConfig != null)
+            {
+                context.TimeSeriesForecastingJobConfig_HolidayConfig = new List<Amazon.SageMaker.Model.HolidayConfigAttributes>(this.TimeSeriesForecastingJobConfig_HolidayConfig);
+            }
             if (this.TimeSeriesConfig_GroupingAttributeName != null)
             {
                 context.TimeSeriesConfig_GroupingAttributeName = new List<System.String>(this.TimeSeriesConfig_GroupingAttributeName);
@@ -1063,6 +1079,151 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.AutoMLProblemTypeConfig.TextClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig;
                 requestAutoMLProblemTypeConfigIsNull = false;
             }
+            Amazon.SageMaker.Model.TabularJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
+            
+             // populate TabularJobConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = new Amazon.SageMaker.Model.TabularJobConfig();
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri = null;
+            if (cmdletContext.TabularJobConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri = cmdletContext.TabularJobConfig_FeatureSpecificationS3Uri;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.FeatureSpecificationS3Uri = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            System.Boolean? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly = null;
+            if (cmdletContext.TabularJobConfig_GenerateCandidateDefinitionsOnly != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly = cmdletContext.TabularJobConfig_GenerateCandidateDefinitionsOnly.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.GenerateCandidateDefinitionsOnly = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.AutoMLMode requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode = null;
+            if (cmdletContext.TabularJobConfig_Mode != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode = cmdletContext.TabularJobConfig_Mode;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.Mode = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.ProblemType requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType = null;
+            if (cmdletContext.TabularJobConfig_ProblemType != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType = cmdletContext.TabularJobConfig_ProblemType;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.ProblemType = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName = null;
+            if (cmdletContext.TabularJobConfig_SampleWeightAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName = cmdletContext.TabularJobConfig_SampleWeightAttributeName;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.SampleWeightAttributeName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName = null;
+            if (cmdletContext.TabularJobConfig_TargetAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName = cmdletContext.TabularJobConfig_TargetAttributeName;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.TargetAttributeName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.CandidateGenerationConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = null;
+            
+             // populate CandidateGenerationConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.CandidateGenerationConfig();
+            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = null;
+            if (cmdletContext.CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = cmdletContext.CandidateGenerationConfig_AlgorithmsConfig;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.CandidateGenerationConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = null;
+            
+             // populate CompletionCriteria
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = new Amazon.SageMaker.Model.AutoMLJobCompletionCriteria();
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond = null;
+            if (cmdletContext.CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond = cmdletContext.CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxAutoMLJobRuntimeInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate = null;
+            if (cmdletContext.CompletionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate = cmdletContext.CompletionCriteria_MaxCandidate.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxCandidates = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond = null;
+            if (cmdletContext.CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond = cmdletContext.CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxRuntimePerTrainingJobInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.CompletionCriteria = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig != null)
+            {
+                request.AutoMLProblemTypeConfig.TabularJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig;
+                requestAutoMLProblemTypeConfigIsNull = false;
+            }
             Amazon.SageMaker.Model.TimeSeriesForecastingJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig = null;
             
              // populate TimeSeriesForecastingJobConfig
@@ -1106,6 +1267,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_ForecastQuantile != null)
             {
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig.ForecastQuantiles = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_ForecastQuantile;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfigIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.HolidayConfigAttributes> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_HolidayConfig = null;
+            if (cmdletContext.TimeSeriesForecastingJobConfig_HolidayConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_HolidayConfig = cmdletContext.TimeSeriesForecastingJobConfig_HolidayConfig;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_HolidayConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig.HolidayConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_HolidayConfig;
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TimeSeriesTransformations requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_Transformations = null;
@@ -1251,151 +1422,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.TimeSeriesForecastingJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
-            }
-            Amazon.SageMaker.Model.TabularJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
-            
-             // populate TabularJobConfig
-            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = true;
-            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = new Amazon.SageMaker.Model.TabularJobConfig();
-            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri = null;
-            if (cmdletContext.TabularJobConfig_FeatureSpecificationS3Uri != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri = cmdletContext.TabularJobConfig_FeatureSpecificationS3Uri;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.FeatureSpecificationS3Uri = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_FeatureSpecificationS3Uri;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            System.Boolean? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly = null;
-            if (cmdletContext.TabularJobConfig_GenerateCandidateDefinitionsOnly != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly = cmdletContext.TabularJobConfig_GenerateCandidateDefinitionsOnly.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.GenerateCandidateDefinitionsOnly = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_GenerateCandidateDefinitionsOnly.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            Amazon.SageMaker.AutoMLMode requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode = null;
-            if (cmdletContext.TabularJobConfig_Mode != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode = cmdletContext.TabularJobConfig_Mode;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.Mode = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_Mode;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            Amazon.SageMaker.ProblemType requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType = null;
-            if (cmdletContext.TabularJobConfig_ProblemType != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType = cmdletContext.TabularJobConfig_ProblemType;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.ProblemType = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_ProblemType;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName = null;
-            if (cmdletContext.TabularJobConfig_SampleWeightAttributeName != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName = cmdletContext.TabularJobConfig_SampleWeightAttributeName;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.SampleWeightAttributeName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_SampleWeightAttributeName;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName = null;
-            if (cmdletContext.TabularJobConfig_TargetAttributeName != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName = cmdletContext.TabularJobConfig_TargetAttributeName;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.TargetAttributeName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_tabularJobConfig_TargetAttributeName;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            Amazon.SageMaker.Model.CandidateGenerationConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = null;
-            
-             // populate CandidateGenerationConfig
-            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = true;
-            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.CandidateGenerationConfig();
-            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = null;
-            if (cmdletContext.CandidateGenerationConfig_AlgorithmsConfig != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = cmdletContext.CandidateGenerationConfig_AlgorithmsConfig;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = false;
-            }
-             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig should be set to null
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = null;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.CandidateGenerationConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-            Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = null;
-            
-             // populate CompletionCriteria
-            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = true;
-            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = new Amazon.SageMaker.Model.AutoMLJobCompletionCriteria();
-            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond = null;
-            if (cmdletContext.CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond = cmdletContext.CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxAutoMLJobRuntimeInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
-            }
-            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate = null;
-            if (cmdletContext.CompletionCriteria_MaxCandidate != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate = cmdletContext.CompletionCriteria_MaxCandidate.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxCandidates = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxCandidate.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
-            }
-            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond = null;
-            if (cmdletContext.CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond = cmdletContext.CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria.MaxRuntimePerTrainingJobInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria_completionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull = false;
-            }
-             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria should be set to null
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteriaIsNull)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria = null;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig.CompletionCriteria = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CompletionCriteria;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull = false;
-            }
-             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig should be set to null
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfigIsNull)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig != null)
-            {
-                request.AutoMLProblemTypeConfig.TabularJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig;
                 requestAutoMLProblemTypeConfigIsNull = false;
             }
              // determine if request.AutoMLProblemTypeConfig should be set to null
@@ -1641,6 +1667,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String TimeSeriesForecastingJobConfig_ForecastFrequency { get; set; }
             public System.Int32? TimeSeriesForecastingJobConfig_ForecastHorizon { get; set; }
             public List<System.String> TimeSeriesForecastingJobConfig_ForecastQuantile { get; set; }
+            public List<Amazon.SageMaker.Model.HolidayConfigAttributes> TimeSeriesForecastingJobConfig_HolidayConfig { get; set; }
             public List<System.String> TimeSeriesConfig_GroupingAttributeName { get; set; }
             public System.String TimeSeriesConfig_ItemIdentifierAttributeName { get; set; }
             public System.String TimeSeriesConfig_TargetAttributeName { get; set; }

@@ -28,7 +28,8 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Detaches the attached AWS managed policy ARN from the specified permission set.
+    /// Detaches the attached Amazon Web Services managed policy ARN from the specified permission
+    /// set.
     /// </summary>
     [Cmdlet("Dismount", "SSOADMNManagedPolicyFromPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.
         /// For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter ManagedPolicyArn
         /// <summary>
         /// <para>
-        /// <para>The AWS managed policy ARN to be detached from a permission set.</para>
+        /// <para>The Amazon Web Services managed policy ARN to be detached from a permission set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

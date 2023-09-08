@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.
         /// For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

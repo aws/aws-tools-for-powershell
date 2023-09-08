@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>(Optional) For FSx for Lustre file systems, sets the Lustre version for the file system
-        /// that you're creating. Valid values are <code>2.10</code>, <code>2.12</code>m and <code>2.15</code>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code> or <code>2.15</code>
+        /// that you're creating. Valid values are <code>2.10</code>, <code>2.12</code>, and <code>2.15</code>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code> or <code>2.15</code>
         /// is required when setting FSx for Lustre <code>DeploymentType</code> to <code>PERSISTENT_2</code>.</para></li></ul><para>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set
         /// to <code>PERSISTENT_2</code>, then the default is <code>2.12</code>.</para><note><para>If you set <code>FileSystemTypeVersion</code> to <code>2.10</code> for a <code>PERSISTENT_2</code>
         /// Lustre deployment type, the <code>CreateFileSystem</code> operation fails.</para></note>
@@ -626,7 +626,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter WindowsConfiguration
         /// <summary>
         /// <para>
-        /// <para>The Microsoft Windows configuration for the file system that's being created. </para>
+        /// <para>The Microsoft Windows configuration for the file system that's being created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

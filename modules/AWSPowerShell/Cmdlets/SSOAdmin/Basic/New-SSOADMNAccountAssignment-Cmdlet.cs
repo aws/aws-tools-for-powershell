@@ -28,8 +28,8 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Assigns access to a principal for a specified AWS account using a specified permission
-    /// set.
+    /// Assigns access to a principal for a specified Amazon Web Services account using a
+    /// specified permission set.
     /// 
     ///  <note><para>
     /// The term <i>principal</i> here refers to a user or group that is defined in IAM Identity
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>The ARN of the IAM Identity Center instance under which the operation will be executed.
         /// For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter TargetId
         /// <summary>
         /// <para>
-        /// <para>TargetID is an AWS account identifier, typically a 10-12 digit string (For example,
-        /// 123456789012).</para>
+        /// <para>TargetID is an Amazon Web Services account identifier, (For example, 123456789012).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
