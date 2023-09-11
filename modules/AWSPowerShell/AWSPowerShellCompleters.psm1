@@ -38516,6 +38516,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.InputDeviceCodec
+        {
+            ($_ -eq "Update-EMLInputDevice/HdDeviceSettings_Codec") -Or
+            ($_ -eq "Update-EMLInputDevice/UhdDeviceSettings_Codec")
+        }
+        {
+            $v = "AVC","HEVC"
+            break
+        }
+
         # Amazon.MediaLive.InputDeviceConfiguredInput
         {
             ($_ -eq "Update-EMLInputDevice/HdDeviceSettings_ConfiguredInput") -Or
@@ -38613,6 +38623,7 @@ $EML_map = @{
     "CdiInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
     "Force"=@("Restart-EMLInputDevice")
+    "HdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
@@ -38622,6 +38633,7 @@ $EML_map = @{
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Type"=@("New-EMLInput")
+    "UhdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
 }
 
@@ -38723,9 +38735,11 @@ $EML_SelectMap = @{
                "Restart-EMLInputDevice",
                "Deny-EMLInputDeviceTransfer",
                "Start-EMLChannel",
+               "Start-EMLInputDevice",
                "Start-EMLInputDeviceMaintenanceWindow",
                "Start-EMLMultiplex",
                "Stop-EMLChannel",
+               "Stop-EMLInputDevice",
                "Stop-EMLMultiplex",
                "Move-EMLInputDevice",
                "Update-EMLAccountConfiguration",

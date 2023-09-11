@@ -213,6 +213,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartInputDevice" Verb="Start" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartInputDeviceMaintenanceWindow" Verb="Start" Noun="InputDeviceMaintenanceWindow" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -222,6 +226,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopChannel" OutputProperty="*" Verb="Stop" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInputDevice" Verb="Stop" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -250,7 +258,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInputDevice" OutputProperty="*" Verb="Update" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="HdDeviceSettings_MediaconnectSettings_FlowArn" NewName="HdDeviceSettings_MediaconnectSettings_FlowArn" />
+                <Param Name="HdDeviceSettings_MediaconnectSettings_RoleArn" NewName="HdDeviceSettings_MediaconnectSettings_RoleArn" />
+                <Param Name="HdDeviceSettings_MediaconnectSettings_SecretArn" NewName="HdDeviceSettings_MediaconnectSettings_SecretArn" />
+                <Param Name="HdDeviceSettings_MediaconnectSettings_SourceName" NewName="HdDeviceSettings_MediaconnectSettings_SourceName" />
+                <Param Name="UhdDeviceSettings_MediaconnectSettings_FlowArn" NewName="UhdDeviceSettings_MediaconnectSettings_FlowArn" />
+                <Param Name="UhdDeviceSettings_MediaconnectSettings_RoleArn" NewName="UhdDeviceSettings_MediaconnectSettings_RoleArn" />
+                <Param Name="UhdDeviceSettings_MediaconnectSettings_SecretArn" NewName="UhdDeviceSettings_MediaconnectSettings_SecretArn" />
+                <Param Name="UhdDeviceSettings_MediaconnectSettings_SourceName" NewName="UhdDeviceSettings_MediaconnectSettings_SourceName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInputSecurityGroup" OutputProperty="SecurityGroup" Verb="Update" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">

@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.641.0",
+    "ProductVersion" : "3.7.642.0",
     "CoreVersion"    : "3.7.202.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -490,7 +490,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.200.36",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.5"
@@ -874,7 +874,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "3.7.203.2",
+            "Version" : "3.7.204.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.5"
@@ -1226,7 +1226,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.203.11",
+            "Version" : "3.7.204.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.5"

@@ -1,4 +1,11 @@
-﻿### 4.1.411 (2023-09-08 21:27Z)
+﻿### 4.1.412 (2023-09-11 21:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.642.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Start-EMLInputDevice leveraging the StartInputDevice service API.
+    * Added cmdlet Stop-EMLInputDevice leveraging the StopInputDevice service API.
+    * Modified cmdlet Update-EMLInputDevice: added parameters HdDeviceSettings_Codec, HdDeviceSettings_MediaconnectSettings_FlowArn, HdDeviceSettings_MediaconnectSettings_RoleArn, HdDeviceSettings_MediaconnectSettings_SecretArn, HdDeviceSettings_MediaconnectSettings_SourceName, UhdDeviceSettings_Codec, UhdDeviceSettings_MediaconnectSettings_FlowArn, UhdDeviceSettings_MediaconnectSettings_RoleArn, UhdDeviceSettings_MediaconnectSettings_SecretArn and UhdDeviceSettings_MediaconnectSettings_SourceName.
+
+### 4.1.411 (2023-09-08 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.641.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMAutoMLJobV2: added parameter TimeSeriesForecastingJobConfig_HolidayConfig.

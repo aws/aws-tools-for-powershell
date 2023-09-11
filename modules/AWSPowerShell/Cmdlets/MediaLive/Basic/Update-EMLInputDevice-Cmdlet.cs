@@ -50,6 +50,30 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter HdDeviceSettings_Codec
+        /// <summary>
+        /// <para>
+        /// Choose the codec for the video that the device produces.
+        /// Only UHD devices can specify this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.InputDeviceCodec")]
+        public Amazon.MediaLive.InputDeviceCodec HdDeviceSettings_Codec { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_Codec
+        /// <summary>
+        /// <para>
+        /// Choose the codec for the video that the device produces.
+        /// Only UHD devices can specify this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.InputDeviceCodec")]
+        public Amazon.MediaLive.InputDeviceCodec UhdDeviceSettings_Codec { get; set; }
+        #endregion
+        
         #region Parameter HdDeviceSettings_ConfiguredInput
         /// <summary>
         /// <para>
@@ -76,6 +100,28 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaLive.InputDeviceConfiguredInput")]
         public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
+        #endregion
+        
+        #region Parameter HdDeviceSettings_MediaconnectSettings_FlowArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the MediaConnect flow to attach this
+        /// device to.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HdDeviceSettings_MediaconnectSettings_FlowArn { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_MediaconnectSettings_FlowArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the MediaConnect flow to attach this
+        /// device to.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UhdDeviceSettings_MediaconnectSettings_FlowArn { get; set; }
         #endregion
         
         #region Parameter InputDeviceId
@@ -151,6 +197,74 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter HdDeviceSettings_MediaconnectSettings_RoleArn
+        /// <summary>
+        /// <para>
+        /// The ARN for the role that MediaLive assumes to
+        /// access the attached flow and secret. For more information about how to create this
+        /// role, see the MediaLive user guide.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HdDeviceSettings_MediaconnectSettings_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_MediaconnectSettings_RoleArn
+        /// <summary>
+        /// <para>
+        /// The ARN for the role that MediaLive assumes to
+        /// access the attached flow and secret. For more information about how to create this
+        /// role, see the MediaLive user guide.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UhdDeviceSettings_MediaconnectSettings_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter HdDeviceSettings_MediaconnectSettings_SecretArn
+        /// <summary>
+        /// <para>
+        /// The ARN for the secret that holds the encryption
+        /// key to encrypt the content output by the device.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HdDeviceSettings_MediaconnectSettings_SecretArn { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_MediaconnectSettings_SecretArn
+        /// <summary>
+        /// <para>
+        /// The ARN for the secret that holds the encryption
+        /// key to encrypt the content output by the device.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UhdDeviceSettings_MediaconnectSettings_SecretArn { get; set; }
+        #endregion
+        
+        #region Parameter HdDeviceSettings_MediaconnectSettings_SourceName
+        /// <summary>
+        /// <para>
+        /// The name of the MediaConnect Flow source to
+        /// stream to.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HdDeviceSettings_MediaconnectSettings_SourceName { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_MediaconnectSettings_SourceName
+        /// <summary>
+        /// <para>
+        /// The name of the MediaConnect Flow source to
+        /// stream to.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UhdDeviceSettings_MediaconnectSettings_SourceName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -214,9 +328,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AvailabilityZone = this.AvailabilityZone;
+            context.HdDeviceSettings_Codec = this.HdDeviceSettings_Codec;
             context.HdDeviceSettings_ConfiguredInput = this.HdDeviceSettings_ConfiguredInput;
             context.HdDeviceSettings_LatencyMs = this.HdDeviceSettings_LatencyMs;
             context.HdDeviceSettings_MaxBitrate = this.HdDeviceSettings_MaxBitrate;
+            context.HdDeviceSettings_MediaconnectSettings_FlowArn = this.HdDeviceSettings_MediaconnectSettings_FlowArn;
+            context.HdDeviceSettings_MediaconnectSettings_RoleArn = this.HdDeviceSettings_MediaconnectSettings_RoleArn;
+            context.HdDeviceSettings_MediaconnectSettings_SecretArn = this.HdDeviceSettings_MediaconnectSettings_SecretArn;
+            context.HdDeviceSettings_MediaconnectSettings_SourceName = this.HdDeviceSettings_MediaconnectSettings_SourceName;
             context.InputDeviceId = this.InputDeviceId;
             #if MODULAR
             if (this.InputDeviceId == null && ParameterWasBound(nameof(this.InputDeviceId)))
@@ -225,9 +344,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #endif
             context.Name = this.Name;
+            context.UhdDeviceSettings_Codec = this.UhdDeviceSettings_Codec;
             context.UhdDeviceSettings_ConfiguredInput = this.UhdDeviceSettings_ConfiguredInput;
             context.UhdDeviceSettings_LatencyMs = this.UhdDeviceSettings_LatencyMs;
             context.UhdDeviceSettings_MaxBitrate = this.UhdDeviceSettings_MaxBitrate;
+            context.UhdDeviceSettings_MediaconnectSettings_FlowArn = this.UhdDeviceSettings_MediaconnectSettings_FlowArn;
+            context.UhdDeviceSettings_MediaconnectSettings_RoleArn = this.UhdDeviceSettings_MediaconnectSettings_RoleArn;
+            context.UhdDeviceSettings_MediaconnectSettings_SecretArn = this.UhdDeviceSettings_MediaconnectSettings_SecretArn;
+            context.UhdDeviceSettings_MediaconnectSettings_SourceName = this.UhdDeviceSettings_MediaconnectSettings_SourceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -252,6 +376,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
              // populate HdDeviceSettings
             var requestHdDeviceSettingsIsNull = true;
             request.HdDeviceSettings = new Amazon.MediaLive.Model.InputDeviceConfigurableSettings();
+            Amazon.MediaLive.InputDeviceCodec requestHdDeviceSettings_hdDeviceSettings_Codec = null;
+            if (cmdletContext.HdDeviceSettings_Codec != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_Codec = cmdletContext.HdDeviceSettings_Codec;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_Codec != null)
+            {
+                request.HdDeviceSettings.Codec = requestHdDeviceSettings_hdDeviceSettings_Codec;
+                requestHdDeviceSettingsIsNull = false;
+            }
             Amazon.MediaLive.InputDeviceConfiguredInput requestHdDeviceSettings_hdDeviceSettings_ConfiguredInput = null;
             if (cmdletContext.HdDeviceSettings_ConfiguredInput != null)
             {
@@ -282,6 +416,61 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 request.HdDeviceSettings.MaxBitrate = requestHdDeviceSettings_hdDeviceSettings_MaxBitrate.Value;
                 requestHdDeviceSettingsIsNull = false;
             }
+            Amazon.MediaLive.Model.InputDeviceMediaConnectConfigurableSettings requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings = null;
+            
+             // populate MediaconnectSettings
+            var requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettingsIsNull = true;
+            requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings = new Amazon.MediaLive.Model.InputDeviceMediaConnectConfigurableSettings();
+            System.String requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_FlowArn = null;
+            if (cmdletContext.HdDeviceSettings_MediaconnectSettings_FlowArn != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_FlowArn = cmdletContext.HdDeviceSettings_MediaconnectSettings_FlowArn;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_FlowArn != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings.FlowArn = requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_FlowArn;
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+            System.String requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_RoleArn = null;
+            if (cmdletContext.HdDeviceSettings_MediaconnectSettings_RoleArn != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_RoleArn = cmdletContext.HdDeviceSettings_MediaconnectSettings_RoleArn;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_RoleArn != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings.RoleArn = requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_RoleArn;
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+            System.String requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SecretArn = null;
+            if (cmdletContext.HdDeviceSettings_MediaconnectSettings_SecretArn != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SecretArn = cmdletContext.HdDeviceSettings_MediaconnectSettings_SecretArn;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SecretArn != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings.SecretArn = requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SecretArn;
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+            System.String requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SourceName = null;
+            if (cmdletContext.HdDeviceSettings_MediaconnectSettings_SourceName != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SourceName = cmdletContext.HdDeviceSettings_MediaconnectSettings_SourceName;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SourceName != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings.SourceName = requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings_hdDeviceSettings_MediaconnectSettings_SourceName;
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+             // determine if requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings should be set to null
+            if (requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettingsIsNull)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings = null;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings != null)
+            {
+                request.HdDeviceSettings.MediaconnectSettings = requestHdDeviceSettings_hdDeviceSettings_MediaconnectSettings;
+                requestHdDeviceSettingsIsNull = false;
+            }
              // determine if request.HdDeviceSettings should be set to null
             if (requestHdDeviceSettingsIsNull)
             {
@@ -299,6 +488,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
              // populate UhdDeviceSettings
             var requestUhdDeviceSettingsIsNull = true;
             request.UhdDeviceSettings = new Amazon.MediaLive.Model.InputDeviceConfigurableSettings();
+            Amazon.MediaLive.InputDeviceCodec requestUhdDeviceSettings_uhdDeviceSettings_Codec = null;
+            if (cmdletContext.UhdDeviceSettings_Codec != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_Codec = cmdletContext.UhdDeviceSettings_Codec;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_Codec != null)
+            {
+                request.UhdDeviceSettings.Codec = requestUhdDeviceSettings_uhdDeviceSettings_Codec;
+                requestUhdDeviceSettingsIsNull = false;
+            }
             Amazon.MediaLive.InputDeviceConfiguredInput requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput = null;
             if (cmdletContext.UhdDeviceSettings_ConfiguredInput != null)
             {
@@ -327,6 +526,61 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate != null)
             {
                 request.UhdDeviceSettings.MaxBitrate = requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate.Value;
+                requestUhdDeviceSettingsIsNull = false;
+            }
+            Amazon.MediaLive.Model.InputDeviceMediaConnectConfigurableSettings requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings = null;
+            
+             // populate MediaconnectSettings
+            var requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettingsIsNull = true;
+            requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings = new Amazon.MediaLive.Model.InputDeviceMediaConnectConfigurableSettings();
+            System.String requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_FlowArn = null;
+            if (cmdletContext.UhdDeviceSettings_MediaconnectSettings_FlowArn != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_FlowArn = cmdletContext.UhdDeviceSettings_MediaconnectSettings_FlowArn;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_FlowArn != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings.FlowArn = requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_FlowArn;
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+            System.String requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_RoleArn = null;
+            if (cmdletContext.UhdDeviceSettings_MediaconnectSettings_RoleArn != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_RoleArn = cmdletContext.UhdDeviceSettings_MediaconnectSettings_RoleArn;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_RoleArn != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings.RoleArn = requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_RoleArn;
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+            System.String requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SecretArn = null;
+            if (cmdletContext.UhdDeviceSettings_MediaconnectSettings_SecretArn != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SecretArn = cmdletContext.UhdDeviceSettings_MediaconnectSettings_SecretArn;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SecretArn != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings.SecretArn = requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SecretArn;
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+            System.String requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SourceName = null;
+            if (cmdletContext.UhdDeviceSettings_MediaconnectSettings_SourceName != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SourceName = cmdletContext.UhdDeviceSettings_MediaconnectSettings_SourceName;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SourceName != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings.SourceName = requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings_uhdDeviceSettings_MediaconnectSettings_SourceName;
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettingsIsNull = false;
+            }
+             // determine if requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings should be set to null
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettingsIsNull)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings = null;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings != null)
+            {
+                request.UhdDeviceSettings.MediaconnectSettings = requestUhdDeviceSettings_uhdDeviceSettings_MediaconnectSettings;
                 requestUhdDeviceSettingsIsNull = false;
             }
              // determine if request.UhdDeviceSettings should be set to null
@@ -396,14 +650,24 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public Amazon.MediaLive.InputDeviceCodec HdDeviceSettings_Codec { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput HdDeviceSettings_ConfiguredInput { get; set; }
             public System.Int32? HdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? HdDeviceSettings_MaxBitrate { get; set; }
+            public System.String HdDeviceSettings_MediaconnectSettings_FlowArn { get; set; }
+            public System.String HdDeviceSettings_MediaconnectSettings_RoleArn { get; set; }
+            public System.String HdDeviceSettings_MediaconnectSettings_SecretArn { get; set; }
+            public System.String HdDeviceSettings_MediaconnectSettings_SourceName { get; set; }
             public System.String InputDeviceId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.MediaLive.InputDeviceCodec UhdDeviceSettings_Codec { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
             public System.Int32? UhdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? UhdDeviceSettings_MaxBitrate { get; set; }
+            public System.String UhdDeviceSettings_MediaconnectSettings_FlowArn { get; set; }
+            public System.String UhdDeviceSettings_MediaconnectSettings_RoleArn { get; set; }
+            public System.String UhdDeviceSettings_MediaconnectSettings_SecretArn { get; set; }
+            public System.String UhdDeviceSettings_MediaconnectSettings_SourceName { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateInputDeviceResponse, UpdateEMLInputDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
