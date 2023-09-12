@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class NewEVBConnectionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApiKeyAuthParameters_ApiKeyName
         /// <summary>
         /// <para>

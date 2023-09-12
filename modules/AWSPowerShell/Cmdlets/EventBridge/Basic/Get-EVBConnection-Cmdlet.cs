@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class GetEVBConnectionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

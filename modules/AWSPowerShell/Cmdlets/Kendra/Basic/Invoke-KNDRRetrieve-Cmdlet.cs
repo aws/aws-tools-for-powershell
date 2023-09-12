@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// passages of up to 200 token words and up to 100 semantically relevant passages. This
     /// doesn't include question-answer or FAQ type responses from your index. The passages
     /// are text excerpts that can be semantically extracted from multiple documents and multiple
-    /// parts of the same document. If in extreme cases your documents produce no relevant
-    /// passages using the <code>Retrieve</code> API, you can alternatively use the <code>Query</code>
-    /// API.
+    /// parts of the same document. If in extreme cases your documents produce zero passages
+    /// using the <code>Retrieve</code> API, you can alternatively use the <code>Query</code>
+    /// API and its types of responses.
     /// </para><para>
     /// You can also do the following:
     /// </para><ul><li><para>
@@ -52,6 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// </para></li></ul><para>
     /// You can also include certain fields in the response that might provide useful additional
     /// information.
+    /// </para><para>
+    /// The <code>Retrieve</code> API shares the number of <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html">query
+    /// capacity units</a> that you set for your index. For more information on what's included
+    /// in a single capacity unit and the default base capacity for an index, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
+    /// capacity</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KNDRRetrieve", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

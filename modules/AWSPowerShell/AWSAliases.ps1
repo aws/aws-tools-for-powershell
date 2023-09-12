@@ -8491,6 +8491,7 @@ Set-Alias -Name EC2-DisableEbsEncryptionByDefault -Value Disable-EC2EbsEncryptio
 Set-Alias -Name EC2-DisableFastLaunch -Value Disable-EC2FastLaunch
 Set-Alias -Name Disable-EC2FastSnapshotRestores -Value Disable-EC2FastSnapshotRestore
 Set-Alias -Name EC2-DisableFastSnapshotRestores -Value Disable-EC2FastSnapshotRestore
+Set-Alias -Name EC2-DisableImageBlockPublicAccess -Value Disable-EC2ImageBlockPublicAccess
 Set-Alias -Name EC2-DisableImageDeprecation -Value Disable-EC2ImageDeprecation
 Set-Alias -Name EC2-DisableIpamOrganizationAdminAccount -Value Disable-EC2IpamOrganizationAdminAccount
 Set-Alias -Name EC2-DisableSerialConsoleAccess -Value Disable-EC2SerialConsoleAccess
@@ -8532,6 +8533,7 @@ Set-Alias -Name EC2-EnableEbsEncryptionByDefault -Value Enable-EC2EbsEncryptionB
 Set-Alias -Name EC2-EnableFastLaunch -Value Enable-EC2FastLaunch
 Set-Alias -Name Enable-EC2FastSnapshotRestores -Value Enable-EC2FastSnapshotRestore
 Set-Alias -Name EC2-EnableFastSnapshotRestores -Value Enable-EC2FastSnapshotRestore
+Set-Alias -Name EC2-EnableImageBlockPublicAccess -Value Enable-EC2ImageBlockPublicAccess
 Set-Alias -Name EC2-EnableImageDeprecation -Value Enable-EC2ImageDeprecation
 Set-Alias -Name EC2-EnableIpamOrganizationAdminAccount -Value Enable-EC2IpamOrganizationAdminAccount
 Set-Alias -Name EC2-EnableReachabilityAnalyzerOrganizationSharing -Value Enable-EC2ReachabilityAnalyzerOrganizationSharing
@@ -8561,6 +8563,7 @@ Set-Alias -Name EC2-GetEbsEncryptionByDefault -Value Get-EC2EbsEncryptionByDefau
 Set-Alias -Name EC2-GetFlowLogsIntegrationTemplate -Value Get-EC2FlowLogsIntegrationTemplate
 Set-Alias -Name EC2-GetGroupsForCapacityReservation -Value Get-EC2GroupsForCapacityReservation
 Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservationPurchasePreview
+Set-Alias -Name EC2-GetImageBlockPublicAccessState -Value Get-EC2ImageBlockPublicAccessState
 Set-Alias -Name Get-EC2InstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceUefiData -Value Get-EC2InstanceUefiData

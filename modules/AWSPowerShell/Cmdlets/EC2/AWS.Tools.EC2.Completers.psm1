@@ -515,6 +515,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ImageBlockPublicAccessEnabledState
+        "Enable-EC2ImageBlockPublicAccess/ImageBlockPublicAccessState"
+        {
+            $v = "block-new-sharing"
+            break
+        }
+
         # Amazon.EC2.ImdsSupportValues
         "Register-EC2Image/ImdsSupport"
         {
@@ -1138,6 +1145,7 @@ $EC2_map = @{
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
     "HttpTokens"=@("Edit-EC2InstanceMetadataOption")
+    "ImageBlockPublicAccessState"=@("Enable-EC2ImageBlockPublicAccess")
     "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
@@ -1656,6 +1664,7 @@ $EC2_SelectMap = @{
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
+               "Disable-EC2ImageBlockPublicAccess",
                "Disable-EC2ImageDeprecation",
                "Disable-EC2IpamOrganizationAdminAccount",
                "Disable-EC2SerialConsoleAccess",
@@ -1682,6 +1691,7 @@ $EC2_SelectMap = @{
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
+               "Enable-EC2ImageBlockPublicAccess",
                "Enable-EC2ImageDeprecation",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
@@ -1708,6 +1718,7 @@ $EC2_SelectMap = @{
                "Get-EC2FlowLogsIntegrationTemplate",
                "Get-EC2GroupsForCapacityReservation",
                "Get-EC2HostReservationPurchasePreview",
+               "Get-EC2ImageBlockPublicAccessState",
                "Get-EC2InstanceTypesFromInstanceRequirement",
                "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",

@@ -22,85 +22,73 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kendra;
-using Amazon.Kendra.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KNDR
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes an Amazon Kendra data source connector. An exception is not thrown if the
-    /// data source is already being deleted. While the data source is being deleted, the
-    /// <code>Status</code> field returned by a call to the <code>DescribeDataSource</code>
-    /// API is set to <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting
-    /// Data Sources</a>.
+    /// Enables <i>block public access for AMIs</i> at the account level in the specified
+    /// Amazon Web Services Region. This prevents the public sharing of your AMIs. However,
+    /// if you already have public AMIs, they will remain publicly available.
     /// 
     ///  
     /// <para>
-    /// Deleting an entire data source or re-syncing your index after deleting specific documents
-    /// from a data source could take up to an hour or more, depending on the number of documents
-    /// you want to delete.
+    /// The API can take up to 10 minutes to configure this setting. During this time, if
+    /// you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>,
+    /// the response will be <code>unblocked</code>. When the API has completed the configuration,
+    /// the response will be <code>block-new-sharing</code>.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block
+    /// public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "KNDRDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kendra DeleteDataSource API operation.", Operation = new[] {"DeleteDataSource"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteDataSourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteDataSourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteDataSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Enable", "EC2ImageBlockPublicAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.ImageBlockPublicAccessEnabledState")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableImageBlockPublicAccess API operation.", Operation = new[] {"EnableImageBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageBlockPublicAccessResponse))]
+    [AWSCmdletOutput("Amazon.EC2.ImageBlockPublicAccessEnabledState or Amazon.EC2.Model.EnableImageBlockPublicAccessResponse",
+        "This cmdlet returns an Amazon.EC2.ImageBlockPublicAccessEnabledState object.",
+        "The service call response (type Amazon.EC2.Model.EnableImageBlockPublicAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveKNDRDataSourceCmdlet : AmazonKendraClientCmdlet, IExecutor
+    public partial class EnableEC2ImageBlockPublicAccessCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter ImageBlockPublicAccessState
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source connector you want to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter IndexId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the index used with the data source connector.</para>
+        /// <para>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the
+        /// account level in the specified Region. This will block any attempt to publicly share
+        /// your AMIs in the specified Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IndexId { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.ImageBlockPublicAccessEnabledState")]
+        public Amazon.EC2.ImageBlockPublicAccessEnabledState ImageBlockPublicAccessState { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kendra.Model.DeleteDataSourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ImageBlockPublicAccessState'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.EnableImageBlockPublicAccessResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.EnableImageBlockPublicAccessResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ImageBlockPublicAccessState";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the IndexId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImageBlockPublicAccessState parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImageBlockPublicAccessState' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IndexId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageBlockPublicAccessState' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KNDRDataSource (DeleteDataSource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImageBlockPublicAccessState), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2ImageBlockPublicAccess (EnableImageBlockPublicAccess)"))
             {
                 return;
             }
@@ -134,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kendra.Model.DeleteDataSourceResponse, RemoveKNDRDataSourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableImageBlockPublicAccessResponse, EnableEC2ImageBlockPublicAccessCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,21 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.IndexId;
+                context.Select = (response, cmdlet) => this.ImageBlockPublicAccessState;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.ImageBlockPublicAccessState = this.ImageBlockPublicAccessState;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.ImageBlockPublicAccessState == null && ParameterWasBound(nameof(this.ImageBlockPublicAccessState)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.IndexId = this.IndexId;
-            #if MODULAR
-            if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImageBlockPublicAccessState which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -174,15 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kendra.Model.DeleteDataSourceRequest();
+            var request = new Amazon.EC2.Model.EnableImageBlockPublicAccessRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ImageBlockPublicAccessState != null)
             {
-                request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.IndexId != null)
-            {
-                request.IndexId = cmdletContext.IndexId;
+                request.ImageBlockPublicAccessState = cmdletContext.ImageBlockPublicAccessState;
             }
             
             CmdletOutput output;
@@ -217,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Kendra.Model.DeleteDataSourceResponse CallAWSServiceOperation(IAmazonKendra client, Amazon.Kendra.Model.DeleteDataSourceRequest request)
+        private Amazon.EC2.Model.EnableImageBlockPublicAccessResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableImageBlockPublicAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra", "DeleteDataSource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableImageBlockPublicAccess");
             try
             {
                 #if DESKTOP
-                return client.DeleteDataSource(request);
+                return client.EnableImageBlockPublicAccess(request);
                 #elif CORECLR
-                return client.DeleteDataSourceAsync(request).GetAwaiter().GetResult();
+                return client.EnableImageBlockPublicAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,10 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.String IndexId { get; set; }
-            public System.Func<Amazon.Kendra.Model.DeleteDataSourceResponse, RemoveKNDRDataSourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public Amazon.EC2.ImageBlockPublicAccessEnabledState ImageBlockPublicAccessState { get; set; }
+            public System.Func<Amazon.EC2.Model.EnableImageBlockPublicAccessResponse, EnableEC2ImageBlockPublicAccessCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ImageBlockPublicAccessState;
         }
         
     }

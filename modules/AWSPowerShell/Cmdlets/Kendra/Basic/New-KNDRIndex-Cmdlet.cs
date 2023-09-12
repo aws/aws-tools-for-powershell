@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// 
     ///  
     /// <para>
-    /// Once the index is active you can index your documents using the <code>BatchPutDocument</code>
-    /// API or using one of the supported data sources.
+    /// Once the index is active, you can index your documents using the <code>BatchPutDocument</code>
+    /// API or using one of the supported <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html">data
+    /// sources</a>.
     /// </para><para>
     /// For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
     /// started with Python SDK</a>. For an example of creating an index and data source using

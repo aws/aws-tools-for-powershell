@@ -1,4 +1,11 @@
-﻿### 4.1.412 (2023-09-11 21:03Z)
+﻿### 4.1.413 (2023-09-12 21:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.643.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2ImageBlockPublicAccess leveraging the DisableImageBlockPublicAccess service API.
+    * Added cmdlet Enable-EC2ImageBlockPublicAccess leveraging the EnableImageBlockPublicAccess service API.
+    * Added cmdlet Get-EC2ImageBlockPublicAccessState leveraging the GetImageBlockPublicAccessState service API.
+
+### 4.1.412 (2023-09-11 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.642.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaLive
     * Added cmdlet Start-EMLInputDevice leveraging the StartInputDevice service API.
