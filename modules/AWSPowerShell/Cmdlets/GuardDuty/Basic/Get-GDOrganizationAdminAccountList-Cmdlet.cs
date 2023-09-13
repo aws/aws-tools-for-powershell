@@ -28,7 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Lists the accounts configured as GuardDuty delegated administrators.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the accounts configured as GuardDuty delegated administrators. Only the organization's
+    /// management account can run this API operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GDOrganizationAdminAccountList")]
     [OutputType("Amazon.GuardDuty.Model.AdminAccount")]

@@ -28,8 +28,9 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Enables an Amazon Web Services account within the organization as the GuardDuty delegated
-    /// administrator.
+    /// Designates an Amazon Web Services account within the organization as your GuardDuty
+    /// delegated administrator. Only the organization's management account can run this API
+    /// operation.
     /// </summary>
     [Cmdlet("Enable", "GDOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

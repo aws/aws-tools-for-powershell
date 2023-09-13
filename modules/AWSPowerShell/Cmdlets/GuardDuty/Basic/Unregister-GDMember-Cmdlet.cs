@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// </para><para>
     /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
     /// set to <code>ALL</code>, you'll receive an error if you attempt to disassociate a
-    /// member account before removing them from your Amazon Web Services organization.
+    /// member account before removing them from your organization.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -7278,6 +7278,8 @@ Set-Alias -Name Create-EDRSSourceNetwork -Value New-EDRSSourceNetwork
 Set-Alias -Name EDRS-CreateSourceNetwork -Value New-EDRSSourceNetwork
 Set-Alias -Name Delete-EDRSJob -Value Remove-EDRSJob
 Set-Alias -Name EDRS-DeleteJob -Value Remove-EDRSJob
+Set-Alias -Name Delete-EDRSLaunchAction -Value Remove-EDRSLaunchAction
+Set-Alias -Name EDRS-DeleteLaunchAction -Value Remove-EDRSLaunchAction
 Set-Alias -Name Delete-EDRSLaunchConfigurationTemplate -Value Remove-EDRSLaunchConfigurationTemplate
 Set-Alias -Name EDRS-DeleteLaunchConfigurationTemplate -Value Remove-EDRSLaunchConfigurationTemplate
 Set-Alias -Name Delete-EDRSRecoveryInstance -Value Remove-EDRSRecoveryInstance
@@ -7322,10 +7324,15 @@ Set-Alias -Name EDRS-InitializeService -Value Initialize-EDRSService
 Set-Alias -Name List-EDRSExtensibleSourceServers -Value Get-EDRSExtensibleSourceServerList
 Set-Alias -Name List-EDRSExtensibleSourceServerList -Value Get-EDRSExtensibleSourceServerList
 Set-Alias -Name EDRS-ListExtensibleSourceServers -Value Get-EDRSExtensibleSourceServerList
+Set-Alias -Name List-EDRSLaunchActions -Value Get-EDRSLaunchActionList
+Set-Alias -Name List-EDRSLaunchActionList -Value Get-EDRSLaunchActionList
+Set-Alias -Name EDRS-ListLaunchActions -Value Get-EDRSLaunchActionList
 Set-Alias -Name List-EDRSStagingAccounts -Value Get-EDRSStagingAccountList
 Set-Alias -Name List-EDRSStagingAccountList -Value Get-EDRSStagingAccountList
 Set-Alias -Name EDRS-ListStagingAccounts -Value Get-EDRSStagingAccountList
 Set-Alias -Name EDRS-ListTagsForResource -Value Get-EDRSResourceTag
+Set-Alias -Name Put-EDRSLaunchAction -Value Write-EDRSLaunchAction
+Set-Alias -Name EDRS-PutLaunchAction -Value Write-EDRSLaunchAction
 Set-Alias -Name Retry-EDRSDataReplication -Value Restart-EDRSDataReplication
 Set-Alias -Name EDRS-RetryDataReplication -Value Restart-EDRSDataReplication
 Set-Alias -Name Reverse-EDRSReplication -Value Start-EDRSReversedReplication

@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? Licensing_OsByol { get; set; }
         #endregion
         
+        #region Parameter PostLaunchEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether we want to activate post-launch actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostLaunchEnabled { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -165,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             context.ExportBucketArn = this.ExportBucketArn;
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
+            context.PostLaunchEnabled = this.PostLaunchEnabled;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -224,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (requestLicensingIsNull)
             {
                 request.Licensing = null;
+            }
+            if (cmdletContext.PostLaunchEnabled != null)
+            {
+                request.PostLaunchEnabled = cmdletContext.PostLaunchEnabled.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -299,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public System.String ExportBucketArn { get; set; }
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
+            public System.Boolean? PostLaunchEnabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Drs.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }
             public System.Func<Amazon.Drs.Model.CreateLaunchConfigurationTemplateResponse, NewEDRSLaunchConfigurationTemplateCmdlet, object> Select { get; set; } =

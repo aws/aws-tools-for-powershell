@@ -28,8 +28,13 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Provides the details for the GuardDuty administrator account associated with the current
+    /// Provides the details of the GuardDuty administrator account associated with the current
     /// GuardDuty member account.
+    /// 
+    ///  <note><para>
+    /// If the organization's management account or a delegated administrator runs this API,
+    /// it will return success (<code>HTTP 200</code>) but no content.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "GDAdministratorAccount")]
     [OutputType("Amazon.GuardDuty.Model.Administrator")]

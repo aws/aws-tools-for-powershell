@@ -111,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? Licensing_OsByol { get; set; }
         #endregion
         
+        #region Parameter PostLaunchEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether we want to activate post-launch actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostLaunchEnabled { get; set; }
+        #endregion
+        
         #region Parameter TargetInstanceTypeRightSizingMethod
         /// <summary>
         /// <para>
@@ -196,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             #endif
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
+            context.PostLaunchEnabled = this.PostLaunchEnabled;
             context.TargetInstanceTypeRightSizingMethod = this.TargetInstanceTypeRightSizingMethod;
             
             // allow further manipulation of loaded context prior to processing
@@ -251,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (requestLicensingIsNull)
             {
                 request.Licensing = null;
+            }
+            if (cmdletContext.PostLaunchEnabled != null)
+            {
+                request.PostLaunchEnabled = cmdletContext.PostLaunchEnabled.Value;
             }
             if (cmdletContext.TargetInstanceTypeRightSizingMethod != null)
             {
@@ -323,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public System.String LaunchConfigurationTemplateID { get; set; }
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
+            public System.Boolean? PostLaunchEnabled { get; set; }
             public Amazon.Drs.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }
             public System.Func<Amazon.Drs.Model.UpdateLaunchConfigurationTemplateResponse, UpdateEDRSLaunchConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LaunchConfigurationTemplate;

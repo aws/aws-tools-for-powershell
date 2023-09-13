@@ -39,8 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// are updated, so data writes to the delivery stream can continue during this process.
     /// The updated configurations are usually effective within a few minutes.
     /// </para><para>
-    /// Switching between Amazon ES and other services is not supported. For an Amazon ES
-    /// destination, you can only update to another Amazon ES destination.
+    /// Switching between Amazon OpenSearch Service and other services is not supported. For
+    /// an Amazon OpenSearch Service destination, you can only update to another Amazon OpenSearch
+    /// Service destination.
     /// </para><para>
     /// If the destination type is the same, Kinesis Data Firehose merges the configuration
     /// parameters specified with the destination configuration that already exists on the
@@ -160,6 +161,47 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CurrentDeliveryStreamVersionId { get; set; }
+        #endregion
+        
+        #region Parameter AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat
+        /// <summary>
+        /// <para>
+        /// <para>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+        /// a unique document ID for each record based on a unique internal identifier. The generated
+        /// document ID is stable across multiple delivery attempts, which helps prevent the same
+        /// record from being indexed multiple times with different document IDs.</para><para>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does
+        /// not include any document IDs in the requests it sends to the Amazon OpenSearch Service.
+        /// This causes the Amazon OpenSearch Service domain to generate document IDs. In case
+        /// of multiple delivery attempts, this may cause the same record to be indexed more than
+        /// once with different document IDs. This option enables write-heavy operations, such
+        /// as the ingestion of logs and observability data, to consume less resources in the
+        /// Amazon OpenSearch Service domain, resulting in improved performance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.DefaultDocumentIdFormat")]
+        public Amazon.KinesisFirehose.DefaultDocumentIdFormat AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat { get; set; }
+        #endregion
+        
+        #region Parameter DocumentIdOptions_DefaultDocumentIdFormat
+        /// <summary>
+        /// <para>
+        /// <para>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+        /// a unique document ID for each record based on a unique internal identifier. The generated
+        /// document ID is stable across multiple delivery attempts, which helps prevent the same
+        /// record from being indexed multiple times with different document IDs.</para><para>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does
+        /// not include any document IDs in the requests it sends to the Amazon OpenSearch Service.
+        /// This causes the Amazon OpenSearch Service domain to generate document IDs. In case
+        /// of multiple delivery attempts, this may cause the same record to be indexed more than
+        /// once with different document IDs. This option enables write-heavy operations, such
+        /// as the ingestion of logs and observability data, to consume less resources in the
+        /// Amazon OpenSearch Service domain, resulting in improved performance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ElasticsearchDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat")]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.DefaultDocumentIdFormat")]
+        public Amazon.KinesisFirehose.DefaultDocumentIdFormat DocumentIdOptions_DefaultDocumentIdFormat { get; set; }
         #endregion
         
         #region Parameter DeliveryStreamName
@@ -901,6 +943,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogGroupName = this.AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogGroupName;
             context.AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogStreamName = this.AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogStreamName;
             context.AmazonopensearchserviceDestinationUpdate_ClusterEndpoint = this.AmazonopensearchserviceDestinationUpdate_ClusterEndpoint;
+            context.AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat = this.AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat;
             context.AmazonopensearchserviceDestinationUpdate_DomainARN = this.AmazonopensearchserviceDestinationUpdate_DomainARN;
             context.AmazonopensearchserviceDestinationUpdate_IndexName = this.AmazonopensearchserviceDestinationUpdate_IndexName;
             context.AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod = this.AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod;
@@ -940,6 +983,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.CloudWatchLoggingOptions_LogGroupName = this.CloudWatchLoggingOptions_LogGroupName;
             context.CloudWatchLoggingOptions_LogStreamName = this.CloudWatchLoggingOptions_LogStreamName;
             context.ElasticsearchDestinationUpdate_ClusterEndpoint = this.ElasticsearchDestinationUpdate_ClusterEndpoint;
+            context.DocumentIdOptions_DefaultDocumentIdFormat = this.DocumentIdOptions_DefaultDocumentIdFormat;
             context.ElasticsearchDestinationUpdate_DomainARN = this.ElasticsearchDestinationUpdate_DomainARN;
             context.ElasticsearchDestinationUpdate_IndexName = this.ElasticsearchDestinationUpdate_IndexName;
             context.ElasticsearchDestinationUpdate_IndexRotationPeriod = this.ElasticsearchDestinationUpdate_IndexRotationPeriod;
@@ -1259,6 +1303,31 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.AmazonopensearchserviceDestinationUpdate.TypeName = requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_TypeName;
                 requestAmazonopensearchserviceDestinationUpdateIsNull = false;
             }
+            Amazon.KinesisFirehose.Model.DocumentIdOptions requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions = null;
+            
+             // populate DocumentIdOptions
+            var requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptionsIsNull = true;
+            requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions = new Amazon.KinesisFirehose.Model.DocumentIdOptions();
+            Amazon.KinesisFirehose.DefaultDocumentIdFormat requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat = null;
+            if (cmdletContext.AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat != null)
+            {
+                requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat = cmdletContext.AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat;
+            }
+            if (requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat != null)
+            {
+                requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions.DefaultDocumentIdFormat = requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_amazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat;
+                requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptionsIsNull = false;
+            }
+             // determine if requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions should be set to null
+            if (requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptionsIsNull)
+            {
+                requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions = null;
+            }
+            if (requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions != null)
+            {
+                request.AmazonopensearchserviceDestinationUpdate.DocumentIdOptions = requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_DocumentIdOptions;
+                requestAmazonopensearchserviceDestinationUpdateIsNull = false;
+            }
             Amazon.KinesisFirehose.Model.AmazonopensearchserviceRetryOptions requestAmazonopensearchserviceDestinationUpdate_amazonopensearchserviceDestinationUpdate_RetryOptions = null;
             
              // populate RetryOptions
@@ -1488,6 +1557,31 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_TypeName != null)
             {
                 request.ElasticsearchDestinationUpdate.TypeName = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_TypeName;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.DocumentIdOptions requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions = null;
+            
+             // populate DocumentIdOptions
+            var requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptionsIsNull = true;
+            requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions = new Amazon.KinesisFirehose.Model.DocumentIdOptions();
+            Amazon.KinesisFirehose.DefaultDocumentIdFormat requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions_documentIdOptions_DefaultDocumentIdFormat = null;
+            if (cmdletContext.DocumentIdOptions_DefaultDocumentIdFormat != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions_documentIdOptions_DefaultDocumentIdFormat = cmdletContext.DocumentIdOptions_DefaultDocumentIdFormat;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions_documentIdOptions_DefaultDocumentIdFormat != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions.DefaultDocumentIdFormat = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions_documentIdOptions_DefaultDocumentIdFormat;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptionsIsNull = false;
+            }
+             // determine if requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions should be set to null
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptionsIsNull)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions = null;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions != null)
+            {
+                request.ElasticsearchDestinationUpdate.DocumentIdOptions = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DocumentIdOptions;
                 requestElasticsearchDestinationUpdateIsNull = false;
             }
             Amazon.KinesisFirehose.Model.ElasticsearchRetryOptions requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions = null;
@@ -1991,6 +2085,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogGroupName { get; set; }
             public System.String AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_LogStreamName { get; set; }
             public System.String AmazonopensearchserviceDestinationUpdate_ClusterEndpoint { get; set; }
+            public Amazon.KinesisFirehose.DefaultDocumentIdFormat AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat { get; set; }
             public System.String AmazonopensearchserviceDestinationUpdate_DomainARN { get; set; }
             public System.String AmazonopensearchserviceDestinationUpdate_IndexName { get; set; }
             public Amazon.KinesisFirehose.AmazonopensearchserviceIndexRotationPeriod AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod { get; set; }
@@ -2009,6 +2104,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String CloudWatchLoggingOptions_LogGroupName { get; set; }
             public System.String CloudWatchLoggingOptions_LogStreamName { get; set; }
             public System.String ElasticsearchDestinationUpdate_ClusterEndpoint { get; set; }
+            public Amazon.KinesisFirehose.DefaultDocumentIdFormat DocumentIdOptions_DefaultDocumentIdFormat { get; set; }
             public System.String ElasticsearchDestinationUpdate_DomainARN { get; set; }
             public System.String ElasticsearchDestinationUpdate_IndexName { get; set; }
             public Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod ElasticsearchDestinationUpdate_IndexRotationPeriod { get; set; }

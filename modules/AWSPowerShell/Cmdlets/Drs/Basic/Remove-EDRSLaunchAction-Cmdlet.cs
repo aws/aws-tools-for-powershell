@@ -22,30 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.Drs;
+using Amazon.Drs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
-    /// Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
-    /// IP sets, threat intel sets, and publishing destination, with a limit of 50 tags per
-    /// resource. When invoked, this operation returns all assigned tags for a given resource.
+    /// Deletes a resource launch action.
     /// </summary>
-    [Cmdlet("Get", "GDResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon GuardDuty ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GuardDuty.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EDRSLaunchAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Elastic Disaster Recovery Service DeleteLaunchAction API operation.", Operation = new[] {"DeleteLaunchAction"}, SelectReturnType = typeof(Amazon.Drs.Model.DeleteLaunchActionResponse))]
+    [AWSCmdletOutput("None or Amazon.Drs.Model.DeleteLaunchActionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Drs.Model.DeleteLaunchActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGDResourceTagCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class RemoveEDRSLaunchActionCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter ActionId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the given GuardDuty resource. </para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ActionId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,34 +71,49 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ResourceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.DeleteLaunchActionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EDRSLaunchAction (DeleteLaunchAction)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -93,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.ListTagsForResourceResponse, GetGDResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Drs.Model.DeleteLaunchActionResponse, RemoveEDRSLaunchActionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -102,14 +132,21 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ResourceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ActionId = this.ActionId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ActionId == null && ParameterWasBound(nameof(this.ActionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ActionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ResourceId = this.ResourceId;
+            #if MODULAR
+            if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.ListTagsForResourceRequest();
+            var request = new Amazon.Drs.Model.DeleteLaunchActionRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ActionId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ActionId = cmdletContext.ActionId;
+            }
+            if (cmdletContext.ResourceId != null)
+            {
+                request.ResourceId = cmdletContext.ResourceId;
             }
             
             CmdletOutput output;
@@ -165,15 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.ListTagsForResourceRequest request)
+        private Amazon.Drs.Model.DeleteLaunchActionResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.DeleteLaunchActionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "DeleteLaunchAction");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.DeleteLaunchAction(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteLaunchActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.ListTagsForResourceResponse, GetGDResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ActionId { get; set; }
+            public System.String ResourceId { get; set; }
+            public System.Func<Amazon.Drs.Model.DeleteLaunchActionResponse, RemoveEDRSLaunchActionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

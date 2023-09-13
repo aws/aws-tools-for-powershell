@@ -18087,6 +18087,13 @@ $EDRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Drs.LaunchActionCategory
+        "Write-EDRSLaunchAction/Category"
+        {
+            $v = "CONFIGURATION","MONITORING","OTHER","SECURITY","VALIDATION"
+            break
+        }
+
         # Amazon.Drs.LaunchDisposition
         {
             ($_ -eq "New-EDRSLaunchConfigurationTemplate/LaunchDisposition") -Or
@@ -18158,6 +18165,7 @@ $EDRS_Completers = {
 }
 
 $EDRS_map = @{
+    "Category"=@("Write-EDRSLaunchAction")
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
@@ -18222,6 +18230,7 @@ $EDRS_SelectMap = @{
                "New-EDRSReplicationConfigurationTemplate",
                "New-EDRSSourceNetwork",
                "Remove-EDRSJob",
+               "Remove-EDRSLaunchAction",
                "Remove-EDRSLaunchConfigurationTemplate",
                "Remove-EDRSRecoveryInstance",
                "Remove-EDRSReplicationConfigurationTemplate",
@@ -18243,8 +18252,10 @@ $EDRS_SelectMap = @{
                "Get-EDRSReplicationConfiguration",
                "Initialize-EDRSService",
                "Get-EDRSExtensibleSourceServerList",
+               "Get-EDRSLaunchActionList",
                "Get-EDRSStagingAccountList",
                "Get-EDRSResourceTag",
+               "Write-EDRSLaunchAction",
                "Restart-EDRSDataReplication",
                "Start-EDRSReversedReplication",
                "Start-EDRSFailbackLaunch",
@@ -24627,6 +24638,18 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.DefaultDocumentIdFormat
+        {
+            ($_ -eq "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat") -Or
+            ($_ -eq "Update-KINFDestination/AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat") -Or
+            ($_ -eq "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat") -Or
+            ($_ -eq "Update-KINFDestination/ElasticsearchDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat")
+        }
+        {
+            $v = "FIREHOSE_DEFAULT","NO_DOCUMENT_ID"
+            break
+        }
+
         # Amazon.KinesisFirehose.DeliveryStreamType
         {
             ($_ -eq "Get-KINFDeliveryStreamList/DeliveryStreamType") -Or
@@ -24684,13 +24707,17 @@ $KINF_Completers = {
 
 $KINF_map = @{
     "AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat"=@("Update-KINFDestination")
     "AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
     "DeliveryStreamEncryptionConfigurationInput_KeyType"=@("New-KINFDeliveryStream","Start-KINFDeliveryStreamEncryption")
     "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
+    "ElasticsearchDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "ElasticsearchDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat"=@("Update-KINFDestination")
     "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
     "HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding"=@("New-KINFDeliveryStream")
     "HttpEndpointDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")

@@ -92,6 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? Licensing_OsByol { get; set; }
         #endregion
         
+        #region Parameter PostLaunchEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether we want to enable post-launch actions for the Source Server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostLaunchEnabled { get; set; }
+        #endregion
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>
@@ -188,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
             context.Name = this.Name;
+            context.PostLaunchEnabled = this.PostLaunchEnabled;
             context.SourceServerID = this.SourceServerID;
             #if MODULAR
             if (this.SourceServerID == null && ParameterWasBound(nameof(this.SourceServerID)))
@@ -246,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PostLaunchEnabled != null)
+            {
+                request.PostLaunchEnabled = cmdletContext.PostLaunchEnabled.Value;
             }
             if (cmdletContext.SourceServerID != null)
             {
@@ -321,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? PostLaunchEnabled { get; set; }
             public System.String SourceServerID { get; set; }
             public Amazon.Drs.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }
             public System.Func<Amazon.Drs.Model.UpdateLaunchConfigurationResponse, UpdateEDRSLaunchConfigurationCmdlet, object> Select { get; set; } =

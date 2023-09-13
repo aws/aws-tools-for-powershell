@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EDRSFailbackReplicationConfiguration', 
         'Get-EDRSJob', 
         'Get-EDRSJobLogItem', 
+        'Get-EDRSLaunchActionList', 
         'Get-EDRSLaunchConfiguration', 
         'Get-EDRSLaunchConfigurationTemplate', 
         'Get-EDRSRecoveryInstance', 
@@ -111,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EDRSSourceNetwork', 
         'Register-EDRSSourceNetworkStack', 
         'Remove-EDRSJob', 
+        'Remove-EDRSLaunchAction', 
         'Remove-EDRSLaunchConfigurationTemplate', 
         'Remove-EDRSRecoveryInstance', 
         'Remove-EDRSReplicationConfigurationTemplate', 
@@ -132,7 +134,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-EDRSLaunchConfiguration', 
         'Update-EDRSLaunchConfigurationTemplate', 
         'Update-EDRSReplicationConfiguration', 
-        'Update-EDRSReplicationConfigurationTemplate')
+        'Update-EDRSReplicationConfigurationTemplate', 
+        'Write-EDRSLaunchAction')
 
     # Variables to export from this module
     VariablesToExport = '*'

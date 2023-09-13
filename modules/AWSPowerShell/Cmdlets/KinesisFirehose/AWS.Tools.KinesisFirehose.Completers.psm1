@@ -114,6 +114,18 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.DefaultDocumentIdFormat
+        {
+            ($_ -eq "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat") -Or
+            ($_ -eq "Update-KINFDestination/AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat") -Or
+            ($_ -eq "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat") -Or
+            ($_ -eq "Update-KINFDestination/ElasticsearchDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat")
+        }
+        {
+            $v = "FIREHOSE_DEFAULT","NO_DOCUMENT_ID"
+            break
+        }
+
         # Amazon.KinesisFirehose.DeliveryStreamType
         {
             ($_ -eq "Get-KINFDeliveryStreamList/DeliveryStreamType") -Or
@@ -171,13 +183,17 @@ $KINF_Completers = {
 
 $KINF_map = @{
     "AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat"=@("Update-KINFDestination")
     "AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
     "DeliveryStreamEncryptionConfigurationInput_KeyType"=@("New-KINFDeliveryStream","Start-KINFDeliveryStreamEncryption")
     "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
+    "ElasticsearchDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "ElasticsearchDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat"=@("Update-KINFDestination")
     "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
     "HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding"=@("New-KINFDeliveryStream")
     "HttpEndpointDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")

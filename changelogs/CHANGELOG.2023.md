@@ -1,4 +1,17 @@
-﻿### 4.1.413 (2023-09-12 21:51Z)
+﻿### 4.1.414 (2023-09-13 21:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.644.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Disaster Recovery Service
+    * Added cmdlet Get-EDRSLaunchActionList leveraging the ListLaunchActions service API.
+    * Added cmdlet Remove-EDRSLaunchAction leveraging the DeleteLaunchAction service API.
+    * Added cmdlet Write-EDRSLaunchAction leveraging the PutLaunchAction service API.
+    * Modified cmdlet New-EDRSLaunchConfigurationTemplate: added parameter PostLaunchEnabled.
+    * Modified cmdlet Update-EDRSLaunchConfiguration: added parameter PostLaunchEnabled.
+    * Modified cmdlet Update-EDRSLaunchConfigurationTemplate: added parameter PostLaunchEnabled.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat and DocumentIdOptions_DefaultDocumentIdFormat.
+    * Modified cmdlet Update-KINFDestination: added parameters AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat and DocumentIdOptions_DefaultDocumentIdFormat.
+
+### 4.1.413 (2023-09-12 21:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.643.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Disable-EC2ImageBlockPublicAccess leveraging the DisableImageBlockPublicAccess service API.

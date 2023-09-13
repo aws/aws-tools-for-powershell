@@ -80,6 +80,13 @@ $EDRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Drs.LaunchActionCategory
+        "Write-EDRSLaunchAction/Category"
+        {
+            $v = "CONFIGURATION","MONITORING","OTHER","SECURITY","VALIDATION"
+            break
+        }
+
         # Amazon.Drs.LaunchDisposition
         {
             ($_ -eq "New-EDRSLaunchConfigurationTemplate/LaunchDisposition") -Or
@@ -151,6 +158,7 @@ $EDRS_Completers = {
 }
 
 $EDRS_map = @{
+    "Category"=@("Write-EDRSLaunchAction")
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
@@ -215,6 +223,7 @@ $EDRS_SelectMap = @{
                "New-EDRSReplicationConfigurationTemplate",
                "New-EDRSSourceNetwork",
                "Remove-EDRSJob",
+               "Remove-EDRSLaunchAction",
                "Remove-EDRSLaunchConfigurationTemplate",
                "Remove-EDRSRecoveryInstance",
                "Remove-EDRSReplicationConfigurationTemplate",
@@ -236,8 +245,10 @@ $EDRS_SelectMap = @{
                "Get-EDRSReplicationConfiguration",
                "Initialize-EDRSService",
                "Get-EDRSExtensibleSourceServerList",
+               "Get-EDRSLaunchActionList",
                "Get-EDRSStagingAccountList",
                "Get-EDRSResourceTag",
+               "Write-EDRSLaunchAction",
                "Restart-EDRSDataReplication",
                "Start-EDRSReversedReplication",
                "Start-EDRSFailbackLaunch",
