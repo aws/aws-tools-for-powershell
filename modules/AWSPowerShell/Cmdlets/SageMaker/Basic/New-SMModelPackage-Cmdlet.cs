@@ -756,6 +756,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String SamplePayloadUrl { get; set; }
         #endregion
         
+        #region Parameter SkipModelValidation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if you want to skip model validation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.SkipModelValidation")]
+        public Amazon.SageMaker.SkipModelValidation SkipModelValidation { get; set; }
+        #endregion
+        
         #region Parameter SourceAlgorithmSpecification_SourceAlgorithm
         /// <summary>
         /// <para>
@@ -1029,6 +1040,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ModelPackageGroupName = this.ModelPackageGroupName;
             context.ModelPackageName = this.ModelPackageName;
             context.SamplePayloadUrl = this.SamplePayloadUrl;
+            context.SkipModelValidation = this.SkipModelValidation;
             if (this.SourceAlgorithmSpecification_SourceAlgorithm != null)
             {
                 context.SourceAlgorithmSpecification_SourceAlgorithm = new List<Amazon.SageMaker.Model.SourceAlgorithm>(this.SourceAlgorithmSpecification_SourceAlgorithm);
@@ -2110,6 +2122,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.SamplePayloadUrl = cmdletContext.SamplePayloadUrl;
             }
+            if (cmdletContext.SkipModelValidation != null)
+            {
+                request.SkipModelValidation = cmdletContext.SkipModelValidation;
+            }
             
              // populate SourceAlgorithmSpecification
             var requestSourceAlgorithmSpecificationIsNull = true;
@@ -2297,6 +2313,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ModelPackageGroupName { get; set; }
             public System.String ModelPackageName { get; set; }
             public System.String SamplePayloadUrl { get; set; }
+            public Amazon.SageMaker.SkipModelValidation SkipModelValidation { get; set; }
             public List<Amazon.SageMaker.Model.SourceAlgorithm> SourceAlgorithmSpecification_SourceAlgorithm { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String Task { get; set; }

@@ -1,4 +1,13 @@
-﻿### 4.1.415 (2023-09-15 01:47Z)
+﻿### 4.1.416 (2023-09-15 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.646.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * [Breaking Change] Modified cmdlet Get-APSSessionList: removed parameter InstanceId.
+    * [Breaking Change] Modified cmdlet New-APSFleet: removed parameters ComputeCapacity_DesiredSession and MaxSessionsPerInstance.
+    * [Breaking Change] Modified cmdlet Update-APSFleet: removed parameters ComputeCapacity_DesiredSession and MaxSessionsPerInstance.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMModelPackage: added parameter SkipModelValidation.
+
+### 4.1.415 (2023-09-15 01:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.645.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Modified cmdlet Get-APSSessionList: added parameter InstanceId.

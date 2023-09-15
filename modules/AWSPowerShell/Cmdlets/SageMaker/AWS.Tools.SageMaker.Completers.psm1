@@ -1054,6 +1054,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.SkipModelValidation
+        "New-SMModelPackage/SkipModelValidation"
+        {
+            $v = "All","None"
+            break
+        }
+
         # Amazon.SageMaker.SortActionsBy
         "Get-SMActionList/SortBy"
         {
@@ -1466,6 +1473,7 @@ $SM_map = @{
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "SearchExpression_Operator"=@("Search-SMResource")
+    "SkipModelValidation"=@("New-SMModelPackage")
     "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
     "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")

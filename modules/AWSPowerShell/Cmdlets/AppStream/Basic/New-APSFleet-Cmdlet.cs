@@ -62,20 +62,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Int32? ComputeCapacity_DesiredInstance { get; set; }
         #endregion
         
-        #region Parameter ComputeCapacity_DesiredSession
-        /// <summary>
-        /// <para>
-        /// <para>The desired number of user sessions for a multi-session fleet. This is not allowed
-        /// for single-session fleets.</para><para>When you create a fleet, you must set either the DesiredSessions or DesiredInstances
-        /// attribute, based on the type of fleet you create. You can’t define both attributes
-        /// or leave both attributes blank.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ComputeCapacity_DesiredSessions")]
-        public System.Int32? ComputeCapacity_DesiredSession { get; set; }
-        #endregion
-        
         #region Parameter DomainJoinInfo_DirectoryName
         /// <summary>
         /// <para>
@@ -227,24 +213,13 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Int32? MaxConcurrentSession { get; set; }
         #endregion
         
-        #region Parameter MaxSessionsPerInstance
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of user sessions on an instance. This only applies to multi-session
-        /// fleets.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxSessionsPerInstance { get; set; }
-        #endregion
-        
         #region Parameter MaxUserDurationInSecond
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time that a streaming session can remain active, in seconds.
         /// If users are still connected to a streaming instance five minutes before this limit
         /// is reached, they are prompted to save any open documents before being disconnected.
-        /// After this time elapses, the instance is terminated and replaced by a new instance.</para><para>Specify a value between 600 and 432000.</para>
+        /// After this time elapses, the instance is terminated and replaced by a new instance.</para><para>Specify a value between 600 and 360000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,7 +419,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComputeCapacity_DesiredInstance = this.ComputeCapacity_DesiredInstance;
-            context.ComputeCapacity_DesiredSession = this.ComputeCapacity_DesiredSession;
             context.Description = this.Description;
             context.DisconnectTimeoutInSecond = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
@@ -464,7 +438,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #endif
             context.MaxConcurrentSession = this.MaxConcurrentSession;
-            context.MaxSessionsPerInstance = this.MaxSessionsPerInstance;
             context.MaxUserDurationInSecond = this.MaxUserDurationInSecond;
             context.Name = this.Name;
             #if MODULAR
@@ -525,16 +498,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestComputeCapacity_computeCapacity_DesiredInstance != null)
             {
                 request.ComputeCapacity.DesiredInstances = requestComputeCapacity_computeCapacity_DesiredInstance.Value;
-                requestComputeCapacityIsNull = false;
-            }
-            System.Int32? requestComputeCapacity_computeCapacity_DesiredSession = null;
-            if (cmdletContext.ComputeCapacity_DesiredSession != null)
-            {
-                requestComputeCapacity_computeCapacity_DesiredSession = cmdletContext.ComputeCapacity_DesiredSession.Value;
-            }
-            if (requestComputeCapacity_computeCapacity_DesiredSession != null)
-            {
-                request.ComputeCapacity.DesiredSessions = requestComputeCapacity_computeCapacity_DesiredSession.Value;
                 requestComputeCapacityIsNull = false;
             }
              // determine if request.ComputeCapacity should be set to null
@@ -614,10 +577,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.MaxConcurrentSession != null)
             {
                 request.MaxConcurrentSessions = cmdletContext.MaxConcurrentSession.Value;
-            }
-            if (cmdletContext.MaxSessionsPerInstance != null)
-            {
-                request.MaxSessionsPerInstance = cmdletContext.MaxSessionsPerInstance.Value;
             }
             if (cmdletContext.MaxUserDurationInSecond != null)
             {
@@ -763,7 +722,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? ComputeCapacity_DesiredInstance { get; set; }
-            public System.Int32? ComputeCapacity_DesiredSession { get; set; }
             public System.String Description { get; set; }
             public System.Int32? DisconnectTimeoutInSecond { get; set; }
             public System.String DisplayName { get; set; }
@@ -777,7 +735,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? MaxConcurrentSession { get; set; }
-            public System.Int32? MaxSessionsPerInstance { get; set; }
             public System.Int32? MaxUserDurationInSecond { get; set; }
             public System.String Name { get; set; }
             public Amazon.AppStream.PlatformType Platform { get; set; }

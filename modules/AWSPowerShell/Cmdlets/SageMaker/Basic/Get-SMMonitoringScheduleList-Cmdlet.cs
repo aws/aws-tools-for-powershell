@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Whether to sort results by <code>Status</code>, <code>CreationTime</code>, <code>ScheduledTime</code>
-        /// field. The default is <code>CreationTime</code>.</para>
+        /// <para>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>,
+        /// or <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

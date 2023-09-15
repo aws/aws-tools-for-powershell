@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. The default is <code>Descending</code>.</para>
+        /// <para>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+        /// The default is <code>Descending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
