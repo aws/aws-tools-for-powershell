@@ -28,7 +28,16 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Amazon.Personalize.IAmazonPersonalize.CreateSchema
+    /// Creates an Amazon Personalize schema from the specified schema string. The schema
+    /// you create must be in Avro JSON format.
+    /// 
+    ///  
+    /// <para>
+    /// Amazon Personalize recognizes three schema variants. Each schema is associated with
+    /// a dataset type and has a set of required field and keywords. If you are creating a
+    /// schema for a dataset in a Domain dataset group, you provide the domain of the Domain
+    /// dataset group. You specify a schema when you call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.
+    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html">ListSchemas</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html">DeleteSchema</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

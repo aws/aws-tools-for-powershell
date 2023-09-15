@@ -28,7 +28,23 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminUserGlobalSignOut
+    /// Signs out a user from all devices. <code>AdminUserGlobalSignOut</code> invalidates
+    /// all identity, access and refresh tokens that Amazon Cognito has issued to a user.
+    /// A user can still use a hosted UI cookie to retrieve new tokens for the duration of
+    /// the 1-hour cookie validity period.
+    /// 
+    ///  
+    /// <para>
+    /// Your app isn't aware that a user's access token is revoked unless it attempts to authorize
+    /// a user pools API request with an access token that contains the scope <code>aws.cognito.signin.user.admin</code>.
+    /// Your app might otherwise accept access tokens until they expire.
+    /// </para><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Disconnect", "CGIPUserGlobalAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

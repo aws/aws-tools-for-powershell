@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DatasetSchema_InlineDataSchema
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The data schema used within the given dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

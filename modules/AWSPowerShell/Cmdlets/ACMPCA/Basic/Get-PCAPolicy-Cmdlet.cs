@@ -28,7 +28,33 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Amazon.ACMPCA.IAmazonACMPCA.GetPolicy
+    /// Retrieves the resource-based policy attached to a private CA. If either the private
+    /// CA resource or the policy cannot be found, this action returns a <code>ResourceNotFoundException</code>.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// The policy can be attached or updated with <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html">PutPolicy</a>
+    /// and removed with <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.
+    /// </para><para><b>About Policies</b></para><ul><li><para>
+    /// A policy grants access on a private CA to an Amazon Web Services customer account,
+    /// to Amazon Web Services Organizations, or to an Amazon Web Services Organizations unit.
+    /// Policies are under the control of a CA administrator. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using a
+    /// Resource Based Policy with Amazon Web Services Private CA</a>.
+    /// </para></li><li><para>
+    /// A policy permits a user of Certificate Manager (ACM) to issue ACM certificates signed
+    /// by a CA in another account.
+    /// </para></li><li><para>
+    /// For ACM to manage automatic renewal of these certificates, the ACM user must configure
+    /// a Service Linked Role (SLR). The SLR allows the ACM service to assume the identity
+    /// of the user, subject to confirmation against the Amazon Web Services Private CA policy.
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html">Using
+    /// a Service Linked Role with ACM</a>.
+    /// </para></li><li><para>
+    /// Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies.
+    /// For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html">Attach
+    /// a Policy for Cross-Account Access</a>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "PCAPolicy")]
     [OutputType("System.String")]

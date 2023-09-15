@@ -28,7 +28,30 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Amazon.Personalize.IAmazonPersonalize.CreateDataset
+    /// Creates an empty dataset and adds it to the specified dataset group. Use <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
+    /// to import your training data to a dataset.
+    /// 
+    ///  
+    /// <para>
+    /// There are three types of datasets:
+    /// </para><ul><li><para>
+    /// Interactions
+    /// </para></li><li><para>
+    /// Items
+    /// </para></li><li><para>
+    /// Users
+    /// </para></li></ul><para>
+    /// Each dataset type has an associated schema with required field types. Only the <code>Interactions</code>
+    /// dataset is required in order to train a model (also referred to as creating a solution).
+    /// </para><para>
+    /// A dataset can be in one of the following states:
+    /// </para><ul><li><para>
+    /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+    /// </para></li><li><para>
+    /// DELETE PENDING &gt; DELETE IN_PROGRESS
+    /// </para></li></ul><para>
+    /// To get the status of the dataset, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>.
+    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html">ListDatasets</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html">DeleteDataset</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

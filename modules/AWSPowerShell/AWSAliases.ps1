@@ -15874,6 +15874,8 @@ Set-Alias -Name Create-L4ELabelGroup -Value New-L4ELabelGroup
 Set-Alias -Name L4E-CreateLabelGroup -Value New-L4ELabelGroup
 Set-Alias -Name Create-L4EModel -Value New-L4EModel
 Set-Alias -Name L4E-CreateModel -Value New-L4EModel
+Set-Alias -Name Create-L4ERetrainingScheduler -Value New-L4ERetrainingScheduler
+Set-Alias -Name L4E-CreateRetrainingScheduler -Value New-L4ERetrainingScheduler
 Set-Alias -Name Delete-L4EDataset -Value Remove-L4EDataset
 Set-Alias -Name L4E-DeleteDataset -Value Remove-L4EDataset
 Set-Alias -Name Delete-L4EInferenceScheduler -Value Remove-L4EInferenceScheduler
@@ -15886,6 +15888,8 @@ Set-Alias -Name Delete-L4EModel -Value Remove-L4EModel
 Set-Alias -Name L4E-DeleteModel -Value Remove-L4EModel
 Set-Alias -Name Delete-L4EResourcePolicy -Value Remove-L4EResourcePolicy
 Set-Alias -Name L4E-DeleteResourcePolicy -Value Remove-L4EResourcePolicy
+Set-Alias -Name Delete-L4ERetrainingScheduler -Value Remove-L4ERetrainingScheduler
+Set-Alias -Name L4E-DeleteRetrainingScheduler -Value Remove-L4ERetrainingScheduler
 Set-Alias -Name Describe-L4EDataIngestionJob -Value Get-L4EDataIngestionJob
 Set-Alias -Name L4E-DescribeDataIngestionJob -Value Get-L4EDataIngestionJob
 Set-Alias -Name Describe-L4EDataset -Value Get-L4EDataset
@@ -15902,6 +15906,8 @@ Set-Alias -Name Describe-L4EModelVersion -Value Get-L4EModelVersion
 Set-Alias -Name L4E-DescribeModelVersion -Value Get-L4EModelVersion
 Set-Alias -Name Describe-L4EResourcePolicy -Value Get-L4EResourcePolicy
 Set-Alias -Name L4E-DescribeResourcePolicy -Value Get-L4EResourcePolicy
+Set-Alias -Name Describe-L4ERetrainingScheduler -Value Get-L4ERetrainingScheduler
+Set-Alias -Name L4E-DescribeRetrainingScheduler -Value Get-L4ERetrainingScheduler
 Set-Alias -Name L4E-ImportDataset -Value Import-L4EDataset
 Set-Alias -Name L4E-ImportModelVersion -Value Import-L4EModelVersion
 Set-Alias -Name List-L4EDataIngestionJobs -Value Get-L4EDataIngestionJobList
@@ -15931,6 +15937,9 @@ Set-Alias -Name L4E-ListModels -Value Get-L4EModelList
 Set-Alias -Name List-L4EModelVersions -Value Get-L4EModelVersionList
 Set-Alias -Name List-L4EModelVersionList -Value Get-L4EModelVersionList
 Set-Alias -Name L4E-ListModelVersions -Value Get-L4EModelVersionList
+Set-Alias -Name List-L4ERetrainingSchedulers -Value Get-L4ERetrainingSchedulerList
+Set-Alias -Name List-L4ERetrainingSchedulerList -Value Get-L4ERetrainingSchedulerList
+Set-Alias -Name L4E-ListRetrainingSchedulers -Value Get-L4ERetrainingSchedulerList
 Set-Alias -Name List-L4ESensorStatistics -Value Get-L4ESensorStatisticList
 Set-Alias -Name List-L4ESensorStatisticList -Value Get-L4ESensorStatisticList
 Set-Alias -Name L4E-ListSensorStatistics -Value Get-L4ESensorStatisticList
@@ -15939,12 +15948,16 @@ Set-Alias -Name Put-L4EResourcePolicy -Value Write-L4EResourcePolicy
 Set-Alias -Name L4E-PutResourcePolicy -Value Write-L4EResourcePolicy
 Set-Alias -Name L4E-StartDataIngestionJob -Value Start-L4EDataIngestionJob
 Set-Alias -Name L4E-StartInferenceScheduler -Value Start-L4EInferenceScheduler
+Set-Alias -Name L4E-StartRetrainingScheduler -Value Start-L4ERetrainingScheduler
 Set-Alias -Name L4E-StopInferenceScheduler -Value Stop-L4EInferenceScheduler
+Set-Alias -Name L4E-StopRetrainingScheduler -Value Stop-L4ERetrainingScheduler
 Set-Alias -Name L4E-TagResource -Value Add-L4EResourceTag
 Set-Alias -Name L4E-UntagResource -Value Remove-L4EResourceTag
 Set-Alias -Name L4E-UpdateActiveModelVersion -Value Update-L4EActiveModelVersion
 Set-Alias -Name L4E-UpdateInferenceScheduler -Value Update-L4EInferenceScheduler
 Set-Alias -Name L4E-UpdateLabelGroup -Value Update-L4ELabelGroup
+Set-Alias -Name L4E-UpdateModel -Value Update-L4EModel
+Set-Alias -Name L4E-UpdateRetrainingScheduler -Value Update-L4ERetrainingScheduler
 Set-Alias -Name Activate-LOMAnomalyDetector -Value Enable-LOMAnomalyDetector
 Set-Alias -Name LOM-ActivateAnomalyDetector -Value Enable-LOMAnomalyDetector
 Set-Alias -Name Back-LOMTestAnomalyDetector -Value Enable-LOMBackTestAnomalyDetector

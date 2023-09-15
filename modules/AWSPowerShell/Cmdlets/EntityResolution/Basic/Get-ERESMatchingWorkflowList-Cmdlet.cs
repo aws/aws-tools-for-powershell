@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
     /// Returns a list of all the <code>MatchingWorkflows</code> that have been created for
-    /// an AWS account.
+    /// an Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "ERESMatchingWorkflowList")]
     [OutputType("Amazon.EntityResolution.Model.MatchingWorkflowSummary")]

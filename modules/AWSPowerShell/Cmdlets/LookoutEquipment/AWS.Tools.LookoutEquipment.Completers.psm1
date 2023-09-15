@@ -90,6 +90,13 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.InferenceDataImportStrategy
+        "Import-L4EModelVersion/InferenceDataImportStrategy"
+        {
+            $v = "ADD_WHEN_EMPTY","NO_IMPORT","OVERWRITE"
+            break
+        }
+
         # Amazon.LookoutEquipment.InferenceExecutionStatus
         "Get-L4EInferenceExecutionList/Status"
         {
@@ -118,6 +125,16 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.ModelPromoteMode
+        {
+            ($_ -eq "New-L4ERetrainingScheduler/PromoteMode") -Or
+            ($_ -eq "Update-L4ERetrainingScheduler/PromoteMode")
+        }
+        {
+            $v = "MANAGED","MANUAL"
+            break
+        }
+
         # Amazon.LookoutEquipment.ModelStatus
         "Get-L4EModelList/Status"
         {
@@ -139,6 +156,13 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.RetrainingSchedulerStatus
+        "Get-L4ERetrainingSchedulerList/Status"
+        {
+            $v = "PENDING","RUNNING","STOPPED","STOPPING"
+            break
+        }
+
         # Amazon.LookoutEquipment.TargetSamplingRate
         "New-L4EModel/DataPreProcessingConfiguration_TargetSamplingRate"
         {
@@ -157,9 +181,11 @@ $L4E_Completers = {
 $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
+    "InferenceDataImportStrategy"=@("Import-L4EModelVersion")
+    "PromoteMode"=@("New-L4ERetrainingScheduler","Update-L4ERetrainingScheduler")
     "Rating"=@("New-L4ELabel")
     "SourceType"=@("Get-L4EModelVersionList")
-    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList","Get-L4EModelVersionList")
+    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList","Get-L4EModelVersionList","Get-L4ERetrainingSchedulerList")
 }
 
 _awsArgumentCompleterRegistration $L4E_Completers $L4E_map
@@ -217,12 +243,14 @@ $L4E_SelectMap = @{
                "New-L4ELabel",
                "New-L4ELabelGroup",
                "New-L4EModel",
+               "New-L4ERetrainingScheduler",
                "Remove-L4EDataset",
                "Remove-L4EInferenceScheduler",
                "Remove-L4ELabel",
                "Remove-L4ELabelGroup",
                "Remove-L4EModel",
                "Remove-L4EResourcePolicy",
+               "Remove-L4ERetrainingScheduler",
                "Get-L4EDataIngestionJob",
                "Get-L4EDataset",
                "Get-L4EInferenceScheduler",
@@ -231,6 +259,7 @@ $L4E_SelectMap = @{
                "Get-L4EModel",
                "Get-L4EModelVersion",
                "Get-L4EResourcePolicy",
+               "Get-L4ERetrainingScheduler",
                "Import-L4EDataset",
                "Import-L4EModelVersion",
                "Get-L4EDataIngestionJobList",
@@ -242,17 +271,22 @@ $L4E_SelectMap = @{
                "Get-L4ELabelList",
                "Get-L4EModelList",
                "Get-L4EModelVersionList",
+               "Get-L4ERetrainingSchedulerList",
                "Get-L4ESensorStatisticList",
                "Get-L4EResourceTag",
                "Write-L4EResourcePolicy",
                "Start-L4EDataIngestionJob",
                "Start-L4EInferenceScheduler",
+               "Start-L4ERetrainingScheduler",
                "Stop-L4EInferenceScheduler",
+               "Stop-L4ERetrainingScheduler",
                "Add-L4EResourceTag",
                "Remove-L4EResourceTag",
                "Update-L4EActiveModelVersion",
                "Update-L4EInferenceScheduler",
-               "Update-L4ELabelGroup")
+               "Update-L4ELabelGroup",
+               "Update-L4EModel",
+               "Update-L4ERetrainingScheduler")
 }
 
 _awsArgumentCompleterRegistration $L4E_SelectCompleters $L4E_SelectMap

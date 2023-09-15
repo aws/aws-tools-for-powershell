@@ -28,7 +28,23 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Amazon.S3Control.IAmazonS3Control.DeleteBucket
+    /// <note><para>
+    /// This action deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a>
+    /// in the <i>Amazon S3 API Reference</i>. 
+    /// </para></note><para>
+    /// Deletes the Amazon S3 on Outposts bucket. All objects (including all object versions
+    /// and delete markers) in the bucket must be deleted before the bucket itself can be
+    /// deleted. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+    /// Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.
+    /// </para><para>
+    /// All Amazon S3 on Outposts REST API requests for this action require an additional
+    /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
+    /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.
+    /// For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on
+    /// Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by
+    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html#API_control_DeleteBucket_Examples">Examples</a>
+    /// section.
+    /// </para><para><b>Related Resources</b></para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html">GetBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3CBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -28,7 +28,79 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Amazon.Snowball.IAmazonSnowball.CreateJob
+    /// Creates a job to import or export data between Amazon S3 and your on-premises data
+    /// center. Your Amazon Web Services account must have the right trust policies and permissions
+    /// in place to create a job for a Snow device. If you're creating a job for a node in
+    /// a cluster, you only need to provide the <code>clusterId</code> value; the other job
+    /// attributes are inherited from the cluster. 
+    /// 
+    ///  <note><para>
+    /// Only the Snowball; Edge device type is supported when ordering clustered jobs.
+    /// </para><para>
+    /// The device capacity is optional.
+    /// </para><para>
+    /// Availability of device types differ by Amazon Web Services Region. For more information
+    /// about Region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&amp;loc=4">Amazon
+    /// Web Services Regional Services</a>.
+    /// </para></note><para><b>Snow Family devices and their capacities.</b></para><ul><li><para>
+    /// Device type: <b>SNC1_SSD</b></para><ul><li><para>
+    /// Capacity: T14
+    /// </para></li><li><para>
+    /// Description: Snowcone 
+    /// </para></li></ul></li><li><para>
+    /// Device type: <b>SNC1_HDD</b></para><ul><li><para>
+    /// Capacity: T8
+    /// </para></li><li><para>
+    /// Description: Snowcone 
+    /// </para></li></ul></li><li><para>
+    /// Device type: <b>EDGE_S</b></para><ul><li><para>
+    /// Capacity: T98
+    /// </para></li><li><para>
+    /// Description: Snowball Edge Storage Optimized for data transfer only 
+    /// </para></li></ul></li><li><para>
+    /// Device type: <b>EDGE_CG</b></para><ul><li><para>
+    /// Capacity: T42
+    /// </para></li><li><para>
+    /// Description: Snowball Edge Compute Optimized with GPU
+    /// </para></li></ul></li><li><para>
+    /// Device type: <b>EDGE_C</b></para><ul><li><para>
+    /// Capacity: T42
+    /// </para></li><li><para>
+    /// Description: Snowball Edge Compute Optimized without GPU
+    /// </para></li></ul></li><li><para>
+    /// Device type: <b>EDGE</b></para><ul><li><para>
+    /// Capacity: T100
+    /// </para></li><li><para>
+    /// Description: Snowball Edge Storage Optimized with EC2 Compute
+    /// </para></li></ul><note><para>
+    /// This device is replaced with T98.
+    /// </para></note></li><li><para>
+    /// Device type: <b>STANDARD</b></para><ul><li><para>
+    /// Capacity: T50
+    /// </para></li><li><para>
+    /// Description: Original Snowball device
+    /// </para><note><para>
+    /// This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services
+    /// Region 
+    /// </para></note></li></ul></li><li><para>
+    /// Device type: <b>STANDARD</b></para><ul><li><para>
+    /// Capacity: T80
+    /// </para></li><li><para>
+    /// Description: Original Snowball device
+    /// </para><note><para>
+    /// This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services
+    /// Region. 
+    /// </para></note></li></ul></li><li><para>
+    /// Snow Family device type: <b>RACK_5U_C</b></para><ul><li><para>
+    /// Capacity: T13 
+    /// </para></li><li><para>
+    /// Description: Snowblade.
+    /// </para></li></ul></li><li><para>
+    /// Device type: <b>V3_5S</b></para><ul><li><para>
+    /// Capacity: T240
+    /// </para></li><li><para>
+    /// Description: Snowball Edge Storage Optimized 210TB
+    /// </para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("New", "SNOWJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -67,6 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public System.String DatasetName { get; set; }
         #endregion
         
+        #region Parameter InferenceDataImportStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how to import the accumulated inference data when a model version is imported.
+        /// The possible values are as follows:</para><ul><li><para>NO_IMPORT – Don't import the data.</para></li><li><para>ADD_WHEN_EMPTY – Only import the data from the source model if there is no existing
+        /// data in the target model.</para></li><li><para>OVERWRITE – Import the data from the source model and overwrite the existing data
+        /// in the target model.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LookoutEquipment.InferenceDataImportStrategy")]
+        public Amazon.LookoutEquipment.InferenceDataImportStrategy InferenceDataImportStrategy { get; set; }
+        #endregion
+        
         #region Parameter LabelsInputConfiguration_LabelGroupName
         /// <summary>
         /// <para>
@@ -231,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
                 WriteWarning("You are passing $null as a value for parameter DatasetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InferenceDataImportStrategy = this.InferenceDataImportStrategy;
             context.LabelsInputConfiguration_LabelGroupName = this.LabelsInputConfiguration_LabelGroupName;
             context.S3InputConfiguration_Bucket = this.S3InputConfiguration_Bucket;
             context.S3InputConfiguration_Prefix = this.S3InputConfiguration_Prefix;
@@ -271,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             if (cmdletContext.DatasetName != null)
             {
                 request.DatasetName = cmdletContext.DatasetName;
+            }
+            if (cmdletContext.InferenceDataImportStrategy != null)
+            {
+                request.InferenceDataImportStrategy = cmdletContext.InferenceDataImportStrategy;
             }
             
              // populate LabelsInputConfiguration
@@ -409,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         {
             public System.String ClientToken { get; set; }
             public System.String DatasetName { get; set; }
+            public Amazon.LookoutEquipment.InferenceDataImportStrategy InferenceDataImportStrategy { get; set; }
             public System.String LabelsInputConfiguration_LabelGroupName { get; set; }
             public System.String S3InputConfiguration_Bucket { get; set; }
             public System.String S3InputConfiguration_Prefix { get; set; }

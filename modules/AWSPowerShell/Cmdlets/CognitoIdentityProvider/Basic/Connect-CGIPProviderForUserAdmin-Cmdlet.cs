@@ -28,7 +28,31 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminLinkProviderForUser
+    /// Links an existing user account in a user pool (<code>DestinationUser</code>) to an
+    /// identity from an external IdP (<code>SourceUser</code>) based on a specified attribute
+    /// name and value from the external IdP. This allows you to create a link from the existing
+    /// user account to an external federated user identity that has not yet been used to
+    /// sign in. You can then use the federated user identity to sign in as the existing user
+    /// account. 
+    /// 
+    ///  
+    /// <para>
+    ///  For example, if there is an existing user with a username and password, this API
+    /// links that user to a federated user identity. When the user signs in with a federated
+    /// user identity, they sign in as the existing user account.
+    /// </para><note><para>
+    /// The maximum number of federated identities linked to a user is five.
+    /// </para></note><important><para>
+    /// Because this API allows a user with an external federated identity to sign in as an
+    /// existing user in the user pool, it is critical that it only be used with external
+    /// IdPs and provider attributes that have been trusted by the application owner.
+    /// </para></important><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Connect", "CGIPProviderForUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

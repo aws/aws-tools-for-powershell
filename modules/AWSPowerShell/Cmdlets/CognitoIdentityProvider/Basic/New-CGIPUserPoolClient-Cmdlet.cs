@@ -28,7 +28,22 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.CreateUserPoolClient
+    /// Creates the user pool client.
+    /// 
+    ///  
+    /// <para>
+    /// When you create a new user pool client, token revocation is automatically activated.
+    /// For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
+    /// </para><important><para>
+    /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
+    /// value.
+    /// </para></important><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserPoolClientType")]

@@ -28,7 +28,20 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Amazon.ChimeSDKMessaging.IAmazonChimeSDKMessaging.ListChannels
+    /// Lists all Channels created under a single Chime App as a paginated list. You can specify
+    /// filters to narrow results.
+    /// 
+    ///  
+    /// <para><b>Functionality &amp; restrictions</b></para><ul><li><para>
+    /// Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.
+    /// </para></li><li><para>
+    /// Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list
+    /// the private channels in an account.
+    /// </para></li></ul><note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
+    /// as the value in the header.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelList")]
     [OutputType("Amazon.ChimeSDKMessaging.Model.ChannelSummary")]

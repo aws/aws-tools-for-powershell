@@ -80,7 +80,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// Amazon.Neptunedata.Model.StartLoaderJobRequest.Format
+        /// <para>The format of the data. For more information about data formats for the Neptune <code>Loader</code>
+        /// command, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format.html">Load
+        /// Data Formats</a>.</para><para><b>Allowed values</b></para><ul><li><para><b><code>csv</code></b> for the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin
+        /// CSV data format</a>.</para></li><li><para><b><code>opencypher</code></b> for the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
+        /// CSV data format</a>.</para></li><li><para><b><code>ntriples</code></b> for the <a href="https://www.w3.org/TR/n-triples/">N-Triples
+        /// RDF data format</a>.</para></li><li><para><b><code>nquads</code></b> for the <a href="https://www.w3.org/TR/n-quads/">N-Quads
+        /// RDF data format</a>.</para></li><li><para><b><code>rdfxml</code></b> for the <a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF\XML
+        /// RDF data format</a>.</para></li><li><para><b><code>turtle</code></b> for the <a href="https://www.w3.org/TR/turtle/">Turtle
+        /// RDF data format</a>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +125,19 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// Amazon.Neptunedata.Model.StartLoaderJobRequest.Mode
+        /// <para>The load job mode.</para><para><i>Allowed values</i>: <code>RESUME</code>, <code>NEW</code>, <code>AUTO</code>.</para><para><i>Default value</i>: <code>AUTO</code>.</para><para><b /></para><ul><li><para><code>RESUME</code>   –   In RESUME mode, the loader looks for a previous load from
+        /// this source, and if it finds one, resumes that load job. If no previous load job is
+        /// found, the loader stops.</para><para>The loader avoids reloading files that were successfully loaded in a previous job.
+        /// It only tries to process failed files. If you dropped previously loaded data from
+        /// your Neptune cluster, that data is not reloaded in this mode. If a previous load job
+        /// loaded all files from the same source successfully, nothing is reloaded, and the loader
+        /// returns success.</para></li><li><para><code>NEW</code>   –   In NEW mode, the creates a new load request regardless of
+        /// any previous loads. You can use this mode to reload all the data from a source after
+        /// dropping previously loaded data from your Neptune cluster, or to load new data available
+        /// at the same source.</para></li><li><para><code>AUTO</code>   –   In AUTO mode, the loader looks for a previous load job from
+        /// the same source, and if it finds one, resumes that job, just as in <code>RESUME</code>
+        /// mode.</para><para>If the loader doesn't find a previous load job from the same source, it loads all
+        /// data from the source, just as in <code>NEW</code> mode.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +170,13 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter ParserConfiguration
         /// <summary>
         /// <para>
-        /// Amazon.Neptunedata.Model.StartLoaderJobRequest.ParserConfiguration
+        /// <para><b><code>parserConfiguration</code></b>   –   An optional object with additional
+        /// parser configuration values. Each of the child parameters is also optional:</para><para><b /></para><ul><li><para><b><code>namedGraphUri</code></b>   –   The default graph for all RDF formats when
+        /// no graph is specified (for non-quads formats and NQUAD entries with no graph).</para><para>The default is <code>https://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph</code>.</para></li><li><para><b><code>baseUri</code></b>   –   The base URI for RDF/XML and Turtle formats.</para><para>The default is <code>https://aws.amazon.com/neptune/default</code>.</para></li><li><para><b><code>allowEmptyStrings</code></b>   –   Gremlin users need to be able to pass
+        /// empty string values("") as node and edge properties when loading CSV data. If <code>allowEmptyStrings</code>
+        /// is set to <code>false</code> (the default), such empty strings are treated as nulls
+        /// and are not loaded.</para><para>If <code>allowEmptyStrings</code> is set to <code>true</code>, the loader treats empty
+        /// strings as valid property values and loads them accordingly.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

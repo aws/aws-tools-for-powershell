@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DatasetNameBeginsWith
         /// <summary>
         /// <para>
-        /// <para>The beginning of the name of the dataset of the ML models to be listed. </para>
+        /// <para>The beginning of the name of the dataset of the machine learning models to be listed.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ModelNameBeginsWith
         /// <summary>
         /// <para>
-        /// <para>The beginning of the name of the ML models being listed. </para>
+        /// <para>The beginning of the name of the machine learning models being listed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the ML model. </para>
+        /// <para>The status of the machine learning model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Specifies the maximum number of ML models to list. </para>
+        /// <para> Specifies the maximum number of machine learning models to list. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> An opaque pagination token indicating where to continue the listing of ML models.
-        /// </para>
+        /// <para> An opaque pagination token indicating where to continue the listing of machine learning
+        /// models. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

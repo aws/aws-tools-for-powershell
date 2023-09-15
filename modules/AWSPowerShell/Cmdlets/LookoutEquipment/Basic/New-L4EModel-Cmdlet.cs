@@ -28,7 +28,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Creates an ML model for data inference. 
+    /// Creates a machine learning model for data inference. 
     /// 
     ///  
     /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DatasetName
         /// <summary>
         /// <para>
-        /// <para>The name of the dataset for the ML model being created. </para>
+        /// <para>The name of the dataset for the machine learning model being created. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para> Indicates the time reference in the dataset that should be used to end the subset
-        /// of evaluation data for the ML model. </para>
+        /// of evaluation data for the machine learning model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para>Indicates the time reference in the dataset that should be used to begin the subset
-        /// of evaluation data for the ML model. </para>
+        /// of evaluation data for the machine learning model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DatasetSchema_InlineDataSchema
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The data schema used within the given dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name for the ML model to be created.</para>
+        /// <para>The name for the machine learning model to be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of a role with permission to access the data source
-        /// being used to create the ML model. </para>
+        /// being used to create the machine learning model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> Any tags associated with the ML model being created. </para>
+        /// <para> Any tags associated with the machine learning model being created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para>Indicates the time reference in the dataset that should be used to end the subset
-        /// of training data for the ML model. </para>
+        /// of training data for the machine learning model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para>Indicates the time reference in the dataset that should be used to begin the subset
-        /// of training data for the ML model. </para>
+        /// of training data for the machine learning model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

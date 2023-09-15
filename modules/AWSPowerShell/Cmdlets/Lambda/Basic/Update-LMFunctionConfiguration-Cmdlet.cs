@@ -119,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// Amazon.Lambda.Model.UpdateFunctionConfigurationRequest.FunctionName
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>my-function</code>.</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

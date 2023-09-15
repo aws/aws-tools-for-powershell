@@ -28,7 +28,33 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Amazon.Personalize.IAmazonPersonalize.CreateSolutionVersion
+    /// Trains or retrains an active solution in a Custom dataset group. A solution is created
+    /// using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+    /// operation and must be in the ACTIVE state before calling <code>CreateSolutionVersion</code>.
+    /// A new version of the solution is created every time you call this operation.
+    /// 
+    ///  
+    /// <para><b>Status</b></para><para>
+    /// A solution version can be in one of the following states:
+    /// </para><ul><li><para>
+    /// CREATE PENDING
+    /// </para></li><li><para>
+    /// CREATE IN_PROGRESS
+    /// </para></li><li><para>
+    /// ACTIVE
+    /// </para></li><li><para>
+    /// CREATE FAILED
+    /// </para></li><li><para>
+    /// CREATE STOPPING
+    /// </para></li><li><para>
+    /// CREATE STOPPED
+    /// </para></li></ul><para>
+    /// To get the status of the version, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
+    /// Wait until the status shows as ACTIVE before calling <code>CreateCampaign</code>.
+    /// </para><para>
+    /// If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
+    /// key, which describes why the job failed.
+    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSSolutionVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

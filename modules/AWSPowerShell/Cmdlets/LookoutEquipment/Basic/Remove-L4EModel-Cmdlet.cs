@@ -28,9 +28,9 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Deletes an ML model currently available for Amazon Lookout for Equipment. This will
-    /// prevent it from being used with an inference scheduler, even one that is already set
-    /// up.
+    /// Deletes a machine learning model currently available for Amazon Lookout for Equipment.
+    /// This will prevent it from being used with an inference scheduler, even one that is
+    /// already set up.
     /// </summary>
     [Cmdlet("Remove", "L4EModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the ML model to be deleted. </para>
+        /// <para>The name of the machine learning model to be deleted. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

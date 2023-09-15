@@ -44,14 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RuleBasedProperties_AttributeMatchingModel
         /// <summary>
         /// <para>
-        /// <para>You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the
-        /// AttributeMatchingModel. When choosing <code>MANY_TO_MANY</code>, the system can match
-        /// attribute across the sub-types of an attribute type. For example, if the value of
-        /// the Email field of Profile A and the value of BusinessEmail field of Profile B matches,
-        /// the two profiles are matched on the Email type. When choosing <code>ONE_TO_ONE</code>
-        /// the system can only match if the sub-types are exact matches. For example, only when
-        /// the value of the Email field of Profile A and the value of the Email field of Profile
-        /// B matches, the two profiles are matched on the Email type.</para>
+        /// <para>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code>
+        /// as the AttributeMatchingModel. When choosing <code>MANY_TO_MANY</code>, the system
+        /// can match attributes across the sub-types of an attribute type. For example, if the
+        /// value of the <code>Email</code> field of Profile A and the value of <code>BusinessEmail</code>
+        /// field of Profile B matches, the two profiles are matched on the <code>Email</code>
+        /// type. When choosing <code>ONE_TO_ONE</code> ,the system can only match if the sub-types
+        /// are exact matches. For example, only when the value of the <code>Email</code> field
+        /// of Profile A and the value of the <code>Email</code> field of Profile B matches, the
+        /// two profiles are matched on the <code>Email</code> type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,10 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter ResolutionTechniques_ResolutionType
         /// <summary>
         /// <para>
-        /// <para>There are two types of matching, <code>RULE_MATCHING</code> and <code>ML_MATCHING</code></para>
+        /// <para>The type of matching. There are two types of matching: <code>RULE_MATCHING</code>
+        /// and <code>ML_MATCHING</code>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EntityResolution.ResolutionType")]
         public Amazon.EntityResolution.ResolutionType ResolutionTechniques_ResolutionType { get; set; }
         #endregion
@@ -131,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this
-        /// role to create resources on your behalf as part of workflow execution.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role
+        /// to create resources on your behalf as part of workflow execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RuleBasedProperties_Rule
         /// <summary>
         /// <para>
-        /// <para>A list of Rule objects, each of which have fields <code>RuleName</code> and <code>MatchingKeys</code>.</para>
+        /// <para>A list of <code>Rule</code> objects, each of which have fields <code>RuleName</code>
+        /// and <code>MatchingKeys</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,6 +248,12 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             }
             #endif
             context.ResolutionTechniques_ResolutionType = this.ResolutionTechniques_ResolutionType;
+            #if MODULAR
+            if (this.ResolutionTechniques_ResolutionType == null && ParameterWasBound(nameof(this.ResolutionTechniques_ResolutionType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResolutionTechniques_ResolutionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.RuleBasedProperties_AttributeMatchingModel = this.RuleBasedProperties_AttributeMatchingModel;
             if (this.RuleBasedProperties_Rule != null)
             {

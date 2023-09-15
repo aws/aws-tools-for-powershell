@@ -28,7 +28,17 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.DeleteCORSConfiguration
+    /// Deletes the <code>cors</code> configuration information set for the bucket.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must have permission to perform the <code>s3:PutBucketCORS</code>
+    /// action. The bucket owner has this permission by default and can grant this permission
+    /// to others. 
+    /// </para><para>
+    /// For information about <code>cors</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
+    /// Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><para><b>Related Resources</b></para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html">PutBucketCors</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html">RESTOPTIONSobject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

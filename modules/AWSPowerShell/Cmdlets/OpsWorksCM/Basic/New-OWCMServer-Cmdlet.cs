@@ -189,7 +189,18 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>
-        /// Amazon.OpsWorksCM.Model.CreateServerRequest.EngineAttributes
+        /// <para>Optional engine attributes on a specified server. </para><para><b>Attributes accepted in a Chef createServer request:</b></para><ul><li><para><code>CHEF_AUTOMATE_PIVOTAL_KEY</code>: A base64-encoded RSA public key. The corresponding
+        /// private key is required to access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY
+        /// is set, a private key is generated and returned in the response. </para></li><li><para><code>CHEF_AUTOMATE_ADMIN_PASSWORD</code>: The password for the administrative user
+        /// in the Chef Automate web-based dashboard. The password length is a minimum of eight
+        /// characters, and a maximum of 32. The password can contain letters, numbers, and special
+        /// characters (!/@#$%^&amp;+=_). The password must contain at least one lower case letter,
+        /// one upper case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD
+        /// is set, one is generated and returned in the response.</para></li></ul><para><b>Attributes accepted in a Puppet createServer request:</b></para><ul><li><para><code>PUPPET_ADMIN_PASSWORD</code>: To work with the Puppet Enterprise console, a
+        /// password must use ASCII characters.</para></li><li><para><code>PUPPET_R10K_REMOTE</code>: The r10k remote is the URL of your control repository
+        /// (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k
+        /// remote opens TCP port 8170.</para></li><li><para><code>PUPPET_R10K_PRIVATE_KEY</code>: If you are using a private Git repository,
+        /// add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

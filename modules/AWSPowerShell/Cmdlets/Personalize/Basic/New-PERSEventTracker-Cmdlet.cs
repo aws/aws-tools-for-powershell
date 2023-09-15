@@ -28,7 +28,30 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Amazon.Personalize.IAmazonPersonalize.CreateEventTracker
+    /// Creates an event tracker that you use when adding event data to a specified dataset
+    /// group using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a>
+    /// API.
+    /// 
+    ///  <note><para>
+    /// Only one event tracker can be associated with a dataset group. You will get an error
+    /// if you call <code>CreateEventTracker</code> using the same dataset group as an existing
+    /// event tracker.
+    /// </para></note><para>
+    /// When you create an event tracker, the response includes a tracking ID, which you pass
+    /// as a parameter when you use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a>
+    /// operation. Amazon Personalize then appends the event data to the Interactions dataset
+    /// of the dataset group you specify in your event tracker. 
+    /// </para><para>
+    /// The event tracker can be in one of the following states:
+    /// </para><ul><li><para>
+    /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+    /// </para></li><li><para>
+    /// DELETE PENDING &gt; DELETE IN_PROGRESS
+    /// </para></li></ul><para>
+    /// To get the status of the event tracker, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>.
+    /// </para><note><para>
+    /// The event tracker must be in the ACTIVE state before using the tracking ID.
+    /// </para></note><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html">ListEventTrackers</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html">DeleteEventTracker</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSEventTracker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Personalize.Model.CreateEventTrackerResponse")]

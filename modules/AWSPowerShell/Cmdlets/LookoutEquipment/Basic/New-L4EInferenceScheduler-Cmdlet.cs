@@ -163,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the previously trained ML model being used to create the inference scheduler.
-        /// </para>
+        /// <para>The name of the previously trained machine learning model being used to create the
+        /// inference scheduler. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

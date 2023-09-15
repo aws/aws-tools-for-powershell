@@ -28,7 +28,46 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Amazon.ElastiCache.IAmazonElastiCache.TestFailover
+    /// Represents the input of a <code>TestFailover</code> operation which test automatic
+    /// failover on a specified node group (called shard in the console) in a replication
+    /// group (called cluster in the console).
+    /// 
+    ///  
+    /// <para>
+    /// This API is designed for testing the behavior of your application in case of ElastiCache
+    /// failover. It is not designed to be an operational tool for initiating a failover to
+    /// overcome a problem you may have with the cluster. Moreover, in certain conditions
+    /// such as large-scale operational events, Amazon may block this API. 
+    /// </para><para><b>Note the following</b></para><ul><li><para>
+    /// A customer can use this operation to test automatic failover on up to 5 shards (called
+    /// node groups in the ElastiCache API and Amazon CLI) in any rolling 24-hour period.
+    /// </para></li><li><para>
+    /// If calling this operation on shards in different clusters (called replication groups
+    /// in the API and CLI), the calls can be made concurrently.
+    /// </para><para></para></li><li><para>
+    /// If calling this operation multiple times on different shards in the same Redis (cluster
+    /// mode enabled) replication group, the first node replacement must complete before a
+    /// subsequent call can be made.
+    /// </para></li><li><para>
+    /// To determine whether the node replacement is complete you can check Events using the
+    /// Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API. Look for the following
+    /// automatic failover related events, listed here in order of occurrance:
+    /// </para><ol><li><para>
+    /// Replication group message: <code>Test Failover API called for node group &lt;node-group-id&gt;</code></para></li><li><para>
+    /// Cache cluster message: <code>Failover from primary node &lt;primary-node-id&gt; to
+    /// replica node &lt;node-id&gt; completed</code></para></li><li><para>
+    /// Replication group message: <code>Failover from primary node &lt;primary-node-id&gt;
+    /// to replica node &lt;node-id&gt; completed</code></para></li><li><para>
+    /// Cache cluster message: <code>Recovering cache nodes &lt;node-id&gt;</code></para></li><li><para>
+    /// Cache cluster message: <code>Finished recovery for cache nodes &lt;node-id&gt;</code></para></li></ol><para>
+    /// For more information see:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html">Viewing
+    /// ElastiCache Events</a> in the <i>ElastiCache User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>
+    /// in the ElastiCache API Reference
+    /// </para></li></ul></li></ul><para>
+    /// Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing
+    /// Multi-AZ </a> in the <i>ElastiCache User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Test", "ECFailover")]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]

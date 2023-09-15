@@ -28,7 +28,26 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Amazon.Chime.IAmazonChime.ListChannels<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
+    /// Lists all Channels created under a single Chime App as a paginated list. You can specify
+    /// filters to narrow results.
+    /// 
+    ///  
+    /// <para><b>Functionality &amp; restrictions</b></para><ul><li><para>
+    /// Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.
+    /// </para></li><li><para>
+    /// Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list
+    /// the private channels in an account.
+    /// </para></li></ul><note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html">ListChannels</a>,
+    /// in the Amazon Chime SDK.
+    /// </para><para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMChannelList")]
     [OutputType("Amazon.Chime.Model.ChannelSummary")]

@@ -127,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentTemplateImpact
         /// <summary>
         /// <para>
-        /// Amazon.SSMIncidents.Model.UpdateResponsePlanRequest.IncidentTemplateImpact
+        /// <para>Defines the impact to the customers. Providing an impact overwrites the impact provided
+        /// by a response plan.</para><para><b>Possible impacts:</b></para><ul><li><para><code>5</code> - Severe impact</para></li><li><para><code>4</code> - High impact</para></li><li><para><code>3</code> - Medium impact</para></li><li><para><code>2</code> - Low impact</para></li><li><para><code>1</code> - No impact</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

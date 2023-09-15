@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the ML model used by the inference scheduler to be listed. </para>
+        /// <para>The name of the machine learning model used by the inference scheduler to be listed.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>
-        /// Amazon.OpsWorksCM.Model.DisassociateNodeRequest.EngineAttributes
+        /// <para>Engine attributes that are used for disassociating the node. No attributes are required
+        /// for Puppet. </para><para><b>Attributes required in a DisassociateNode request for Chef</b></para><ul><li><para><code>CHEF_ORGANIZATION</code>: The Chef organization with which the node was associated.
+        /// By default only one organization named <code>default</code> can exist. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

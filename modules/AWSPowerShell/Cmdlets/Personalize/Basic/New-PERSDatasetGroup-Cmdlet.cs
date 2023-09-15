@@ -28,7 +28,41 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Amazon.Personalize.IAmazonPersonalize.CreateDatasetGroup
+    /// Creates an empty dataset group. A dataset group is a container for Amazon Personalize
+    /// resources. A dataset group can contain at most three datasets, one for each type of
+    /// dataset:
+    /// 
+    ///  <ul><li><para>
+    /// Interactions
+    /// </para></li><li><para>
+    /// Items
+    /// </para></li><li><para>
+    /// Users
+    /// </para></li></ul><para>
+    ///  A dataset group can be a Domain dataset group, where you specify a domain and use
+    /// pre-configured resources like recommenders, or a Custom dataset group, where you use
+    /// custom resources, such as a solution with a solution version, that you deploy with
+    /// a campaign. If you start with a Domain dataset group, you can still add custom resources
+    /// such as solutions and solution versions trained with recipes for custom use cases
+    /// and deployed with campaigns. 
+    /// </para><para>
+    /// A dataset group can be in one of the following states:
+    /// </para><ul><li><para>
+    /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+    /// </para></li><li><para>
+    /// DELETE PENDING
+    /// </para></li></ul><para>
+    /// To get the status of the dataset group, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>.
+    /// If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
+    /// key, which describes why the creation failed.
+    /// </para><note><para>
+    /// You must wait until the <code>status</code> of the dataset group is <code>ACTIVE</code>
+    /// before adding a dataset to the group.
+    /// </para></note><para>
+    /// You can specify an Key Management Service (KMS) key to encrypt the datasets in the
+    /// group. If you specify a KMS key, you must also include an Identity and Access Management
+    /// (IAM) role that has permission to access the key.
+    /// </para><para><b>APIs that require a dataset group ARN in the request</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a></para></li></ul><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html">DeleteDatasetGroup</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSDatasetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

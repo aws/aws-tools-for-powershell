@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
     /// Returns a list of all the <code>SchemaMappings</code> that have been created for an
-    /// AWS account.
+    /// Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "ERESSchemaMappingList")]
     [OutputType("Amazon.EntityResolution.Model.SchemaMappingSummary")]

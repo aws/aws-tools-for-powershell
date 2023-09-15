@@ -28,7 +28,36 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Amazon.Personalize.IAmazonPersonalize.CreateSolution
+    /// Creates the configuration for training a model. A trained model is known as a solution
+    /// version. After the configuration is created, you train the model (create a solution
+    /// version) by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a>
+    /// operation. Every time you call <code>CreateSolutionVersion</code>, a new version of
+    /// the solution is created.
+    /// 
+    ///  
+    /// <para>
+    /// After creating a solution version, you check its accuracy by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html">GetSolutionMetrics</a>.
+    /// When you are satisfied with the version, you deploy it using <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
+    /// The campaign provides recommendations to a client through the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
+    /// API.
+    /// </para><para>
+    /// To train a model, Amazon Personalize requires training data and a recipe. The training
+    /// data comes from the dataset group that you provide in the request. A recipe specifies
+    /// the training algorithm and a feature transformation. You can specify one of the predefined
+    /// recipes provided by Amazon Personalize. 
+    /// </para><note><para>
+    /// Amazon Personalize doesn't support configuring the <code>hpoObjective</code> for solution
+    /// hyperparameter optimization at this time.
+    /// </para></note><para><b>Status</b></para><para>
+    /// A solution can be in one of the following states:
+    /// </para><ul><li><para>
+    /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+    /// </para></li><li><para>
+    /// DELETE PENDING &gt; DELETE IN_PROGRESS
+    /// </para></li></ul><para>
+    /// To get the status of the solution, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>.
+    /// Wait until the status shows as ACTIVE before calling <code>CreateSolutionVersion</code>.
+    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSSolution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

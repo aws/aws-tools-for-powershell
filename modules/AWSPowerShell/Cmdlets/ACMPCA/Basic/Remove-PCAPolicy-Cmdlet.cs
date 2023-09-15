@@ -28,7 +28,39 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Amazon.ACMPCA.IAmazonACMPCA.DeletePolicy
+    /// Deletes the resource-based policy attached to a private CA. Deletion will remove any
+    /// access that the policy has granted. If there is no policy attached to the private
+    /// CA, this action will return successful.
+    /// 
+    ///  
+    /// <para>
+    /// If you delete a policy that was applied through Amazon Web Services Resource Access
+    /// Manager (RAM), the CA will be removed from all shares in which it was included. 
+    /// </para><para>
+    /// The Certificate Manager Service Linked Role that the policy supports is not affected
+    /// when you delete the policy. 
+    /// </para><para>
+    /// The current policy can be shown with <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html">GetPolicy</a>
+    /// and updated with <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html">PutPolicy</a>.
+    /// </para><para><b>About Policies</b></para><ul><li><para>
+    /// A policy grants access on a private CA to an Amazon Web Services customer account,
+    /// to Amazon Web Services Organizations, or to an Amazon Web Services Organizations unit.
+    /// Policies are under the control of a CA administrator. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using a
+    /// Resource Based Policy with Amazon Web Services Private CA</a>.
+    /// </para></li><li><para>
+    /// A policy permits a user of Certificate Manager (ACM) to issue ACM certificates signed
+    /// by a CA in another account.
+    /// </para></li><li><para>
+    /// For ACM to manage automatic renewal of these certificates, the ACM user must configure
+    /// a Service Linked Role (SLR). The SLR allows the ACM service to assume the identity
+    /// of the user, subject to confirmation against the Amazon Web Services Private CA policy.
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html">Using
+    /// a Service Linked Role with ACM</a>.
+    /// </para></li><li><para>
+    /// Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies.
+    /// For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html">Attach
+    /// a Policy for Cross-Account Access</a>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "PCAPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

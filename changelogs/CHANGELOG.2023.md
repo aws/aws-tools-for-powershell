@@ -1,4 +1,23 @@
-﻿### 4.1.414 (2023-09-13 21:40Z)
+﻿### 4.1.415 (2023-09-15 01:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.645.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet Get-APSSessionList: added parameter InstanceId.
+    * Modified cmdlet New-APSFleet: added parameters ComputeCapacity_DesiredSession and MaxSessionsPerInstance.
+    * Modified cmdlet Update-APSFleet: added parameters ComputeCapacity_DesiredSession and MaxSessionsPerInstance.
+  * Amazon Lookout for Equipment
+    * Added cmdlet Get-L4ERetrainingScheduler leveraging the DescribeRetrainingScheduler service API.
+    * Added cmdlet Get-L4ERetrainingSchedulerList leveraging the ListRetrainingSchedulers service API.
+    * Added cmdlet New-L4ERetrainingScheduler leveraging the CreateRetrainingScheduler service API.
+    * Added cmdlet Remove-L4ERetrainingScheduler leveraging the DeleteRetrainingScheduler service API.
+    * Added cmdlet Start-L4ERetrainingScheduler leveraging the StartRetrainingScheduler service API.
+    * Added cmdlet Stop-L4ERetrainingScheduler leveraging the StopRetrainingScheduler service API.
+    * Added cmdlet Update-L4EModel leveraging the UpdateModel service API.
+    * Added cmdlet Update-L4ERetrainingScheduler leveraging the UpdateRetrainingScheduler service API.
+    * Modified cmdlet Import-L4EModelVersion: added parameter InferenceDataImportStrategy.
+  * Amazon WAF V2
+    * Modified cmdlet Update-WAF2IPSet: added parameter IsAddressesSet.
+
+### 4.1.414 (2023-09-13 21:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.644.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Disaster Recovery Service
     * Added cmdlet Get-EDRSLaunchActionList leveraging the ListLaunchActions service API.

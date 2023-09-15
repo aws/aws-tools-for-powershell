@@ -28,7 +28,54 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Amazon.ElastiCache.IAmazonElastiCache.CopySnapshot
+    /// Makes a copy of an existing snapshot.
+    /// 
+    ///  <note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note><important><para>
+    /// Users or groups that have permissions to use the <code>CopySnapshot</code> operation
+    /// can create their own Amazon S3 buckets and copy snapshots to it. To control access
+    /// to your snapshots, use an IAM policy to control who has the ability to use the <code>CopySnapshot</code>
+    /// operation. For more information about using IAM to control the use of ElastiCache
+    /// operations, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting
+    /// Snapshots</a> and <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.html">Authentication
+    /// &amp; Access Control</a>.
+    /// </para></important><para>
+    /// You could receive the following error messages.
+    /// </para><para><b>Error Messages</b></para><ul><li><para><b>Error Message:</b> The S3 bucket %s is outside of the region.
+    /// </para><para><b>Solution:</b> Create an Amazon S3 bucket in the same region as your snapshot.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket">Step
+    /// 1: Create an Amazon S3 Bucket</a> in the ElastiCache User Guide.
+    /// </para></li><li><para><b>Error Message:</b> The S3 bucket %s does not exist.
+    /// </para><para><b>Solution:</b> Create an Amazon S3 bucket in the same region as your snapshot.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket">Step
+    /// 1: Create an Amazon S3 Bucket</a> in the ElastiCache User Guide.
+    /// </para></li><li><para><b>Error Message:</b> The S3 bucket %s is not owned by the authenticated user.
+    /// </para><para><b>Solution:</b> Create an Amazon S3 bucket in the same region as your snapshot.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket">Step
+    /// 1: Create an Amazon S3 Bucket</a> in the ElastiCache User Guide.
+    /// </para></li><li><para><b>Error Message:</b> The authenticated user does not have sufficient permissions
+    /// to perform the desired activity.
+    /// </para><para><b>Solution:</b> Contact your system administrator to get the needed permissions.
+    /// </para></li><li><para><b>Error Message:</b> The S3 bucket %s already contains an object with key %s.
+    /// </para><para><b>Solution:</b> Give the <code>TargetSnapshotName</code> a new and unique value.
+    /// If exporting a snapshot, you could alternatively create a new Amazon S3 bucket and
+    /// use this same value for <code>TargetSnapshotName</code>.
+    /// </para></li><li><para><b>Error Message: </b> ElastiCache has not been granted READ permissions %s on the
+    /// S3 Bucket.
+    /// </para><para><b>Solution:</b> Add List and Read permissions on the bucket. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step
+    /// 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the ElastiCache User Guide.
+    /// </para></li><li><para><b>Error Message: </b> ElastiCache has not been granted WRITE permissions %s on the
+    /// S3 Bucket.
+    /// </para><para><b>Solution:</b> Add Upload/Delete permissions on the bucket. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step
+    /// 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the ElastiCache User Guide.
+    /// </para></li><li><para><b>Error Message: </b> ElastiCache has not been granted READ_ACP permissions %s on
+    /// the S3 Bucket.
+    /// </para><para><b>Solution:</b> Add View Permissions on the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step
+    /// 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the ElastiCache User Guide.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Copy", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]

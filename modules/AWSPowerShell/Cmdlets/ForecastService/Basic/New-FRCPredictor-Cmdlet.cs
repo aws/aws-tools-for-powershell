@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter AlgorithmArn
         /// <summary>
         /// <para>
-        /// Amazon.ForecastService.Model.CreatePredictorRequest.AlgorithmArn
+        /// <para>The Amazon Resource Name (ARN) of the algorithm to use for model training. Required
+        /// if <code>PerformAutoML</code> is not set to <code>true</code>.</para><para><b>Supported algorithms:</b></para><ul><li><para><code>arn:aws:forecast:::algorithm/ARIMA</code></para></li><li><para><code>arn:aws:forecast:::algorithm/CNN-QR</code></para></li><li><para><code>arn:aws:forecast:::algorithm/Deep_AR_Plus</code></para></li><li><para><code>arn:aws:forecast:::algorithm/ETS</code></para></li><li><para><code>arn:aws:forecast:::algorithm/NPTS</code></para></li><li><para><code>arn:aws:forecast:::algorithm/Prophet</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

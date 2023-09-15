@@ -28,7 +28,31 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Amazon.ACMPCA.IAmazonACMPCA.ListPermissions<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all permissions on a private CA, if any, granted to the Certificate Manager (ACM)
+    /// service principal (acm.amazonaws.com). 
+    /// 
+    ///  
+    /// <para>
+    /// These permissions allow ACM to issue and renew ACM certificates that reside in the
+    /// same Amazon Web Services account as the CA. 
+    /// </para><para>
+    /// Permissions can be granted with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html">CreatePermission</a>
+    /// action and revoked with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html">DeletePermission</a>
+    /// action.
+    /// </para><para><b>About Permissions</b></para><ul><li><para>
+    /// If the private CA and the certificates it issues reside in the same account, you can
+    /// use <code>CreatePermission</code> to grant permissions for ACM to carry out automatic
+    /// certificate renewals.
+    /// </para></li><li><para>
+    /// For automatic certificate renewal to succeed, the ACM service principal needs permissions
+    /// to create, retrieve, and list certificates.
+    /// </para></li><li><para>
+    /// If the private CA and the ACM certificates reside in different accounts, then permissions
+    /// cannot be used to enable automatic renewals. Instead, the ACM certificate owner must
+    /// set up a resource-based policy to enable cross-account issuance and renewals. For
+    /// more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using
+    /// a Resource Based Policy with Amazon Web Services Private CA</a>.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PCAPermissionList")]
     [OutputType("Amazon.ACMPCA.Model.Permission")]

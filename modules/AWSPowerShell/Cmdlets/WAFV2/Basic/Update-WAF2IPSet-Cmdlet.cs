@@ -119,6 +119,20 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter IsAddressesSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.WAFV2.Model.UpdateIPSetRequest.Addresses" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsAddressesSet { get; set; }
+        #endregion
+        
         #region Parameter LockToken
         /// <summary>
         /// <para>
@@ -255,6 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter Address which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IsAddressesSet = this.IsAddressesSet;
+            if (!ParameterWasBound(nameof(this.IsAddressesSet)) && this.Address != null)
+            {
+                context.IsAddressesSet = true;
+            }
             context.Description = this.Description;
             context.Id = this.Id;
             #if MODULAR
@@ -303,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.Address != null)
             {
                 request.Addresses = cmdletContext.Address;
+            }
+            if (cmdletContext.IsAddressesSet != null)
+            {
+                request.IsAddressesSet = cmdletContext.IsAddressesSet.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -386,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Address { get; set; }
+            public System.Boolean? IsAddressesSet { get; set; }
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String LockToken { get; set; }

@@ -66,7 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>
-        /// Amazon.OpsWorksCM.Model.AssociateNodeRequest.EngineAttributes
+        /// <para>Engine attributes used for associating the node. </para><para><b>Attributes accepted in a AssociateNode request for Chef</b></para><ul><li><para><code>CHEF_ORGANIZATION</code>: The Chef organization with which the node is associated.
+        /// By default only one organization named <code>default</code> can exist. </para></li><li><para><code>CHEF_NODE_PUBLIC_KEY</code>: A PEM-formatted public key. This key is required
+        /// for the <code>chef-client</code> agent to access the Chef API. </para></li></ul><para><b>Attributes accepted in a AssociateNode request for Puppet</b></para><ul><li><para><code>PUPPET_NODE_CSR</code>: A PEM-formatted certificate-signing request (CSR) that
+        /// is created by the node. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

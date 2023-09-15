@@ -28,7 +28,36 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Amazon.CognitoIdentityProvider.IAmazonCognitoIdentityProvider.AdminSetUserPassword
+    /// Sets the specified user's password in a user pool as an administrator. Works on any
+    /// user. 
+    /// 
+    ///  
+    /// <para>
+    /// The password can be temporary or permanent. If it is temporary, the user status enters
+    /// the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to sign in,
+    /// the InitiateAuth/AdminInitiateAuth response will contain the <code>NEW_PASSWORD_REQUIRED</code>
+    /// challenge. If the user doesn't sign in before it expires, the user won't be able to
+    /// sign in, and an administrator must reset their password. 
+    /// </para><para>
+    /// Once the user has set a new password, or the password is permanent, the user status
+    /// is set to <code>Confirmed</code>.
+    /// </para><para><code>AdminSetUserPassword</code> can set a password for the user profile that Amazon
+    /// Cognito creates for third-party federated users. When you set a password, the federated
+    /// user's status changes from <code>EXTERNAL_PROVIDER</code> to <code>CONFIRMED</code>.
+    /// A user in this state can sign in as a federated user, and initiate authentication
+    /// flows in the API like a linked native user. They can also modify their password and
+    /// attributes in token-authenticated API requests like <code>ChangePassword</code> and
+    /// <code>UpdateUserAttributes</code>. As a best security practice and to keep users in
+    /// sync with your external IdP, don't set passwords on federated user profiles. To set
+    /// up a federated user for native sign-in with a linked native user, refer to <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">Linking
+    /// federated users to an existing user profile</a>.
+    /// </para><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Set", "CGIPUserPasswordAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

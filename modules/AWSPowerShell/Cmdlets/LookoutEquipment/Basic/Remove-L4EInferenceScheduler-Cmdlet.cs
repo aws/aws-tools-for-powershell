@@ -28,8 +28,8 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Deletes an inference scheduler that has been set up. Already processed output results
-    /// are not affected.
+    /// Deletes an inference scheduler that has been set up. Prior inference results will
+    /// not be deleted.
     /// </summary>
     [Cmdlet("Remove", "L4EInferenceScheduler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

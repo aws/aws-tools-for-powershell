@@ -28,7 +28,7 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Removes one or more tags from the specified AWS Entity Resolution resource. In Entity
+    /// Removes one or more tags from the specified Entity Resolution resource. In Entity
     /// Resolution, <code>SchemaMapping</code>, and <code>MatchingWorkflow</code> can be tagged.
     /// </summary>
     [Cmdlet("Remove", "ERESResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

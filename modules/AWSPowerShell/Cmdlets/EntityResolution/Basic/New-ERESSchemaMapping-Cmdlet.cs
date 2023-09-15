@@ -60,7 +60,14 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// that Entity Resolution uses for matching.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("MappedInputFields")]
         public Amazon.EntityResolution.Model.SchemaInputAttribute[] MappedInputField { get; set; }
         #endregion
@@ -161,6 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             {
                 context.MappedInputField = new List<Amazon.EntityResolution.Model.SchemaInputAttribute>(this.MappedInputField);
             }
+            #if MODULAR
+            if (this.MappedInputField == null && ParameterWasBound(nameof(this.MappedInputField)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MappedInputField which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SchemaName = this.SchemaName;
             #if MODULAR
             if (this.SchemaName == null && ParameterWasBound(nameof(this.SchemaName)))
