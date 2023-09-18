@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.646.0",
+    "ProductVersion" : "3.7.647.0",
     "CoreVersion"    : "3.7.202.10",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -546,7 +546,7 @@
             "InPreview"               : false
         },
         "ApplicationDiscoveryService"     : {
-            "Version" : "3.7.200.41",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.10"
@@ -1034,7 +1034,7 @@
             "InPreview"               : false
         },
         "WorkMail"                        : {
-            "Version" : "3.7.200.41",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.10"
@@ -1778,7 +1778,7 @@
             "InPreview"               : false
         },
         "Macie2"                          : {
-            "Version" : "3.7.200.41",
+            "Version" : "3.7.200.42",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.10"

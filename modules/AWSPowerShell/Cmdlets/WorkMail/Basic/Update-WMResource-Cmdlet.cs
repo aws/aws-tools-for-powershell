@@ -53,6 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public Amazon.WorkMail.Model.BookingOptions BookingOption { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>Updates the resource description.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter HiddenFromGlobalAddressList
+        /// <summary>
+        /// <para>
+        /// <para>If enabled, the resource is hidden from the global address list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -83,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource to be updated.</para>
+        /// <para>The identifier of the resource to be updated.</para><para>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>.
+        /// The following identity formats are available:</para><ul><li><para>Resource ID: r-0123456789a0123456789b0123456789</para></li><li><para>Email address: resource@domain.tld</para></li><li><para>Resource name: resource</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>Updates the resource type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkMail.ResourceType")]
+        public Amazon.WorkMail.ResourceType Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BookingOption = this.BookingOption;
+            context.Description = this.Description;
+            context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
             context.Name = this.Name;
             context.OrganizationId = this.OrganizationId;
             #if MODULAR
@@ -174,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.WM
             {
                 request.BookingOptions = cmdletContext.BookingOption;
             }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.HiddenFromGlobalAddressList != null)
+            {
+                request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -205,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -268,9 +315,12 @@ namespace Amazon.PowerShell.Cmdlets.WM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.WorkMail.Model.BookingOptions BookingOption { get; set; }
+            public System.String Description { get; set; }
+            public System.Boolean? HiddenFromGlobalAddressList { get; set; }
             public System.String Name { get; set; }
             public System.String OrganizationId { get; set; }
             public System.String ResourceId { get; set; }
+            public Amazon.WorkMail.ResourceType Type { get; set; }
             public System.Func<Amazon.WorkMail.Model.UpdateResourceResponse, UpdateWMResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

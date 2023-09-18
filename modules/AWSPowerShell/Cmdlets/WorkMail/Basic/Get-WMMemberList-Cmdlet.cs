@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the group to which the members (users or groups) are associated.</para>
+        /// <para>The identifier for the group to which the members (users or groups) are associated.</para><para>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following
+        /// identity formats are available:</para><ul><li><para>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</para></li><li><para>Email address: group@domain.tld</para></li><li><para>Group name: group</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

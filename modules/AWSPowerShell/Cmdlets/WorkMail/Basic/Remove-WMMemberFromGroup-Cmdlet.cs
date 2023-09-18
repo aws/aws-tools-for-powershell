@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the group from which members are removed.</para>
+        /// <para>The identifier for the group from which members are removed.</para><para>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following
+        /// identity formats are available:</para><ul><li><para>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</para></li><li><para>Email address: group@domain.tld</para></li><li><para>Group name: group</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the member to be removed to the group.</para>
+        /// <para>The identifier for the member to be removed from the group.</para><para>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or
+        /// <i>email</i>.</para><ul><li><para>Member ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</para></li><li><para>Email address: member@domain.tld</para></li><li><para>Member name: member</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

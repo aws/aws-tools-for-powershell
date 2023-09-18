@@ -131,6 +131,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="Email" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -212,6 +216,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupsForEntity" OutputProperty="Groups" Verb="Get" Noun="GroupsForEntityList" PipelineParameter="EntityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -319,6 +327,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateImpersonationRole" Verb="Update" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -336,6 +348,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

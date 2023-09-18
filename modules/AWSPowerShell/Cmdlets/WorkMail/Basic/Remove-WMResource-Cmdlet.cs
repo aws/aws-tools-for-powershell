@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource to be deleted.</para>
+        /// <para>The identifier of the resource to be deleted.</para><para>The identifier can accept <i>ResourceId</i>, or <i>Resourcename</i>. The following
+        /// identity formats are available:</para><ul><li><para>Resource ID: r-0123456789a0123456789b0123456789</para></li><li><para>Resource name: resource</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

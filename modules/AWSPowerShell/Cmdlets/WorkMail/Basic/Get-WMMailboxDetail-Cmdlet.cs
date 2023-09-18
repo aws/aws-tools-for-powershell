@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the user whose mailbox details are being requested.</para>
+        /// <para>The identifier for the user whose mailbox details are being requested.</para><para>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following
+        /// identity formats are available:</para><ul><li><para>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</para></li><li><para>Email address: user@domain.tld</para></li><li><para>User name: user</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

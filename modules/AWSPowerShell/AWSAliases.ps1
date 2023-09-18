@@ -26488,6 +26488,8 @@ Set-Alias -Name Deregister-WMMailDomain -Value Remove-WMMailDomain
 Set-Alias -Name WM-DeregisterMailDomain -Value Remove-WMMailDomain
 Set-Alias -Name Describe-WMEmailMonitoringConfiguration -Value Get-WMEmailMonitoringConfiguration
 Set-Alias -Name WM-DescribeEmailMonitoringConfiguration -Value Get-WMEmailMonitoringConfiguration
+Set-Alias -Name Describe-WMEntity -Value Get-WMEntity
+Set-Alias -Name WM-DescribeEntity -Value Get-WMEntity
 Set-Alias -Name Describe-WMGroup -Value Get-WMGroup
 Set-Alias -Name WM-DescribeGroup -Value Get-WMGroup
 Set-Alias -Name Describe-WMInboundDmarcSettings -Value Get-WMInboundDmarcSetting
@@ -26529,6 +26531,9 @@ Set-Alias -Name WM-ListGroupMembers -Value Get-WMMemberList
 Set-Alias -Name List-WMGroups -Value Get-WMGroupList
 Set-Alias -Name List-WMGroupList -Value Get-WMGroupList
 Set-Alias -Name WM-ListGroups -Value Get-WMGroupList
+Set-Alias -Name List-WMGroupsForEntity -Value Get-WMGroupsForEntityList
+Set-Alias -Name List-WMGroupsForEntityList -Value Get-WMGroupsForEntityList
+Set-Alias -Name WM-ListGroupsForEntity -Value Get-WMGroupsForEntityList
 Set-Alias -Name List-WMImpersonationRoles -Value Get-WMImpersonationRoleList
 Set-Alias -Name List-WMImpersonationRoleList -Value Get-WMImpersonationRoleList
 Set-Alias -Name WM-ListImpersonationRoles -Value Get-WMImpersonationRoleList
@@ -26584,11 +26589,13 @@ Set-Alias -Name WM-TestAvailabilityConfiguration -Value Test-WMAvailabilityConfi
 Set-Alias -Name WM-UntagResource -Value Remove-WMResourceTag
 Set-Alias -Name WM-UpdateAvailabilityConfiguration -Value Update-WMAvailabilityConfiguration
 Set-Alias -Name WM-UpdateDefaultMailDomain -Value Update-WMDefaultMailDomain
+Set-Alias -Name WM-UpdateGroup -Value Update-WMGroup
 Set-Alias -Name WM-UpdateImpersonationRole -Value Update-WMImpersonationRole
 Set-Alias -Name WM-UpdateMailboxQuota -Value Update-WMMailboxQuota
 Set-Alias -Name WM-UpdateMobileDeviceAccessRule -Value Update-WMMobileDeviceAccessRule
 Set-Alias -Name WM-UpdatePrimaryEmailAddress -Value Update-WMPrimaryEmailAddress
 Set-Alias -Name WM-UpdateResource -Value Update-WMResource
+Set-Alias -Name WM-UpdateUser -Value Update-WMUser
 Set-Alias -Name WMMF-GetRawMessageContent -Value Get-WMMFRawMessageContent
 Set-Alias -Name Put-WMMFRawMessageContent -Value Write-WMMFRawMessageContent
 Set-Alias -Name WMMF-PutRawMessageContent -Value Write-WMMFRawMessageContent

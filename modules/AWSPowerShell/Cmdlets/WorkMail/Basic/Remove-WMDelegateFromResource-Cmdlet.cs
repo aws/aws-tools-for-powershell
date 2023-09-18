@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the member (user, group) to be removed from the resource's delegates.</para>
+        /// <para>The identifier for the member (user, group) to be removed from the resource's delegates.</para><para>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or
+        /// <i>email</i>.</para><ul><li><para>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</para></li><li><para>Email address: entity@domain.tld</para></li><li><para>Entity: entity</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource from which delegates' set members are removed. </para>
+        /// <para>The identifier of the resource from which delegates' set members are removed. </para><para>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>.
+        /// The following identity formats are available:</para><ul><li><para>Resource ID: r-0123456789a0123456789b0123456789</para></li><li><para>Email address: resource@domain.tld</para></li><li><para>Resource name: resource</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -40,6 +40,26 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class NewWMResourceCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>Resource description.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter HiddenFromGlobalAddressList
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is enabled, the resource will be hidden from the address book.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -153,6 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Description = this.Description;
+            context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -190,6 +212,14 @@ namespace Amazon.PowerShell.Cmdlets.WM
             // create request
             var request = new Amazon.WorkMail.Model.CreateResourceRequest();
             
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.HiddenFromGlobalAddressList != null)
+            {
+                request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -263,6 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Description { get; set; }
+            public System.Boolean? HiddenFromGlobalAddressList { get; set; }
             public System.String Name { get; set; }
             public System.String OrganizationId { get; set; }
             public Amazon.WorkMail.ResourceType Type { get; set; }

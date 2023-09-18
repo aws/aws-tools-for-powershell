@@ -62544,6 +62544,17 @@ $WM_Completers = {
             break
         }
 
+        # Amazon.WorkMail.EntityState
+        {
+            ($_ -eq "Get-WMGroupList/Filters_State") -Or
+            ($_ -eq "Get-WMResourceList/Filters_State") -Or
+            ($_ -eq "Get-WMUserList/Filters_State")
+        }
+        {
+            $v = "DELETED","DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WorkMail.ImpersonationRoleType
         {
             ($_ -eq "New-WMImpersonationRole/Type") -Or
@@ -62566,9 +62577,22 @@ $WM_Completers = {
         }
 
         # Amazon.WorkMail.ResourceType
-        "New-WMResource/Type"
+        {
+            ($_ -eq "New-WMResource/Type") -Or
+            ($_ -eq "Update-WMResource/Type")
+        }
         {
             $v = "EQUIPMENT","ROOM"
+            break
+        }
+
+        # Amazon.WorkMail.UserRole
+        {
+            ($_ -eq "New-WMUser/Role") -Or
+            ($_ -eq "Update-WMUser/Role")
+        }
+        {
+            $v = "REMOTE_USER","RESOURCE","SYSTEM_USER","USER"
             break
         }
 
@@ -62582,7 +62606,9 @@ $WM_Completers = {
 
 $WM_map = @{
     "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
-    "Type"=@("New-WMImpersonationRole","New-WMResource","Update-WMImpersonationRole")
+    "Filters_State"=@("Get-WMGroupList","Get-WMResourceList","Get-WMUserList")
+    "Role"=@("New-WMUser","Update-WMUser")
+    "Type"=@("New-WMImpersonationRole","New-WMResource","Update-WMImpersonationRole","Update-WMResource")
 }
 
 _awsArgumentCompleterRegistration $WM_Completers $WM_map
@@ -62663,6 +62689,7 @@ $WM_SelectMap = @{
                "Remove-WMFromWorkMail",
                "Remove-WMMailDomain",
                "Get-WMEmailMonitoringConfiguration",
+               "Get-WMEntity",
                "Get-WMGroup",
                "Get-WMInboundDmarcSetting",
                "Get-WMMailboxExportJob",
@@ -62684,6 +62711,7 @@ $WM_SelectMap = @{
                "Get-WMAvailabilityConfigurationList",
                "Get-WMMemberList",
                "Get-WMGroupList",
+               "Get-WMGroupsForEntityList",
                "Get-WMImpersonationRoleList",
                "Get-WMMailboxExportJobList",
                "Get-WMMailboxPermissionList",
@@ -62710,11 +62738,13 @@ $WM_SelectMap = @{
                "Remove-WMResourceTag",
                "Update-WMAvailabilityConfiguration",
                "Update-WMDefaultMailDomain",
+               "Update-WMGroup",
                "Update-WMImpersonationRole",
                "Update-WMMailboxQuota",
                "Update-WMMobileDeviceAccessRule",
                "Update-WMPrimaryEmailAddress",
-               "Update-WMResource")
+               "Update-WMResource",
+               "Update-WMUser")
 }
 
 _awsArgumentCompleterRegistration $WM_SelectCompleters $WM_SelectMap

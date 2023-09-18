@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class GetWMUserListCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        #region Parameter Filters_DisplayNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>Filters only users with the provided display name prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_DisplayNamePrefix { get; set; }
+        #endregion
+        
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
@@ -55,6 +67,37 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OrganizationId { get; set; }
+        #endregion
+        
+        #region Parameter Filters_PrimaryEmailPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Filters only users with the provided email prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_PrimaryEmailPrefix { get; set; }
+        #endregion
+        
+        #region Parameter Filters_State
+        /// <summary>
+        /// <para>
+        /// <para>Filters only users with the provided state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkMail.EntityState")]
+        public Amazon.WorkMail.EntityState Filters_State { get; set; }
+        #endregion
+        
+        #region Parameter Filters_UsernamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>Filters only users with the provided username prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_UsernamePrefix { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -145,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 context.Select = (response, cmdlet) => this.OrganizationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Filters_DisplayNamePrefix = this.Filters_DisplayNamePrefix;
+            context.Filters_PrimaryEmailPrefix = this.Filters_PrimaryEmailPrefix;
+            context.Filters_State = this.Filters_State;
+            context.Filters_UsernamePrefix = this.Filters_UsernamePrefix;
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -191,6 +238,55 @@ namespace Amazon.PowerShell.Cmdlets.WM
             // create request and set iteration invariants
             var request = new Amazon.WorkMail.Model.ListUsersRequest();
             
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.WorkMail.Model.ListUsersFilters();
+            System.String requestFilters_filters_DisplayNamePrefix = null;
+            if (cmdletContext.Filters_DisplayNamePrefix != null)
+            {
+                requestFilters_filters_DisplayNamePrefix = cmdletContext.Filters_DisplayNamePrefix;
+            }
+            if (requestFilters_filters_DisplayNamePrefix != null)
+            {
+                request.Filters.DisplayNamePrefix = requestFilters_filters_DisplayNamePrefix;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_PrimaryEmailPrefix = null;
+            if (cmdletContext.Filters_PrimaryEmailPrefix != null)
+            {
+                requestFilters_filters_PrimaryEmailPrefix = cmdletContext.Filters_PrimaryEmailPrefix;
+            }
+            if (requestFilters_filters_PrimaryEmailPrefix != null)
+            {
+                request.Filters.PrimaryEmailPrefix = requestFilters_filters_PrimaryEmailPrefix;
+                requestFiltersIsNull = false;
+            }
+            Amazon.WorkMail.EntityState requestFilters_filters_State = null;
+            if (cmdletContext.Filters_State != null)
+            {
+                requestFilters_filters_State = cmdletContext.Filters_State;
+            }
+            if (requestFilters_filters_State != null)
+            {
+                request.Filters.State = requestFilters_filters_State;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_UsernamePrefix = null;
+            if (cmdletContext.Filters_UsernamePrefix != null)
+            {
+                requestFilters_filters_UsernamePrefix = cmdletContext.Filters_UsernamePrefix;
+            }
+            if (requestFilters_filters_UsernamePrefix != null)
+            {
+                request.Filters.UsernamePrefix = requestFilters_filters_UsernamePrefix;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -254,6 +350,55 @@ namespace Amazon.PowerShell.Cmdlets.WM
             
             // create request and set iteration invariants
             var request = new Amazon.WorkMail.Model.ListUsersRequest();
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.WorkMail.Model.ListUsersFilters();
+            System.String requestFilters_filters_DisplayNamePrefix = null;
+            if (cmdletContext.Filters_DisplayNamePrefix != null)
+            {
+                requestFilters_filters_DisplayNamePrefix = cmdletContext.Filters_DisplayNamePrefix;
+            }
+            if (requestFilters_filters_DisplayNamePrefix != null)
+            {
+                request.Filters.DisplayNamePrefix = requestFilters_filters_DisplayNamePrefix;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_PrimaryEmailPrefix = null;
+            if (cmdletContext.Filters_PrimaryEmailPrefix != null)
+            {
+                requestFilters_filters_PrimaryEmailPrefix = cmdletContext.Filters_PrimaryEmailPrefix;
+            }
+            if (requestFilters_filters_PrimaryEmailPrefix != null)
+            {
+                request.Filters.PrimaryEmailPrefix = requestFilters_filters_PrimaryEmailPrefix;
+                requestFiltersIsNull = false;
+            }
+            Amazon.WorkMail.EntityState requestFilters_filters_State = null;
+            if (cmdletContext.Filters_State != null)
+            {
+                requestFilters_filters_State = cmdletContext.Filters_State;
+            }
+            if (requestFilters_filters_State != null)
+            {
+                request.Filters.State = requestFilters_filters_State;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_UsernamePrefix = null;
+            if (cmdletContext.Filters_UsernamePrefix != null)
+            {
+                requestFilters_filters_UsernamePrefix = cmdletContext.Filters_UsernamePrefix;
+            }
+            if (requestFilters_filters_UsernamePrefix != null)
+            {
+                request.Filters.UsernamePrefix = requestFilters_filters_UsernamePrefix;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
+            }
             if (cmdletContext.OrganizationId != null)
             {
                 request.OrganizationId = cmdletContext.OrganizationId;
@@ -381,6 +526,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filters_DisplayNamePrefix { get; set; }
+            public System.String Filters_PrimaryEmailPrefix { get; set; }
+            public Amazon.WorkMail.EntityState Filters_State { get; set; }
+            public System.String Filters_UsernamePrefix { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OrganizationId { get; set; }

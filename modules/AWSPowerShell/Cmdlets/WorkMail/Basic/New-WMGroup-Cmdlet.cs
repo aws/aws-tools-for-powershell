@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class NewWMGroupCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        #region Parameter HiddenFromGlobalAddressList
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is enabled, the group will be hidden from the address book.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -137,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -167,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             // create request
             var request = new Amazon.WorkMail.Model.CreateGroupRequest();
             
+            if (cmdletContext.HiddenFromGlobalAddressList != null)
+            {
+                request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -236,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? HiddenFromGlobalAddressList { get; set; }
             public System.String Name { get; set; }
             public System.String OrganizationId { get; set; }
             public System.Func<Amazon.WorkMail.Model.CreateGroupResponse, NewWMGroupCmdlet, object> Select { get; set; } =

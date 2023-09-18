@@ -60,6 +60,36 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter FirstName
+        /// <summary>
+        /// <para>
+        /// <para>The first name of the new user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirstName { get; set; }
+        #endregion
+        
+        #region Parameter HiddenFromGlobalAddressList
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is enabled, the user will be hidden from the address book.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
+        #region Parameter LastName
+        /// <summary>
+        /// <para>
+        /// <para>The last name of the new user. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LastName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -101,15 +131,20 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <para>The password for the new user.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Password { get; set; }
+        #endregion
+        
+        #region Parameter Role
+        /// <summary>
+        /// <para>
+        /// <para>The role of the new user.</para><para>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i> role in a single request. When
+        /// a user role is not selected, the default role of <i>USER</i> is selected.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkMail.UserRole")]
+        public Amazon.WorkMail.UserRole Role { get; set; }
         #endregion
         
         #region Parameter Select
@@ -181,6 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 WriteWarning("You are passing $null as a value for parameter DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FirstName = this.FirstName;
+            context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
+            context.LastName = this.LastName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -196,12 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             #endif
             context.Password = this.Password;
-            #if MODULAR
-            if (this.Password == null && ParameterWasBound(nameof(this.Password)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Role = this.Role;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,6 +255,18 @@ namespace Amazon.PowerShell.Cmdlets.WM
             {
                 request.DisplayName = cmdletContext.DisplayName;
             }
+            if (cmdletContext.FirstName != null)
+            {
+                request.FirstName = cmdletContext.FirstName;
+            }
+            if (cmdletContext.HiddenFromGlobalAddressList != null)
+            {
+                request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
+            if (cmdletContext.LastName != null)
+            {
+                request.LastName = cmdletContext.LastName;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -233,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
+            }
+            if (cmdletContext.Role != null)
+            {
+                request.Role = cmdletContext.Role;
             }
             
             CmdletOutput output;
@@ -296,9 +345,13 @@ namespace Amazon.PowerShell.Cmdlets.WM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DisplayName { get; set; }
+            public System.String FirstName { get; set; }
+            public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+            public System.String LastName { get; set; }
             public System.String Name { get; set; }
             public System.String OrganizationId { get; set; }
             public System.String Password { get; set; }
+            public Amazon.WorkMail.UserRole Role { get; set; }
             public System.Func<Amazon.WorkMail.Model.CreateUserResponse, NewWMUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UserId;
         }

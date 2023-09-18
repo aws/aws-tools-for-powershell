@@ -28,50 +28,21 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail
-    /// as part of the organization. You can choose whether to delete the associated directory.
-    /// For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing
-    /// an organization</a> in the <i>WorkMail Administrator Guide</i>.
+    /// Returns basic details about an entity in WorkMail.
     /// </summary>
-    [Cmdlet("Remove", "WMOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.WorkMail.Model.DeleteOrganizationResponse")]
-    [AWSCmdlet("Calls the Amazon WorkMail DeleteOrganization API operation.", Operation = new[] {"DeleteOrganization"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteOrganizationResponse))]
-    [AWSCmdletOutput("Amazon.WorkMail.Model.DeleteOrganizationResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.DeleteOrganizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WMEntity")]
+    [OutputType("Amazon.WorkMail.Model.DescribeEntityResponse")]
+    [AWSCmdlet("Calls the Amazon WorkMail DescribeEntity API operation.", Operation = new[] {"DescribeEntity"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DescribeEntityResponse))]
+    [AWSCmdletOutput("Amazon.WorkMail.Model.DescribeEntityResponse",
+        "This cmdlet returns an Amazon.WorkMail.Model.DescribeEntityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWMOrganizationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
+    public partial class GetWMEntityCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
-        #region Parameter DeleteDirectory
+        #region Parameter Email
         /// <summary>
         /// <para>
-        /// <para>If true, deletes the AWS Directory Service directory associated with the organization.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Boolean? DeleteDirectory { get; set; }
-        #endregion
-        
-        #region Parameter ForceDelete
-        /// <summary>
-        /// <para>
-        /// <para>Deletes a WorkMail organization even if the organization has enabled users.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ForceDelete { get; set; }
-        #endregion
-        
-        #region Parameter OrganizationId
-        /// <summary>
-        /// <para>
-        /// <para>The organization ID.</para>
+        /// <para>The email under which the entity exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,24 +53,31 @@ namespace Amazon.PowerShell.Cmdlets.WM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OrganizationId { get; set; }
+        public System.String Email { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The idempotency token associated with the request.</para>
+        /// <para>The identifier for the organization under which the entity exists.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OrganizationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkMail.Model.DeleteOrganizationResponse).
-        /// Specifying the name of a property of type Amazon.WorkMail.Model.DeleteOrganizationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkMail.Model.DescribeEntityResponse).
+        /// Specifying the name of a property of type Amazon.WorkMail.Model.DescribeEntityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,34 +86,18 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OrganizationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OrganizationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Email parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Email' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OrganizationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Email' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrganizationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WMOrganization (DeleteOrganization)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -145,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkMail.Model.DeleteOrganizationResponse, RemoveWMOrganizationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkMail.Model.DescribeEntityResponse, GetWMEntityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -154,18 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OrganizationId;
+                context.Select = (response, cmdlet) => this.Email;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.DeleteDirectory = this.DeleteDirectory;
+            context.Email = this.Email;
             #if MODULAR
-            if (this.DeleteDirectory == null && ParameterWasBound(nameof(this.DeleteDirectory)))
+            if (this.Email == null && ParameterWasBound(nameof(this.Email)))
             {
-                WriteWarning("You are passing $null as a value for parameter DeleteDirectory which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Email which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ForceDelete = this.ForceDelete;
             context.OrganizationId = this.OrganizationId;
             #if MODULAR
             if (this.OrganizationId == null && ParameterWasBound(nameof(this.OrganizationId)))
@@ -187,19 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkMail.Model.DeleteOrganizationRequest();
+            var request = new Amazon.WorkMail.Model.DescribeEntityRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.Email != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.DeleteDirectory != null)
-            {
-                request.DeleteDirectory = cmdletContext.DeleteDirectory.Value;
-            }
-            if (cmdletContext.ForceDelete != null)
-            {
-                request.ForceDelete = cmdletContext.ForceDelete.Value;
+                request.Email = cmdletContext.Email;
             }
             if (cmdletContext.OrganizationId != null)
             {
@@ -238,15 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkMail.Model.DeleteOrganizationResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.DeleteOrganizationRequest request)
+        private Amazon.WorkMail.Model.DescribeEntityResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.DescribeEntityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "DeleteOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "DescribeEntity");
             try
             {
                 #if DESKTOP
-                return client.DeleteOrganization(request);
+                return client.DescribeEntity(request);
                 #elif CORECLR
-                return client.DeleteOrganizationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeEntityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,11 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.Boolean? DeleteDirectory { get; set; }
-            public System.Boolean? ForceDelete { get; set; }
+            public System.String Email { get; set; }
             public System.String OrganizationId { get; set; }
-            public System.Func<Amazon.WorkMail.Model.DeleteOrganizationResponse, RemoveWMOrganizationCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.WorkMail.Model.DescribeEntityResponse, GetWMEntityCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

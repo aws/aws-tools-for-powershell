@@ -28,50 +28,23 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail
-    /// as part of the organization. You can choose whether to delete the associated directory.
-    /// For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing
-    /// an organization</a> in the <i>WorkMail Administrator Guide</i>.
+    /// Updates attibutes in a group.
     /// </summary>
-    [Cmdlet("Remove", "WMOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.WorkMail.Model.DeleteOrganizationResponse")]
-    [AWSCmdlet("Calls the Amazon WorkMail DeleteOrganization API operation.", Operation = new[] {"DeleteOrganization"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteOrganizationResponse))]
-    [AWSCmdletOutput("Amazon.WorkMail.Model.DeleteOrganizationResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.DeleteOrganizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "WMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon WorkMail UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateGroupResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateGroupResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.WorkMail.Model.UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWMOrganizationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
+    public partial class UpdateWMGroupCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
-        #region Parameter DeleteDirectory
+        #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>If true, deletes the AWS Directory Service directory associated with the organization.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Boolean? DeleteDirectory { get; set; }
-        #endregion
-        
-        #region Parameter ForceDelete
-        /// <summary>
-        /// <para>
-        /// <para>Deletes a WorkMail organization even if the organization has enabled users.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ForceDelete { get; set; }
-        #endregion
-        
-        #region Parameter OrganizationId
-        /// <summary>
-        /// <para>
-        /// <para>The organization ID.</para>
+        /// <para>The identifier for the group to be updated.</para><para>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following
+        /// identity formats are available:</para><ul><li><para>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</para></li><li><para>Email address: group@domain.tld</para></li><li><para>Group name: group</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,24 +55,40 @@ namespace Amazon.PowerShell.Cmdlets.WM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OrganizationId { get; set; }
+        public System.String GroupId { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter HiddenFromGlobalAddressList
         /// <summary>
         /// <para>
-        /// <para>The idempotency token associated with the request.</para>
+        /// <para>If enabled, the group is hidden from the global address list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the organization under which the group exists.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OrganizationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkMail.Model.DeleteOrganizationResponse).
-        /// Specifying the name of a property of type Amazon.WorkMail.Model.DeleteOrganizationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkMail.Model.UpdateGroupResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OrganizationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OrganizationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GroupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OrganizationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -131,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrganizationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WMOrganization (DeleteOrganization)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WMGroup (UpdateGroup)"))
             {
                 return;
             }
@@ -145,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkMail.Model.DeleteOrganizationResponse, RemoveWMOrganizationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkMail.Model.UpdateGroupResponse, UpdateWMGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -154,18 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OrganizationId;
+                context.Select = (response, cmdlet) => this.GroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.DeleteDirectory = this.DeleteDirectory;
+            context.GroupId = this.GroupId;
             #if MODULAR
-            if (this.DeleteDirectory == null && ParameterWasBound(nameof(this.DeleteDirectory)))
+            if (this.GroupId == null && ParameterWasBound(nameof(this.GroupId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DeleteDirectory which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ForceDelete = this.ForceDelete;
+            context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
             context.OrganizationId = this.OrganizationId;
             #if MODULAR
             if (this.OrganizationId == null && ParameterWasBound(nameof(this.OrganizationId)))
@@ -187,19 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.WM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkMail.Model.DeleteOrganizationRequest();
+            var request = new Amazon.WorkMail.Model.UpdateGroupRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.GroupId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.GroupId = cmdletContext.GroupId;
             }
-            if (cmdletContext.DeleteDirectory != null)
+            if (cmdletContext.HiddenFromGlobalAddressList != null)
             {
-                request.DeleteDirectory = cmdletContext.DeleteDirectory.Value;
-            }
-            if (cmdletContext.ForceDelete != null)
-            {
-                request.ForceDelete = cmdletContext.ForceDelete.Value;
+                request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
             }
             if (cmdletContext.OrganizationId != null)
             {
@@ -238,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkMail.Model.DeleteOrganizationResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.DeleteOrganizationRequest request)
+        private Amazon.WorkMail.Model.UpdateGroupResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.UpdateGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "DeleteOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "UpdateGroup");
             try
             {
                 #if DESKTOP
-                return client.DeleteOrganization(request);
+                return client.UpdateGroup(request);
                 #elif CORECLR
-                return client.DeleteOrganizationAsync(request).GetAwaiter().GetResult();
+                return client.UpdateGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,12 +250,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.Boolean? DeleteDirectory { get; set; }
-            public System.Boolean? ForceDelete { get; set; }
+            public System.String GroupId { get; set; }
+            public System.Boolean? HiddenFromGlobalAddressList { get; set; }
             public System.String OrganizationId { get; set; }
-            public System.Func<Amazon.WorkMail.Model.DeleteOrganizationResponse, RemoveWMOrganizationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.WorkMail.Model.UpdateGroupResponse, UpdateWMGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -1,4 +1,20 @@
-﻿### 4.1.416 (2023-09-15 21:42Z)
+﻿### 4.1.417 (2023-09-18 21:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.647.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon WorkMail
+    * Added cmdlet Get-WMEntity leveraging the DescribeEntity service API.
+    * Added cmdlet Get-WMGroupsForEntityList leveraging the ListGroupsForEntity service API.
+    * Added cmdlet Update-WMGroup leveraging the UpdateGroup service API.
+    * Added cmdlet Update-WMUser leveraging the UpdateUser service API.
+    * Modified cmdlet Get-WMGroupList: added parameters Filters_NamePrefix, Filters_PrimaryEmailPrefix and Filters_State.
+    * Modified cmdlet Get-WMResourceList: added parameters Filters_NamePrefix, Filters_PrimaryEmailPrefix and Filters_State.
+    * Modified cmdlet Get-WMUserList: added parameters Filters_DisplayNamePrefix, Filters_PrimaryEmailPrefix, Filters_State and Filters_UsernamePrefix.
+    * Modified cmdlet New-WMGroup: added parameter HiddenFromGlobalAddressList.
+    * Modified cmdlet New-WMResource: added parameters Description and HiddenFromGlobalAddressList.
+    * Modified cmdlet New-WMUser: added parameters FirstName, HiddenFromGlobalAddressList, LastName and Role.
+    * Modified cmdlet Remove-WMOrganization: added parameter ForceDelete.
+    * Modified cmdlet Update-WMResource: added parameters Description, HiddenFromGlobalAddressList and Type.
+
+### 4.1.416 (2023-09-15 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.646.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * [Breaking Change] Modified cmdlet Get-APSSessionList: removed parameter InstanceId.
