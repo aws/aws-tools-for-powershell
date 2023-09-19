@@ -1,4 +1,12 @@
-﻿### 4.1.417 (2023-09-18 21:03Z)
+﻿### 4.1.418 (2023-09-19 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.648.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDataQualityJobDefinition: added parameters BatchTransformInput_ExcludeFeaturesAttribute and EndpointInput_ExcludeFeaturesAttribute.
+    * Modified cmdlet New-SMModelBiasJobDefinition: added parameters BatchTransformInput_ExcludeFeaturesAttribute and EndpointInput_ExcludeFeaturesAttribute.
+    * Modified cmdlet New-SMModelExplainabilityJobDefinition: added parameters BatchTransformInput_ExcludeFeaturesAttribute and EndpointInput_ExcludeFeaturesAttribute.
+    * Modified cmdlet New-SMModelQualityJobDefinition: added parameters BatchTransformInput_ExcludeFeaturesAttribute and EndpointInput_ExcludeFeaturesAttribute.
+
+### 4.1.417 (2023-09-18 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.647.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon WorkMail
     * Added cmdlet Get-WMEntity leveraging the DescribeEntity service API.

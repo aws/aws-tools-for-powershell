@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CaptureContentTypeHeader_CsvContentType
         /// <summary>
         /// <para>
-        /// <para>The list of all content type headers that Amazon SageMaker will treat as CSV and capture
+        /// <para>The list of all content type headers that SageMaker will treat as CSV and capture
         /// accordingly.</para>
         /// </para>
         /// </summary>
@@ -279,8 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker uses
-        /// to encrypt the captured data at rest using Amazon S3 server-side encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
+        /// that SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side
+        /// encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>
     /// which offer backward compatibility.
     /// </para><para><code>CreateAutoMLJobV2</code> can manage tabular problem types identical to those
-    /// of its previous version <code>CreateAutoMLJob</code>, as well as time-series forecasting,
-    /// and non-tabular problem types such as image or text classification.
+    /// of its previous version <code>CreateAutoMLJob</code>, as well as non-tabular problem
+    /// types such as image or text classification.
     /// </para><para>
     /// Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
     /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TimeSeriesForecastingJobConfig_HolidayConfig
         /// <summary>
         /// <para>
-        /// <para>The collection of holiday featurization attributes used to incorporate national holiday
+        /// <para>The collection of holidays featurization attributes used to incorporate national holiday
         /// information into your forecasting model.</para>
         /// </para>
         /// </summary>

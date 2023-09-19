@@ -155,6 +155,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable DataQualityAppSpecification_Environment { get; set; }
         #endregion
         
+        #region Parameter BatchTransformInput_ExcludeFeaturesAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The attributes of the input data to exclude from the analysis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataQualityJobInput_BatchTransformInput_ExcludeFeaturesAttribute")]
+        public System.String BatchTransformInput_ExcludeFeaturesAttribute { get; set; }
+        #endregion
+        
+        #region Parameter EndpointInput_ExcludeFeaturesAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The attributes of the input data to exclude from the analysis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataQualityJobInput_EndpointInput_ExcludeFeaturesAttribute")]
+        public System.String EndpointInput_ExcludeFeaturesAttribute { get; set; }
+        #endregion
+        
         #region Parameter BatchTransformInput_FeaturesAttribute
         /// <summary>
         /// <para>
@@ -283,8 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataQualityJobOutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key that Amazon SageMaker uses to encrypt the model
-        /// artifacts at rest using Amazon S3 server-side encryption.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side
+        /// encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Json_Line
         /// <summary>
         /// <para>
-        /// <para>Indicates if the file should be read as a JSON object per line. </para>
+        /// <para>Indicates if the file should be read as a json object per line. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -426,7 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An Amazon S3 URI to a script that is called per row prior to running analysis. It
-        /// can base64 decode the payload and convert it into a flattened JSON so that the built-in
+        /// can base64 decode the payload and convert it into a flatted json so that the built-in
         /// container can use the converted data. Applicable only for the built-in (first party)
         /// containers.</para>
         /// </para>
@@ -469,8 +492,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointInput_S3DataDistributionType
         /// <summary>
         /// <para>
-        /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon
-        /// S3 key. Defaults to <code>FullyReplicated</code></para>
+        /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3
+        /// key. Defaults to <code>FullyReplicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -583,8 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
-        /// Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
         /// User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -596,9 +619,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key that Amazon SageMaker uses to encrypt data on
-        /// the storage volume attached to the ML compute instance(s) that run the model monitoring
-        /// job.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance(s) that run the model monitoring job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -719,6 +742,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.Json_Line = this.Json_Line;
             context.DatasetFormat_Parquet = this.DatasetFormat_Parquet;
             context.BatchTransformInput_EndTimeOffset = this.BatchTransformInput_EndTimeOffset;
+            context.BatchTransformInput_ExcludeFeaturesAttribute = this.BatchTransformInput_ExcludeFeaturesAttribute;
             context.BatchTransformInput_FeaturesAttribute = this.BatchTransformInput_FeaturesAttribute;
             context.BatchTransformInput_InferenceAttribute = this.BatchTransformInput_InferenceAttribute;
             context.BatchTransformInput_LocalPath = this.BatchTransformInput_LocalPath;
@@ -729,6 +753,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.BatchTransformInput_StartTimeOffset = this.BatchTransformInput_StartTimeOffset;
             context.EndpointInput_EndpointName = this.EndpointInput_EndpointName;
             context.EndpointInput_EndTimeOffset = this.EndpointInput_EndTimeOffset;
+            context.EndpointInput_ExcludeFeaturesAttribute = this.EndpointInput_ExcludeFeaturesAttribute;
             context.EndpointInput_FeaturesAttribute = this.EndpointInput_FeaturesAttribute;
             context.EndpointInput_InferenceAttribute = this.EndpointInput_InferenceAttribute;
             context.EndpointInput_LocalPath = this.EndpointInput_LocalPath;
@@ -982,6 +1007,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDataQualityJobInput_dataQualityJobInput_EndpointInput.EndTimeOffset = requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndTimeOffset;
                 requestDataQualityJobInput_dataQualityJobInput_EndpointInputIsNull = false;
             }
+            System.String requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_ExcludeFeaturesAttribute = null;
+            if (cmdletContext.EndpointInput_ExcludeFeaturesAttribute != null)
+            {
+                requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_ExcludeFeaturesAttribute = cmdletContext.EndpointInput_ExcludeFeaturesAttribute;
+            }
+            if (requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_ExcludeFeaturesAttribute != null)
+            {
+                requestDataQualityJobInput_dataQualityJobInput_EndpointInput.ExcludeFeaturesAttribute = requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_ExcludeFeaturesAttribute;
+                requestDataQualityJobInput_dataQualityJobInput_EndpointInputIsNull = false;
+            }
             System.String requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_FeaturesAttribute = null;
             if (cmdletContext.EndpointInput_FeaturesAttribute != null)
             {
@@ -1095,6 +1130,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_EndTimeOffset != null)
             {
                 requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput.EndTimeOffset = requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_EndTimeOffset;
+                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_ExcludeFeaturesAttribute = null;
+            if (cmdletContext.BatchTransformInput_ExcludeFeaturesAttribute != null)
+            {
+                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_ExcludeFeaturesAttribute = cmdletContext.BatchTransformInput_ExcludeFeaturesAttribute;
+            }
+            if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_ExcludeFeaturesAttribute != null)
+            {
+                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput.ExcludeFeaturesAttribute = requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_ExcludeFeaturesAttribute;
                 requestDataQualityJobInput_dataQualityJobInput_BatchTransformInputIsNull = false;
             }
             System.String requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_batchTransformInput_FeaturesAttribute = null;
@@ -1530,6 +1575,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? Json_Line { get; set; }
             public Amazon.SageMaker.Model.MonitoringParquetDatasetFormat DatasetFormat_Parquet { get; set; }
             public System.String BatchTransformInput_EndTimeOffset { get; set; }
+            public System.String BatchTransformInput_ExcludeFeaturesAttribute { get; set; }
             public System.String BatchTransformInput_FeaturesAttribute { get; set; }
             public System.String BatchTransformInput_InferenceAttribute { get; set; }
             public System.String BatchTransformInput_LocalPath { get; set; }
@@ -1540,6 +1586,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String BatchTransformInput_StartTimeOffset { get; set; }
             public System.String EndpointInput_EndpointName { get; set; }
             public System.String EndpointInput_EndTimeOffset { get; set; }
+            public System.String EndpointInput_ExcludeFeaturesAttribute { get; set; }
             public System.String EndpointInput_FeaturesAttribute { get; set; }
             public System.String EndpointInput_InferenceAttribute { get; set; }
             public System.String EndpointInput_LocalPath { get; set; }
