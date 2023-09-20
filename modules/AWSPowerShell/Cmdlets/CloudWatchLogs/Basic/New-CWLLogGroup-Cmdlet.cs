@@ -28,8 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a log group with the specified name. You can create up to 20,000 log groups
-    /// per account.
+    /// Creates a log group with the specified name. You can create up to 1,000,000 log groups
+    /// per Region per account.
     /// 
     ///  
     /// <para>

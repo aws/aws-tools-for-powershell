@@ -1,4 +1,15 @@
-﻿### 4.1.418 (2023-09-19 21:43Z)
+﻿### 4.1.419 (2023-09-20 22:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.649.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon App Runner
+    * Added cmdlet Get-AARServicesForAutoScalingConfigurationList leveraging the ListServicesForAutoScalingConfiguration service API.
+    * Added cmdlet Update-AARDefaultAutoScalingConfiguration leveraging the UpdateDefaultAutoScalingConfiguration service API.
+    * Modified cmdlet Remove-AARAutoScalingConfiguration: added parameter DeleteAllRevision.
+  * Amazon Cloud Map
+    * Added cmdlet Get-SDInstancesRevision leveraging the DiscoverInstancesRevision service API.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Write-CWLQueryDefinition: added parameter ClientToken.
+
+### 4.1.418 (2023-09-19 21:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.648.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMDataQualityJobDefinition: added parameters BatchTransformInput_ExcludeFeaturesAttribute and EndpointInput_ExcludeFeaturesAttribute.

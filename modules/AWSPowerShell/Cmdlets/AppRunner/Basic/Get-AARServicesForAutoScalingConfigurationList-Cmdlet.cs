@@ -28,28 +28,25 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Delete an App Runner automatic scaling configuration resource. You can delete a top
-    /// level auto scaling configuration, a specific revision of one, or all revisions associated
-    /// with the top level configuration. You can't delete the default auto scaling configuration
-    /// or a configuration that's used by one or more App Runner services.
+    /// Returns a list of the associated App Runner services using an auto scaling configuration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Remove", "AARAutoScalingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.AppRunner.Model.AutoScalingConfiguration")]
-    [AWSCmdlet("Calls the AWS App Runner DeleteAutoScalingConfiguration API operation.", Operation = new[] {"DeleteAutoScalingConfiguration"}, SelectReturnType = typeof(Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.AppRunner.Model.AutoScalingConfiguration or Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.AutoScalingConfiguration object.",
-        "The service call response (type Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AARServicesForAutoScalingConfigurationList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS App Runner ListServicesForAutoScalingConfiguration API operation.", Operation = new[] {"ListServicesForAutoScalingConfiguration"}, SelectReturnType = typeof(Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse))]
+    [AWSCmdletOutput("System.String or Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveAARAutoScalingConfigurationCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
+    public partial class GetAARServicesForAutoScalingConfigurationListCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingConfigurationArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you
-        /// want to delete.</para><para>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with
+        /// want to list the services for.</para><para>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with
         /// either <code>.../<i>name</i></code> or <code>.../<i>name</i>/<i>revision</i></code>.
-        /// If a revision isn't specified, the latest active revision is deleted.</para>
+        /// If a revision isn't specified, the latest active revision is used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,28 +60,45 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public System.String AutoScalingConfigurationArn { get; set; }
         #endregion
         
-        #region Parameter DeleteAllRevision
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code>
-        /// parameter value.</para><para>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value
-        /// for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</para>
+        /// <para>The maximum number of results to include in each response (result page). It's used
+        /// for a paginated request.</para><para>If you don't specify <code>MaxResults</code>, the request retrieves all available
+        /// results in a single response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DeleteAllRevisions")]
-        public System.Boolean? DeleteAllRevision { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A token from a previous result page. It's used for a paginated request. The request
+        /// retrieves the next result page. All other parameter values must be identical to the
+        /// ones specified in the initial request.</para><para>If you don't specify <code>NextToken</code>, the request retrieves the first result
+        /// page.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AutoScalingConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceArnList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AutoScalingConfiguration";
+        public string Select { get; set; } = "ServiceArnList";
         #endregion
         
         #region Parameter PassThru
@@ -97,26 +111,20 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter NoAutoIteration
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AutoScalingConfigurationArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AARAutoScalingConfiguration (DeleteAutoScalingConfiguration)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -126,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse, RemoveAARAutoScalingConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse, GetAARServicesForAutoScalingConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 WriteWarning("You are passing $null as a value for parameter AutoScalingConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DeleteAllRevision = this.DeleteAllRevision;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,39 +168,67 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.AppRunner.Model.DeleteAutoScalingConfigurationRequest();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
+            var request = new Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationRequest();
             
             if (cmdletContext.AutoScalingConfigurationArn != null)
             {
                 request.AutoScalingConfigurationArn = cmdletContext.AutoScalingConfigurationArn;
             }
-            if (cmdletContext.DeleteAllRevision != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.DeleteAllRevisions = cmdletContext.DeleteAllRevision.Value;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -203,15 +240,15 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         
         #region AWS Service Operation Call
         
-        private Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse CallAWSServiceOperation(IAmazonAppRunner client, Amazon.AppRunner.Model.DeleteAutoScalingConfigurationRequest request)
+        private Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse CallAWSServiceOperation(IAmazonAppRunner client, Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Runner", "DeleteAutoScalingConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS App Runner", "ListServicesForAutoScalingConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DeleteAutoScalingConfiguration(request);
+                return client.ListServicesForAutoScalingConfiguration(request);
                 #elif CORECLR
-                return client.DeleteAutoScalingConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.ListServicesForAutoScalingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -232,9 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingConfigurationArn { get; set; }
-            public System.Boolean? DeleteAllRevision { get; set; }
-            public System.Func<Amazon.AppRunner.Model.DeleteAutoScalingConfigurationResponse, RemoveAARAutoScalingConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AutoScalingConfiguration;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.AppRunner.Model.ListServicesForAutoScalingConfigurationResponse, GetAARServicesForAutoScalingConfigurationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ServiceArnList;
         }
         
     }

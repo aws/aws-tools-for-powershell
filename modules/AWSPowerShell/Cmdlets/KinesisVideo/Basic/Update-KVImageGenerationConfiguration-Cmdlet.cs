@@ -111,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The time interval in milliseconds (ms) at which the images need to be generated from
-        /// the stream. The minimum value that can be provided is 33 ms, because a camera that
-        /// generates content at 30 FPS would create a frame every 33.3 ms. If the timestamp range
+        /// the stream. The minimum value that can be provided is 200 ms. If the timestamp range
         /// is less than the sampling interval, the Image from the <code>StartTimestamp</code>
         /// will be returned if available. </para>
         /// </para>

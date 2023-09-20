@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// include settings for an <code>A</code> record, an <code>AAAA</code> record, or both.</para></li><li><para>In the service that's specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code>
         /// must be <code>WEIGHTED</code>.</para></li><li><para>If the service that's specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
         /// settings, Cloud Map will create the Route 53 health check, but it doesn't associate
-        /// the health check with the alias record.</para></li><li><para>Auto naming currently doesn't support creating alias records that route traffic to
-        /// Amazon Web Services resources other than Elastic Load Balancing load balancers.</para></li><li><para>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for
+        /// the health check with the alias record.</para></li><li><para>Cloud Map currently doesn't support creating alias records that route traffic to Amazon
+        /// Web Services resources other than Elastic Load Balancing load balancers.</para></li><li><para>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for
         /// any of the <code>AWS_INSTANCE</code> attributes.</para></li></ul></dd><dt>AWS_EC2_INSTANCE_ID</dt><dd><para><i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. If the
         /// <code>AWS_EC2_INSTANCE_ID</code> attribute is specified, then the only other attribute
         /// that can be specified is <code>AWS_INIT_HEALTH_STATUS</code>. When the <code>AWS_EC2_INSTANCE_ID</code>

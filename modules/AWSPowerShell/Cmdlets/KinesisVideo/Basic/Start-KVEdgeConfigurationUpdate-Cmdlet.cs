@@ -44,6 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity
     /// of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes.
     /// After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.
+    /// </para><para>
+    /// To move an edge configuration from one device to another, use <a>DeleteEdgeConfiguration</a>
+    /// to delete the current edge configuration. You can then invoke StartEdgeConfigurationUpdate
+    /// with an updated Hub Device ARN.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "KVEdgeConfigurationUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Specify the replication configuration in the request body. In the replication configuration,
     /// you provide the name of the destination bucket or buckets where you want Amazon S3
     /// to replicate objects, the IAM role that Amazon S3 can assume to replicate objects
-    /// on your behalf, and other relevant information.
+    /// on your behalf, and other relevant information. You can invoke this request for a
+    /// specific Amazon Web Services Region by using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion"><code>aws:RequestedRegion</code></a> condition key.
     /// </para><para>
     /// A replication configuration must include at least one rule, and can contain a maximum
     /// of 1,000. Each rule identifies a subset of objects to replicate by filtering the objects

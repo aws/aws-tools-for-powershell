@@ -1205,6 +1205,9 @@ Set-Alias -Name AAR-ListOperations -Value Get-AAROperationList
 Set-Alias -Name List-AARServices -Value Get-AARServiceList
 Set-Alias -Name List-AARServiceList -Value Get-AARServiceList
 Set-Alias -Name AAR-ListServices -Value Get-AARServiceList
+Set-Alias -Name List-AARServicesForAutoScalingConfiguration -Value Get-AARServicesForAutoScalingConfigurationList
+Set-Alias -Name List-AARServicesForAutoScalingConfigurationList -Value Get-AARServicesForAutoScalingConfigurationList
+Set-Alias -Name AAR-ListServicesForAutoScalingConfiguration -Value Get-AARServicesForAutoScalingConfigurationList
 Set-Alias -Name AAR-ListTagsForResource -Value Get-AARResourceTag
 Set-Alias -Name List-AARVpcConnectors -Value Get-AARVpcConnectorList
 Set-Alias -Name List-AARVpcConnectorList -Value Get-AARVpcConnectorList
@@ -1218,6 +1221,7 @@ Set-Alias -Name AAR-ResumeService -Value Resume-AARService
 Set-Alias -Name AAR-StartDeployment -Value Start-AARDeployment
 Set-Alias -Name AAR-TagResource -Value Add-AARResourceTag
 Set-Alias -Name AAR-UntagResource -Value Remove-AARResourceTag
+Set-Alias -Name AAR-UpdateDefaultAutoScalingConfiguration -Value Update-AARDefaultAutoScalingConfiguration
 Set-Alias -Name AAR-UpdateService -Value Update-AARService
 Set-Alias -Name AAR-UpdateVpcIngressConnection -Value Update-AARVpcIngressConnection
 Set-Alias -Name Associate-APSAppBlockBuilderAppBlock -Value Add-APSAppBlockBuilderAppBlock
@@ -23634,6 +23638,8 @@ Set-Alias -Name SD-DeregisterInstance -Value Remove-SDInstanceRegistration
 Set-Alias -Name Discover-SDInstances -Value Find-SDInstance
 Set-Alias -Name Discover-SDInstance -Value Find-SDInstance
 Set-Alias -Name SD-DiscoverInstances -Value Find-SDInstance
+Set-Alias -Name Discover-SDInstancesRevision -Value Get-SDInstancesRevision
+Set-Alias -Name SD-DiscoverInstancesRevision -Value Get-SDInstancesRevision
 Set-Alias -Name SD-GetInstance -Value Get-SDInstance
 Set-Alias -Name SD-GetInstancesHealthStatus -Value Get-SDInstancesHealthStatus
 Set-Alias -Name SD-GetNamespace -Value Get-SDNamespace

@@ -3510,6 +3510,7 @@ $AAR_SelectMap = @{
                "Get-AARObservabilityConfigurationList",
                "Get-AAROperationList",
                "Get-AARServiceList",
+               "Get-AARServicesForAutoScalingConfigurationList",
                "Get-AARResourceTag",
                "Get-AARVpcConnectorList",
                "Get-AARVpcIngressConnectionList",
@@ -3518,6 +3519,7 @@ $AAR_SelectMap = @{
                "Start-AARDeployment",
                "Add-AARResourceTag",
                "Remove-AARResourceTag",
+               "Update-AARDefaultAutoScalingConfiguration",
                "Update-AARService",
                "Update-AARVpcIngressConnection")
 }
@@ -10347,7 +10349,7 @@ $CA_Completers = {
             ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
-            $v = "generic","maven","npm","nuget","pypi"
+            $v = "generic","maven","npm","nuget","pypi","swift"
             break
         }
 
@@ -56215,6 +56217,7 @@ $SD_SelectMap = @{
                "Remove-SDService",
                "Remove-SDInstanceRegistration",
                "Find-SDInstance",
+               "Get-SDInstancesRevision",
                "Get-SDInstance",
                "Get-SDInstancesHealthStatus",
                "Get-SDNamespace",

@@ -181,6 +181,7 @@ $SD_SelectMap = @{
                "Remove-SDService",
                "Remove-SDInstanceRegistration",
                "Find-SDInstance",
+               "Get-SDInstancesRevision",
                "Get-SDInstance",
                "Get-SDInstancesHealthStatus",
                "Get-SDNamespace",

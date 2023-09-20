@@ -248,6 +248,7 @@ $AAR_SelectMap = @{
                "Get-AARObservabilityConfigurationList",
                "Get-AAROperationList",
                "Get-AARServiceList",
+               "Get-AARServicesForAutoScalingConfigurationList",
                "Get-AARResourceTag",
                "Get-AARVpcConnectorList",
                "Get-AARVpcIngressConnectionList",
@@ -256,6 +257,7 @@ $AAR_SelectMap = @{
                "Start-AARDeployment",
                "Add-AARResourceTag",
                "Remove-AARResourceTag",
+               "Update-AARDefaultAutoScalingConfiguration",
                "Update-AARService",
                "Update-AARVpcIngressConnection")
 }

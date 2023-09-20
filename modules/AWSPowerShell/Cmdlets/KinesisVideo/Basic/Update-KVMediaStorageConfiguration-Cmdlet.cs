@@ -28,10 +28,13 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
+    /// <important><para>
+    /// This API is related to <a href="https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html">WebRTC
+    /// Ingestion</a> and is only available in the <code>us-west-2</code> region.
+    /// </para></important><para>
     /// Associates a <code>SignalingChannel</code> to a stream to store the media. There are
     /// two signaling modes that can specified :
-    /// 
-    ///  <ul><li><para>
+    /// </para><ul><li><para>
     /// If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code>
     /// parameter will not be needed. 
     /// </para></li><li><para>

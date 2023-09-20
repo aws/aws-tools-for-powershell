@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AARResourceTag', 
         'Get-AARService', 
         'Get-AARServiceList', 
+        'Get-AARServicesForAutoScalingConfigurationList', 
         'Get-AARVpcConnector', 
         'Get-AARVpcConnectorList', 
         'Get-AARVpcIngressConnection', 
@@ -119,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Resume-AARService', 
         'Start-AARDeployment', 
         'Suspend-AARService', 
+        'Update-AARDefaultAutoScalingConfiguration', 
         'Update-AARService', 
         'Update-AARVpcIngressConnection')
 

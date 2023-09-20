@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String QueryString { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Used as an idempotency token, to avoid returning an exception if the service receives
+        /// the same request twice because of a network error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'QueryDefinitionId'.
@@ -182,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             if (this.LogGroupName != null)
             {
                 context.LogGroupName = new List<System.String>(this.LogGroupName);
@@ -217,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.PutQueryDefinitionRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupNames = cmdletContext.LogGroupName;
@@ -294,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public List<System.String> LogGroupName { get; set; }
             public System.String Name { get; set; }
             public System.String QueryDefinitionId { get; set; }

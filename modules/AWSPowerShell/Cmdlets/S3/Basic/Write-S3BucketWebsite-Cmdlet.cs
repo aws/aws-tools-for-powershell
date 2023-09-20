@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// more than 50 routing rules, you can use object redirect. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring
     /// an Object Redirect</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><para>
+    /// The maximum request length is limited to 128 KB.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

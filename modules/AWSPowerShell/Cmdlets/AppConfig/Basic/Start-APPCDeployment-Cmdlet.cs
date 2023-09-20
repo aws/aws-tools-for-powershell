@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The configuration version to deploy. If deploying an AppConfig hosted configuration
-        /// version, you can specify either the version number or version label.</para>
+        /// version, you can specify either the version number or version label. For all other
+        /// configurations, you must specify the version number.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
