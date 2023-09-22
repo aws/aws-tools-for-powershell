@@ -721,10 +721,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>An optional parameter that specifies how DMS treats null values. While handling the
         /// null value, you can use this parameter to pass a user-defined string as null when
-        /// writing to the target. For example, when target columns are not nullable, you can
-        /// use this option to differentiate between the empty string value and the null value.
-        /// So, if you set this parameter value to the empty string ("" or ''), DMS treats the
-        /// empty string as the null value instead of <code>NULL</code>.</para><para>The default value is <code>NULL</code>. Valid values include any valid string.</para>
+        /// writing to the target. For example, when target columns are nullable, you can use
+        /// this option to differentiate between the empty string value and the null value. So,
+        /// if you set this parameter value to the empty string ("" or ''), DMS treats the empty
+        /// string as the null value instead of <code>NULL</code>.</para><para>The default value is <code>NULL</code>. Valid values include any valid string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1738,7 +1738,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL
-        /// migrates booleans as <code>varchar(5)</code>.</para>
+        /// migrates booleans as <code>varchar(5)</code>. You must set this setting on both the
+        /// source and target endpoints for it to take effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1749,7 +1750,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift
-        /// migrates booleans as <code>varchar(1)</code>.</para>
+        /// migrates booleans as <code>varchar(1)</code>. You must set this setting on both the
+        /// source and target endpoints for it to take effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2843,8 +2845,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This <code>SecretsManagerOracleAsmSecret</code>
         /// has the secret value that allows access to the Oracle ASM of the endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
         /// values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can
-        /// specify clear-text values for <code>AsmUserName</code>, <code>AsmPassword</code>,
-        /// and <code>AsmServerName</code>. You can't specify both. For more information on creating
+        /// specify clear-text values for <code>AsmUser</code>, <code>AsmPassword</code>, and
+        /// <code>AsmServerName</code>. You can't specify both. For more information on creating
         /// this <code>SecretsManagerOracleAsmSecret</code> and the <code>SecretsManagerOracleAsmAccessRoleArn</code>
         /// and <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
@@ -3071,7 +3073,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_ServerName
         /// <summary>
         /// <para>
-        /// <para> The name of the server on the MongoDB source endpoint. </para>
+        /// <para> The name of the server on the MongoDB source endpoint. For MongoDB Atlas, provide
+        /// the server name for any of the servers in the replication set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3567,8 +3570,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_TrimSpaceInChar
         /// <summary>
         /// <para>
-        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR
-        /// and NCHAR data types during migration. The default value is <code>true</code>.</para>
+        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to right-trim data on
+        /// CHAR and NCHAR data types during migration. Setting <code>TrimSpaceInChar</code> does
+        /// not left-trim data. The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

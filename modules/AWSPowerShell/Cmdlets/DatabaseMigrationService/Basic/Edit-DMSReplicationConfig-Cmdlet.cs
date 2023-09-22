@@ -96,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS
-        /// Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs
-        /// as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32,
-        /// 64, 128, 192, 256, and 384. So, the maximum value that you can specify for DMS Serverless
-        /// is 384. The <code>MaxCapacityUnits</code> parameter is the only DCU parameter you
-        /// are required to specify.</para>
+        /// Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU
+        /// as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16,
+        /// 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for DMS
+        /// Serverless is 384. The <code>MaxCapacityUnits</code> parameter is the only DCU parameter
+        /// you are required to specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,14 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS
-        /// Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs
-        /// as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32,
-        /// 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for DMS
-        /// Serverless is 2. You don't have to specify a value for the <code>MinCapacityUnits</code>
+        /// Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU
+        /// as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16,
+        /// 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for
+        /// DMS Serverless is 1. You don't have to specify a value for the <code>MinCapacityUnits</code>
         /// parameter. If you don't set this value, DMS scans the current activity of available
         /// source tables to identify an optimum setting for this parameter. If there is no current
         /// source activity or DMS can't otherwise identify a more appropriate value, it sets
-        /// this parameter to the minimum DCU value allowed, 2.</para>
+        /// this parameter to the minimum DCU value allowed, 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

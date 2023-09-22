@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     public partial class GetBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalAttributeName
+        /// <summary>
+        /// <para>
+        /// <para>A list of attributes to return information for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalAttributeNames")]
+        public System.String[] AdditionalAttributeName { get; set; }
+        #endregion
+        
         #region Parameter JobArn
         /// <summary>
         /// <para>
@@ -102,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
                 context.Select = (response, cmdlet) => this.JobArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalAttributeName != null)
+            {
+                context.AdditionalAttributeName = new List<System.String>(this.AdditionalAttributeName);
+            }
             context.JobArn = this.JobArn;
             #if MODULAR
             if (this.JobArn == null && ParameterWasBound(nameof(this.JobArn)))
@@ -125,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             // create request
             var request = new Amazon.Braket.Model.GetJobRequest();
             
+            if (cmdletContext.AdditionalAttributeName != null)
+            {
+                request.AdditionalAttributeNames = cmdletContext.AdditionalAttributeName;
+            }
             if (cmdletContext.JobArn != null)
             {
                 request.JobArn = cmdletContext.JobArn;
@@ -190,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalAttributeName { get; set; }
             public System.String JobArn { get; set; }
             public System.Func<Amazon.Braket.Model.GetJobResponse, GetBRKTJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

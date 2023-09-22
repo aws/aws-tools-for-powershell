@@ -29,9 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Returns the account preferences settings for the Amazon Web Services account associated
-    /// with the user making the request, in the current Amazon Web Services Region. For more
-    /// information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon
-    /// EFS resource IDs</a>.
+    /// with the user making the request, in the current Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Get", "EFSAccountPreference")]
     [OutputType("Amazon.ElasticFileSystem.Model.ResourceIdPreference")]

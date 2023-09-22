@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AutoEnable
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to automatically enable member accounts in the organization.</para><para>Even though this is still supported, we recommend using <code>AutoEnableOrganizationMembers</code>
-        /// to achieve the similar results. You must provide the value for either <code>autoEnableOrganizationMembers</code>
+        /// <para>Represents whether or not to automatically enable member accounts in the organization.</para><para>Even though this is still supported, we recommend using <code>AutoEnableOrganizationMembers</code>
+        /// to achieve the similar results. You must provide a value for either <code>autoEnableOrganizationMembers</code>
         /// or <code>autoEnable</code>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>

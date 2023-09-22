@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     public partial class GetBRKTQuantumTaskCmdlet : AmazonBraketClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalAttributeName
+        /// <summary>
+        /// <para>
+        /// <para>A list of attributes to return information for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalAttributeNames")]
+        public System.String[] AdditionalAttributeName { get; set; }
+        #endregion
+        
         #region Parameter QuantumTaskArn
         /// <summary>
         /// <para>
@@ -102,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
                 context.Select = (response, cmdlet) => this.QuantumTaskArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalAttributeName != null)
+            {
+                context.AdditionalAttributeName = new List<System.String>(this.AdditionalAttributeName);
+            }
             context.QuantumTaskArn = this.QuantumTaskArn;
             #if MODULAR
             if (this.QuantumTaskArn == null && ParameterWasBound(nameof(this.QuantumTaskArn)))
@@ -125,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             // create request
             var request = new Amazon.Braket.Model.GetQuantumTaskRequest();
             
+            if (cmdletContext.AdditionalAttributeName != null)
+            {
+                request.AdditionalAttributeNames = cmdletContext.AdditionalAttributeName;
+            }
             if (cmdletContext.QuantumTaskArn != null)
             {
                 request.QuantumTaskArn = cmdletContext.QuantumTaskArn;
@@ -190,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalAttributeName { get; set; }
             public System.String QuantumTaskArn { get; set; }
             public System.Func<Amazon.Braket.Model.GetQuantumTaskResponse, GetBRKTQuantumTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

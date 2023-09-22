@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class NewCWEConnectionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApiKeyAuthParameters_ApiKeyName
         /// <summary>
         /// <para>

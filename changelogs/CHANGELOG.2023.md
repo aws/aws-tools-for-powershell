@@ -1,4 +1,13 @@
-﻿### 4.1.419 (2023-09-20 22:29Z)
+﻿### 4.1.420 (2023-09-22 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.650.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Braket
+    * Modified cmdlet Get-BRKTJob: added parameter AdditionalAttributeName.
+    * Modified cmdlet Get-BRKTQuantumTask: added parameter AdditionalAttributeName.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSDataProvider: added parameters DocDbSettings_CertificateArn, DocDbSettings_DatabaseName, DocDbSettings_Port, DocDbSettings_ServerName, DocDbSettings_SslMode, MariaDbSettings_CertificateArn, MariaDbSettings_Port, MariaDbSettings_ServerName, MariaDbSettings_SslMode, MongoDbSettings_AuthMechanism, MongoDbSettings_AuthSource, MongoDbSettings_AuthType, MongoDbSettings_CertificateArn, MongoDbSettings_DatabaseName, MongoDbSettings_Port, MongoDbSettings_ServerName, MongoDbSettings_SslMode, RedshiftSettings_DatabaseName, RedshiftSettings_Port and RedshiftSettings_ServerName.
+    * Modified cmdlet New-DMSDataProvider: added parameters DocDbSettings_CertificateArn, DocDbSettings_DatabaseName, DocDbSettings_Port, DocDbSettings_ServerName, DocDbSettings_SslMode, MariaDbSettings_CertificateArn, MariaDbSettings_Port, MariaDbSettings_ServerName, MariaDbSettings_SslMode, MongoDbSettings_AuthMechanism, MongoDbSettings_AuthSource, MongoDbSettings_AuthType, MongoDbSettings_CertificateArn, MongoDbSettings_DatabaseName, MongoDbSettings_Port, MongoDbSettings_ServerName, MongoDbSettings_SslMode, RedshiftSettings_DatabaseName, RedshiftSettings_Port and RedshiftSettings_ServerName.
+
+### 4.1.419 (2023-09-20 22:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.649.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Runner
     * Added cmdlet Get-AARServicesForAutoScalingConfigurationList leveraging the ListServicesForAutoScalingConfiguration service API.

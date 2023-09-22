@@ -60,6 +60,66 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String OracleSettings_AsmServer { get; set; }
         #endregion
         
+        #region Parameter MongoDbSettings_AuthMechanism
+        /// <summary>
+        /// <para>
+        /// <para>The authentication method for connecting to the data provider. Valid values are DEFAULT,
+        /// MONGODB_CR, or SCRAM_SHA_1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_AuthMechanism")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.AuthMechanismValue")]
+        public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_AuthSource
+        /// <summary>
+        /// <para>
+        /// <para> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
+        /// set to <code>"no"</code>. </para><para>The default is <code>"admin"</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_AuthSource")]
+        public System.String MongoDbSettings_AuthSource { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_AuthType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type for the database connection. Valid values are PASSWORD or
+        /// NO.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_AuthType")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.AuthTypeValue")]
+        public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_DocDbSettings_CertificateArn")]
+        public System.String DocDbSettings_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter MariaDbSettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MariaDbSettings_CertificateArn")]
+        public System.String MariaDbSettings_CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter MicrosoftSqlServerSettings_CertificateArn
         /// <summary>
         /// <para>
@@ -69,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_MicrosoftSqlServerSettings_CertificateArn")]
         public System.String MicrosoftSqlServerSettings_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_CertificateArn")]
+        public System.String MongoDbSettings_CertificateArn { get; set; }
         #endregion
         
         #region Parameter MySqlSettings_CertificateArn
@@ -104,6 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String PostgreSqlSettings_CertificateArn { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name on the DocumentDB data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_DocDbSettings_DatabaseName")]
+        public System.String DocDbSettings_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter MicrosoftSqlServerSettings_DatabaseName
         /// <summary>
         /// <para>
@@ -113,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_MicrosoftSqlServerSettings_DatabaseName")]
         public System.String MicrosoftSqlServerSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name on the MongoDB data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_DatabaseName")]
+        public System.String MongoDbSettings_DatabaseName { get; set; }
         #endregion
         
         #region Parameter OracleSettings_DatabaseName
@@ -135,6 +228,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_PostgreSqlSettings_DatabaseName")]
         public System.String PostgreSqlSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name on the Amazon Redshift data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_RedshiftSettings_DatabaseName")]
+        public System.String RedshiftSettings_DatabaseName { get; set; }
         #endregion
         
         #region Parameter DataProviderIdentifier
@@ -205,6 +309,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? ExactSetting { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the DocumentDB data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_DocDbSettings_Port")]
+        public System.Int32? DocDbSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter MariaDbSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the MariaDB data provider</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MariaDbSettings_Port")]
+        public System.Int32? MariaDbSettings_Port { get; set; }
+        #endregion
+        
         #region Parameter MicrosoftSqlServerSettings_Port
         /// <summary>
         /// <para>
@@ -214,6 +340,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_MicrosoftSqlServerSettings_Port")]
         public System.Int32? MicrosoftSqlServerSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the MongoDB data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_Port")]
+        public System.Int32? MongoDbSettings_Port { get; set; }
         #endregion
         
         #region Parameter MySqlSettings_Port
@@ -247,6 +384,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_PostgreSqlSettings_Port")]
         public System.Int32? PostgreSqlSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the Amazon Redshift data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_RedshiftSettings_Port")]
+        public System.Int32? RedshiftSettings_Port { get; set; }
         #endregion
         
         #region Parameter OracleSettings_SecretsManagerOracleAsmAccessRoleArn
@@ -298,6 +446,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String OracleSettings_SecretsManagerSecurityDbEncryptionSecretId { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the source DocumentDB server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_DocDbSettings_ServerName")]
+        public System.String DocDbSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter MariaDbSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the MariaDB server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MariaDbSettings_ServerName")]
+        public System.String MariaDbSettings_ServerName { get; set; }
+        #endregion
+        
         #region Parameter MicrosoftSqlServerSettings_ServerName
         /// <summary>
         /// <para>
@@ -307,6 +477,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_MicrosoftSqlServerSettings_ServerName")]
         public System.String MicrosoftSqlServerSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the MongoDB server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_ServerName")]
+        public System.String MongoDbSettings_ServerName { get; set; }
         #endregion
         
         #region Parameter MySqlSettings_ServerName
@@ -342,6 +523,42 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String PostgreSqlSettings_ServerName { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Redshift server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_RedshiftSettings_ServerName")]
+        public System.String RedshiftSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode used to connect to the DocumentDB data provider. The default value is
+        /// <code>none</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_DocDbSettings_SslMode")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue DocDbSettings_SslMode { get; set; }
+        #endregion
+        
+        #region Parameter MariaDbSettings_SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode used to connect to the MariaDB data provider. The default value is <code>none</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MariaDbSettings_SslMode")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue MariaDbSettings_SslMode { get; set; }
+        #endregion
+        
         #region Parameter MicrosoftSqlServerSettings_SslMode
         /// <summary>
         /// <para>
@@ -353,6 +570,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [Alias("Settings_MicrosoftSqlServerSettings_SslMode")]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
         public Amazon.DatabaseMigrationService.DmsSslModeValue MicrosoftSqlServerSettings_SslMode { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode used to connect to the MongoDB data provider. The default value is <code>none</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MongoDbSettings_SslMode")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue MongoDbSettings_SslMode { get; set; }
         #endregion
         
         #region Parameter MySqlSettings_SslMode
@@ -465,11 +694,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.Description = this.Description;
             context.Engine = this.Engine;
             context.ExactSetting = this.ExactSetting;
+            context.DocDbSettings_CertificateArn = this.DocDbSettings_CertificateArn;
+            context.DocDbSettings_DatabaseName = this.DocDbSettings_DatabaseName;
+            context.DocDbSettings_Port = this.DocDbSettings_Port;
+            context.DocDbSettings_ServerName = this.DocDbSettings_ServerName;
+            context.DocDbSettings_SslMode = this.DocDbSettings_SslMode;
+            context.MariaDbSettings_CertificateArn = this.MariaDbSettings_CertificateArn;
+            context.MariaDbSettings_Port = this.MariaDbSettings_Port;
+            context.MariaDbSettings_ServerName = this.MariaDbSettings_ServerName;
+            context.MariaDbSettings_SslMode = this.MariaDbSettings_SslMode;
             context.MicrosoftSqlServerSettings_CertificateArn = this.MicrosoftSqlServerSettings_CertificateArn;
             context.MicrosoftSqlServerSettings_DatabaseName = this.MicrosoftSqlServerSettings_DatabaseName;
             context.MicrosoftSqlServerSettings_Port = this.MicrosoftSqlServerSettings_Port;
             context.MicrosoftSqlServerSettings_ServerName = this.MicrosoftSqlServerSettings_ServerName;
             context.MicrosoftSqlServerSettings_SslMode = this.MicrosoftSqlServerSettings_SslMode;
+            context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
+            context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
+            context.MongoDbSettings_AuthType = this.MongoDbSettings_AuthType;
+            context.MongoDbSettings_CertificateArn = this.MongoDbSettings_CertificateArn;
+            context.MongoDbSettings_DatabaseName = this.MongoDbSettings_DatabaseName;
+            context.MongoDbSettings_Port = this.MongoDbSettings_Port;
+            context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
+            context.MongoDbSettings_SslMode = this.MongoDbSettings_SslMode;
             context.MySqlSettings_CertificateArn = this.MySqlSettings_CertificateArn;
             context.MySqlSettings_Port = this.MySqlSettings_Port;
             context.MySqlSettings_ServerName = this.MySqlSettings_ServerName;
@@ -489,6 +735,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.PostgreSqlSettings_Port = this.PostgreSqlSettings_Port;
             context.PostgreSqlSettings_ServerName = this.PostgreSqlSettings_ServerName;
             context.PostgreSqlSettings_SslMode = this.PostgreSqlSettings_SslMode;
+            context.RedshiftSettings_DatabaseName = this.RedshiftSettings_DatabaseName;
+            context.RedshiftSettings_Port = this.RedshiftSettings_Port;
+            context.RedshiftSettings_ServerName = this.RedshiftSettings_ServerName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -529,6 +778,106 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate Settings
             var requestSettingsIsNull = true;
             request.Settings = new Amazon.DatabaseMigrationService.Model.DataProviderSettings();
+            Amazon.DatabaseMigrationService.Model.RedshiftDataProviderSettings requestSettings_settings_RedshiftSettings = null;
+            
+             // populate RedshiftSettings
+            var requestSettings_settings_RedshiftSettingsIsNull = true;
+            requestSettings_settings_RedshiftSettings = new Amazon.DatabaseMigrationService.Model.RedshiftDataProviderSettings();
+            System.String requestSettings_settings_RedshiftSettings_redshiftSettings_DatabaseName = null;
+            if (cmdletContext.RedshiftSettings_DatabaseName != null)
+            {
+                requestSettings_settings_RedshiftSettings_redshiftSettings_DatabaseName = cmdletContext.RedshiftSettings_DatabaseName;
+            }
+            if (requestSettings_settings_RedshiftSettings_redshiftSettings_DatabaseName != null)
+            {
+                requestSettings_settings_RedshiftSettings.DatabaseName = requestSettings_settings_RedshiftSettings_redshiftSettings_DatabaseName;
+                requestSettings_settings_RedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_RedshiftSettings_redshiftSettings_Port = null;
+            if (cmdletContext.RedshiftSettings_Port != null)
+            {
+                requestSettings_settings_RedshiftSettings_redshiftSettings_Port = cmdletContext.RedshiftSettings_Port.Value;
+            }
+            if (requestSettings_settings_RedshiftSettings_redshiftSettings_Port != null)
+            {
+                requestSettings_settings_RedshiftSettings.Port = requestSettings_settings_RedshiftSettings_redshiftSettings_Port.Value;
+                requestSettings_settings_RedshiftSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_RedshiftSettings_redshiftSettings_ServerName = null;
+            if (cmdletContext.RedshiftSettings_ServerName != null)
+            {
+                requestSettings_settings_RedshiftSettings_redshiftSettings_ServerName = cmdletContext.RedshiftSettings_ServerName;
+            }
+            if (requestSettings_settings_RedshiftSettings_redshiftSettings_ServerName != null)
+            {
+                requestSettings_settings_RedshiftSettings.ServerName = requestSettings_settings_RedshiftSettings_redshiftSettings_ServerName;
+                requestSettings_settings_RedshiftSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_RedshiftSettings should be set to null
+            if (requestSettings_settings_RedshiftSettingsIsNull)
+            {
+                requestSettings_settings_RedshiftSettings = null;
+            }
+            if (requestSettings_settings_RedshiftSettings != null)
+            {
+                request.Settings.RedshiftSettings = requestSettings_settings_RedshiftSettings;
+                requestSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.Model.MariaDbDataProviderSettings requestSettings_settings_MariaDbSettings = null;
+            
+             // populate MariaDbSettings
+            var requestSettings_settings_MariaDbSettingsIsNull = true;
+            requestSettings_settings_MariaDbSettings = new Amazon.DatabaseMigrationService.Model.MariaDbDataProviderSettings();
+            System.String requestSettings_settings_MariaDbSettings_mariaDbSettings_CertificateArn = null;
+            if (cmdletContext.MariaDbSettings_CertificateArn != null)
+            {
+                requestSettings_settings_MariaDbSettings_mariaDbSettings_CertificateArn = cmdletContext.MariaDbSettings_CertificateArn;
+            }
+            if (requestSettings_settings_MariaDbSettings_mariaDbSettings_CertificateArn != null)
+            {
+                requestSettings_settings_MariaDbSettings.CertificateArn = requestSettings_settings_MariaDbSettings_mariaDbSettings_CertificateArn;
+                requestSettings_settings_MariaDbSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_MariaDbSettings_mariaDbSettings_Port = null;
+            if (cmdletContext.MariaDbSettings_Port != null)
+            {
+                requestSettings_settings_MariaDbSettings_mariaDbSettings_Port = cmdletContext.MariaDbSettings_Port.Value;
+            }
+            if (requestSettings_settings_MariaDbSettings_mariaDbSettings_Port != null)
+            {
+                requestSettings_settings_MariaDbSettings.Port = requestSettings_settings_MariaDbSettings_mariaDbSettings_Port.Value;
+                requestSettings_settings_MariaDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_MariaDbSettings_mariaDbSettings_ServerName = null;
+            if (cmdletContext.MariaDbSettings_ServerName != null)
+            {
+                requestSettings_settings_MariaDbSettings_mariaDbSettings_ServerName = cmdletContext.MariaDbSettings_ServerName;
+            }
+            if (requestSettings_settings_MariaDbSettings_mariaDbSettings_ServerName != null)
+            {
+                requestSettings_settings_MariaDbSettings.ServerName = requestSettings_settings_MariaDbSettings_mariaDbSettings_ServerName;
+                requestSettings_settings_MariaDbSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_MariaDbSettings_mariaDbSettings_SslMode = null;
+            if (cmdletContext.MariaDbSettings_SslMode != null)
+            {
+                requestSettings_settings_MariaDbSettings_mariaDbSettings_SslMode = cmdletContext.MariaDbSettings_SslMode;
+            }
+            if (requestSettings_settings_MariaDbSettings_mariaDbSettings_SslMode != null)
+            {
+                requestSettings_settings_MariaDbSettings.SslMode = requestSettings_settings_MariaDbSettings_mariaDbSettings_SslMode;
+                requestSettings_settings_MariaDbSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_MariaDbSettings should be set to null
+            if (requestSettings_settings_MariaDbSettingsIsNull)
+            {
+                requestSettings_settings_MariaDbSettings = null;
+            }
+            if (requestSettings_settings_MariaDbSettings != null)
+            {
+                request.Settings.MariaDbSettings = requestSettings_settings_MariaDbSettings;
+                requestSettingsIsNull = false;
+            }
             Amazon.DatabaseMigrationService.Model.MySqlDataProviderSettings requestSettings_settings_MySqlSettings = null;
             
              // populate MySqlSettings
@@ -582,6 +931,71 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_MySqlSettings != null)
             {
                 request.Settings.MySqlSettings = requestSettings_settings_MySqlSettings;
+                requestSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.Model.DocDbDataProviderSettings requestSettings_settings_DocDbSettings = null;
+            
+             // populate DocDbSettings
+            var requestSettings_settings_DocDbSettingsIsNull = true;
+            requestSettings_settings_DocDbSettings = new Amazon.DatabaseMigrationService.Model.DocDbDataProviderSettings();
+            System.String requestSettings_settings_DocDbSettings_docDbSettings_CertificateArn = null;
+            if (cmdletContext.DocDbSettings_CertificateArn != null)
+            {
+                requestSettings_settings_DocDbSettings_docDbSettings_CertificateArn = cmdletContext.DocDbSettings_CertificateArn;
+            }
+            if (requestSettings_settings_DocDbSettings_docDbSettings_CertificateArn != null)
+            {
+                requestSettings_settings_DocDbSettings.CertificateArn = requestSettings_settings_DocDbSettings_docDbSettings_CertificateArn;
+                requestSettings_settings_DocDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_DocDbSettings_docDbSettings_DatabaseName = null;
+            if (cmdletContext.DocDbSettings_DatabaseName != null)
+            {
+                requestSettings_settings_DocDbSettings_docDbSettings_DatabaseName = cmdletContext.DocDbSettings_DatabaseName;
+            }
+            if (requestSettings_settings_DocDbSettings_docDbSettings_DatabaseName != null)
+            {
+                requestSettings_settings_DocDbSettings.DatabaseName = requestSettings_settings_DocDbSettings_docDbSettings_DatabaseName;
+                requestSettings_settings_DocDbSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_DocDbSettings_docDbSettings_Port = null;
+            if (cmdletContext.DocDbSettings_Port != null)
+            {
+                requestSettings_settings_DocDbSettings_docDbSettings_Port = cmdletContext.DocDbSettings_Port.Value;
+            }
+            if (requestSettings_settings_DocDbSettings_docDbSettings_Port != null)
+            {
+                requestSettings_settings_DocDbSettings.Port = requestSettings_settings_DocDbSettings_docDbSettings_Port.Value;
+                requestSettings_settings_DocDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_DocDbSettings_docDbSettings_ServerName = null;
+            if (cmdletContext.DocDbSettings_ServerName != null)
+            {
+                requestSettings_settings_DocDbSettings_docDbSettings_ServerName = cmdletContext.DocDbSettings_ServerName;
+            }
+            if (requestSettings_settings_DocDbSettings_docDbSettings_ServerName != null)
+            {
+                requestSettings_settings_DocDbSettings.ServerName = requestSettings_settings_DocDbSettings_docDbSettings_ServerName;
+                requestSettings_settings_DocDbSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_DocDbSettings_docDbSettings_SslMode = null;
+            if (cmdletContext.DocDbSettings_SslMode != null)
+            {
+                requestSettings_settings_DocDbSettings_docDbSettings_SslMode = cmdletContext.DocDbSettings_SslMode;
+            }
+            if (requestSettings_settings_DocDbSettings_docDbSettings_SslMode != null)
+            {
+                requestSettings_settings_DocDbSettings.SslMode = requestSettings_settings_DocDbSettings_docDbSettings_SslMode;
+                requestSettings_settings_DocDbSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_DocDbSettings should be set to null
+            if (requestSettings_settings_DocDbSettingsIsNull)
+            {
+                requestSettings_settings_DocDbSettings = null;
+            }
+            if (requestSettings_settings_DocDbSettings != null)
+            {
+                request.Settings.DocDbSettings = requestSettings_settings_DocDbSettings;
                 requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.MicrosoftSqlServerDataProviderSettings requestSettings_settings_MicrosoftSqlServerSettings = null;
@@ -712,6 +1126,101 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_PostgreSqlSettings != null)
             {
                 request.Settings.PostgreSqlSettings = requestSettings_settings_PostgreSqlSettings;
+                requestSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.Model.MongoDbDataProviderSettings requestSettings_settings_MongoDbSettings = null;
+            
+             // populate MongoDbSettings
+            var requestSettings_settings_MongoDbSettingsIsNull = true;
+            requestSettings_settings_MongoDbSettings = new Amazon.DatabaseMigrationService.Model.MongoDbDataProviderSettings();
+            Amazon.DatabaseMigrationService.AuthMechanismValue requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthMechanism = null;
+            if (cmdletContext.MongoDbSettings_AuthMechanism != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthMechanism = cmdletContext.MongoDbSettings_AuthMechanism;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthMechanism != null)
+            {
+                requestSettings_settings_MongoDbSettings.AuthMechanism = requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthMechanism;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthSource = null;
+            if (cmdletContext.MongoDbSettings_AuthSource != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthSource = cmdletContext.MongoDbSettings_AuthSource;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthSource != null)
+            {
+                requestSettings_settings_MongoDbSettings.AuthSource = requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthSource;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.AuthTypeValue requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthType = null;
+            if (cmdletContext.MongoDbSettings_AuthType != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthType = cmdletContext.MongoDbSettings_AuthType;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthType != null)
+            {
+                requestSettings_settings_MongoDbSettings.AuthType = requestSettings_settings_MongoDbSettings_mongoDbSettings_AuthType;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_MongoDbSettings_mongoDbSettings_CertificateArn = null;
+            if (cmdletContext.MongoDbSettings_CertificateArn != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_CertificateArn = cmdletContext.MongoDbSettings_CertificateArn;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_CertificateArn != null)
+            {
+                requestSettings_settings_MongoDbSettings.CertificateArn = requestSettings_settings_MongoDbSettings_mongoDbSettings_CertificateArn;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_MongoDbSettings_mongoDbSettings_DatabaseName = null;
+            if (cmdletContext.MongoDbSettings_DatabaseName != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_DatabaseName = cmdletContext.MongoDbSettings_DatabaseName;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_DatabaseName != null)
+            {
+                requestSettings_settings_MongoDbSettings.DatabaseName = requestSettings_settings_MongoDbSettings_mongoDbSettings_DatabaseName;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_MongoDbSettings_mongoDbSettings_Port = null;
+            if (cmdletContext.MongoDbSettings_Port != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_Port = cmdletContext.MongoDbSettings_Port.Value;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_Port != null)
+            {
+                requestSettings_settings_MongoDbSettings.Port = requestSettings_settings_MongoDbSettings_mongoDbSettings_Port.Value;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_MongoDbSettings_mongoDbSettings_ServerName = null;
+            if (cmdletContext.MongoDbSettings_ServerName != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_ServerName = cmdletContext.MongoDbSettings_ServerName;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_ServerName != null)
+            {
+                requestSettings_settings_MongoDbSettings.ServerName = requestSettings_settings_MongoDbSettings_mongoDbSettings_ServerName;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_MongoDbSettings_mongoDbSettings_SslMode = null;
+            if (cmdletContext.MongoDbSettings_SslMode != null)
+            {
+                requestSettings_settings_MongoDbSettings_mongoDbSettings_SslMode = cmdletContext.MongoDbSettings_SslMode;
+            }
+            if (requestSettings_settings_MongoDbSettings_mongoDbSettings_SslMode != null)
+            {
+                requestSettings_settings_MongoDbSettings.SslMode = requestSettings_settings_MongoDbSettings_mongoDbSettings_SslMode;
+                requestSettings_settings_MongoDbSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_MongoDbSettings should be set to null
+            if (requestSettings_settings_MongoDbSettingsIsNull)
+            {
+                requestSettings_settings_MongoDbSettings = null;
+            }
+            if (requestSettings_settings_MongoDbSettings != null)
+            {
+                request.Settings.MongoDbSettings = requestSettings_settings_MongoDbSettings;
                 requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.OracleDataProviderSettings requestSettings_settings_OracleSettings = null;
@@ -900,11 +1409,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String Description { get; set; }
             public System.String Engine { get; set; }
             public System.Boolean? ExactSetting { get; set; }
+            public System.String DocDbSettings_CertificateArn { get; set; }
+            public System.String DocDbSettings_DatabaseName { get; set; }
+            public System.Int32? DocDbSettings_Port { get; set; }
+            public System.String DocDbSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue DocDbSettings_SslMode { get; set; }
+            public System.String MariaDbSettings_CertificateArn { get; set; }
+            public System.Int32? MariaDbSettings_Port { get; set; }
+            public System.String MariaDbSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue MariaDbSettings_SslMode { get; set; }
             public System.String MicrosoftSqlServerSettings_CertificateArn { get; set; }
             public System.String MicrosoftSqlServerSettings_DatabaseName { get; set; }
             public System.Int32? MicrosoftSqlServerSettings_Port { get; set; }
             public System.String MicrosoftSqlServerSettings_ServerName { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue MicrosoftSqlServerSettings_SslMode { get; set; }
+            public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
+            public System.String MongoDbSettings_AuthSource { get; set; }
+            public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
+            public System.String MongoDbSettings_CertificateArn { get; set; }
+            public System.String MongoDbSettings_DatabaseName { get; set; }
+            public System.Int32? MongoDbSettings_Port { get; set; }
+            public System.String MongoDbSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue MongoDbSettings_SslMode { get; set; }
             public System.String MySqlSettings_CertificateArn { get; set; }
             public System.Int32? MySqlSettings_Port { get; set; }
             public System.String MySqlSettings_ServerName { get; set; }
@@ -924,6 +1450,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? PostgreSqlSettings_Port { get; set; }
             public System.String PostgreSqlSettings_ServerName { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue PostgreSqlSettings_SslMode { get; set; }
+            public System.String RedshiftSettings_DatabaseName { get; set; }
+            public System.Int32? RedshiftSettings_Port { get; set; }
+            public System.String RedshiftSettings_ServerName { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.ModifyDataProviderResponse, EditDMSDataProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DataProvider;
         }

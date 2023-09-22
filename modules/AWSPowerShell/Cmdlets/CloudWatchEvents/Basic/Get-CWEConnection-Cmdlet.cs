@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class GetCWEConnectionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

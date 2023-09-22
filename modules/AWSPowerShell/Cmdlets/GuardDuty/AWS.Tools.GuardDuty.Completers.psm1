@@ -90,7 +90,7 @@ $GD_Completers = {
         # Amazon.GuardDuty.CoverageSortKey
         "Get-GDCoverageList/SortCriteria_AttributeName"
         {
-            $v = "ACCOUNT_ID","ADDON_VERSION","CLUSTER_NAME","COVERAGE_STATUS","ISSUE","UPDATED_AT"
+            $v = "ACCOUNT_ID","ADDON_VERSION","CLUSTER_NAME","COVERAGE_STATUS","EKS_CLUSTER_NAME","ISSUE","UPDATED_AT"
             break
         }
 

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Account ID for the organization account to be enabled as a
+        /// <para>The Amazon Web Services account ID for the organization account to be enabled as a
         /// GuardDuty delegated administrator.</para>
         /// </para>
         /// </summary>

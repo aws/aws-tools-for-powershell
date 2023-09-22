@@ -60,10 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter ProvisionedThroughputInMibp
         /// <summary>
         /// <para>
-        /// <para>(Optional) Sets the amount of provisioned throughput, in MiB/s, for the file system.
-        /// Valid values are 1-1024. If you are changing the throughput mode to provisioned, you
-        /// must also provide the amount of provisioned throughput. Required if <code>ThroughputMode</code>
-        /// is changed to <code>provisioned</code> on update.</para>
+        /// <para>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want
+        /// to provision for a file system that you're creating. Required if <code>ThroughputMode</code>
+        /// is set to <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper
+        /// limit depending on Region. To increase this limit, contact Amazon Web Services Support.
+        /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
+        /// EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
