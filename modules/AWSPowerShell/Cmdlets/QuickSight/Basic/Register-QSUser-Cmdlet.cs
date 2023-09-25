@@ -198,6 +198,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String SessionName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to associate with the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.QuickSight.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UserName
         /// <summary>
         /// <para>
@@ -323,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.SessionName = this.SessionName;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
+            }
             context.UserName = this.UserName;
             context.UserRole = this.UserRole;
             #if MODULAR
@@ -386,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.SessionName != null)
             {
                 request.SessionName = cmdletContext.SessionName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UserName != null)
             {
@@ -466,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.IdentityType IdentityType { get; set; }
             public System.String Namespace { get; set; }
             public System.String SessionName { get; set; }
+            public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.String UserName { get; set; }
             public Amazon.QuickSight.UserRole UserRole { get; set; }
             public System.Func<Amazon.QuickSight.Model.RegisterUserResponse, RegisterQSUserCmdlet, object> Select { get; set; } =

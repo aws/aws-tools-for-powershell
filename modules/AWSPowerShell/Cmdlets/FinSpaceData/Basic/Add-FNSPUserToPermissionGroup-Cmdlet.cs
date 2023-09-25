@@ -28,8 +28,8 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Adds a user account to a permission group to grant permissions for actions a user
-    /// can perform in FinSpace.
+    /// Adds a user to a permission group to grant permissions for actions a user can perform
+    /// in FinSpace.
     /// </summary>
     [Cmdlet("Add", "FNSPUserToPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Int32")]

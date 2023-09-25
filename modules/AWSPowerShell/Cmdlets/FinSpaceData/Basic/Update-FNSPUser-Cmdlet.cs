@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Modifies the details of the specified user account. You cannot update the <code>userId</code>
+    /// Modifies the details of the specified user. You cannot update the <code>userId</code>
     /// for a user.
     /// </summary>
     [Cmdlet("Update", "FNSPUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the user account to update.</para>
+        /// <para>The unique identifier for the user that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

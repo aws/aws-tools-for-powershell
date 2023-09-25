@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Lists all the permission groups that are associated with a specific user account.
+    /// Lists all the permission groups that are associated with a specific user.
     /// </summary>
     [Cmdlet("Get", "FNSPPermissionGroupsByUserList")]
     [OutputType("Amazon.FinSpaceData.Model.PermissionGroupByUser")]

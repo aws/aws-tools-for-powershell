@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter HorizontalLayoutConfiguration_TileAspectRatio
         /// <summary>
         /// <para>
-        /// <para>Sets the aspect ratio of the video tiles, such as 16:9.</para>
+        /// <para>Specifies the aspect ratio of all video tiles.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,21 @@
-﻿### 4.1.420 (2023-09-22 21:22Z)
+﻿### 4.1.421 (2023-09-25 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.651.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify UI Builder
+    * Modified cmdlet New-AMPUICodegenJob: added parameter React_Dependency.
+  * Amazon Chime SDK Media Pipelines
+    * Added cmdlet Get-CHMMPMediaPipelineKinesisVideoStreamPool leveraging the GetMediaPipelineKinesisVideoStreamPool service API.
+    * Added cmdlet Get-CHMMPMediaPipelineKinesisVideoStreamPoolList leveraging the ListMediaPipelineKinesisVideoStreamPools service API.
+    * Added cmdlet New-CHMMPMediaPipelineKinesisVideoStreamPool leveraging the CreateMediaPipelineKinesisVideoStreamPool service API.
+    * Added cmdlet New-CHMMPMediaStreamPipeline leveraging the CreateMediaStreamPipeline service API.
+    * Added cmdlet Remove-CHMMPMediaPipelineKinesisVideoStreamPool leveraging the DeleteMediaPipelineKinesisVideoStreamPool service API.
+    * Added cmdlet Update-CHMMPMediaPipelineKinesisVideoStreamPool leveraging the UpdateMediaPipelineKinesisVideoStreamPool service API.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameters CloudWatchLoggingConfiguration_Enabled, CloudWatchLoggingConfiguration_EncryptionKeyArn, CloudWatchLoggingConfiguration_LogGroupName, CloudWatchLoggingConfiguration_LogStreamNamePrefix, CloudWatchLoggingConfiguration_LogType, ManagedPersistenceMonitoringConfiguration_Enabled, ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn, RuntimeConfiguration, S3MonitoringConfiguration_EncryptionKeyArn and S3MonitoringConfiguration_LogUri.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameters CloudWatchLoggingConfiguration_Enabled, CloudWatchLoggingConfiguration_EncryptionKeyArn, CloudWatchLoggingConfiguration_LogGroupName, CloudWatchLoggingConfiguration_LogStreamNamePrefix, CloudWatchLoggingConfiguration_LogType, ManagedPersistenceMonitoringConfiguration_Enabled, ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn, RuntimeConfiguration, S3MonitoringConfiguration_EncryptionKeyArn and S3MonitoringConfiguration_LogUri.
+  * Amazon QuickSight
+    * Modified cmdlet Register-QSUser: added parameter Tag.
+
+### 4.1.420 (2023-09-22 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.650.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Braket
     * Modified cmdlet Get-BRKTJob: added parameter AdditionalAttributeName.

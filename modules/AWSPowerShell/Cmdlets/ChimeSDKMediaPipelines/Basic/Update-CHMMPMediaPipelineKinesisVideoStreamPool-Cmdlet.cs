@@ -28,40 +28,35 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Retrieves the details of a voice tone analysis task.
+    /// Updates an Kinesis video stream pool in a media pipeline.
     /// </summary>
-    [Cmdlet("Get", "CHMMPVoiceToneAnalysisTask")]
-    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.VoiceToneAnalysisTask")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines GetVoiceToneAnalysisTask API operation.", Operation = new[] {"GetVoiceToneAnalysisTask"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.VoiceToneAnalysisTask or Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.VoiceToneAnalysisTask object.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CHMMPMediaPipelineKinesisVideoStreamPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines UpdateMediaPipelineKinesisVideoStreamPool API operation.", Operation = new[] {"UpdateMediaPipelineKinesisVideoStreamPool"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse))]
+    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration or Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse",
+        "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration object.",
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCHMMPVoiceToneAnalysisTaskCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
+    public partial class UpdateCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter StreamConfiguration_DataRetentionInHour
+        /// <summary>
+        /// <para>
+        /// <para>The updated time that data is retained.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_DataRetentionInHours")]
+        public System.Int32? StreamConfiguration_DataRetentionInHour { get; set; }
+        #endregion
         
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the resource to be updated. Valid values include the ID and
-        /// ARN of the media insights pipeline.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
-        #endregion
-        
-        #region Parameter VoiceToneAnalysisTaskId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the voice tone analysis task.</para>
+        /// <para>The ID of the video stream pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,34 +67,50 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VoiceToneAnalysisTaskId { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'VoiceToneAnalysisTask'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'KinesisVideoStreamPoolConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse).
+        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "VoiceToneAnalysisTask";
+        public string Select { get; set; } = "KinesisVideoStreamPoolConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VoiceToneAnalysisTaskId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VoiceToneAnalysisTaskId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VoiceToneAnalysisTaskId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMMPMediaPipelineKinesisVideoStreamPool (UpdateMediaPipelineKinesisVideoStreamPool)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -109,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse, GetCHMMPVoiceToneAnalysisTaskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse, UpdateCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VoiceToneAnalysisTaskId;
+                context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Identifier = this.Identifier;
@@ -128,13 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VoiceToneAnalysisTaskId = this.VoiceToneAnalysisTaskId;
-            #if MODULAR
-            if (this.VoiceToneAnalysisTaskId == null && ParameterWasBound(nameof(this.VoiceToneAnalysisTaskId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VoiceToneAnalysisTaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.StreamConfiguration_DataRetentionInHour = this.StreamConfiguration_DataRetentionInHour;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,15 +154,30 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskRequest();
+            var request = new Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolRequest();
             
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
             }
-            if (cmdletContext.VoiceToneAnalysisTaskId != null)
+            
+             // populate StreamConfiguration
+            var requestStreamConfigurationIsNull = true;
+            request.StreamConfiguration = new Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamConfigurationUpdate();
+            System.Int32? requestStreamConfiguration_streamConfiguration_DataRetentionInHour = null;
+            if (cmdletContext.StreamConfiguration_DataRetentionInHour != null)
             {
-                request.VoiceToneAnalysisTaskId = cmdletContext.VoiceToneAnalysisTaskId;
+                requestStreamConfiguration_streamConfiguration_DataRetentionInHour = cmdletContext.StreamConfiguration_DataRetentionInHour.Value;
+            }
+            if (requestStreamConfiguration_streamConfiguration_DataRetentionInHour != null)
+            {
+                request.StreamConfiguration.DataRetentionInHours = requestStreamConfiguration_streamConfiguration_DataRetentionInHour.Value;
+                requestStreamConfigurationIsNull = false;
+            }
+             // determine if request.StreamConfiguration should be set to null
+            if (requestStreamConfigurationIsNull)
+            {
+                request.StreamConfiguration = null;
             }
             
             CmdletOutput output;
@@ -192,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskRequest request)
+        private Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "GetVoiceToneAnalysisTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "UpdateMediaPipelineKinesisVideoStreamPool");
             try
             {
                 #if DESKTOP
-                return client.GetVoiceToneAnalysisTask(request);
+                return client.UpdateMediaPipelineKinesisVideoStreamPool(request);
                 #elif CORECLR
-                return client.GetVoiceToneAnalysisTaskAsync(request).GetAwaiter().GetResult();
+                return client.UpdateMediaPipelineKinesisVideoStreamPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
-            public System.String VoiceToneAnalysisTaskId { get; set; }
-            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse, GetCHMMPVoiceToneAnalysisTaskCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.VoiceToneAnalysisTask;
+            public System.Int32? StreamConfiguration_DataRetentionInHour { get; set; }
+            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.UpdateMediaPipelineKinesisVideoStreamPoolResponse, UpdateCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.KinesisVideoStreamPoolConfiguration;
         }
         
     }

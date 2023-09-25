@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CHMMPMediaInsightsPipelineConfiguration', 
         'Get-CHMMPMediaInsightsPipelineConfigurationList', 
         'Get-CHMMPMediaPipeline', 
+        'Get-CHMMPMediaPipelineKinesisVideoStreamPool', 
+        'Get-CHMMPMediaPipelineKinesisVideoStreamPoolList', 
         'Get-CHMMPMediaPipelineList', 
         'Get-CHMMPResourceTag', 
         'Get-CHMMPSpeakerSearchTask', 
@@ -101,16 +103,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CHMMPMediaInsightsPipeline', 
         'New-CHMMPMediaInsightsPipelineConfiguration', 
         'New-CHMMPMediaLiveConnectorPipeline', 
+        'New-CHMMPMediaPipelineKinesisVideoStreamPool', 
+        'New-CHMMPMediaStreamPipeline', 
         'Remove-CHMMPMediaCapturePipeline', 
         'Remove-CHMMPMediaInsightsPipelineConfiguration', 
         'Remove-CHMMPMediaPipeline', 
+        'Remove-CHMMPMediaPipelineKinesisVideoStreamPool', 
         'Remove-CHMMPResourceTag', 
         'Start-CHMMPSpeakerSearchTask', 
         'Start-CHMMPVoiceToneAnalysisTask', 
         'Stop-CHMMPSpeakerSearchTask', 
         'Stop-CHMMPVoiceToneAnalysisTask', 
         'Update-CHMMPMediaInsightsPipelineConfiguration', 
-        'Update-CHMMPMediaInsightsPipelineStatus')
+        'Update-CHMMPMediaInsightsPipelineStatus', 
+        'Update-CHMMPMediaPipelineKinesisVideoStreamPool')
 
     # Variables to export from this module
     VariablesToExport = '*'

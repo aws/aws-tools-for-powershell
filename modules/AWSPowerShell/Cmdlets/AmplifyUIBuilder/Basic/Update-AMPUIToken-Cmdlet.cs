@@ -28,7 +28,12 @@ using Amazon.AmplifyUIBuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
-    /// Refreshes a previously issued access token that might have expired.
+    /// <note><para>
+    /// This is for internal use.
+    /// </para></note><para>
+    /// Amplify uses this action to refresh a previously issued access token that might have
+    /// expired.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "AMPUIToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse")]

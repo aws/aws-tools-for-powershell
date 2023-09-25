@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the user account that you want to enable.</para>
+        /// <para>The unique identifier for the user that you want to activate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

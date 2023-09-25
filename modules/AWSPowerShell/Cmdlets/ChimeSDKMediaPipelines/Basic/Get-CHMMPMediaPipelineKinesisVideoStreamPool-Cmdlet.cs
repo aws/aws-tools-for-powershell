@@ -22,42 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FinSpaceData;
-using Amazon.FinSpaceData.Model;
+using Amazon.ChimeSDKMediaPipelines;
+using Amazon.ChimeSDKMediaPipelines.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FNSP
+namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Request programmatic credentials to use with FinSpace SDK. For more information, see
-    /// <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials">Step
-    /// 2. Access credentials programmatically using IAM access key id and secret access key</a>.
+    /// Gets an Kinesis video stream pool.
     /// </summary>
-    [Cmdlet("Get", "FNSPProgrammaticAccessCredential")]
-    [OutputType("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse")]
-    [AWSCmdlet("Calls the FinSpace Public API GetProgrammaticAccessCredentials API operation.", Operation = new[] {"GetProgrammaticAccessCredentials"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse))]
-    [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse",
-        "This cmdlet returns an Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CHMMPMediaPipelineKinesisVideoStreamPool")]
+    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration")]
+    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines GetMediaPipelineKinesisVideoStreamPool API operation.", Operation = new[] {"GetMediaPipelineKinesisVideoStreamPool"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse))]
+    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration or Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse",
+        "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration object.",
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetFNSPProgrammaticAccessCredentialCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
+    public partial class GetCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
-        #region Parameter DurationInMinute
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The time duration in which the credentials remain valid. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DurationInMinutes")]
-        public System.Int64? DurationInMinute { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentId
-        /// <summary>
-        /// <para>
-        /// <para>The FinSpace environment identifier.</para>
+        /// <para>The ID of the video stream pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,26 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentId { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse).
-        /// Specifying the name of a property of type Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'KinesisVideoStreamPoolConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse).
+        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "KinesisVideoStreamPoolConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -105,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse, GetFNSPProgrammaticAccessCredentialCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse, GetCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -114,15 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentId;
+                context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DurationInMinute = this.DurationInMinute;
-            context.EnvironmentId = this.EnvironmentId;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsRequest();
+            var request = new Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolRequest();
             
-            if (cmdletContext.DurationInMinute != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.DurationInMinutes = cmdletContext.DurationInMinute.Value;
-            }
-            if (cmdletContext.EnvironmentId != null)
-            {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -182,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         
         #region AWS Service Operation Call
         
-        private Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse CallAWSServiceOperation(IAmazonFinSpaceData client, Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsRequest request)
+        private Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace Public API", "GetProgrammaticAccessCredentials");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "GetMediaPipelineKinesisVideoStreamPool");
             try
             {
                 #if DESKTOP
-                return client.GetProgrammaticAccessCredentials(request);
+                return client.GetMediaPipelineKinesisVideoStreamPool(request);
                 #elif CORECLR
-                return client.GetProgrammaticAccessCredentialsAsync(request).GetAwaiter().GetResult();
+                return client.GetMediaPipelineKinesisVideoStreamPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -210,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int64? DurationInMinute { get; set; }
-            public System.String EnvironmentId { get; set; }
-            public System.Func<Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse, GetFNSPProgrammaticAccessCredentialCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse, GetCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.KinesisVideoStreamPoolConfiguration;
         }
         
     }

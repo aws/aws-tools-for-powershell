@@ -28,7 +28,11 @@ using Amazon.AmplifyUIBuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
-    /// Exchanges an access code for a token.
+    /// <note><para>
+    /// This is for internal use.
+    /// </para></note><para>
+    /// Amplify uses this action to exchange an access code for a token.
+    /// </para>
     /// </summary>
     [Cmdlet("Convert", "AMPUICodeForToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse")]

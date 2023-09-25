@@ -236,7 +236,7 @@ $QS_Completers = {
             ($_ -eq "Remove-QSFolderMembership/MemberType")
         }
         {
-            $v = "ANALYSIS","DASHBOARD","DATASET"
+            $v = "ANALYSIS","DASHBOARD","DATASET","TOPIC"
             break
         }
 

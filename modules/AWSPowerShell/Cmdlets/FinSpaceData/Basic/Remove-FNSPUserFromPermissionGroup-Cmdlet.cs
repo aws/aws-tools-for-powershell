@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Removes a user account from a permission group.
+    /// Removes a user from a permission group.
     /// </summary>
     [Cmdlet("Remove", "FNSPUserFromPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Int32")]

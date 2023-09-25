@@ -92,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public Amazon.AmplifyUIBuilder.Model.DataStoreRenderConfig ApiConfiguration_DataStoreConfig { get; set; }
         #endregion
         
+        #region Parameter React_Dependency
+        /// <summary>
+        /// <para>
+        /// <para>Lists the dependency packages that may be required for the project code to run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CodegenJobToCreate_RenderConfig_React_Dependencies")]
+        public System.Collections.Hashtable React_Dependency { get; set; }
+        #endregion
+        
         #region Parameter GenericDataSchema_Enum
         /// <summary>
         /// <para>
@@ -395,6 +406,14 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             context.GraphQLConfig_SubscriptionsFilePath = this.GraphQLConfig_SubscriptionsFilePath;
             context.GraphQLConfig_TypesFilePath = this.GraphQLConfig_TypesFilePath;
             context.ApiConfiguration_NoApiConfig = this.ApiConfiguration_NoApiConfig;
+            if (this.React_Dependency != null)
+            {
+                context.React_Dependency = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.React_Dependency.Keys)
+                {
+                    context.React_Dependency.Add((String)hashKey, (String)(this.React_Dependency[hashKey]));
+                }
+            }
             context.React_InlineSourceMap = this.React_InlineSourceMap;
             context.React_Module = this.React_Module;
             context.React_RenderTypeDeclaration = this.React_RenderTypeDeclaration;
@@ -473,6 +492,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
              // populate React
             var requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_ReactIsNull = true;
             requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React = new Amazon.AmplifyUIBuilder.Model.ReactStartCodegenJobData();
+            Dictionary<System.String, System.String> requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_Dependency = null;
+            if (cmdletContext.React_Dependency != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_Dependency = cmdletContext.React_Dependency;
+            }
+            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_Dependency != null)
+            {
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React.Dependencies = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_Dependency;
+                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_ReactIsNull = false;
+            }
             System.Boolean? requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React_react_InlineSourceMap = null;
             if (cmdletContext.React_InlineSourceMap != null)
             {
@@ -819,6 +848,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             public System.String GraphQLConfig_SubscriptionsFilePath { get; set; }
             public System.String GraphQLConfig_TypesFilePath { get; set; }
             public Amazon.AmplifyUIBuilder.Model.NoApiRenderConfig ApiConfiguration_NoApiConfig { get; set; }
+            public Dictionary<System.String, System.String> React_Dependency { get; set; }
             public System.Boolean? React_InlineSourceMap { get; set; }
             public Amazon.AmplifyUIBuilder.JSModule React_Module { get; set; }
             public System.Boolean? React_RenderTypeDeclaration { get; set; }

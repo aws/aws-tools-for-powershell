@@ -38,6 +38,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="New" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMediaStreamPipeline" OutputProperty="MediaStreamPipeline" Verb="New" Noun="MediaStreamPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMediaCapturePipeline" Verb="Remove" Noun="MediaCapturePipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMediaPipelineKinesisVideoStreamPool" Verb="Remove" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="Get" Noun="MediaCapturePipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -59,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMediaPipeline" OutputProperty="MediaPipeline" Verb="Get" Noun="MediaPipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="Get" Noun="MediaPipelineKinesisVideoStreamPool" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +91,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMediaInsightsPipelineConfigurations" OutputProperty="MediaInsightsPipelineConfigurations" Verb="Get" Noun="MediaInsightsPipelineConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMediaPipelineKinesisVideoStreamPools" OutputProperty="KinesisVideoStreamPools" Verb="Get" Noun="MediaPipelineKinesisVideoStreamPoolList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +135,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMediaInsightsPipelineStatus" Verb="Update" Noun="MediaInsightsPipelineStatus" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="Update" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

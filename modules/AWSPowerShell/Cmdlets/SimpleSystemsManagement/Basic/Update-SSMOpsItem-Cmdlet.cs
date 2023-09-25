@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Update the information about the OpsItem. Provide enough information so that users
-        /// reading this OpsItem for the first time understand the issue. </para>
+        /// <para>User-defined text that contains information about the OpsItem, in Markdown format.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

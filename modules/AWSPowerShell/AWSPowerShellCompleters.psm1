@@ -7527,16 +7527,21 @@ $CHMMP_SelectMap = @{
                "New-CHMMPMediaInsightsPipeline",
                "New-CHMMPMediaInsightsPipelineConfiguration",
                "New-CHMMPMediaLiveConnectorPipeline",
+               "New-CHMMPMediaPipelineKinesisVideoStreamPool",
+               "New-CHMMPMediaStreamPipeline",
                "Remove-CHMMPMediaCapturePipeline",
                "Remove-CHMMPMediaInsightsPipelineConfiguration",
                "Remove-CHMMPMediaPipeline",
+               "Remove-CHMMPMediaPipelineKinesisVideoStreamPool",
                "Get-CHMMPMediaCapturePipeline",
                "Get-CHMMPMediaInsightsPipelineConfiguration",
                "Get-CHMMPMediaPipeline",
+               "Get-CHMMPMediaPipelineKinesisVideoStreamPool",
                "Get-CHMMPSpeakerSearchTask",
                "Get-CHMMPVoiceToneAnalysisTask",
                "Get-CHMMPMediaCapturePipelineList",
                "Get-CHMMPMediaInsightsPipelineConfigurationList",
+               "Get-CHMMPMediaPipelineKinesisVideoStreamPoolList",
                "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
                "Start-CHMMPSpeakerSearchTask",
@@ -7546,7 +7551,8 @@ $CHMMP_SelectMap = @{
                "Add-CHMMPResourceTag",
                "Remove-CHMMPResourceTag",
                "Update-CHMMPMediaInsightsPipelineConfiguration",
-               "Update-CHMMPMediaInsightsPipelineStatus")
+               "Update-CHMMPMediaInsightsPipelineStatus",
+               "Update-CHMMPMediaPipelineKinesisVideoStreamPool")
 }
 
 _awsArgumentCompleterRegistration $CHMMP_SelectCompleters $CHMMP_SelectMap
@@ -47865,7 +47871,7 @@ $QS_Completers = {
             ($_ -eq "Remove-QSFolderMembership/MemberType")
         }
         {
-            $v = "ANALYSIS","DASHBOARD","DATASET"
+            $v = "ANALYSIS","DASHBOARD","DATASET","TOPIC"
             break
         }
 

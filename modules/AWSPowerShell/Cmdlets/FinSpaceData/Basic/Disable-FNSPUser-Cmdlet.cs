@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the user account that you want to disable.</para>
+        /// <para>The unique identifier for the user that you want to deactivate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

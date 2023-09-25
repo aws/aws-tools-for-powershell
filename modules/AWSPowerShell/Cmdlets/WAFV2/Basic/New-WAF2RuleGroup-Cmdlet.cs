@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The <a>Rule</a> statements used to identify the web requests that you want to allow,
-        /// block, or count. Each rule includes one top-level statement that WAF uses to identify
-        /// matching web requests, and parameters that govern how WAF handles them. </para>
+        /// <para>The <a>Rule</a> statements used to identify the web requests that you want to manage.
+        /// Each rule includes one top-level statement that WAF uses to identify matching web
+        /// requests, and parameters that govern how WAF handles them. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
