@@ -28,10 +28,11 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// List backups associated with an Amazon Web Services account. To list backups for a
-    /// given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated
-    /// list of results with at most 1 MB worth of items in a page. You can also specify a
-    /// maximum number of entries to be returned in a page.
+    /// List DynamoDB backups that are associated with an Amazon Web Services account and
+    /// weren't made with Amazon Web Services Backup. To list these backups for a given table,
+    /// specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list
+    /// of results with at most 1 MB worth of items in a page. You can also specify a maximum
+    /// number of entries to be returned in a page.
     /// 
     ///  
     /// <para>
@@ -39,7 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// boundaries are for the time at which the original backup was requested.
     /// </para><para>
     /// You can call <code>ListBackups</code> a maximum of five times per second.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><para>
+    /// If you want to retrieve the complete list of backups made with Amazon Web Services
+    /// Backup, use the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon
+    /// Web Services Backup list API.</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DDBBackupList")]
     [OutputType("Amazon.DynamoDBv2.Model.BackupSummary")]

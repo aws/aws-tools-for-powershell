@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter FIPSEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Choose to enable or disable support for Federal Information Processing Standards
+        /// (FIPS) on the instance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? FIPSEnabled { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -138,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.FIPSEnabled = this.FIPSEnabled;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -165,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.FIPSEnabled != null)
+            {
+                request.FIPSEnabled = cmdletContext.FIPSEnabled.Value;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -233,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? FIPSEnabled { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVerifiedAccessInstanceResponse, NewEC2VerifiedAccessInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VerifiedAccessInstance;

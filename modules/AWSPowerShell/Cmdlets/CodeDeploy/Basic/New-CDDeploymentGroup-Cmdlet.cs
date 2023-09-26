@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services
+        /// <para>The name of an CodeDeploy application associated with the user or Amazon Web Services
         /// account.</para>
         /// </para>
         /// </summary>
@@ -223,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfoList
         /// <summary>
         /// <para>
-        /// <para>An array that contains information about the load balancer to use for load balancing
-        /// in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
-        /// Balancers.</para><note><para> Adding more than one load balancer to the array is not supported. </para></note>
+        /// <para>An array that contains information about the load balancers to use for load balancing
+        /// in a deployment. If you're using Classic Load Balancers, specify those load balancers
+        /// in this array. </para><note><para>You can add up to 10 load balancers to the array.</para></note><note><para>If you're using Application Load Balancers or Network Load Balancers, use the <code>targetGroupInfoList</code>
+        /// array instead of this one.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -351,9 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfo_TargetGroupInfoList
         /// <summary>
         /// <para>
-        /// <para>An array that contains information about the target group to use for load balancing
-        /// in a deployment. In Elastic Load Balancing, target groups are used with Application
-        /// Load Balancers.</para><note><para> Adding more than one target group to the array is not supported. </para></note>
+        /// <para>An array that contains information about the target groups to use for load balancing
+        /// in a deployment. If you're using Application Load Balancers and Network Load Balancers,
+        /// specify their associated target groups in this array.</para><note><para>You can add up to 10 target groups to the array.</para></note><note><para>If you're using Classic Load Balancers, use the <code>elbInfoList</code> array instead
+        /// of this one.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

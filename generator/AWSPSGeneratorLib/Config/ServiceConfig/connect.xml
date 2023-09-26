@@ -532,6 +532,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityProfileApplications" OutputProperty="Applications" Verb="Get" Noun="SecurityProfileApplicationList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityProfilePermissions" OutputProperty="Permissions" Verb="Get" Noun="SecurityProfilePermissionList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

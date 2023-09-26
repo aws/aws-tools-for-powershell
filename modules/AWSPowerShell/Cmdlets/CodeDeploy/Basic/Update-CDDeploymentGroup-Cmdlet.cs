@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// if you want to change them.</para><ul><li><para>To keep the Auto Scaling groups, enter their names or do not specify this parameter.
         /// </para></li><li><para>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group
         /// names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples,
-        /// see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon
+        /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon
         /// EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error
         /// "Heartbeat Timeout"</a> in the <i>CodeDeploy User Guide</i>.</para></li></ul>
         /// </para>
@@ -224,9 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfoList
         /// <summary>
         /// <para>
-        /// <para>An array that contains information about the load balancer to use for load balancing
-        /// in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
-        /// Balancers.</para><note><para> Adding more than one load balancer to the array is not supported. </para></note>
+        /// <para>An array that contains information about the load balancers to use for load balancing
+        /// in a deployment. If you're using Classic Load Balancers, specify those load balancers
+        /// in this array. </para><note><para>You can add up to 10 load balancers to the array.</para></note><note><para>If you're using Application Load Balancers or Network Load Balancers, use the <code>targetGroupInfoList</code>
+        /// array instead of this one.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,9 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfo_TargetGroupInfoList
         /// <summary>
         /// <para>
-        /// <para>An array that contains information about the target group to use for load balancing
-        /// in a deployment. In Elastic Load Balancing, target groups are used with Application
-        /// Load Balancers.</para><note><para> Adding more than one target group to the array is not supported. </para></note>
+        /// <para>An array that contains information about the target groups to use for load balancing
+        /// in a deployment. If you're using Application Load Balancers and Network Load Balancers,
+        /// specify their associated target groups in this array.</para><note><para>You can add up to 10 target groups to the array.</para></note><note><para>If you're using Classic Load Balancers, use the <code>elbInfoList</code> array instead
+        /// of this one.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

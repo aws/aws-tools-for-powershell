@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.651.0",
+    "ProductVersion" : "3.7.652.0",
     "CoreVersion"    : "3.7.202.14",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -94,7 +94,7 @@
             "InPreview"               : false
         },
         "CodeDeploy"        : {
-            "Version" : "3.7.200.45",
+            "Version" : "3.7.200.46",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -144,7 +144,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.201.16",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.215.1",
+            "Version" : "3.7.216.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.204.2",
+            "Version" : "3.7.205.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -666,7 +666,7 @@
             "InPreview"               : false
         },
         "Pinpoint"                        : {
-            "Version" : "3.7.201.39",
+            "Version" : "3.7.201.40",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.205.4",
+            "Version" : "3.7.206.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -1490,7 +1490,7 @@
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.200.45",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -1922,7 +1922,7 @@
             "InPreview"               : false
         },
         "AppIntegrationsService"          : {
-            "Version" : "3.7.200.45",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"
@@ -2154,7 +2154,7 @@
             "InPreview"               : false
         },
         "AppRunner"                       : {
-            "Version" : "3.7.202.2",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.14"

@@ -22,29 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeDeploy;
-using Amazon.CodeDeploy.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CD
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Lists the deployment groups for an application registered with the Amazon Web Services
-    /// user or Amazon Web Services account.<br/><br/>In the AWS.Tools.CodeDeploy module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of third party applications in a specific security profile.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CDDeploymentGroupList")]
-    [OutputType("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse")]
-    [AWSCmdlet("Calls the AWS CodeDeploy ListDeploymentGroups API operation.", Operation = new[] {"ListDeploymentGroups"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse))]
-    [AWSCmdletOutput("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse",
-        "This cmdlet returns an Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CONNSecurityProfileApplicationList")]
+    [OutputType("Amazon.Connect.Model.Application")]
+    [AWSCmdlet("Calls the Amazon Connect Service ListSecurityProfileApplications API operation.", Operation = new[] {"ListSecurityProfileApplications"}, SelectReturnType = typeof(Amazon.Connect.Model.ListSecurityProfileApplicationsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.Application or Amazon.Connect.Model.ListSecurityProfileApplicationsResponse",
+        "This cmdlet returns a collection of Amazon.Connect.Model.Application objects.",
+        "The service call response (type Amazon.Connect.Model.ListSecurityProfileApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCDDeploymentGroupListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class GetCONNSecurityProfileApplicationListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationName
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The name of an CodeDeploy application associated with the user or Amazon Web Services
-        /// account.</para>
+        /// <para>The instance identifier.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter SecurityProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The security profile identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,17 +71,28 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
+        public System.String SecurityProfileId { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return per page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier returned from the previous list deployment groups call. It can be used
-        /// to return the next set of deployment groups in the list.</para>
+        /// <para>The token for the next set of results. The next set of results can be retrieved by
+        /// using the token value returned in the previous response when making the next request.</para>
         /// </para>
         /// <para>
-        /// <br/><b>Note:</b> In the AWS.Tools.CodeDeploy module, this parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
         /// </para>
         /// </summary>
@@ -75,27 +102,26 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse).
-        /// Specifying the name of a property of type Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Applications'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListSecurityProfileApplicationsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ListSecurityProfileApplicationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Applications";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ApplicationName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SecurityProfileId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SecurityProfileId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SecurityProfileId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
-        #if MODULAR
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
@@ -103,7 +129,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
-        #endif
         #endregion
         
         protected override void ProcessRecord()
@@ -119,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse, GetCDDeploymentGroupListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListSecurityProfileApplicationsResponse, GetCONNSecurityProfileApplicationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,17 +153,25 @@ namespace Amazon.PowerShell.Cmdlets.CD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ApplicationName;
+                context.Select = (response, cmdlet) => this.SecurityProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationName = this.ApplicationName;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.SecurityProfileId = this.SecurityProfileId;
+            #if MODULAR
+            if (this.SecurityProfileId == null && ParameterWasBound(nameof(this.SecurityProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SecurityProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,7 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
@@ -158,11 +190,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CodeDeploy.Model.ListDeploymentGroupsRequest();
+            var request = new Amazon.Connect.Model.ListSecurityProfileApplicationsRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.SecurityProfileId != null)
+            {
+                request.SecurityProfileId = cmdletContext.SecurityProfileId;
             }
             
             // Initialize loop variant and commence piping
@@ -211,45 +251,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.CodeDeploy.Model.ListDeploymentGroupsRequest();
-            
-            if (cmdletContext.ApplicationName != null)
-            {
-                request.ApplicationName = cmdletContext.ApplicationName;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
-            {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
-                {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
-            {
-                output = new CmdletOutput { ErrorResponse = e };
-            }
-            
-            return output;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -260,15 +261,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.ListDeploymentGroupsRequest request)
+        private Amazon.Connect.Model.ListSecurityProfileApplicationsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListSecurityProfileApplicationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "ListDeploymentGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListSecurityProfileApplications");
             try
             {
                 #if DESKTOP
-                return client.ListDeploymentGroups(request);
+                return client.ListSecurityProfileApplications(request);
                 #elif CORECLR
-                return client.ListDeploymentGroupsAsync(request).GetAwaiter().GetResult();
+                return client.ListSecurityProfileApplicationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -288,10 +289,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse, GetCDDeploymentGroupListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String SecurityProfileId { get; set; }
+            public System.Func<Amazon.Connect.Model.ListSecurityProfileApplicationsResponse, GetCONNSecurityProfileApplicationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Applications;
         }
         
     }

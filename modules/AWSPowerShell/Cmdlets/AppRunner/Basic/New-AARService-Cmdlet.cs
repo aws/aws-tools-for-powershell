@@ -413,6 +413,19 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public System.String ServiceName { get; set; }
         #endregion
         
+        #region Parameter CodeRepository_SourceDirectory
+        /// <summary>
+        /// <para>
+        /// <para>The path of the directory that stores source code and configuration files. The build
+        /// and start commands also execute from here. The path is absolute from root and, if
+        /// not specified, defaults to the repository root.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConfiguration_CodeRepository_SourceDirectory")]
+        public System.String CodeRepository_SourceDirectory { get; set; }
+        #endregion
+        
         #region Parameter CodeConfigurationValues_StartCommand
         /// <summary>
         /// <para>
@@ -617,6 +630,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.CodeRepository_RepositoryUrl = this.CodeRepository_RepositoryUrl;
             context.SourceCodeVersion_Type = this.SourceCodeVersion_Type;
             context.SourceCodeVersion_Value = this.SourceCodeVersion_Value;
+            context.CodeRepository_SourceDirectory = this.CodeRepository_SourceDirectory;
             context.ImageConfiguration_Port = this.ImageConfiguration_Port;
             if (this.ImageConfiguration_RuntimeEnvironmentSecret != null)
             {
@@ -939,6 +953,96 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 request.SourceConfiguration.AuthenticationConfiguration = requestSourceConfiguration_sourceConfiguration_AuthenticationConfiguration;
                 requestSourceConfigurationIsNull = false;
             }
+            Amazon.AppRunner.Model.ImageRepository requestSourceConfiguration_sourceConfiguration_ImageRepository = null;
+            
+             // populate ImageRepository
+            var requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = true;
+            requestSourceConfiguration_sourceConfiguration_ImageRepository = new Amazon.AppRunner.Model.ImageRepository();
+            System.String requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier = null;
+            if (cmdletContext.ImageRepository_ImageIdentifier != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier = cmdletContext.ImageRepository_ImageIdentifier;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository.ImageIdentifier = requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier;
+                requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = false;
+            }
+            Amazon.AppRunner.ImageRepositoryType requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType = null;
+            if (cmdletContext.ImageRepository_ImageRepositoryType != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType = cmdletContext.ImageRepository_ImageRepositoryType;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository.ImageRepositoryType = requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType;
+                requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = false;
+            }
+            Amazon.AppRunner.Model.ImageConfiguration requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration = null;
+            
+             // populate ImageConfiguration
+            var requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = true;
+            requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration = new Amazon.AppRunner.Model.ImageConfiguration();
+            System.String requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port = null;
+            if (cmdletContext.ImageConfiguration_Port != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port = cmdletContext.ImageConfiguration_Port;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.Port = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port;
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret = null;
+            if (cmdletContext.ImageConfiguration_RuntimeEnvironmentSecret != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret = cmdletContext.ImageConfiguration_RuntimeEnvironmentSecret;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.RuntimeEnvironmentSecrets = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret;
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable = null;
+            if (cmdletContext.ImageConfiguration_RuntimeEnvironmentVariable != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable = cmdletContext.ImageConfiguration_RuntimeEnvironmentVariable;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.RuntimeEnvironmentVariables = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable;
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
+            }
+            System.String requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand = null;
+            if (cmdletContext.ImageConfiguration_StartCommand != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand = cmdletContext.ImageConfiguration_StartCommand;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.StartCommand = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand;
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
+            }
+             // determine if requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration should be set to null
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration = null;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository.ImageConfiguration = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration;
+                requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = false;
+            }
+             // determine if requestSourceConfiguration_sourceConfiguration_ImageRepository should be set to null
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository = null;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository != null)
+            {
+                request.SourceConfiguration.ImageRepository = requestSourceConfiguration_sourceConfiguration_ImageRepository;
+                requestSourceConfigurationIsNull = false;
+            }
             Amazon.AppRunner.Model.CodeRepository requestSourceConfiguration_sourceConfiguration_CodeRepository = null;
             
              // populate CodeRepository
@@ -952,6 +1056,16 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestSourceConfiguration_sourceConfiguration_CodeRepository_codeRepository_RepositoryUrl != null)
             {
                 requestSourceConfiguration_sourceConfiguration_CodeRepository.RepositoryUrl = requestSourceConfiguration_sourceConfiguration_CodeRepository_codeRepository_RepositoryUrl;
+                requestSourceConfiguration_sourceConfiguration_CodeRepositoryIsNull = false;
+            }
+            System.String requestSourceConfiguration_sourceConfiguration_CodeRepository_codeRepository_SourceDirectory = null;
+            if (cmdletContext.CodeRepository_SourceDirectory != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_CodeRepository_codeRepository_SourceDirectory = cmdletContext.CodeRepository_SourceDirectory;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_CodeRepository_codeRepository_SourceDirectory != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_CodeRepository.SourceDirectory = requestSourceConfiguration_sourceConfiguration_CodeRepository_codeRepository_SourceDirectory;
                 requestSourceConfiguration_sourceConfiguration_CodeRepositoryIsNull = false;
             }
             Amazon.AppRunner.Model.CodeConfiguration requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration = null;
@@ -1099,96 +1213,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 request.SourceConfiguration.CodeRepository = requestSourceConfiguration_sourceConfiguration_CodeRepository;
                 requestSourceConfigurationIsNull = false;
             }
-            Amazon.AppRunner.Model.ImageRepository requestSourceConfiguration_sourceConfiguration_ImageRepository = null;
-            
-             // populate ImageRepository
-            var requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = true;
-            requestSourceConfiguration_sourceConfiguration_ImageRepository = new Amazon.AppRunner.Model.ImageRepository();
-            System.String requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier = null;
-            if (cmdletContext.ImageRepository_ImageIdentifier != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier = cmdletContext.ImageRepository_ImageIdentifier;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository.ImageIdentifier = requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageIdentifier;
-                requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = false;
-            }
-            Amazon.AppRunner.ImageRepositoryType requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType = null;
-            if (cmdletContext.ImageRepository_ImageRepositoryType != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType = cmdletContext.ImageRepository_ImageRepositoryType;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository.ImageRepositoryType = requestSourceConfiguration_sourceConfiguration_ImageRepository_imageRepository_ImageRepositoryType;
-                requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = false;
-            }
-            Amazon.AppRunner.Model.ImageConfiguration requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration = null;
-            
-             // populate ImageConfiguration
-            var requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = true;
-            requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration = new Amazon.AppRunner.Model.ImageConfiguration();
-            System.String requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port = null;
-            if (cmdletContext.ImageConfiguration_Port != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port = cmdletContext.ImageConfiguration_Port;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.Port = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port;
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
-            }
-            Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret = null;
-            if (cmdletContext.ImageConfiguration_RuntimeEnvironmentSecret != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret = cmdletContext.ImageConfiguration_RuntimeEnvironmentSecret;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.RuntimeEnvironmentSecrets = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret;
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
-            }
-            Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable = null;
-            if (cmdletContext.ImageConfiguration_RuntimeEnvironmentVariable != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable = cmdletContext.ImageConfiguration_RuntimeEnvironmentVariable;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.RuntimeEnvironmentVariables = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable;
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
-            }
-            System.String requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand = null;
-            if (cmdletContext.ImageConfiguration_StartCommand != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand = cmdletContext.ImageConfiguration_StartCommand;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.StartCommand = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_StartCommand;
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
-            }
-             // determine if requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration should be set to null
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration = null;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration != null)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository.ImageConfiguration = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration;
-                requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull = false;
-            }
-             // determine if requestSourceConfiguration_sourceConfiguration_ImageRepository should be set to null
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepositoryIsNull)
-            {
-                requestSourceConfiguration_sourceConfiguration_ImageRepository = null;
-            }
-            if (requestSourceConfiguration_sourceConfiguration_ImageRepository != null)
-            {
-                request.SourceConfiguration.ImageRepository = requestSourceConfiguration_sourceConfiguration_ImageRepository;
-                requestSourceConfigurationIsNull = false;
-            }
              // determine if request.SourceConfiguration should be set to null
             if (requestSourceConfigurationIsNull)
             {
@@ -1289,6 +1313,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public System.String CodeRepository_RepositoryUrl { get; set; }
             public Amazon.AppRunner.SourceCodeVersionType SourceCodeVersion_Type { get; set; }
             public System.String SourceCodeVersion_Value { get; set; }
+            public System.String CodeRepository_SourceDirectory { get; set; }
             public System.String ImageConfiguration_Port { get; set; }
             public Dictionary<System.String, System.String> ImageConfiguration_RuntimeEnvironmentSecret { get; set; }
             public Dictionary<System.String, System.String> ImageConfiguration_RuntimeEnvironmentVariable { get; set; }

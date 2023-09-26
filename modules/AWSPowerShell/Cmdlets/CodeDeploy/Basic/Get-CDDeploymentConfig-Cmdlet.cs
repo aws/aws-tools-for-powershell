@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of a deployment configuration associated with the IAM user or Amazon Web
-        /// Services account.</para>
+        /// <para>The name of a deployment configuration associated with the user or Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

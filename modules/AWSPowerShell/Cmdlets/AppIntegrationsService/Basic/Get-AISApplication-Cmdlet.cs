@@ -22,34 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeDeploy;
-using Amazon.CodeDeploy.Model;
+using Amazon.AppIntegrationsService;
+using Amazon.AppIntegrationsService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CD
+namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// Deletes a deployment configuration.
+    /// This API is in preview release and subject to change.
     /// 
-    ///  <note><para>
-    /// A deployment configuration cannot be deleted if it is currently in use. Predefined
-    /// configurations cannot be deleted.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// Get an Application resource.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CDDeploymentConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS CodeDeploy DeleteDeploymentConfig API operation.", Operation = new[] {"DeleteDeploymentConfig"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse))]
-    [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AISApplication")]
+    [OutputType("Amazon.AppIntegrationsService.Model.GetApplicationResponse")]
+    [AWSCmdlet("Calls the Amazon AppIntegrations Service GetApplication API operation.", Operation = new[] {"GetApplication"}, SelectReturnType = typeof(Amazon.AppIntegrationsService.Model.GetApplicationResponse))]
+    [AWSCmdletOutput("Amazon.AppIntegrationsService.Model.GetApplicationResponse",
+        "This cmdlet returns an Amazon.AppIntegrationsService.Model.GetApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class GetAISApplicationCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DeploymentConfigName
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The name of a deployment configuration associated with the user or Amazon Web Services
-        /// account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,13 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DeploymentConfigName { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppIntegrationsService.Model.GetApplicationResponse).
+        /// Specifying the name of a property of type Amazon.AppIntegrationsService.Model.GetApplicationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,34 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DeploymentConfigName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DeploymentConfigName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DeploymentConfigName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DeploymentConfigName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CDDeploymentConfig (DeleteDeploymentConfig)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -112,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse, RemoveCDDeploymentConfigCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppIntegrationsService.Model.GetApplicationResponse, GetAISApplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DeploymentConfigName;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DeploymentConfigName = this.DeploymentConfigName;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.DeploymentConfigName == null && ParameterWasBound(nameof(this.DeploymentConfigName)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DeploymentConfigName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -145,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeDeploy.Model.DeleteDeploymentConfigRequest();
+            var request = new Amazon.AppIntegrationsService.Model.GetApplicationRequest();
             
-            if (cmdletContext.DeploymentConfigName != null)
+            if (cmdletContext.Arn != null)
             {
-                request.DeploymentConfigName = cmdletContext.DeploymentConfigName;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -184,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.DeleteDeploymentConfigRequest request)
+        private Amazon.AppIntegrationsService.Model.GetApplicationResponse CallAWSServiceOperation(IAmazonAppIntegrationsService client, Amazon.AppIntegrationsService.Model.GetApplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "DeleteDeploymentConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AppIntegrations Service", "GetApplication");
             try
             {
                 #if DESKTOP
-                return client.DeleteDeploymentConfig(request);
+                return client.GetApplication(request);
                 #elif CORECLR
-                return client.DeleteDeploymentConfigAsync(request).GetAwaiter().GetResult();
+                return client.GetApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -212,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeploymentConfigName { get; set; }
-            public System.Func<Amazon.CodeDeploy.Model.DeleteDeploymentConfigResponse, RemoveCDDeploymentConfigCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Arn { get; set; }
+            public System.Func<Amazon.AppIntegrationsService.Model.GetApplicationResponse, GetAISApplicationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

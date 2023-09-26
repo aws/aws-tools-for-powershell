@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services
+        /// <para>The name of an CodeDeploy application associated with the user or Amazon Web Services
         /// account.</para>
         /// </para>
         /// </summary>

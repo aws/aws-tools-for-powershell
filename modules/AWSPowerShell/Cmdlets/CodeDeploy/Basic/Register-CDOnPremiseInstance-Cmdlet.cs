@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IamUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM user to associate with the on-premises instance.</para>
+        /// <para>The ARN of the user to associate with the on-premises instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

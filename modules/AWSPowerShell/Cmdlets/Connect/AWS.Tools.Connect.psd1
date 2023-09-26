@@ -153,6 +153,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNRuleList', 
         'Get-CONNSecurityKeyList', 
         'Get-CONNSecurityProfile', 
+        'Get-CONNSecurityProfileApplicationList', 
         'Get-CONNSecurityProfileList', 
         'Get-CONNSecurityProfilePermissionList', 
         'Get-CONNTaskTemplate', 

@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para> The unique ID of a deployment associated with the IAM user or Amazon Web Services
-        /// account. </para>
+        /// <para> The unique ID of a deployment associated with the user or Amazon Web Services account.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the event inegration.</para>
+        /// <para>The description of the event integration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,29 @@
-﻿### 4.1.421 (2023-09-25 21:19Z)
+﻿### 4.1.422 (2023-09-26 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.652.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon App Runner
+    * Modified cmdlet New-AARService: added parameter CodeRepository_SourceDirectory.
+    * Modified cmdlet Update-AARService: added parameter CodeRepository_SourceDirectory.
+  * Amazon AppIntegrations Service
+    * Added cmdlet Get-AISApplication leveraging the GetApplication service API.
+    * Added cmdlet Get-AISApplicationList leveraging the ListApplications service API.
+    * Added cmdlet New-AISApplication leveraging the CreateApplication service API.
+    * Added cmdlet Update-AISApplication leveraging the UpdateApplication service API.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNSecurityProfileApplicationList leveraging the ListSecurityProfileApplications service API.
+    * Modified cmdlet New-CONNSecurityProfile: added parameter Application.
+    * Modified cmdlet Update-CONNSecurityProfile: added parameter Application.
+  * Amazon DynamoDB
+    * Modified cmdlet Export-DDBTableToPointInTime: added parameters ExportType, IncrementalExportSpecification_ExportFromTime, IncrementalExportSpecification_ExportToTime and IncrementalExportSpecification_ExportViewType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2VerifiedAccessInstance: added parameter FIPSEnabled.
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFLakeFormationOptInList leveraging the ListLakeFormationOptIns service API.
+    * Added cmdlet New-LKFLakeFormationOptIn leveraging the CreateLakeFormationOptIn service API.
+    * Added cmdlet Remove-LKFLakeFormationOptIn leveraging the DeleteLakeFormationOptIn service API.
+    * Modified cmdlet Register-LKFResource: added parameter HybridAccessEnabled.
+    * Modified cmdlet Update-LKFResource: added parameter HybridAccessEnabled.
+
+### 4.1.421 (2023-09-25 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.651.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify UI Builder
     * Modified cmdlet New-AMPUICodegenJob: added parameter React_Dependency.

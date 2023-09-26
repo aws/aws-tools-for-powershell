@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services
+        /// <para>The name of an CodeDeploy application associated with the user or Amazon Web Services
         /// account.</para>
         /// </para>
         /// </summary>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3Location_BundleType
         /// <summary>
         /// <para>
-        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para><code>tar</code>: A tar archive file.</para></li><li><para><code>tgz</code>: A compressed tar archive file.</para></li><li><para><code>zip</code>: A zip archive file.</para></li></ul>
+        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para><code>tar</code>: A tar archive file.</para></li><li><para><code>tgz</code>: A compressed tar archive file.</para></li><li><para><code>zip</code>: A zip archive file.</para></li><li><para><code>YAML</code>: A YAML-formatted file.</para></li><li><para><code>JSON</code>: A JSON-formatted file.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of a deployment configuration associated with the IAM user or Amazon Web
-        /// Services account.</para><para>If not specified, the value configured in the deployment group is used as the default.
+        /// <para>The name of a deployment configuration associated with the user or Amazon Web Services
+        /// account.</para><para>If not specified, the value configured in the deployment group is used as the default.
         /// If the deployment group does not have a deployment configuration associated with it,
         /// <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</para>
         /// </para>

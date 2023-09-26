@@ -949,6 +949,8 @@ Set-Alias -Name AF-UntagResource -Value Remove-AFResourceTag
 Set-Alias -Name AF-UpdateConnectorProfile -Value Update-AFConnectorProfile
 Set-Alias -Name AF-UpdateConnectorRegistration -Value Update-AFConnectorRegistration
 Set-Alias -Name AF-UpdateFlow -Value Update-AFFlow
+Set-Alias -Name Create-AISApplication -Value New-AISApplication
+Set-Alias -Name AIS-CreateApplication -Value New-AISApplication
 Set-Alias -Name Create-AISDataIntegration -Value New-AISDataIntegration
 Set-Alias -Name AIS-CreateDataIntegration -Value New-AISDataIntegration
 Set-Alias -Name Create-AISEventIntegration -Value New-AISEventIntegration
@@ -957,8 +959,12 @@ Set-Alias -Name Delete-AISDataIntegration -Value Remove-AISDataIntegration
 Set-Alias -Name AIS-DeleteDataIntegration -Value Remove-AISDataIntegration
 Set-Alias -Name Delete-AISEventIntegration -Value Remove-AISEventIntegration
 Set-Alias -Name AIS-DeleteEventIntegration -Value Remove-AISEventIntegration
+Set-Alias -Name AIS-GetApplication -Value Get-AISApplication
 Set-Alias -Name AIS-GetDataIntegration -Value Get-AISDataIntegration
 Set-Alias -Name AIS-GetEventIntegration -Value Get-AISEventIntegration
+Set-Alias -Name List-AISApplications -Value Get-AISApplicationList
+Set-Alias -Name List-AISApplicationList -Value Get-AISApplicationList
+Set-Alias -Name AIS-ListApplications -Value Get-AISApplicationList
 Set-Alias -Name List-AISDataIntegrationAssociations -Value Get-AISDataIntegrationAssociationList
 Set-Alias -Name List-AISDataIntegrationAssociationList -Value Get-AISDataIntegrationAssociationList
 Set-Alias -Name AIS-ListDataIntegrationAssociations -Value Get-AISDataIntegrationAssociationList
@@ -974,6 +980,7 @@ Set-Alias -Name AIS-ListEventIntegrations -Value Get-AISEventIntegrationList
 Set-Alias -Name AIS-ListTagsForResource -Value Get-AISResourceTag
 Set-Alias -Name AIS-TagResource -Value Add-AISResourceTag
 Set-Alias -Name AIS-UntagResource -Value Remove-AISResourceTag
+Set-Alias -Name AIS-UpdateApplication -Value Update-AISApplication
 Set-Alias -Name AIS-UpdateDataIntegration -Value Update-AISDataIntegration
 Set-Alias -Name AIS-UpdateEventIntegration -Value Update-AISEventIntegration
 Set-Alias -Name Delete-AASScalingPolicy -Value Remove-AASScalingPolicy
@@ -5784,6 +5791,9 @@ Set-Alias -Name CONN-ListRules -Value Get-CONNRuleList
 Set-Alias -Name List-CONNSecurityKeys -Value Get-CONNSecurityKeyList
 Set-Alias -Name List-CONNSecurityKeyList -Value Get-CONNSecurityKeyList
 Set-Alias -Name CONN-ListSecurityKeys -Value Get-CONNSecurityKeyList
+Set-Alias -Name List-CONNSecurityProfileApplications -Value Get-CONNSecurityProfileApplicationList
+Set-Alias -Name List-CONNSecurityProfileApplicationList -Value Get-CONNSecurityProfileApplicationList
+Set-Alias -Name CONN-ListSecurityProfileApplications -Value Get-CONNSecurityProfileApplicationList
 Set-Alias -Name List-CONNSecurityProfilePermissions -Value Get-CONNSecurityProfilePermissionList
 Set-Alias -Name List-CONNSecurityProfilePermissionList -Value Get-CONNSecurityProfilePermissionList
 Set-Alias -Name CONN-ListSecurityProfilePermissions -Value Get-CONNSecurityProfilePermissionList
@@ -14976,10 +14986,14 @@ Set-Alias -Name Commit-LKFTransaction -Value Write-LKFTransaction
 Set-Alias -Name LKF-CommitTransaction -Value Write-LKFTransaction
 Set-Alias -Name Create-LKFDataCellsFilter -Value New-LKFDataCellsFilter
 Set-Alias -Name LKF-CreateDataCellsFilter -Value New-LKFDataCellsFilter
+Set-Alias -Name Create-LKFLakeFormationOptIn -Value New-LKFLakeFormationOptIn
+Set-Alias -Name LKF-CreateLakeFormationOptIn -Value New-LKFLakeFormationOptIn
 Set-Alias -Name Create-LKFLFTag -Value New-LKFLFTag
 Set-Alias -Name LKF-CreateLFTag -Value New-LKFLFTag
 Set-Alias -Name Delete-LKFDataCellsFilter -Value Remove-LKFDataCellsFilter
 Set-Alias -Name LKF-DeleteDataCellsFilter -Value Remove-LKFDataCellsFilter
+Set-Alias -Name Delete-LKFLakeFormationOptIn -Value Remove-LKFLakeFormationOptIn
+Set-Alias -Name LKF-DeleteLakeFormationOptIn -Value Remove-LKFLakeFormationOptIn
 Set-Alias -Name Delete-LKFLFTag -Value Remove-LKFLFTag
 Set-Alias -Name LKF-DeleteLFTag -Value Remove-LKFLFTag
 Set-Alias -Name Delete-LKFObjectsOnCancel -Value Remove-LKFObjectsOnCancel
@@ -15017,6 +15031,9 @@ Set-Alias -Name LKF-GrantPermissions -Value Grant-LKFPermission
 Set-Alias -Name List-LKFDataCellsFilter -Value Get-LKFDataCellsFilterList
 Set-Alias -Name List-LKFDataCellsFilterList -Value Get-LKFDataCellsFilterList
 Set-Alias -Name LKF-ListDataCellsFilter -Value Get-LKFDataCellsFilterList
+Set-Alias -Name List-LKFLakeFormationOptIns -Value Get-LKFLakeFormationOptInList
+Set-Alias -Name List-LKFLakeFormationOptInList -Value Get-LKFLakeFormationOptInList
+Set-Alias -Name LKF-ListLakeFormationOptIns -Value Get-LKFLakeFormationOptInList
 Set-Alias -Name List-LKFLFTags -Value Get-LKFLFTagList
 Set-Alias -Name List-LKFLFTagList -Value Get-LKFLFTagList
 Set-Alias -Name LKF-ListLFTags -Value Get-LKFLFTagList

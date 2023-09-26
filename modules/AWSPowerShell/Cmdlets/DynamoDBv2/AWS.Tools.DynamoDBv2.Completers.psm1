@@ -128,6 +128,20 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ExportType
+        "Export-DDBTableToPointInTime/ExportType"
+        {
+            $v = "FULL_EXPORT","INCREMENTAL_EXPORT"
+            break
+        }
+
+        # Amazon.DynamoDBv2.ExportViewType
+        "Export-DDBTableToPointInTime/IncrementalExportSpecification_ExportViewType"
+        {
+            $v = "NEW_AND_OLD_IMAGES","NEW_IMAGE"
+            break
+        }
+
         # Amazon.DynamoDBv2.InputCompressionType
         "Import-DDBTable/InputCompressionType"
         {
@@ -282,8 +296,10 @@ $DDB_map = @{
     "ConditionalOperator"=@("Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
+    "ExportType"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
+    "IncrementalExportSpecification_ExportViewType"=@("Export-DDBTableToPointInTime")
     "InputCompressionType"=@("Import-DDBTable")
     "InputFormat"=@("Import-DDBTable")
     "KeyDataType"=@("Add-DDBKeySchema")

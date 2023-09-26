@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class UpdateLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter HybridAccessEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether the data access of tables pointing to the location can be managed
+        /// by both Lake Formation permissions as well as Amazon S3 bucket policies. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HybridAccessEnabled { get; set; }
+        #endregion
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
@@ -146,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.HybridAccessEnabled = this.HybridAccessEnabled;
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
             if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
@@ -177,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             // create request
             var request = new Amazon.LakeFormation.Model.UpdateResourceRequest();
             
+            if (cmdletContext.HybridAccessEnabled != null)
+            {
+                request.HybridAccessEnabled = cmdletContext.HybridAccessEnabled.Value;
+            }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
@@ -250,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? HybridAccessEnabled { get; set; }
             public System.String ResourceArn { get; set; }
             public System.String RoleArn { get; set; }
             public System.Boolean? WithFederation { get; set; }

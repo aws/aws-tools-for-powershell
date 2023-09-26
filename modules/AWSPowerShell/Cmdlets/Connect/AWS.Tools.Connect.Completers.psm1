@@ -209,7 +209,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "CASES_DOMAIN","EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
             break
         }
 
@@ -607,6 +607,7 @@ $CONN_SelectMap = @{
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",
                "Get-CONNSecurityKeyList",
+               "Get-CONNSecurityProfileApplicationList",
                "Get-CONNSecurityProfilePermissionList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",

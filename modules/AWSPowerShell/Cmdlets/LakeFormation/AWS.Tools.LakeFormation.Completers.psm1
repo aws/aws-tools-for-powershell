@@ -104,9 +104,12 @@ $LKF_Completers = {
         # Amazon.LakeFormation.ResourceType
         {
             ($_ -eq "Add-LKFLFTagsToResource/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFLakeFormationOptInList/Resource_LFTagPolicy_ResourceType") -Or
             ($_ -eq "Get-LKFPermissionList/Resource_LFTagPolicy_ResourceType") -Or
             ($_ -eq "Get-LKFResourceLFTag/Resource_LFTagPolicy_ResourceType") -Or
             ($_ -eq "Grant-LKFPermission/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "New-LKFLakeFormationOptIn/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Remove-LKFLakeFormationOptIn/Resource_LFTagPolicy_ResourceType") -Or
             ($_ -eq "Remove-LKFLFTagsFromResource/Resource_LFTagPolicy_ResourceType") -Or
             ($_ -eq "Revoke-LKFPermission/Resource_LFTagPolicy_ResourceType")
         }
@@ -138,7 +141,7 @@ $LKF_Completers = {
 }
 
 $LKF_map = @{
-    "Resource_LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
+    "Resource_LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
     "StatusFilter"=@("Get-LKFTransactionList")
@@ -202,8 +205,10 @@ $LKF_SelectMap = @{
                "Stop-LKFTransaction",
                "Write-LKFTransaction",
                "New-LKFDataCellsFilter",
+               "New-LKFLakeFormationOptIn",
                "New-LKFLFTag",
                "Remove-LKFDataCellsFilter",
+               "Remove-LKFLakeFormationOptIn",
                "Remove-LKFLFTag",
                "Remove-LKFObjectsOnCancel",
                "Unregister-LKFResource",
@@ -224,6 +229,7 @@ $LKF_SelectMap = @{
                "Get-LKFWorkUnit",
                "Grant-LKFPermission",
                "Get-LKFDataCellsFilterList",
+               "Get-LKFLakeFormationOptInList",
                "Get-LKFLFTagList",
                "Get-LKFPermissionList",
                "Get-LKFResourceList",

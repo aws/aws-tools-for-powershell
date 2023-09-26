@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable AllowedAccessControlTag { get; set; }
         #endregion
         
+        #region Parameter Application
+        /// <summary>
+        /// <para>
+        /// <para>This API is in preview release for Amazon Connect and is subject to change.</para><para>A list of the third party application's metadata.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Applications")]
+        public Amazon.Connect.Model.Application[] Application { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -196,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.AllowedAccessControlTag.Add((String)hashKey, (String)(this.AllowedAccessControlTag[hashKey]));
                 }
             }
+            if (this.Application != null)
+            {
+                context.Application = new List<Amazon.Connect.Model.Application>(this.Application);
+            }
             context.Description = this.Description;
             context.InstanceId = this.InstanceId;
             #if MODULAR
@@ -238,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.AllowedAccessControlTag != null)
             {
                 request.AllowedAccessControlTags = cmdletContext.AllowedAccessControlTag;
+            }
+            if (cmdletContext.Application != null)
+            {
+                request.Applications = cmdletContext.Application;
             }
             if (cmdletContext.Description != null)
             {
@@ -321,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AllowedAccessControlTag { get; set; }
+            public List<Amazon.Connect.Model.Application> Application { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public List<System.String> Permission { get; set; }

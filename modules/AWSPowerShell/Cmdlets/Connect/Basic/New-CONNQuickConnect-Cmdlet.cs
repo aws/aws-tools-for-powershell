@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the quick connect.</para>
+        /// <para>A unique name of the quick connect.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

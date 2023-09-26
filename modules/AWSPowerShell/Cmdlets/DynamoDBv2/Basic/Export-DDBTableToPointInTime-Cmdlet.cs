@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.ExportFormat ExportFormat { get; set; }
         #endregion
         
+        #region Parameter IncrementalExportSpecification_ExportFromTime
+        /// <summary>
+        /// <para>
+        /// <para>Time in the past which provides the inclusive start range for the export table's data,
+        /// counted in seconds from the start of the Unix epoch. The incremental export will reflect
+        /// the table's state including and after this point in time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? IncrementalExportSpecification_ExportFromTime { get; set; }
+        #endregion
+        
         #region Parameter ExportTime
         /// <summary>
         /// <para>
@@ -63,6 +75,44 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ExportTime { get; set; }
+        #endregion
+        
+        #region Parameter IncrementalExportSpecification_ExportToTime
+        /// <summary>
+        /// <para>
+        /// <para>Time in the past which provides the exclusive end range for the export table's data,
+        /// counted in seconds from the start of the Unix epoch. The incremental export will reflect
+        /// the table's state just prior to this point in time. If this is not provided, the latest
+        /// time with data available will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? IncrementalExportSpecification_ExportToTime { get; set; }
+        #endregion
+        
+        #region Parameter ExportType
+        /// <summary>
+        /// <para>
+        /// <para>Choice of whether to execute as a full export or incremental export. Valid values
+        /// are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code>
+        /// is provided, the <code>IncrementalExportSpecification</code> must also be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ExportType")]
+        public Amazon.DynamoDBv2.ExportType ExportType { get; set; }
+        #endregion
+        
+        #region Parameter IncrementalExportSpecification_ExportViewType
+        /// <summary>
+        /// <para>
+        /// <para>Choice of whether to output the previous item image prior to the start time of the
+        /// incremental export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ExportViewType")]
+        public Amazon.DynamoDBv2.ExportViewType IncrementalExportSpecification_ExportViewType { get; set; }
         #endregion
         
         #region Parameter S3Bucket
@@ -204,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             context.ClientToken = this.ClientToken;
             context.ExportFormat = this.ExportFormat;
             context.ExportTime = this.ExportTime;
+            context.ExportType = this.ExportType;
+            context.IncrementalExportSpecification_ExportFromTime = this.IncrementalExportSpecification_ExportFromTime;
+            context.IncrementalExportSpecification_ExportToTime = this.IncrementalExportSpecification_ExportToTime;
+            context.IncrementalExportSpecification_ExportViewType = this.IncrementalExportSpecification_ExportViewType;
             context.S3Bucket = this.S3Bucket;
             #if MODULAR
             if (this.S3Bucket == null && ParameterWasBound(nameof(this.S3Bucket)))
@@ -249,6 +303,49 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.ExportTime != null)
             {
                 request.ExportTime = cmdletContext.ExportTime.Value;
+            }
+            if (cmdletContext.ExportType != null)
+            {
+                request.ExportType = cmdletContext.ExportType;
+            }
+            
+             // populate IncrementalExportSpecification
+            var requestIncrementalExportSpecificationIsNull = true;
+            request.IncrementalExportSpecification = new Amazon.DynamoDBv2.Model.IncrementalExportSpecification();
+            System.DateTime? requestIncrementalExportSpecification_incrementalExportSpecification_ExportFromTime = null;
+            if (cmdletContext.IncrementalExportSpecification_ExportFromTime != null)
+            {
+                requestIncrementalExportSpecification_incrementalExportSpecification_ExportFromTime = cmdletContext.IncrementalExportSpecification_ExportFromTime.Value;
+            }
+            if (requestIncrementalExportSpecification_incrementalExportSpecification_ExportFromTime != null)
+            {
+                request.IncrementalExportSpecification.ExportFromTime = requestIncrementalExportSpecification_incrementalExportSpecification_ExportFromTime.Value;
+                requestIncrementalExportSpecificationIsNull = false;
+            }
+            System.DateTime? requestIncrementalExportSpecification_incrementalExportSpecification_ExportToTime = null;
+            if (cmdletContext.IncrementalExportSpecification_ExportToTime != null)
+            {
+                requestIncrementalExportSpecification_incrementalExportSpecification_ExportToTime = cmdletContext.IncrementalExportSpecification_ExportToTime.Value;
+            }
+            if (requestIncrementalExportSpecification_incrementalExportSpecification_ExportToTime != null)
+            {
+                request.IncrementalExportSpecification.ExportToTime = requestIncrementalExportSpecification_incrementalExportSpecification_ExportToTime.Value;
+                requestIncrementalExportSpecificationIsNull = false;
+            }
+            Amazon.DynamoDBv2.ExportViewType requestIncrementalExportSpecification_incrementalExportSpecification_ExportViewType = null;
+            if (cmdletContext.IncrementalExportSpecification_ExportViewType != null)
+            {
+                requestIncrementalExportSpecification_incrementalExportSpecification_ExportViewType = cmdletContext.IncrementalExportSpecification_ExportViewType;
+            }
+            if (requestIncrementalExportSpecification_incrementalExportSpecification_ExportViewType != null)
+            {
+                request.IncrementalExportSpecification.ExportViewType = requestIncrementalExportSpecification_incrementalExportSpecification_ExportViewType;
+                requestIncrementalExportSpecificationIsNull = false;
+            }
+             // determine if request.IncrementalExportSpecification should be set to null
+            if (requestIncrementalExportSpecificationIsNull)
+            {
+                request.IncrementalExportSpecification = null;
             }
             if (cmdletContext.S3Bucket != null)
             {
@@ -338,6 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.String ClientToken { get; set; }
             public Amazon.DynamoDBv2.ExportFormat ExportFormat { get; set; }
             public System.DateTime? ExportTime { get; set; }
+            public Amazon.DynamoDBv2.ExportType ExportType { get; set; }
+            public System.DateTime? IncrementalExportSpecification_ExportFromTime { get; set; }
+            public System.DateTime? IncrementalExportSpecification_ExportToTime { get; set; }
+            public Amazon.DynamoDBv2.ExportViewType IncrementalExportSpecification_ExportViewType { get; set; }
             public System.String S3Bucket { get; set; }
             public System.String S3BucketOwner { get; set; }
             public System.String S3Prefix { get; set; }
