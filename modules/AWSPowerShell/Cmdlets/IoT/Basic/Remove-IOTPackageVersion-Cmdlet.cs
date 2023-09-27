@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para><b>Note:</b> If a package version is designated as default, you must remove the designation
-    /// from the package using the <a>UpdatePackage</a> action.
+    /// from the software package using the <a>UpdatePackage</a> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter PackageName
         /// <summary>
         /// <para>
-        /// <para>The name of the associated package.</para>
+        /// <para>The name of the associated software package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

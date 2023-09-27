@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Metadata that can be used to define a package version’s configuration. For example,
-        /// the S3 file location, configuration options that are being sent to the device or fleet.
-        /// </para><para><b>Note:</b> Attributes can be updated only when the package version is in a draft
+        /// the Amazon S3 file location, configuration options that are being sent to the device
+        /// or fleet. </para><para><b>Note:</b> Attributes can be updated only when the package version is in a draft
         /// state.</para><para>The combined size of all the attributes on a package version is limited to 3KB.</para>
         /// </para>
         /// </summary>

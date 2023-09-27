@@ -35,6 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 
     ///  
     /// <para>
+    /// Kinesis Data Firehose accumulates and publishes a particular metric for a customer
+    /// account in one minute intervals. It is possible that the bursts of incoming bytes/records
+    /// ingested to a delivery stream last only for a few seconds. Due to this, the actual
+    /// spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch
+    /// metrics.
+    /// </para><para>
     /// For information about service quota, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon
     /// Kinesis Data Firehose Quota</a>.
     /// </para><para>
@@ -78,9 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// the possible duplicate records and also reduces the total bytes sent (and corresponding
     /// charges). We recommend that you handle any duplicates at the destination.
     /// </para><para>
-    /// If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>, back off
-    /// and retry. If the exception persists, it is possible that the throughput limits have
-    /// been exceeded for the delivery stream.
+    /// If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>, the API
+    /// is automatically reinvoked (retried) 3 times. If the exception persists, it is possible
+    /// that the throughput limits have been exceeded for the delivery stream.
+    /// </para><para>
+    /// Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch) can
+    /// result in data duplicates. For larger data assets, allow for a longer time out before
+    /// retrying Put API operations.
     /// </para><para>
     /// Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they
     /// are added to a delivery stream as it attempts to send the records to the destination.

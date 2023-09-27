@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AdditionalParameter
         /// <summary>
         /// <para>
-        /// <para>A list of additional OTA update parameters which are name-value pairs.</para>
+        /// <para>A list of additional OTA update parameters, which are name-value pairs. They won't
+        /// be sent to devices as a part of the Job document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

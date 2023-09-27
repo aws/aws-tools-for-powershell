@@ -24672,6 +24672,13 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.Connectivity
+        "New-KINFDeliveryStream/MSKSourceConfiguration_AuthenticationConfiguration_Connectivity"
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+
         # Amazon.KinesisFirehose.ContentEncoding
         {
             ($_ -eq "New-KINFDeliveryStream/HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding") -Or
@@ -24700,7 +24707,7 @@ $KINF_Completers = {
             ($_ -eq "New-KINFDeliveryStream/DeliveryStreamType")
         }
         {
-            $v = "DirectPut","KinesisStreamAsSource"
+            $v = "DirectPut","KinesisStreamAsSource","MSKAsSource"
             break
         }
 
@@ -24767,6 +24774,7 @@ $KINF_map = @{
     "HttpEndpointDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding"=@("Update-KINFDestination")
     "HttpEndpointDestinationUpdate_S3BackupMode"=@("Update-KINFDestination")
+    "MSKSourceConfiguration_AuthenticationConfiguration_Connectivity"=@("New-KINFDeliveryStream")
 }
 
 _awsArgumentCompleterRegistration $KINF_Completers $KINF_map
@@ -29998,7 +30006,7 @@ $IOT_Completers = {
             ($_ -eq "Remove-IOTV2LoggingLevel/TargetType")
         }
         {
-            $v = "CLIENT_ID","DEFAULT","PRINCIPAL_ID","SOURCE_IP","THING_GROUP"
+            $v = "CLIENT_ID","DEFAULT","DEVICE_DEFENDER","EVENT_TYPE","PRINCIPAL_ID","SOURCE_IP","THING_GROUP"
             break
         }
 

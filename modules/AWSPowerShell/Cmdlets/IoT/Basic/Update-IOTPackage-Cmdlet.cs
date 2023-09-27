@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Updates the supported fields for a specific package.
+    /// Updates the supported fields for a specific software package.
     /// 
     ///  
     /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter PackageName
         /// <summary>
         /// <para>
-        /// <para>The name of the target package.</para>
+        /// <para>The name of the target software package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

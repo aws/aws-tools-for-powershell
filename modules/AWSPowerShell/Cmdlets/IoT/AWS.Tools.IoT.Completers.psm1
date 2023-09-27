@@ -322,7 +322,7 @@ $IOT_Completers = {
             ($_ -eq "Remove-IOTV2LoggingLevel/TargetType")
         }
         {
-            $v = "CLIENT_ID","DEFAULT","PRINCIPAL_ID","SOURCE_IP","THING_GROUP"
+            $v = "CLIENT_ID","DEFAULT","DEVICE_DEFENDER","EVENT_TYPE","PRINCIPAL_ID","SOURCE_IP","THING_GROUP"
             break
         }
 

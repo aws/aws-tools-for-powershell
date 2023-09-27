@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter PackageName
         /// <summary>
         /// <para>
-        /// <para>The name of the new package.</para>
+        /// <para>The name of the new software package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

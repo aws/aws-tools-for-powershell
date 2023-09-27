@@ -165,6 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.HttpEndpointCommonAttribute[] HttpEndpointDestinationConfiguration_RequestConfiguration_CommonAttributes { get; set; }
         #endregion
         
+        #region Parameter AuthenticationConfiguration_Connectivity
+        /// <summary>
+        /// <para>
+        /// <para>The type of connectivity used to access the Amazon MSK cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MSKSourceConfiguration_AuthenticationConfiguration_Connectivity")]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.Connectivity")]
+        public Amazon.KinesisFirehose.Connectivity AuthenticationConfiguration_Connectivity { get; set; }
+        #endregion
+        
         #region Parameter HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding
         /// <summary>
         /// <para>
@@ -664,6 +676,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName { get; set; }
         #endregion
         
+        #region Parameter MSKSourceConfiguration_MSKClusterARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon MSK cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MSKSourceConfiguration_MSKClusterARN { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfiguration_Name
         /// <summary>
         /// <para>
@@ -830,6 +852,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
+        #endregion
+        
+        #region Parameter AuthenticationConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role used to access the Amazon MSK cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MSKSourceConfiguration_AuthenticationConfiguration_RoleARN")]
+        public System.String AuthenticationConfiguration_RoleARN { get; set; }
         #endregion
         
         #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode
@@ -1136,6 +1169,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter MSKSourceConfiguration_TopicName
+        /// <summary>
+        /// <para>
+        /// <para>The topic name within the Amazon MSK cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MSKSourceConfiguration_TopicName { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_TypeName
         /// <summary>
         /// <para>
@@ -1344,6 +1387,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.HttpEndpointDestinationConfiguration_S3Configuration = this.HttpEndpointDestinationConfiguration_S3Configuration;
             context.KinesisStreamSourceConfiguration_KinesisStreamARN = this.KinesisStreamSourceConfiguration_KinesisStreamARN;
             context.KinesisStreamSourceConfiguration_RoleARN = this.KinesisStreamSourceConfiguration_RoleARN;
+            context.AuthenticationConfiguration_Connectivity = this.AuthenticationConfiguration_Connectivity;
+            context.AuthenticationConfiguration_RoleARN = this.AuthenticationConfiguration_RoleARN;
+            context.MSKSourceConfiguration_MSKClusterARN = this.MSKSourceConfiguration_MSKClusterARN;
+            context.MSKSourceConfiguration_TopicName = this.MSKSourceConfiguration_TopicName;
             context.RedshiftDestinationConfiguration = this.RedshiftDestinationConfiguration;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationConfiguration = this.S3DestinationConfiguration;
@@ -2540,6 +2587,70 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.KinesisStreamSourceConfiguration = null;
             }
+            
+             // populate MSKSourceConfiguration
+            var requestMSKSourceConfigurationIsNull = true;
+            request.MSKSourceConfiguration = new Amazon.KinesisFirehose.Model.MSKSourceConfiguration();
+            System.String requestMSKSourceConfiguration_mSKSourceConfiguration_MSKClusterARN = null;
+            if (cmdletContext.MSKSourceConfiguration_MSKClusterARN != null)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_MSKClusterARN = cmdletContext.MSKSourceConfiguration_MSKClusterARN;
+            }
+            if (requestMSKSourceConfiguration_mSKSourceConfiguration_MSKClusterARN != null)
+            {
+                request.MSKSourceConfiguration.MSKClusterARN = requestMSKSourceConfiguration_mSKSourceConfiguration_MSKClusterARN;
+                requestMSKSourceConfigurationIsNull = false;
+            }
+            System.String requestMSKSourceConfiguration_mSKSourceConfiguration_TopicName = null;
+            if (cmdletContext.MSKSourceConfiguration_TopicName != null)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_TopicName = cmdletContext.MSKSourceConfiguration_TopicName;
+            }
+            if (requestMSKSourceConfiguration_mSKSourceConfiguration_TopicName != null)
+            {
+                request.MSKSourceConfiguration.TopicName = requestMSKSourceConfiguration_mSKSourceConfiguration_TopicName;
+                requestMSKSourceConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.AuthenticationConfiguration requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration = null;
+            
+             // populate AuthenticationConfiguration
+            var requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfigurationIsNull = true;
+            requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration = new Amazon.KinesisFirehose.Model.AuthenticationConfiguration();
+            Amazon.KinesisFirehose.Connectivity requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_Connectivity = null;
+            if (cmdletContext.AuthenticationConfiguration_Connectivity != null)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_Connectivity = cmdletContext.AuthenticationConfiguration_Connectivity;
+            }
+            if (requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_Connectivity != null)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration.Connectivity = requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_Connectivity;
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfigurationIsNull = false;
+            }
+            System.String requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_RoleARN = null;
+            if (cmdletContext.AuthenticationConfiguration_RoleARN != null)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_RoleARN = cmdletContext.AuthenticationConfiguration_RoleARN;
+            }
+            if (requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_RoleARN != null)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration.RoleARN = requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration_authenticationConfiguration_RoleARN;
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfigurationIsNull = false;
+            }
+             // determine if requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration should be set to null
+            if (requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfigurationIsNull)
+            {
+                requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration = null;
+            }
+            if (requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration != null)
+            {
+                request.MSKSourceConfiguration.AuthenticationConfiguration = requestMSKSourceConfiguration_mSKSourceConfiguration_AuthenticationConfiguration;
+                requestMSKSourceConfigurationIsNull = false;
+            }
+             // determine if request.MSKSourceConfiguration should be set to null
+            if (requestMSKSourceConfigurationIsNull)
+            {
+                request.MSKSourceConfiguration = null;
+            }
             if (cmdletContext.RedshiftDestinationConfiguration != null)
             {
                 request.RedshiftDestinationConfiguration = cmdletContext.RedshiftDestinationConfiguration;
@@ -2698,6 +2809,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration HttpEndpointDestinationConfiguration_S3Configuration { get; set; }
             public System.String KinesisStreamSourceConfiguration_KinesisStreamARN { get; set; }
             public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
+            public Amazon.KinesisFirehose.Connectivity AuthenticationConfiguration_Connectivity { get; set; }
+            public System.String AuthenticationConfiguration_RoleARN { get; set; }
+            public System.String MSKSourceConfiguration_MSKClusterARN { get; set; }
+            public System.String MSKSourceConfiguration_TopicName { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }

@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Updates the package configuration.
+    /// Updates the software package configuration.
     /// 
     ///  
     /// <para>

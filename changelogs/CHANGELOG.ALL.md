@@ -1,4 +1,12 @@
-﻿### 4.1.422 (2023-09-26 21:16Z)
+﻿### 4.1.423 (2023-09-27 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.653.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameter Kafka_Header.
+    * Modified cmdlet Set-IOTTopicRule: added parameter Kafka_Header.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters AuthenticationConfiguration_Connectivity, AuthenticationConfiguration_RoleARN, MSKSourceConfiguration_MSKClusterARN and MSKSourceConfiguration_TopicName.
+
+### 4.1.422 (2023-09-26 21:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.652.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Runner
     * Modified cmdlet New-AARService: added parameter CodeRepository_SourceDirectory.
