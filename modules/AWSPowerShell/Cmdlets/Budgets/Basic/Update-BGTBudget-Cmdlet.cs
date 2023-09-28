@@ -397,7 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The unit of measurement that's used for the budget forecast, actual spend, or budget
-        /// threshold, such as USD or GBP.</para>
+        /// threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -409,7 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The unit of measurement that's used for the budget forecast, actual spend, or budget
-        /// threshold, such as USD or GBP.</para>
+        /// threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -421,7 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The unit of measurement that's used for the budget forecast, actual spend, or budget
-        /// threshold, such as USD or GBP.</para>
+        /// threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

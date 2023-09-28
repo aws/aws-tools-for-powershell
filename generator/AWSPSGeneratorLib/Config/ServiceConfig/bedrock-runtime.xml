@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bedrock-runtime</C2jFilename>
+    <AssemblyName>BedrockRuntime</AssemblyName>
+    <ServiceNounPrefix>BDRR</ServiceNounPrefix>
+    <ServiceName>Amazon Bedrock Runtime</ServiceName>
+    <ServiceClientInterface>IAmazonBedrockRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonBedrockRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>f1cf1948-1073-4ee2-9438-2cce9a5a926c</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="InvokeModel" OutputProperty="*" Verb="Invoke" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeModelWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="ModelWithResponseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

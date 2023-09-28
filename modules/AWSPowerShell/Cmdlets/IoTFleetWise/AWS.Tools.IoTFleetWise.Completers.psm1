@@ -94,6 +94,13 @@ $IFW_Completers = {
             break
         }
 
+        # Amazon.IoTFleetWise.EncryptionType
+        "Write-IFWEncryptionConfiguration/EncryptionType"
+        {
+            $v = "FLEETWISE_DEFAULT_ENCRYPTION","KMS_BASED_ENCRYPTION"
+            break
+        }
+
         # Amazon.IoTFleetWise.LogType
         "Write-IFWLoggingOption/CloudWatchLogDelivery_LogType"
         {
@@ -162,6 +169,7 @@ $IFW_map = @{
     "CollectionScheme_ConditionBasedCollectionScheme_TriggerMode"=@("New-IFWCampaign")
     "Compression"=@("New-IFWCampaign")
     "DiagnosticsMode"=@("New-IFWCampaign")
+    "EncryptionType"=@("Write-IFWEncryptionConfiguration")
     "SpoolingMode"=@("New-IFWCampaign")
     "Status"=@("Update-IFWDecoderManifest","Update-IFWModelManifest")
 }
@@ -234,6 +242,7 @@ $IFW_SelectMap = @{
                "Remove-IFWVehicleFleet",
                "Get-IFWCampaign",
                "Get-IFWDecoderManifest",
+               "Get-IFWEncryptionConfiguration",
                "Get-IFWFleet",
                "Get-IFWLoggingOption",
                "Get-IFWModelManifest",
@@ -256,6 +265,7 @@ $IFW_SelectMap = @{
                "Get-IFWResourceTag",
                "Get-IFWVehicleList",
                "Get-IFWVehiclesInFleetList",
+               "Write-IFWEncryptionConfiguration",
                "Write-IFWLoggingOption",
                "Register-IFWAccount",
                "Add-IFWResourceTag",

@@ -1218,6 +1218,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.StorageType
+        "New-SMFeatureGroup/OnlineStoreConfig_StorageType"
+        {
+            $v = "InMemory","Standard"
+            break
+        }
+
         # Amazon.SageMaker.StudioLifecycleConfigAppType
         {
             ($_ -eq "Get-SMStudioLifecycleConfigList/AppTypeEquals") -Or
@@ -1459,6 +1466,7 @@ $SM_map = @{
     "MonitoringTypeEquals"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEquals"=@("Get-SMFeatureGroupList")
+    "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")
     "OnlineStoreConfig_TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")

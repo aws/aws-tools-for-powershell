@@ -1,0 +1,3 @@
+﻿# Bedrock
+
+Export-ModuleMember -Alias *

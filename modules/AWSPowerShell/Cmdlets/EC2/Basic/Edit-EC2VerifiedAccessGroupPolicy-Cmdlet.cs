@@ -39,6 +39,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VerifiedAccessGroupPolicyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter SseSpecification_CustomerManagedKeyEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Enable or disable the use of customer managed KMS keys for server side encryption.
+        /// </para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SseSpecification_CustomerManagedKeyEnabled { get; set; }
+        #endregion
+        
+        #region Parameter SseSpecification_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of the KMS key. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SseSpecification_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
@@ -55,13 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The status of the Verified Access policy.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? PolicyEnabled { get; set; }
         #endregion
         
@@ -159,12 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             context.PolicyDocument = this.PolicyDocument;
             context.PolicyEnabled = this.PolicyEnabled;
-            #if MODULAR
-            if (this.PolicyEnabled == null && ParameterWasBound(nameof(this.PolicyEnabled)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PolicyEnabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.SseSpecification_CustomerManagedKeyEnabled = this.SseSpecification_CustomerManagedKeyEnabled;
+            context.SseSpecification_KmsKeyArn = this.SseSpecification_KmsKeyArn;
             context.VerifiedAccessGroupId = this.VerifiedAccessGroupId;
             #if MODULAR
             if (this.VerifiedAccessGroupId == null && ParameterWasBound(nameof(this.VerifiedAccessGroupId)))
@@ -199,6 +210,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PolicyEnabled != null)
             {
                 request.PolicyEnabled = cmdletContext.PolicyEnabled.Value;
+            }
+            
+             // populate SseSpecification
+            var requestSseSpecificationIsNull = true;
+            request.SseSpecification = new Amazon.EC2.Model.VerifiedAccessSseSpecificationRequest();
+            System.Boolean? requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled = null;
+            if (cmdletContext.SseSpecification_CustomerManagedKeyEnabled != null)
+            {
+                requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled = cmdletContext.SseSpecification_CustomerManagedKeyEnabled.Value;
+            }
+            if (requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled != null)
+            {
+                request.SseSpecification.CustomerManagedKeyEnabled = requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled.Value;
+                requestSseSpecificationIsNull = false;
+            }
+            System.String requestSseSpecification_sseSpecification_KmsKeyArn = null;
+            if (cmdletContext.SseSpecification_KmsKeyArn != null)
+            {
+                requestSseSpecification_sseSpecification_KmsKeyArn = cmdletContext.SseSpecification_KmsKeyArn;
+            }
+            if (requestSseSpecification_sseSpecification_KmsKeyArn != null)
+            {
+                request.SseSpecification.KmsKeyArn = requestSseSpecification_sseSpecification_KmsKeyArn;
+                requestSseSpecificationIsNull = false;
+            }
+             // determine if request.SseSpecification should be set to null
+            if (requestSseSpecificationIsNull)
+            {
+                request.SseSpecification = null;
             }
             if (cmdletContext.VerifiedAccessGroupId != null)
             {
@@ -268,6 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.Boolean? PolicyEnabled { get; set; }
+            public System.Boolean? SseSpecification_CustomerManagedKeyEnabled { get; set; }
+            public System.String SseSpecification_KmsKeyArn { get; set; }
             public System.String VerifiedAccessGroupId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse, EditEC2VerifiedAccessGroupPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -263,6 +263,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String S3StorageConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter OnlineStoreConfig_StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Option for different tiers of low latency storage for real-time data retrieval.</para><ul><li><para><code>Standard</code>: A managed low latency data store for feature groups.</para></li><li><para><code>InMemory</code>: A managed data store for feature groups that supports very
+        /// low latency retrieval. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.StorageType")]
+        public Amazon.SageMaker.StorageType OnlineStoreConfig_StorageType { get; set; }
+        #endregion
+        
         #region Parameter OfflineStoreConfig_TableFormat
         /// <summary>
         /// <para>
@@ -417,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.OfflineStoreConfig_TableFormat = this.OfflineStoreConfig_TableFormat;
             context.OnlineStoreConfig_EnableOnlineStore = this.OnlineStoreConfig_EnableOnlineStore;
             context.SecurityConfig_KmsKeyId = this.SecurityConfig_KmsKeyId;
+            context.OnlineStoreConfig_StorageType = this.OnlineStoreConfig_StorageType;
             context.TtlDuration_Unit = this.TtlDuration_Unit;
             context.TtlDuration_Value = this.TtlDuration_Value;
             context.RecordIdentifierFeatureName = this.RecordIdentifierFeatureName;
@@ -596,6 +609,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.OnlineStoreConfig.EnableOnlineStore = requestOnlineStoreConfig_onlineStoreConfig_EnableOnlineStore.Value;
                 requestOnlineStoreConfigIsNull = false;
             }
+            Amazon.SageMaker.StorageType requestOnlineStoreConfig_onlineStoreConfig_StorageType = null;
+            if (cmdletContext.OnlineStoreConfig_StorageType != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_StorageType = cmdletContext.OnlineStoreConfig_StorageType;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_StorageType != null)
+            {
+                request.OnlineStoreConfig.StorageType = requestOnlineStoreConfig_onlineStoreConfig_StorageType;
+                requestOnlineStoreConfigIsNull = false;
+            }
             Amazon.SageMaker.Model.OnlineStoreSecurityConfig requestOnlineStoreConfig_onlineStoreConfig_SecurityConfig = null;
             
              // populate SecurityConfig
@@ -748,6 +771,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.TableFormat OfflineStoreConfig_TableFormat { get; set; }
             public System.Boolean? OnlineStoreConfig_EnableOnlineStore { get; set; }
             public System.String SecurityConfig_KmsKeyId { get; set; }
+            public Amazon.SageMaker.StorageType OnlineStoreConfig_StorageType { get; set; }
             public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
             public System.Int32? TtlDuration_Value { get; set; }
             public System.String RecordIdentifierFeatureName { get; set; }

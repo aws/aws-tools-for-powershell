@@ -80,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>The destination where the campaign sends data. You can choose to send data to be stored
         /// in Amazon S3 or Amazon Timestream.</para><para>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to
         /// use vehicle data, such as data lakes, centralized data storage, data processing pipelines,
-        /// and analytics. </para><para>You can use Amazon Timestream to access and analyze time series data, and Timestream
+        /// and analytics. Amazon Web Services IoT FleetWise supports at-least-once file delivery
+        /// to S3. Your vehicle data is stored on multiple Amazon Web Services IoT FleetWise servers
+        /// for redundancy and high availability.</para><para>You can use Amazon Timestream to access and analyze time series data, and Timestream
         /// to query vehicle data so that you can identify trends and patterns.</para>
         /// </para>
         /// </summary>

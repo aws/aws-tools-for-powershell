@@ -172,6 +172,12 @@
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Bedrock">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Bedrock.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockRuntime">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockRuntime.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.BillingConductor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BillingConductor.dll</HintPath>
     </Reference>
@@ -1217,6 +1223,12 @@
     </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Bedrock">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Bedrock.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BillingConductor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BillingConductor.dll</HintPath>

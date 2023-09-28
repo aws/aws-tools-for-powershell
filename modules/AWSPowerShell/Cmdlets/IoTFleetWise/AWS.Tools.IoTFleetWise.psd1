@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IFWDecoderManifestList', 
         'Get-IFWDecoderManifestNetworkInterfaceList', 
         'Get-IFWDecoderManifestSignalList', 
+        'Get-IFWEncryptionConfiguration', 
         'Get-IFWFleet', 
         'Get-IFWFleetList', 
         'Get-IFWFleetsForVehicleList', 
@@ -135,6 +136,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IFWModelManifest', 
         'Update-IFWSignalCatalog', 
         'Update-IFWVehicle', 
+        'Write-IFWEncryptionConfiguration', 
         'Write-IFWLoggingOption')
 
     # Variables to export from this module

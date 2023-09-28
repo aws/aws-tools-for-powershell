@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContentType_CsvContentType
         /// <summary>
         /// <para>
-        /// <para>The list of all content type headers that SageMaker will treat as CSV and capture
+        /// <para>The list of all content type headers that Amazon SageMaker will treat as CSV and capture
         /// accordingly.</para>
         /// </para>
         /// </summary>

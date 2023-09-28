@@ -90,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="EncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFleet" OutputProperty="*" Verb="Get" Noun="Fleet" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +179,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListVehiclesInFleet" OutputProperty="Vehicles" Verb="Get" Noun="VehiclesInFleetList" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEncryptionConfiguration" OutputProperty="*" Verb="Write" Noun="EncryptionConfiguration" ShouldProcessTarget="KmsKeyId" PipelineParameter="EncryptionType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

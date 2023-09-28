@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.VerifiedAccessEndpointAttachmentType AttachmentType { get; set; }
         #endregion
         
+        #region Parameter SseSpecification_CustomerManagedKeyEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Enable or disable the use of customer managed KMS keys for server side encryption.
+        /// </para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SseSpecification_CustomerManagedKeyEnabled { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -136,6 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EC2.VerifiedAccessEndpointType")]
         public Amazon.EC2.VerifiedAccessEndpointType EndpointType { get; set; }
+        #endregion
+        
+        #region Parameter SseSpecification_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of the KMS key. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SseSpecification_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter LoadBalancerOptions_LoadBalancerArn
@@ -386,6 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
+            context.SseSpecification_CustomerManagedKeyEnabled = this.SseSpecification_CustomerManagedKeyEnabled;
+            context.SseSpecification_KmsKeyArn = this.SseSpecification_KmsKeyArn;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -537,6 +560,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
             }
+            
+             // populate SseSpecification
+            var requestSseSpecificationIsNull = true;
+            request.SseSpecification = new Amazon.EC2.Model.VerifiedAccessSseSpecificationRequest();
+            System.Boolean? requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled = null;
+            if (cmdletContext.SseSpecification_CustomerManagedKeyEnabled != null)
+            {
+                requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled = cmdletContext.SseSpecification_CustomerManagedKeyEnabled.Value;
+            }
+            if (requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled != null)
+            {
+                request.SseSpecification.CustomerManagedKeyEnabled = requestSseSpecification_sseSpecification_CustomerManagedKeyEnabled.Value;
+                requestSseSpecificationIsNull = false;
+            }
+            System.String requestSseSpecification_sseSpecification_KmsKeyArn = null;
+            if (cmdletContext.SseSpecification_KmsKeyArn != null)
+            {
+                requestSseSpecification_sseSpecification_KmsKeyArn = cmdletContext.SseSpecification_KmsKeyArn;
+            }
+            if (requestSseSpecification_sseSpecification_KmsKeyArn != null)
+            {
+                request.SseSpecification.KmsKeyArn = requestSseSpecification_sseSpecification_KmsKeyArn;
+                requestSseSpecificationIsNull = false;
+            }
+             // determine if request.SseSpecification should be set to null
+            if (requestSseSpecificationIsNull)
+            {
+                request.SseSpecification = null;
+            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
@@ -622,6 +674,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.VerifiedAccessEndpointProtocol NetworkInterfaceOptions_Protocol { get; set; }
             public System.String PolicyDocument { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
+            public System.Boolean? SseSpecification_CustomerManagedKeyEnabled { get; set; }
+            public System.String SseSpecification_KmsKeyArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VerifiedAccessGroupId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVerifiedAccessEndpointResponse, NewEC2VerifiedAccessEndpointCmdlet, object> Select { get; set; } =

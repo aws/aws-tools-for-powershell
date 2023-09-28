@@ -5701,6 +5701,207 @@ $BAT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BAT_SelectCompleters $BAT_SelectMap
+# Argument completions for service Amazon Bedrock
+
+
+$BDR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Bedrock.FineTuningJobStatus
+        "Get-BDRModelCustomizationJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
+        # Amazon.Bedrock.InferenceType
+        "Get-BDRFoundationModelList/ByInferenceType"
+        {
+            $v = "ON_DEMAND","PROVISIONED"
+            break
+        }
+
+        # Amazon.Bedrock.ModelCustomization
+        "Get-BDRFoundationModelList/ByCustomizationType"
+        {
+            $v = "FINE_TUNING"
+            break
+        }
+
+        # Amazon.Bedrock.ModelModality
+        "Get-BDRFoundationModelList/ByOutputModality"
+        {
+            $v = "EMBEDDING","IMAGE","TEXT"
+            break
+        }
+
+        # Amazon.Bedrock.SortJobsBy
+        "Get-BDRModelCustomizationJobList/SortBy"
+        {
+            $v = "CreationTime"
+            break
+        }
+
+        # Amazon.Bedrock.SortModelsBy
+        "Get-BDRCustomModelList/SortBy"
+        {
+            $v = "CreationTime"
+            break
+        }
+
+        # Amazon.Bedrock.SortOrder
+        {
+            ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
+            ($_ -eq "Get-BDRModelCustomizationJobList/SortOrder")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDR_map = @{
+    "ByCustomizationType"=@("Get-BDRFoundationModelList")
+    "ByInferenceType"=@("Get-BDRFoundationModelList")
+    "ByOutputModality"=@("Get-BDRFoundationModelList")
+    "SortBy"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList")
+    "SortOrder"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList")
+    "StatusEquals"=@("Get-BDRModelCustomizationJobList")
+}
+
+_awsArgumentCompleterRegistration $BDR_Completers $BDR_map
+
+$BDR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BDR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDR_SelectMap = @{
+    "Select"=@("New-BDRModelCustomizationJob",
+               "Remove-BDRCustomModel",
+               "Remove-BDRModelInvocationLoggingConfiguration",
+               "Get-BDRCustomModel",
+               "Get-BDRFoundationModel",
+               "Get-BDRModelCustomizationJob",
+               "Get-BDRModelInvocationLoggingConfiguration",
+               "Get-BDRCustomModelList",
+               "Get-BDRFoundationModelList",
+               "Get-BDRModelCustomizationJobList",
+               "Get-BDRResourceTag",
+               "Write-BDRModelInvocationLoggingConfiguration",
+               "Stop-BDRModelCustomizationJob",
+               "Add-BDRResourceTag",
+               "Remove-BDRResourceTag")
+}
+
+_awsArgumentCompleterRegistration $BDR_SelectCompleters $BDR_SelectMap
+# Argument completions for service Amazon Bedrock Runtime
+
+
+$BDRR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BDRR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDRR_SelectMap = @{
+    "Select"=@("Invoke-BDRRModel",
+               "Invoke-BDRRModelWithResponseStream")
+}
+
+_awsArgumentCompleterRegistration $BDRR_SelectCompleters $BDRR_SelectMap
 # Argument completions for service AWSBillingConductor
 
 
@@ -30885,6 +31086,13 @@ $IFW_Completers = {
             break
         }
 
+        # Amazon.IoTFleetWise.EncryptionType
+        "Write-IFWEncryptionConfiguration/EncryptionType"
+        {
+            $v = "FLEETWISE_DEFAULT_ENCRYPTION","KMS_BASED_ENCRYPTION"
+            break
+        }
+
         # Amazon.IoTFleetWise.LogType
         "Write-IFWLoggingOption/CloudWatchLogDelivery_LogType"
         {
@@ -30953,6 +31161,7 @@ $IFW_map = @{
     "CollectionScheme_ConditionBasedCollectionScheme_TriggerMode"=@("New-IFWCampaign")
     "Compression"=@("New-IFWCampaign")
     "DiagnosticsMode"=@("New-IFWCampaign")
+    "EncryptionType"=@("Write-IFWEncryptionConfiguration")
     "SpoolingMode"=@("New-IFWCampaign")
     "Status"=@("Update-IFWDecoderManifest","Update-IFWModelManifest")
 }
@@ -31025,6 +31234,7 @@ $IFW_SelectMap = @{
                "Remove-IFWVehicleFleet",
                "Get-IFWCampaign",
                "Get-IFWDecoderManifest",
+               "Get-IFWEncryptionConfiguration",
                "Get-IFWFleet",
                "Get-IFWLoggingOption",
                "Get-IFWModelManifest",
@@ -31047,6 +31257,7 @@ $IFW_SelectMap = @{
                "Get-IFWResourceTag",
                "Get-IFWVehicleList",
                "Get-IFWVehiclesInFleetList",
+               "Write-IFWEncryptionConfiguration",
                "Write-IFWLoggingOption",
                "Register-IFWAccount",
                "Add-IFWResourceTag",
@@ -53748,6 +53959,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.StorageType
+        "New-SMFeatureGroup/OnlineStoreConfig_StorageType"
+        {
+            $v = "InMemory","Standard"
+            break
+        }
+
         # Amazon.SageMaker.StudioLifecycleConfigAppType
         {
             ($_ -eq "Get-SMStudioLifecycleConfigList/AppTypeEquals") -Or
@@ -53989,6 +54207,7 @@ $SM_map = @{
     "MonitoringTypeEquals"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEquals"=@("Get-SMFeatureGroupList")
+    "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")
     "OnlineStoreConfig_TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")

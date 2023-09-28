@@ -162,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional integer that represents how many entries a paginated response contains.
-        /// The maximum is 100.</para>
+        /// <para>An optional integer that represents how many entries a paginated response contains.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

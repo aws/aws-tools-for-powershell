@@ -302,9 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelBiasJobOutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
-        /// Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side
-        /// encryption.</para>
+        /// <para>The Key Management Service (KMS) key that Amazon SageMaker uses to encrypt the model
+        /// artifacts at rest using Amazon S3 server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Json_Line
         /// <summary>
         /// <para>
-        /// <para>Indicates if the file should be read as a json object per line. </para>
+        /// <para>Indicates if the file should be read as a JSON object per line. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -465,8 +464,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointInput_S3DataDistributionType
         /// <summary>
         /// <para>
-        /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3
-        /// key. Defaults to <code>FullyReplicated</code></para>
+        /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon
+        /// S3 key. Defaults to <code>FullyReplicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -579,8 +578,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
-        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+        /// Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
         /// User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -592,9 +591,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
-        /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
-        /// instance(s) that run the model monitoring job.</para>
+        /// <para>The Key Management Service (KMS) key that Amazon SageMaker uses to encrypt data on
+        /// the storage volume attached to the ML compute instance(s) that run the model monitoring
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

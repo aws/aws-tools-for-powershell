@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter FIPSEnabled
         /// <summary>
         /// <para>
-        /// <para> Choose to enable or disable support for Federal Information Processing Standards
-        /// (FIPS) on the instance. </para>
+        /// <para>Enable or disable support for Federal Information Processing Standards (FIPS) on the
+        /// instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

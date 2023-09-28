@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> An integer that shows how many budget name entries a paginated response contains.
-        /// </para>
+        /// <para> An integer that represents how many budgets a paginated response contains. The default
+        /// is 50. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
