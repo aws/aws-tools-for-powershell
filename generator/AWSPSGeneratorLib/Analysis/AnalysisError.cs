@@ -243,7 +243,7 @@ namespace AWSPowerShellGenerator.Analysis
         
         public static void MissingSDKMethodForCmdletConfiguration(ConfigModel service, ServiceOperation operation)
         {
-            new AnalysisError(service, operation, "Missing SDK method corresponding to this configuration.");
+            new AnalysisError(service, operation, "Missing SDK method corresponding to this configuration (verify the operation was not removed in the latest model revision).");
         }
 
         public static void ExceptionWhileAnalyzingSDKLibrary(ConfigModel service, ServiceOperation operation, Exception exception)

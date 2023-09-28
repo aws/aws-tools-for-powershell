@@ -382,6 +382,9 @@ namespace AWSPowerShellGenerator.Generators
         {
             var duplicatedCmdletNames = CurrentModel.ServiceOperationsList
                 .Where(operation => !operation.Exclude)
+                // If the operation does not exist in the SDK assembly (for example, it was removed in a model update), selected verb and noun
+                // will be empty, and it'll be incorrectly marked as duplicate (there's a separate analysis error for missing SDK methods: MissingSDKMethodForCmdletConfiguration).
+                .Where(operation => !string.IsNullOrEmpty(operation.SelectedVerb) && !string.IsNullOrEmpty(operation.SelectedNoun))
                 .GroupBy(operation => $"{operation.SelectedVerb}-{operation.SelectedNoun}", StringComparer.InvariantCultureIgnoreCase)
                 .Where(group => group.Count() > 1);
 

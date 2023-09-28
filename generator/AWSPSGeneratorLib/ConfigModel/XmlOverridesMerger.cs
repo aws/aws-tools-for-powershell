@@ -42,7 +42,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
         public static void ApplyOverrides(string folderPath, string configurationsFolder)
         {
-            var serviceOverrides = ReadOverrides(folderPath, out _);
+            var serviceOverrides = ReadOverrides(folderPath, out var errorMessage);
+
+            // If the error message is not empty, it means there was an issue when reading the overrides file (for example, invalid schema).
+            // Throw an exception so that the generator does not proceed to the next step.
+            if (!string.IsNullOrEmpty(errorMessage)) 
+            {
+                throw new InvalidOperationException(errorMessage);
+            }
 
             foreach (var serviceOverride in serviceOverrides)
             {
