@@ -104,6 +104,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 {
                     WriteSensitiveDataFlags(writer);
 
+                    writer.WriteLine();
+
+                    WriteGeneratedCmdletFlag(writer);
+
                     // create cmdlet parameters
 
                     // we emit the 'real' parameters in alpha order to allow for consistent tabbing
@@ -244,6 +248,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine();
                 writer.WriteLine("protected override bool IsSensitiveResponse { get; set; } = true;");
             }
+        }
+
+        private void WriteGeneratedCmdletFlag(IndentedTextWriter writer)
+        {
+            writer.WriteLine("protected override bool IsGeneratedCmdlet { get; set; } = true;");
         }
 
         /// <summary>

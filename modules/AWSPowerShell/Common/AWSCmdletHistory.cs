@@ -378,6 +378,19 @@ namespace Amazon.PowerShell.Common
             this.CmdletEnd = this.CmdletStart = DateTime.Now;
         }
 
+        public void PushServiceRequest(AmazonWebServiceRequest request, InvocationInfo invocationInfo)
+        {
+            var pso = new PSObject(request);
+            if (invocationInfo != null)
+                pso.Properties.Add(new PSNoteProperty("InvocationLine", invocationInfo.Line));
+
+            pso.Properties.Add(new PSNoteProperty("LoggedAt", DateTime.Now));
+            lock (_syncLock)
+            {
+                Requests.Add(pso);
+            }
+        }
+
         public void PushServiceRequest(AmazonWebServiceRequest request, InvocationInfo invocationInfo, bool isSensitiveRequest)
         {
             if (!AWSCmdletHistoryBuffer.Instance.RecordServiceRequests || (isSensitiveRequest && !AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData))
@@ -413,6 +426,10 @@ namespace Amazon.PowerShell.Common
             {
                 Requests.Add(pso);
             }
+        }
+        internal void PushServiceResponse(object responseOrError)
+        {
+            this.PushServiceResponse(responseOrError, null);
         }
 
         internal void PushServiceResponse(object responseOrError, bool isSensitiveResponse)

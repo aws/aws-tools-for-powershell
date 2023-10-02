@@ -24,6 +24,7 @@ using System.Text;
 using Amazon.Runtime;
 using System.Collections;
 using Amazon.Util.Internal;
+using Amazon.PowerShell.Common.Internal;
 
 namespace Amazon.PowerShell.Common
 {
@@ -51,6 +52,12 @@ namespace Amazon.PowerShell.Common
 
         // True if response contain any sensitive data
         protected virtual bool IsSensitiveResponse { get; set; }
+
+        protected virtual bool IsGeneratedCmdlet { get; set; }
+
+        private bool IsSanitizingRequestError { get; set; }
+        private bool IsSanitizingResponseError { get; set; }
+
 
         #region Error calls
 
@@ -339,6 +346,27 @@ namespace Amazon.PowerShell.Common
             // if we get here, there were no terminating errors during ProcessRecord
             AWSCmdletHistoryBuffer.Instance.PushCmdletHistory(ServiceCalls);
             base.EndProcessing();
+            
+            // Writing Non-terminating error in EndProcessing since we should only write a single error message when commands are run in a pipeline
+            // Moved this.WriteError from ResponseEventHandler to EndProcessing since Write Methods can be only called from BeginProcessing, ProcessRecord and EndProcessing
+            if (IsSanitizingRequestError || IsSanitizingResponseError)
+            {
+                // Build error message
+                string failedType = "";
+                if (IsSanitizingRequestError && IsSanitizingResponseError)
+                {
+                    failedType = "Request and Response are";
+                }
+                else if (IsSanitizingRequestError) { 
+                    failedType = "Request is";
+                }
+                else if (IsSanitizingResponseError) { 
+                    failedType = "Response is";
+                }
+
+                string errorMessage = $"Error occurred in sensitive data redaction, as a result {failedType} being omitted from $AWSHistory. In case you rely on $AWSHistory, run Set-AWSHistoryConfiguration -IncludeSensitiveData command to skip sensitive data redaction. Please report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.";
+                this.WriteError(new ErrorRecord(new Exception(errorMessage), "", ErrorCategory.InvalidOperation, this));
+            }
         }
 
         protected virtual void ProcessOutput(CmdletOutput cmdletOutput)
@@ -385,22 +413,92 @@ namespace Amazon.PowerShell.Common
         protected void ResponseEventHandler(object sender, ResponseEventArgs args)
         {
             var wsrea = args as WebServiceResponseEventArgs;
-            if (wsrea != null)
-            {
-                var response = wsrea.Response;
-                if (response != null)
-                    ServiceCalls.PushServiceResponse(response, IsSensitiveResponse);
-            }
+            if (wsrea == null) return;
+
+            var response = wsrea.Response;
+            if (response == null) return;
+
+            AmazonWebServiceResponse sanitizedResponse = GetSanitizedData(response);
+            if (sanitizedResponse == null) return;
+
+            ServiceCalls.PushServiceResponse(sanitizedResponse);
+
         }
+
+        private AmazonWebServiceResponse GetSanitizedData(AmazonWebServiceResponse response)
+        {
+            var sanitizedResponse = response;
+
+            try
+            {
+                if (!AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData)
+                {
+                    if (!IsGeneratedCmdlet && !IsSensitiveResponse)
+                    {
+                        // Evaluate IsSensitiveResponse for Advanced Cmdlets if not already overridden
+                        IsSensitiveResponse = SensitiveData.TypeContainsSensitiveData(response.GetType());
+                    }
+
+                    if (IsSensitiveResponse)
+                    {
+                        sanitizedResponse = SensitiveData.GetSanitizedData(response) as AmazonWebServiceResponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                IsSanitizingResponseError = true;
+                return null;
+            }
+
+            return sanitizedResponse;
+        }
+
         protected void RequestEventHandler(object sender, RequestEventArgs args)
         {
             var wsrea = args as WebServiceRequestEventArgs;
-            if (wsrea != null)
+            if (wsrea == null) return;
+
+            var request = wsrea.Request;
+
+            if (request == null) return;
+
+            AmazonWebServiceRequest sanitizedRequest = GetSanitizedData(request);
+
+            if (sanitizedRequest == null) return;
+
+            ServiceCalls.PushServiceRequest(sanitizedRequest, this.MyInvocation);
+        }
+
+        private AmazonWebServiceRequest GetSanitizedData(AmazonWebServiceRequest request)
+        {
+            var sanitizedRequest = request;
+
+            if (!AWSCmdletHistoryBuffer.Instance.RecordServiceRequests) return null;
+
+            try
             {
-                var request = wsrea.Request;
-                if (request != null)
-                    ServiceCalls.PushServiceRequest(request, this.MyInvocation, IsSensitiveRequest);
+                if (!AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData)
+                {
+                    if (!IsGeneratedCmdlet && !IsSensitiveRequest)
+                    {
+                        // Evaluate IsSensitiveRequest for Advanced Cmdlets if not already overridden
+                        IsSensitiveRequest = SensitiveData.TypeContainsSensitiveData(request.GetType());
+                    }
+
+                    if (IsSensitiveRequest)
+                    {
+                        sanitizedRequest = SensitiveData.GetSanitizedData(sanitizedRequest) as AmazonWebServiceRequest;
+                    }
+                }
+
             }
+            catch (Exception ex)
+            {
+                IsSanitizingRequestError = true;
+                return null;
+            }
+            return sanitizedRequest;
         }
 
         #endregion
