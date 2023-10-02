@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNMetricDataCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_Channel
         /// <summary>
         /// <para>

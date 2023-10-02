@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public partial class StartCSSuggestersBuildCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

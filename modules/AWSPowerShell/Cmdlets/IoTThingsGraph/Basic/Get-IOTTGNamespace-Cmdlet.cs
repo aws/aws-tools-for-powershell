@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     public partial class GetIOTTGNamespaceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NamespaceName
         /// <summary>
         /// <para>

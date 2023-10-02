@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class RestoreRSSTableFromSnapshotCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActivateCaseSensitiveIdentifier
         /// <summary>
         /// <para>

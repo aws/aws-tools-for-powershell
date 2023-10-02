@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     public partial class GetIOTTMSceneListCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>

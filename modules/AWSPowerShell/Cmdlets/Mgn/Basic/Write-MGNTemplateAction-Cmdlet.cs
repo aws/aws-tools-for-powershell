@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class WriteMGNTemplateActionCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionID
         /// <summary>
         /// <para>

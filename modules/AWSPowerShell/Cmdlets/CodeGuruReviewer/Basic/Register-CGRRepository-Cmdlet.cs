@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     public partial class RegisterCGRRepositoryCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Bucket_BucketName
         /// <summary>
         /// <para>

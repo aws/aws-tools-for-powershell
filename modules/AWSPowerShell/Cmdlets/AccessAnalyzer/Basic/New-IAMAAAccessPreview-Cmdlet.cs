@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     public partial class NewIAMAAAccessPreviewCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnalyzerArn
         /// <summary>
         /// <para>

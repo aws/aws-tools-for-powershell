@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class ConfirmDCCustomerAgreementCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgreementName
         /// <summary>
         /// <para>

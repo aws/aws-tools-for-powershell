@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class InvokeKNDRQueryCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeFilter
         /// <summary>
         /// <para>

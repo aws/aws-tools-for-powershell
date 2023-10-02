@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     public partial class StopBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobArn
         /// <summary>
         /// <para>

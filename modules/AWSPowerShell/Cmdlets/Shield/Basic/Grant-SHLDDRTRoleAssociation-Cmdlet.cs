@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class GrantSHLDDRTRoleAssociationCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>

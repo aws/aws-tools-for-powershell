@@ -86,6 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class RequestKMSKeyDeletionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>

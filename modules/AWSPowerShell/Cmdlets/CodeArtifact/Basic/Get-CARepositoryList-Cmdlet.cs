@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     public partial class GetCARepositoryListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RepositoryPrefix
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class UpdateMHSServerConfigCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StrategyOption_IsPreferred
         /// <summary>
         /// <para>

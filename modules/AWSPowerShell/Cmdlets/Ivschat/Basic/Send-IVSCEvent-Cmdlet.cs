@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class SendIVSCEventCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

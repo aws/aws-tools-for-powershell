@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class GetNMGRConnectAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttachmentId
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class UpdateEMCNFlowMediaStreamCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Fmtp_ChannelOrder
         /// <summary>
         /// <para>

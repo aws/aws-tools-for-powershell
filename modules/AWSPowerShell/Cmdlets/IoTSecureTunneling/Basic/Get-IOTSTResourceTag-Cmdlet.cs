@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     public partial class GetIOTSTResourceTagCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

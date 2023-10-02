@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSDefaultClusterParameterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ParameterGroupFamily
         /// <summary>
         /// <para>

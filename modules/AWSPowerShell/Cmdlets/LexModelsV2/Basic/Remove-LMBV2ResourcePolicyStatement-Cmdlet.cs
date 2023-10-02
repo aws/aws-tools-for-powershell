@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class RemoveLMBV2ResourcePolicyStatementCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExpectedRevisionId
         /// <summary>
         /// <para>

@@ -85,6 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class NewEFSReplicationConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination
         /// <summary>
         /// <para>

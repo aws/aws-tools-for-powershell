@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     public partial class RemoveL4EResourceTagCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

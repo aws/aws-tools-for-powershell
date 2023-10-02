@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class NewROBODeploymentJobCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

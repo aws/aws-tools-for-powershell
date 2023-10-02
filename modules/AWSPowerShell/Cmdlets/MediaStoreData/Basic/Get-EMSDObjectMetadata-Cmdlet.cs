@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
     public partial class GetEMSDObjectMetadataCmdlet : AmazonMediaStoreDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Path
         /// <summary>
         /// <para>

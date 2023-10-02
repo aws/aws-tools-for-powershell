@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public partial class GetIOTDASuiteRunListCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>

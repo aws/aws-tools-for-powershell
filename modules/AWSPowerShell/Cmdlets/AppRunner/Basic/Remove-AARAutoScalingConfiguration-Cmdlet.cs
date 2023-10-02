@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class RemoveAARAutoScalingConfigurationCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoScalingConfigurationArn
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     public partial class GetMPV2ChannelGroupCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelGroupName
         /// <summary>
         /// <para>

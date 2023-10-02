@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class RemoveBAKBackupVaultNotificationCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupVaultName
         /// <summary>
         /// <para>

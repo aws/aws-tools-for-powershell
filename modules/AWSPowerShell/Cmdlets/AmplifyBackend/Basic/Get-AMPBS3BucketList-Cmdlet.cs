@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     public partial class GetAMPBS3BucketListCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

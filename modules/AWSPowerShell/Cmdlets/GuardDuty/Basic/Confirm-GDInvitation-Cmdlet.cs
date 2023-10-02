@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class ConfirmGDInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>

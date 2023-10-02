@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class UpdateAMSHVirtualNodeCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsCloudMap_Attribute
         /// <summary>
         /// <para>

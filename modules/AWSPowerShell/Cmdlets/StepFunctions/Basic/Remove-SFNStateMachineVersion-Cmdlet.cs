@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class RemoveSFNStateMachineVersionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StateMachineVersionArn
         /// <summary>
         /// <para>

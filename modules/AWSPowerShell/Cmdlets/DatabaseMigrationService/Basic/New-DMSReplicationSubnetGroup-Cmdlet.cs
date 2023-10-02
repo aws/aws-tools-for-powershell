@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class NewDMSReplicationSubnetGroupCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplicationSubnetGroupDescription
         /// <summary>
         /// <para>

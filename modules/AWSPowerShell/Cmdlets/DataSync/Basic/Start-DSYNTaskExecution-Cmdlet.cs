@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class StartDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3_BucketAccessRoleArn
         /// <summary>
         /// <para>

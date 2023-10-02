@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMMonitoringAlertListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MonitoringScheduleName
         /// <summary>
         /// <para>

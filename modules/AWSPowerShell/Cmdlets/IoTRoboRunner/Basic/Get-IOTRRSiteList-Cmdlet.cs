@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTRR
     public partial class GetIOTRRSiteListCmdlet : AmazonIoTRoboRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

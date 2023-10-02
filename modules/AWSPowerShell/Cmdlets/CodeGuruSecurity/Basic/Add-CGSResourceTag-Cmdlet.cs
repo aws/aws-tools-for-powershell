@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     public partial class AddCGSResourceTagCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

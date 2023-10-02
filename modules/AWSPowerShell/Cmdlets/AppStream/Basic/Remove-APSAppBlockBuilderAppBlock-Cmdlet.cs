@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class RemoveAPSAppBlockBuilderAppBlockCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppBlockArn
         /// <summary>
         /// <para>

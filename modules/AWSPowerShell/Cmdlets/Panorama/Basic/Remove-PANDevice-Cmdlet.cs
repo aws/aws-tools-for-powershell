@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class RemovePANDeviceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

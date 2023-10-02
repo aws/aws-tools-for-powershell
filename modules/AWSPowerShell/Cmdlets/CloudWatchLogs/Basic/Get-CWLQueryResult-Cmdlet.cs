@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class GetCWLQueryResultCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueryId
         /// <summary>
         /// <para>

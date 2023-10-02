@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTMitigationActionListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionType
         /// <summary>
         /// <para>

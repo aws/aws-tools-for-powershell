@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class RemoveIOTSWResourceTagCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

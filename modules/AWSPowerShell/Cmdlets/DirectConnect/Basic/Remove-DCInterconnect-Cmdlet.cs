@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class RemoveDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InterconnectId
         /// <summary>
         /// <para>

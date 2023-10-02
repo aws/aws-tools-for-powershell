@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class UpdateWSWTrustStoreCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificatesToAdd
         /// <summary>
         /// <para>

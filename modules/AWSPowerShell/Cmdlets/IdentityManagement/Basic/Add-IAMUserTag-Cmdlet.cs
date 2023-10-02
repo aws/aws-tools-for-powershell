@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class AddIAMUserTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Tag
         /// <summary>
         /// <para>

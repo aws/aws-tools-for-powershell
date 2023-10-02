@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class WriteLKFDataLakeSettingCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataLakeSettings_AllowExternalDataFiltering
         /// <summary>
         /// <para>

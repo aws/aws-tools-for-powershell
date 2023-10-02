@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     public partial class NewSUPSlackChannelConfigurationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelId
         /// <summary>
         /// <para>

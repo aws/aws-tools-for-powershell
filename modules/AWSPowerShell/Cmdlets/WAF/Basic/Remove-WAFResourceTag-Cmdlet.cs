@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class RemoveWAFResourceTagCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

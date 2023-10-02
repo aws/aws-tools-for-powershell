@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class NewKNDRFaqCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Path_Bucket
         /// <summary>
         /// <para>

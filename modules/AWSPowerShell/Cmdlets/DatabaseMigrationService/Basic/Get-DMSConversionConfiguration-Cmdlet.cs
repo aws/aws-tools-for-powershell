@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSConversionConfigurationCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MigrationProjectIdentifier
         /// <summary>
         /// <para>

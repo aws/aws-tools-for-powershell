@@ -88,6 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class WriteDDBItemTransactionallyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

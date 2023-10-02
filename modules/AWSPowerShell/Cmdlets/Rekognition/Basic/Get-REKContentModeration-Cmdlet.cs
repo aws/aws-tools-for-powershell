@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKContentModerationCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AggregateBy
         /// <summary>
         /// <para>

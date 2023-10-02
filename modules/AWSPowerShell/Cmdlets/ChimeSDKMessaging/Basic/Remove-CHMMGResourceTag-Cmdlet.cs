@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class RemoveCHMMGResourceTagCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

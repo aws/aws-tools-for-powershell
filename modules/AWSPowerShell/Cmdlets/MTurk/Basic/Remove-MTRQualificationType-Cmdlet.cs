@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class RemoveMTRQualificationTypeCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QualificationTypeId
         /// <summary>
         /// <para>

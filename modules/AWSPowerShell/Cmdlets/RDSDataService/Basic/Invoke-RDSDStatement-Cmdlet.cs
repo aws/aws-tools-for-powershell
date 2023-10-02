@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     public partial class InvokeRDSDStatementCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContinueAfterTimeout
         /// <summary>
         /// <para>

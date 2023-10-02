@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     public partial class RemoveRBINResourceTagCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

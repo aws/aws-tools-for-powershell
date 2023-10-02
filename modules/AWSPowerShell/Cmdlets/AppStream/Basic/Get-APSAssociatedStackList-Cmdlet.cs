@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class GetAPSAssociatedStackListCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FleetName
         /// <summary>
         /// <para>

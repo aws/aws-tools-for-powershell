@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class RemoveSMActionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionName
         /// <summary>
         /// <para>

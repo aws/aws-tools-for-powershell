@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     public partial class GetMHOTemplateStepGroupListCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateId
         /// <summary>
         /// <para>

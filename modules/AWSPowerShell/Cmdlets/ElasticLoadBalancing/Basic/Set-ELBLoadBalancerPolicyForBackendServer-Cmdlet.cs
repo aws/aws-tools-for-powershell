@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class SetELBLoadBalancerPolicyForBackendServerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstancePort
         /// <summary>
         /// <para>

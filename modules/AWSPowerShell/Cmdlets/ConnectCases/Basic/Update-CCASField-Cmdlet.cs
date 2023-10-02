@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class UpdateCCASFieldCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

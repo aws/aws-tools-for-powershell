@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMContextCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContextName
         /// <summary>
         /// <para>

@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>

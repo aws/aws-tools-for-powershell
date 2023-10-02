@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class UpdateIOTWResourcePositionCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GeoJsonPayload
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class NewEMRSecurityConfigurationCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

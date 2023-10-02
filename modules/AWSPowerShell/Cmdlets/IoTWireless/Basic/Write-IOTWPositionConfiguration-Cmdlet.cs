@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class WriteIOTWPositionConfigurationCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination
         /// <summary>
         /// <para>

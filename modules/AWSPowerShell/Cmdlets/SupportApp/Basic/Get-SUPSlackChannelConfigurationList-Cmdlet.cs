@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     public partial class GetSUPSlackChannelConfigurationListCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalInferenceSpecification
         /// <summary>
         /// <para>

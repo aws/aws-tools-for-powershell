@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class GetASAdjustmentTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AdjustmentTypes'.

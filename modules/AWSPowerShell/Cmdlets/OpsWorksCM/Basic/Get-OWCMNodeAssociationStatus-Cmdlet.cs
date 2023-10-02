@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NodeAssociationStatusToken
         /// <summary>
         /// <para>

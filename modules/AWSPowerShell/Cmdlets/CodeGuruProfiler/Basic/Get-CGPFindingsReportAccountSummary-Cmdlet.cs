@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class GetCGPFindingsReportAccountSummaryCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DailyReportsOnly
         /// <summary>
         /// <para>

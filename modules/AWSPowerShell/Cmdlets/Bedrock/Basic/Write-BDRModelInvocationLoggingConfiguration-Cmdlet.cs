@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class WriteBDRModelInvocationLoggingConfigurationCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LargeDataDeliveryS3Config_BucketName
         /// <summary>
         /// <para>

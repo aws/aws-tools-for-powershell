@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class RemoveLICMTokenCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TokenId
         /// <summary>
         /// <para>

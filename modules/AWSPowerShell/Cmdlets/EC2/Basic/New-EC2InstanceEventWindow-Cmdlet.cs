@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2InstanceEventWindowCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CronExpression
         /// <summary>
         /// <para>

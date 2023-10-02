@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class WriteAGGatewayResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResponseParameter
         /// <summary>
         /// <para>

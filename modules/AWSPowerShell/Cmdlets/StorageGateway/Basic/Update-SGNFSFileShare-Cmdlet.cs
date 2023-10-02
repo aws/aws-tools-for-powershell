@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuditDestinationARN
         /// <summary>
         /// <para>

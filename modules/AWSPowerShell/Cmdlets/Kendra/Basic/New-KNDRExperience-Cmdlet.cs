@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class NewKNDRExperienceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContentSourceConfiguration_DataSourceId
         /// <summary>
         /// <para>

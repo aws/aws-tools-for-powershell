@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class GetCCATSourceRepositoryCloneUrlCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>

@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     public partial class RemovePAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteKeyInDay
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2SpotFleetRequestHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EventType
         /// <summary>
         /// <para>

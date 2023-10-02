@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class GetLMBSlotTypeListCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>

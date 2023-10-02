@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNContactFlowListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactFlowType
         /// <summary>
         /// <para>

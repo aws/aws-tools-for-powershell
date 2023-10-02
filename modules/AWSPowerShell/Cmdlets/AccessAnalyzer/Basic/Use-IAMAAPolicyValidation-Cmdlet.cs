@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     public partial class UseIAMAAPolicyValidationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Locale
         /// <summary>
         /// <para>

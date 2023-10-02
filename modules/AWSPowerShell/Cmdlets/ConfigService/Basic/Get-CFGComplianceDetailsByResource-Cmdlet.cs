@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGComplianceDetailsByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComplianceType
         /// <summary>
         /// <para>

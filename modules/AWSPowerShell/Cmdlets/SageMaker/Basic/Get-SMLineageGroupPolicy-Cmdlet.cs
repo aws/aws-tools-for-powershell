@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMLineageGroupPolicyCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LineageGroupName
         /// <summary>
         /// <para>

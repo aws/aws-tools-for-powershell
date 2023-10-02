@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class AddDCMacSecKeyCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cak
         /// <summary>
         /// <para>

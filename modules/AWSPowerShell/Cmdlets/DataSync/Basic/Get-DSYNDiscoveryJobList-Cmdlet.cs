@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class GetDSYNDiscoveryJobListCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StorageSystemArn
         /// <summary>
         /// <para>

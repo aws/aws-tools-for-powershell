@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class StopEMLMultiplexCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MultiplexId
         /// <summary>
         /// <para>

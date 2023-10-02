@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class UpdateAARVpcIngressConnectionCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IngressVpcConfiguration_VpcEndpointId
         /// <summary>
         /// <para>

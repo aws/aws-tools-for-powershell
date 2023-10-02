@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class RemoveFSXBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupId
         /// <summary>
         /// <para>

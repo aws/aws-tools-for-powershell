@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     public partial class UndoKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>

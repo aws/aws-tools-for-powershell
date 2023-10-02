@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public partial class UpdateCHMTGUpdateAttendeeCapabilitiesExceptCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Capabilities_Audio
         /// <summary>
         /// <para>

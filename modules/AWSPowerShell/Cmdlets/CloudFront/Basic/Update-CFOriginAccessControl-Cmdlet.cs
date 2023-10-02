@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class UpdateCFOriginAccessControlCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OriginAccessControlConfig_Description
         /// <summary>
         /// <para>

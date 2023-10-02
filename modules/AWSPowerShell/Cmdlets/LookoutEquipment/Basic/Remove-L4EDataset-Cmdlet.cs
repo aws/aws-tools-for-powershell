@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     public partial class RemoveL4EDatasetCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetName
         /// <summary>
         /// <para>

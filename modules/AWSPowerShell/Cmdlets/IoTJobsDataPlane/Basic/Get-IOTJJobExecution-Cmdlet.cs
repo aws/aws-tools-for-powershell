@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
     public partial class GetIOTJJobExecutionCmdlet : AmazonIoTJobsDataPlaneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExecutionNumber
         /// <summary>
         /// <para>

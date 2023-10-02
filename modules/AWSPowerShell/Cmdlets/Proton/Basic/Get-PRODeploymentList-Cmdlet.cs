@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPRODeploymentListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComponentName
         /// <summary>
         /// <para>

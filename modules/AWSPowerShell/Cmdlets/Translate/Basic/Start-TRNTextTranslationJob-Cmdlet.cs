@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class StartTRNTextTranslationJobCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InputDataConfig_ContentType
         /// <summary>
         /// <para>

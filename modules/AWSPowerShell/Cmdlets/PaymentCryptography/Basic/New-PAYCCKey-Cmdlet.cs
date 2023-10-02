@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     public partial class NewPAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyModesOfUse_Decrypt
         /// <summary>
         /// <para>

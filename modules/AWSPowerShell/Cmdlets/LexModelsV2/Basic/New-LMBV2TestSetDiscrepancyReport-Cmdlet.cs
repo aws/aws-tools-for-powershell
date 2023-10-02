@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2TestSetDiscrepancyReportCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BotAliasTarget_BotAliasId
         /// <summary>
         /// <para>

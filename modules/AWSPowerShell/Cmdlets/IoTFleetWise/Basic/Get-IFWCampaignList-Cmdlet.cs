@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public partial class GetIFWCampaignListCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Status
         /// <summary>
         /// <para>

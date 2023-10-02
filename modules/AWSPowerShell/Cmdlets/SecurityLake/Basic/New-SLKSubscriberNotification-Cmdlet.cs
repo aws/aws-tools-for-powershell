@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKSubscriberNotificationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HttpsNotificationConfiguration_AuthorizationApiKeyName
         /// <summary>
         /// <para>

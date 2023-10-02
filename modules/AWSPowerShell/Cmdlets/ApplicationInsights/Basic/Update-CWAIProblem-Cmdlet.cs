@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class UpdateCWAIProblemCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProblemId
         /// <summary>
         /// <para>

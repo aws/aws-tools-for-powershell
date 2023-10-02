@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class NewWMAliasCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Alias
         /// <summary>
         /// <para>

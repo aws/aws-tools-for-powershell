@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public partial class RemoveCSDomainCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

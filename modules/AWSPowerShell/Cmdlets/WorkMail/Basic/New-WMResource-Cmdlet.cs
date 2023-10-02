@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class NewWMResourceCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

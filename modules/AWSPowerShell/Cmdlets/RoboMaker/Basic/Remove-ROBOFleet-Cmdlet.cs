@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class RemoveROBOFleetCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Fleet
         /// <summary>
         /// <para>

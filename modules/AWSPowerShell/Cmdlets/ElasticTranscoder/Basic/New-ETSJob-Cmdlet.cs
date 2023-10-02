@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class NewETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlbumArt_Artwork
         /// <summary>
         /// <para>

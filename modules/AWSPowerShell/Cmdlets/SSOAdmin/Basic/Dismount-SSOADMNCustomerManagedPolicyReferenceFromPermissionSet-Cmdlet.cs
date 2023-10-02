@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     public partial class DismountSSOADMNCustomerManagedPolicyReferenceFromPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceArn
         /// <summary>
         /// <para>

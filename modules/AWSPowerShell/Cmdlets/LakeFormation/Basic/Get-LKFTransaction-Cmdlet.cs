@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class GetLKFTransactionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TransactionId
         /// <summary>
         /// <para>

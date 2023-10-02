@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class GetESDomainCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

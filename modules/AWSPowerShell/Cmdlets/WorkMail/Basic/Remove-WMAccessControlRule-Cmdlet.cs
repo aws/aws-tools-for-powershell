@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class RemoveWMAccessControlRuleCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

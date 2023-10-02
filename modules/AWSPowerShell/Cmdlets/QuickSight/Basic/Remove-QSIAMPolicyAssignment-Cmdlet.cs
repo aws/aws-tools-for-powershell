@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class RemoveQSIAMPolicyAssignmentCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssignmentName
         /// <summary>
         /// <para>

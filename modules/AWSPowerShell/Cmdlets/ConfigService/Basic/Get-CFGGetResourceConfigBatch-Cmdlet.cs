@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGGetResourceConfigBatchCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceKey
         /// <summary>
         /// <para>

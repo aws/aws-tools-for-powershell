@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class UpdateCGIPIdentityProviderCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeMapping
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class UpdateINSAssessmentTargetCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssessmentTargetArn
         /// <summary>
         /// <para>

@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KVWS
     public partial class JoinKVWSStorageSessionCmdlet : AmazonKinesisVideoWebRTCStorageClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class GetOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

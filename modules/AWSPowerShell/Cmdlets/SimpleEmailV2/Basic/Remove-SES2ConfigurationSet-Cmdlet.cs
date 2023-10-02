@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class RemoveSES2ConfigurationSetCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>

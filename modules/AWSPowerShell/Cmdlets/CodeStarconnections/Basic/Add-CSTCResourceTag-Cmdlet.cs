@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     public partial class AddCSTCResourceTagCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

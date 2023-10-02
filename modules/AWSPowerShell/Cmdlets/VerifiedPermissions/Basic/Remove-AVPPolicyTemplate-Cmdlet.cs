@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class RemoveAVPPolicyTemplateCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppflowIntegration_Batch
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     public partial class WriteSSOADMNInlinePolicyToPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InlinePolicy
         /// <summary>
         /// <para>

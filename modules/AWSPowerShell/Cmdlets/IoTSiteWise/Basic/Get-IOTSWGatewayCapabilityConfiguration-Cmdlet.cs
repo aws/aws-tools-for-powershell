@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class GetIOTSWGatewayCapabilityConfigurationCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CapabilityNamespace
         /// <summary>
         /// <para>

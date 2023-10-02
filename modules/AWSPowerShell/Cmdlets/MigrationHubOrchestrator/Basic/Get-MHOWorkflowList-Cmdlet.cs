@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     public partial class GetMHOWorkflowListCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdsApplicationConfigurationName
         /// <summary>
         /// <para>

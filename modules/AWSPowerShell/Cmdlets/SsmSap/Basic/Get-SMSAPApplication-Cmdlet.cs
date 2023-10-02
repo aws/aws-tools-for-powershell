@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     public partial class GetSMSAPApplicationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationArn
         /// <summary>
         /// <para>

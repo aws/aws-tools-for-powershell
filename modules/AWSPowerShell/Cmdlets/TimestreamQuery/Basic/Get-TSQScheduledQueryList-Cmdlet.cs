@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class GetTSQScheduledQueryListCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

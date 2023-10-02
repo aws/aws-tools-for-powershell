@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMTrainingJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProfilerConfig_DisableProfiler
         /// <summary>
         /// <para>

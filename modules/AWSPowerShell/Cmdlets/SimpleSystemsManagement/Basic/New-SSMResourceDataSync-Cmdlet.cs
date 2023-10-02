@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Destination_AWSKMSKeyARN
         /// <summary>
         /// <para>

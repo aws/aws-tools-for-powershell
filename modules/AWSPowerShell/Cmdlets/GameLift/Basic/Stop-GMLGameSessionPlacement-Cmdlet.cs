@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class StopGMLGameSessionPlacementCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PlacementId
         /// <summary>
         /// <para>

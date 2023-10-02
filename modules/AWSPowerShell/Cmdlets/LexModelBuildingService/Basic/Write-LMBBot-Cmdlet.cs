@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class WriteLMBBotCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AbortStatement
         /// <summary>
         /// <para>

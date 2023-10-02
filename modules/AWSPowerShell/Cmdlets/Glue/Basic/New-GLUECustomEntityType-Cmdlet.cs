@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUECustomEntityTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContextWord
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     public partial class WriteCWOAMSinkPolicyCmdlet : AmazonOAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

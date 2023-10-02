@@ -181,6 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BucketName
         /// <summary>
         /// <para>

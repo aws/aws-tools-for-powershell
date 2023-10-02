@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class AddIVSCResourceTagCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -74,6 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     public partial class ConvertSTSAuthorizationMessageCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EncodedMessage
         /// <summary>
         /// <para>

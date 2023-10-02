@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class RemoveDMSReplicationTaskAssessmentRunCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplicationTaskAssessmentRunArn
         /// <summary>
         /// <para>

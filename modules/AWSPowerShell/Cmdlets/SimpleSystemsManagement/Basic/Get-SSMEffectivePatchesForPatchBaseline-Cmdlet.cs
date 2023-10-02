@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMEffectivePatchesForPatchBaselineCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BaselineId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class RemoveIOTSWGatewayCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayId
         /// <summary>
         /// <para>

@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class RemoveKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnforceConsumerDeletion
         /// <summary>
         /// <para>

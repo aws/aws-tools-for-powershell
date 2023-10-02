@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     public partial class GetLOMAnomalyDetectorListCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

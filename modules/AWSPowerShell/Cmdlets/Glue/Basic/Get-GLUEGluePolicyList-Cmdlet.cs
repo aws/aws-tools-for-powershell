@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEGluePolicyListCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

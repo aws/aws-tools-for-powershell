@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class NewDSYNLocationHdfCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentArn
         /// <summary>
         /// <para>

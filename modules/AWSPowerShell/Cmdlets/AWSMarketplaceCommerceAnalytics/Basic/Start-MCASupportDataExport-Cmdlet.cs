@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     public partial class StartMCASupportDataExportCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomerDefinedValue
         /// <summary>
         /// <para>

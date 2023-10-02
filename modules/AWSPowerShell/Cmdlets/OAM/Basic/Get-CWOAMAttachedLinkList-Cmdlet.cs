@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     public partial class GetCWOAMAttachedLinkListCmdlet : AmazonOAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SinkIdentifier
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class GetABCBillingGroupCostReportListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_BillingGroupArn
         /// <summary>
         /// <para>

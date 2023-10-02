@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public partial class GetASASeverityLevelCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Language
         /// <summary>
         /// <para>

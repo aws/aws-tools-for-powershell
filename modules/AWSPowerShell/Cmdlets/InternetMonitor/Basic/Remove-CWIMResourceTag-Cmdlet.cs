@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     public partial class RemoveCWIMResourceTagCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

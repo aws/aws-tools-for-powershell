@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

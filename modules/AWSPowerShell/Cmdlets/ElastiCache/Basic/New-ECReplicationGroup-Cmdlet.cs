@@ -77,6 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class NewECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AtRestEncryptionEnabled
         /// <summary>
         /// <para>

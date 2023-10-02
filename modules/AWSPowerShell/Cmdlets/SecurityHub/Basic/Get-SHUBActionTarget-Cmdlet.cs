@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class GetSHUBActionTargetCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionTargetArn
         /// <summary>
         /// <para>

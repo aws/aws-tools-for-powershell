@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSContactMethodCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Protocol
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class UpdateCEAnomalySubscriptionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Frequency
         /// <summary>
         /// <para>

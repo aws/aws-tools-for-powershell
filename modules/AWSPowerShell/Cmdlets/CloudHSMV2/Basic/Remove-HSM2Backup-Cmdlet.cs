@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     public partial class RemoveHSM2BackupCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupId
         /// <summary>
         /// <para>

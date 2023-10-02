@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class InvokeNEPTFastResetCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

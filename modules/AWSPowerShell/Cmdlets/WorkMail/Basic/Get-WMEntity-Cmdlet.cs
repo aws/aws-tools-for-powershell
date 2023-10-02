@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class GetWMEntityCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Email
         /// <summary>
         /// <para>

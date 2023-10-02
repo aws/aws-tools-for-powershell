@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public partial class GetOUTPCatalogItemListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EC2FamilyFilter
         /// <summary>
         /// <para>

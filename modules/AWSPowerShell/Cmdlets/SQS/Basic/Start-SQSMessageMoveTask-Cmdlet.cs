@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class StartSQSMessageMoveTaskCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationArn
         /// <summary>
         /// <para>

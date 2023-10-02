@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class SendSMCActivationCodeCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactChannelId
         /// <summary>
         /// <para>

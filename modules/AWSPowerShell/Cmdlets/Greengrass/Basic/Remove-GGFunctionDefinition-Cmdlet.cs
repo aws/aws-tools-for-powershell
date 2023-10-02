@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class RemoveGGFunctionDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FunctionDefinitionId
         /// <summary>
         /// <para>

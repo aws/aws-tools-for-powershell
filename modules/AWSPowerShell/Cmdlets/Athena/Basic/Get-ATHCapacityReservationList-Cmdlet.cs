@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class GetATHCapacityReservationListCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

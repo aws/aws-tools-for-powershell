@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class UpdatePINBaiduChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BaiduChannelRequest_ApiKey
         /// <summary>
         /// <para>

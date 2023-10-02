@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class GetCGIPGroupCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>

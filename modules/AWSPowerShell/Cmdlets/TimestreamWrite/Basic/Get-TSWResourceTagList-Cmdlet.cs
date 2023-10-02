@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class GetTSWResourceTagListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

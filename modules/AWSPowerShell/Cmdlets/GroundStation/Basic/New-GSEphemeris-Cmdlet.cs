@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class NewGSEphemerisCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ephemeris_Oem_S3Object_Bucket
         /// <summary>
         /// <para>

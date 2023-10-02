@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class GetASYNGraphqlApiListCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiType
         /// <summary>
         /// <para>

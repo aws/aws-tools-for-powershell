@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     public partial class UpdateCDIRLinkAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeUpdate
         /// <summary>
         /// <para>

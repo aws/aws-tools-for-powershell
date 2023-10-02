@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class NewFINSPKxChangesetCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeRequest
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     public partial class GetMISDatastoreListCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatastoreStatus
         /// <summary>
         /// <para>

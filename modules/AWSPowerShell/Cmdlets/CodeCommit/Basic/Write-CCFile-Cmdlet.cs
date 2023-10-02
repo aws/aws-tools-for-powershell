@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class WriteCCFileCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BranchName
         /// <summary>
         /// <para>

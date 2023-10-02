@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     public partial class SendCONNPEventCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionToken
         /// <summary>
         /// <para>

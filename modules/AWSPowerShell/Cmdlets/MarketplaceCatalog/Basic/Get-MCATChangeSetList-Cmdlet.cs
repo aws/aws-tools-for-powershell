@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     public partial class GetMCATChangeSetListCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Catalog
         /// <summary>
         /// <para>

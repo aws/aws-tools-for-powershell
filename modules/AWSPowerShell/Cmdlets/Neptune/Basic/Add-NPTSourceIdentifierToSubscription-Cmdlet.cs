@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class AddNPTSourceIdentifierToSubscriptionCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>

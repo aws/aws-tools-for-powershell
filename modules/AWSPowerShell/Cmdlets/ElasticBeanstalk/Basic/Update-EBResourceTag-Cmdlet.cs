@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class UpdateEBResourceTagCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

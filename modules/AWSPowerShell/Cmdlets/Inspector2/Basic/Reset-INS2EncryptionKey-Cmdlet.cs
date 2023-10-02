@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     public partial class ResetINS2EncryptionKeyCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>

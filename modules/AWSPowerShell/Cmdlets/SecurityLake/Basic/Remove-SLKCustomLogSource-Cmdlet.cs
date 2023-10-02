@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class RemoveSLKCustomLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceName
         /// <summary>
         /// <para>

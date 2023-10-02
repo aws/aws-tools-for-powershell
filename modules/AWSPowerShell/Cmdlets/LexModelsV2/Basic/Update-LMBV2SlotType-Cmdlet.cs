@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class UpdateLMBV2SlotTypeCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdvancedRecognitionSetting_AudioRecognitionStrategy
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class GetCCASCasesForContactListCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactArn
         /// <summary>
         /// <para>

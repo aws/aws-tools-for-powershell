@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class AddSNSResourceTagCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

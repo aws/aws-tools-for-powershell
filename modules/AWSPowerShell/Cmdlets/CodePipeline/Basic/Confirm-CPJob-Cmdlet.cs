@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class ConfirmCPJobCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class RemoveDDBItemCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConditionalOperator
         /// <summary>
         /// <para>

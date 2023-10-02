@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     public partial class UpdateINS2ConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EcrConfiguration_RescanDuration
         /// <summary>
         /// <para>

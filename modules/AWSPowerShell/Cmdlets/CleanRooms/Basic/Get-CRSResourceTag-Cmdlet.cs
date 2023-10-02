@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     public partial class GetCRSResourceTagCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

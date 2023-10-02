@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class GetEMLInputDeviceTransferListCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TransferType
         /// <summary>
         /// <para>

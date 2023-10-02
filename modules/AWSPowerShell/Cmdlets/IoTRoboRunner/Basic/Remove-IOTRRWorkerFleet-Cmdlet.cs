@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTRR
     public partial class RemoveIOTRRWorkerFleetCmdlet : AmazonIoTRoboRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

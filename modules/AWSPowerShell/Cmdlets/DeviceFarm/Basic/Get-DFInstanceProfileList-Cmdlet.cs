@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class GetDFInstanceProfileListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

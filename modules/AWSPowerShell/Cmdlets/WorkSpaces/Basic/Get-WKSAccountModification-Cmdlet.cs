@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class GetWKSAccountModificationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

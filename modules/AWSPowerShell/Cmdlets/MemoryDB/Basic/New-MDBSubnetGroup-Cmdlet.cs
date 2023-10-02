@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     public partial class NewMDBSubnetGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

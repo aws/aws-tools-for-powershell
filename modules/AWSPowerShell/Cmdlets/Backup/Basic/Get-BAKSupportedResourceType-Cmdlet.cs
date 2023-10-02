@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKSupportedResourceTypeCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceTypes'.

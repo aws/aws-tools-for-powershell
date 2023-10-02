@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class MoveEC2ByoipCidrToIpamCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cidr
         /// <summary>
         /// <para>

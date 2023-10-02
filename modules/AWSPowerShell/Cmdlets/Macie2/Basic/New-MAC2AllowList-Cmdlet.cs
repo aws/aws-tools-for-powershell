@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class NewMAC2AllowListCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3WordsList_BucketName
         /// <summary>
         /// <para>

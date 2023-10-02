@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class UpdateDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SelectiveAuth
         /// <summary>
         /// <para>

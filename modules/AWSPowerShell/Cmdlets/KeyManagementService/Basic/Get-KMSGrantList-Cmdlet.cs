@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class GetKMSGrantListCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GranteePrincipal
         /// <summary>
         /// <para>

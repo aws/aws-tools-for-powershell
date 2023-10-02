@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSRecommenderCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecommenderArn
         /// <summary>
         /// <para>

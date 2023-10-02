@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class GetEVBEventBusListCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NamePrefix
         /// <summary>
         /// <para>

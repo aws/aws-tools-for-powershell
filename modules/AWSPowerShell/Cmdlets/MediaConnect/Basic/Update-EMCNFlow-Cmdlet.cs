@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class UpdateEMCNFlowCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceFailoverConfig_FailoverMode
         /// <summary>
         /// <para>

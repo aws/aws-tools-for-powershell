@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     public partial class GetEMRServerlessJobRunListCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

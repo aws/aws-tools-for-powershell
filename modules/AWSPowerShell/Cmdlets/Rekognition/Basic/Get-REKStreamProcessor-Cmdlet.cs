@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKStreamProcessorCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

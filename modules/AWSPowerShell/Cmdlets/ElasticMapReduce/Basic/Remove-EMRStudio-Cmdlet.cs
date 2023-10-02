@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class RemoveEMRStudioCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StudioId
         /// <summary>
         /// <para>

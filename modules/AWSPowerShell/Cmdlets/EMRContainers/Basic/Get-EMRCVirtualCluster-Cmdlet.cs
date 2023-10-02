@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public partial class GetEMRCVirtualClusterCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class RemoveDFTestGridProjectCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectArn
         /// <summary>
         /// <para>

@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class GetLMBV2AggregatedUtteranceListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SortBy_Attribute
         /// <summary>
         /// <para>

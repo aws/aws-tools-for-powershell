@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class GetASYNDomainNameCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

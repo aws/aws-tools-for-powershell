@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public partial class GetOUTPOutpostCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OutpostId
         /// <summary>
         /// <para>

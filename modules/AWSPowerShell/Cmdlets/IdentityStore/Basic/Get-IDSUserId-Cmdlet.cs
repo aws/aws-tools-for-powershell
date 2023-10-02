@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UniqueAttribute_AttributePath
         /// <summary>
         /// <para>

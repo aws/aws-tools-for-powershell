@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class RemoveTNBSolNetworkPackageCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NsdInfoId
         /// <summary>
         /// <para>

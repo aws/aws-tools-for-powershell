@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class RemoveOMICSAnnotationStoreCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Compel
         /// <summary>
         /// <para>

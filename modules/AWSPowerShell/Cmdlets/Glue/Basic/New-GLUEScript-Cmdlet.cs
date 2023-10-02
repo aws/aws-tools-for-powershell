@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEScriptCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DagEdge
         /// <summary>
         /// <para>

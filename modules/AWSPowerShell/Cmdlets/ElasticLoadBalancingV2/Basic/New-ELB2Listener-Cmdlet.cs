@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class NewELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlpnPolicy
         /// <summary>
         /// <para>

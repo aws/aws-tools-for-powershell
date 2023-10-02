@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class StopTNBSolNetworkOperationCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NsLcmOpOccId
         /// <summary>
         /// <para>

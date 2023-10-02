@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class DisableKMSKeyRotationCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>

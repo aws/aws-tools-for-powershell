@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class RemoveCCASDomainCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>

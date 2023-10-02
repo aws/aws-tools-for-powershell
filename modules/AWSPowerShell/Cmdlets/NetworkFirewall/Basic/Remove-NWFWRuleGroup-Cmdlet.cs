@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class RemoveNWFWRuleGroupCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleGroupArn
         /// <summary>
         /// <para>

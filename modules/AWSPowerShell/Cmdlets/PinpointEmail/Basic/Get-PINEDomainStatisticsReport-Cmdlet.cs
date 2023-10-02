@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEDomainStatisticsReportCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Domain
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class GetWSDMAssistantAssociationCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssistantAssociationId
         /// <summary>
         /// <para>

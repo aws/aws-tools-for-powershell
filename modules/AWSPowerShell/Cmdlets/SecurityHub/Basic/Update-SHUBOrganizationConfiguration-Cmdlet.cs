@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class UpdateSHUBOrganizationConfigurationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoEnable
         /// <summary>
         /// <para>

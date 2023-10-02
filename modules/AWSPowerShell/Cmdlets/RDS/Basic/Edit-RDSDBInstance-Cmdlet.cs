@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class EditRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
@@ -194,7 +196,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// instance class support for RDS Custom for Oracle</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS">
         /// DB instance class support for RDS Custom for SQL Server</a>.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless you specify <code>ApplyImmediately</code>
-        /// in your request. </para><para>Default: Uses existing setting</para>
+        /// in your request. </para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>If you are modifying the DB instance class and upgrading the engine version at the
+        /// same time, the currently running engine version must be supported on the specified
+        /// DB instance class. Otherwise, the operation returns an error. In this case, first
+        /// run the operation to modify the DB instance class, and then run it again to upgrade
+        /// the engine version.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -456,7 +462,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para><para>If the instance that you're modifying is acting as a read replica, the engine version
         /// that you specify must be the same or higher than the version that the source DB instance
         /// or cluster is running.</para><para>In RDS Custom for Oracle, this parameter is supported for read replicas only if they
-        /// are in the <code>PATCH_DB_FAILURE</code> lifecycle.</para>
+        /// are in the <code>PATCH_DB_FAILURE</code> lifecycle.</para><para>Constraints:</para><ul><li><para>If you are upgrading the engine version and modifying the DB instance class at the
+        /// same time, the currently running engine version must be supported on the specified
+        /// DB instance class. Otherwise, the operation returns an error. In this case, first
+        /// run the operation to modify the DB instance class, and then run it again to upgrade
+        /// the engine version.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

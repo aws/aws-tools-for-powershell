@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class NewDCBGPPeerCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NewBGPPeer_AddressFamily
         /// <summary>
         /// <para>

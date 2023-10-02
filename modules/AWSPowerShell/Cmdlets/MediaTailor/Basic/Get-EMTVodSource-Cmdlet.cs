@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     public partial class GetEMTVodSourceCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>

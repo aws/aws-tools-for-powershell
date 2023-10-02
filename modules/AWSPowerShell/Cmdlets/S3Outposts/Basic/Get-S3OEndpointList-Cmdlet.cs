@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     public partial class GetS3OEndpointListCmdlet : AmazonS3OutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class ApproveLICMGrantCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GrantArn
         /// <summary>
         /// <para>

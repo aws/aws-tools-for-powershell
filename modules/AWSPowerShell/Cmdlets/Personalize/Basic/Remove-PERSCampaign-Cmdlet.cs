@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class RemovePERSCampaignCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CampaignArn
         /// <summary>
         /// <para>

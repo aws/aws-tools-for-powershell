@@ -83,6 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class NewKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ShardCount
         /// <summary>
         /// <para>

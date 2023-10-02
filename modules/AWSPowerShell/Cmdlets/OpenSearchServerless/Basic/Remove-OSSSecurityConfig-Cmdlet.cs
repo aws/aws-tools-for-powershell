@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     public partial class RemoveOSSSecurityConfigCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

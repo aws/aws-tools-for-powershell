@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class NewTFRWorkflowCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

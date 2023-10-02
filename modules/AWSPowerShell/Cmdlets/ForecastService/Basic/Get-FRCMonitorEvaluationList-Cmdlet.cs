@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class GetFRCMonitorEvaluationListCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class UpdateGSConfigCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigData_AntennaDownlinkConfig
         /// <summary>
         /// <para>

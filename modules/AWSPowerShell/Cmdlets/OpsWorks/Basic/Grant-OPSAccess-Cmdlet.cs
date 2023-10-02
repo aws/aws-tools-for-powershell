@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class GrantOPSAccessCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

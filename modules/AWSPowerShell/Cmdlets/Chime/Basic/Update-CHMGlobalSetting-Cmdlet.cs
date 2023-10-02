@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class UpdateCHMGlobalSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BusinessCalling_CdrBucket
         /// <summary>
         /// <para>

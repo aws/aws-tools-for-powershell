@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class NewECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsvpcConfiguration_AssignPublicIp
         /// <summary>
         /// <para>

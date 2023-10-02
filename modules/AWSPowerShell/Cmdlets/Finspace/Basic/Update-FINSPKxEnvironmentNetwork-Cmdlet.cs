@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class UpdateFINSPKxEnvironmentNetworkCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TransitGatewayConfiguration_AttachmentNetworkAclConfiguration
         /// <summary>
         /// <para>

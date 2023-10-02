@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCContactPolicyCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactArn
         /// <summary>
         /// <para>

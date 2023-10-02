@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class RemoveSESVerifiedEmailAddressCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EmailAddress
         /// <summary>
         /// <para>

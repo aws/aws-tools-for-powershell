@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     public partial class GetOSSResourceTagCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

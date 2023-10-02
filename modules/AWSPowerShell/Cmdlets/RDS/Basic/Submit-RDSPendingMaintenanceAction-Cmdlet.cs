@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class SubmitRDSPendingMaintenanceActionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplyAction
         /// <summary>
         /// <para>

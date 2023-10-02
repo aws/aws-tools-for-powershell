@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     public partial class UpdateMACS3ResourceCmdlet : AmazonMacieClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>

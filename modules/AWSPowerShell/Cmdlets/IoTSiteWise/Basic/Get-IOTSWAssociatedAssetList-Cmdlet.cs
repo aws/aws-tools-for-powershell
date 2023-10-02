@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class GetIOTSWAssociatedAssetListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssetId
         /// <summary>
         /// <para>

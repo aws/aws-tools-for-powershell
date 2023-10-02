@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class UpdatePROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CodebuildRoleArn
         /// <summary>
         /// <para>

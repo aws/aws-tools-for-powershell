@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class NewSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IpFilter_Cidr
         /// <summary>
         /// <para>

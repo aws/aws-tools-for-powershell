@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     public partial class GetMBCQTokenBalanceListCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OwnerFilter_Address
         /// <summary>
         /// <para>

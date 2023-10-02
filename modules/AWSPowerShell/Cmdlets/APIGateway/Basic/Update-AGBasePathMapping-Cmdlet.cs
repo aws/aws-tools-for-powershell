@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class UpdateAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BasePath
         /// <summary>
         /// <para>

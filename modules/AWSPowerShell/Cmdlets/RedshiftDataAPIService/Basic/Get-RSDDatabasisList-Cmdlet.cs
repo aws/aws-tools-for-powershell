@@ -74,6 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     public partial class GetRSDDatabasisListCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>

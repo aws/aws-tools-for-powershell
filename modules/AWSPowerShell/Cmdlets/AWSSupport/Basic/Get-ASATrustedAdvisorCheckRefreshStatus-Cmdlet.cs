@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public partial class GetASATrustedAdvisorCheckRefreshStatusCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CheckId
         /// <summary>
         /// <para>

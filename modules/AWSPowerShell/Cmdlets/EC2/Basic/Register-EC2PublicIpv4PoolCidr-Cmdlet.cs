@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RegisterEC2PublicIpv4PoolCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>

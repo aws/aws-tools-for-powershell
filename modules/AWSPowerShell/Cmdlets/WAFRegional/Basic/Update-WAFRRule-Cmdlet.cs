@@ -81,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class UpdateWAFRRuleCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeToken
         /// <summary>
         /// <para>

@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceName
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class RemoveGMLMatchmakingConfigurationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

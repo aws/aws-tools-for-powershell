@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class NewDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NewPrivateVirtualInterface_AddressFamily
         /// <summary>
         /// <para>

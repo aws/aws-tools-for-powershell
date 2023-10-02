@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class RemoveLKFDataCellsFilterCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>

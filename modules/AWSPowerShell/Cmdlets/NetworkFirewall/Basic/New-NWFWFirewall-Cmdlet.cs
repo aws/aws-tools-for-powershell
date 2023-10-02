@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class NewNWFWFirewallCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteProtection
         /// <summary>
         /// <para>

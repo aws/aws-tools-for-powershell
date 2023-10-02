@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class RemoveCGIPResourceServerCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class GetSMSServerCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VmServerAddressList
         /// <summary>
         /// <para>

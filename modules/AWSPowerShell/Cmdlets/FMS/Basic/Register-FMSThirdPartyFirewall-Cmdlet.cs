@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class RegisterFMSThirdPartyFirewallCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ThirdPartyFirewall
         /// <summary>
         /// <para>

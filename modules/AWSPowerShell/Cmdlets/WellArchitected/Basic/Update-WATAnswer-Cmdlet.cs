@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class UpdateWATAnswerCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChoiceUpdate
         /// <summary>
         /// <para>

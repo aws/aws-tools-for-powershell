@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMActionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionName
         /// <summary>
         /// <para>

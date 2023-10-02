@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     public partial class UpdateAMPBBackendAPICmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceConfig_AdditionalAuthType
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGDomainNameCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class WriteCPJobFailureResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FailureDetails_ExternalExecutionId
         /// <summary>
         /// <para>

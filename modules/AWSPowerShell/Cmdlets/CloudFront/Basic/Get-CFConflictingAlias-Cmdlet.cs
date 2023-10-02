@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class GetCFConflictingAliasCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Alias
         /// <summary>
         /// <para>

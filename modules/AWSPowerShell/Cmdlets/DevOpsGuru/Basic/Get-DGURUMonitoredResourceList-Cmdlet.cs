@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUMonitoredResourceListCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_ResourcePermission
         /// <summary>
         /// <para>

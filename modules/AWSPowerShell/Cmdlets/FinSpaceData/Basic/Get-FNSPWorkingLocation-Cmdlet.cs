@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class GetFNSPWorkingLocationCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LocationType
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
     public partial class GetMOBLBundleCmdlet : AmazonMobileClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BundleId
         /// <summary>
         /// <para>

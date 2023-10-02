@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class StopKINStreamEncryptionCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EncryptionType
         /// <summary>
         /// <para>

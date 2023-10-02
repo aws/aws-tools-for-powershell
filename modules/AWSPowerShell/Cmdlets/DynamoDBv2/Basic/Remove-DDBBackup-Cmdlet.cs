@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class RemoveDDBBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupArn
         /// <summary>
         /// <para>

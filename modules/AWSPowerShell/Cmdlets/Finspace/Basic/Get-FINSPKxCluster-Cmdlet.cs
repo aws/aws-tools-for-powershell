@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class GetFINSPKxClusterCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

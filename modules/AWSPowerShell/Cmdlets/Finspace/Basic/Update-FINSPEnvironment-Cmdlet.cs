@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class UpdateFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FederationParameters_ApplicationCallBackURL
         /// <summary>
         /// <para>

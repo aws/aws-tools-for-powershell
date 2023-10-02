@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StreamARN
         /// <summary>
         /// <para>

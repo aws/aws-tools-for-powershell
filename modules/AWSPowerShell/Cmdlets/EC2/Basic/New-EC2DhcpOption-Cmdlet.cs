@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DhcpConfiguration
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class GetBUGWResourceTagCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

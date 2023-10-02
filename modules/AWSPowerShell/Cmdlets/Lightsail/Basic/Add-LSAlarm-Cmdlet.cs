@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class AddLSAlarmCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlarmName
         /// <summary>
         /// <para>

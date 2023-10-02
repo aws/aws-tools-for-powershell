@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     public partial class NewDOCEClusterSnapshotCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterArn
         /// <summary>
         /// <para>

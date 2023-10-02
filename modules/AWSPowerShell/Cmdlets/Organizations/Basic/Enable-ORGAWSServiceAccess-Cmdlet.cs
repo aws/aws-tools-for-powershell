@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class EnableORGAWSServiceAccessCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>

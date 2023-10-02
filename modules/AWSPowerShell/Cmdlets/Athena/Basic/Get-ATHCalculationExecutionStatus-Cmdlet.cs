@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class GetATHCalculationExecutionStatusCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CalculationExecutionId
         /// <summary>
         /// <para>

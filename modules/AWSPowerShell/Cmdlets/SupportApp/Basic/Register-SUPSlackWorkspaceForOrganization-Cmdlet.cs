@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     public partial class RegisterSUPSlackWorkspaceForOrganizationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TeamId
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class SendSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DelayInSeconds
         /// <summary>
         /// <para>

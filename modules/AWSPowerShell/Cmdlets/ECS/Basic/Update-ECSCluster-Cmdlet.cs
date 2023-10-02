@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UpdateECSClusterCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogConfiguration_CloudWatchEncryptionEnabled
         /// <summary>
         /// <para>

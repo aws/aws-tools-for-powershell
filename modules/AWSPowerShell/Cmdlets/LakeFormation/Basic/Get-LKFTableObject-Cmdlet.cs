@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class GetLKFTableObjectCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>

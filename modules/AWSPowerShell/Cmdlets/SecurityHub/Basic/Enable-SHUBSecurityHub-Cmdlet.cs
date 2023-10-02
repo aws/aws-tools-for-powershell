@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class EnableSHUBSecurityHubCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ControlFindingGenerator
         /// <summary>
         /// <para>

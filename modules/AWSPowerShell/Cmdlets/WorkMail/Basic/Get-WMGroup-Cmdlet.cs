@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class GetWMGroupCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupId
         /// <summary>
         /// <para>

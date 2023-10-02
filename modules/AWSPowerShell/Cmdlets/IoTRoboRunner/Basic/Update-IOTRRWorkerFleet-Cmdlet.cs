@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTRR
     public partial class UpdateIOTRRWorkerFleetCmdlet : AmazonIoTRoboRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalFixedProperty
         /// <summary>
         /// <para>

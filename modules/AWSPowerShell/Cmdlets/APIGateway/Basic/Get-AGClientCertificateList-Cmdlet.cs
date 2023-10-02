@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGClientCertificateListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Limit
         /// <summary>
         /// <para>

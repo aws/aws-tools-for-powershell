@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public partial class StartCHMTGMeetingTranscriptionCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EngineTranscribeMedicalSettings_ContentIdentificationType
         /// <summary>
         /// <para>

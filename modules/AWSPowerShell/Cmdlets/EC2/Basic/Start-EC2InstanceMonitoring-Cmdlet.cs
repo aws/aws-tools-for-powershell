@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class StartEC2InstanceMonitoringCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

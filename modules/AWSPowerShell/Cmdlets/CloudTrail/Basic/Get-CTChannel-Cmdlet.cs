@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTChannelCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Channel
         /// <summary>
         /// <para>

@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class RemoveORGResourceTagCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

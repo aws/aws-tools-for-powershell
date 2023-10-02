@@ -122,6 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class NewBATComputeEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeResources_AllocationStrategy
         /// <summary>
         /// <para>

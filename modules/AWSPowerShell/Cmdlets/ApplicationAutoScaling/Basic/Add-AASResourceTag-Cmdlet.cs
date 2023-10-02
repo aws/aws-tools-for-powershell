@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public partial class AddAASResourceTagCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class RemoveLMBResourceTagCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

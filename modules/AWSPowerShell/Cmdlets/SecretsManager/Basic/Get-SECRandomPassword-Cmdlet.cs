@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExcludeCharacter
         /// <summary>
         /// <para>

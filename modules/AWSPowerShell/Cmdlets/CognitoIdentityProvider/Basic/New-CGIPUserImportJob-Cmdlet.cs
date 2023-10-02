@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class NewCGIPUserImportJobCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CloudWatchLogsRoleArn
         /// <summary>
         /// <para>

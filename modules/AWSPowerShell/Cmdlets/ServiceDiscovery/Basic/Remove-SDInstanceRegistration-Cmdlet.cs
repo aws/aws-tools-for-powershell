@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class RemoveSDInstanceRegistrationCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

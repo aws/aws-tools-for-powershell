@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class RemoveNPTDBInstanceCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>

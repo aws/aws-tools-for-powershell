@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public partial class GetOUTPSiteAddressCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AddressType
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class RemovePCAADResourceTagCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

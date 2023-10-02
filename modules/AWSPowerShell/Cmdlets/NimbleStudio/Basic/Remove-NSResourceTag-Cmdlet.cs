@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class RemoveNSResourceTagCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

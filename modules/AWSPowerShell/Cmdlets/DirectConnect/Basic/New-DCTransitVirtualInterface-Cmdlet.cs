@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class NewDCTransitVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NewTransitVirtualInterface_AddressFamily
         /// <summary>
         /// <para>

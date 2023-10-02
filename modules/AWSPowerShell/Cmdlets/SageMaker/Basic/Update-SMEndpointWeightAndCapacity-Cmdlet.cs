@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMEndpointWeightAndCapacityCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DesiredWeightsAndCapacity
         /// <summary>
         /// <para>

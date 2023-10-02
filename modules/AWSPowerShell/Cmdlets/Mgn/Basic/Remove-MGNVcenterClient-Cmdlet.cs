@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class RemoveMGNVcenterClientCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VcenterClientID
         /// <summary>
         /// <para>

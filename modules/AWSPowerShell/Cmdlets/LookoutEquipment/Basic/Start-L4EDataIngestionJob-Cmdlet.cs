@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     public partial class StartL4EDataIngestionJobCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3InputConfiguration_Bucket
         /// <summary>
         /// <para>

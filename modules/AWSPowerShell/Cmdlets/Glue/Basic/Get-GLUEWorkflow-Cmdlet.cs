@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEWorkflowCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeGraph
         /// <summary>
         /// <para>

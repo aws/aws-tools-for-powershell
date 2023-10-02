@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     public partial class GetCRSConfiguredTableAssociationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfiguredTableAssociationIdentifier
         /// <summary>
         /// <para>

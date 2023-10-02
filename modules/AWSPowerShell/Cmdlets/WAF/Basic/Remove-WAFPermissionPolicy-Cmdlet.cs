@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class RemoveWAFPermissionPolicyCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

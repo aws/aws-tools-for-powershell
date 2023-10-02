@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class DenyRAMResourceShareInvitationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceShareInvitationArn
         /// <summary>
         /// <para>

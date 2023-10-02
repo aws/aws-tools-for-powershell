@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class WriteWMEmailMonitoringConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogGroupArn
         /// <summary>
         /// <para>

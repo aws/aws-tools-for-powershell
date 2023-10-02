@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class RemoveLICMResourceTagCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

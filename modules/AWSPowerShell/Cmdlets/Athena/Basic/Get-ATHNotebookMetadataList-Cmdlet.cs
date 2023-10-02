@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class GetATHNotebookMetadataListCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_Name
         /// <summary>
         /// <para>

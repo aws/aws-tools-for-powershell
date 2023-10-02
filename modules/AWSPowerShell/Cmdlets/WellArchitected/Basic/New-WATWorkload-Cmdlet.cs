@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class NewWATWorkloadCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

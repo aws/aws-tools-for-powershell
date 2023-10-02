@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class ConfirmSESEmailAddressCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EmailAddress
         /// <summary>
         /// <para>

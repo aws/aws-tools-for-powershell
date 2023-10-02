@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public partial class StartPOLSpeechSynthesisTaskCmdlet : AmazonPollyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Engine
         /// <summary>
         /// <para>

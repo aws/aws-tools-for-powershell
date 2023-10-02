@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueryAlias
         /// <summary>
         /// <para>

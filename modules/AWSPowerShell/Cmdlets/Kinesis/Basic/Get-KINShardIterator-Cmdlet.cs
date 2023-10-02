@@ -81,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class GetKINShardIteratorCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ShardId
         /// <summary>
         /// <para>

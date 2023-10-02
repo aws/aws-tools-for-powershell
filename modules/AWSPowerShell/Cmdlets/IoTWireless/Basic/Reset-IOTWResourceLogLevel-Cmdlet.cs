@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class ResetIOTWResourceLogLevelCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>

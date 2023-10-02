@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class UpdateCFNStackInstanceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeploymentTargets_AccountFilterType
         /// <summary>
         /// <para>

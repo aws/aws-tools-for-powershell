@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class AddCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceName
         /// <summary>
         /// <para>

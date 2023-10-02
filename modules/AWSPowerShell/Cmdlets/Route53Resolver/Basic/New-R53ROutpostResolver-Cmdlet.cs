@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class NewR53ROutpostResolverCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2ElasticGpuCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ElasticGpuId
         /// <summary>
         /// <para>

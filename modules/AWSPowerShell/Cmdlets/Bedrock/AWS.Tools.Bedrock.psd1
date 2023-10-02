@@ -94,12 +94,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BDRModelCustomizationJob', 
         'Get-BDRModelCustomizationJobList', 
         'Get-BDRModelInvocationLoggingConfiguration', 
+        'Get-BDRProvisionedModelThroughput', 
+        'Get-BDRProvisionedModelThroughputList', 
         'Get-BDRResourceTag', 
         'New-BDRModelCustomizationJob', 
+        'New-BDRProvisionedModelThroughput', 
         'Remove-BDRCustomModel', 
         'Remove-BDRModelInvocationLoggingConfiguration', 
+        'Remove-BDRProvisionedModelThroughput', 
         'Remove-BDRResourceTag', 
         'Stop-BDRModelCustomizationJob', 
+        'Update-BDRProvisionedModelThroughput', 
         'Write-BDRModelInvocationLoggingConfiguration')
 
     # Variables to export from this module

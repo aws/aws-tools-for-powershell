@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     public partial class GetS3CBucketLifecycleConfigurationCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

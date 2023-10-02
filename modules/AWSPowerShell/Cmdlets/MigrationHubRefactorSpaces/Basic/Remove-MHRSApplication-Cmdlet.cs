@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class RemoveMHRSApplicationCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationIdentifier
         /// <summary>
         /// <para>

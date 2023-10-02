@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class NewWATProfileShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

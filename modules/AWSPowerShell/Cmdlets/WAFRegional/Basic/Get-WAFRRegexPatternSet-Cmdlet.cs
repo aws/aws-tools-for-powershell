@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class GetWAFRRegexPatternSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RegexPatternSetId
         /// <summary>
         /// <para>

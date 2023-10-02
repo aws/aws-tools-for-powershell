@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class NewSGStorediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DiskId
         /// <summary>
         /// <para>

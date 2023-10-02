@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class GetWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WebACLId
         /// <summary>
         /// <para>

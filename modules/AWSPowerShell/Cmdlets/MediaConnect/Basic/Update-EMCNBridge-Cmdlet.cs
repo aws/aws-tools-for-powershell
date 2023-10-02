@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class UpdateEMCNBridgeCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BridgeArn
         /// <summary>
         /// <para>

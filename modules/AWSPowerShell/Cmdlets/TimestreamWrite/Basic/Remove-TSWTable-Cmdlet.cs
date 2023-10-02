@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class RemoveTSWTableCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class RemoveRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SnapshotCopyGrantName
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class UpdateWATShareInvitationCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ShareInvitationAction
         /// <summary>
         /// <para>

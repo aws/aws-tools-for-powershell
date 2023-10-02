@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class RemoveNMGRResourcePolicyCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

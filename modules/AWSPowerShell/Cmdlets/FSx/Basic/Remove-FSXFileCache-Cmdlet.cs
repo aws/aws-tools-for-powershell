@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class RemoveFSXFileCacheCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

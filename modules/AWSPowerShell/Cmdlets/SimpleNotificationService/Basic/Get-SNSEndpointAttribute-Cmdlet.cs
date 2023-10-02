@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class GetSNSEndpointAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndpointArn
         /// <summary>
         /// <para>

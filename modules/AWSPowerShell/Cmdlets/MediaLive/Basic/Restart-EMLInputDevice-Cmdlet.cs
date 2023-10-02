@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class RestartEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IgnoreStreaming
         /// <summary>
         /// <para>

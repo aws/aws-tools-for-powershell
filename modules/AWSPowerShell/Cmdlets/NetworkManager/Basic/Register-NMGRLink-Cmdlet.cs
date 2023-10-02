@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class RegisterNMGRLinkCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

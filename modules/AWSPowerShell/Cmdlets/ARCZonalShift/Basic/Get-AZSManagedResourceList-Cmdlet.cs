@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     public partial class GetAZSManagedResourceListCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

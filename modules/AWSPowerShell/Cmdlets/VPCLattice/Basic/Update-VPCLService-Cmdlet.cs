@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class UpdateVPCLServiceCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthType
         /// <summary>
         /// <para>

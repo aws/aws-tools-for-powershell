@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class GetR53ChangeCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

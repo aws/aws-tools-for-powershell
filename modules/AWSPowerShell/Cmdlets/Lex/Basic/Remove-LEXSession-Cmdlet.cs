@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     public partial class RemoveLEXSessionCmdlet : AmazonLexClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BotAlias
         /// <summary>
         /// <para>

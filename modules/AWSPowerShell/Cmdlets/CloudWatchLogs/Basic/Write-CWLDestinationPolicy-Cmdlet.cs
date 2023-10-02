@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class WriteCWLDestinationPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessPolicy
         /// <summary>
         /// <para>

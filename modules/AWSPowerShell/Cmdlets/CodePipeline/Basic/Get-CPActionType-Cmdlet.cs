@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionOwnerFilter
         /// <summary>
         /// <para>

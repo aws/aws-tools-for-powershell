@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class GetLMBV2TestExecutionResultItemListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConversationLevelTestResultsFilterBy_EndToEndResult
         /// <summary>
         /// <para>

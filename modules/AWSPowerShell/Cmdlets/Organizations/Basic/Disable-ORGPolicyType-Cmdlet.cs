@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class DisableORGPolicyTypeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyType
         /// <summary>
         /// <para>

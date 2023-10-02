@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTScheduledAuditListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

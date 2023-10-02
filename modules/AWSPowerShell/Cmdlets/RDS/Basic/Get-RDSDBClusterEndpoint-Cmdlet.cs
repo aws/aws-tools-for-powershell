@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSDBClusterEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBClusterEndpointIdentifier
         /// <summary>
         /// <para>

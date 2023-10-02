@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class GetRAMResourceShareAssociationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationStatus
         /// <summary>
         /// <para>

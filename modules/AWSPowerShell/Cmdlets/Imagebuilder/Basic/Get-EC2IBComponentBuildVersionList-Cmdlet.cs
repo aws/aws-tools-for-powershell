@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class GetEC2IBComponentBuildVersionListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComponentVersionArn
         /// <summary>
         /// <para>

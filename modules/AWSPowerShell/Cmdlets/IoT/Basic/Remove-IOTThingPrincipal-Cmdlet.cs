@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class RemoveIOTThingPrincipalCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Principal
         /// <summary>
         /// <para>

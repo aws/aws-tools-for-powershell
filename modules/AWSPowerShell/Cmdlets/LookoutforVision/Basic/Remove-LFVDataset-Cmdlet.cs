@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public partial class RemoveLFVDatasetCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetType
         /// <summary>
         /// <para>

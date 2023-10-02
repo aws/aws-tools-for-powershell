@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class UpdateEMLAccountConfigurationCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountConfiguration_KmsKeyId
         /// <summary>
         /// <para>

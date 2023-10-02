@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class GetSESIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityType
         /// <summary>
         /// <para>

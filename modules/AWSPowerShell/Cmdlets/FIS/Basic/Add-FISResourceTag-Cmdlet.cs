@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     public partial class AddFISResourceTagCmdlet : AmazonFISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

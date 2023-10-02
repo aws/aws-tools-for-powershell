@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     public partial class GetINS2CoverageStatisticListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FilterCriteria_AccountId
         /// <summary>
         /// <para>

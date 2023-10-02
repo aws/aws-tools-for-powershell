@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class DisableSMSagemakerServicecatalogPortfolioCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.

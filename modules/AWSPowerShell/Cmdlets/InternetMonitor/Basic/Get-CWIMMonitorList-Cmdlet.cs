@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     public partial class GetCWIMMonitorListCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MonitorStatus
         /// <summary>
         /// <para>

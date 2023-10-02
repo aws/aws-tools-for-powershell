@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class ConfirmPINPhoneNumberCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>

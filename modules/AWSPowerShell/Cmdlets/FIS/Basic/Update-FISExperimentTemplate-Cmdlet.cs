@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     public partial class UpdateFISExperimentTemplateCmdlet : AmazonFISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

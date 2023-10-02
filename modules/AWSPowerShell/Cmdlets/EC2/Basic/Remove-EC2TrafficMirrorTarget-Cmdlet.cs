@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2TrafficMirrorTargetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TrafficMirrorTargetId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class UpdateMAC2ClassificationScopeCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Excludes_BucketName
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class RemoveASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>

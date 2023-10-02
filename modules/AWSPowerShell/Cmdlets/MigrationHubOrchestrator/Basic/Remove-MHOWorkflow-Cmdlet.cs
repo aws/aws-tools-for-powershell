@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     public partial class RemoveMHOWorkflowCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

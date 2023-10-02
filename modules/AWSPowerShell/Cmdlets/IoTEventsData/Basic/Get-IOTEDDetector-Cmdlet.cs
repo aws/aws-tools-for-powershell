@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     public partial class GetIOTEDDetectorCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DetectorModelName
         /// <summary>
         /// <para>

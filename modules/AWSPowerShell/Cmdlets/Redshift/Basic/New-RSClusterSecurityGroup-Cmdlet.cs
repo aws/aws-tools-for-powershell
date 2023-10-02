@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class NewRSClusterSecurityGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     public partial class StopAPPCDeploymentCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNEvaluationFormCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EvaluationFormId
         /// <summary>
         /// <para>

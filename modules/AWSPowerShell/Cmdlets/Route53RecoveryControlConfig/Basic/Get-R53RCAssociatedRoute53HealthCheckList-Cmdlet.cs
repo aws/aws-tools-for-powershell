@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     public partial class GetR53RCAssociatedRoute53HealthCheckListCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RoutingControlArn
         /// <summary>
         /// <para>

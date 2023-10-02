@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     public partial class NewDTEXEventActionCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RevisionDestination_Bucket
         /// <summary>
         /// <para>

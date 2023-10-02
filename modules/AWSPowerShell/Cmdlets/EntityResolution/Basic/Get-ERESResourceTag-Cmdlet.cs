@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     public partial class GetERESResourceTagCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

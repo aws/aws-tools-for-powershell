@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     public partial class UpdateASPScalingPlanCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationSource_CloudFormationStackARN
         /// <summary>
         /// <para>

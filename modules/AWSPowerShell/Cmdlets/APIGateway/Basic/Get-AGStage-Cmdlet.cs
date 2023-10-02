@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RestApiId
         /// <summary>
         /// <para>

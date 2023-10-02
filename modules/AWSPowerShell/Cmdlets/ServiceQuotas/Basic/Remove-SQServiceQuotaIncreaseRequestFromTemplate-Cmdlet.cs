@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public partial class RemoveSQServiceQuotaIncreaseRequestFromTemplateCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsRegion
         /// <summary>
         /// <para>

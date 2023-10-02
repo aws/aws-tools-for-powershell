@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class GetRESHUnsupportedAppVersionResourceListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppArn
         /// <summary>
         /// <para>

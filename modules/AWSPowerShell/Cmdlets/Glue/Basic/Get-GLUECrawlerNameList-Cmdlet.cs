@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUECrawlerNameListCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Tag
         /// <summary>
         /// <para>

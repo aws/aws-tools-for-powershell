@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMAppImageConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppImageConfigName
         /// <summary>
         /// <para>

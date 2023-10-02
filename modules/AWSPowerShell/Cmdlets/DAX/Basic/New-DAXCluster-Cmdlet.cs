@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class NewDAXClusterCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>

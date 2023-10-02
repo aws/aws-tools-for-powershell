@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class GetDFJobListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

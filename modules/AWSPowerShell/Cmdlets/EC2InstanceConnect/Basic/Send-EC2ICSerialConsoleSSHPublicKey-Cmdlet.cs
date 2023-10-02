@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
     public partial class SendEC2ICSerialConsoleSSHPublicKeyCmdlet : AmazonEC2InstanceConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     public partial class GetAPPCResourceTagCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

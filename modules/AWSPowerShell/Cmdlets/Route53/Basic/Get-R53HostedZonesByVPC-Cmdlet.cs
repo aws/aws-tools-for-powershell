@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class GetR53HostedZonesByVPCCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VPCId
         /// <summary>
         /// <para>

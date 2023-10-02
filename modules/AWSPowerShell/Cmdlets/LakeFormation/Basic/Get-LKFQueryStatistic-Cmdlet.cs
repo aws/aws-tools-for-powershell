@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class GetLKFQueryStatisticCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueryId
         /// <summary>
         /// <para>

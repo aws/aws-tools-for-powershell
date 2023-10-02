@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class GetTSWBatchLoadTaskCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TaskId
         /// <summary>
         /// <para>

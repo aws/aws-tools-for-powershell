@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class GetLMBBuiltinIntentListCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Locale
         /// <summary>
         /// <para>

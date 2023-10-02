@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRLifecyclePolicyPreviewCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>

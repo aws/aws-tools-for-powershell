@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class GetWAFSizeConstraintSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SizeConstraintSetId
         /// <summary>
         /// <para>

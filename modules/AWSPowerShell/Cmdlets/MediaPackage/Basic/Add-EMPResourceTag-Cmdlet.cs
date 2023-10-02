@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class AddEMPResourceTagCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

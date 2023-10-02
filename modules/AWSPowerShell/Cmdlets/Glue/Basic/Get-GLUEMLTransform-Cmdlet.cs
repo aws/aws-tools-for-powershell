@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEMLTransformCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TransformId
         /// <summary>
         /// <para>

@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class AddIAMMFADeviceTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SerialNumber
         /// <summary>
         /// <para>

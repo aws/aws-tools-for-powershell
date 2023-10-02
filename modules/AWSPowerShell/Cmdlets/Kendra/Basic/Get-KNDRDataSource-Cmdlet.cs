@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRDataSourceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

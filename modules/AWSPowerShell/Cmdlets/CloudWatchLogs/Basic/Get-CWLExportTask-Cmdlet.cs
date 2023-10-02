@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class GetCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StatusCode
         /// <summary>
         /// <para>

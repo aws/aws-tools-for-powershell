@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class RemoveADSTagCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>

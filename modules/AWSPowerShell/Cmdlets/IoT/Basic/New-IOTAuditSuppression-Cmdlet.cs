@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTAuditSuppressionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceIdentifier_Account
         /// <summary>
         /// <para>

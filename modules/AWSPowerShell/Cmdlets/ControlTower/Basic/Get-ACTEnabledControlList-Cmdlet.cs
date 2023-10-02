@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     public partial class GetACTEnabledControlListCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TargetIdentifier
         /// <summary>
         /// <para>

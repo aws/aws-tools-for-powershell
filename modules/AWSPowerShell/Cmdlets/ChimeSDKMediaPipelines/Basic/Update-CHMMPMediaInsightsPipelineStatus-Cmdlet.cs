@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     public partial class UpdateCHMMPMediaInsightsPipelineStatusCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>

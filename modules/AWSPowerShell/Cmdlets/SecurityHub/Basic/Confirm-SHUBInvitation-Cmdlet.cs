@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class ConfirmSHUBInvitationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InvitationId
         /// <summary>
         /// <para>

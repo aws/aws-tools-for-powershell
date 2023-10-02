@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     public partial class GetCGSFindingsMetricListCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndDate
         /// <summary>
         /// <para>

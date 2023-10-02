@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class RegisterIOTCertificateWithoutCACmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificatePem
         /// <summary>
         /// <para>

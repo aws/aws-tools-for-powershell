@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class RemoveCBResourcePolicyCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

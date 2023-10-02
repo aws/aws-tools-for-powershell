@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class CompleteDMSPendingMaintenanceActionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplyAction
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     public partial class RemoveA2IRHumanLoopCmdlet : AmazonAugmentedAIRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HumanLoopName
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class NewPCAADServicePrincipalNameCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectorArn
         /// <summary>
         /// <para>

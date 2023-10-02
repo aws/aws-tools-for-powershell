@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class GetMGNImportListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_ImportIDs
         /// <summary>
         /// <para>

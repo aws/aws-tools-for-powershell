@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class StartCONNContactStreamingCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>

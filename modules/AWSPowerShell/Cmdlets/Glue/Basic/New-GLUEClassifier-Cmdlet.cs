@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEClassifierCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CsvClassifier_AllowSingleColumn
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class GetSQSQueueUrlCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueueName
         /// <summary>
         /// <para>

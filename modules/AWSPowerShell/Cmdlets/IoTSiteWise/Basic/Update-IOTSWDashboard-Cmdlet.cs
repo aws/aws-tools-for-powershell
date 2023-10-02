@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class UpdateIOTSWDashboardCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DashboardDefinition
         /// <summary>
         /// <para>

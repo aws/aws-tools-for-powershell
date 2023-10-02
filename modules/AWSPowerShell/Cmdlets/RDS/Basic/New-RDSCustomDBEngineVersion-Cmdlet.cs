@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class NewRDSCustomDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatabaseInstallationFilesS3BucketName
         /// <summary>
         /// <para>

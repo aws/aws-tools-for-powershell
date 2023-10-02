@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class NewAGDocumentationVersionCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

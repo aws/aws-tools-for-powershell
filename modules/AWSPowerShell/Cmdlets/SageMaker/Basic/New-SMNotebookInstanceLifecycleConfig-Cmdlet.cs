@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMNotebookInstanceLifecycleConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotebookInstanceLifecycleConfigName
         /// <summary>
         /// <para>

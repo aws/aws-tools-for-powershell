@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class StartCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeliveryS3Uri
         /// <summary>
         /// <para>

@@ -186,6 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class NewKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BypassPolicyLockoutSafetyCheck
         /// <summary>
         /// <para>

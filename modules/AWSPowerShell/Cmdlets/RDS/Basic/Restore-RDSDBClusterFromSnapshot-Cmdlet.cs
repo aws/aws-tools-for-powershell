@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScalingConfiguration_AutoPause
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class UpdatePINTemplateActiveVersionCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>

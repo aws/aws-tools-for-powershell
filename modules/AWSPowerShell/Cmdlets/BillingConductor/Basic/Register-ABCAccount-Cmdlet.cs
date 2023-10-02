@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class RegisterABCAccountCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

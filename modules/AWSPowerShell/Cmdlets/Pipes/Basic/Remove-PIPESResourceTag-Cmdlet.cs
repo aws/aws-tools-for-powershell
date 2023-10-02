@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     public partial class RemovePIPESResourceTagCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSRelationalDatabaseSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RelationalDatabaseSnapshotName
         /// <summary>
         /// <para>

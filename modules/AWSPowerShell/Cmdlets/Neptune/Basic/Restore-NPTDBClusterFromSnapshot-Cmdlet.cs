@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class RestoreNPTDBClusterFromSnapshotCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>

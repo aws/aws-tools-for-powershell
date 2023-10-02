@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSInstanceSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceSnapshotName
         /// <summary>
         /// <para>

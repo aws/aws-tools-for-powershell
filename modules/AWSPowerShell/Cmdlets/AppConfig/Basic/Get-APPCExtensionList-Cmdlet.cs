@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     public partial class GetAPPCExtensionListCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

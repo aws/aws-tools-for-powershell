@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class AddEKSEncryptionConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

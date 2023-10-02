@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class RemoveCPFResourceTagCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class NewREKFaceLivenessSessionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Settings_AuditImagesLimit
         /// <summary>
         /// <para>

@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>

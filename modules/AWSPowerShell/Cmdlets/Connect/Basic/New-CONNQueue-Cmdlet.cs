@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class NewCONNQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class GetOMICSReferenceCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter File
         /// <summary>
         /// <para>

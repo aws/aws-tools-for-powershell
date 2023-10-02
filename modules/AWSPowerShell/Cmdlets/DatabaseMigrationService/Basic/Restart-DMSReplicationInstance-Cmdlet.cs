@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class RestartDMSReplicationInstanceCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForceFailover
         /// <summary>
         /// <para>

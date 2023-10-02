@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public partial class GetSCHMDiscovererListCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DiscovererIdPrefix
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class NewPANPackageImportJobCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Location_BucketName
         /// <summary>
         /// <para>

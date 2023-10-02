@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class DenyMBCInvitationCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InvitationId
         /// <summary>
         /// <para>

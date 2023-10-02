@@ -100,6 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class NewEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AvailabilityZoneName
         /// <summary>
         /// <para>

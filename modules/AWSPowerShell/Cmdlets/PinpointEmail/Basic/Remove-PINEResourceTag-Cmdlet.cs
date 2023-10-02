@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class RemovePINEResourceTagCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

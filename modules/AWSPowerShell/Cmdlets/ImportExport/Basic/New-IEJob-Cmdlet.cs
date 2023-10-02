@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IE
     public partial class NewIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter APIVersion
         /// <summary>
         /// <para>

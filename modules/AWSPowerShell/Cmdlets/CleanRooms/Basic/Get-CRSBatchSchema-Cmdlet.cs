@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     public partial class GetCRSBatchSchemaCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CollaborationIdentifier
         /// <summary>
         /// <para>

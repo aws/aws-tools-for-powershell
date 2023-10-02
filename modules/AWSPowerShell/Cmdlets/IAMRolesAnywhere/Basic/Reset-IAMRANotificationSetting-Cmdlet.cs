@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class ResetIAMRANotificationSettingCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotificationSettingKey
         /// <summary>
         /// <para>

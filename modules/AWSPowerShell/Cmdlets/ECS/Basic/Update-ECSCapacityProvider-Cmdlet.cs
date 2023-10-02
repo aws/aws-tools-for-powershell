@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UpdateECSCapacityProviderCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ManagedScaling_InstanceWarmupPeriod
         /// <summary>
         /// <para>

@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class NewAARObservabilityConfigurationCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ObservabilityConfigurationName
         /// <summary>
         /// <para>

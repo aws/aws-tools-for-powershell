@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class GetNWFWFirewallListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>

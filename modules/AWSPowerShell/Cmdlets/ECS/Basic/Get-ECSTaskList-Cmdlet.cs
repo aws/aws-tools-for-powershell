@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class GetECSTaskListCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>

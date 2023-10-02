@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class GetLMBV2BuiltInIntentListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SortBy_Attribute
         /// <summary>
         /// <para>

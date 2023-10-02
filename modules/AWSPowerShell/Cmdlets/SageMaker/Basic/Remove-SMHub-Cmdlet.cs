@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class RemoveSMHubCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HubName
         /// <summary>
         /// <para>

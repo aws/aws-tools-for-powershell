@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMSpaceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JupyterServerAppSettings_CodeRepository
         /// <summary>
         /// <para>

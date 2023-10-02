@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class GetGSAgentConfigurationCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentId
         /// <summary>
         /// <para>

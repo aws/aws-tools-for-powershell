@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2LocalGatewayRouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LocalGatewayRouteTableId
         /// <summary>
         /// <para>

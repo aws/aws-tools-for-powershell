@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class AddMGNApplicationsToWaveCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountID
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATResourceTagCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WorkloadArn
         /// <summary>
         /// <para>

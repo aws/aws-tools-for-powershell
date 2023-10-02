@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     public partial class UpdateAG2RouteResponseCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiId
         /// <summary>
         /// <para>

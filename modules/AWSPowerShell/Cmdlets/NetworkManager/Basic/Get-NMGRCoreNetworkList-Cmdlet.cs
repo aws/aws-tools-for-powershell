@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class GetNMGRCoreNetworkListCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

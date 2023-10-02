@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GMESP
     public partial class GetGMESPExtensionVersionCmdlet : AmazonGameSparksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExtensionVersion
         /// <summary>
         /// <para>

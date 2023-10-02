@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RegisterEC2Ipv6AddressListCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ipv6AddressCount
         /// <summary>
         /// <para>

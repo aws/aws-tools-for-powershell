@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class GetBUGWVirtualMachineCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     public partial class GetHLTHEntityAggregatesForOrganizationCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>

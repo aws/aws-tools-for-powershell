@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class GetCBReportsForReportGroupListCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReportGroupArn
         /// <summary>
         /// <para>

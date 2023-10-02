@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class SetSESIdentityDkimEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DkimEnabled
         /// <summary>
         /// <para>

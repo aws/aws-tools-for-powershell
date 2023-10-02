@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     public partial class GetCWSYNGroupCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupIdentifier
         /// <summary>
         /// <para>

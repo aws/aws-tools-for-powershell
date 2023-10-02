@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class RemoveFINSPResourceTagCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class RemoveEC2IBComponentCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComponentBuildVersionArn
         /// <summary>
         /// <para>

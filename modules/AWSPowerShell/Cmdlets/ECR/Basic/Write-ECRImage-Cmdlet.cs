@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class WriteECRImageCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageDigest
         /// <summary>
         /// <para>

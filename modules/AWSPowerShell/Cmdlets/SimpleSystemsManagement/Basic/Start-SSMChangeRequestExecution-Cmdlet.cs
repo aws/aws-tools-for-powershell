@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class StartSSMChangeRequestExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoApprove
         /// <summary>
         /// <para>

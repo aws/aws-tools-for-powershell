@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class NewCEAnomalySubscriptionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnomalySubscription_AccountId
         /// <summary>
         /// <para>

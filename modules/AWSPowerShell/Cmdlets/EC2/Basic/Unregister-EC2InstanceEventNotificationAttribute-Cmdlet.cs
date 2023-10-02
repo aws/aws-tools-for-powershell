@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class UnregisterEC2InstanceEventNotificationAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceTagAttribute_IncludeAllTagsOfInstance
         /// <summary>
         /// <para>

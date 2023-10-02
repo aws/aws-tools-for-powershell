@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class RemoveGLUESchemaVersionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SchemaId_RegistryName
         /// <summary>
         /// <para>

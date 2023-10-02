@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class ApproveEC2AddressTransferCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Address
         /// <summary>
         /// <para>

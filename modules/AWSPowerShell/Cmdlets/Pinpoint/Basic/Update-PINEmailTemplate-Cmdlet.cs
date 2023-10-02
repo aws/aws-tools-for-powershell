@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class UpdatePINEmailTemplateCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreateNewVersion
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
     public partial class RemoveVIDResourceTagCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

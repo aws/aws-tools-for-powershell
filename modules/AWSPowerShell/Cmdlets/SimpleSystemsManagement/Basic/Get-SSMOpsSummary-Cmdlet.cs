@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMOpsSummaryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Aggregator
         /// <summary>
         /// <para>

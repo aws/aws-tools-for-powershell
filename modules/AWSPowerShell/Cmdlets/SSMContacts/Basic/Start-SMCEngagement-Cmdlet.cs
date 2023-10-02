@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class StartSMCEngagementCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>

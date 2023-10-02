@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class GetSDServiceListCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class RemoveCBSourceCredentialCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     public partial class GetCGSGetFindingCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FindingIdentifier
         /// <summary>
         /// <para>

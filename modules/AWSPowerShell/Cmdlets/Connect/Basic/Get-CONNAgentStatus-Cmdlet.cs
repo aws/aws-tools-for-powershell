@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNAgentStatusCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentStatusId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATWorkloadListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WorkloadNamePrefix
         /// <summary>
         /// <para>

@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMCompilationJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TargetPlatform_Accelerator
         /// <summary>
         /// <para>

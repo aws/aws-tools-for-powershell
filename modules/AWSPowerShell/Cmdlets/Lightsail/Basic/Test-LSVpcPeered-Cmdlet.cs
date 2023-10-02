@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class TestLSVpcPeeredCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'IsPeered'.

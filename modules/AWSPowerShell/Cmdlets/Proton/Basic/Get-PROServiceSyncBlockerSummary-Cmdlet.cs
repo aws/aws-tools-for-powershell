@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROServiceSyncBlockerSummaryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceInstanceName
         /// <summary>
         /// <para>

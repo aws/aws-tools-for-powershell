@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class GetDCRouterConfigurationCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RouterTypeIdentifier
         /// <summary>
         /// <para>

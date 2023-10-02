@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPEventsDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

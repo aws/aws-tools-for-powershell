@@ -80,6 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class RestoreDDBTableToPointInTimeCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BillingModeOverride
         /// <summary>
         /// <para>

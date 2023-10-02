@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class NewEMRStudioCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthMode
         /// <summary>
         /// <para>

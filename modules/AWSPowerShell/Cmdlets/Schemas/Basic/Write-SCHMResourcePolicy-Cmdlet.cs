@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public partial class WriteSCHMResourcePolicyCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     public partial class NewEMTProgramCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdBreak
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class UpdateSES2ContactCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributesData
         /// <summary>
         /// <para>

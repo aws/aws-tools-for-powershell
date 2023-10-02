@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class UpdateIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowUsersToChangePassword
         /// <summary>
         /// <para>

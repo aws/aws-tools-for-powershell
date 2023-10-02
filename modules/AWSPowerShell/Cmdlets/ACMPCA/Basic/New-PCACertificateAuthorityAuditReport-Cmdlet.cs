@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     public partial class NewPCACertificateAuthorityAuditReportCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuditReportResponseFormat
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class GetWAFRByteMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ByteMatchSetId
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LimitPrice_Amount
         /// <summary>
         /// <para>

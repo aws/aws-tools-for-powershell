@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public partial class GetSQServiceQuotaListCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QuotaAppliedAtLevel
         /// <summary>
         /// <para>

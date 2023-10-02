@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class RemovePINRecommenderConfigurationCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecommenderId
         /// <summary>
         /// <para>

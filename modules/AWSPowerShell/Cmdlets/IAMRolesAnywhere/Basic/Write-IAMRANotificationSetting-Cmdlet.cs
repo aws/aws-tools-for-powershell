@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class WriteIAMRANotificationSettingCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotificationSetting
         /// <summary>
         /// <para>

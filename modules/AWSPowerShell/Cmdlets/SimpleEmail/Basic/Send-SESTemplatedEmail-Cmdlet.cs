@@ -78,6 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class SendSESTemplatedEmailCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination_BccAddress
         /// <summary>
         /// <para>

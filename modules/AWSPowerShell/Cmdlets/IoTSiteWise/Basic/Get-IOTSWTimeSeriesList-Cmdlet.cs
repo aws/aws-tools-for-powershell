@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class GetIOTSWTimeSeriesListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasPrefix
         /// <summary>
         /// <para>

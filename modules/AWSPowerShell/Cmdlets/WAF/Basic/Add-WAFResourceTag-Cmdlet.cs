@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class AddWAFResourceTagCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

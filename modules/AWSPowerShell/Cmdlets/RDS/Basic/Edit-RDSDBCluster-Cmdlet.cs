@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class EditRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Specifies whether major version upgrades are allowed.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Constraints:</para><ul><li><para>You must allow major version upgrades when specifying a value for the <code>EngineVersion</code>
+        /// <para>Specifies whether major version upgrades are allowed.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>You must allow major version upgrades when specifying a value for the <code>EngineVersion</code>
         /// parameter that is a different major version than the DB cluster's current version.</para></li></ul>
         /// </para>
         /// </summary>

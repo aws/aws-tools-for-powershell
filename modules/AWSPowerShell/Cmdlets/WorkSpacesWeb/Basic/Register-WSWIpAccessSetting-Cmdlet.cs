@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class RegisterWSWIpAccessSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IpAccessSettingsArn
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECEngineDefaultParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>

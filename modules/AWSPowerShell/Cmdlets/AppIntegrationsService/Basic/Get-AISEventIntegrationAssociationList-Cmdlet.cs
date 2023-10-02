@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     public partial class GetAISEventIntegrationAssociationListCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EventIntegrationName
         /// <summary>
         /// <para>

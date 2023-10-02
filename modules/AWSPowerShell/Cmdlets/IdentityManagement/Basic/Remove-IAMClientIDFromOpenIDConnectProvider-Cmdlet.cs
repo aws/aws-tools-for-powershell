@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RemoveIAMClientIDFromOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientID
         /// <summary>
         /// <para>

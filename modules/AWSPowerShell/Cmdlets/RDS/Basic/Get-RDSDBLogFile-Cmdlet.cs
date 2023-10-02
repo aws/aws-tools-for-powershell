@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSDBLogFileCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>

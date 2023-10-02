@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class GetNWFWRuleGroupMetadataCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleGroupArn
         /// <summary>
         /// <para>

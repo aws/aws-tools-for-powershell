@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class NewGSMissionProfileCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactPostPassDurationSecond
         /// <summary>
         /// <para>

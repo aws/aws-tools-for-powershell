@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class GetOSReservedInstanceListCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReservedInstanceId
         /// <summary>
         /// <para>

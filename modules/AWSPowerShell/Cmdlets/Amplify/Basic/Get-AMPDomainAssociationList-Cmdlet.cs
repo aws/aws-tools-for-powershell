@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     public partial class GetAMPDomainAssociationListCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

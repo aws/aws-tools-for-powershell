@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCFileMergeConflictCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConflictDetailLevel
         /// <summary>
         /// <para>

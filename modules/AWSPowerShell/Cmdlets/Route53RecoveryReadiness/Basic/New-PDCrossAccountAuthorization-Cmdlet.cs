@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PD
     public partial class NewPDCrossAccountAuthorizationCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CrossAccountAuthorization
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class NewCBReportGroupCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Destination_Bucket
         /// <summary>
         /// <para>

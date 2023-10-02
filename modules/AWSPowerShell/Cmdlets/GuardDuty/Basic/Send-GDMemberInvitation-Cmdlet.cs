@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class SendGDMemberInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

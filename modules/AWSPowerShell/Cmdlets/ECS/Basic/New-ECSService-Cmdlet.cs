@@ -131,6 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class NewECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Alarms_AlarmName
         /// <summary>
         /// <para>

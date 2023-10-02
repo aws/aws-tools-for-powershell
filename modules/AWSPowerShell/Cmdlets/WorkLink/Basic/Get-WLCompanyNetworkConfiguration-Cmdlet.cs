@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class GetWLCompanyNetworkConfigurationCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FleetArn
         /// <summary>
         /// <para>

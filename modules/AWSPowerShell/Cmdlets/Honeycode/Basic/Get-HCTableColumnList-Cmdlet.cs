@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class GetHCTableColumnListCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TableId
         /// <summary>
         /// <para>

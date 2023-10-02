@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RestoreEC2AddressToClassicCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PublicIp
         /// <summary>
         /// <para>

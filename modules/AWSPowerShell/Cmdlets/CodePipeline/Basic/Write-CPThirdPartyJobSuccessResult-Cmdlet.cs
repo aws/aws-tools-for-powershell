@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class WriteCPThirdPartyJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CurrentRevision_ChangeIdentifier
         /// <summary>
         /// <para>

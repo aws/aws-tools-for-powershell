@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class StopIOTAuditTaskCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TaskId
         /// <summary>
         /// <para>

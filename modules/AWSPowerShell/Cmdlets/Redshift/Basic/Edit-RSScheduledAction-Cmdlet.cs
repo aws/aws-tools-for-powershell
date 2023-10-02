@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class EditRSScheduledActionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResizeCluster_Classic
         /// <summary>
         /// <para>

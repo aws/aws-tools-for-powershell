@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class GetMTRAssignmentCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssignmentId
         /// <summary>
         /// <para>

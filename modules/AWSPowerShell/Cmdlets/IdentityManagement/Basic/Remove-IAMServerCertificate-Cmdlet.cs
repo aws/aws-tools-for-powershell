@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RemoveIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServerCertificateName
         /// <summary>
         /// <para>

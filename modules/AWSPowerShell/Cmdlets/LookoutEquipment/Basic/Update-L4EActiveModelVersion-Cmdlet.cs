@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     public partial class UpdateL4EActiveModelVersionCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ModelName
         /// <summary>
         /// <para>

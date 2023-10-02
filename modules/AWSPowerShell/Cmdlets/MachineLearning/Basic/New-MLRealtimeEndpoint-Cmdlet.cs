@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class NewMLRealtimeEndpointCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MLModelId
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateIdentifier
         /// <summary>
         /// <para>

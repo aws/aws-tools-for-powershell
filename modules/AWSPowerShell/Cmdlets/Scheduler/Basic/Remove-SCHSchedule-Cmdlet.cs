@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     public partial class RemoveSCHScheduleCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>

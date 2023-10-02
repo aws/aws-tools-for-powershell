@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBBackupListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupType
         /// <summary>
         /// <para>

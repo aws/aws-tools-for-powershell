@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class RemoveRSHsmClientCertificateCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>

@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CarrierGatewayId
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class NewFNSPChangesetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeType
         /// <summary>
         /// <para>

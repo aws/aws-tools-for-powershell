@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class AddTRSResourceTagCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class UpdateWMPrimaryEmailAddressCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Email
         /// <summary>
         /// <para>

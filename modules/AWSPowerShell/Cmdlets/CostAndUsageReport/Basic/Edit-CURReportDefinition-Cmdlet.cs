@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     public partial class EditCURReportDefinitionCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReportDefinition_AdditionalArtifact
         /// <summary>
         /// <para>

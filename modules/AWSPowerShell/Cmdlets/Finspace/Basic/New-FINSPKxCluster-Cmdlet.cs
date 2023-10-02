@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class NewFINSPKxClusterCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoScalingConfiguration_AutoScalingMetric
         /// <summary>
         /// <para>

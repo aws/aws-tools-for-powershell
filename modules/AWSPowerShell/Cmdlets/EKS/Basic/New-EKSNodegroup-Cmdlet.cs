@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class NewEKSNodegroupCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AmiType
         /// <summary>
         /// <para>

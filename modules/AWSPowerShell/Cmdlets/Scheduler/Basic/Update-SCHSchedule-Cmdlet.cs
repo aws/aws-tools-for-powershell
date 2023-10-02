@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     public partial class UpdateSCHScheduleCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionAfterCompletion
         /// <summary>
         /// <para>

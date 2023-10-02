@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class GetEVBReplayCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplayName
         /// <summary>
         /// <para>

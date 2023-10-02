@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public partial class RegisterIFWAccountCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IamResources_RoleArn
         /// <summary>
         /// <para>

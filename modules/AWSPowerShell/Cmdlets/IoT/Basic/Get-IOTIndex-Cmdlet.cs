@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTIndexCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IndexName
         /// <summary>
         /// <para>

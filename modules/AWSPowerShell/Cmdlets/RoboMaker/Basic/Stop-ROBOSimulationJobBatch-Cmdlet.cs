@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class StopROBOSimulationJobBatchCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Batch
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     public partial class StartPIPESPipeCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

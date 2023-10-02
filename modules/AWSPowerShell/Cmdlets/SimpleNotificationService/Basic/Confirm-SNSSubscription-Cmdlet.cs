@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthenticateOnUnsubscribe
         /// <summary>
         /// <para>

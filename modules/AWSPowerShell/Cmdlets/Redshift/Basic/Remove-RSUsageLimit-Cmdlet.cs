@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class RemoveRSUsageLimitCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UsageLimitId
         /// <summary>
         /// <para>

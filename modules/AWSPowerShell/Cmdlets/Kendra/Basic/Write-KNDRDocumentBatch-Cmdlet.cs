@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class WriteKNDRDocumentBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey
         /// <summary>
         /// <para>

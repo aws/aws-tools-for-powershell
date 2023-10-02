@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSRelationalDatabaseBundleCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeInactive
         /// <summary>
         /// <para>

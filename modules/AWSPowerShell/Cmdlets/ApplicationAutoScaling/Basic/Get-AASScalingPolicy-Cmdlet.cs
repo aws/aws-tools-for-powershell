@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public partial class GetAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyName
         /// <summary>
         /// <para>

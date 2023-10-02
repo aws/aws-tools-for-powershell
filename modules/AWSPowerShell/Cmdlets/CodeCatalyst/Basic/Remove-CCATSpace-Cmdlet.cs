@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class RemoveCCATSpaceCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

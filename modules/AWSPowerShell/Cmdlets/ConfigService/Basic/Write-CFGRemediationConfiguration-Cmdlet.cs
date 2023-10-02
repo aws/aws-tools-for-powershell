@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGRemediationConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RemediationConfiguration
         /// <summary>
         /// <para>

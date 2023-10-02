@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class WriteFMSResourceSetCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceSet_Description
         /// <summary>
         /// <para>

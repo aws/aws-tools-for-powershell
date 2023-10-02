@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class CopyWKSWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

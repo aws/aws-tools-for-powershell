@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     public partial class NewLOMAlertCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlertDescription
         /// <summary>
         /// <para>

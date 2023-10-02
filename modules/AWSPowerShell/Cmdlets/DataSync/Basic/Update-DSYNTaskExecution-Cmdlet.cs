@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class UpdateDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Option
         /// <summary>
         /// <para>

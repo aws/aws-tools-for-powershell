@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     public partial class GetLOMSampleDataCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CsvFormatDescriptor_Charset
         /// <summary>
         /// <para>

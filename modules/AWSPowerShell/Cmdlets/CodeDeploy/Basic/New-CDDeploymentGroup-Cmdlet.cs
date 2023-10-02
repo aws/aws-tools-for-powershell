@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class NewCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GreenFleetProvisioningOptionAction
         /// <summary>
         /// <para>

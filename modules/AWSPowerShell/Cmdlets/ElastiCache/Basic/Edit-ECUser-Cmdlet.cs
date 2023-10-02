@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class EditECUserCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessString
         /// <summary>
         /// <para>

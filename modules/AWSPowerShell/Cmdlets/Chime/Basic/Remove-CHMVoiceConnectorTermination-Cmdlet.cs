@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RemoveCHMVoiceConnectorTerminationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>

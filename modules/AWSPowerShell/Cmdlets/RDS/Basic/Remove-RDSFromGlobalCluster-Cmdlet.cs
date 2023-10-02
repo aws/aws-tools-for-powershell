@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RemoveRDSFromGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DbClusterIdentifier
         /// <summary>
         /// <para>

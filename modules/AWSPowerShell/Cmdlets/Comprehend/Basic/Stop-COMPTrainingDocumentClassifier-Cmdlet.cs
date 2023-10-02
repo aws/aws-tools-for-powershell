@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class StopCOMPTrainingDocumentClassifierCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DocumentClassifierArn
         /// <summary>
         /// <para>

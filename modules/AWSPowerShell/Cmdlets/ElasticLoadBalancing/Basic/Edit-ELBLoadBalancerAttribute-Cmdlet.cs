@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class EditELBLoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoadBalancerAttributes_AdditionalAttribute
         /// <summary>
         /// <para>

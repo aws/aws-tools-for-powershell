@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class MergeCCBranchesByFastForwardCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationCommitSpecifier
         /// <summary>
         /// <para>

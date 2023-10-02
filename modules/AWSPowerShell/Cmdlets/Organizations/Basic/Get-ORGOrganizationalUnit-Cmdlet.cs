@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGOrganizationalUnitCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OrganizationalUnitId
         /// <summary>
         /// <para>

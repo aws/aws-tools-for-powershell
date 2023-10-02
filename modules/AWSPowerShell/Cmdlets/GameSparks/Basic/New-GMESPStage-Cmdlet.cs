@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GMESP
     public partial class NewGMESPStageCmdlet : AmazonGameSparksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

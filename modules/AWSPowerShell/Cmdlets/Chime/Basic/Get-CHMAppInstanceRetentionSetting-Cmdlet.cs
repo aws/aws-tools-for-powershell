@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMAppInstanceRetentionSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

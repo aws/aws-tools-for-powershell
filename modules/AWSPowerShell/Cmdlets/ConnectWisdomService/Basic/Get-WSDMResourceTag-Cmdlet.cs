@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class GetWSDMResourceTagCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

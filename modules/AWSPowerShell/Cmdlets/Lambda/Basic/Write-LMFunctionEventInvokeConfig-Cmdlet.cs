@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class WriteLMFunctionEventInvokeConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OnFailure_Destination
         /// <summary>
         /// <para>

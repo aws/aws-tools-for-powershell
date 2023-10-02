@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class SetEC2IamInstanceProfileAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IamInstanceProfile_Arn
         /// <summary>
         /// <para>

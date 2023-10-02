@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class ExportQLDBJournalToS3Cmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3ExportConfiguration_Bucket
         /// <summary>
         /// <para>

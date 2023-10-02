@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     public partial class NewBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScriptModeConfig_CompressionType
         /// <summary>
         /// <para>

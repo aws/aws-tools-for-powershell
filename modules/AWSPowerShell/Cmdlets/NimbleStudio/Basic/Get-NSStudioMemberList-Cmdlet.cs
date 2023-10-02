@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class GetNSStudioMemberListCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StudioId
         /// <summary>
         /// <para>

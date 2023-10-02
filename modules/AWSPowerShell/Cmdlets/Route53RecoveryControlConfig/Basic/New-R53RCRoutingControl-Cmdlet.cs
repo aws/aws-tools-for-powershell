@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     public partial class NewR53RCRoutingControlCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterArn
         /// <summary>
         /// <para>

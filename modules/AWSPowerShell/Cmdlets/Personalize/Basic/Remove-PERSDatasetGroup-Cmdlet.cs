@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class RemovePERSDatasetGroupCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetGroupArn
         /// <summary>
         /// <para>

@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class UpdateGMLFleetCapacityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DesiredInstance
         /// <summary>
         /// <para>

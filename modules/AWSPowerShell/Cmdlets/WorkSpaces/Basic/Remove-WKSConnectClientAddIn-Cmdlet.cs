@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class RemoveWKSConnectClientAddInCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AddInId
         /// <summary>
         /// <para>

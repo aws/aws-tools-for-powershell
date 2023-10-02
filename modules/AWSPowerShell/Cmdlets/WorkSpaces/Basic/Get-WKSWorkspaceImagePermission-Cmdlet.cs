@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class GetWKSWorkspaceImagePermissionCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>

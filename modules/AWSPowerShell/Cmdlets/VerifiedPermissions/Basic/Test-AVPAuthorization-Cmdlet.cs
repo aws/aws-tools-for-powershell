@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action_ActionId
         /// <summary>
         /// <para>

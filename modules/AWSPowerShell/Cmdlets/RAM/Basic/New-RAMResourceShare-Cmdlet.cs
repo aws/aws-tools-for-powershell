@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class NewRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowExternalPrincipal
         /// <summary>
         /// <para>

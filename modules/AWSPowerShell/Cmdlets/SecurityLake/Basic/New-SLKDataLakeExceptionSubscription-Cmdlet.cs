@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKDataLakeExceptionSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExceptionTimeToLive
         /// <summary>
         /// <para>

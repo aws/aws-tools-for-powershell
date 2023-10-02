@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class RemoveBAKReportPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReportPlanName
         /// <summary>
         /// <para>

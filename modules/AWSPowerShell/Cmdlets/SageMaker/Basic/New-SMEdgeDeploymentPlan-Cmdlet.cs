@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMEdgeDeploymentPlanCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceFleetName
         /// <summary>
         /// <para>

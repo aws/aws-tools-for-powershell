@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class UpdateCFCachePolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CachePolicyConfig_Comment
         /// <summary>
         /// <para>

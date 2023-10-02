@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class GetKINLimitCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

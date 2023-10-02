@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
     public partial class WriteWMMFRawMessageContentCmdlet : AmazonWorkMailMessageFlowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Reference_Bucket
         /// <summary>
         /// <para>

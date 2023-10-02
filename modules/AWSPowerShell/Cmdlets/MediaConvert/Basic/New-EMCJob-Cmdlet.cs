@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class NewEMCJobCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BillingTagsSource
         /// <summary>
         /// <para>

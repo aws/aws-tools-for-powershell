@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     public partial class GetAMPArtifactUrlCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ArtifactId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     public partial class RemoveMISResourceTagCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

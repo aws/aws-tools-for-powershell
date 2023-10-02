@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class GetCOEC2RecommendationProjectedMetricCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecommendationPreferences_CpuVendorArchitecture
         /// <summary>
         /// <para>

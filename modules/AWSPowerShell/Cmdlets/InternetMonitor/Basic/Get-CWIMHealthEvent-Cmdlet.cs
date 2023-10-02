@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     public partial class GetCWIMHealthEventCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EventId
         /// <summary>
         /// <para>

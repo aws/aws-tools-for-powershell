@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     public partial class AddMACMemberAccountCmdlet : AmazonMacieClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>

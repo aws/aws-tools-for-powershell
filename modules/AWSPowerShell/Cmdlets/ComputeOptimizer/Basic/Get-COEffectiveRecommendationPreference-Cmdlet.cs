@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class GetCOEffectiveRecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

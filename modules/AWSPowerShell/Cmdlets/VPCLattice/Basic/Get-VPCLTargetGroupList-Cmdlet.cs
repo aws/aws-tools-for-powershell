@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class GetVPCLTargetGroupListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TargetGroupType
         /// <summary>
         /// <para>

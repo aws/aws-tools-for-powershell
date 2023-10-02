@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class SearchWSDMContentCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SearchExpression_Filter
         /// <summary>
         /// <para>

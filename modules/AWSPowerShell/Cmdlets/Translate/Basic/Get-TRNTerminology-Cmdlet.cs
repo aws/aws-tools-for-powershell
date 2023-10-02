@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class GetTRNTerminologyCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

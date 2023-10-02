@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class EditRDSDBProxyCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Auth
         /// <summary>
         /// <para>

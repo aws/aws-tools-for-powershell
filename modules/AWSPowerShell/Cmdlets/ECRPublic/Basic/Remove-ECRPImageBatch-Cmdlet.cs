@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     public partial class RemoveECRPImageBatchCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>

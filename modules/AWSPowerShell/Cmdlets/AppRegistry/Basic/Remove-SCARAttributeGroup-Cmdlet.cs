@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     public partial class RemoveSCARAttributeGroupCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeGroup
         /// <summary>
         /// <para>

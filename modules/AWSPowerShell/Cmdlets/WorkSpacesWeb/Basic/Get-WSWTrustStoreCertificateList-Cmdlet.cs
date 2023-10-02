@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class GetWSWTrustStoreCertificateListCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TrustStoreArn
         /// <summary>
         /// <para>

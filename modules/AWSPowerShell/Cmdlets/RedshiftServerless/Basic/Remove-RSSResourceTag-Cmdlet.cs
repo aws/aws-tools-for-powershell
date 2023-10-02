@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class RemoveRSSResourceTagCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

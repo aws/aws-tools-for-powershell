@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     public partial class GetERESMatchingJobListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WorkflowName
         /// <summary>
         /// <para>

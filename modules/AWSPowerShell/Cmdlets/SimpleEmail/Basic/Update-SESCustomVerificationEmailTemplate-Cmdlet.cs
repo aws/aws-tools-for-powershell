@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class UpdateSESCustomVerificationEmailTemplateCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FailureRedirectionURL
         /// <summary>
         /// <para>

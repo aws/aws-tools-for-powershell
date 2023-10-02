@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Document_Content
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMDocumentDefaultVersionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>

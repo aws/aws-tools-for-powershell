@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class NewSHLDProtectionGroupCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Aggregation
         /// <summary>
         /// <para>

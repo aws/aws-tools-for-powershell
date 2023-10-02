@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTMitigationActionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UpdateCACertificateParams_Action
         /// <summary>
         /// <para>

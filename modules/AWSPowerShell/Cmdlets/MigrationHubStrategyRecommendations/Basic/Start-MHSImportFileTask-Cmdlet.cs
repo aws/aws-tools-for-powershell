@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class StartMHSImportFileTaskCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataSourceType
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class DisableSHUBStandardsBatchCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StandardsSubscriptionArn
         /// <summary>
         /// <para>

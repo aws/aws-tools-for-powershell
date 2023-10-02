@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class RequestKINStreamRetentionPeriodDecreaseCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RetentionPeriodHour
         /// <summary>
         /// <para>

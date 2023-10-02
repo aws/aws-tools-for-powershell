@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class NewGDBRulesetCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

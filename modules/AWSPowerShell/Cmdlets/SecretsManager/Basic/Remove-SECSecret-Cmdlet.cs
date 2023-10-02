@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class RemoveSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteWithNoRecovery
         /// <summary>
         /// <para>

@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGChildCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChildType
         /// <summary>
         /// <para>

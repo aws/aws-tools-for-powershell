@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class GetCCASDomainListCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

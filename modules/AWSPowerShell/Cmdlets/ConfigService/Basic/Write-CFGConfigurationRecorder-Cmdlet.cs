@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecordingGroup_AllSupported
         /// <summary>
         /// <para>

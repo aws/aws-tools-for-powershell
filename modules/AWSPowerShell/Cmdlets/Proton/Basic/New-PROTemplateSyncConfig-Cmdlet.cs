@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class NewPROTemplateSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Branch
         /// <summary>
         /// <para>

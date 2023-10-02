@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     public partial class StopCMPMRxNormInferenceJobCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSInstanceSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceName
         /// <summary>
         /// <para>

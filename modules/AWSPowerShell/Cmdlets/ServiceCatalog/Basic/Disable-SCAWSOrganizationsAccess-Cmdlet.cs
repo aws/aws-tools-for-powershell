@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class DisableSCAWSOrganizationsAccessCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.

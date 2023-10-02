@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class FindCOMPPiiEntityCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>

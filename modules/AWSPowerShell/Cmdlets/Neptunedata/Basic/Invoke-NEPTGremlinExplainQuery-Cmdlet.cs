@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class InvokeNEPTGremlinExplainQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GremlinQuery
         /// <summary>
         /// <para>

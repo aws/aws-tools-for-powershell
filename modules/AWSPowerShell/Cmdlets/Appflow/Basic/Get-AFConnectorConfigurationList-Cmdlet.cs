@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class GetAFConnectorConfigurationListCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectorType
         /// <summary>
         /// <para>

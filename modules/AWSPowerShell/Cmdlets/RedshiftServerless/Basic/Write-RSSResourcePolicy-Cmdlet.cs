@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class WriteRSSResourcePolicyCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class NewAPSEntitlementCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppVisibility
         /// <summary>
         /// <para>

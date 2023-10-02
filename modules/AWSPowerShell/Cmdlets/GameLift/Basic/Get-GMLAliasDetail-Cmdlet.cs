@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLAliasDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasId
         /// <summary>
         /// <para>

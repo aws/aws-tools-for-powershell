@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTPercentileCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AggregationField
         /// <summary>
         /// <para>

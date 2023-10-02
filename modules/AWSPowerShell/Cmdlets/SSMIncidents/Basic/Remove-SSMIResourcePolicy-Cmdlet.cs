@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public partial class RemoveSSMIResourcePolicyCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyId
         /// <summary>
         /// <para>

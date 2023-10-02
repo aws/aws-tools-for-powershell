@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public partial class SetAASScheduledActionCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

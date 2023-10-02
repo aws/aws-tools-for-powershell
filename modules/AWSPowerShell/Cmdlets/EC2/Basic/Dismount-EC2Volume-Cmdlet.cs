@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class DismountEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Device
         /// <summary>
         /// <para>

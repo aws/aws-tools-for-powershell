@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class GetMHSLatestAssessmentIdCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.

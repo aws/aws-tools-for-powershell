@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class RemoveEMCNGatewayInstanceCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForceRemove
         /// <summary>
         /// <para>

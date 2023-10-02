@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class NewBAKReportPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReportSetting_Account
         /// <summary>
         /// <para>

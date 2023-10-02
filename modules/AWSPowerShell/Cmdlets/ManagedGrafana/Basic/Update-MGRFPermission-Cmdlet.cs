@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class UpdateMGRFPermissionCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UpdateInstructionBatch
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class RemoveEDRSReplicationConfigurationTemplateCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplicationConfigurationTemplateID
         /// <summary>
         /// <para>

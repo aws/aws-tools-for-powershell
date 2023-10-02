@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class StopSECReplicationToReplicaCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SecretId
         /// <summary>
         /// <para>

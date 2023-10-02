@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class GetEMCQueueListCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ListBy
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class GetSHLDResourcesInProtectionGroupListCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProtectionGroupId
         /// <summary>
         /// <para>

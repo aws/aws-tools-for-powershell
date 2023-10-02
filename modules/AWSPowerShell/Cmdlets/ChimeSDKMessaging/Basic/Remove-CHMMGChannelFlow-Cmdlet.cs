@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class RemoveCHMMGChannelFlowCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelFlowArn
         /// <summary>
         /// <para>

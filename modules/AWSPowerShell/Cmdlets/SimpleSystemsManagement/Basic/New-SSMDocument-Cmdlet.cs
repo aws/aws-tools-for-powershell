@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attachment
         /// <summary>
         /// <para>

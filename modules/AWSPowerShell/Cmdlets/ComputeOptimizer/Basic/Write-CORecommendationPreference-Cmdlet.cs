@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class WriteCORecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnhancedInfrastructureMetric
         /// <summary>
         /// <para>

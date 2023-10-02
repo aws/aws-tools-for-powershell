@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class NewWDNotificationSubscriptionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Endpoint
         /// <summary>
         /// <para>

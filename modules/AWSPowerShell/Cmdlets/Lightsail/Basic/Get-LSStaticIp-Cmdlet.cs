@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSStaticIpCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StaticIpName
         /// <summary>
         /// <para>

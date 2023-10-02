@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PD
     public partial class GetPDReadinessCheckResourceStatusCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReadinessCheckName
         /// <summary>
         /// <para>

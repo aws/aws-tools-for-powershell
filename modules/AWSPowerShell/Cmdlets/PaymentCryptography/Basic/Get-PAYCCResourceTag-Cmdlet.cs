@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     public partial class GetPAYCCResourceTagCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

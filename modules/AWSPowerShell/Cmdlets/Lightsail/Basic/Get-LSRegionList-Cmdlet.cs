@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSRegionListCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeAvailabilityZone
         /// <summary>
         /// <para>

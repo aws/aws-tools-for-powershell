@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     public partial class UpdateINS2Ec2DeepInspectionConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActivateDeepInspection
         /// <summary>
         /// <para>

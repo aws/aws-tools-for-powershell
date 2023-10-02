@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     public partial class GetIOTSTTunnelListCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>

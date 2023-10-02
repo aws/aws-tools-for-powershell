@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class GetSHLDProtectionListCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InclusionFilters_ProtectionName
         /// <summary>
         /// <para>

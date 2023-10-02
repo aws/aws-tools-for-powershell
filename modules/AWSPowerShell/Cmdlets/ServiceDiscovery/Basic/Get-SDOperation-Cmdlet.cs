@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class GetSDOperationCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OperationId
         /// <summary>
         /// <para>

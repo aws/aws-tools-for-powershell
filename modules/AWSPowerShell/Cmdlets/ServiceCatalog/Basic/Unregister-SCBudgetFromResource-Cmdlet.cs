@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class UnregisterSCBudgetFromResourceCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BudgetName
         /// <summary>
         /// <para>

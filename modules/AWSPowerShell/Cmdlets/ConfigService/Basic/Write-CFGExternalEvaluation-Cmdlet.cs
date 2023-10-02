@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGExternalEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExternalEvaluation_Annotation
         /// <summary>
         /// <para>

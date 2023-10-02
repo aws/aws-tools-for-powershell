@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class CopyRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceDBClusterParameterGroupIdentifier
         /// <summary>
         /// <para>

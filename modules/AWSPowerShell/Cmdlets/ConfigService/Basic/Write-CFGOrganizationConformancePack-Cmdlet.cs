@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGOrganizationConformancePackCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConformancePackInputParameter
         /// <summary>
         /// <para>

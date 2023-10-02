@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public partial class GetCGISIdentityPoolConfigurationCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>

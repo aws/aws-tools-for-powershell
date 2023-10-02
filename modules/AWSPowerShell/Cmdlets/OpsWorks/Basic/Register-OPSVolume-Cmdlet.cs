@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class RegisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ec2VolumeId
         /// <summary>
         /// <para>

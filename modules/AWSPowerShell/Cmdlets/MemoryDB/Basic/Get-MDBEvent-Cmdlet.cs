@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     public partial class GetMDBEventCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Duration
         /// <summary>
         /// <para>

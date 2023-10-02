@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class NewEVBArchiveCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ArchiveName
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class UpdateIOTCustomMetricCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>

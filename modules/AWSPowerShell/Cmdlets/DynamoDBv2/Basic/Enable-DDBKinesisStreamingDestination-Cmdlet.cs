@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class EnableDDBKinesisStreamingDestinationCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StreamArn
         /// <summary>
         /// <para>

@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     public partial class AddRGTResourceTagCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARNList
         /// <summary>
         /// <para>

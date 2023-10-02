@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public partial class SetCSIndexFieldCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TextArrayOptions_AnalysisScheme
         /// <summary>
         /// <para>

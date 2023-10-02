@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGPendingAggregationRequestListCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Limit
         /// <summary>
         /// <para>

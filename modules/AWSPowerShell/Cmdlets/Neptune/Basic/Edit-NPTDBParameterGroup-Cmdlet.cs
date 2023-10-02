@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class EditNPTDBParameterGroupCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>

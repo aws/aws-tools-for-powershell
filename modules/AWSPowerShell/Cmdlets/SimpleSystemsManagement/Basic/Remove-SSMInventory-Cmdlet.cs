@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class RemoveSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>

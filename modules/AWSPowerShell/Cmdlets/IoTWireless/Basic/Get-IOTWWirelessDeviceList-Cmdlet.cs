@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class GetIOTWWirelessDeviceListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationName
         /// <summary>
         /// <para>

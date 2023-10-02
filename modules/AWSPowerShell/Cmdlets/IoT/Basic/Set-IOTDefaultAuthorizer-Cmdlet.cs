@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class SetIOTDefaultAuthorizerCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthorizerName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class UnregisterWKSIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>

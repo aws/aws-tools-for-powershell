@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     public partial class UpdateLMUSIdentityProviderSettingCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UpdateSettings_AddSubnet
         /// <summary>
         /// <para>

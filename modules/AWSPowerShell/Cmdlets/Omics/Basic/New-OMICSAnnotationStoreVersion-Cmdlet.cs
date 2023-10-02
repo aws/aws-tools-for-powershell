@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class NewOMICSAnnotationStoreVersionCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TsvVersionOptions_AnnotationType
         /// <summary>
         /// <para>

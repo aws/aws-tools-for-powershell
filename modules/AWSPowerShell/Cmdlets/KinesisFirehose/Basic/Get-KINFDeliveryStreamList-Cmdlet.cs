@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     public partial class GetKINFDeliveryStreamListCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeliveryStreamType
         /// <summary>
         /// <para>

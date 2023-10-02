@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SigningAttributes_DomainSigningPrivateKey
         /// <summary>
         /// <para>

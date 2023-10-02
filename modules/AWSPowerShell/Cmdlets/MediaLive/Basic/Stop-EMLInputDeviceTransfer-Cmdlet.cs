@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class StopEMLInputDeviceTransferCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InputDeviceId
         /// <summary>
         /// <para>

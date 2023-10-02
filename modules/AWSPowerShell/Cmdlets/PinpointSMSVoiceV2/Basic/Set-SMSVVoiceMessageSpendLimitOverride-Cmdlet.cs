@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     public partial class SetSMSVVoiceMessageSpendLimitOverrideCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MonthlyLimit
         /// <summary>
         /// <para>

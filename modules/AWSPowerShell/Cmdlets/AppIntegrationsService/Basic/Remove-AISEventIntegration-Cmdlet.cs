@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     public partial class RemoveAISEventIntegrationCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

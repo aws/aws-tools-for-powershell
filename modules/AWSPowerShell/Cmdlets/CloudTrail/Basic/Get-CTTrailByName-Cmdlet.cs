@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTTrailByNameCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class RemoveWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeToken
         /// <summary>
         /// <para>

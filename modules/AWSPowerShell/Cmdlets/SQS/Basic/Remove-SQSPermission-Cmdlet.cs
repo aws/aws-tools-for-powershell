@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class RemoveSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Label
         /// <summary>
         /// <para>

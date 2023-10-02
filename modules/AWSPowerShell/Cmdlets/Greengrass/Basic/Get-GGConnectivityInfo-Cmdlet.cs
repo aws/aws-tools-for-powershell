@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class GetGGConnectivityInfoCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class GetINSRulesPackageListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     public partial class RemoveAPPCExtensionCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExtensionIdentifier
         /// <summary>
         /// <para>

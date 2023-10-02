@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGRetentionConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RetentionPeriodInDay
         /// <summary>
         /// <para>

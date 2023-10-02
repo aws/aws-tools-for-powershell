@@ -84,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class WriteTSWRecordCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>

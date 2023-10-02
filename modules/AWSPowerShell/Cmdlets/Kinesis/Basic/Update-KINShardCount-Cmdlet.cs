@@ -83,6 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class UpdateKINShardCountCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScalingType
         /// <summary>
         /// <para>

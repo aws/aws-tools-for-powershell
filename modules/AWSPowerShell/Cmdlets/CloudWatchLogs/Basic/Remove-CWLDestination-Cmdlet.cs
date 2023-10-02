@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class RemoveCWLDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationName
         /// <summary>
         /// <para>

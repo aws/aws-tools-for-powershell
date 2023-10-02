@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RemoveRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SubscriptionName
         /// <summary>
         /// <para>

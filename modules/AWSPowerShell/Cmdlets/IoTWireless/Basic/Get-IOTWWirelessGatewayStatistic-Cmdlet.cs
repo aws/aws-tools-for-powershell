@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class GetIOTWWirelessGatewayStatisticCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WirelessGatewayId
         /// <summary>
         /// <para>

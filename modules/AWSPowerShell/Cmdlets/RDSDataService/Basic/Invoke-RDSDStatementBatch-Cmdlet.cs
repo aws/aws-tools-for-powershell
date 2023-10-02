@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     public partial class InvokeRDSDStatementBatchCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Database
         /// <summary>
         /// <para>

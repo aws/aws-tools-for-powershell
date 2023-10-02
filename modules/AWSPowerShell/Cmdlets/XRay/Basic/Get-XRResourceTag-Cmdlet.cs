@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
     public partial class GetXRResourceTagCmdlet : AmazonXRayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class RemoveCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

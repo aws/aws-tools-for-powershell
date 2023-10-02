@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SessionStateValue_ActiveContext
         /// <summary>
         /// <para>

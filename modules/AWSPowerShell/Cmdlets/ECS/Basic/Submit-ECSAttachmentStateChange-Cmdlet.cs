@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class SubmitECSAttachmentStateChangeCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attachment
         /// <summary>
         /// <para>

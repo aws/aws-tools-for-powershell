@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class StartADSImportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

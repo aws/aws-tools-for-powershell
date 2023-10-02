@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public partial class GetCGISIdentityPoolUsageListCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

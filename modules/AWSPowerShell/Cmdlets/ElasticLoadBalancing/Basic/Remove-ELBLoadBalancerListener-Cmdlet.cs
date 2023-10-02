@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class RemoveELBLoadBalancerListenerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>

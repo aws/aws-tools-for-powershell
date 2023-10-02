@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VerifiedAccessInstanceLoggingConfigurationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>

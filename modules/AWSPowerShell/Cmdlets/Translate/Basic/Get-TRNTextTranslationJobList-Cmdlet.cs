@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class GetTRNTextTranslationJobListCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter_JobName
         /// <summary>
         /// <para>

@@ -96,6 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class CompareREKFaceCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceImageBucket
         /// <summary>
         /// <para>

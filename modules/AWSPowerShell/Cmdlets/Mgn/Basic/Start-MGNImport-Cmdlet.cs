@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class StartMGNImportCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3BucketSource_S3Bucket
         /// <summary>
         /// <para>

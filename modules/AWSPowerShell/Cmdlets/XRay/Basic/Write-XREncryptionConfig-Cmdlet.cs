@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
     public partial class WriteXREncryptionConfigCmdlet : AmazonXRayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>

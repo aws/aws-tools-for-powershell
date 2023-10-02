@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     public partial class UpdateIOTTGFlowTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CompatibleNamespaceVersion
         /// <summary>
         /// <para>

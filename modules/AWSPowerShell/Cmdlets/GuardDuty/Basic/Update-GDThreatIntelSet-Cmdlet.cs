@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class UpdateGDThreatIntelSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Activate
         /// <summary>
         /// <para>

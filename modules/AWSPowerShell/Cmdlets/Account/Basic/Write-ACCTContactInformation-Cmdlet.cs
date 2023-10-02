@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

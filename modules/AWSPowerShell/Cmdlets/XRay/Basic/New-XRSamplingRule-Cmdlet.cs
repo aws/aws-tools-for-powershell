@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
     public partial class NewXRSamplingRuleCmdlet : AmazonXRayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SamplingRule_Attribute
         /// <summary>
         /// <para>

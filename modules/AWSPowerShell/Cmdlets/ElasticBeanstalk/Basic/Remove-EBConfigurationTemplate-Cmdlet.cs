@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class RemoveEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>

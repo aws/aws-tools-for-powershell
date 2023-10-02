@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class GetMBCAccessorCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessorId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class GetEDRSJobLogItemCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobID
         /// <summary>
         /// <para>

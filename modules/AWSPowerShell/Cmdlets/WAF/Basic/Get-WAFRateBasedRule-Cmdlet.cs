@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class GetWAFRateBasedRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleId
         /// <summary>
         /// <para>

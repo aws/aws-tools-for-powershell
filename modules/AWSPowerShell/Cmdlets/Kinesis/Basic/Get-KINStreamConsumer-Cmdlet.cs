@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class GetKINStreamConsumerCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConsumerARN
         /// <summary>
         /// <para>

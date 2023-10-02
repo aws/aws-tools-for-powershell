@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class GetLMBMigrationCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MigrationId
         /// <summary>
         /// <para>

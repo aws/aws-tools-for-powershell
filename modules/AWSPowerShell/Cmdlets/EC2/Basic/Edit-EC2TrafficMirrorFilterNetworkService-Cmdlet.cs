@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2TrafficMirrorFilterNetworkServiceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AddNetworkService
         /// <summary>
         /// <para>

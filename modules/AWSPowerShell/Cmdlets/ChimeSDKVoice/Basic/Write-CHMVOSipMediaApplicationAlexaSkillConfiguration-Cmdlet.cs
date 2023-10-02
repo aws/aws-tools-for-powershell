@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class WriteCHMVOSipMediaApplicationAlexaSkillConfigurationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SipMediaApplicationAlexaSkillConfiguration_AlexaSkillId
         /// <summary>
         /// <para>

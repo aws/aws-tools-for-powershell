@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class RemoveCFGRetentionConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RetentionConfigurationName
         /// <summary>
         /// <para>

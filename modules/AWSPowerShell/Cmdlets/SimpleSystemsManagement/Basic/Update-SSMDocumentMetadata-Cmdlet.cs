@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMDocumentMetadataCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DocumentReviews_Action
         /// <summary>
         /// <para>

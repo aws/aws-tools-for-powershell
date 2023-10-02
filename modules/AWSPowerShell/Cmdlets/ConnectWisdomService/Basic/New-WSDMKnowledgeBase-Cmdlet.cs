@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class NewWSDMKnowledgeBaseCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppIntegrations_AppIntegrationArn
         /// <summary>
         /// <para>

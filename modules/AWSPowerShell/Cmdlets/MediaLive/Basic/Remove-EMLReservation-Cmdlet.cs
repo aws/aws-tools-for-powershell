@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class RemoveEMLReservationCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReservationId
         /// <summary>
         /// <para>

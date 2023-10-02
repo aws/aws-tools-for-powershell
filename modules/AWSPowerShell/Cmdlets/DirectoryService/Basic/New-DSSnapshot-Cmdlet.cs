@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class NewDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>

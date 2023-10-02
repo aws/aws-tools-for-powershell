@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class NewEMCPresetCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Category
         /// <summary>
         /// <para>

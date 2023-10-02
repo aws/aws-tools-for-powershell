@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSBucketCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BucketName
         /// <summary>
         /// <para>

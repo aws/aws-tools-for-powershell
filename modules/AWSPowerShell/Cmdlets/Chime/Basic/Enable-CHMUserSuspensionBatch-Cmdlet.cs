@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class EnableCHMUserSuspensionBatchCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     public partial class GetPROMResourceTagCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

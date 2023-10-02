@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class NewMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BatchPredictionDataSourceId
         /// <summary>
         /// <para>

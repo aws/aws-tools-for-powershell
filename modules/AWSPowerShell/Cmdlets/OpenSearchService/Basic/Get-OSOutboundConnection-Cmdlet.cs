@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class GetOSOutboundConnectionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
     public partial class GetPIAvailableResourceDimensionListCmdlet : AmazonPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>

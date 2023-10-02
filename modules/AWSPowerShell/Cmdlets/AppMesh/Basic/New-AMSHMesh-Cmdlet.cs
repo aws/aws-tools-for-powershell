@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class NewAMSHMeshCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceDiscovery_IpPreference
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class RemoveSCTagOptionFromResourceCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

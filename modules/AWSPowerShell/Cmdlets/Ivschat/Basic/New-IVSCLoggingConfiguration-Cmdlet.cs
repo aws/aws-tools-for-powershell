@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class NewIVSCLoggingConfigurationCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>

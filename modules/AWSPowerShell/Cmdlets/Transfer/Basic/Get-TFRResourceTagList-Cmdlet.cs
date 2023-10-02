@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRResourceTagListCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

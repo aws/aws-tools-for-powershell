@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCRotationCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RotationId
         /// <summary>
         /// <para>

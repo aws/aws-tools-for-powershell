@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class RemoveR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HealthCheckId
         /// <summary>
         /// <para>

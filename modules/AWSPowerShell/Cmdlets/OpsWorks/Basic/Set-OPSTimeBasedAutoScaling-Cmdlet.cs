@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class SetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoScalingSchedule_Friday
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMAutoMLJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoMLJobName
         /// <summary>
         /// <para>

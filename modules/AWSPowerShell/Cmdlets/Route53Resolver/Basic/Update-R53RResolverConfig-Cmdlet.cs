@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class UpdateR53RResolverConfigCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutodefinedReverseFlag
         /// <summary>
         /// <para>

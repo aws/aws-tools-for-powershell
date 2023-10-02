@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class PushR53DDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

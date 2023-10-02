@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class AddREKREKFacesToUserCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

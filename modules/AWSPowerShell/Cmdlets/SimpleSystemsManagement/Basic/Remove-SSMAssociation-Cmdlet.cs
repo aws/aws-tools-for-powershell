@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class RemoveSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

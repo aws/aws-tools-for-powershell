@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class NewQSVPCConnectionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>

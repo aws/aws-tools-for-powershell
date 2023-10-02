@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class GetDTCTDatasourcePackageListCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GraphArn
         /// <summary>
         /// <para>

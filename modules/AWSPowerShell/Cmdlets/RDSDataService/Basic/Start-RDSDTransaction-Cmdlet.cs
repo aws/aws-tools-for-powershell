@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     public partial class StartRDSDTransactionCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Database
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class UpdateRSSWorkgroupCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BaseCapacity
         /// <summary>
         /// <para>

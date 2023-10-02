@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class NewLOCPlaceIndexCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataSource
         /// <summary>
         /// <para>

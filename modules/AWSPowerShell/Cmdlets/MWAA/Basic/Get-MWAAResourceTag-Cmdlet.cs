@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public partial class GetMWAAResourceTagCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class RegisterSCPrincipalWithPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     public partial class GetCSTNResourceTagCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

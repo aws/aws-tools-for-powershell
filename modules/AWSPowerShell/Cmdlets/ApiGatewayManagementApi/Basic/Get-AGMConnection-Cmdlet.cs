@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AGM
     public partial class GetAGMConnectionCmdlet : AmazonApiGatewayManagementApiClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionId
         /// <summary>
         /// <para>

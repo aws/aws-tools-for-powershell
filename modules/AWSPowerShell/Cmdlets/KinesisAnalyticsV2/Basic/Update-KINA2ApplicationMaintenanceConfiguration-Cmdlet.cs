@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     public partial class UpdateKINA2ApplicationMaintenanceConfigurationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationMaintenanceConfigurationUpdate_ApplicationMaintenanceWindowStartTimeUpdate
         /// <summary>
         /// <para>

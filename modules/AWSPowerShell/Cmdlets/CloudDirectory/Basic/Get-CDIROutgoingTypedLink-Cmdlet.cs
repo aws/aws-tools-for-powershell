@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     public partial class GetCDIROutgoingTypedLinkCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConsistencyLevel
         /// <summary>
         /// <para>

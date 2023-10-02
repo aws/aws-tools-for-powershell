@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSDistributionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DistributionName
         /// <summary>
         /// <para>

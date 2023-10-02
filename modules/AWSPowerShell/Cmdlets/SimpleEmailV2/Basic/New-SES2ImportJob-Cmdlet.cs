@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class NewSES2ImportJobCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactListDestination_ContactListImportAction
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCPullRequestListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthorArn
         /// <summary>
         /// <para>

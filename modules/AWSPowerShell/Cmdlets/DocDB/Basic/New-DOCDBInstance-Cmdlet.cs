@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class NewDOCDBInstanceCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>

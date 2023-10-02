@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class UpdateGDPublishingDestinationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationProperties_DestinationArn
         /// <summary>
         /// <para>

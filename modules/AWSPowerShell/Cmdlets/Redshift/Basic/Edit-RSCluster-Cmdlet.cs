@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class EditRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>

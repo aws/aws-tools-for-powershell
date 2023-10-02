@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     public partial class GetAMMResourceTagCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

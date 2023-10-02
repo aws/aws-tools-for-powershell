@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class NewADSApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class RemoveDAXSubnetGroupCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SubnetGroupName
         /// <summary>
         /// <para>

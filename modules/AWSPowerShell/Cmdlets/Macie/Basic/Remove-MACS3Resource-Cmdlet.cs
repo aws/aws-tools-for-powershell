@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     public partial class RemoveMACS3ResourceCmdlet : AmazonMacieClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociatedS3Resource
         /// <summary>
         /// <para>

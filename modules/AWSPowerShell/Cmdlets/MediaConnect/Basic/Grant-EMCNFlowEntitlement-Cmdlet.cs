@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class GrantEMCNFlowEntitlementCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Entitlement
         /// <summary>
         /// <para>

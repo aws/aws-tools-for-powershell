@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class RemoveMBCMemberCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MemberId
         /// <summary>
         /// <para>

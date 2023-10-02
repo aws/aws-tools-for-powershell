@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class RemoveALXBSkillFromSkillGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SkillGroupArn
         /// <summary>
         /// <para>

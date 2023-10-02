@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXDataRepositoryTaskCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CapacityToRelease
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class EnableIAMRACrlCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CrlId
         /// <summary>
         /// <para>

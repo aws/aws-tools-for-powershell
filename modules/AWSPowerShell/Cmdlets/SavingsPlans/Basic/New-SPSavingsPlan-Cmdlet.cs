@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SP
     public partial class NewSPSavingsPlanCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Commitment
         /// <summary>
         /// <para>

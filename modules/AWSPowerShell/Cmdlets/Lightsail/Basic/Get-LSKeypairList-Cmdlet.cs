@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSKeypairListCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeDefaultKeyPair
         /// <summary>
         /// <para>

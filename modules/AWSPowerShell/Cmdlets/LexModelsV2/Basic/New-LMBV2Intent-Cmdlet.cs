@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2IntentCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FulfillmentCodeHook_Active
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class RemoveDAXResourceTagCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class AddSGCacheCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DiskId
         /// <summary>
         /// <para>

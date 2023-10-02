@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class NewRSSnapshotScheduleCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>

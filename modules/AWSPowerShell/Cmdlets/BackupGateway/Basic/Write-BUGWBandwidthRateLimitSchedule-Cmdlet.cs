@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class WriteBUGWBandwidthRateLimitScheduleCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BandwidthRateLimitInterval
         /// <summary>
         /// <para>

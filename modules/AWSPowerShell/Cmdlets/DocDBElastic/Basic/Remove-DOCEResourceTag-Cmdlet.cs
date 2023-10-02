@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     public partial class RemoveDOCEResourceTagCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

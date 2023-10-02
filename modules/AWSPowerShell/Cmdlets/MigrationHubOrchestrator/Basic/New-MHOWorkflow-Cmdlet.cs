@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationConfigurationId
         /// <summary>
         /// <para>

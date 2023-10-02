@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services
-    /// account.
+    /// Lists the set of certificate authority (CA) certificates provided by Amazon RDS for
+    /// this Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public partial class GetRDSCertificateCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter CertificateIdentifier
         /// <summary>

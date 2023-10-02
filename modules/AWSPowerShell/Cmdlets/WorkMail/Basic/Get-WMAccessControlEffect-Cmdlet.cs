@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class GetWMAccessControlEffectCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

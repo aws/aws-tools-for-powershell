@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class UpdateIOTIndexingConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ThingGroupIndexingConfiguration_CustomField
         /// <summary>
         /// <para>

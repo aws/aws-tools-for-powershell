@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class GetASLifecycleHookCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>

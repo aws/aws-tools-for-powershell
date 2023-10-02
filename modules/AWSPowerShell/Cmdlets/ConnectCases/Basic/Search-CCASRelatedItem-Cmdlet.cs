@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class SearchCCASRelatedItemCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CaseId
         /// <summary>
         /// <para>

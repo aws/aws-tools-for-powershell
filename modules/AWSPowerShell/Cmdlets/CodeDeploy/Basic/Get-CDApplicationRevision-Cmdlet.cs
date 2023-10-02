@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class GetCDApplicationRevisionCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMFeatureGroupCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>

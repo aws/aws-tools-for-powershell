@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     public partial class GetIOTTMPropertyValueCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComponentName
         /// <summary>
         /// <para>

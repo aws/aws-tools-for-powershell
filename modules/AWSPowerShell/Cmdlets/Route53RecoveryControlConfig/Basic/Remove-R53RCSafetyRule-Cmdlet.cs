@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     public partial class RemoveR53RCSafetyRuleCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SafetyRuleArn
         /// <summary>
         /// <para>

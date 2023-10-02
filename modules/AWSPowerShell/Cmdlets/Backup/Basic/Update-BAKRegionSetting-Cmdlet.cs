@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class UpdateBAKRegionSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceTypeManagementPreference
         /// <summary>
         /// <para>

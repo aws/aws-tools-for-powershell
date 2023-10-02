@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKBackupPlanTemplateListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

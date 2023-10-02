@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class EditWKSSelfservicePermissionCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SelfservicePermissions_ChangeComputeType
         /// <summary>
         /// <para>

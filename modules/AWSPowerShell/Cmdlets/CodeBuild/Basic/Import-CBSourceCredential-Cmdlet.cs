@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthType
         /// <summary>
         /// <para>

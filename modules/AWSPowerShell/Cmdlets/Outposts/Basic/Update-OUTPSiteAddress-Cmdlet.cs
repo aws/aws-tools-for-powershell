@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public partial class UpdateOUTPSiteAddressCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Address_AddressLine1
         /// <summary>
         /// <para>

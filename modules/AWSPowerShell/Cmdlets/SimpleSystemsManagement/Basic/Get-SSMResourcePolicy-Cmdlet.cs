@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMResourcePolicyCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

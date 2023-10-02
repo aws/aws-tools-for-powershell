@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     public partial class GetGGV2ResourceTagCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

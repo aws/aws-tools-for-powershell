@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class RemoveREKDatasetCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetArn
         /// <summary>
         /// <para>

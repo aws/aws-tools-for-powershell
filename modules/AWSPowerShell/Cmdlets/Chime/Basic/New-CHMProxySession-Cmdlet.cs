@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GeoMatchParams_AreaCode
         /// <summary>
         /// <para>

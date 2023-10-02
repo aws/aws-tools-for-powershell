@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class RemoveKNDREntitiesFromExperienceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EntityList
         /// <summary>
         /// <para>

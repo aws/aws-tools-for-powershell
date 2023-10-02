@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class AddKNDRPersonasToEntityCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

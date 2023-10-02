@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class GetEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreationToken
         /// <summary>
         /// <para>

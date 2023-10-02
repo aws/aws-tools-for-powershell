@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     public partial class FindKINAInputSchemaCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Configuration_BucketARN
         /// <summary>
         /// <para>

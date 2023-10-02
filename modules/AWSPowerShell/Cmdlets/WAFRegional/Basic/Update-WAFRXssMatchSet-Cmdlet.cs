@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class UpdateWAFRXssMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeToken
         /// <summary>
         /// <para>

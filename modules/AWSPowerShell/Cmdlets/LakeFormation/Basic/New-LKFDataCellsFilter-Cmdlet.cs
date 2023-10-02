@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class NewLKFDataCellsFilterCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RowFilter_AllRowsWildcard
         /// <summary>
         /// <para>

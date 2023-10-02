@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     public partial class GetMSKCConnectorListCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectorNamePrefix
         /// <summary>
         /// <para>

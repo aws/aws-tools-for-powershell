@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class GetEMLChannelCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelId
         /// <summary>
         /// <para>

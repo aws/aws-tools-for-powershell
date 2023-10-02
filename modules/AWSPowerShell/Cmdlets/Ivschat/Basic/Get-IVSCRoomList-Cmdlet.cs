@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class GetIVSCRoomListCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoggingConfigurationIdentifier
         /// <summary>
         /// <para>

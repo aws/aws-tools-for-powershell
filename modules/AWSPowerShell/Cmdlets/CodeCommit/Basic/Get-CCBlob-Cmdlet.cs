@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCBlobCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BlobId
         /// <summary>
         /// <para>

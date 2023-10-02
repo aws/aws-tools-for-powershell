@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     public partial class GetCWOAMResourceTagCmdlet : AmazonOAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

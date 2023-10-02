@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class RemovePCAADTemplateGroupAccessControlEntryCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupSecurityIdentifier
         /// <summary>
         /// <para>

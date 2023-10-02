@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class NewSHUBFindingAggregatorCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RegionLinkingMode
         /// <summary>
         /// <para>

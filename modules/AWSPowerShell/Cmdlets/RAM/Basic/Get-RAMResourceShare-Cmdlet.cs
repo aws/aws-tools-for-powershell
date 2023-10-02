@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class GetRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

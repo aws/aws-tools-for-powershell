@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class NewCOMPDatasetCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InputDataConfig_AugmentedManifest
         /// <summary>
         /// <para>

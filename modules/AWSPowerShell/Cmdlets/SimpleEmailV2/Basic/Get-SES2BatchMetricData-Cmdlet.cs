@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class GetSES2BatchMetricDataCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Query
         /// <summary>
         /// <para>

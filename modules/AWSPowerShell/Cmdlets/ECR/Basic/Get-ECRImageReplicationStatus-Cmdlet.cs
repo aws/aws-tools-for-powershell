@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRImageReplicationStatusCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageId_ImageDigest
         /// <summary>
         /// <para>

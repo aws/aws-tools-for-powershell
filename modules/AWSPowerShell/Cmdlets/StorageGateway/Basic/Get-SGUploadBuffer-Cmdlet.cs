@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGUploadBufferCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayARN
         /// <summary>
         /// <para>

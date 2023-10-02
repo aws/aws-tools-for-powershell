@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class UpdateDSYNTaskCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3_BucketAccessRoleArn
         /// <summary>
         /// <para>

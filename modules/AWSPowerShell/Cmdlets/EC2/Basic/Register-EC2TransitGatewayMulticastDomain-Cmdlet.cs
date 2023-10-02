@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RegisterEC2TransitGatewayMulticastDomainCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>

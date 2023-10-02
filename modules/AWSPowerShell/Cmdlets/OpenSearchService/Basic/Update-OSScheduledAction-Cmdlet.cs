@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class UpdateOSScheduledActionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionID
         /// <summary>
         /// <para>

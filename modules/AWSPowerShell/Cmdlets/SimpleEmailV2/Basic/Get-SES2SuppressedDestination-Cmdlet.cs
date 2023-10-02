@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class GetSES2SuppressedDestinationCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EmailAddress
         /// <summary>
         /// <para>

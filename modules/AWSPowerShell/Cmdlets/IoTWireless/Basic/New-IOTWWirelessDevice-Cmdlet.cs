@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class NewIOTWWirelessDeviceCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoRaWAN_OtaaV1_0_x_AppEui
         /// <summary>
         /// <para>

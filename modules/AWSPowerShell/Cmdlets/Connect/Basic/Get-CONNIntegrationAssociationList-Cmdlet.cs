@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNIntegrationAssociationListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

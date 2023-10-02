@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     public partial class GetAISDataIntegrationListCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

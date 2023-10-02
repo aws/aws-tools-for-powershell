@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class RemoveR53CidrCollectionCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

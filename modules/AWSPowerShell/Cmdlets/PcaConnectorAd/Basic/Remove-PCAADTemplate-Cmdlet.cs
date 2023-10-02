@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class RemovePCAADTemplateCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateArn
         /// <summary>
         /// <para>

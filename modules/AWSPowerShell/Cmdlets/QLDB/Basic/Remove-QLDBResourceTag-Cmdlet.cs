@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class RemoveQLDBResourceTagCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

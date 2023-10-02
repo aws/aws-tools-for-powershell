@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class CopySCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>

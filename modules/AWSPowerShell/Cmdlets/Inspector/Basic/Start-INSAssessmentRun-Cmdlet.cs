@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class StartINSAssessmentRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssessmentRunName
         /// <summary>
         /// <para>

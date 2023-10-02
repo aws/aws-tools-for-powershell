@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCEAnomalyCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DateInterval_EndDate
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public partial class RemoveMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

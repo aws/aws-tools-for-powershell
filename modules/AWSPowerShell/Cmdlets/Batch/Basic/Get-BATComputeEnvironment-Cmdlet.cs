@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class GetBATComputeEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeEnvironment
         /// <summary>
         /// <para>

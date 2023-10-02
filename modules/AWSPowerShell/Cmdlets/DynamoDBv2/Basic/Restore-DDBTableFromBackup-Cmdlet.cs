@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class RestoreDDBTableFromBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupArn
         /// <summary>
         /// <para>

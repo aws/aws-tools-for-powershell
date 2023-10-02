@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRIndexListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

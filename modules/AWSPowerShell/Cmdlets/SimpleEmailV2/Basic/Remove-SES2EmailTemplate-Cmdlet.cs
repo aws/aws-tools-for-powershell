@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class RemoveSES2EmailTemplateCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>

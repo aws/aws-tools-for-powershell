@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class WriteFMSAppListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppsList_AppsList
         /// <summary>
         /// <para>

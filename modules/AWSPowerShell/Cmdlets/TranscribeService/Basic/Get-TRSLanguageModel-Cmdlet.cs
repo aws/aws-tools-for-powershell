@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class GetTRSLanguageModelCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ModelName
         /// <summary>
         /// <para>

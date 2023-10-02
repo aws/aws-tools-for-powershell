@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class NewCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CloudFrontOriginAccessIdentityConfig_CallerReference
         /// <summary>
         /// <para>

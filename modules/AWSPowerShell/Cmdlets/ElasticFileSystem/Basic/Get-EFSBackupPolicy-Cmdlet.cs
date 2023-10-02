@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class GetEFSBackupPolicyCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FileSystemId
         /// <summary>
         /// <para>

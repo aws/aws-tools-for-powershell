@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSBatchInferenceJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FilterArn
         /// <summary>
         /// <para>

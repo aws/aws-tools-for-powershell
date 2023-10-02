@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class GetBDRFoundationModelListCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ByCustomizationType
         /// <summary>
         /// <para>

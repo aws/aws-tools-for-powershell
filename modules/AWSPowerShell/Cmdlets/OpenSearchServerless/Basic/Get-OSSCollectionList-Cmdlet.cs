@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     public partial class GetOSSCollectionListCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CollectionFilters_Name
         /// <summary>
         /// <para>

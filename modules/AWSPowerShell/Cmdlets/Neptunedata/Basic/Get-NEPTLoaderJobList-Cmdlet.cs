@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class GetNEPTLoaderJobListCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeQueuedLoad
         /// <summary>
         /// <para>

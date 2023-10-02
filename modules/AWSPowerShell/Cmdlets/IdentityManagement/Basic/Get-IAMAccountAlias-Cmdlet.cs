@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMAccountAliasCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Marker
         /// <summary>
         /// <para>

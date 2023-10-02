@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class NewFDModelVersionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExternalEventsDetail_DataAccessRoleArn
         /// <summary>
         /// <para>

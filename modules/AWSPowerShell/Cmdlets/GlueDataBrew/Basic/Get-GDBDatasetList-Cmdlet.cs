@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class GetGDBDatasetListCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

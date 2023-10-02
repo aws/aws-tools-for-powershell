@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class NewDMSInstanceProfileCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>

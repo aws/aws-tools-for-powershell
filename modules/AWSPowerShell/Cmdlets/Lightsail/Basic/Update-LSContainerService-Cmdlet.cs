@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class UpdateLSContainerServiceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EcrImagePullerRole_IsActive
         /// <summary>
         /// <para>

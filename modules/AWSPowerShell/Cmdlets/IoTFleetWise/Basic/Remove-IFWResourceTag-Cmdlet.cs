@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public partial class RemoveIFWResourceTagCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

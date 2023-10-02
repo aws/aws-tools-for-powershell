@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     public partial class GetEMSCorsPolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContainerName
         /// <summary>
         /// <para>

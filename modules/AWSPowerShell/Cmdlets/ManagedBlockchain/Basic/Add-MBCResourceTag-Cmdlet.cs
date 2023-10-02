@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class AddMBCResourceTagCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

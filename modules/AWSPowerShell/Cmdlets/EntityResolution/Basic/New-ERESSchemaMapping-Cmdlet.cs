@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     public partial class NewERESSchemaMappingCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

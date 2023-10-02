@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class RemoveDAXClusterCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

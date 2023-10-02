@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class RegisterLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HybridAccessEnabled
         /// <summary>
         /// <para>

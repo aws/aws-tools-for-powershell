@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class GetIVSStreamSessionListCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

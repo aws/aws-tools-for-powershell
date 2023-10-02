@@ -100,6 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMEndpointCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoRollbackConfiguration_Alarm
         /// <summary>
         /// <para>

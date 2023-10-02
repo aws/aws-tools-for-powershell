@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class RemoveESInboundCrossClusterSearchConnectionCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CrossClusterSearchConnectionId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class GetSHUBGetAutomationRuleCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutomationRulesArn
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class GetSCStackInstancesForProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>

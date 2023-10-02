@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECUserCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Engine
         /// <summary>
         /// <para>

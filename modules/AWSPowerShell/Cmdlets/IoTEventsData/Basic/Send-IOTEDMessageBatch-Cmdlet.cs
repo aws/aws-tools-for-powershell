@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     public partial class SendIOTEDMessageBatchCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Message
         /// <summary>
         /// <para>

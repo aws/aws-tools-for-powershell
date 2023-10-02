@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class StopAFFlowExecutionCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExecutionId
         /// <summary>
         /// <para>

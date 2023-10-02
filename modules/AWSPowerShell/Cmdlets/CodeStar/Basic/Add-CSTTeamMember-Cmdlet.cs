@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class AddCSTTeamMemberCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

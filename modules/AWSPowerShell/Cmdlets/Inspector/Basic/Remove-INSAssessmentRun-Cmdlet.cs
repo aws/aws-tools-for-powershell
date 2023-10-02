@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class RemoveINSAssessmentRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>

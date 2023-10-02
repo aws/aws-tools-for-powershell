@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class AddKVStreamTagCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StreamARN
         /// <summary>
         /// <para>

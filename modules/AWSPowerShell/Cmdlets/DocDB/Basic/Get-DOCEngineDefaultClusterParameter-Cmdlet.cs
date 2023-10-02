@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class GetDOCEngineDefaultClusterParameterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>

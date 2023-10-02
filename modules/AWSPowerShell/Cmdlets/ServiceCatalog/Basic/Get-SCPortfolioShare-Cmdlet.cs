@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class GetSCPortfolioShareCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PortfolioId
         /// <summary>
         /// <para>

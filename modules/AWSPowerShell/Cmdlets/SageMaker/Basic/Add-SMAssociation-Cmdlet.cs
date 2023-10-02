@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class AddSMAssociationCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationType
         /// <summary>
         /// <para>

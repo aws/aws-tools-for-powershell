@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     public partial class GetIAMAAPolicyGenerationListCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>

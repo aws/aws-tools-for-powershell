@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class RemovePERSMetricAttributionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MetricAttributionArn
         /// <summary>
         /// <para>

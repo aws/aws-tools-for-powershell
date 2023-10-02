@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class UnregisterLOCTrackerConsumerCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConsumerArn
         /// <summary>
         /// <para>

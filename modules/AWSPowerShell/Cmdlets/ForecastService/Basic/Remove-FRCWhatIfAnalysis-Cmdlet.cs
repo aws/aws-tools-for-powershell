@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class RemoveFRCWhatIfAnalysisCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WhatIfAnalysisArn
         /// <summary>
         /// <para>

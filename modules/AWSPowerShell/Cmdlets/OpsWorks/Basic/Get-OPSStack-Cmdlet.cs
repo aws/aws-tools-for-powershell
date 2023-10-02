@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class GetOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StackId
         /// <summary>
         /// <para>

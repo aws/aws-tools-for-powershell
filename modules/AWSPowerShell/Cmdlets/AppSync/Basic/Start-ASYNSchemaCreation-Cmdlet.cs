@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class StartASYNSchemaCreationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class UpdateKNDRDataSourceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey
         /// <summary>
         /// <para>

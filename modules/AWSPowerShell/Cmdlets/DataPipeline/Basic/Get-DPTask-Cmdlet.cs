@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class GetDPTaskCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceIdentity_Document
         /// <summary>
         /// <para>

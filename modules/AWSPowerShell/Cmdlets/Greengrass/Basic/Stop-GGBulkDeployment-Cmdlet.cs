@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class StopGGBulkDeploymentCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BulkDeploymentId
         /// <summary>
         /// <para>

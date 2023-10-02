@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>

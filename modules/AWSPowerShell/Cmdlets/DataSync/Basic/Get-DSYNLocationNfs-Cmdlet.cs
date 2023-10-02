@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class GetDSYNLocationNfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LocationArn
         /// <summary>
         /// <para>

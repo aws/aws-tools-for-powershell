@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class GetTRSVocabularyFilterListCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>

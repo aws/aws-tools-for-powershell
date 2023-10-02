@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class DenyMTRQualificationRequestCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QualificationRequestId
         /// <summary>
         /// <para>

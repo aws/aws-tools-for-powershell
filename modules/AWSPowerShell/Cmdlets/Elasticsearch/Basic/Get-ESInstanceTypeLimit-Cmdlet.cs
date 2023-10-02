@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class GetESInstanceTypeLimitCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

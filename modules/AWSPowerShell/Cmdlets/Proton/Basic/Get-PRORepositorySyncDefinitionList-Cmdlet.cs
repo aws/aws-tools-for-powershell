@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPRORepositorySyncDefinitionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RepositoryName
         /// <summary>
         /// <para>

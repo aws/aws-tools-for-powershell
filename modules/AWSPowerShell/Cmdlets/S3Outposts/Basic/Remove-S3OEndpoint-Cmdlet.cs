@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     public partial class RemoveS3OEndpointCmdlet : AmazonS3OutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndpointId
         /// <summary>
         /// <para>

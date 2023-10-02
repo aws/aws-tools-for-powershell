@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class DisableSHLDApplicationLayerAutomaticResponseCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

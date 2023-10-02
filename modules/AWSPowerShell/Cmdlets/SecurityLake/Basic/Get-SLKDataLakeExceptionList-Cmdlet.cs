@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class GetSLKDataLakeExceptionListCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataLakeRegions
         /// <summary>
         /// <para>

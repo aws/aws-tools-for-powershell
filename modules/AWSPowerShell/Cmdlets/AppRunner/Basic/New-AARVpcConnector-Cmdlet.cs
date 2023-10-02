@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class NewAARVpcConnectorCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     public partial class NewEMPVPackagingConfigurationCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CmafPackage
         /// <summary>
         /// <para>

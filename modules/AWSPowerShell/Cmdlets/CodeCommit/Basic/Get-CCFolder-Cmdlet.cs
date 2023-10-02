@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCFolderCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CommitSpecifier
         /// <summary>
         /// <para>

@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class AddGMLResourceTagCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class GetROBOResourceTagCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

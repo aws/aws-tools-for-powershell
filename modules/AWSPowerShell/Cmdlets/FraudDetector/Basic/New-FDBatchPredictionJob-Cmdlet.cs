@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class NewFDBatchPredictionJobCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DetectorName
         /// <summary>
         /// <para>

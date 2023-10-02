@@ -77,6 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class NewREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TestingData_Asset
         /// <summary>
         /// <para>

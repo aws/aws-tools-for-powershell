@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class ConfirmDCDirectConnectGatewayAssociationProposalCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociatedGatewayOwnerAccount
         /// <summary>
         /// <para>

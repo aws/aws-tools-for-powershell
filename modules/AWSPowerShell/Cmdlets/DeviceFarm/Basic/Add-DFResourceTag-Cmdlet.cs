@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class AddDFResourceTagCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

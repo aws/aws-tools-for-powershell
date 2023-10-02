@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRRepositoryScanningConfigurationBatchCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RepositoryName
         /// <summary>
         /// <para>

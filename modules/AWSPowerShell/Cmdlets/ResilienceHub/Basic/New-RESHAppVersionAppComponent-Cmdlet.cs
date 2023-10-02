@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class NewRESHAppVersionAppComponentCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalInfo
         /// <summary>
         /// <para>

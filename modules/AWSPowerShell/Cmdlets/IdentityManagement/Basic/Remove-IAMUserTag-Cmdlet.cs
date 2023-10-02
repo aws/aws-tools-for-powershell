@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RemoveIAMUserTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TagKey
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2InstanceMetadataOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HttpEndpoint
         /// <summary>
         /// <para>

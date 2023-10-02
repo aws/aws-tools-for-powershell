@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class SetSNSDataProtectionPolicyCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataProtectionPolicy
         /// <summary>
         /// <para>

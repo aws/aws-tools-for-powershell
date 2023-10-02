@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     public partial class UpdateACPReportDefinitionCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationS3Location_Bucket
         /// <summary>
         /// <para>

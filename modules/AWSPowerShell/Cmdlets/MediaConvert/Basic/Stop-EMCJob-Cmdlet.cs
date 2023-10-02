@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class StopEMCJobCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

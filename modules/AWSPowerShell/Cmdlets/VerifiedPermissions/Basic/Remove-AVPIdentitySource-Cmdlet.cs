@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class RemoveAVPIdentitySourceCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentitySourceId
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public partial class NewSCHMSchemaCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Content
         /// <summary>
         /// <para>

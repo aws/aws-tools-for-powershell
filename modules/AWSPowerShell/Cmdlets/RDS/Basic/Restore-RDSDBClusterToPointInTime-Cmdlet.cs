@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBClusterToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScalingConfiguration_AutoPause
         /// <summary>
         /// <para>
@@ -117,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster,
         /// for example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon
         /// Web Services Regions, or for all database engines.</para><para>For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// instance class</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// instance class</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,9 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group to associate with this DB cluster. If this
-        /// argument is omitted, the default DB cluster parameter group for the specified engine
-        /// is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The name of the custom DB cluster parameter group to associate with this DB cluster.</para><para>If the <code>DBClusterParameterGroupName</code> parameter is omitted, the default
+        /// DB cluster parameter group for the specified engine is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class GetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

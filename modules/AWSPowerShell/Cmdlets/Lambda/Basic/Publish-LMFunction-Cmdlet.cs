@@ -102,6 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SnapStart_ApplyOn
         /// <summary>
         /// <para>

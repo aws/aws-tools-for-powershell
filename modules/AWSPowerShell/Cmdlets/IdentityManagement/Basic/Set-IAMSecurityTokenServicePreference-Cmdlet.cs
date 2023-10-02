@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class SetIAMSecurityTokenServicePreferenceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GlobalEndpointTokenVersion
         /// <summary>
         /// <para>

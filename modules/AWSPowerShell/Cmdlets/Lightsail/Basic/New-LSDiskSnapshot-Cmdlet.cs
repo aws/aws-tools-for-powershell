@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSDiskSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DiskName
         /// <summary>
         /// <para>

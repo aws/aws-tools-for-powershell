@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class NewAPSAppBlockBuilderStreamingURLCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppBlockBuilderName
         /// <summary>
         /// <para>

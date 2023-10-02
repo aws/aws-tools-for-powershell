@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class GetELBAccountLimitCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Marker
         /// <summary>
         /// <para>

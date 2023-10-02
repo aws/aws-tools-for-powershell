@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     public partial class GetCAPackageVersionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Domain
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     public partial class UpdateR53RCSafetyRuleCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssertionRuleUpdate_Name
         /// <summary>
         /// <para>

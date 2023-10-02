@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public partial class GetOUTPConnectionCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class GetGSEphemerideListCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

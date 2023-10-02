@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     public partial class StartSSWClockCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Simulation
         /// <summary>
         /// <para>

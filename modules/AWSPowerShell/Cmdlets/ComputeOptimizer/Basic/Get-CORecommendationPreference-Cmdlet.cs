@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class GetCORecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Scope_Name
         /// <summary>
         /// <para>

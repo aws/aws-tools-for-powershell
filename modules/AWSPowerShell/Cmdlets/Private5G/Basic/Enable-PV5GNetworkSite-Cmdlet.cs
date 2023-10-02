@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CommitmentConfiguration_AutomaticRenewal
         /// <summary>
         /// <para>

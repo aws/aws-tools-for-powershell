@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     public partial class GetOSSGetVpcEndpointCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

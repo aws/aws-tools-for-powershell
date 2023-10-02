@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class UpdateAFConnectorRegistrationCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectorLabel
         /// <summary>
         /// <para>

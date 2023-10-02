@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSContainerServiceDeploymentCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceName
         /// <summary>
         /// <para>

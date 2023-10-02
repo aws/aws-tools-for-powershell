@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class GetCPFWorkflowStepCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

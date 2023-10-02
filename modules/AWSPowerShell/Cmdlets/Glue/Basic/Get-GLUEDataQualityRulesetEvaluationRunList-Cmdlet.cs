@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEDataQualityRulesetEvaluationRunListCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GlueTable_AdditionalOption
         /// <summary>
         /// <para>

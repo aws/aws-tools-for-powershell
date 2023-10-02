@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class FindEMRReleaseLabelCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_Application
         /// <summary>
         /// <para>

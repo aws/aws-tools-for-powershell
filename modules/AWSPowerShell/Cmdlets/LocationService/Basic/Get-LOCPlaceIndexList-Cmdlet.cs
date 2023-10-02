@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCPlaceIndexListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

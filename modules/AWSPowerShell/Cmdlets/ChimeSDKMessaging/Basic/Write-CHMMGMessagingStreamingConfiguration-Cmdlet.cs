@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class WriteCHMMGMessagingStreamingConfigurationCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

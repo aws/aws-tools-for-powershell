@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     public partial class GetCWSYNCanaryRunCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

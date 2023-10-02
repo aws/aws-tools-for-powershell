@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class AddEKSResourceTagCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

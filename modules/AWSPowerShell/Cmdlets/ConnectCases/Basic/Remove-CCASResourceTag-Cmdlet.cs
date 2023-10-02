@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class RemoveCCASResourceTagCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

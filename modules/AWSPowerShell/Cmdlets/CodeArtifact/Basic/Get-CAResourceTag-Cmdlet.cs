@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     public partial class GetCAResourceTagCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class TestECFailoverCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NodeGroupId
         /// <summary>
         /// <para>

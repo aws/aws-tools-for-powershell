@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class NewTFRUserCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PosixProfile_Gid
         /// <summary>
         /// <para>
@@ -59,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The landing directory (folder) for a user when they log in to the server using the
-        /// client.</para><para>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</para>
+        /// client.</para><para>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</para><note><para>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code>
+        /// is set to <code>LOGICAL</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +94,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>The type of landing directory (folder) that you want your users' home directory to
         /// be when they log in to the server. If you set it to <code>PATH</code>, the user will
-        /// see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol
-        /// clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code>
-        /// for how you want to make Amazon S3 or Amazon EFS paths visible to your users.</para>
+        /// see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+        /// protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings
+        /// in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or Amazon
+        /// EFS paths visible to your users.</para><note><para>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+        /// using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand, <code>HomeDirectoryType</code>
+        /// is <code>PATH</code>, you provide an absolute path using the <code>HomeDirectory</code>
+        /// parameter. You cannot have both <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code>
+        /// in your template.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

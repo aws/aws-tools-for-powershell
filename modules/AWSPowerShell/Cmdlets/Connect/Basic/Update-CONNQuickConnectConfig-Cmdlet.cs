@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNQuickConnectConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueueConfig_ContactFlowId
         /// <summary>
         /// <para>

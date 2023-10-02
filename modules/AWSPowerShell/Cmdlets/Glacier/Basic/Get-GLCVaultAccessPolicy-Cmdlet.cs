@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     public partial class GetGLCVaultAccessPolicyCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

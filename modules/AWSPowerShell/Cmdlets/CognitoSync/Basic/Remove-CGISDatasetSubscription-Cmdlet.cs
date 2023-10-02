@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public partial class RemoveCGISDatasetSubscriptionCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetName
         /// <summary>
         /// <para>

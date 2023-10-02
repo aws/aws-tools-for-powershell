@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class RemoveWSDMContentCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContentId
         /// <summary>
         /// <para>

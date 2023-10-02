@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExportId
         /// <summary>
         /// <para>

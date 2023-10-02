@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class RemoveAFConnectorProfileCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectorProfileName
         /// <summary>
         /// <para>

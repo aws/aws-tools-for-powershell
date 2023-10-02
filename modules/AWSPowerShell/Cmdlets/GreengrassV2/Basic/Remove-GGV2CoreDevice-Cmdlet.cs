@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     public partial class RemoveGGV2CoreDeviceCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CoreDeviceThingName
         /// <summary>
         /// <para>

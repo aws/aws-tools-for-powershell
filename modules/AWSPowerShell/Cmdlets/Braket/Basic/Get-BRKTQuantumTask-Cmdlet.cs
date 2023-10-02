@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     public partial class GetBRKTQuantumTaskCmdlet : AmazonBraketClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalAttributeName
         /// <summary>
         /// <para>

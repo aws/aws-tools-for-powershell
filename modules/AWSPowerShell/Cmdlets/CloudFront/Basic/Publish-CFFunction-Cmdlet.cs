@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class PublishCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IfMatch
         /// <summary>
         /// <para>

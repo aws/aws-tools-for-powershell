@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class GetAUDMControlDomainInsightsByAssessmentListCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssessmentId
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class SendMTRWorkerNotificationCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MessageText
         /// <summary>
         /// <para>

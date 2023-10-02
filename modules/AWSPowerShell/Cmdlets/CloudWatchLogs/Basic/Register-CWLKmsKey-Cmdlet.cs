@@ -88,6 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class RegisterCWLKmsKeyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>

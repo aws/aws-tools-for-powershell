@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class GetSHLDAttackCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttackId
         /// <summary>
         /// <para>

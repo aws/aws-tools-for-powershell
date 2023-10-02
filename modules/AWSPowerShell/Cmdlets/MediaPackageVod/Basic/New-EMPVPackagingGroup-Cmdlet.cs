@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     public partial class NewEMPVPackagingGroupCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Authorization_CdnIdentifierSecret
         /// <summary>
         /// <para>

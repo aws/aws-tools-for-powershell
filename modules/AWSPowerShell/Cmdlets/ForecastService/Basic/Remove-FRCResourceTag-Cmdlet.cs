@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class RemoveFRCResourceTagCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

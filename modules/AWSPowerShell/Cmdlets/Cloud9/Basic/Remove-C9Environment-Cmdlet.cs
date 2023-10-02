@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
     public partial class RemoveC9EnvironmentCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>

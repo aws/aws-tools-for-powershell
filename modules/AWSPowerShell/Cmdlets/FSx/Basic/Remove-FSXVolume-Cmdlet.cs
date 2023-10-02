@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class RemoveFSXVolumeCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OntapConfiguration_BypassSnaplockEnterpriseRetention
         /// <summary>
         /// <para>

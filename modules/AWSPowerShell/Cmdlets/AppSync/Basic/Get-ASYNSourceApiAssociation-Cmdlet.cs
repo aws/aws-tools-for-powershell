@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class GetASYNSourceApiAssociationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

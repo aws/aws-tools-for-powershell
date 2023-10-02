@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEDataQualityRulesetCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TargetTable_CatalogId
         /// <summary>
         /// <para>

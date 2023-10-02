@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class NewR53CidrCollectionCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CallerReference
         /// <summary>
         /// <para>

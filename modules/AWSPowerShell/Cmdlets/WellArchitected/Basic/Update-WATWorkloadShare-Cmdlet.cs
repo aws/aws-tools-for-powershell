@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class UpdateWATWorkloadShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PermissionType
         /// <summary>
         /// <para>

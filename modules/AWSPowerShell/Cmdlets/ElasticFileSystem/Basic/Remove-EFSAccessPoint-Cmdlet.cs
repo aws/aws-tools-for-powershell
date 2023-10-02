@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class RemoveEFSAccessPointCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessPointId
         /// <summary>
         /// <para>

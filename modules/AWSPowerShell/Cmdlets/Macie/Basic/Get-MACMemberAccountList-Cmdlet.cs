@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     public partial class GetMACMemberAccountListCmdlet : AmazonMacieClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

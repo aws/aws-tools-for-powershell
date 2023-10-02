@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class StartEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalInfo
         /// <summary>
         /// <para>

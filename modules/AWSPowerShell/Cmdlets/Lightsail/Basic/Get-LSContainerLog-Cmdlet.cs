@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSContainerLogCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContainerName
         /// <summary>
         /// <para>

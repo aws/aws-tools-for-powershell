@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class RemoveALXBGatewayGroupCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayGroupArn
         /// <summary>
         /// <para>

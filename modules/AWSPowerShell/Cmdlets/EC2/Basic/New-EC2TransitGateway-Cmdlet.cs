@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2TransitGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Options_AmazonSideAsn
         /// <summary>
         /// <para>

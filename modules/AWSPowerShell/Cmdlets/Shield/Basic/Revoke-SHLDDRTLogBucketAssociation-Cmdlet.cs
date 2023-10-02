@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class RevokeSHLDDRTLogBucketAssociationCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogBucket
         /// <summary>
         /// <para>

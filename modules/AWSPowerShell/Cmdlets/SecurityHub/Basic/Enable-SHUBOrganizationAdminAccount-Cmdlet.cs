@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class EnableSHUBOrganizationAdminAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class GetSDOperationListCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

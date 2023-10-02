@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class UnregisterEMCCertificateCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

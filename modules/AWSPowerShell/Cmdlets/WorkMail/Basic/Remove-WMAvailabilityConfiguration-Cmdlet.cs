@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class RemoveWMAvailabilityConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

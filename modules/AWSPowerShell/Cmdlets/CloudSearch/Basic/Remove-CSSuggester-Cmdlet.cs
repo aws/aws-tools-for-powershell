@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public partial class RemoveCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

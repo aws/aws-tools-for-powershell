@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class RemoveAFResourceTagCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class EditDMSReplicationConfigCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeConfig_AvailabilityZone
         /// <summary>
         /// <para>

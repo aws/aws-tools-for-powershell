@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class UpdateEMRStudioCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DefaultS3Location
         /// <summary>
         /// <para>

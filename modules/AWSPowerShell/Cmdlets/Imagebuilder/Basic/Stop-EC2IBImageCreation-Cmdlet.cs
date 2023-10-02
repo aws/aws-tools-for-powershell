@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class StopEC2IBImageCreationCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>

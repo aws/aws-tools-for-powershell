@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.KVSC
     public partial class SendKVSCAlexaOfferToMasterCmdlet : AmazonKinesisVideoSignalingChannelsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelARN
         /// <summary>
         /// <para>

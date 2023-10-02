@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class NewELBLBCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CookieExpirationPeriod
         /// <summary>
         /// <para>

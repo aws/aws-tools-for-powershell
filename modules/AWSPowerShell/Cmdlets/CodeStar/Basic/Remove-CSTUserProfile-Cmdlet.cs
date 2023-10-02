@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class RemoveCSTUserProfileCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UserArn
         /// <summary>
         /// <para>

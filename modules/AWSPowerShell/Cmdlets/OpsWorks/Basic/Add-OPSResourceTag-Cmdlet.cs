@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class AddOPSResourceTagCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

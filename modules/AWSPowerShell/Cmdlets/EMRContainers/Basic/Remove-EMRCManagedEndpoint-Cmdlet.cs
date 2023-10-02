@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public partial class RemoveEMRCManagedEndpointCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

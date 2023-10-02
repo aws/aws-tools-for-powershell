@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMEntitiesForPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EntityFilter
         /// <summary>
         /// <para>

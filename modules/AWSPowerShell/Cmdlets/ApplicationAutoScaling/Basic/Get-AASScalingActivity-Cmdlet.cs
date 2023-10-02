@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public partial class GetAASScalingActivityCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeNotScaledActivity
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class NewBATJobQueueCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeEnvironmentOrder
         /// <summary>
         /// <para>

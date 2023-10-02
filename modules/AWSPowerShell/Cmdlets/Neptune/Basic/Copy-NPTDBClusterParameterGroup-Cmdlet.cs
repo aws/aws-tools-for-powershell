@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class CopyNPTDBClusterParameterGroupCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceDBClusterParameterGroupIdentifier
         /// <summary>
         /// <para>

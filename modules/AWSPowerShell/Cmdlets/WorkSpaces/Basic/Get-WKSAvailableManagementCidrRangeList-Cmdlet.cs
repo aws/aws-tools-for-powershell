@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class GetWKSAvailableManagementCidrRangeListCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ManagementCidrRangeConstraint
         /// <summary>
         /// <para>

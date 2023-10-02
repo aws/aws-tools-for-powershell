@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     public partial class NewPCACertificateAuthorityCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateAuthorityConfiguration
         /// <summary>
         /// <para>

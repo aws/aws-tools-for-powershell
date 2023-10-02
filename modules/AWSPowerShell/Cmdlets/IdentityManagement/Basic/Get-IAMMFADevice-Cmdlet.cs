@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UserName
         /// <summary>
         /// <para>

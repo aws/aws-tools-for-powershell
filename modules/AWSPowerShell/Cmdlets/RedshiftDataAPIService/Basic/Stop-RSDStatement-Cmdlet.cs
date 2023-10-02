@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     public partial class StopRSDStatementCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

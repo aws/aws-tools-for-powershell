@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class UpdateDPTaskRunnerHeartbeatCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Hostname
         /// <summary>
         /// <para>

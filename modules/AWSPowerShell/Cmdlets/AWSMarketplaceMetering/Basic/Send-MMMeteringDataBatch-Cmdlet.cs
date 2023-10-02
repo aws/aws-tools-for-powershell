@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
     public partial class SendMMMeteringDataBatchCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProductCode
         /// <summary>
         /// <para>

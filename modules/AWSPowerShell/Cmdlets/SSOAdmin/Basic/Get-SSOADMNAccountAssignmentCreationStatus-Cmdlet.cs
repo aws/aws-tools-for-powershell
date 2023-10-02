@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     public partial class GetSSOADMNAccountAssignmentCreationStatusCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountAssignmentCreationRequestId
         /// <summary>
         /// <para>

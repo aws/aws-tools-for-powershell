@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class GetKVStreamListCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StreamNameCondition
         /// <summary>
         /// <para>

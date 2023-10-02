@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class DisableEVBEventSourceCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

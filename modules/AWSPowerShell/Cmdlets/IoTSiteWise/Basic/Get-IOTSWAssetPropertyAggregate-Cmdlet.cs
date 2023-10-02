@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class GetIOTSWAssetPropertyAggregateCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AggregateType
         /// <summary>
         /// <para>

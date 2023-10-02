@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class GetCWEEventBusListCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NamePrefix
         /// <summary>
         /// <para>

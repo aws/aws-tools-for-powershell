@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class NewRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>

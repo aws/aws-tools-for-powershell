@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class RemoveWMMobileDeviceAccessRuleCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MobileDeviceAccessRuleId
         /// <summary>
         /// <para>

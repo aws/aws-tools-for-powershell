@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class RemoveOPSResourceTagCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class GetWAFRSqlInjectionMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SqlInjectionMatchSetId
         /// <summary>
         /// <para>

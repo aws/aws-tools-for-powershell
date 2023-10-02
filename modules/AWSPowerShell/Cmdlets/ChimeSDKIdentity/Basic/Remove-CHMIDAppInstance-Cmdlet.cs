@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     public partial class RemoveCHMIDAppInstanceCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

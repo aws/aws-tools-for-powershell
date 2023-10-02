@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdjustmentType
         /// <summary>
         /// <para>

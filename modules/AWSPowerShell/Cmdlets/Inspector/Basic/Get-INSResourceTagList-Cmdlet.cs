@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class GetINSResourceTagListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

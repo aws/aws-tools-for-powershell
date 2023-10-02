@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROAccountSettingCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountSettings'.

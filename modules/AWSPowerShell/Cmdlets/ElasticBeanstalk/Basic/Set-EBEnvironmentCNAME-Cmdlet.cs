@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class SetEBEnvironmentCNAMECmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationEnvironmentId
         /// <summary>
         /// <para>

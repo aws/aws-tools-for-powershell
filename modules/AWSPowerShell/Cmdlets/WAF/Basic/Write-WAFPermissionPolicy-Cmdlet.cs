@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class WriteWAFPermissionPolicyCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

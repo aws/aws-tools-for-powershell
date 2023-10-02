@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     public partial class SetCGIPrincipalTagAttributeMapCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>

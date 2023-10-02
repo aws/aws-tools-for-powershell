@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class GetEKSClusterCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

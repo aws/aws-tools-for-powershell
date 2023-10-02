@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class GetEMCJobListCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Order
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class GetELBLoadBalancerPolicyTypeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyTypeName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class RemoveASYNResourceTagCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

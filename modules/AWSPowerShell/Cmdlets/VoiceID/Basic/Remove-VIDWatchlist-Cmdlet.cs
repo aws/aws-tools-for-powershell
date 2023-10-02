@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
     public partial class RemoveVIDWatchlistCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>

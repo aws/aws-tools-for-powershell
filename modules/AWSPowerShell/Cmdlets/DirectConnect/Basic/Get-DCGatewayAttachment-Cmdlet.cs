@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class GetDCGatewayAttachmentCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>

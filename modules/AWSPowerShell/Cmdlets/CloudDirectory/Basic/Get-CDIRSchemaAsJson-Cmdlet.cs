@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     public partial class GetCDIRSchemaAsJsonCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SchemaArn
         /// <summary>
         /// <para>

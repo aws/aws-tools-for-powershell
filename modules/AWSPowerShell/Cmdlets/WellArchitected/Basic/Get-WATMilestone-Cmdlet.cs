@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATMilestoneCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MilestoneNumber
         /// <summary>
         /// <para>

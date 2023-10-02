@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTSecurityProfileListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DimensionName
         /// <summary>
         /// <para>

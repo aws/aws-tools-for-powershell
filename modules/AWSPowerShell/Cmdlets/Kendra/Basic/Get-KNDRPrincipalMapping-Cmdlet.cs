@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRPrincipalMappingCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataSourceId
         /// <summary>
         /// <para>

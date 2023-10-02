@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     public partial class AddAREXResourceTagCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

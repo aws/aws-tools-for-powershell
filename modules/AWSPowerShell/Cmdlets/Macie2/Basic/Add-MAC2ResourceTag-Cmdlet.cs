@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class AddMAC2ResourceTagCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

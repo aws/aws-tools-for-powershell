@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class UpdateKINStreamModeCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StreamARN
         /// <summary>
         /// <para>

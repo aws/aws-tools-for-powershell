@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class StartNPTDBClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>

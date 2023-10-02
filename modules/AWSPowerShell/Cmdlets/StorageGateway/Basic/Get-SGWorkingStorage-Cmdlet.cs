@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGWorkingStorageCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayARN
         /// <summary>
         /// <para>

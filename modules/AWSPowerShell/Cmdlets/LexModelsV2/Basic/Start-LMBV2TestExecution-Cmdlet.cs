@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class StartLMBV2TestExecutionCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiMode
         /// <summary>
         /// <para>

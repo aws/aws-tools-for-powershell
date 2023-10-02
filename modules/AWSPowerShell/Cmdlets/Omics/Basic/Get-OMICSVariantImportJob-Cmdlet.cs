@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class GetOMICSVariantImportJobCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

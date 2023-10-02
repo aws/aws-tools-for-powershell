@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class StopEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>

@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class RemoveSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataLakeRegions
         /// <summary>
         /// <para>

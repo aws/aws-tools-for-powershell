@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class NewCHMAccountCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

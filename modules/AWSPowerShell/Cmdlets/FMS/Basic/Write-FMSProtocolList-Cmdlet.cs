@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class WriteFMSProtocolListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProtocolsList_CreateTime
         /// <summary>
         /// <para>

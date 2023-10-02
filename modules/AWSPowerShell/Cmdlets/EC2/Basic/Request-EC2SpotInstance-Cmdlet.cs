@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LaunchSpecification_AddressingType
         /// <summary>
         /// <para>

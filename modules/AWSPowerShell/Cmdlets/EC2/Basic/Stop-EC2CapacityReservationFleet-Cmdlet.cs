@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class StopEC2CapacityReservationFleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CapacityReservationFleetId
         /// <summary>
         /// <para>

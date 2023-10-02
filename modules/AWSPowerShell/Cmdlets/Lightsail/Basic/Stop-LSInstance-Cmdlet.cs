@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class StopLSInstanceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OverrideStuck
         /// <summary>
         /// <para>

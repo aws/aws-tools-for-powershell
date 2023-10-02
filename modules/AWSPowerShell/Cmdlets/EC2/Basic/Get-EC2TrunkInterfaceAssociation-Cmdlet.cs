@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2TrunkInterfaceAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

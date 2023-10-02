@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class NewPINEConfigurationSetEventDestinationCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PinpointDestination_ApplicationArn
         /// <summary>
         /// <para>

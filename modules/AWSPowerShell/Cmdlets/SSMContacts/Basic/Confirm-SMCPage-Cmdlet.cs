@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class ConfirmSMCPageCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptCode
         /// <summary>
         /// <para>

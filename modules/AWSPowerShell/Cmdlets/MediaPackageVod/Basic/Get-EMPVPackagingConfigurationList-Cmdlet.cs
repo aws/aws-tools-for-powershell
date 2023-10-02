@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     public partial class GetEMPVPackagingConfigurationListCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PackagingGroupId
         /// <summary>
         /// <para>

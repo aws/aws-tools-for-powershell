@@ -105,6 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class UpdateWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeToken
         /// <summary>
         /// <para>

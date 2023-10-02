@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class WriteECRRegistryPolicyCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyText
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class NewCONNHoursOfOperationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Config
         /// <summary>
         /// <para>

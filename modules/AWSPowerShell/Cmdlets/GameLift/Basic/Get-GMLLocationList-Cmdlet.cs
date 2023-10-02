@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLLocationListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

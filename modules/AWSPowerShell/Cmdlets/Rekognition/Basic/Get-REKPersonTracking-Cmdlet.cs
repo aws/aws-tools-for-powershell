@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKPersonTrackingCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

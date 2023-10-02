@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class StartCWEReplayCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination_Arn
         /// <summary>
         /// <para>

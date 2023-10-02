@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class NewNWFWTLSInspectionConfigurationCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

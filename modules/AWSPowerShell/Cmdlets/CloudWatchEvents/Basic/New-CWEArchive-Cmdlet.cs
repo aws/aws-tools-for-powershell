@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class NewCWEArchiveCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ArchiveName
         /// <summary>
         /// <para>

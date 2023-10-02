@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class PublishSNSBatchCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PublishBatchRequestEntry
         /// <summary>
         /// <para>

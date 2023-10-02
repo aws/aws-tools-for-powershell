@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     public partial class RestoreSWFDomainCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

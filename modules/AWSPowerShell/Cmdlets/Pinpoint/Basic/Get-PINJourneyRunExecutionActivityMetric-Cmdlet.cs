@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class GetPINJourneyRunExecutionActivityMetricCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

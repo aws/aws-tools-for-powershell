@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class SetSESIdentityHeadersInNotificationsEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>

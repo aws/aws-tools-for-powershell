@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public partial class NewLFVModelCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Output_S3Location_Bucket
         /// <summary>
         /// <para>

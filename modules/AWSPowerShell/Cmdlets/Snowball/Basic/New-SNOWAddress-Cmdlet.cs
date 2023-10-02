@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class NewSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Address_AddressId
         /// <summary>
         /// <para>

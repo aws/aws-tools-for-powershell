@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class RemoveCCATAccessTokenCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

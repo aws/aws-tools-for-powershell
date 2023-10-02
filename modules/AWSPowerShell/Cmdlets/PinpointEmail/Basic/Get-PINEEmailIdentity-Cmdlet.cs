@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEEmailIdentityCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>

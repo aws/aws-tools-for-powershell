@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class GetCWLDataProtectionPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogGroupIdentifier
         /// <summary>
         /// <para>

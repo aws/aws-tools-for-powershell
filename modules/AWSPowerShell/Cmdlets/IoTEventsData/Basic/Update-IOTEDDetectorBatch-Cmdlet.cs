@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     public partial class UpdateIOTEDDetectorBatchCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Detector
         /// <summary>
         /// <para>

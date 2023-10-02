@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class RemoveR53RFirewallRuleCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FirewallDomainListId
         /// <summary>
         /// <para>

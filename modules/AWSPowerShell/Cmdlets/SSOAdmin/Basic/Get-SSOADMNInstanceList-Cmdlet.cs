@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     public partial class GetSSOADMNInstanceListCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class UpdateSHLDApplicationLayerAutomaticResponseCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action_Block
         /// <summary>
         /// <para>

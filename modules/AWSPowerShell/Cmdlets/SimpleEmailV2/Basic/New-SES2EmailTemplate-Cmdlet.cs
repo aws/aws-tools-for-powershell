@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class NewSES2EmailTemplateCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateContent_Html
         /// <summary>
         /// <para>

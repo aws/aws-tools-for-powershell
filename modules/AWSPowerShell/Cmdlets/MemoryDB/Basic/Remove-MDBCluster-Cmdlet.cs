@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     public partial class RemoveMDBClusterCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

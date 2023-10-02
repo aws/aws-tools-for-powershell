@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class UpdateCFPublicKeyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PublicKeyConfig_CallerReference
         /// <summary>
         /// <para>

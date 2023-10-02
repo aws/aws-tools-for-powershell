@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class GetSNOWLongTermPricingCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class StartIVSStartViewerSessionRevocationCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ViewerSession
         /// <summary>
         /// <para>

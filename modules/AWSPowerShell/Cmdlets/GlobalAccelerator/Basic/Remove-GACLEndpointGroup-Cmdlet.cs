@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class RemoveGACLEndpointGroupCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndpointGroupArn
         /// <summary>
         /// <para>

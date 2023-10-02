@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class StopSMCompilationJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CompilationJobName
         /// <summary>
         /// <para>

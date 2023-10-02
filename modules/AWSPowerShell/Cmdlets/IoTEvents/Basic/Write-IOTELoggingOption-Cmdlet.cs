@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     public partial class WriteIOTELoggingOptionCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoggingOptions_DetectorDebugOption
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class DisableIAMRAProfileCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProfileId
         /// <summary>
         /// <para>

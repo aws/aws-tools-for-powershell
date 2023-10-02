@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class NewCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OverrideAlarmConfiguration_Alarm
         /// <summary>
         /// <para>

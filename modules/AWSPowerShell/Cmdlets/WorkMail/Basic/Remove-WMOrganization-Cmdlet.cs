@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class RemoveWMOrganizationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteDirectory
         /// <summary>
         /// <para>

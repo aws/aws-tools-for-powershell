@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class NewIVSCRoomCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MessageReviewHandler_FallbackResult
         /// <summary>
         /// <para>

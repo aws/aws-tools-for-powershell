@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRSecurityPolicyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SecurityPolicyName
         /// <summary>
         /// <para>

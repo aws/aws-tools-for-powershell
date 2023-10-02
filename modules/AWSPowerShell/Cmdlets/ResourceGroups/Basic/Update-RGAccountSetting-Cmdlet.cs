@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
     public partial class UpdateRGAccountSettingCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupLifecycleEventsDesiredStatus
         /// <summary>
         /// <para>

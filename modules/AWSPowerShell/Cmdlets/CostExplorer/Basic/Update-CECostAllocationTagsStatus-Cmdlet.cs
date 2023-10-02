@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class UpdateCECostAllocationTagsStatusCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CostAllocationTagsStatus
         /// <summary>
         /// <para>

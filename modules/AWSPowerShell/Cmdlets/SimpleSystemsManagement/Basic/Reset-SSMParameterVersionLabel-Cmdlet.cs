@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class ResetSSMParameterVersionLabelCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Label
         /// <summary>
         /// <para>

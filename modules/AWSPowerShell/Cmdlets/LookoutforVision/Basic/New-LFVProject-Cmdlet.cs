@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public partial class NewLFVProjectCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>

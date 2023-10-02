@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class StartOMICSVariantImportJobCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnnotationField
         /// <summary>
         /// <para>

@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class GetKMSAliasListCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>

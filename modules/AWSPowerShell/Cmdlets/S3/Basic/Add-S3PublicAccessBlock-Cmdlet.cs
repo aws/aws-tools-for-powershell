@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class AddS3PublicAccessBlockCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PublicAccessBlockConfiguration_BlockPublicAcl
         /// <summary>
         /// <para>

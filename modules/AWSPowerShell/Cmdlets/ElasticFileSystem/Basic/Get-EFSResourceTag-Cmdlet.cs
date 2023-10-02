@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class GetEFSResourceTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreateVolumePermission_Add
         /// <summary>
         /// <para>

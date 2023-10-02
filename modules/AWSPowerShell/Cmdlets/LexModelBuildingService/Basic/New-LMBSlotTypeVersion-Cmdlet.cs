@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class NewLMBSlotTypeVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Checksum
         /// <summary>
         /// <para>

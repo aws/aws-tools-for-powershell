@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class GetMTRHITListCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

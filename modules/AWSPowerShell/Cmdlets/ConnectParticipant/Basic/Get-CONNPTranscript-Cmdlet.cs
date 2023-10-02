@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     public partial class GetCONNPTranscriptCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StartPosition_AbsoluteTime
         /// <summary>
         /// <para>

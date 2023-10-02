@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class NewRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>

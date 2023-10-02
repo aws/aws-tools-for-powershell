@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RemoveCHMAttendeeCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttendeeId
         /// <summary>
         /// <para>

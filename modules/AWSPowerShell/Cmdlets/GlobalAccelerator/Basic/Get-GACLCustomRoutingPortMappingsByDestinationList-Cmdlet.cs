@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class GetGACLCustomRoutingPortMappingsByDestinationListCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationAddress
         /// <summary>
         /// <para>

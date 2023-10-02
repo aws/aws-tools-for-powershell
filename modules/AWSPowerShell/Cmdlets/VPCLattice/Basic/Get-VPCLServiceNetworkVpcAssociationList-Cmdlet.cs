@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class GetVPCLServiceNetworkVpcAssociationListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceNetworkIdentifier
         /// <summary>
         /// <para>

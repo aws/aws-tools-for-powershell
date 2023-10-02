@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     public partial class GetTXTLendingAnalysisSummaryCmdlet : AmazonTextractClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

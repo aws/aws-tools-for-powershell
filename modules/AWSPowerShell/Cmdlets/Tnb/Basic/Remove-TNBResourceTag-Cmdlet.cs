@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class RemoveTNBResourceTagCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

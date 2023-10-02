@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class GetCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PasswordPolicy_AdditionalConstraint
         /// <summary>
         /// <para>

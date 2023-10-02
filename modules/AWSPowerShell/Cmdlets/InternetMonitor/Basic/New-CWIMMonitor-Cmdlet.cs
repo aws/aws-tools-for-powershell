@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     public partial class NewCWIMMonitorCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HealthEventsConfig_AvailabilityScoreThreshold
         /// <summary>
         /// <para>

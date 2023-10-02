@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class UpdateAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributesToDelete
         /// <summary>
         /// <para>

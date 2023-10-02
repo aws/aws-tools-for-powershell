@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMHyperParameterTuningJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlgorithmSpecification_AlgorithmName
         /// <summary>
         /// <para>

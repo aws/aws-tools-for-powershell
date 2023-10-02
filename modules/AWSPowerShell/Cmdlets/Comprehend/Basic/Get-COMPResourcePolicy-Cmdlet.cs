@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPResourcePolicyCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

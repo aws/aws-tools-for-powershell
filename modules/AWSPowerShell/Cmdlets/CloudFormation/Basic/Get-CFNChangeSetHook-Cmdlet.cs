@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNChangeSetHookCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeSetName
         /// <summary>
         /// <para>

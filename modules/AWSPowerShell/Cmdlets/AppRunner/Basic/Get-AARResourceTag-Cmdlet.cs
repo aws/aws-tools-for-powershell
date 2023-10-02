@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class GetAARResourceTagCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

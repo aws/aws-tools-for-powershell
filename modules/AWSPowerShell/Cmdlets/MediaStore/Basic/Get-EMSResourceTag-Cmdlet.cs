@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     public partial class GetEMSResourceTagCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Resource
         /// <summary>
         /// <para>

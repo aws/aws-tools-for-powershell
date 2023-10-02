@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VpcPeeringConnectionOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc
         /// <summary>
         /// <para>

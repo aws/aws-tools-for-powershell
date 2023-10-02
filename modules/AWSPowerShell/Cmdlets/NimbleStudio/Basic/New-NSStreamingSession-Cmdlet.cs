@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class NewNSStreamingSessionCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ec2InstanceType
         /// <summary>
         /// <para>

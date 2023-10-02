@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OpsItemArn
         /// <summary>
         /// <para>

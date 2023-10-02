@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     public partial class GetAMMApplicationListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>

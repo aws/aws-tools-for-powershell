@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class GetDFDevicePoolCompatibilityCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomerArtifactPaths_AndroidPath
         /// <summary>
         /// <para>

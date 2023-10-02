@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class GetGGGroupCertificateAuthorityCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateAuthorityId
         /// <summary>
         /// <para>

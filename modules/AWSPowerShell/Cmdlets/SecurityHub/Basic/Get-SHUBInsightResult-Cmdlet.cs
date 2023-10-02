@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class GetSHUBInsightResultCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InsightArn
         /// <summary>
         /// <para>

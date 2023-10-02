@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class ConvertRAMPolicyBasedResourceShareToPromotedCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>

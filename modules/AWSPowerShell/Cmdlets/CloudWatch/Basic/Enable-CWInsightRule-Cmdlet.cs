@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     public partial class EnableCWInsightRuleCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleName
         /// <summary>
         /// <para>

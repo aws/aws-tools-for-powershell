@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class EditSSMDocumentPermissionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountIdsToAdd
         /// <summary>
         /// <para>

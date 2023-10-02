@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class GetCCATAccessTokenListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

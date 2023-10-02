@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     public partial class RemoveIOTFHApplicationCmdlet : AmazonIoTFleetHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

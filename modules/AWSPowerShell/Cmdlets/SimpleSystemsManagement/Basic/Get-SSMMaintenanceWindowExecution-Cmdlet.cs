@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMMaintenanceWindowExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WindowExecutionId
         /// <summary>
         /// <para>

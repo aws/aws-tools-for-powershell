@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class UnregisterFSXFileSystemAliasCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Alias
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class UpdateLSDistributionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CacheBehaviorSettings_AllowedHTTPMethod
         /// <summary>
         /// <para>

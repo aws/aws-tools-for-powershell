@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class GetWKSConnectionAliasCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasId
         /// <summary>
         /// <para>

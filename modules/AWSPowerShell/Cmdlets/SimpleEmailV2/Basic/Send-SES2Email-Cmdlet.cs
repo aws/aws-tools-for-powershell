@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class SendSES2EmailCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination_BccAddress
         /// <summary>
         /// <para>

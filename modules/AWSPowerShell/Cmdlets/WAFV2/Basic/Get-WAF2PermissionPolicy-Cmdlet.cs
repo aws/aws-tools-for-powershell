@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class GetWAF2PermissionPolicyCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

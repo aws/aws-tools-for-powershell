@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class EditLOCPlaceIndexCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

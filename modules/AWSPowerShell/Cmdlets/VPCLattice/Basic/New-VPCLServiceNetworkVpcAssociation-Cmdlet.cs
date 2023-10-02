@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class NewVPCLServiceNetworkVpcAssociationCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>

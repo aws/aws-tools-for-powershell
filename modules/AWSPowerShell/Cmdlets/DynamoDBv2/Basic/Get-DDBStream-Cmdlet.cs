@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>

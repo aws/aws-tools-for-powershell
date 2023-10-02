@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class UpdateCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BranchFilter
         /// <summary>
         /// <para>

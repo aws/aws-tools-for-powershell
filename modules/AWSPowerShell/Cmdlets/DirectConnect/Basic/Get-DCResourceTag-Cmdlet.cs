@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class GetDCResourceTagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

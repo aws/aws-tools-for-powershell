@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class GetALXBGatewayCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayArn
         /// <summary>
         /// <para>

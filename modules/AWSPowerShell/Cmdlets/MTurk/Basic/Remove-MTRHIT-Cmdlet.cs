@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class RemoveMTRHITCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HITId
         /// <summary>
         /// <para>

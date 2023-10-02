@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class NewLICMLicenseVersionCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BorrowConfiguration_AllowEarlyCheckIn
         /// <summary>
         /// <para>

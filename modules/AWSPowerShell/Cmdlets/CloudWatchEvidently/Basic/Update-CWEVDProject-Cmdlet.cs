@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     public partial class UpdateCWEVDProjectCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppConfigResource_ApplicationId
         /// <summary>
         /// <para>

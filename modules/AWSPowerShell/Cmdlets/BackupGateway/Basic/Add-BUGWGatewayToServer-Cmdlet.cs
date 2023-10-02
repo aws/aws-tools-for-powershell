@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class AddBUGWGatewayToServerCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayArn
         /// <summary>
         /// <para>

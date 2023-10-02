@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSFleetAdvisorSchemaCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

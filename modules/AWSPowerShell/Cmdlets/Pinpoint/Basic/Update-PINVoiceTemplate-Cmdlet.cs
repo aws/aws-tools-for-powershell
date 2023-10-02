@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class UpdatePINVoiceTemplateCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VoiceTemplateRequest_Body
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2ClientVpnRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientVpnEndpointId
         /// <summary>
         /// <para>

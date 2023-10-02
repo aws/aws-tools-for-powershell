@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FinalSnapshotName
         /// <summary>
         /// <para>

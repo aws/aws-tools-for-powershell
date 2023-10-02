@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class SetDPTaskStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ErrorId
         /// <summary>
         /// <para>

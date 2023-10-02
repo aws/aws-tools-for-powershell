@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class RemoveALXBUserCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnrollmentId
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class RemoveSLKDataLakeOrganizationConfigurationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoEnableNewAccount
         /// <summary>
         /// <para>

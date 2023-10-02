@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public partial class GetLFVDatasetCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetType
         /// <summary>
         /// <para>

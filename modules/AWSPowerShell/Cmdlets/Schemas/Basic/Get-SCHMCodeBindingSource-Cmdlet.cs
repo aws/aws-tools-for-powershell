@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public partial class GetSCHMCodeBindingSourceCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Language
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     public partial class GetCWMetricStreamCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

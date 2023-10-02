@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class NewIVSRecordingConfigurationCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>

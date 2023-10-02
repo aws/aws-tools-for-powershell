@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class ImportCOMPModelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>

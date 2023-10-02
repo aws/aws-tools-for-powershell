@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class GetPINTemplateListCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Prefix
         /// <summary>
         /// <para>

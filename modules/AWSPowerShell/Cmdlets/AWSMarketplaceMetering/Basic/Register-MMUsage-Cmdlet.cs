@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
     public partial class RegisterMMUsageCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Nonce
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     public partial class NewAMMApplicationCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Definition_Content
         /// <summary>
         /// <para>

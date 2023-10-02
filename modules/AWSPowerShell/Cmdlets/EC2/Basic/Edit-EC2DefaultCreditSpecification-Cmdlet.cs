@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2DefaultCreditSpecificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CpuCredit
         /// <summary>
         /// <para>

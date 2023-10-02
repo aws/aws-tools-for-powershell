@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     public partial class RemoveCWRUMResourceTagCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

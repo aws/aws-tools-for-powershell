@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class RemoveOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServerName
         /// <summary>
         /// <para>

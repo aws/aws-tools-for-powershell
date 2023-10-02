@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class WriteCHMMGChannelExpirationSettingCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

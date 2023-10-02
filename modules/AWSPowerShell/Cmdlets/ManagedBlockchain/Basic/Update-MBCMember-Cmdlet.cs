@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class UpdateMBCMemberCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cloudwatch_Enabled
         /// <summary>
         /// <para>

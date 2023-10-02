@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKDatasetCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetArn
         /// <summary>
         /// <para>

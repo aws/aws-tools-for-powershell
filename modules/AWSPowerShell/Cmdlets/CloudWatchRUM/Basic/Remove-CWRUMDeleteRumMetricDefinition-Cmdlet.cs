@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     public partial class RemoveCWRUMDeleteRumMetricDefinitionCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppMonitorName
         /// <summary>
         /// <para>

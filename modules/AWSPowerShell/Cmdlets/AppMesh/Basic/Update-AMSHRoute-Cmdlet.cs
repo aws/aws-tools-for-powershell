@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class UpdateAMSHRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Spec_Http2Route_Match_Path_Exact
         /// <summary>
         /// <para>

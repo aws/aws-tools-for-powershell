@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNQueueHoursOfOperationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HoursOfOperationId
         /// <summary>
         /// <para>

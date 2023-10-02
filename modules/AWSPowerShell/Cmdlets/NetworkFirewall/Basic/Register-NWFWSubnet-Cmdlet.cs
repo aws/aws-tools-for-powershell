@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class RegisterNWFWSubnetCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FirewallArn
         /// <summary>
         /// <para>

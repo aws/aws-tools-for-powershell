@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class NewOSReservedInstanceOfferingCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceCount
         /// <summary>
         /// <para>

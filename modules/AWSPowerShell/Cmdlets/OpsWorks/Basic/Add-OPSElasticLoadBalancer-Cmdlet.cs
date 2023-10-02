@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class AddOPSElasticLoadBalancerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ElasticLoadBalancerName
         /// <summary>
         /// <para>

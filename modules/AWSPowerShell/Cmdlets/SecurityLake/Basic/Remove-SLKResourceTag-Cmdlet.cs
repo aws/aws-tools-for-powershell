@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class RemoveSLKResourceTagCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

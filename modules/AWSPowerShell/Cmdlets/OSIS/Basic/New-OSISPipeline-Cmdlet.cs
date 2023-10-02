@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
     public partial class NewOSISPipelineCmdlet : AmazonOSISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogPublishingOptions_IsLoggingEnabled
         /// <summary>
         /// <para>

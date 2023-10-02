@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class GetESReservedElasticsearchInstanceOfferingListCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReservedElasticsearchInstanceOfferingId
         /// <summary>
         /// <para>

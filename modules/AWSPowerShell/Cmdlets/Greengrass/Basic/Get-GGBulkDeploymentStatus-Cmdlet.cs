@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class GetGGBulkDeploymentStatusCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BulkDeploymentId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class RemoveSSMParameterCollectionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

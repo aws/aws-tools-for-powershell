@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNPhoneNumberListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

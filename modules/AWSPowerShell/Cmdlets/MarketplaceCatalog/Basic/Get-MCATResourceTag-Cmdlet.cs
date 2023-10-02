@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     public partial class GetMCATResourceTagCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

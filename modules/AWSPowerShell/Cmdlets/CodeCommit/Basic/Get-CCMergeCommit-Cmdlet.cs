@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCMergeCommitCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConflictDetailLevel
         /// <summary>
         /// <para>

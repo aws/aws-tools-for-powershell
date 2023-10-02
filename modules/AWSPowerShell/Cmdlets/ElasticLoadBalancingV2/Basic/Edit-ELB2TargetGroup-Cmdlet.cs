@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class EditELB2TargetGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Matcher_GrpcCode
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class StartEMRNotebookExecutionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotebookS3Location_Bucket
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class GetWAFRChangeTokenStatusCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeToken
         /// <summary>
         /// <para>

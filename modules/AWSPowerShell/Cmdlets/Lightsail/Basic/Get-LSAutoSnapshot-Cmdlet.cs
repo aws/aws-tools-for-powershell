@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSAutoSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>

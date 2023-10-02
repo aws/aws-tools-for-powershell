@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class RemoveSGTapePoolCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PoolARN
         /// <summary>
         /// <para>

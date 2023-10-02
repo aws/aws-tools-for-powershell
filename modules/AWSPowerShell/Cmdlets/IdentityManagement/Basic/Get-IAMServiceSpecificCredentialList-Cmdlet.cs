@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMServiceSpecificCredentialListCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceName
         /// <summary>
         /// <para>

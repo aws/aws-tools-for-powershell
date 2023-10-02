@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     public partial class StopSDMSTaskCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TaskId
         /// <summary>
         /// <para>

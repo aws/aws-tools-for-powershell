@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class ApproveMAC2InvitationCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdministratorAccountId
         /// <summary>
         /// <para>

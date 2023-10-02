@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class WriteCOMPResourcePolicyCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyRevisionId
         /// <summary>
         /// <para>

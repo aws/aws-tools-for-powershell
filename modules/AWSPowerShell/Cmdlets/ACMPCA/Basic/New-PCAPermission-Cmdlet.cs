@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     public partial class NewPCAPermissionCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

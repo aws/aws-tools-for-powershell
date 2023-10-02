@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class WriteECRReplicationConfigurationCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplicationConfiguration_Rule
         /// <summary>
         /// <para>

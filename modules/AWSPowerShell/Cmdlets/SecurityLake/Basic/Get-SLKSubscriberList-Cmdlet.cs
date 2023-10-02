@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class GetSLKSubscriberListCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     public partial class GetHSMAvailableZoneCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AZList'.

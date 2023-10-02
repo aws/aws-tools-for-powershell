@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class GetCGIPUserPoolCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>

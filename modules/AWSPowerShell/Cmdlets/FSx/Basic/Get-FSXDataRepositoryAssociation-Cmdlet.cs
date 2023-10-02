@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class GetFSXDataRepositoryAssociationCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

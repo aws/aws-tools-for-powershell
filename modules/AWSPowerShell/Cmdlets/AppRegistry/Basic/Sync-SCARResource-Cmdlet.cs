@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     public partial class SyncSCARResourceCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Resource
         /// <summary>
         /// <para>

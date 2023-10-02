@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

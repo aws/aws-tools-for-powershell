@@ -84,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Definition
         /// <summary>
         /// <para>

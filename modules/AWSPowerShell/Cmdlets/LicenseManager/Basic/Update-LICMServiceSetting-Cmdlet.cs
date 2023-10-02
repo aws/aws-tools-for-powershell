@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class UpdateLICMServiceSettingCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnableCrossAccountsDiscovery
         /// <summary>
         /// <para>

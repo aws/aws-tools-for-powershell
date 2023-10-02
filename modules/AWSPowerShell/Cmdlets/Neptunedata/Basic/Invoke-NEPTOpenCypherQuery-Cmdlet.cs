@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class InvokeNEPTOpenCypherQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OpenCypherQuery
         /// <summary>
         /// <para>

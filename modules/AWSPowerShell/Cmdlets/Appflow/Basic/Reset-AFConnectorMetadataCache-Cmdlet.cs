@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class ResetAFConnectorMetadataCacheCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiVersion
         /// <summary>
         /// <para>

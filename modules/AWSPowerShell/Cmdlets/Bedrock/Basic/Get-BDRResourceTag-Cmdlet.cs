@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class GetBDRResourceTagCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

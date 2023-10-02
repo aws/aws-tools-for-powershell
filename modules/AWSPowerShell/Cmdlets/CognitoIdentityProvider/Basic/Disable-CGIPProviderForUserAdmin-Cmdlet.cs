@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class DisableCGIPProviderForUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter User_ProviderAttributeName
         /// <summary>
         /// <para>

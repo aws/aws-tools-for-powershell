@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class StopSMHyperParameterTuningJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HyperParameterTuningJobName
         /// <summary>
         /// <para>

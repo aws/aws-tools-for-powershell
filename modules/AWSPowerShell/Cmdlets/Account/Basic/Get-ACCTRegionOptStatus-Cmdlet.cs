@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     public partial class GetACCTRegionOptStatusCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

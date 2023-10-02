@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class NewDSYNLocationNfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OnPremConfig_AgentArn
         /// <summary>
         /// <para>

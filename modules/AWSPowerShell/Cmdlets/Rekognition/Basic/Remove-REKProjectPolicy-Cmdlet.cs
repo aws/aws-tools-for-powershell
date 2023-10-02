@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class RemoveREKProjectPolicyCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyName
         /// <summary>
         /// <para>

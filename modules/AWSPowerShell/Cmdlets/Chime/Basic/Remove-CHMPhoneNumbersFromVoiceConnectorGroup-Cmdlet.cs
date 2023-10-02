@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RemoveCHMPhoneNumbersFromVoiceConnectorGroupCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter E164PhoneNumber
         /// <summary>
         /// <para>

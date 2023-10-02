@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUResourceCollectionCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceCollectionType
         /// <summary>
         /// <para>

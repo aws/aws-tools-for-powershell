@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     public partial class GetKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyspaceName
         /// <summary>
         /// <para>

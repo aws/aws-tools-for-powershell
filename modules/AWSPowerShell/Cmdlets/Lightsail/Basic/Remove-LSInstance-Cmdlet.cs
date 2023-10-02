@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSInstanceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForceDeleteAddOn
         /// <summary>
         /// <para>

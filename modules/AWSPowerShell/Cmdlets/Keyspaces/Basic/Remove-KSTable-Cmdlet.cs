@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     public partial class RemoveKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyspaceName
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class NewWKSIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupDesc
         /// <summary>
         /// <para>

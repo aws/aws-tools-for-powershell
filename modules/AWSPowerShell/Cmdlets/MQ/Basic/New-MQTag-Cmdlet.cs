@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class NewMQTagCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

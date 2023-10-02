@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class NewKNDRThesaurusCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceS3Path_Bucket
         /// <summary>
         /// <para>

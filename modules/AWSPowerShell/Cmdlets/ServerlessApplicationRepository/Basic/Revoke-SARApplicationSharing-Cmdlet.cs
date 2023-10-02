@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     public partial class RevokeSARApplicationSharingCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

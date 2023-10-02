@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
     public partial class RemoveOSISPipelineCmdlet : AmazonOSISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PipelineName
         /// <summary>
         /// <para>

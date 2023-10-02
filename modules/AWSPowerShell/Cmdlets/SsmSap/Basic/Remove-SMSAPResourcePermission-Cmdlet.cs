@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     public partial class RemoveSMSAPResourcePermissionCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionType
         /// <summary>
         /// <para>

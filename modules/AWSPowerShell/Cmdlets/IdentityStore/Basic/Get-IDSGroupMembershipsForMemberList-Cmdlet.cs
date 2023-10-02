@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public partial class GetIDSGroupMembershipsForMemberListCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>

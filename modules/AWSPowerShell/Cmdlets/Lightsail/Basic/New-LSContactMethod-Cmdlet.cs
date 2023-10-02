@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSContactMethodCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactEndpoint
         /// <summary>
         /// <para>

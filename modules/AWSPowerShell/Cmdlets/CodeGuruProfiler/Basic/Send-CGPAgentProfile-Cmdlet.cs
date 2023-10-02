@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class SendCGPAgentProfileCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentProfile
         /// <summary>
         /// <para>

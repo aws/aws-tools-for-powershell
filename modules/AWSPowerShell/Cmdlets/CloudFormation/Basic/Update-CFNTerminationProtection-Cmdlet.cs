@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class UpdateCFNTerminationProtectionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnableTerminationProtection
         /// <summary>
         /// <para>

@@ -77,6 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class FindCTEventCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

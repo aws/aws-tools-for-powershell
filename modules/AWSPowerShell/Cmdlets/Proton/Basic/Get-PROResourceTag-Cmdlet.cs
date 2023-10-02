@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROResourceTagCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

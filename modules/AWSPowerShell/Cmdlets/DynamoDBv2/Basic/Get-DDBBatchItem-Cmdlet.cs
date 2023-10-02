@@ -91,6 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBBatchItemCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RequestItem
         /// <summary>
         /// <para>

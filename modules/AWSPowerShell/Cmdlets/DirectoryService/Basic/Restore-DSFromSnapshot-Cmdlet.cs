@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class RestoreDSFromSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SnapshotId
         /// <summary>
         /// <para>

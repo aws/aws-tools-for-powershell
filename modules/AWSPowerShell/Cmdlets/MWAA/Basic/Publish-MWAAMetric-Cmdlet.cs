@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public partial class PublishMWAAMetricCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>

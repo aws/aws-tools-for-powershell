@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Percentage_AssociatedValue
         /// <summary>
         /// <para>

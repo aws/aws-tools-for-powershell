@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class GetR53TrafficPolicyListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxItem
         /// <summary>
         /// <para>

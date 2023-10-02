@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class NewINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceGroupTag
         /// <summary>
         /// <para>

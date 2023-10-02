@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class SetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

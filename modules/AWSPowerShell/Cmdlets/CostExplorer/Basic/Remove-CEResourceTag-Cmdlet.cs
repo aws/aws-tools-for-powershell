@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class RemoveCEResourceTagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

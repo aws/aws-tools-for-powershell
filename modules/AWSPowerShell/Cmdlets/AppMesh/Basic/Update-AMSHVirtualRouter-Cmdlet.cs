@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class UpdateAMSHVirtualRouterCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>

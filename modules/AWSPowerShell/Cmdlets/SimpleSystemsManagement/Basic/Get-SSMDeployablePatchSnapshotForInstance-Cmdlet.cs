@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BaselineOverride_ApprovedPatch
         /// <summary>
         /// <para>

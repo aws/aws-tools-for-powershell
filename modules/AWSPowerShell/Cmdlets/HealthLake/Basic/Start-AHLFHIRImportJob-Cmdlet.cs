@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     public partial class StartAHLFHIRImportJobCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>

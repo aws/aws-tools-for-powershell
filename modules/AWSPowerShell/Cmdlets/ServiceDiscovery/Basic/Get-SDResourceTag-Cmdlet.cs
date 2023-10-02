@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class GetSDResourceTagCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

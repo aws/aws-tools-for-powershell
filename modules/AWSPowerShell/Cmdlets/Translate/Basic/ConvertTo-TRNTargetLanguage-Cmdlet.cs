@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class ConvertToTRNTargetLanguageCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Settings_Formality
         /// <summary>
         /// <para>

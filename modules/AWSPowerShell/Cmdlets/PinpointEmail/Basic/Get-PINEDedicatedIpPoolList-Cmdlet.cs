@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEDedicatedIpPoolListCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

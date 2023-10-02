@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class NewTFRAgreementCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessRole
         /// <summary>
         /// <para>

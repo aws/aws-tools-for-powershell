@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
     public partial class GetC9EnvironmentMembershipListCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>

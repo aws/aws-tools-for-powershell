@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StudioId
         /// <summary>
         /// <para>

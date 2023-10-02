@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class RemoveAARVpcConnectorCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VpcConnectorArn
         /// <summary>
         /// <para>

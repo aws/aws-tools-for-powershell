@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     public partial class GetPLSPriceListFileUrlCmdlet : AmazonPricingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FileFormat
         /// <summary>
         /// <para>

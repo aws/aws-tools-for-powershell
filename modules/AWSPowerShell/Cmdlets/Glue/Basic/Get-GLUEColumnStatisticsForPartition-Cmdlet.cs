@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEColumnStatisticsForPartitionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>

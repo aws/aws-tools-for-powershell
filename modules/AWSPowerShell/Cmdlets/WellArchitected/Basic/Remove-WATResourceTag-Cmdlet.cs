@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class RemoveWATResourceTagCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TagKey
         /// <summary>
         /// <para>

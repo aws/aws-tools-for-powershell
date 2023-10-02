@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class GetFMSMemberAccountListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

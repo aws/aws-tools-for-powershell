@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class GetDTCTOrganizationAdminAccountListCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

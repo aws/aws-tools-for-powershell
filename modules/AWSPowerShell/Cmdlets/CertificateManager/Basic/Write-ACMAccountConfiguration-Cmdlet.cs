@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     public partial class WriteACMAccountConfigurationCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExpiryEvents_DaysBeforeExpiry
         /// <summary>
         /// <para>

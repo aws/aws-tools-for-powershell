@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class RemovePV5GNetworkSiteCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NetworkSiteArn
         /// <summary>
         /// <para>

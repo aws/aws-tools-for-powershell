@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     public partial class RestartMSKBrokerCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BrokerId
         /// <summary>
         /// <para>

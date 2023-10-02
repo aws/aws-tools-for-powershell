@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     public partial class GetMPV2OriginEndpointCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelGroupName
         /// <summary>
         /// <para>

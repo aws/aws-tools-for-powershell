@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class RemoveFRCDatasetImportJobCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetImportJobArn
         /// <summary>
         /// <para>

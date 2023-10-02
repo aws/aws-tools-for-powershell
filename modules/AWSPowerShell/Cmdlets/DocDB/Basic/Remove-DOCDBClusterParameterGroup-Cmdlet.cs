@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class RemoveDOCDBClusterParameterGroupCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>

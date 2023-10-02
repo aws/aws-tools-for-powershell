@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class TestIAMPrincipalPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionName
         /// <summary>
         /// <para>

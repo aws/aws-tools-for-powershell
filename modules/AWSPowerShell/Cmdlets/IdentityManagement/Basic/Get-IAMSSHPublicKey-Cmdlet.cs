@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Encoding
         /// <summary>
         /// <para>

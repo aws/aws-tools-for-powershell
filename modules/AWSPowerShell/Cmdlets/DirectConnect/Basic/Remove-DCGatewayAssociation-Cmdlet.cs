@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class RemoveDCGatewayAssociationCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

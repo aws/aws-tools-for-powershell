@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class AddFDResourceTagCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

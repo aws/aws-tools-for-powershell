@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     public partial class NewAFABIngestionDestinationCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppBundleIdentifier
         /// <summary>
         /// <para>

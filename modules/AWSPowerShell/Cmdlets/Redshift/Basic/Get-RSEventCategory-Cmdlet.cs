@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSEventCategoryCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceType
         /// <summary>
         /// <para>

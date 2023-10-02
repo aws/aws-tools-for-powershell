@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATLensShareListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LensAlias
         /// <summary>
         /// <para>

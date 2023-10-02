@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class UpdateKVImageGenerationConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationConfig_DestinationRegion
         /// <summary>
         /// <para>

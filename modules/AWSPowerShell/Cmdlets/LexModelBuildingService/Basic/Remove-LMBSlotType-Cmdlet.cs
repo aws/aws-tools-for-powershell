@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class RemoveLMBSlotTypeCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

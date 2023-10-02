@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class StartCOMPDominantLanguageDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

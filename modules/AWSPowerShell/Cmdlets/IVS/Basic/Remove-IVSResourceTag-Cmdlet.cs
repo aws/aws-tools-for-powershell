@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class RemoveIVSResourceTagCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

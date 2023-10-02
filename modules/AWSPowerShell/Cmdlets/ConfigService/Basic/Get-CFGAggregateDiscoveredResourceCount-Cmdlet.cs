@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGAggregateDiscoveredResourceCountCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_AccountId
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEDeliverabilityTestReportCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReportId
         /// <summary>
         /// <para>

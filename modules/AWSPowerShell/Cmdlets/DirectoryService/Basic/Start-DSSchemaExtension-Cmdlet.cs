@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class StartDSSchemaExtensionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreateSnapshotBeforeSchemaExtension
         /// <summary>
         /// <para>

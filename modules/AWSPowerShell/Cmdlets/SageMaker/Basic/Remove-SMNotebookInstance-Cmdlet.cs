@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class RemoveSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotebookInstanceName
         /// <summary>
         /// <para>

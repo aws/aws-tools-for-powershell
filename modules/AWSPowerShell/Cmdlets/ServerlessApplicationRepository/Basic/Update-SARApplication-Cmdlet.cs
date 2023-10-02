@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     public partial class UpdateSARApplicationCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

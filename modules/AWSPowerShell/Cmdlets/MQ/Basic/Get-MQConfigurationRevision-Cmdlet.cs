@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class GetMQConfigurationRevisionCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>

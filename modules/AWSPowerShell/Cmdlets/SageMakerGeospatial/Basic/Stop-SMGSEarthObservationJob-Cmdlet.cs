@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     public partial class StopSMGSEarthObservationJobCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

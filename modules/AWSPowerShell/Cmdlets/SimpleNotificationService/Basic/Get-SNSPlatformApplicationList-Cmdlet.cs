@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class GetSNSPlatformApplicationListCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

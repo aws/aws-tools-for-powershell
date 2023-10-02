@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GMESP
     public partial class GetGMESPExtensionListCmdlet : AmazonGameSparksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

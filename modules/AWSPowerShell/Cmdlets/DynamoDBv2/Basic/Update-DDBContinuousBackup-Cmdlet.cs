@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class UpdateDDBContinuousBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled
         /// <summary>
         /// <para>

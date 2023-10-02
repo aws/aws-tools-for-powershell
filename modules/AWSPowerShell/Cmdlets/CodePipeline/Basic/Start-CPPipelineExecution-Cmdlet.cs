@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class StartCPPipelineExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     public partial class RevokePCACertificateCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class WriteCBResourcePolicyCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

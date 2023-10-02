@@ -87,6 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class WriteEFSLifecycleConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FileSystemId
         /// <summary>
         /// <para>

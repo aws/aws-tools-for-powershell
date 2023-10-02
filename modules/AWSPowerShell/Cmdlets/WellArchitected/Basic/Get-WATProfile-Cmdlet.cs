@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATProfileCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProfileArn
         /// <summary>
         /// <para>

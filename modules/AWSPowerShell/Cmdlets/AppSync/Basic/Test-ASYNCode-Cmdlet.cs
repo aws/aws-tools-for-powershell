@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class TestASYNCodeCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Code
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
     public partial class GetWMMFRawMessageContentCmdlet : AmazonWorkMailMessageFlowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MessageId
         /// <summary>
         /// <para>

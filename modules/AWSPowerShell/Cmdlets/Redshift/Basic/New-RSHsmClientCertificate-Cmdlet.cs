@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class NewRSHsmClientCertificateCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>

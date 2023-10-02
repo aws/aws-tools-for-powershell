@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMAutoMLJobV2Cmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Transformations_Aggregation
         /// <summary>
         /// <para>

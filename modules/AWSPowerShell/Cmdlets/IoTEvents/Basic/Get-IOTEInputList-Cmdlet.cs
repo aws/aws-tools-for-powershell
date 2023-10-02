@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     public partial class GetIOTEInputListCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

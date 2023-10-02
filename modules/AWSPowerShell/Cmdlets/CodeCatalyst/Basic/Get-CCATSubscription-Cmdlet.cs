@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class GetCCATSubscriptionCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SpaceName
         /// <summary>
         /// <para>

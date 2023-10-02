@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     public partial class GetCWOAMSinkListCmdlet : AmazonOAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

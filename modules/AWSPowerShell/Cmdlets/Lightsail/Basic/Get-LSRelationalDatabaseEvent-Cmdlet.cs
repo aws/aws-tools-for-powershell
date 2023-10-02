@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSRelationalDatabaseEventCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DurationInMinute
         /// <summary>
         /// <para>

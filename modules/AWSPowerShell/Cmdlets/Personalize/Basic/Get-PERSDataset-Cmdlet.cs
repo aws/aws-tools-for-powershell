@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSDatasetCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetArn
         /// <summary>
         /// <para>

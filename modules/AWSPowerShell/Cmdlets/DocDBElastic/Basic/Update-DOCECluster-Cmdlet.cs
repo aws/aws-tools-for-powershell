@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdminUserPassword
         /// <summary>
         /// <para>

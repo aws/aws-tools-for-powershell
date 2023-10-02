@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNTrafficDistributionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

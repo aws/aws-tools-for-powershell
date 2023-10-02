@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class GetR53RResourceTagListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

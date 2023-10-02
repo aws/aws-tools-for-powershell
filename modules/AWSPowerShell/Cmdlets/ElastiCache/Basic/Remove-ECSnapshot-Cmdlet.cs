@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class RemoveECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SnapshotName
         /// <summary>
         /// <para>

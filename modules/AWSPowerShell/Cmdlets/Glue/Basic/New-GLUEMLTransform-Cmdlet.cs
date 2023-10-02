@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEMLTransformCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FindMatchesParameters_AccuracyCostTradeoff
         /// <summary>
         /// <para>

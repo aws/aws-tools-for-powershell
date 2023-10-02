@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class AddSHLDHealthCheckCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HealthCheckArn
         /// <summary>
         /// <para>

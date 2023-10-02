@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class GetLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

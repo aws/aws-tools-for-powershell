@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class RestartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Request
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class GetCPFCalculatedAttributeForProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CalculatedAttributeName
         /// <summary>
         /// <para>

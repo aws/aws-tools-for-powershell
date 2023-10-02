@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class GetR53RResolverQueryLogConfigCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResolverQueryLogConfigId
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMPatchGroupStateCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PatchGroup
         /// <summary>
         /// <para>

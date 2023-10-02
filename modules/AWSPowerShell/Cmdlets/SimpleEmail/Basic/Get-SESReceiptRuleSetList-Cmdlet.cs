@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class GetSESReceiptRuleSetListCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

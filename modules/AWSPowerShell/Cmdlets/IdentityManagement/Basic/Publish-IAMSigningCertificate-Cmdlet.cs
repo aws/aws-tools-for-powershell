@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class PublishIAMSigningCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateBody
         /// <summary>
         /// <para>

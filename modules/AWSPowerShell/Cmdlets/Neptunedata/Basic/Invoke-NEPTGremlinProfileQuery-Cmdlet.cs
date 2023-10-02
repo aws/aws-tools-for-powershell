@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class InvokeNEPTGremlinProfileQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Chop
         /// <summary>
         /// <para>

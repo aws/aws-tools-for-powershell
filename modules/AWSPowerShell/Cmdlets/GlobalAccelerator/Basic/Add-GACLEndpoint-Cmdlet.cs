@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class AddGACLEndpointCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndpointConfiguration
         /// <summary>
         /// <para>

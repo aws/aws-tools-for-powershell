@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class AddLMLayerVersionPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RemoveRDSDBInstanceAutomatedBackupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBInstanceAutomatedBackupsArn
         /// <summary>
         /// <para>

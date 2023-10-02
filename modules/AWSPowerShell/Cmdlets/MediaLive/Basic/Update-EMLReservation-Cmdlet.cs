@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class UpdateEMLReservationCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RenewalSettings_AutomaticRenewal
         /// <summary>
         /// <para>

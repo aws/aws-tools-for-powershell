@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class FindREKTextCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageBucket
         /// <summary>
         /// <para>

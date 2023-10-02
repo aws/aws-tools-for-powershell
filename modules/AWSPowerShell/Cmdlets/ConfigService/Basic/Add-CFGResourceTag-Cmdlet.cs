@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class AddCFGResourceTagCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

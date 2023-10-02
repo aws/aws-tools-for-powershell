@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class GetAARVpcConnectorListCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

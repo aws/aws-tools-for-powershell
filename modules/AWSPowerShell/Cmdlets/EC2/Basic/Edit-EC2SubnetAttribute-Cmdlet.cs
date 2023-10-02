@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2SubnetAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssignIpv6AddressOnCreation
         /// <summary>
         /// <para>

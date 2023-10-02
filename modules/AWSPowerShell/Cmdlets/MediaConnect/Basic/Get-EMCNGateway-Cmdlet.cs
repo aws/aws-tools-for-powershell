@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class GetEMCNGatewayCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GatewayArn
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class GetWAFIPSetListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Limit
         /// <summary>
         /// <para>

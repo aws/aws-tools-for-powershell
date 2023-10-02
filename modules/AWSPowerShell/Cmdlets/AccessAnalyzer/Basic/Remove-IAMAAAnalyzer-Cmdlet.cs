@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     public partial class RemoveIAMAAAnalyzerCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnalyzerName
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class RemoveLOCTrackerCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TrackerName
         /// <summary>
         /// <para>

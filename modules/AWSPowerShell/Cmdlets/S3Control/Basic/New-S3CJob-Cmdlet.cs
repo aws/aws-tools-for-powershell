@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     public partial class NewS3CJobCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3PutObjectCopy_AccessControlGrant
         /// <summary>
         /// <para>

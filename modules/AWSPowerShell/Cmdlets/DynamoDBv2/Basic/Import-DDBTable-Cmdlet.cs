@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class ImportDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TableCreationParameters_AttributeDefinition
         /// <summary>
         /// <para>

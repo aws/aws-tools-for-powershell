@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class RemoveAUDMControlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ControlId
         /// <summary>
         /// <para>

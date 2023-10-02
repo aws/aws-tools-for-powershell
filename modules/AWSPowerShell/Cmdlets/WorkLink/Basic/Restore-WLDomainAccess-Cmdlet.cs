@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class RestoreWLDomainAccessCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

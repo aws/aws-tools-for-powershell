@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class GetPV5GNetworkListCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

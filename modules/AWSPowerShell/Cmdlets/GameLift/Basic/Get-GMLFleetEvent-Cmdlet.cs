@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLFleetEventCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

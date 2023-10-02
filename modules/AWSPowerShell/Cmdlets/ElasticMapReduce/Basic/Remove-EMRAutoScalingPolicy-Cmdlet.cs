@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class RemoveEMRAutoScalingPolicyCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterId
         /// <summary>
         /// <para>

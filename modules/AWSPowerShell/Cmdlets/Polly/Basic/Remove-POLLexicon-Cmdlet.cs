@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public partial class RemovePOLLexiconCmdlet : AmazonPollyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

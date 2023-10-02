@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class UpdateKVNotificationConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotificationConfiguration_Status
         /// <summary>
         /// <para>

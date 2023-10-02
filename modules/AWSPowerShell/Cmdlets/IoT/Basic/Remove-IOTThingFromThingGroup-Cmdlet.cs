@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class RemoveIOTThingFromThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ThingArn
         /// <summary>
         /// <para>

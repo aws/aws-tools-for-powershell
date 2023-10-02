@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class NewIOTWMulticastGroupCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

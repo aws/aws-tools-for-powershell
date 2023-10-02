@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class AddVPCLResourceTagCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

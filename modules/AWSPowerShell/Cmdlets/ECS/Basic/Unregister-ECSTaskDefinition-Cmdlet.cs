@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UnregisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>

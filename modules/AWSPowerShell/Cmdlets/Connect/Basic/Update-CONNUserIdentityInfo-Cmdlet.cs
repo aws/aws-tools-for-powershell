@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNUserIdentityInfoCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityInfo
         /// <summary>
         /// <para>

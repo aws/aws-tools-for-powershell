@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class ImportEC2IBVmImageCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

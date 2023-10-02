@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class UpdateNWFWFirewallPolicyChangeProtectionCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FirewallArn
         /// <summary>
         /// <para>

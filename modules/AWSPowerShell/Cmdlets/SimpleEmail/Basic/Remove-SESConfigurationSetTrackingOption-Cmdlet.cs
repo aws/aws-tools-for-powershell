@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class RemoveSESConfigurationSetTrackingOptionCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>

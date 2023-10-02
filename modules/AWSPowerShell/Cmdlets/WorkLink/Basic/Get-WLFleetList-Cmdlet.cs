@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class GetWLFleetListCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

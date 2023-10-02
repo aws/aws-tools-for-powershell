@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class GetADSImportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

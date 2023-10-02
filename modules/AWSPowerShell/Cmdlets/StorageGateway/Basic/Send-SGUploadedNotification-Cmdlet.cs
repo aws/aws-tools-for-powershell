@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class SendSGUploadedNotificationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FileShareARN
         /// <summary>
         /// <para>

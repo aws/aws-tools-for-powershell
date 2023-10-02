@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class GetCWAIObservationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

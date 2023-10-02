@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     public partial class GetMBCQTransactionListCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Address
         /// <summary>
         /// <para>

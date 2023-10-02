@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     public partial class AddCWSYNResourceTagCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

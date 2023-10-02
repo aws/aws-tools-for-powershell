@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class RemoveKNDRDocumentBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataSourceSyncJobMetricTarget_DataSourceId
         /// <summary>
         /// <para>

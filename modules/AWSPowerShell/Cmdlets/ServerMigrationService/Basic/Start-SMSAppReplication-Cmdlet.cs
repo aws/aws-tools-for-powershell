@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class StartSMSAppReplicationCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

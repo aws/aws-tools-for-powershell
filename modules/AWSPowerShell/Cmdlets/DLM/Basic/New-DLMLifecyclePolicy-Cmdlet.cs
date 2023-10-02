@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     public partial class NewDLMLifecyclePolicyCmdlet : AmazonDLMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyDetails_Action
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class NewRSSEndpointAccessCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndpointName
         /// <summary>
         /// <para>

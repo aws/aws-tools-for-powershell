@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class RemoveGGRoleFromGroupCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupId
         /// <summary>
         /// <para>

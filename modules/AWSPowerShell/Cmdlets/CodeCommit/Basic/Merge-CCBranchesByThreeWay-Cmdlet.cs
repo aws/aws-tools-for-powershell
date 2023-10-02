@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class MergeCCBranchesByThreeWayCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthorName
         /// <summary>
         /// <para>

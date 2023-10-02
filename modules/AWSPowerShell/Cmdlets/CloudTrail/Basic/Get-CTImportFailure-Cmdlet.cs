@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTImportFailureCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImportId
         /// <summary>
         /// <para>

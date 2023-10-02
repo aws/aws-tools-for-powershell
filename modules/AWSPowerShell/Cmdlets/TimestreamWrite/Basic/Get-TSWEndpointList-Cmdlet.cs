@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class GetTSWEndpointListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoints'.

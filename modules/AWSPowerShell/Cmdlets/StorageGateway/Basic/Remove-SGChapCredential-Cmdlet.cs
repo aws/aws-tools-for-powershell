@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class RemoveSGChapCredentialCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InitiatorName
         /// <summary>
         /// <para>

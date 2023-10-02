@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class GetPANPackageVersionCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>

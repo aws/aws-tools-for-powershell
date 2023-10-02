@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class EditRAMPermissionAssociationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FromPermissionArn
         /// <summary>
         /// <para>

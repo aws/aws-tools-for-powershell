@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class GetAMSHRouteListCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MeshName
         /// <summary>
         /// <para>

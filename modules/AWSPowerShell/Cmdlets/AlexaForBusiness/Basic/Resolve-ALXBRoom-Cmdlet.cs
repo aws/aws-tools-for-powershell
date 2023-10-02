@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class ResolveALXBRoomCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SkillId
         /// <summary>
         /// <para>

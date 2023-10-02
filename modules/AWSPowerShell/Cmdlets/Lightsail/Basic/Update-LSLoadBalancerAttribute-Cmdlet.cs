@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class UpdateLSLoadBalancerAttributeCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

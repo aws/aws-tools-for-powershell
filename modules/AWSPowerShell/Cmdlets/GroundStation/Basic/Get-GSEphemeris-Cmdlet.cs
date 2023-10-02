@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class GetGSEphemerisCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EphemerisId
         /// <summary>
         /// <para>

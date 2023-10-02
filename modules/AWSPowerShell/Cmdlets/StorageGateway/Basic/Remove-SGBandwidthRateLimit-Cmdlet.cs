@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class RemoveSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BandwidthType
         /// <summary>
         /// <para>

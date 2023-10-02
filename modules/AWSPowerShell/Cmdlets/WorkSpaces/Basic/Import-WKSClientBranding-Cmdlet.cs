@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class ImportWKSClientBrandingCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceTypeAndroid_ForgotPasswordLink
         /// <summary>
         /// <para>

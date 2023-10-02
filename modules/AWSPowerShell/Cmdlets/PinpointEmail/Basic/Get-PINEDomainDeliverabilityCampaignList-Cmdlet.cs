@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEDomainDeliverabilityCampaignListCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndDate
         /// <summary>
         /// <para>

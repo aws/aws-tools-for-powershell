@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class ResumeCFNUpdateRollbackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

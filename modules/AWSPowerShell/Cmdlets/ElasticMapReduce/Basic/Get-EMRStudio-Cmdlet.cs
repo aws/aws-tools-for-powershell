@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class GetEMRStudioCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StudioId
         /// <summary>
         /// <para>

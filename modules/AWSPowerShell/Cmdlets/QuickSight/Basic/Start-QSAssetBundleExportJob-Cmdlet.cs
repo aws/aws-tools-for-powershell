@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class StartQSAssetBundleExportJobCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CloudFormationOverridePropertyConfiguration_Analyses
         /// <summary>
         /// <para>

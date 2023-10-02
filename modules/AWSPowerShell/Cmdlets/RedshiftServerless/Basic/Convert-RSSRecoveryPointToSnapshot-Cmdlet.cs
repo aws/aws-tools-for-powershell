@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class ConvertRSSRecoveryPointToSnapshotCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecoveryPointId
         /// <summary>
         /// <para>

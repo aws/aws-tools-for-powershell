@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKBackupJobListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ByAccountId
         /// <summary>
         /// <para>

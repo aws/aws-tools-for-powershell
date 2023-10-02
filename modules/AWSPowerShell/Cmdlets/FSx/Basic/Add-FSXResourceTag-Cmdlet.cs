@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class AddFSXResourceTagCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

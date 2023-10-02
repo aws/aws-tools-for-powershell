@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     public partial class RemoveDTEXResourceTagCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class ImportATHNotebookCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class AddMGRFResourceTagCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

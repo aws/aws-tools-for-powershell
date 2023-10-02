@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class SetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TopicRulePayload_Action
         /// <summary>
         /// <para>

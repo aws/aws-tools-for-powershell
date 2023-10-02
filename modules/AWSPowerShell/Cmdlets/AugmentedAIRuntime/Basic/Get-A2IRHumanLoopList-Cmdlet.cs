@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     public partial class GetA2IRHumanLoopListCmdlet : AmazonAugmentedAIRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>

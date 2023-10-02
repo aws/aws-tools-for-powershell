@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class GetEBPlatformVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

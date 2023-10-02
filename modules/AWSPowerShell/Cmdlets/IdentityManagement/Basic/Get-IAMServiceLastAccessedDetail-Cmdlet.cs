@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMServiceLastAccessedDetailCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

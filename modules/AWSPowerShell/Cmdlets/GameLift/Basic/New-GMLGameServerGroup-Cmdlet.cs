@@ -77,6 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class NewGMLGameServerGroupCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BalancingStrategy
         /// <summary>
         /// <para>

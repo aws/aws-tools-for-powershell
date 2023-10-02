@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class NewETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Thumbnails_AspectRatio
         /// <summary>
         /// <para>

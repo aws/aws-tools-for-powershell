@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     public partial class GetPLSPriceListListCmdlet : AmazonPricingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CurrencyCode
         /// <summary>
         /// <para>

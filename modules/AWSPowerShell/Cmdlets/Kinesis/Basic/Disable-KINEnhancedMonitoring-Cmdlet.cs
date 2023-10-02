@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class DisableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ShardLevelMetric
         /// <summary>
         /// <para>

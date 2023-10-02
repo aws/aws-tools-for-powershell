@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class RemoveOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VolumeId
         /// <summary>
         /// <para>

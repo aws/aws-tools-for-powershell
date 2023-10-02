@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     public partial class NewCARepositoryCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

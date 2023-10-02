@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     public partial class NewECRPRepositoryCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CatalogData_AboutText
         /// <summary>
         /// <para>

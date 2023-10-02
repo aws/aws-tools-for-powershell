@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2IdentityIdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>

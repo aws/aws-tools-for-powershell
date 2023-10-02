@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterExist
         /// <summary>
         /// <para>

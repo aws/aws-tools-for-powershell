@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TokenValidityUnits_AccessToken
         /// <summary>
         /// <para>

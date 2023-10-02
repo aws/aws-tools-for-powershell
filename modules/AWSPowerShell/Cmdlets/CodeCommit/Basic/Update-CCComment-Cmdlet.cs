@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class UpdateCCCommentCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CommentId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class UpdateWLDevicePolicyConfigurationCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceCaCertificate
         /// <summary>
         /// <para>

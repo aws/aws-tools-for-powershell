@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class UpdateEMLMultiplexCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MultiplexSettings_MaximumVideoBufferDelayMillisecond
         /// <summary>
         /// <para>

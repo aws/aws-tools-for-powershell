@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public partial class SetCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnalysisOptions_AlgorithmicStemming
         /// <summary>
         /// <para>

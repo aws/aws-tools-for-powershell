@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     public partial class GetCWOAMLinkCmdlet : AmazonOAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class UpdateMGRFWorkspaceConfigurationCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Configuration
         /// <summary>
         /// <para>

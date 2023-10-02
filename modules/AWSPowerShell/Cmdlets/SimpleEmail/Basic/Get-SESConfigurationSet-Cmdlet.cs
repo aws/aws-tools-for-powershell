@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class GetSESConfigurationSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationSetAttributeName
         /// <summary>
         /// <para>

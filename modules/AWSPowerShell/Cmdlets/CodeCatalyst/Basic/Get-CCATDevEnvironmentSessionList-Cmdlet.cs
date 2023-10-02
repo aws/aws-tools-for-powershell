@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class GetCCATDevEnvironmentSessionListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DevEnvironmentId
         /// <summary>
         /// <para>

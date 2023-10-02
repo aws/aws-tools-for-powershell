@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class RemoveAGUsagePlanKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>

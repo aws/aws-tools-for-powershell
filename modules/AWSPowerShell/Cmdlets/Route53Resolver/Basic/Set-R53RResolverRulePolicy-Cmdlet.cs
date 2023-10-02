@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class SetR53RResolverRulePolicyCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

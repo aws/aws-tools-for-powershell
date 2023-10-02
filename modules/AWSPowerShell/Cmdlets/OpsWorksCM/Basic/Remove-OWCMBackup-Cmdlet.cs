@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class RemoveOWCMBackupCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupId
         /// <summary>
         /// <para>

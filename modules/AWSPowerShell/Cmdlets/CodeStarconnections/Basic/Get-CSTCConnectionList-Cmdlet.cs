@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     public partial class GetCSTCConnectionListCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HostArnFilter
         /// <summary>
         /// <para>

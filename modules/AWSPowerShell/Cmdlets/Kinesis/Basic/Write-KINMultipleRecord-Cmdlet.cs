@@ -108,6 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class WriteKINMultipleRecordCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Record
         /// <summary>
         /// <para>

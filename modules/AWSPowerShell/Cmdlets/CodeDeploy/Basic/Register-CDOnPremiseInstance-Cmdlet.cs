@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IamSessionArn
         /// <summary>
         /// <para>

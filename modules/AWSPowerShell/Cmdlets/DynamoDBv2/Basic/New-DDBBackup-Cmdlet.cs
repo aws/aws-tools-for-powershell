@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class NewDDBBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupName
         /// <summary>
         /// <para>

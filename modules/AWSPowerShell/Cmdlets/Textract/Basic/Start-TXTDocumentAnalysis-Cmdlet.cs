@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     public partial class StartTXTDocumentAnalysisCmdlet : AmazonTextractClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Object_Bucket
         /// <summary>
         /// <para>

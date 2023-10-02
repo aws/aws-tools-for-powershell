@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class StopETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

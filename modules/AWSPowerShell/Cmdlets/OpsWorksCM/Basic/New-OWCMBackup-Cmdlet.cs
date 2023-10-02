@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class NewOWCMBackupCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

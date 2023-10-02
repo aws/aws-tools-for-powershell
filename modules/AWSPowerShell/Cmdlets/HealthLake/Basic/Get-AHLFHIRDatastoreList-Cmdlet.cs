@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     public partial class GetAHLFHIRDatastoreListCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter_CreatedAfter
         /// <summary>
         /// <para>

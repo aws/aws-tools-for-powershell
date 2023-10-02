@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class RemoveMLResourceTagCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

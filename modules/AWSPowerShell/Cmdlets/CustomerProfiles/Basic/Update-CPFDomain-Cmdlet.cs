@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class UpdateCPFDomainCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeTypesSelector_Address
         /// <summary>
         /// <para>

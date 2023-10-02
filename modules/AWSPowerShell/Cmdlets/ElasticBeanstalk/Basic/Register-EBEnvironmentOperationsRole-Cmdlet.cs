@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class RegisterEBEnvironmentOperationsRoleCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>

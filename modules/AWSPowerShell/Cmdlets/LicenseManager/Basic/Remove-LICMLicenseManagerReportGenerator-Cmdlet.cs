@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class RemoveLICMLicenseManagerReportGeneratorCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LicenseManagerReportGeneratorArn
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTMetricValueListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DimensionName
         /// <summary>
         /// <para>

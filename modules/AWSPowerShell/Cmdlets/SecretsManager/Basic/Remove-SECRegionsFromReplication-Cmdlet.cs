@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class RemoveSECRegionsFromReplicationCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RemoveReplicaRegion
         /// <summary>
         /// <para>

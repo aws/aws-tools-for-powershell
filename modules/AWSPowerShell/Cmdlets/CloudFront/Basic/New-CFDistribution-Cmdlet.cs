@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ViewerCertificate_ACMCertificateArn
         /// <summary>
         /// <para>

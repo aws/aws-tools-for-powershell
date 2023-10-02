@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class RemoveBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

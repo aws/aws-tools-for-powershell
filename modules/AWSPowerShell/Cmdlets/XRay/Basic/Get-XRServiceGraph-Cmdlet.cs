@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
     public partial class GetXRServiceGraphCmdlet : AmazonXRayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

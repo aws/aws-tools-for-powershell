@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class RemoveCONNInstanceStorageConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

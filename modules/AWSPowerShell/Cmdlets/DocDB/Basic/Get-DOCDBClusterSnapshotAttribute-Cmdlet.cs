@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class GetDOCDBClusterSnapshotAttributeCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>

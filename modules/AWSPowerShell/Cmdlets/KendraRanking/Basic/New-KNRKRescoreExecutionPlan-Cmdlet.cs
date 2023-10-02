@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
     public partial class NewKNRKRescoreExecutionPlanCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

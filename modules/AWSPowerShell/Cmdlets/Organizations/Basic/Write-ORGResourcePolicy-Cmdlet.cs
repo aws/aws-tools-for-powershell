@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class WriteORGResourcePolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Content
         /// <summary>
         /// <para>

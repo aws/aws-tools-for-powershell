@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGResourceEvaluationSummaryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceEvaluationId
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class GetGDUsageStatisticCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UsageCriteria_AccountId
         /// <summary>
         /// <para>

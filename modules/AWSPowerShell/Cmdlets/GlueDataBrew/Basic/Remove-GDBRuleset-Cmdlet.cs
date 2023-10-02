@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class RemoveGDBRulesetCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

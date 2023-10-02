@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class UpdateFINSPKxClusterDatabasisCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRQuerySuggestionsBlockListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

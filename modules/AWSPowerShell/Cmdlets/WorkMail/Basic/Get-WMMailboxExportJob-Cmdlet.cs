@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class GetWMMailboxExportJobCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNContactAttributeCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InitialContactId
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class UpdateKNDRQuerySuggestionsBlockListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceS3Path_Bucket
         /// <summary>
         /// <para>

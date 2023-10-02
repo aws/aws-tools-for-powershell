@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class NewIOTSWGatewayCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GreengrassV2_CoreDeviceThingName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class GetBATSchedulingPolicyListCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

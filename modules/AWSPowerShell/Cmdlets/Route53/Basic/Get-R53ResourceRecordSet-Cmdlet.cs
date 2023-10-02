@@ -83,6 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class GetR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>

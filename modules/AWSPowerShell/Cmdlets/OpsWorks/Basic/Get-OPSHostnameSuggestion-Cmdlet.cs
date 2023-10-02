@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class GetOPSHostnameSuggestionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LayerId
         /// <summary>
         /// <para>

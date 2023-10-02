@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class AddEVBResourceTagCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

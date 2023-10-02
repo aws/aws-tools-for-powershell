@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class UpdateCGIPUserPoolDomainCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomDomainConfig_CertificateArn
         /// <summary>
         /// <para>

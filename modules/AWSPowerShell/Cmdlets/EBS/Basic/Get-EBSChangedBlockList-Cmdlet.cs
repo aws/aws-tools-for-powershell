@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     public partial class GetEBSChangedBlockListCmdlet : AmazonEBSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FirstSnapshotId
         /// <summary>
         /// <para>

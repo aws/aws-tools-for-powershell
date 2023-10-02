@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class StartEVBReplayCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination_Arn
         /// <summary>
         /// <para>

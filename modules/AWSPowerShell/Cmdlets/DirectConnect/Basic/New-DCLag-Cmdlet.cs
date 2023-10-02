@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class NewDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChildConnectionTag
         /// <summary>
         /// <para>

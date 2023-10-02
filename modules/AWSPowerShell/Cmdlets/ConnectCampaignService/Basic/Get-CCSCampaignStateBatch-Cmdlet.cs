@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public partial class GetCCSCampaignStateBatchCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CampaignId
         /// <summary>
         /// <para>

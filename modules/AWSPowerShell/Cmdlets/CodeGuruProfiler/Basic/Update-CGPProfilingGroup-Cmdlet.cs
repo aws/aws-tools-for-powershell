@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class UpdateCGPProfilingGroupCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentOrchestrationConfig_ProfilingEnabled
         /// <summary>
         /// <para>

@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class NewAMSHVirtualGatewayCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Acm_CertificateAuthorityArn
         /// <summary>
         /// <para>

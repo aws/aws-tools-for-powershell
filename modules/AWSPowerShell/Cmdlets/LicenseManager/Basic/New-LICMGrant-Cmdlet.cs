@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class NewLICMGrantCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowedOperation
         /// <summary>
         /// <para>

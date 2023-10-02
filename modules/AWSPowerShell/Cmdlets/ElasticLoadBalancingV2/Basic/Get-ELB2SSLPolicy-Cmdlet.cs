@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class GetELB2SSLPolicyCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoadBalancerType
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class GetGGResourceDefinitionVersionListCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceDefinitionId
         /// <summary>
         /// <para>

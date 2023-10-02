@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEBlueprintListCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Tag
         /// <summary>
         /// <para>

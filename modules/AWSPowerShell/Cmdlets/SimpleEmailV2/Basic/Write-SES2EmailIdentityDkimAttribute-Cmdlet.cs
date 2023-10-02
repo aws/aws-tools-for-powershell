@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class WriteSES2EmailIdentityDkimAttributeCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>

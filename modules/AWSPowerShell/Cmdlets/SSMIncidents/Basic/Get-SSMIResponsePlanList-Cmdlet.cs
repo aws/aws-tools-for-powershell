@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public partial class GetSSMIResponsePlanListCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     public partial class GetAMPBTokenCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

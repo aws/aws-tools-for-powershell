@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class RemoveAUDMAssessmentFrameworkCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FrameworkId
         /// <summary>
         /// <para>

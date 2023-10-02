@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNAccountLimitCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class EnableSHUBImportFindingsForProductCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProductArn
         /// <summary>
         /// <para>

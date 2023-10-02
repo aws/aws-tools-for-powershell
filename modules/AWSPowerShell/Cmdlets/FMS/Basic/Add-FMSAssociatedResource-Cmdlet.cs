@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class AddFMSAssociatedResourceCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Item
         /// <summary>
         /// <para>

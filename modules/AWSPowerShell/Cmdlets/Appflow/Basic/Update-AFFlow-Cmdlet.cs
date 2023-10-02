@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class UpdateAFFlowCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceFlowConfig_ApiVersion
         /// <summary>
         /// <para>

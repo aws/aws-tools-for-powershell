@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class StartEMCNFlowCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FlowArn
         /// <summary>
         /// <para>

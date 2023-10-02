@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EnableEC2AwsNetworkPerformanceMetricSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination
         /// <summary>
         /// <para>

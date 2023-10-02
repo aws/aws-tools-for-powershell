@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class SetIAMUserPermissionsBoundaryCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PermissionsBoundary
         /// <summary>
         /// <para>

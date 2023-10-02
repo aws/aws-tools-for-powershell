@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class RequestECNodeGroupDecreaseInGlobalReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>

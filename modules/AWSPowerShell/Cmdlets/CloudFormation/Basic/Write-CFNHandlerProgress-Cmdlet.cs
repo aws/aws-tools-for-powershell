@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class WriteCFNHandlerProgressCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BearerToken
         /// <summary>
         /// <para>

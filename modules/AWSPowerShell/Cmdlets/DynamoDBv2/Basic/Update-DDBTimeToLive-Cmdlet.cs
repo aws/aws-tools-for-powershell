@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class UpdateDDBTimeToLiveCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TimeToLiveSpecification_AttributeName
         /// <summary>
         /// <para>

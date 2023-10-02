@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class WriteALXBInvitationConfigurationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactEmail
         /// <summary>
         /// <para>

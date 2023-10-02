@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class GetFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetId
         /// <summary>
         /// <para>

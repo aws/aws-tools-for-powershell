@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class StopEC2ImportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CancelReason
         /// <summary>
         /// <para>

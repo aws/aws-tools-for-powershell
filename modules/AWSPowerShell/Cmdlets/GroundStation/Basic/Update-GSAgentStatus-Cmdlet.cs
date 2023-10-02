@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class UpdateGSAgentStatusCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentId
         /// <summary>
         /// <para>

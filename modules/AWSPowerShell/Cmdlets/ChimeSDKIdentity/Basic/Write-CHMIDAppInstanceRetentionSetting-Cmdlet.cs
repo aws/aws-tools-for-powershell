@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     public partial class WriteCHMIDAppInstanceRetentionSettingCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

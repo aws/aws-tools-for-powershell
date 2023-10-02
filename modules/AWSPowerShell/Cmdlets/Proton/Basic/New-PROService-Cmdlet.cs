@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BranchName
         /// <summary>
         /// <para>

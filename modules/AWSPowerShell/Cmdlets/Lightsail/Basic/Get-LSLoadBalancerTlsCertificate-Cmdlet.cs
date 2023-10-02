@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSLoadBalancerTlsCertificateCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>

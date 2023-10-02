@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKRecoveryPointsByLegalHoldListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LegalHoldId
         /// <summary>
         /// <para>

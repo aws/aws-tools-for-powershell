@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class RemoveFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

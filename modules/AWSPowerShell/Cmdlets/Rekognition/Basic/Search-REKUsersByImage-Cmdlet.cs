@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class SearchREKUsersByImageCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Object_Bucket
         /// <summary>
         /// <para>

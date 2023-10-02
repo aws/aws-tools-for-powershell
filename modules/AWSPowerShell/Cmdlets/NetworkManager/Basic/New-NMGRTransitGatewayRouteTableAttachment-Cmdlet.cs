@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class NewNMGRTransitGatewayRouteTableAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PeeringId
         /// <summary>
         /// <para>

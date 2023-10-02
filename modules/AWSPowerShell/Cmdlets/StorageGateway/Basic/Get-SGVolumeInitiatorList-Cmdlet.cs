@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGVolumeInitiatorListCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VolumeARN
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class UpdateWAF2ManagedRuleSetVersionExpiryDateCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExpiryTimestamp
         /// <summary>
         /// <para>

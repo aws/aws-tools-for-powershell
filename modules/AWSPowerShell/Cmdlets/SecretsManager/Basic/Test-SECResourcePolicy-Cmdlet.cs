@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class TestSECResourcePolicyCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourcePolicy
         /// <summary>
         /// <para>

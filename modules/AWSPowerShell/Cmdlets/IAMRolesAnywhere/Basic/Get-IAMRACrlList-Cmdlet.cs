@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class GetIAMRACrlListCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

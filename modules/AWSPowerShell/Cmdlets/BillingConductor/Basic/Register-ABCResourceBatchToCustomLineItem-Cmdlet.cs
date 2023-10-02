@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class RegisterABCResourceBatchToCustomLineItemCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BillingPeriodRange_ExclusiveEndBillingPeriod
         /// <summary>
         /// <para>

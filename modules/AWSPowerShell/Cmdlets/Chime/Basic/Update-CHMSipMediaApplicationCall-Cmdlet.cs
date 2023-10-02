@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class UpdateCHMSipMediaApplicationCallCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Argument
         /// <summary>
         /// <para>

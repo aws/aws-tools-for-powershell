@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     public partial class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EniIp
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class GetVPCLAccessLogSubscriptionCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessLogSubscriptionIdentifier
         /// <summary>
         /// <para>

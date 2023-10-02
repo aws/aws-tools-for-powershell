@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     public partial class UpdatePAYCCAliasCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasName
         /// <summary>
         /// <para>

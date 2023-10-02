@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class RemoveLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyName
         /// <summary>
         /// <para>

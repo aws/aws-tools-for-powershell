@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class GetTSQResourceTagCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

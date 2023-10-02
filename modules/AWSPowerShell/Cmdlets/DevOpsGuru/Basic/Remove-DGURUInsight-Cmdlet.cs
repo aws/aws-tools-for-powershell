@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class RemoveDGURUInsightCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

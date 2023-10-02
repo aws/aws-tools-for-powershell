@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class GetFMSComplianceDetailCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MemberAccount
         /// <summary>
         /// <para>

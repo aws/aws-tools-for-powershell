@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDBS
     public partial class SendQLDBSCommandCmdlet : AmazonQLDBSessionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AbortTransaction
         /// <summary>
         /// <para>

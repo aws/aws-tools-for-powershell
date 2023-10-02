@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCRotationShiftListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

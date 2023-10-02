@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class UpdateIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NewPath
         /// <summary>
         /// <para>

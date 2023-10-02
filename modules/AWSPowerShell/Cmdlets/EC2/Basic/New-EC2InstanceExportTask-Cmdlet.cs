@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2InstanceExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExportToS3Task_ContainerFormat
         /// <summary>
         /// <para>

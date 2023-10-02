@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRHostKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HostKeyId
         /// <summary>
         /// <para>

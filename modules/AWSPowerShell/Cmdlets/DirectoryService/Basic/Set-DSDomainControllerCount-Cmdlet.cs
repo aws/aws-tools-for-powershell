@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class SetDSDomainControllerCountCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DesiredNumber
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class RemoveFRCForecastExportJobCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForecastExportJobArn
         /// <summary>
         /// <para>

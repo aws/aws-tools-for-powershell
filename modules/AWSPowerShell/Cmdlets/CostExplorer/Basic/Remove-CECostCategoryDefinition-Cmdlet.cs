@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class RemoveCECostCategoryDefinitionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CostCategoryArn
         /// <summary>
         /// <para>

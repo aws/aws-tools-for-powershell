@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class RemoveGSEphemerisCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EphemerisId
         /// <summary>
         /// <para>

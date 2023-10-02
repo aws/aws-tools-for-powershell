@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class UpdateRSSUsageLimitCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Amount
         /// <summary>
         /// <para>

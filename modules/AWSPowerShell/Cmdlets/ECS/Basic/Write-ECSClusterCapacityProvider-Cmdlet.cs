@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class WriteECSClusterCapacityProviderCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CapacityProvider
         /// <summary>
         /// <para>

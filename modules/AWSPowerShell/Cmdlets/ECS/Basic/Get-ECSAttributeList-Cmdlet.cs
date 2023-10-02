@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class GetECSAttributeListCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

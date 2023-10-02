@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class UpdateR53DDomainRenewalCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CurrentExpiryYear
         /// <summary>
         /// <para>

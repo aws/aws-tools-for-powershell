@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class NewTRNParallelDataCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

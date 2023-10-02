@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public partial class FindLFVAnomalyCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Body
         /// <summary>
         /// <para>

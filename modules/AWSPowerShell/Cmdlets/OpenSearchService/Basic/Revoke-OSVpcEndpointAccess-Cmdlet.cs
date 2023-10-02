@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class RevokeOSVpcEndpointAccessCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Account
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     public partial class CopyCAPackageVersionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowOverwrite
         /// <summary>
         /// <para>

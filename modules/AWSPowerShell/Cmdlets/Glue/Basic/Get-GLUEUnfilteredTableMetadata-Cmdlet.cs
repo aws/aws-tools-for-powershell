@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEUnfilteredTableMetadataCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuditContext_AdditionalAuditContext
         /// <summary>
         /// <para>

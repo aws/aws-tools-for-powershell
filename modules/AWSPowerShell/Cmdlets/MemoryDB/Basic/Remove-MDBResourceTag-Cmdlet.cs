@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     public partial class RemoveMDBResourceTagCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

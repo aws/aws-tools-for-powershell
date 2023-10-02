@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public partial class StartIOTDASuiteRunCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PrimaryDevice_CertificateArn
         /// <summary>
         /// <para>

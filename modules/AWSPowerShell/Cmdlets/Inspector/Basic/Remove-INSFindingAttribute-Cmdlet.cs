@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class RemoveINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeKey
         /// <summary>
         /// <para>

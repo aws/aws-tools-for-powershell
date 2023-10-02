@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class RemoveCORecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Scope_Name
         /// <summary>
         /// <para>

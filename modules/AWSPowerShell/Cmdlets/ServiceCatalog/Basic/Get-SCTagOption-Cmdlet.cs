@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class GetSCTagOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class NewGDDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScanEc2InstanceWithFindings_EbsVolume
         /// <summary>
         /// <para>

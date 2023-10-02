@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class RemoveCPResourceTagCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

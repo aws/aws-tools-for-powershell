@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXDataRepositoryAssociationCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BatchImportMetaDataOnCreate
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class GetELB2TargetHealthCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TargetGroupArn
         /// <summary>
         /// <para>

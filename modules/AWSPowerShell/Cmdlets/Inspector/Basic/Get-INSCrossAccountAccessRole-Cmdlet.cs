@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class GetINSCrossAccountAccessRoleCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

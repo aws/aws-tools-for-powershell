@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class StartADSExportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ec2RecommendationsPreferences_Enabled
         /// <summary>
         /// <para>

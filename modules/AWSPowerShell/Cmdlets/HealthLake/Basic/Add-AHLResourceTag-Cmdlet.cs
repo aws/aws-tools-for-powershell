@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     public partial class AddAHLResourceTagCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

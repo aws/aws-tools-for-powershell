@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     public partial class StopSSWAppCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter App
         /// <summary>
         /// <para>

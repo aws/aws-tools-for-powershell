@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class NewSDInstanceRegistrationCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

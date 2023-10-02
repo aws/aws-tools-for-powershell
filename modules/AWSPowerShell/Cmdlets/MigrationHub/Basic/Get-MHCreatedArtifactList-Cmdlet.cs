@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
     public partial class GetMHCreatedArtifactListCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MigrationTaskName
         /// <summary>
         /// <para>

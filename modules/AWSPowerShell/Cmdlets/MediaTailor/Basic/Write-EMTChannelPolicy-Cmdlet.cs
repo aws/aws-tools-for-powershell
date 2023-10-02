@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     public partial class WriteEMTChannelPolicyCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelName
         /// <summary>
         /// <para>

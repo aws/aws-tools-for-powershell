@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class UnregisterGMLComputeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeName
         /// <summary>
         /// <para>

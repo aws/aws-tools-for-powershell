@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBItemTransactionallyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReturnConsumedCapacity
         /// <summary>
         /// <para>

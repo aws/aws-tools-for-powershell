@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class ApproveDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TrustId
         /// <summary>
         /// <para>

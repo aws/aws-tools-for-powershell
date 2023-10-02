@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class GetSCAWSOrganizationsAccessStatusCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessStatus'.

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class TestSNSIfPhoneNumberIsOptedOutCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRRegistryPolicyCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

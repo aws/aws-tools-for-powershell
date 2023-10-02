@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class StopTSQQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueryId
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class StopGACLAdvertisingByoipCidrCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cidr
         /// <summary>
         /// <para>

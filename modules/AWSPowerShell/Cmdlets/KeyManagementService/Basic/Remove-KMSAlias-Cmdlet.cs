@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class RemoveKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasName
         /// <summary>
         /// <para>

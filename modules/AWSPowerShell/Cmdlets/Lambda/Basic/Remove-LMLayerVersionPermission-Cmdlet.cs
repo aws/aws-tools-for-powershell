@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class RemoveLMLayerVersionPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LayerName
         /// <summary>
         /// <para>

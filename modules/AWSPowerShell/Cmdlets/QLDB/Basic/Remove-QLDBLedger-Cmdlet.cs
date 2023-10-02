@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class RemoveQLDBLedgerCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

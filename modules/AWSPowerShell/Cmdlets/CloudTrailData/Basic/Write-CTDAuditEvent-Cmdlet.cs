@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CTD
     public partial class WriteCTDAuditEventCmdlet : AmazonCloudTrailDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuditEvent
         /// <summary>
         /// <para>

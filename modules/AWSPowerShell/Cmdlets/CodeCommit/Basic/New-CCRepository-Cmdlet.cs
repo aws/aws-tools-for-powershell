@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class NewCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RepositoryDescription
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     public partial class RemoveSUPSlackChannelConfigurationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelId
         /// <summary>
         /// <para>

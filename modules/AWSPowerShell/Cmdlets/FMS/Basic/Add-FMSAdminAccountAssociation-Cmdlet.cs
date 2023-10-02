@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class AddFMSAdminAccountAssociationCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdminAccount
         /// <summary>
         /// <para>

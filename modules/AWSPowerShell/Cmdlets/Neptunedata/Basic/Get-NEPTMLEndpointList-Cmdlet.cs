@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class GetNEPTMLEndpointListCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NeptuneIamRoleArn
         /// <summary>
         /// <para>

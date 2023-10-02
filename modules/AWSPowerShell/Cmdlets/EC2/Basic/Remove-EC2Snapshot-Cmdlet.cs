@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SnapshotId
         /// <summary>
         /// <para>

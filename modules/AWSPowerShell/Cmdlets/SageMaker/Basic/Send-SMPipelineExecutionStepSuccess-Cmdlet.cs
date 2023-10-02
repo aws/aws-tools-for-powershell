@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class SendSMPipelineExecutionStepSuccessCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CallbackToken
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class RemoveFDEventCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteAuditHistory
         /// <summary>
         /// <para>

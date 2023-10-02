@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class UpdateGMLFleetAttributeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnywhereConfiguration_Cost
         /// <summary>
         /// <para>

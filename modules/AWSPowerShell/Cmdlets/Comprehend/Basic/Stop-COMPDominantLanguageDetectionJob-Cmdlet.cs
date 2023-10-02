@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class StopCOMPDominantLanguageDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

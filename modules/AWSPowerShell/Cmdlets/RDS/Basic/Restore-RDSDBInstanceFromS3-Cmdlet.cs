@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBInstanceFromS3Cmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>

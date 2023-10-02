@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     public partial class NewERESMatchingWorkflowCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleBasedProperties_AttributeMatchingModel
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class UpdateSHUBFindingCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

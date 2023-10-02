@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     public partial class GetAREXIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

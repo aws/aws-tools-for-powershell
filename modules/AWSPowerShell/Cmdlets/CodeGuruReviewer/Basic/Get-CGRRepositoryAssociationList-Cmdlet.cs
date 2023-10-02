@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     public partial class GetCGRRepositoryAssociationListCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

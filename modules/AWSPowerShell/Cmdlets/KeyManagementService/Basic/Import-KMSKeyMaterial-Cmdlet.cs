@@ -136,6 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class ImportKMSKeyMaterialCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EncryptedKeyMaterial
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class SetGLUEDataCatalogEncryptionSettingCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionPasswordEncryption_AwsKmsKeyId
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLBuildDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BuildId
         /// <summary>
         /// <para>

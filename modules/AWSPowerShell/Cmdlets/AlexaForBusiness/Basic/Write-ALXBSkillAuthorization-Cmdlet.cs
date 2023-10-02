@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthorizationResult
         /// <summary>
         /// <para>

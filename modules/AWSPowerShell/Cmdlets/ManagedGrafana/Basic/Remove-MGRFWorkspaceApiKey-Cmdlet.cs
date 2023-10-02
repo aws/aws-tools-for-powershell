@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class RemoveMGRFWorkspaceApiKeyCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KeyName
         /// <summary>
         /// <para>

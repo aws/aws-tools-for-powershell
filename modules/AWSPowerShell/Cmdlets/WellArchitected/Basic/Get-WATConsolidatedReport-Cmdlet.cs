@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class GetWATConsolidatedReportCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Format
         /// <summary>
         /// <para>

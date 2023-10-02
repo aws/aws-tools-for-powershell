@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class GetCCATSourceRepositoryBranchListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>

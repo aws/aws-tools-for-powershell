@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     public partial class GetMSKClusterOperationV2Cmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterOperationArn
         /// <summary>
         /// <para>

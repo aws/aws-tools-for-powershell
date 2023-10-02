@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class RemoveCONNContactEvaluationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EvaluationId
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class GetEMRInstanceListCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterId
         /// <summary>
         /// <para>

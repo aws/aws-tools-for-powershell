@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class RemoveSSMResourcePolicyCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyHash
         /// <summary>
         /// <para>

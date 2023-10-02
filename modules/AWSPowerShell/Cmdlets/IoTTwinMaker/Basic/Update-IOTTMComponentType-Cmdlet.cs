@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     public partial class UpdateIOTTMComponentTypeCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComponentTypeId
         /// <summary>
         /// <para>

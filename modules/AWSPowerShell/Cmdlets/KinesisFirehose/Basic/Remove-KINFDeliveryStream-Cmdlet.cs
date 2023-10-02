@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     public partial class RemoveKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowForceDelete
         /// <summary>
         /// <para>

@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class SetEMRTerminationProtectionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobFlowId
         /// <summary>
         /// <para>

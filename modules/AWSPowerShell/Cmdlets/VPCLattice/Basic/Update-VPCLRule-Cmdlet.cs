@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class UpdateVPCLRuleCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PathMatch_CaseSensitive
         /// <summary>
         /// <para>

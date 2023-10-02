@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiKeyAuthParameters_ApiKeyName
         /// <summary>
         /// <para>

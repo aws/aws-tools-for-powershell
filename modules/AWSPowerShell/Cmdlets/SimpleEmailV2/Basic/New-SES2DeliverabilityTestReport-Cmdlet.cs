@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class NewSES2DeliverabilityTestReportCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Html_Charset
         /// <summary>
         /// <para>

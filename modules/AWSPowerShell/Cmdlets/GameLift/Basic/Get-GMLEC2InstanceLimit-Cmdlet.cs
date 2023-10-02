@@ -84,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLEC2InstanceLimitCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EC2InstanceType
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class GetGSContactCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>

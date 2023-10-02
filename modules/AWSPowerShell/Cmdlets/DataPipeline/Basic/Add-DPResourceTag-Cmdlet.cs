@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class AddDPResourceTagCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PipelineId
         /// <summary>
         /// <para>

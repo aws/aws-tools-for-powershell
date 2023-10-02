@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTThingPrincipalListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>

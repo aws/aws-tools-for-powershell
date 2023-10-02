@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class GetVPCLRuleListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ListenerIdentifier
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     public partial class NewSARApplicationCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Author
         /// <summary>
         /// <para>

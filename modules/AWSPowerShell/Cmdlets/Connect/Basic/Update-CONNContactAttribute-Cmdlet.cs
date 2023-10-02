@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNContactAttributeCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

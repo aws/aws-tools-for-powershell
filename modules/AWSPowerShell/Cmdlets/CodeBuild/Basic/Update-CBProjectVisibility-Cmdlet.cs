@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class UpdateCBProjectVisibilityCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectArn
         /// <summary>
         /// <para>

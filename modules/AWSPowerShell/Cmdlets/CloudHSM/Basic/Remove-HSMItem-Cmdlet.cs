@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     public partial class RemoveHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HsmArn
         /// <summary>
         /// <para>

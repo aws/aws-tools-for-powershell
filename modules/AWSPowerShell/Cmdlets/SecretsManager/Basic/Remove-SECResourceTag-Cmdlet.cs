@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class RemoveSECResourceTagCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SecretId
         /// <summary>
         /// <para>

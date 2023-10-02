@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public partial class UpdateOUTPSiteRackPhysicalPropertyCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FiberOpticCableType
         /// <summary>
         /// <para>

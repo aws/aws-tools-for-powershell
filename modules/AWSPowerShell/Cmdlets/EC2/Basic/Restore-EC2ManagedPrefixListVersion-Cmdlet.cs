@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RestoreEC2ManagedPrefixListVersionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CurrentVersion
         /// <summary>
         /// <para>

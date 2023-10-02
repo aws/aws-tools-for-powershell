@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class GetCFContinuousDeploymentPolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

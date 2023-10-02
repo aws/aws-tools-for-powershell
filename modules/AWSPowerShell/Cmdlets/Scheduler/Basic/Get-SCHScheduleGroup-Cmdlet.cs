@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     public partial class GetSCHScheduleGroupCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

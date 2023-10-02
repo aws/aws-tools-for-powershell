@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMSearchSuggestionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PropertyNameQuery_PropertyNameHint
         /// <summary>
         /// <para>

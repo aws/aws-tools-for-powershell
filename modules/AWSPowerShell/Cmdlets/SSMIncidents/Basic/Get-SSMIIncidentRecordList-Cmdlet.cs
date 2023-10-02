@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public partial class GetSSMIIncidentRecordListCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

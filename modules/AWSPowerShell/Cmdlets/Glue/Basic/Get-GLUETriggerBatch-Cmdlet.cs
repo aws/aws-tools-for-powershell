@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUETriggerBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TriggerName
         /// <summary>
         /// <para>

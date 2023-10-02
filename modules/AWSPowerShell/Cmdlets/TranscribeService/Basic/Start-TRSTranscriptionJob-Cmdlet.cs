@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class StartTRSTranscriptionJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobExecutionSettings_AllowDeferredExecution
         /// <summary>
         /// <para>

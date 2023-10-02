@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
     public partial class WriteEMSDObjectCmdlet : AmazonMediaStoreDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Body
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PD
     public partial class NewPDResourceSetCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Resource
         /// <summary>
         /// <para>

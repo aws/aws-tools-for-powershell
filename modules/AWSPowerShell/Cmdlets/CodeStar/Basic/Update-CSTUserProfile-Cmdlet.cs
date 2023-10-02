@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>

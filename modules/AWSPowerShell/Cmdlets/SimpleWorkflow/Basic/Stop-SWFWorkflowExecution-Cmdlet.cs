@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     public partial class StopSWFWorkflowExecutionCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChildPolicy
         /// <summary>
         /// <para>

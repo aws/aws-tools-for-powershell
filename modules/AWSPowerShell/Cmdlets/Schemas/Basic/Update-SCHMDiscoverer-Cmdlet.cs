@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public partial class UpdateSCHMDiscovererCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CrossAccount
         /// <summary>
         /// <para>

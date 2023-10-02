@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class GrantMTRQualificationRequestCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IntegerValue
         /// <summary>
         /// <para>

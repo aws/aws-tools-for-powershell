@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class GetSHUBStandardsControlAssociationListCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SecurityControlId
         /// <summary>
         /// <para>

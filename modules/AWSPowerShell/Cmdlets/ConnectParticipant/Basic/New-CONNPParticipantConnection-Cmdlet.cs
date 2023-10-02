@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     public partial class NewCONNPParticipantConnectionCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectParticipant
         /// <summary>
         /// <para>

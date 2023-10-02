@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class UpdateGMLRuntimeConfigurationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FleetId
         /// <summary>
         /// <para>

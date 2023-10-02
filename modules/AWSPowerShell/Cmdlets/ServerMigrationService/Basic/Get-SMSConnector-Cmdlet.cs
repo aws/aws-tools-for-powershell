@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class GetSMSConnectorCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class UpdateOMICSWorkflowCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

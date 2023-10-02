@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAKS
     public partial class GetBAKSChunkListCmdlet : AmazonBackupStorageClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ObjectToken
         /// <summary>
         /// <para>

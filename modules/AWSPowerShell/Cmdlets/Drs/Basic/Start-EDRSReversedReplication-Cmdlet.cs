@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class StartEDRSReversedReplicationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecoveryInstanceID
         /// <summary>
         /// <para>

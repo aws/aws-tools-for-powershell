@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class NewSDPrivateDnsNamespaceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>

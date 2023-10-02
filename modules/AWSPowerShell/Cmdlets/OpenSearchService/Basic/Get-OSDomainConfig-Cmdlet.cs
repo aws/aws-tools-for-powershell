@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class GetOSDomainConfigCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

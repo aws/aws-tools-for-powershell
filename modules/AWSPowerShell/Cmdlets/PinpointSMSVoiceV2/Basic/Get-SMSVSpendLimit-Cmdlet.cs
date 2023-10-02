@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     public partial class GetSMSVSpendLimitCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class AddWMMailDomainCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

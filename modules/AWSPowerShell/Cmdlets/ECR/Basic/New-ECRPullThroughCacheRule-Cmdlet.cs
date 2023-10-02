@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class NewECRPullThroughCacheRuleCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EcrRepositoryPrefix
         /// <summary>
         /// <para>

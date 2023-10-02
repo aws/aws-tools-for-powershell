@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     public partial class GetACPReportDefinitionListCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

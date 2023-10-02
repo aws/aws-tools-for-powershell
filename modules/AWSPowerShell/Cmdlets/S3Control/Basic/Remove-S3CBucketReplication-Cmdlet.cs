@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     public partial class RemoveS3CBucketReplicationCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

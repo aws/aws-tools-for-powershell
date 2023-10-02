@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class RemoveLOCDevicePositionHistoryBatchCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

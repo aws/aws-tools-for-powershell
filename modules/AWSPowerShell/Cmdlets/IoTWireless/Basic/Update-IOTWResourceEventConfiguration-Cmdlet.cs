@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class UpdateIOTWResourceEventConfigurationCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Sidewalk_DeviceRegistrationState_AmazonIdEventTopic
         /// <summary>
         /// <para>

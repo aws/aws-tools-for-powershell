@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCContactListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasPrefix
         /// <summary>
         /// <para>

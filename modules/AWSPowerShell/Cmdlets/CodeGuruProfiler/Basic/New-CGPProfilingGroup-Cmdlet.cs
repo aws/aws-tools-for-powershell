@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class NewCGPProfilingGroupCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputePlatform
         /// <summary>
         /// <para>

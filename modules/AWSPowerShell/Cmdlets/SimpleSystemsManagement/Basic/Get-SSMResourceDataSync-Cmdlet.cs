@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SyncType
         /// <summary>
         /// <para>

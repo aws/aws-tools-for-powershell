@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     public partial class RemoveSDMSResourceTagCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

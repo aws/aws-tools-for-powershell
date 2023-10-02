@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class RemoveLMCodeSigningConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CodeSigningConfigArn
         /// <summary>
         /// <para>

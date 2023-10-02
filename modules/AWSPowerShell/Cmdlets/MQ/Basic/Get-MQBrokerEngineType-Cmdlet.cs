@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class GetMQBrokerEngineTypeCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EngineType
         /// <summary>
         /// <para>

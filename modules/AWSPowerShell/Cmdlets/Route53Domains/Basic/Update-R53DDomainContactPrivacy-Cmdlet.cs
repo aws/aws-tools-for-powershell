@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class UpdateR53DDomainContactPrivacyCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdminPrivacy
         /// <summary>
         /// <para>

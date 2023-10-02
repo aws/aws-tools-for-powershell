@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class UpdateSHUBFindingsBatchCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Confidence
         /// <summary>
         /// <para>

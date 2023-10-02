@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public partial class WriteIFWLoggingOptionCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CloudWatchLogDelivery_LogGroupName
         /// <summary>
         /// <para>

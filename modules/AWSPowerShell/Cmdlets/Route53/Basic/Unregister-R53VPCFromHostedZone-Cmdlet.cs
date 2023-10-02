@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     public partial class UnregisterR53VPCFromHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Comment
         /// <summary>
         /// <para>

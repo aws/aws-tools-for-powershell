@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class NewDFVPCEConfigurationCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceDnsName
         /// <summary>
         /// <para>

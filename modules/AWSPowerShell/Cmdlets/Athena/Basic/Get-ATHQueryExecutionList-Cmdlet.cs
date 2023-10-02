@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class GetATHQueryExecutionListCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WorkGroup
         /// <summary>
         /// <para>

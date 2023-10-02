@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSAlgorithmCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlgorithmArn
         /// <summary>
         /// <para>

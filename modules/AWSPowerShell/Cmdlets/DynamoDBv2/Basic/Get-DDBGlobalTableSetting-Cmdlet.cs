@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBGlobalTableSettingCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GlobalTableName
         /// <summary>
         /// <para>

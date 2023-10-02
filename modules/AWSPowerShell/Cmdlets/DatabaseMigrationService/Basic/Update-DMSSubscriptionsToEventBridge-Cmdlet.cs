@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class UpdateDMSSubscriptionsToEventBridgeCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForceMove
         /// <summary>
         /// <para>

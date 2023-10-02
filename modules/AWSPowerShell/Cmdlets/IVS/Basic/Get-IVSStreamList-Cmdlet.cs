@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class GetIVSStreamListCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FilterBy_Health
         /// <summary>
         /// <para>

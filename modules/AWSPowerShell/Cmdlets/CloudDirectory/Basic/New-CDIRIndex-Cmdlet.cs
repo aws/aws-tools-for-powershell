@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     public partial class NewCDIRIndexCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>

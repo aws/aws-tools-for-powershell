@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     public partial class NewSCARApplicationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

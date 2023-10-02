@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class GetDOCEventSubscriptionCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

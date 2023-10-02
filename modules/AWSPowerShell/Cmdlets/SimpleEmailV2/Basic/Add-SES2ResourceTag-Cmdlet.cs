@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class AddSES2ResourceTagCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

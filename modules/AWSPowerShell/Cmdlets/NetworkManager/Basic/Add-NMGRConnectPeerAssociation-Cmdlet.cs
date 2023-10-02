@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class AddNMGRConnectPeerAssociationCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectPeerId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class GetEDRSRecoverySnapshotCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_FromDateTime
         /// <summary>
         /// <para>

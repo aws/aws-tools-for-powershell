@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class UpdateDAXClusterCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

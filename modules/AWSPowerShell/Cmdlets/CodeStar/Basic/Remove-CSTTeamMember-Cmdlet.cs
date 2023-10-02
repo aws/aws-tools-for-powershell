@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class RemoveCSTTeamMemberCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectId
         /// <summary>
         /// <para>

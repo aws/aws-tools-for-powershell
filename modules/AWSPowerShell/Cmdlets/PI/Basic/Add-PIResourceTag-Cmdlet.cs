@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
     public partial class AddPIResourceTagCmdlet : AmazonPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

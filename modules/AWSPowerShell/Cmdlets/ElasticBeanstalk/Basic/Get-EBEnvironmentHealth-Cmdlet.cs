@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class GetEBEnvironmentHealthCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

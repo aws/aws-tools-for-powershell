@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class GetTSWDatabaseListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

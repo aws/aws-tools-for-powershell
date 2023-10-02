@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UnregisterECSContainerInstanceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>

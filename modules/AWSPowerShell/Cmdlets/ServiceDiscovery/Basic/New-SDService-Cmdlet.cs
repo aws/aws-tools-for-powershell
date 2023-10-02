@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class NewSDServiceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>

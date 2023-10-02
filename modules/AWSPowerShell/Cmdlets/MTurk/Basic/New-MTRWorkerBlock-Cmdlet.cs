@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class NewMTRWorkerBlockCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Reason
         /// <summary>
         /// <para>

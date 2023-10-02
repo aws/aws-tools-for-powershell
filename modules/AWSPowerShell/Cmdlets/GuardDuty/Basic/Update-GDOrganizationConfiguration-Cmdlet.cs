@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class UpdateGDOrganizationConfigurationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuditLogs_AutoEnable
         /// <summary>
         /// <para>

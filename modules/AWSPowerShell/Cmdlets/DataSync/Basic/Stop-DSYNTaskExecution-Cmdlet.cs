@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class StopDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TaskExecutionArn
         /// <summary>
         /// <para>

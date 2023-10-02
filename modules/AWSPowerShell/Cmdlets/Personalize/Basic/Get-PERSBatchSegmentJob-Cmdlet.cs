@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSBatchSegmentJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BatchSegmentJobArn
         /// <summary>
         /// <para>

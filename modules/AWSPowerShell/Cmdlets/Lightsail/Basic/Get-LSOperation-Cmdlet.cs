@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSOperationCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OperationId
         /// <summary>
         /// <para>

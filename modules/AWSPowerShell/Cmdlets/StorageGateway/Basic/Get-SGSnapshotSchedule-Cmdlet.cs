@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VolumeARN
         /// <summary>
         /// <para>

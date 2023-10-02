@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     public partial class RemoveMISDatastoreCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatastoreId
         /// <summary>
         /// <para>

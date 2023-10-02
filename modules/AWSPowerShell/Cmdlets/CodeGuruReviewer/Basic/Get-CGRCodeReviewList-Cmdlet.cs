@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     public partial class GetCGRCodeReviewListCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProviderType
         /// <summary>
         /// <para>

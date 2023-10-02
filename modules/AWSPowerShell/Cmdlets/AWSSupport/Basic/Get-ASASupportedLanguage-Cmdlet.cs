@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public partial class GetASASupportedLanguageCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CategoryCode
         /// <summary>
         /// <para>

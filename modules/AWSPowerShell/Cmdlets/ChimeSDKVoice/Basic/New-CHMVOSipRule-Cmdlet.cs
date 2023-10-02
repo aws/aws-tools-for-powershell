@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class NewCHMVOSipRuleCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Disabled
         /// <summary>
         /// <para>

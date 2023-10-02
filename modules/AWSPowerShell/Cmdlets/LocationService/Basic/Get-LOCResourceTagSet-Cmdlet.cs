@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCResourceTagSetCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

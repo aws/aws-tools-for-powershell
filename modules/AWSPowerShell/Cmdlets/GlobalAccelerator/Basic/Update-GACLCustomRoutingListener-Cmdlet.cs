@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class UpdateGACLCustomRoutingListenerCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ListenerArn
         /// <summary>
         /// <para>

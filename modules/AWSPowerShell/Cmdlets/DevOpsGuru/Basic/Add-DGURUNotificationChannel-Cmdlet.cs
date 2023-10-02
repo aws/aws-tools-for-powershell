@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class AddDGURUNotificationChannelCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_MessageType
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class RemoveWKSIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupId
         /// <summary>
         /// <para>

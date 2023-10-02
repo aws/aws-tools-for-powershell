@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class UpdateTFRProfileCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateId
         /// <summary>
         /// <para>

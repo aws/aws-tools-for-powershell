@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class GetADSTagCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

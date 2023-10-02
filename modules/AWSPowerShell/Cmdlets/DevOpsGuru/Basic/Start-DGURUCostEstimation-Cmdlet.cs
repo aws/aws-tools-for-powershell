@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class StartDGURUCostEstimationCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CloudFormation_StackName
         /// <summary>
         /// <para>

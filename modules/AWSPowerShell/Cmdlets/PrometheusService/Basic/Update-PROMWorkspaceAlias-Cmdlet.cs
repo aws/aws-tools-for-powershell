@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     public partial class UpdatePROMWorkspaceAliasCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Alias
         /// <summary>
         /// <para>

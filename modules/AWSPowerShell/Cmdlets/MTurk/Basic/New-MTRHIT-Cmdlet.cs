@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class NewMTRHITCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssignmentDurationInSecond
         /// <summary>
         /// <para>

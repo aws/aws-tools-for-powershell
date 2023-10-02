@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class RegisterPANDeviceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ethernet0_ConnectionType
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMTrialComponentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MetadataProperties_CommitId
         /// <summary>
         /// <para>

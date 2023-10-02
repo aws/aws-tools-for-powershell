@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     public partial class WriteSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>

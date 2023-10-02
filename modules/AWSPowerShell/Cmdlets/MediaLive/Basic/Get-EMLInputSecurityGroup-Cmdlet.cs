@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class GetEMLInputSecurityGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InputSecurityGroupId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     public partial class GetFISExperimentListCmdlet : AmazonFISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

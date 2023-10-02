@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class UpdateCWAILogPatternCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Pattern
         /// <summary>
         /// <para>

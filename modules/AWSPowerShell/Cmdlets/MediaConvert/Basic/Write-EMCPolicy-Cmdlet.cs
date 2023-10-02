@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class WriteEMCPolicyCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy_HttpInput
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

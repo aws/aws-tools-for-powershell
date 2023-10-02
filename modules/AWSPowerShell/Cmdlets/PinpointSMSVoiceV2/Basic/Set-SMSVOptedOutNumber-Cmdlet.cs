@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     public partial class SetSMSVOptedOutNumberCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OptedOutNumber
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class GetCGPRecommendationCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

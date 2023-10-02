@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPDatasetListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter_CreationTimeAfter
         /// <summary>
         /// <para>

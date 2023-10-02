@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class RegisterBATJobDefinitionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NetworkConfiguration_AssignPublicIp
         /// <summary>
         /// <para>

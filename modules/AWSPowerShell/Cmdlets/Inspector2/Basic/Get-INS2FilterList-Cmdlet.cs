@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     public partial class GetINS2FilterListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

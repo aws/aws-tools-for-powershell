@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public partial class GetPOLLexiconListCmdlet : AmazonPollyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

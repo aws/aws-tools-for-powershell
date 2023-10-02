@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class GetWMMobileDeviceAccessOverrideListCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

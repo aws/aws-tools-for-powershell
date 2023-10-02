@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class GetSNOWServiceVersionCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DependentService
         /// <summary>
         /// <para>

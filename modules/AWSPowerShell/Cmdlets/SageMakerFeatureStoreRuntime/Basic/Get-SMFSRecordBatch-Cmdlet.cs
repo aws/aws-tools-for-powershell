@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     public partial class GetSMFSRecordBatchCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExpirationTimeResponse
         /// <summary>
         /// <para>

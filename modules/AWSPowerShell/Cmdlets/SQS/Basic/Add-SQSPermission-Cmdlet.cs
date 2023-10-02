@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class AddSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

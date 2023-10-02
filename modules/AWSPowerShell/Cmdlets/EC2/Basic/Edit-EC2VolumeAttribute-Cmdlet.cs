@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VolumeAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoEnableIO
         /// <summary>
         /// <para>

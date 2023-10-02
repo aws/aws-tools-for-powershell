@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class EditLOCRouteCalculatorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CalculatorName
         /// <summary>
         /// <para>

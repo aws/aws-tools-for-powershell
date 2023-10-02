@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     public partial class FindSDInstanceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HealthStatus
         /// <summary>
         /// <para>

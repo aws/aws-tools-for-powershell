@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class AddKNDRResourceTagCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

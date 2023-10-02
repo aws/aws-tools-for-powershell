@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

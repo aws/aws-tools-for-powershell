@@ -89,6 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     public partial class WriteCWCompositeAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionsEnabled
         /// <summary>
         /// <para>

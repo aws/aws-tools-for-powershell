@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     public partial class StartRGTReportCreationCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Bucket
         /// <summary>
         /// <para>

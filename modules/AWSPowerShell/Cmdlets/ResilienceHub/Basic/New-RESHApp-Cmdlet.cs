@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssessmentSchedule
         /// <summary>
         /// <para>

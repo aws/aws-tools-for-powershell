@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class UpdateSLKSubscriberCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SubscriberIdentity_ExternalId
         /// <summary>
         /// <para>

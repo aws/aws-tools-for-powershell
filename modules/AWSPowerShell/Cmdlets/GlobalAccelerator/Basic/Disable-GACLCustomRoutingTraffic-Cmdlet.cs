@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class DisableGACLCustomRoutingTrafficCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DenyAllTrafficToEndpoint
         /// <summary>
         /// <para>

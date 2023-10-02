@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InputBucket
         /// <summary>
         /// <para>

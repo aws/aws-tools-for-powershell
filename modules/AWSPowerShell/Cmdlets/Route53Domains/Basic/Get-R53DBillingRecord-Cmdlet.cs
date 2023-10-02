@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class GetR53DBillingRecordCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter End
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class GetCDGitHubAccountTokenNameListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

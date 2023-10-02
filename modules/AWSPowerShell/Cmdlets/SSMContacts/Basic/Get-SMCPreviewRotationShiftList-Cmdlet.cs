@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCPreviewRotationShiftListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Recurrence_DailySetting
         /// <summary>
         /// <para>

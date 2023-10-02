@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public partial class GetCPFAutoMergingPreviewCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConflictResolution_ConflictResolvingModel
         /// <summary>
         /// <para>

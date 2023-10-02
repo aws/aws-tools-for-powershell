@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class NewMTRHITWithHITTypeCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HITLayoutId
         /// <summary>
         /// <para>

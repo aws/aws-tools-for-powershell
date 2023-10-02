@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     public partial class NewSSOADMNAccountAssignmentCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceArn
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class RemoveFMSProtocolListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ListId
         /// <summary>
         /// <para>

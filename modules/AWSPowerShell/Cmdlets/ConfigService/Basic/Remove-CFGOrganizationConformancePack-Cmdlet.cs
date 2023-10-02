@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class RemoveCFGOrganizationConformancePackCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OrganizationConformancePackName
         /// <summary>
         /// <para>

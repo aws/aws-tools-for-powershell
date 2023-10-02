@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class SetDAXReplicationFactorDecreaseCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>

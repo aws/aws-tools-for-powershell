@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCESavingsPlanPurchaseRecommendationDetailCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecommendationDetailId
         /// <summary>
         /// <para>

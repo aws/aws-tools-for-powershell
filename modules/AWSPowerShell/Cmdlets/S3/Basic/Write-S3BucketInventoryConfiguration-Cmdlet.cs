@@ -94,6 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class WriteS3BucketInventoryConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3BucketDestination_AccountId
         /// <summary>
         /// <para>

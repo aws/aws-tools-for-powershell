@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTManagedJobTemplateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>

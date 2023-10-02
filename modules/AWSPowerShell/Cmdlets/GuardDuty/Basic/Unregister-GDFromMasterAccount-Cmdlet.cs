@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class UnregisterGDFromMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>

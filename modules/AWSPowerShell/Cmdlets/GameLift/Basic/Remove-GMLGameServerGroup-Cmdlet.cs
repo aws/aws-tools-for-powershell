@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class RemoveGMLGameServerGroupCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteOption
         /// <summary>
         /// <para>

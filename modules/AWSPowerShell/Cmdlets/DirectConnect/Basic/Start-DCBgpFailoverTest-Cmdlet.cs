@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class StartDCBgpFailoverTestCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BgpPeer
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     public partial class StartIOTEDetectorModelAnalysisCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DetectorModelDefinition_InitialStateName
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class UpdateEMLScheduleBatchCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Deletes_ActionName
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     public partial class GetRGTTagKeyCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PaginationToken
         /// <summary>
         /// <para>

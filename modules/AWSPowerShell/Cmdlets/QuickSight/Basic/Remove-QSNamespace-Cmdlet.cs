@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class RemoveQSNamespaceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>

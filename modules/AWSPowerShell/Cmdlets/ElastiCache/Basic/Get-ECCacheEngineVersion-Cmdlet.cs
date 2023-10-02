@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECCacheEngineVersionCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>

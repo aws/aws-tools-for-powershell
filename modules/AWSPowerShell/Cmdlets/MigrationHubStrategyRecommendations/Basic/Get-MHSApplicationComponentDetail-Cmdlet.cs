@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class GetMHSApplicationComponentDetailCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationComponentId
         /// <summary>
         /// <para>

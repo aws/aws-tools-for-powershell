@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSDomainCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

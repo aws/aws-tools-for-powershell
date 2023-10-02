@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     public partial class GetECRPLayerAvailabilityBatchCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LayerDigest
         /// <summary>
         /// <para>

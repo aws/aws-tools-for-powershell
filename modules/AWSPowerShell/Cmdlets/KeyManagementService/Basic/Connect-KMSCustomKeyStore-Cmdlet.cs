@@ -105,6 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class ConnectKMSCustomKeyStoreCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomKeyStoreId
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class GetEMPHarvestJobCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

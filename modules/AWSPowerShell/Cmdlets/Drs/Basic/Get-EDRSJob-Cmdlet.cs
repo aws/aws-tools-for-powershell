@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filters_FromDate
         /// <summary>
         /// <para>

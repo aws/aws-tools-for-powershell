@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class RemoveWDNotificationSubscriptionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OrganizationId
         /// <summary>
         /// <para>

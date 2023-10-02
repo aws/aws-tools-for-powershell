@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class UnregisterEC2IpamPoolCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cidr
         /// <summary>
         /// <para>

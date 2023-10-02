@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class NewSMCContactCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Alias
         /// <summary>
         /// <para>

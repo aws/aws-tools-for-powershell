@@ -85,6 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class WriteECSAccountSettingCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

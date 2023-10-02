@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGSMBFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessBasedEnumeration
         /// <summary>
         /// <para>

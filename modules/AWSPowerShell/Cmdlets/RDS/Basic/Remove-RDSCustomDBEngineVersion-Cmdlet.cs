@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RemoveRDSCustomDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Engine
         /// <summary>
         /// <para>

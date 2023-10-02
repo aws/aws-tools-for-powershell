@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class RemoveCGPPermissionCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionGroup
         /// <summary>
         /// <para>

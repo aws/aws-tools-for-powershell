@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSEventCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Duration
         /// <summary>
         /// <para>

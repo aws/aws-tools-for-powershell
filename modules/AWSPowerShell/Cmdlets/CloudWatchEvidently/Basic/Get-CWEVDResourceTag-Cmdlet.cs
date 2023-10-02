@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     public partial class GetCWEVDResourceTagCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

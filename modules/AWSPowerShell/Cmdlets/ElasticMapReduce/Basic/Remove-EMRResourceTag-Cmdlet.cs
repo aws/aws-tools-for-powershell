@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class RemoveEMRResourceTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

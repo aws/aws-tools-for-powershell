@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FunctionConfig_Comment
         /// <summary>
         /// <para>

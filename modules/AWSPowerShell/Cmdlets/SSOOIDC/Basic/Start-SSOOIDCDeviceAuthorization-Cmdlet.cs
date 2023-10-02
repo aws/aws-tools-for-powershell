@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     public partial class StartSSOOIDCDeviceAuthorizationCmdlet : AmazonSSOOIDCClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientId
         /// <summary>
         /// <para>

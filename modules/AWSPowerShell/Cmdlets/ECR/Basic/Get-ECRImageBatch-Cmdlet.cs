@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRImageBatchCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptedMediaType
         /// <summary>
         /// <para>

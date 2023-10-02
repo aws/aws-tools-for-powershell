@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class GetFMSProtectionStatusCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

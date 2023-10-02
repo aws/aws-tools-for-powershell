@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatastoreId
         /// <summary>
         /// <para>

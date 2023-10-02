@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     public partial class RemoveAFABAppAuthorizationCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppAuthorizationIdentifier
         /// <summary>
         /// <para>

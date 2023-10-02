@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
     public partial class GetOSISPipelineListCmdlet : AmazonOSISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public partial class EditR53RFirewallConfigCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FirewallFailOpen
         /// <summary>
         /// <para>

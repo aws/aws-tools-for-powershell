@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class NewPRORepositoryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionArn
         /// <summary>
         /// <para>

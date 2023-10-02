@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class GetQSTemplateCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AliasName
         /// <summary>
         /// <para>

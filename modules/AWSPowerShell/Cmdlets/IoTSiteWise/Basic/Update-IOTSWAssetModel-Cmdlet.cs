@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class UpdateIOTSWAssetModelCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssetModelCompositeModel
         /// <summary>
         /// <para>

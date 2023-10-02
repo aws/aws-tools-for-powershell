@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class SendPINEEmailCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination_BccAddress
         /// <summary>
         /// <para>

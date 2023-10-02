@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MHC
     public partial class GetMHCHomeRegionControlCmdlet : AmazonMigrationHubConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ControlId
         /// <summary>
         /// <para>

@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     public partial class RemoveHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientArn
         /// <summary>
         /// <para>

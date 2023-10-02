@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class RegisterNMGRTransitGatewayConnectPeerCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

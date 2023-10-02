@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMCompilationJobListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>

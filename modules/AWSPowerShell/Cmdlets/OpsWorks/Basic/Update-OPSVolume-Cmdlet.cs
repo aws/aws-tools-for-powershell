@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class UpdateOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MountPoint
         /// <summary>
         /// <para>

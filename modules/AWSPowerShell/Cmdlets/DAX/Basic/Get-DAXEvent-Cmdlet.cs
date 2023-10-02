@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public partial class GetDAXEventCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Duration
         /// <summary>
         /// <para>

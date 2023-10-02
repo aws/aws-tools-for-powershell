@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class GetCBProjectBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

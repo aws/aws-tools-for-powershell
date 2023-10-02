@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class UpdateIAMAccessKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessKeyId
         /// <summary>
         /// <para>

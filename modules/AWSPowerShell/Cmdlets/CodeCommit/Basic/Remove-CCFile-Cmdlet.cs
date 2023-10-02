@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class RemoveCCFileCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BranchName
         /// <summary>
         /// <para>

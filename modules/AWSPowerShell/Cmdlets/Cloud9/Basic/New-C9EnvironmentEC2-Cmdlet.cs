@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutomaticStopTimeMinute
         /// <summary>
         /// <para>

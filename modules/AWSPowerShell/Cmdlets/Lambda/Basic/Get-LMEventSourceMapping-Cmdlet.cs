@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class GetLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UUID
         /// <summary>
         /// <para>

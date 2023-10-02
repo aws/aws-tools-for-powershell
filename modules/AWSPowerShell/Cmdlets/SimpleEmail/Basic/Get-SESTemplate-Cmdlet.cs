@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class GetSESTemplateCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>

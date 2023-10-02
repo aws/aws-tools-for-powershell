@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class GetLKFTemporaryGluePartitionCredentialCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuditContext_AdditionalAuditContext
         /// <summary>
         /// <para>

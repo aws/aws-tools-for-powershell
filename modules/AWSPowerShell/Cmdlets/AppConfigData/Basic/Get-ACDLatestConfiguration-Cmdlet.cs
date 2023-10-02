@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.ACD
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationToken
         /// <summary>
         /// <para>

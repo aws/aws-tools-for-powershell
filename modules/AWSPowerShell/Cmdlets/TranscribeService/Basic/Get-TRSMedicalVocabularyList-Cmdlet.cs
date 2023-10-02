@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class GetTRSMedicalVocabularyListCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>

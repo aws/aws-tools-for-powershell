@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TableName
         /// <summary>
         /// <para>

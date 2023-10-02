@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECReservedCacheNodeCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CacheNodeType
         /// <summary>
         /// <para>

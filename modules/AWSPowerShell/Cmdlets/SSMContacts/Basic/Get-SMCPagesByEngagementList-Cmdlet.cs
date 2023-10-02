@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCPagesByEngagementListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EngagementId
         /// <summary>
         /// <para>

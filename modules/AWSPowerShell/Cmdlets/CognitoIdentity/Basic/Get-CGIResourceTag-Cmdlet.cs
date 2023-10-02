@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     public partial class GetCGIResourceTagCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

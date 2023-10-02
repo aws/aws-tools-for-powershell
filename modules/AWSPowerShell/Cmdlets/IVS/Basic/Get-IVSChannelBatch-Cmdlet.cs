@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class GetIVSChannelBatchCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class SetCFNTypeConfigurationCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Configuration
         /// <summary>
         /// <para>

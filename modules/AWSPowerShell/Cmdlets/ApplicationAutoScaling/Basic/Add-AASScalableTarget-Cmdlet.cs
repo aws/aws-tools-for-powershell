@@ -80,6 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public partial class AddAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SuspendedState_DynamicScalingInSuspended
         /// <summary>
         /// <para>

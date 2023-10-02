@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
     public partial class GetMMCustomerMetadataCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RegistrationToken
         /// <summary>
         /// <para>

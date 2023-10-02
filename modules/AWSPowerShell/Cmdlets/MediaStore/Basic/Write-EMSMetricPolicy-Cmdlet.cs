@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     public partial class WriteEMSMetricPolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MetricPolicy_ContainerLevelMetric
         /// <summary>
         /// <para>

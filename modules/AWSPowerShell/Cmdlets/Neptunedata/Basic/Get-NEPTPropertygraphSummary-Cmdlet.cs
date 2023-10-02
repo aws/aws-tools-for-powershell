@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class GetNEPTPropertygraphSummaryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Mode
         /// <summary>
         /// <para>

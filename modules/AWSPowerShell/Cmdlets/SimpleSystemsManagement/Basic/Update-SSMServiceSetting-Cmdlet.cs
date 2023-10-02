@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMServiceSettingCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SettingId
         /// <summary>
         /// <para>

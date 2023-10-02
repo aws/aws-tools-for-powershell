@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class StartGLUEDataQualityRulesetEvaluationRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalDataSource
         /// <summary>
         /// <para>

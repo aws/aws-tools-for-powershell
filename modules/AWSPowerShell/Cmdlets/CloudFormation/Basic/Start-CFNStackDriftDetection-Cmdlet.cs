@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class StartCFNStackDriftDetectionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogicalResourceId
         /// <summary>
         /// <para>

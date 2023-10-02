@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     public partial class RemoveMPV2ResourceTagCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

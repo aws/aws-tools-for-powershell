@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class UpdateEMCQueueCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReservationPlanSettings_Commitment
         /// <summary>
         /// <para>

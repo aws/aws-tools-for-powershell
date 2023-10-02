@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMImageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeleteProperty
         /// <summary>
         /// <para>

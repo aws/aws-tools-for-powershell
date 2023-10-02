@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class UpdatePCAADTemplateGroupAccessControlEntryCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessRights_AutoEnroll
         /// <summary>
         /// <para>

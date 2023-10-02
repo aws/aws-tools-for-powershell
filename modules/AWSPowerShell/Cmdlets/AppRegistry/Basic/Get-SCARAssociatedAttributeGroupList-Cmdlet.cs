@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     public partial class GetSCARAssociatedAttributeGroupListCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Application
         /// <summary>
         /// <para>

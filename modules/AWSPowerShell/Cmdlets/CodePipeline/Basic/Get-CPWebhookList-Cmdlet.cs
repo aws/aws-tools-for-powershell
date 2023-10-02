@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPWebhookListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

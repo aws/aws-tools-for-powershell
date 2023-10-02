@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     public partial class StopNEPTMLModelTrainingJobCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Clean
         /// <summary>
         /// <para>

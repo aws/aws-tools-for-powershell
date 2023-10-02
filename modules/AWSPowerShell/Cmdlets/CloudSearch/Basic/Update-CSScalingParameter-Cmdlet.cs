@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public partial class UpdateCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScalingParameters_DesiredInstanceType
         /// <summary>
         /// <para>

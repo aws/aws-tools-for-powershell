@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public partial class GetSQAWSDefaultServiceQuotaListCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceCode
         /// <summary>
         /// <para>

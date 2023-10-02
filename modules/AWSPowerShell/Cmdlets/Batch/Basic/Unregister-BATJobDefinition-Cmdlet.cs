@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class UnregisterBATJobDefinitionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobDefinition
         /// <summary>
         /// <para>

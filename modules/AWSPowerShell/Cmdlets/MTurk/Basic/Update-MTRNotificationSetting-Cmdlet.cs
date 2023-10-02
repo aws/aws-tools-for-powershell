@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class UpdateMTRNotificationSettingCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Active
         /// <summary>
         /// <para>

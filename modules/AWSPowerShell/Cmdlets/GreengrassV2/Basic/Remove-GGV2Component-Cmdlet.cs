@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     public partial class RemoveGGV2ComponentCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

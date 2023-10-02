@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRGetDocumentStatusCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DocumentInfoList
         /// <summary>
         /// <para>

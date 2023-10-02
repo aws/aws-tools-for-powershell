@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GMESP
     public partial class ImportGMESPGameConfigurationCmdlet : AmazonGameSparksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImportSource_File
         /// <summary>
         /// <para>

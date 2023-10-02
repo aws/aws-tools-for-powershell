@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     public partial class WritePROMAlertManagerDefinitionCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Data
         /// <summary>
         /// <para>

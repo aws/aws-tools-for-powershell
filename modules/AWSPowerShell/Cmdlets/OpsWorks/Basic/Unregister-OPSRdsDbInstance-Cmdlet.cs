@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class UnregisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RdsDbInstanceArn
         /// <summary>
         /// <para>

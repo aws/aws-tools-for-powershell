@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueryString
         /// <summary>
         /// <para>

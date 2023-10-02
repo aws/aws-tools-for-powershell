@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class RemoveTNBSolFunctionPackageCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VnfPkgId
         /// <summary>
         /// <para>

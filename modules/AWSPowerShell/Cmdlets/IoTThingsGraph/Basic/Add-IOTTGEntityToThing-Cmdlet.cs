@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     public partial class AddIOTTGEntityToThingCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EntityId
         /// <summary>
         /// <para>

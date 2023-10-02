@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSDiskSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>

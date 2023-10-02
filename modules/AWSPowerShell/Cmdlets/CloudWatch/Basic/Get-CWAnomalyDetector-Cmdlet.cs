@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     public partial class GetCWAnomalyDetectorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnomalyDetectorType
         /// <summary>
         /// <para>

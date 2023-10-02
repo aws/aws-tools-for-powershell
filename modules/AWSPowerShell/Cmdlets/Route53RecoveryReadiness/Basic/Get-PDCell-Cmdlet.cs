@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PD
     public partial class GetPDCellCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CellName
         /// <summary>
         /// <para>

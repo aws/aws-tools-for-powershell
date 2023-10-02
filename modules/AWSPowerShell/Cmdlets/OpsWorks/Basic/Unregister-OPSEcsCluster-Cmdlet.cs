@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class UnregisterOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EcsClusterArn
         /// <summary>
         /// <para>

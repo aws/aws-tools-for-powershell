@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMModelQualityJobDefinitionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ModelQualityBaselineConfig_BaseliningJobName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     public partial class RemoveAMPBBackendConfigCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

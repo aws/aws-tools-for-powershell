@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECCacheSecurityGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>

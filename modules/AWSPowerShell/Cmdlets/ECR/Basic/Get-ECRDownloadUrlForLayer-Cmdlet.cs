@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRDownloadUrlForLayerCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LayerDigest
         /// <summary>
         /// <para>

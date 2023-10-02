@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class StopCTEventDataStoreIngestionCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EventDataStore
         /// <summary>
         /// <para>

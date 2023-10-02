@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class GetEC2IBImageScanFindingAggregationListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter_Name
         /// <summary>
         /// <para>

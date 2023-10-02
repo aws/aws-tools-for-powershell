@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class AddELB2ListenerCertificateCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Certificate
         /// <summary>
         /// <para>

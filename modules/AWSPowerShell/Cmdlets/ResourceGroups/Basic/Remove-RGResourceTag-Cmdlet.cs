@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
     public partial class RemoveRGResourceTagCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

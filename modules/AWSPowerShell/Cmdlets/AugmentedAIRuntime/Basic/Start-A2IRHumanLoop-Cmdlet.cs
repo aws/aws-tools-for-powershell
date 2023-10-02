@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     public partial class StartA2IRHumanLoopCmdlet : AmazonAugmentedAIRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataAttributes_ContentClassifier
         /// <summary>
         /// <para>

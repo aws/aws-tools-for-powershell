@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class StopCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueryId
         /// <summary>
         /// <para>

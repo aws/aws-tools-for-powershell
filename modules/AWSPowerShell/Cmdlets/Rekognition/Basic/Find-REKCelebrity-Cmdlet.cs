@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class FindREKCelebrityCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageBucket
         /// <summary>
         /// <para>

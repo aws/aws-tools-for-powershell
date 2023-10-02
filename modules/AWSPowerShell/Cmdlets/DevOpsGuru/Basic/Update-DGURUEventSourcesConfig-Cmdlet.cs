@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class UpdateDGURUEventSourcesConfigCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AmazonCodeGuruProfiler_Status
         /// <summary>
         /// <para>

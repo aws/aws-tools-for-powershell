@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

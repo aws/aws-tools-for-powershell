@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class GetWAFChangeTokenCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ChangeToken'.

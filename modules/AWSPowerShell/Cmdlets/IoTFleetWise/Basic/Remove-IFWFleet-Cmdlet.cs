@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public partial class RemoveIFWFleetCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FleetId
         /// <summary>
         /// <para>

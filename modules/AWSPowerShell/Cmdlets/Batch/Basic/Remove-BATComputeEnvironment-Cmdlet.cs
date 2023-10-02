@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class RemoveBATComputeEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeEnvironment
         /// <summary>
         /// <para>

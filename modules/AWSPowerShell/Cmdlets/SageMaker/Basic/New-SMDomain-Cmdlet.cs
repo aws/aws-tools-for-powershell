@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppNetworkAccessType
         /// <summary>
         /// <para>

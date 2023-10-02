@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class GetVPCLServiceListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

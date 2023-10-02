@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterId
         /// <summary>
         /// <para>

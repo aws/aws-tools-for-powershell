@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class RemovePANPackageCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForceDelete
         /// <summary>
         /// <para>

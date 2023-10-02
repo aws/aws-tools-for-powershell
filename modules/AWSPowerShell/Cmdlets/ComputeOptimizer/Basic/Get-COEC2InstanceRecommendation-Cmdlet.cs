@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class GetCOEC2InstanceRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

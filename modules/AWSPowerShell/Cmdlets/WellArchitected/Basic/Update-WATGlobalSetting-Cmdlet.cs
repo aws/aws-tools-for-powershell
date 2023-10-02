@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class UpdateWATGlobalSettingCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DiscoveryIntegrationStatus
         /// <summary>
         /// <para>

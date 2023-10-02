@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2PlacementGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>

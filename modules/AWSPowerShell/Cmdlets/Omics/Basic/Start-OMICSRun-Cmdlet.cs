@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class StartOMICSRunCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogLevel
         /// <summary>
         /// <para>

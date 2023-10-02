@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class UpdateNWFWFirewallDescriptionCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

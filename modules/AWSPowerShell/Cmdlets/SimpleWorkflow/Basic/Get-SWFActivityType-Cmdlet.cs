@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     public partial class GetSWFActivityTypeCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Domain
         /// <summary>
         /// <para>

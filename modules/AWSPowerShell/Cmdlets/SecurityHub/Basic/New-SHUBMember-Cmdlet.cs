@@ -82,6 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class NewSHUBMemberCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountDetail
         /// <summary>
         /// <para>

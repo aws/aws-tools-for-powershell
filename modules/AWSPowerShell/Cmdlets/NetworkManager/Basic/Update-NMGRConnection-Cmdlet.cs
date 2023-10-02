@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class UpdateNMGRConnectionCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectedLinkId
         /// <summary>
         /// <para>

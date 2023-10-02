@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class UnregisterOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ElasticIp
         /// <summary>
         /// <para>

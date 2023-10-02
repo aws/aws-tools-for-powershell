@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     public partial class NewSSOADMNInstanceAccessControlAttributeConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceAccessControlAttributeConfiguration_AccessControlAttribute
         /// <summary>
         /// <para>

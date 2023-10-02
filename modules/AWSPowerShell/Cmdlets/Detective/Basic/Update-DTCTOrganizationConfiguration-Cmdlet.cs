@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class UpdateDTCTOrganizationConfigurationCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoEnable
         /// <summary>
         /// <para>

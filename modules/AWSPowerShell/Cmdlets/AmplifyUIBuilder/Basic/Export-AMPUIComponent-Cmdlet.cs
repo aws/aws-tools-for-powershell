@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     public partial class ExportAMPUIComponentCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

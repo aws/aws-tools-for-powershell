@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class NewWAF2RuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Capacity
         /// <summary>
         /// <para>

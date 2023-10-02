@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public partial class UpdateSSMIRelatedItemCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn
         /// <summary>
         /// <para>

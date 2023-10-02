@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     public partial class GetGLCMultipartUploadListCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

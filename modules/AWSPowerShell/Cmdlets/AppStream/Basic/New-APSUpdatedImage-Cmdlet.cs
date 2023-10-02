@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class NewAPSUpdatedImageCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>

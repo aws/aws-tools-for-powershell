@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class GetADSExportConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExportId
         /// <summary>
         /// <para>

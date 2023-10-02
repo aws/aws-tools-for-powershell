@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class NewWKSConnectClientAddInCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

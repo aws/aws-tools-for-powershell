@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class NewSGSnapshotCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SnapshotDescription
         /// <summary>
         /// <para>

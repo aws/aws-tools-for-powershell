@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Tests whether your SFTP connector is set up successfully. We highly recommend that
-    /// you call this operation to test your ability to transfer files between a Transfer
-    /// Family server and a trading partner's SFTP server.
+    /// you call this operation to test your ability to transfer files between local Amazon
+    /// Web Services storage and a trading partner's SFTP server.
     /// </summary>
     [Cmdlet("Test", "TFRConnection")]
     [OutputType("Amazon.Transfer.Model.TestConnectionResponse")]
@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     )]
     public partial class TestTFRConnectionCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ConnectorId
         /// <summary>

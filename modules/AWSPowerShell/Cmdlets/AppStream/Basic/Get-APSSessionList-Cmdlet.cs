@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class GetAPSSessionListCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>

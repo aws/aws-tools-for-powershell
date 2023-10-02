@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2SpotPlacementScoreCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceRequirements_AcceleratorManufacturer
         /// <summary>
         /// <para>

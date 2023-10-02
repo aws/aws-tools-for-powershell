@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class RemoveGMLVpcPeeringAuthorizationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GameLiftAwsAccountId
         /// <summary>
         /// <para>

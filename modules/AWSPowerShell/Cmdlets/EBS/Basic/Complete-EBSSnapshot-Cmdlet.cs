@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     public partial class CompleteEBSSnapshotCmdlet : AmazonEBSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangedBlocksCount
         /// <summary>
         /// <para>

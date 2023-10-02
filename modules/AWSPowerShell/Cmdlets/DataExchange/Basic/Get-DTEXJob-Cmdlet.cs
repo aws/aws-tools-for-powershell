@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     public partial class GetDTEXJobCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

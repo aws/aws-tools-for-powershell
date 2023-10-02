@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EI
     public partial class GetEIAcceleratorOfferingCmdlet : AmazonElasticInferenceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceleratorType
         /// <summary>
         /// <para>

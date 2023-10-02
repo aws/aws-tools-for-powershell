@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     public partial class RemoveASPScalingPlanCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ScalingPlanName
         /// <summary>
         /// <para>

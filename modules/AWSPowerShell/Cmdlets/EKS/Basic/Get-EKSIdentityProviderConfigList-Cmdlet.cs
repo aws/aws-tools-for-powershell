@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class GetEKSIdentityProviderConfigListCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

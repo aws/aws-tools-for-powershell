@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBContributorInsightCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IndexName
         /// <summary>
         /// <para>

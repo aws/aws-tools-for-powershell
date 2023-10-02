@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     public partial class NewIOTFHApplicationCmdlet : AmazonIoTFleetHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationDescription
         /// <summary>
         /// <para>

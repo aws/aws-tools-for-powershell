@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class RemoveCBBuildBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

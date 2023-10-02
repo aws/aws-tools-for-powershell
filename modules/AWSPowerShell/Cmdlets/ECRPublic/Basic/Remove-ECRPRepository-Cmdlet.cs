@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     public partial class RemoveECRPRepositoryCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IgnoreExistingImages
         /// <summary>
         /// <para>

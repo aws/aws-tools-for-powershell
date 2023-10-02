@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     public partial class UnregisterSMSAPApplicationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class SetEC2RouteTableAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

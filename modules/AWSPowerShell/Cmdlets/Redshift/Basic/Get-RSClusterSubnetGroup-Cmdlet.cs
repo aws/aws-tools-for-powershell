@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>

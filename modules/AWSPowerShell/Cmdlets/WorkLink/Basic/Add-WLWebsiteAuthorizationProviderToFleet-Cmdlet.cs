@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class AddWLWebsiteAuthorizationProviderToFleetCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthorizationProviderType
         /// <summary>
         /// <para>

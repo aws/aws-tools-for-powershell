@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     public partial class GetLMUSIdentityProviderListCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

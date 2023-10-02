@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class CompleteECRLayerUploadCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LayerDigest
         /// <summary>
         /// <para>

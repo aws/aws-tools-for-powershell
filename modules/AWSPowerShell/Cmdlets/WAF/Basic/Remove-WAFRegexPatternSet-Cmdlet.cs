@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class RemoveWAFRegexPatternSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangeToken
         /// <summary>
         /// <para>

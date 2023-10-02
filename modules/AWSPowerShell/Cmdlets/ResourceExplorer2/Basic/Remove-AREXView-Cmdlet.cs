@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     public partial class RemoveAREXViewCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ViewArn
         /// <summary>
         /// <para>

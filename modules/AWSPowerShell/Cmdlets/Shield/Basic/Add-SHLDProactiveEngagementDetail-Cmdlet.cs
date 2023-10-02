@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class AddSHLDProactiveEngagementDetailCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EmergencyContactList
         /// <summary>
         /// <para>

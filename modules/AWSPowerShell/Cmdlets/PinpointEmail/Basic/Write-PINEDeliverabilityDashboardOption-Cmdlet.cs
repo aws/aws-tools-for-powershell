@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class WritePINEDeliverabilityDashboardOptionCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DashboardEnabled
         /// <summary>
         /// <para>

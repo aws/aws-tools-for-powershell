@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2LocalGatewayRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>

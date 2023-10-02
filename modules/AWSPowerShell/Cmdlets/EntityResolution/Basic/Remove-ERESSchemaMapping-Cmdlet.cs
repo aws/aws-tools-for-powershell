@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     public partial class RemoveERESSchemaMappingCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SchemaName
         /// <summary>
         /// <para>

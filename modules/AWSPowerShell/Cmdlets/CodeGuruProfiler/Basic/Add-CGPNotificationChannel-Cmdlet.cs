@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class AddCGPNotificationChannelCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Channel
         /// <summary>
         /// <para>

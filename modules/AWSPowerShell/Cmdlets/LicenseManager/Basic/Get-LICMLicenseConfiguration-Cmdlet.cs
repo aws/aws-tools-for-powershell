@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class GetLICMLicenseConfigurationCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>

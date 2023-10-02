@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class GetSHLDResourceTagCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class EnableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ParameterValue
         /// <summary>
         /// <para>

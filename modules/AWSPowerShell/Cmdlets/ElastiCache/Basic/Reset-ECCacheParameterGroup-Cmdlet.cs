@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class ResetECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMCommandInvocationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CommandId
         /// <summary>
         /// <para>

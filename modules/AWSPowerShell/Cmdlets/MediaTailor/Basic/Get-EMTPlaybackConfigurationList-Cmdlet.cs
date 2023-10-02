@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     public partial class GetEMTPlaybackConfigurationListCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

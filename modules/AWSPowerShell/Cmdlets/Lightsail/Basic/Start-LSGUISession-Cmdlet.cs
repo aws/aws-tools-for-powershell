@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class StartLSGUISessionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>

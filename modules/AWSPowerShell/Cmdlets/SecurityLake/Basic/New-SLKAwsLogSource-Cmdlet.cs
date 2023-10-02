@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKAwsLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Source
         /// <summary>
         /// <para>

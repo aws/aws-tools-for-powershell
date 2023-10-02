@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     public partial class AddKINAApplicationCloudWatchLoggingOptionCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>

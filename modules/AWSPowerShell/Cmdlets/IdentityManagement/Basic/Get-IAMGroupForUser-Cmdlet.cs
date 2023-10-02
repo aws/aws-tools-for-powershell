@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMGroupForUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UserName
         /// <summary>
         /// <para>

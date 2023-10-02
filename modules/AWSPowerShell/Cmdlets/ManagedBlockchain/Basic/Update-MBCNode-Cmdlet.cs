@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class UpdateMBCNodeCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogPublishingConfiguration_Fabric
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class RemoveRAMPermissionCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PermissionArn
         /// <summary>
         /// <para>

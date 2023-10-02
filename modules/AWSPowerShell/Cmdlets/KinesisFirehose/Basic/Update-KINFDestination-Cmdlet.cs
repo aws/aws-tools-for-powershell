@@ -74,6 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey
         /// <summary>
         /// <para>

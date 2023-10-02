@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     public partial class GetECRPRegistryCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

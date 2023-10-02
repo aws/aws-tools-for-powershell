@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class GetROBOWorldGenerationJobListCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

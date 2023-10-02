@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class RemoveSHUBMemberAssociationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

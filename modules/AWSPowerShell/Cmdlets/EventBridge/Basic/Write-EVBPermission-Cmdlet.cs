@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class WriteEVBPermissionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

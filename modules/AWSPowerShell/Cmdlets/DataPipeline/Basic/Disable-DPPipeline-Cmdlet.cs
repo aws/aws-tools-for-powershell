@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class DisableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CancelActive
         /// <summary>
         /// <para>

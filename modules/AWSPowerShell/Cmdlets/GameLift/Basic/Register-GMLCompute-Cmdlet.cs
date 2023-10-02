@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class RegisterGMLComputeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificatePath
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class RemoveHCResourceTagCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

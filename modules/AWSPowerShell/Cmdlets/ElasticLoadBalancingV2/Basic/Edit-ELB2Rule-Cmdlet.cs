@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class EditELB2RuleCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Action
         /// <summary>
         /// <para>

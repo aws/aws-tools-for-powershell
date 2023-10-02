@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class GetEMCEndpointCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Mode
         /// <summary>
         /// <para>

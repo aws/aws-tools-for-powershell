@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2NatGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>

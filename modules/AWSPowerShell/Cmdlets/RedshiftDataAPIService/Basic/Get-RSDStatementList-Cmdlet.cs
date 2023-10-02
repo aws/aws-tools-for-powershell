@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     public partial class GetRSDStatementListCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RoleLevel
         /// <summary>
         /// <para>

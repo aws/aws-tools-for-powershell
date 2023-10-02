@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class GetSQSResourceTagCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueueUrl
         /// <summary>
         /// <para>

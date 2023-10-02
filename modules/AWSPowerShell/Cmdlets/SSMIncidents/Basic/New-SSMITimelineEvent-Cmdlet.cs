@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public partial class NewSSMITimelineEventCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EventData
         /// <summary>
         /// <para>

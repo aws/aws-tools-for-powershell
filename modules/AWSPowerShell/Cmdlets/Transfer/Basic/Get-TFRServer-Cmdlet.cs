@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServerId
         /// <summary>
         /// <para>

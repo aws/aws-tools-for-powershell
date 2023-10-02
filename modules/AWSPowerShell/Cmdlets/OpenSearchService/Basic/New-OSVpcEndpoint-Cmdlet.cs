@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class NewOSVpcEndpointCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DomainArn
         /// <summary>
         /// <para>

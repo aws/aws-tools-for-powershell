@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public partial class UpdateGGConnectivityInfoCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectivityInfo
         /// <summary>
         /// <para>

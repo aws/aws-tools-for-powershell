@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class UnregisterMAC2FromAdministratorAccountCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class GetFINSPKxChangesetCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChangesetId
         /// <summary>
         /// <para>

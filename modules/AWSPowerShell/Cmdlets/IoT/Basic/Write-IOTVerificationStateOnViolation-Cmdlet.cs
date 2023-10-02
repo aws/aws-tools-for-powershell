@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class WriteIOTVerificationStateOnViolationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VerificationState
         /// <summary>
         /// <para>

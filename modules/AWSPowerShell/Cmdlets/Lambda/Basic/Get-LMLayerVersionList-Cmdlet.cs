@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class GetLMLayerVersionListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CompatibleArchitecture
         /// <summary>
         /// <para>

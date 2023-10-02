@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSDataSharesForProducerCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProducerArn
         /// <summary>
         /// <para>

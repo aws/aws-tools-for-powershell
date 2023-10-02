@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public partial class RemoveCHMTGMeetingCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MeetingId
         /// <summary>
         /// <para>

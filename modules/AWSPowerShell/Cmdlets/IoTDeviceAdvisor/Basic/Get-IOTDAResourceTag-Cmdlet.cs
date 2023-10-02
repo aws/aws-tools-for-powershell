@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public partial class GetIOTDAResourceTagCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     public partial class NewSWFDomainCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

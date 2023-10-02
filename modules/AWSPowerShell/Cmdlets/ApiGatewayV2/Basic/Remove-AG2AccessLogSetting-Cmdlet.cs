@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     public partial class RemoveAG2AccessLogSettingCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApiId
         /// <summary>
         /// <para>

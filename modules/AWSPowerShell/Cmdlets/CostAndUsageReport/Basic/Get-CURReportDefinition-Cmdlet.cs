@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     public partial class GetCURReportDefinitionCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

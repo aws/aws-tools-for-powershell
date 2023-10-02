@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class GetLMLayerVersionByArnCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

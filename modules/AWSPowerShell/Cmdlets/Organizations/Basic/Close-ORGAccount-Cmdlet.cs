@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class CloseORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

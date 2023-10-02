@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class AddGACLResourceTagCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

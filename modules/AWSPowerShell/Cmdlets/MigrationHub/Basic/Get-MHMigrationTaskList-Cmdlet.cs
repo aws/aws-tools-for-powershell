@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
     public partial class GetMHMigrationTaskListCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>

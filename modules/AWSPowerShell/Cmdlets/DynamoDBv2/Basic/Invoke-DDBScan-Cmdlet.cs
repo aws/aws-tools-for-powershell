@@ -82,6 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class InvokeDDBScanCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class UpdateOSVpcEndpointCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VpcOptions_SecurityGroupId
         /// <summary>
         /// <para>

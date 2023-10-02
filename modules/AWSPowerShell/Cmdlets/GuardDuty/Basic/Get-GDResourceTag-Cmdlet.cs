@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class GetGDResourceTagCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

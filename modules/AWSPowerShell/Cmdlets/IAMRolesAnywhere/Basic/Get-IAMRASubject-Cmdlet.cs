@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class GetIAMRASubjectCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SubjectId
         /// <summary>
         /// <para>

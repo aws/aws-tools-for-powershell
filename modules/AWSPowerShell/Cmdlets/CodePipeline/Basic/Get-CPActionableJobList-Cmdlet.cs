@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionTypeId_Category
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class EditNPTEventSubscriptionCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>

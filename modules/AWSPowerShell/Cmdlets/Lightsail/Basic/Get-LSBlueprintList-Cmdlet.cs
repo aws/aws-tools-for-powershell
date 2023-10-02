@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSBlueprintListCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppCategory
         /// <summary>
         /// <para>

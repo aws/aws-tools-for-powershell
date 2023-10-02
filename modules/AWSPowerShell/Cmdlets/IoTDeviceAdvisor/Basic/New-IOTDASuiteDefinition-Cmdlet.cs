@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public partial class NewIOTDASuiteDefinitionCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SuiteDefinitionConfiguration_DevicePermissionRoleArn
         /// <summary>
         /// <para>

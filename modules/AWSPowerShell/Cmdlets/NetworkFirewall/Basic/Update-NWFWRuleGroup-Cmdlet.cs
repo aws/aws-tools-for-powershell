@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public partial class UpdateNWFWRuleGroupCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StatelessRulesAndCustomActions_CustomAction
         /// <summary>
         /// <para>

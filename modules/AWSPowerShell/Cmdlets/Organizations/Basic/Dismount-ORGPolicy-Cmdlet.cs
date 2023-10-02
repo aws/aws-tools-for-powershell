@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class DismountORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyId
         /// <summary>
         /// <para>

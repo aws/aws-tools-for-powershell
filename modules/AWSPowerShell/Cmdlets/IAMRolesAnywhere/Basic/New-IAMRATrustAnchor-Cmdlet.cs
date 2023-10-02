@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceData_AcmPcaArn
         /// <summary>
         /// <para>

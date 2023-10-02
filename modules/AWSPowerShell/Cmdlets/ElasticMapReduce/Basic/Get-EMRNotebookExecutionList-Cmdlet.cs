@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class GetEMRNotebookExecutionListCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EditorId
         /// <summary>
         /// <para>

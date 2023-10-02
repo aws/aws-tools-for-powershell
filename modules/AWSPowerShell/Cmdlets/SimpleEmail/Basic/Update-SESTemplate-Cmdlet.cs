@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class UpdateSESTemplateCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Template
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     public partial class RemoveCSTCResourceTagCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

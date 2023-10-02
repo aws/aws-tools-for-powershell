@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class StartDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CdcStartPosition
         /// <summary>
         /// <para>

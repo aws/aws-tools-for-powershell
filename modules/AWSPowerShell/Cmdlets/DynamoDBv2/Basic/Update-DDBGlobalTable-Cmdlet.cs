@@ -74,6 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class UpdateDDBGlobalTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GlobalTableName
         /// <summary>
         /// <para>

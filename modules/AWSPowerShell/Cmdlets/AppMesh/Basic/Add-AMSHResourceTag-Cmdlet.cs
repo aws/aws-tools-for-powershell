@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class AddAMSHResourceTagCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

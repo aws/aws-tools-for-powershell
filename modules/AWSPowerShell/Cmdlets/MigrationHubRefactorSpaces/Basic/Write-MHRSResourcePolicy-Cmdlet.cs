@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class WriteMHRSResourcePolicyCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class SetLSIpAddressTypeCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IpAddressType
         /// <summary>
         /// <para>

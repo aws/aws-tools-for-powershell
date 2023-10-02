@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class GetNPTDBSubnetGroupCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>

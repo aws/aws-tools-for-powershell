@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     public partial class GetCONNPAttachmentCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttachmentId
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class NewLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RoutingConfig_AdditionalVersionWeight
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNPublisherCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PublisherId
         /// <summary>
         /// <para>

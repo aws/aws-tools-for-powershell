@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public partial class GetCCSResourceTagCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

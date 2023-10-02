@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class WriteKMSKeyPolicyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BypassPolicyLockoutSafetyCheck
         /// <summary>
         /// <para>

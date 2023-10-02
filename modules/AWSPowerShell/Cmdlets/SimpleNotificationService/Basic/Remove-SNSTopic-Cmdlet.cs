@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class RemoveSNSTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TopicArn
         /// <summary>
         /// <para>

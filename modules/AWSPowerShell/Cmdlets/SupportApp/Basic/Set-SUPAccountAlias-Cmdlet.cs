@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     public partial class SetSUPAccountAliasCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountAlias
         /// <summary>
         /// <para>

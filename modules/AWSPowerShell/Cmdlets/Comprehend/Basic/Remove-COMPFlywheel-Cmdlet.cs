@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class RemoveCOMPFlywheelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FlywheelArn
         /// <summary>
         /// <para>

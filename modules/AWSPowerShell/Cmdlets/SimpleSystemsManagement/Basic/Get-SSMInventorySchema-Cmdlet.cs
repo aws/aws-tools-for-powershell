@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMInventorySchemaCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Aggregator
         /// <summary>
         /// <para>

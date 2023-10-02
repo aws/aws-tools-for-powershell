@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class RemoveRESHResiliencyPolicyCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyArn
         /// <summary>
         /// <para>

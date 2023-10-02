@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     public partial class RemoveIVSRTStageCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

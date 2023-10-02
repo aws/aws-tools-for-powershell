@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class RemoveRSResourceTagCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>

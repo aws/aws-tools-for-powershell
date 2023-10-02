@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RemoveCHMAppInstanceStreamingConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class StopSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotebookInstanceName
         /// <summary>
         /// <para>

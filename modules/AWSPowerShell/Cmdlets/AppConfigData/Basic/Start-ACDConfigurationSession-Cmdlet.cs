@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     public partial class StartACDConfigurationSessionCmdlet : AmazonAppConfigDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationIdentifier
         /// <summary>
         /// <para>

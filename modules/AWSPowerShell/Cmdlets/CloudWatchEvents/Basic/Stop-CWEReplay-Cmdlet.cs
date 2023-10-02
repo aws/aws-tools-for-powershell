@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class StopCWEReplayCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplayName
         /// <summary>
         /// <para>

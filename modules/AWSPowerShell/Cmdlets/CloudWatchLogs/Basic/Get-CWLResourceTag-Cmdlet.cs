@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class GetCWLResourceTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

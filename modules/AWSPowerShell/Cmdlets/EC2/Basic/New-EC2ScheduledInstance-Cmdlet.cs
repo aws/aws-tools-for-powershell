@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IamInstanceProfile_Arn
         /// <summary>
         /// <para>

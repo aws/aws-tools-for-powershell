@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     public partial class GetMSKClusterV2Cmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterArn
         /// <summary>
         /// <para>

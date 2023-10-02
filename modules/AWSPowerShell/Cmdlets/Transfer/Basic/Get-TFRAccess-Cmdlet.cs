@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRAccessCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExternalId
         /// <summary>
         /// <para>

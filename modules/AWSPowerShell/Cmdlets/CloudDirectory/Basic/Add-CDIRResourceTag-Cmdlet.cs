@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     public partial class AddCDIRResourceTagCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

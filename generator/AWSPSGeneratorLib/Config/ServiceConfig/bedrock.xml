@@ -23,11 +23,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateProvisionedModelThroughput" OutputProperty="ProvisionedModelArn" Verb="New" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCustomModel" Verb="Remove" Noun="CustomModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteModelInvocationLoggingConfiguration" Verb="Remove" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProvisionedModelThroughput" Verb="Remove" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProvisionedModelThroughput" OutputProperty="*" Verb="Get" Noun="ProvisionedModelThroughput" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCustomModels" OutputProperty="ModelSummaries" Verb="Get" Noun="CustomModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListModelCustomizationJobs" OutputProperty="ModelCustomizationJobSummaries" Verb="Get" Noun="ModelCustomizationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProvisionedModelThroughputs" OutputProperty="ProvisionedModelSummaries" Verb="Get" Noun="ProvisionedModelThroughputList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProvisionedModelThroughput" Verb="Update" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

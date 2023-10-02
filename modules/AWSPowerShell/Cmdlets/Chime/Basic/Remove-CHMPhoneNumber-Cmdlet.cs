@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RemoveCHMPhoneNumberCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class UpdateEDRSLaunchConfigurationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CopyPrivateIp
         /// <summary>
         /// <para>

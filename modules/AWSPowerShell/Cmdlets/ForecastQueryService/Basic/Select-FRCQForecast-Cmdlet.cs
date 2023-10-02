@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
     public partial class SelectFRCQForecastCmdlet : AmazonForecastQueryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndDate
         /// <summary>
         /// <para>

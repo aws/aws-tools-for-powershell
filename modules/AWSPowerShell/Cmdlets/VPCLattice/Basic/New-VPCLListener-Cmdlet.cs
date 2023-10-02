@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class NewVPCLListenerCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

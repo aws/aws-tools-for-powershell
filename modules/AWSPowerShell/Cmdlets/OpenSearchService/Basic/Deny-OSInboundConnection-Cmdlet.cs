@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class DenyOSInboundConnectionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionId
         /// <summary>
         /// <para>

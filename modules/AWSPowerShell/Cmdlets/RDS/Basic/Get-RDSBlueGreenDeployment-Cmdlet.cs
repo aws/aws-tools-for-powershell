@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSBlueGreenDeploymentCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BlueGreenDeploymentIdentifier
         /// <summary>
         /// <para>

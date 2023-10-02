@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class RemoveSMInferenceExperimentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class RemoveDMSResourceTagCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class GetMQBrokerCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BrokerId
         /// <summary>
         /// <para>

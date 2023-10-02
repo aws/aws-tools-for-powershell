@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class GetRAMPendingInvitationResourceListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceRegionScope
         /// <summary>
         /// <para>

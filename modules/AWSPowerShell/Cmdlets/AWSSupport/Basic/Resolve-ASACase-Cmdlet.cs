@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public partial class ResolveASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CaseId
         /// <summary>
         /// <para>

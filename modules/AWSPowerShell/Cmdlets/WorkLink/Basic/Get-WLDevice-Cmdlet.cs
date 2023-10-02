@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class GetWLDeviceCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

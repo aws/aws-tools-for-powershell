@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class NewIOTSWBulkImportJobCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ErrorReportLocation_Bucket
         /// <summary>
         /// <para>

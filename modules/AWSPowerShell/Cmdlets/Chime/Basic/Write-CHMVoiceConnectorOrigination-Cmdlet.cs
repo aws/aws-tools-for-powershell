@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class WriteCHMVoiceConnectorOriginationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Origination_Disabled
         /// <summary>
         /// <para>

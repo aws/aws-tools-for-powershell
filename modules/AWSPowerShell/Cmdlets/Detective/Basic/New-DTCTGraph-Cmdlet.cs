@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class NewDTCTGraphCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Tag
         /// <summary>
         /// <para>

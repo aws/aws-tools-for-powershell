@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountID
         /// <summary>
         /// <para>

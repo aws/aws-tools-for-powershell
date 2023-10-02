@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public partial class GetSQAssociationForServiceQuotaTemplateCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceQuotaTemplateAssociationStatus'.

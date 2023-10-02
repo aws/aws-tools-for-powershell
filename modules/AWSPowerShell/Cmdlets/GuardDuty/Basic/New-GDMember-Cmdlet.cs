@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class NewGDMemberCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountDetail
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class RemoveEFSReplicationConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceFileSystemId
         /// <summary>
         /// <para>

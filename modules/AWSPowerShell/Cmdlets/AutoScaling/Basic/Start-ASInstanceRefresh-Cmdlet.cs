@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class StartASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AlarmSpecification_Alarm
         /// <summary>
         /// <para>

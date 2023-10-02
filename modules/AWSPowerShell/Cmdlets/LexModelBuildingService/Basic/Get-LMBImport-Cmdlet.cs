@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class GetLMBImportCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImportId
         /// <summary>
         /// <para>

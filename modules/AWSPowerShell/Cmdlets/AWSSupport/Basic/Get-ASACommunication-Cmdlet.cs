@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public partial class GetASACommunicationCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AfterTime
         /// <summary>
         /// <para>

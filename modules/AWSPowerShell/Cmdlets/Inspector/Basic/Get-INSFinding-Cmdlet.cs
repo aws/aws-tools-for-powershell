@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class GetINSFindingCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FindingArn
         /// <summary>
         /// <para>

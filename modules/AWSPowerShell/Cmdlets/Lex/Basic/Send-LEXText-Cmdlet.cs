@@ -90,6 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActiveContext
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class UnregisterWATLensCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LensAlias
         /// <summary>
         /// <para>

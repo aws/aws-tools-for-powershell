@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSSourceRegionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

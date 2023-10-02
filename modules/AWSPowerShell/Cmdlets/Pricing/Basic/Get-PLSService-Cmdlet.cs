@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     public partial class GetPLSServiceCmdlet : AmazonPricingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServiceCode
         /// <summary>
         /// <para>

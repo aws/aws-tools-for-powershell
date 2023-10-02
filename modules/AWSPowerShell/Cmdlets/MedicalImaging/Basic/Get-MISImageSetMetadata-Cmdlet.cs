@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     public partial class GetMISImageSetMetadataCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatastoreId
         /// <summary>
         /// <para>

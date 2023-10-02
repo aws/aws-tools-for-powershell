@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public partial class AddCHMTGResourceTagCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

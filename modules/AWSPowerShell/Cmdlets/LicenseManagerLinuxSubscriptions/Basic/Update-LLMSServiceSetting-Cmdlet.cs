@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
     public partial class UpdateLLMSServiceSettingCmdlet : AmazonLicenseManagerLinuxSubscriptionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowUpdate
         /// <summary>
         /// <para>

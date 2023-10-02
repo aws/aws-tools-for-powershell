@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class RemoveCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>

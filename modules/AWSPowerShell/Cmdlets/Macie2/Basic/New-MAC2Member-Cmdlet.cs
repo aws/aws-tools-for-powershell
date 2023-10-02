@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class NewMAC2MemberCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Account_AccountId
         /// <summary>
         /// <para>

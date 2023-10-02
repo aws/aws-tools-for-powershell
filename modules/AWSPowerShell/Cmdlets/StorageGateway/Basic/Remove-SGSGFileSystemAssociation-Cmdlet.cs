@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class RemoveSGSGFileSystemAssociationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FileSystemAssociationARN
         /// <summary>
         /// <para>

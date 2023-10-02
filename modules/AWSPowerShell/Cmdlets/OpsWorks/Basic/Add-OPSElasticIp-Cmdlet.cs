@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class AddOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ElasticIp
         /// <summary>
         /// <para>

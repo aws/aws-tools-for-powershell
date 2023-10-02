@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSSolutionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SolutionConfig_AlgorithmHyperParameter
         /// <summary>
         /// <para>

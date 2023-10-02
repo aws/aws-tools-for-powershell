@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMVoiceConnectorListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

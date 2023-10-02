@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class AddCTResourceTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

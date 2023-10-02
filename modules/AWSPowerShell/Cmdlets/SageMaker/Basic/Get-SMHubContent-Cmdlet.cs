@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMHubContentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HubContentName
         /// <summary>
         /// <para>

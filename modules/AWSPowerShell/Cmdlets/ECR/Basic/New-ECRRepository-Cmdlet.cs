@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class NewECRRepositoryCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EncryptionConfiguration_EncryptionType
         /// <summary>
         /// <para>

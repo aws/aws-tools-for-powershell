@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     public partial class InvokeRDSDSqlStatementCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsSecretStoreArn
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class ResetRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UtcBacktrackTo
         /// <summary>
         /// <para>

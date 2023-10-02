@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class NewOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

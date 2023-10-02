@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     public partial class RemovePROMRuleGroupsNamespaceCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

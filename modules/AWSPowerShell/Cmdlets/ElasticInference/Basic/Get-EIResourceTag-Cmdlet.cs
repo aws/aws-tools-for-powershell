@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EI
     public partial class GetEIResourceTagCmdlet : AmazonElasticInferenceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

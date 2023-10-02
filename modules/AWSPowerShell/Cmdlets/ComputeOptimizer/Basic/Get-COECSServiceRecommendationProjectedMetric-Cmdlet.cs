@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class GetCOECSServiceRecommendationProjectedMetricCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

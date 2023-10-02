@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class StartREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxInferenceUnit
         /// <summary>
         /// <para>

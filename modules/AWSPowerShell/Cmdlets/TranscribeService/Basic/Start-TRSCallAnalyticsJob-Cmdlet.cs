@@ -83,6 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class StartTRSCallAnalyticsJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CallAnalyticsJobName
         /// <summary>
         /// <para>

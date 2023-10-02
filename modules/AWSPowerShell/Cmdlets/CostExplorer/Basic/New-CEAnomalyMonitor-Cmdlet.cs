@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class NewCEAnomalyMonitorCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnomalyMonitor_CreationDate
         /// <summary>
         /// <para>

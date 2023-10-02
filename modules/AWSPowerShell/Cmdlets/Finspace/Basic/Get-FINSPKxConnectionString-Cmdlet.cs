@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>

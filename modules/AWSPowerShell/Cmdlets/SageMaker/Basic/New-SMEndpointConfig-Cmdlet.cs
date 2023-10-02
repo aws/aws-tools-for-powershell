@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMEndpointConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataCaptureConfig_CaptureOption
         /// <summary>
         /// <para>

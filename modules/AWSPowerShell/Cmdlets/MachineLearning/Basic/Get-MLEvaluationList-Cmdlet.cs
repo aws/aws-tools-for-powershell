@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class GetMLEvaluationListCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EQ
         /// <summary>
         /// <para>

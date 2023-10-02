@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public partial class RemoveIDSGroupMembershipCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>

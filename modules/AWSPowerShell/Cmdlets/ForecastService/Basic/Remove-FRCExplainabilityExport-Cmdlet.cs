@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class RemoveFRCExplainabilityExportCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExplainabilityExportArn
         /// <summary>
         /// <para>

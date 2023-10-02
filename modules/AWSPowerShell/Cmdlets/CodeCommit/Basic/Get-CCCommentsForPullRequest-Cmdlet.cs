@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCCommentsForPullRequestCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AfterCommitId
         /// <summary>
         /// <para>

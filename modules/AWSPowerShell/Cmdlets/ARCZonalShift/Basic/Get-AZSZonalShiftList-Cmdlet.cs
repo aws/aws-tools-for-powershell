@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     public partial class GetAZSZonalShiftListCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Status
         /// <summary>
         /// <para>

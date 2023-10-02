@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class NewCOMPFlywheelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActiveModelArn
         /// <summary>
         /// <para>

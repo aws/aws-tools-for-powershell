@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class GetLICMReceivedGrantListCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class EnableMAC2MacieCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>

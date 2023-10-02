@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class StartCFGConfigRulesEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>

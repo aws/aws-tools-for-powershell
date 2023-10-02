@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class RemoveGACLCustomRoutingAcceleratorCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceleratorArn
         /// <summary>
         /// <para>

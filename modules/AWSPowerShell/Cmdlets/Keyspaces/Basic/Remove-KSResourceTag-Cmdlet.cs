@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     public partial class RemoveKSResourceTagCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

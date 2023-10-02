@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class StartTRSMedicalTranscriptionJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Settings_ChannelIdentification
         /// <summary>
         /// <para>

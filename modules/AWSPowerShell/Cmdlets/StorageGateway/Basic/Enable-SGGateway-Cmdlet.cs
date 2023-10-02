@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class EnableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActivationKey
         /// <summary>
         /// <para>

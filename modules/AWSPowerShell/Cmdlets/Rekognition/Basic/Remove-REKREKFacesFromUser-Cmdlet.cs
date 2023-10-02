@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class RemoveREKREKFacesFromUserCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

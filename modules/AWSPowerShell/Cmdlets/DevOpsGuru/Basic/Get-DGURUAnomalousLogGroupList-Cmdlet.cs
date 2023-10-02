@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUAnomalousLogGroupListCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InsightId
         /// <summary>
         /// <para>

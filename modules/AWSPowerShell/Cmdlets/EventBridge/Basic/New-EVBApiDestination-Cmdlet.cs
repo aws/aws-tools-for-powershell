@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class NewEVBApiDestinationCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionArn
         /// <summary>
         /// <para>

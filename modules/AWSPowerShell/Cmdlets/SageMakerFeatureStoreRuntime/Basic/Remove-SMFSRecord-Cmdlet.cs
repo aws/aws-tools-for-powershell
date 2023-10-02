@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     public partial class RemoveSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeletionMode
         /// <summary>
         /// <para>

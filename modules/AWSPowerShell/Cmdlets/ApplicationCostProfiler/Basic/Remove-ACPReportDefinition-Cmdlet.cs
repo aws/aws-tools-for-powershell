@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     public partial class RemoveACPReportDefinitionCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReportId
         /// <summary>
         /// <para>

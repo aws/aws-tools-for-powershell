@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     public partial class NewCSTCConnectionCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionName
         /// <summary>
         /// <para>

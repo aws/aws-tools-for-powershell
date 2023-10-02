@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class RemoveKNDRFeaturedResultsSetBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FeaturedResultsSetId
         /// <summary>
         /// <para>

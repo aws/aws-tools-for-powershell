@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class RemoveCOMPEntityRecognizerCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EntityRecognizerArn
         /// <summary>
         /// <para>

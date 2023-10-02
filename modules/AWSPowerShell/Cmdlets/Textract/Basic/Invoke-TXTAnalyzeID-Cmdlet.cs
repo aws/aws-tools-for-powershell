@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     public partial class InvokeTXTAnalyzeIDCmdlet : AmazonTextractClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DocumentPage
         /// <summary>
         /// <para>

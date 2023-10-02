@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRExecutionListCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WorkflowId
         /// <summary>
         /// <para>

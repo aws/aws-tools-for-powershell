@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class NewWAF2RegexPatternSetCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

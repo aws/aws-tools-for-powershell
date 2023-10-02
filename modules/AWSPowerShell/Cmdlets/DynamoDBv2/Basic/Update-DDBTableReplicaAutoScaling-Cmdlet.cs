@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class UpdateDDBTableReplicaAutoScalingCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GlobalSecondaryIndexUpdate
         /// <summary>
         /// <para>

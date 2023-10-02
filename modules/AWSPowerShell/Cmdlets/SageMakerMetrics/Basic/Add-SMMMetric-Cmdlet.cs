@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SMM
     public partial class AddSMMMetricCmdlet : AmazonSageMakerMetricsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MetricData
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class GetTNBSolNetworkPackageListCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

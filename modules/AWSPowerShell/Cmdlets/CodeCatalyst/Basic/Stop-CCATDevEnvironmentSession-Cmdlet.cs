@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class StopCCATDevEnvironmentSessionCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

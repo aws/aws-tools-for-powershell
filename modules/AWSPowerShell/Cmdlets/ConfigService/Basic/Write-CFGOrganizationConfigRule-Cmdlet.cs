@@ -90,6 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGOrganizationConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OrganizationCustomPolicyRuleMetadata_DebugLogDeliveryAccount
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGDiscoveredResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IncludeDeletedResource
         /// <summary>
         /// <para>

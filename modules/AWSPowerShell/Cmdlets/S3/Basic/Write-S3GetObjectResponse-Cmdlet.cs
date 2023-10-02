@@ -84,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class WriteS3GetObjectResponseCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptRange
         /// <summary>
         /// <para>

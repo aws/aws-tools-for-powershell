@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class GetATHNotebookSessionListCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NotebookId
         /// <summary>
         /// <para>

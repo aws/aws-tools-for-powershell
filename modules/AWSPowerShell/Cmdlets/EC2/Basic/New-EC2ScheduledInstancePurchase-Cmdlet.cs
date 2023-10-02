@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2ScheduledInstancePurchaseCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PurchaseRequest
         /// <summary>
         /// <para>

@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class NewKVStreamCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataRetentionInHour
         /// <summary>
         /// <para>

@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class AddEMRJobFlowStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>

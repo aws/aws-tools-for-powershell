@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class StartCESavingsPlansPurchaseRecommendationGenerationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

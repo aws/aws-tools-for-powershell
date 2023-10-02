@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class NewCCApprovalRuleTemplateCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApprovalRuleTemplateContent
         /// <summary>
         /// <para>

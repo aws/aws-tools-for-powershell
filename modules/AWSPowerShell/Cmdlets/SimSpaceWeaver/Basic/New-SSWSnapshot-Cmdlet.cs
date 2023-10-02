@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     public partial class NewSSWSnapshotCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Destination_BucketName
         /// <summary>
         /// <para>

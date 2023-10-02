@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGStoredQueryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StoredQuery_Description
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class AddEMRInstanceFleetCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter OnDemandSpecification_AllocationStrategy
         /// <summary>
         /// <para>

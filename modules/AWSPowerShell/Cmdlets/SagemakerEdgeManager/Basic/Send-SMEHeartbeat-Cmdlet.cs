@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SME
     public partial class SendSMEHeartbeatCmdlet : AmazonSagemakerEdgeManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentMetric
         /// <summary>
         /// <para>

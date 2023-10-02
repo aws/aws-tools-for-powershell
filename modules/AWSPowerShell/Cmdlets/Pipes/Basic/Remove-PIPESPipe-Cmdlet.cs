@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     public partial class RemovePIPESPipeCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

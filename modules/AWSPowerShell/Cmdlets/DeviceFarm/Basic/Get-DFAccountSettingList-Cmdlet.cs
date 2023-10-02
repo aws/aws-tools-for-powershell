@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class GetDFAccountSettingListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountSettings'.

@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BlockAddress_IonText
         /// <summary>
         /// <para>

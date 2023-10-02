@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     public partial class NewKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SchemaDefinition_AllColumn
         /// <summary>
         /// <para>

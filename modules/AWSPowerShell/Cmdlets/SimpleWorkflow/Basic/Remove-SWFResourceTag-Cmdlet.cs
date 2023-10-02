@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     public partial class RemoveSWFResourceTagCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     public partial class AddEMTLogsForPlaybackConfigurationCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PercentEnabled
         /// <summary>
         /// <para>

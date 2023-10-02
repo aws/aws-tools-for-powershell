@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalDashboardId
         /// <summary>
         /// <para>

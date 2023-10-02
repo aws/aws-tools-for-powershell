@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class GetSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AddressId
         /// <summary>
         /// <para>

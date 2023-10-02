@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     public partial class GetBGTBudgetCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

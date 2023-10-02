@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class GetWAF2WebACLsListCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Scope
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class StartOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

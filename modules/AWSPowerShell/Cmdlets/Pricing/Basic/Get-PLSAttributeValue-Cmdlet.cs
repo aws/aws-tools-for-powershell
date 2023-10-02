@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     public partial class GetPLSAttributeValueCmdlet : AmazonPricingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttributeName
         /// <summary>
         /// <para>

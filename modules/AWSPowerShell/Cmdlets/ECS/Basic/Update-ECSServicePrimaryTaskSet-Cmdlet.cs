@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UpdateECSServicePrimaryTaskSetCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>

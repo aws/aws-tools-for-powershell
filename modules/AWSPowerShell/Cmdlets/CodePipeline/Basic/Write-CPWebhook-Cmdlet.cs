@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class WriteCPWebhookCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthenticationConfiguration_AllowedIPRange
         /// <summary>
         /// <para>

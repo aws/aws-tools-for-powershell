@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNPromptCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

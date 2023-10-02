@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSKeyPairCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExpectedFingerprint
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class StartBAKCopyJobCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Lifecycle_DeleteAfterDay
         /// <summary>
         /// <para>

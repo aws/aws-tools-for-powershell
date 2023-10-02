@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class RemoveCONNTrafficDistributionGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TrafficDistributionGroupId
         /// <summary>
         /// <para>

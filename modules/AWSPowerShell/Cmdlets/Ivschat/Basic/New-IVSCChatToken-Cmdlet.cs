@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class NewIVSCChatTokenCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

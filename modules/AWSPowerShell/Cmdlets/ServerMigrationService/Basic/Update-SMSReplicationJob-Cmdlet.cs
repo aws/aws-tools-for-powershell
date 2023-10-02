@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class UpdateSMSReplicationJobCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

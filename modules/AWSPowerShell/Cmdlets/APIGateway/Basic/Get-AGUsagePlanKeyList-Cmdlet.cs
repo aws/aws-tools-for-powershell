@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGUsagePlanKeyListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NameQuery
         /// <summary>
         /// <para>

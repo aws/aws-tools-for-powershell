@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class GetQSResourceTagCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

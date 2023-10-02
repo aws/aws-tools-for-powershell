@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNStackResourceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogicalResourceId
         /// <summary>
         /// <para>

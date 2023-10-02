@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     public partial class GetINSAgentPreviewCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PreviewAgentsArn
         /// <summary>
         /// <para>

@@ -77,6 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     public partial class GetGLCJobListCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public partial class RequestEBEnvironmentInfoCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>

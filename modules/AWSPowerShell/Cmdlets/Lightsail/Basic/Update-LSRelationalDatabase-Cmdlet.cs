@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>

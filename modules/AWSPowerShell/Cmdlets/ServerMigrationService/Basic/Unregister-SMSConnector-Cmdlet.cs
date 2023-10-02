@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class UnregisterSMSConnectorCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectorId
         /// <summary>
         /// <para>

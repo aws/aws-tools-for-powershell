@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     public partial class StopLMUSProductSubscriptionCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActiveDirectoryIdentityProvider_DirectoryId
         /// <summary>
         /// <para>

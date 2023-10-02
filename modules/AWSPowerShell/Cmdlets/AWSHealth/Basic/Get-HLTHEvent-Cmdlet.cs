@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     public partial class GetHLTHEventCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter_AvailabilityZone
         /// <summary>
         /// <para>

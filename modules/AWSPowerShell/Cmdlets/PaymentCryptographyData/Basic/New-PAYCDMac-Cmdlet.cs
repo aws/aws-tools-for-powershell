@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GenerationAttributes_Algorithm
         /// <summary>
         /// <para>

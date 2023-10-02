@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECEventCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Duration
         /// <summary>
         /// <para>

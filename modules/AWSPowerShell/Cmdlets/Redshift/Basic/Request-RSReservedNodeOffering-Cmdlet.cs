@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NodeCount
         /// <summary>
         /// <para>

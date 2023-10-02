@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     public partial class UpdateCWRUMAppMonitorCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppMonitorConfiguration_AllowCookie
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class UpdateWSDMKnowledgeBaseTemplateUriCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>

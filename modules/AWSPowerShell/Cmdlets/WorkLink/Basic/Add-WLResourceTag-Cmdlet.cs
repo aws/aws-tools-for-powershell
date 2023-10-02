@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WL
     public partial class AddWLResourceTagCmdlet : AmazonWorkLinkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

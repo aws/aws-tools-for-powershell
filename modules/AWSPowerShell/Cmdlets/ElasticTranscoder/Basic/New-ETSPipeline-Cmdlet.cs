@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class NewETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsKmsKeyArn
         /// <summary>
         /// <para>

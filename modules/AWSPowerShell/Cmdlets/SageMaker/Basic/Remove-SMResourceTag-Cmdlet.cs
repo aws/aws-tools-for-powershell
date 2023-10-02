@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class RemoveSMResourceTagCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

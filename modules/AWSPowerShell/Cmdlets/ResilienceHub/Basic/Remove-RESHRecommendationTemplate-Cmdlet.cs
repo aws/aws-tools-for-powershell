@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class RemoveRESHRecommendationTemplateCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RecommendationTemplateArn
         /// <summary>
         /// <para>

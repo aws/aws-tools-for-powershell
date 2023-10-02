@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     public partial class WriteCWRUMRumEventCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BatchId
         /// <summary>
         /// <para>

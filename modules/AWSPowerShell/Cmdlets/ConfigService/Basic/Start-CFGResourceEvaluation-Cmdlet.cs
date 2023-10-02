@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class StartCFGResourceEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EvaluationContext_EvaluationContextIdentifier
         /// <summary>
         /// <para>

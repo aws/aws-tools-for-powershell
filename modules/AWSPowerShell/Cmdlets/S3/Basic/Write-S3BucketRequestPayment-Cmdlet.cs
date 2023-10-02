@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class WriteS3BucketRequestPaymentCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BucketName
         /// <summary>
         /// <para>

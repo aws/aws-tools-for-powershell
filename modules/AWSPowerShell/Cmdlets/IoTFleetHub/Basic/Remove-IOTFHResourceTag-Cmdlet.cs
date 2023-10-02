@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     public partial class RemoveIOTFHResourceTagCmdlet : AmazonIoTFleetHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

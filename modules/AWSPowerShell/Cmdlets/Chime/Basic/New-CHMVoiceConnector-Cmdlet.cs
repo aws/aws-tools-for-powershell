@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class NewCHMVoiceConnectorCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AwsRegion
         /// <summary>
         /// <para>

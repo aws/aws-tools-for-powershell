@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGTapePoolCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PoolARNs
         /// <summary>
         /// <para>

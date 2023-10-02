@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class RemoveCCPullRequestApprovalRuleCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApprovalRuleName
         /// <summary>
         /// <para>

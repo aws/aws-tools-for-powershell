@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class GetEMPOriginEndpointListCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelId
         /// <summary>
         /// <para>

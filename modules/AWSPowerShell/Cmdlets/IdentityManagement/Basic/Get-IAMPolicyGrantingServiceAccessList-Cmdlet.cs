@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class GetIAMPolicyGrantingServiceAccessListCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

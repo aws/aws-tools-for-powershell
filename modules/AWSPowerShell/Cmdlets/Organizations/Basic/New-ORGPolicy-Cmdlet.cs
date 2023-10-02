@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class NewORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Content
         /// <summary>
         /// <para>

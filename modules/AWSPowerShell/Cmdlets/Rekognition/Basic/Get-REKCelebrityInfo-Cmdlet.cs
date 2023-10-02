@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKCelebrityInfoCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

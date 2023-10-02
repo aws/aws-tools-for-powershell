@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class AddIOTTargetsWithJobCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Comment
         /// <summary>
         /// <para>

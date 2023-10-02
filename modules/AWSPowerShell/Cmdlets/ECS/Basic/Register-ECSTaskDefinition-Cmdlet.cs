@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContainerDefinition
         /// <summary>
         /// <para>

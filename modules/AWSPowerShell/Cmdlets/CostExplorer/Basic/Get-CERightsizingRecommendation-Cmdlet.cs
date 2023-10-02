@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCERightsizingRecommendationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Configuration_BenefitsConsidered
         /// <summary>
         /// <para>

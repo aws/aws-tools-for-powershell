@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public partial class GetSMCPageResolutionListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PageId
         /// <summary>
         /// <para>

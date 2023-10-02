@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     public partial class WriteMCATResourcePolicyCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

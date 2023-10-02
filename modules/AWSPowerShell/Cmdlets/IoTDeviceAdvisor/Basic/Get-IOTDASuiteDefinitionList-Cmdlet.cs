@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public partial class GetIOTDASuiteDefinitionListCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

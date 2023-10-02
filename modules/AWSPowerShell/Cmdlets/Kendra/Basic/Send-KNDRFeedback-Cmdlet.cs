@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class SendKNDRFeedbackCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClickFeedbackItem
         /// <summary>
         /// <para>

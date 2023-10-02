@@ -120,6 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>

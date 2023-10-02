@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class GetKVSignalingChannelListCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ChannelNameCondition_ComparisonOperator
         /// <summary>
         /// <para>

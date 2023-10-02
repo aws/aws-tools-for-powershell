@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class GetBUGWGatewayListCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class ImportWKSWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Application
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class GetWKSWorkspaceBundleCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BundleId
         /// <summary>
         /// <para>

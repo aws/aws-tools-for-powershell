@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class RemoveLSAutoSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Date
         /// <summary>
         /// <para>

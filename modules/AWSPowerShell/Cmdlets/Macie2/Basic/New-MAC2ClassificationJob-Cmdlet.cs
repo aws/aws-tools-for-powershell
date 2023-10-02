@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class NewMAC2ClassificationJobCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowListId
         /// <summary>
         /// <para>

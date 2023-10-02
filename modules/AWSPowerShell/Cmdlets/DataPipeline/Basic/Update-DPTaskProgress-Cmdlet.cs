@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public partial class UpdateDPTaskProgressCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Field
         /// <summary>
         /// <para>

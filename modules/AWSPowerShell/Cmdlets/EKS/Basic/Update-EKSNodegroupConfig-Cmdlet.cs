@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class UpdateEKSNodegroupConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Labels_AddOrUpdateLabel
         /// <summary>
         /// <para>

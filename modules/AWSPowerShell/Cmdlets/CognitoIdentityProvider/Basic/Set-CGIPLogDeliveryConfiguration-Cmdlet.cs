@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class SetCGIPLogDeliveryConfigurationCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LogConfiguration
         /// <summary>
         /// <para>

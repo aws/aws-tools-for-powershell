@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class RemoveCHMVOVoiceProfileCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VoiceProfileId
         /// <summary>
         /// <para>

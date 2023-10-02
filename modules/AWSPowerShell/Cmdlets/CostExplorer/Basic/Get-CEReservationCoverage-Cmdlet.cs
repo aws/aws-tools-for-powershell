@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCEReservationCoverageCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

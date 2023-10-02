@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
     public partial class GetKNRKResourceTagCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

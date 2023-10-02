@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceTemplate_Arn
         /// <summary>
         /// <para>

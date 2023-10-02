@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTChannelSummaryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

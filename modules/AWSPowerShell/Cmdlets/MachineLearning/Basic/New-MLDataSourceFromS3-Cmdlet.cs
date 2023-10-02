@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class NewMLDataSourceFromS3Cmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComputeStatistic
         /// <summary>
         /// <para>

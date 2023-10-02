@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     public partial class GetRGTComplianceSummaryCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupBy
         /// <summary>
         /// <para>

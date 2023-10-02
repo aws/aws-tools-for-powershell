@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class StartRDSFailoverGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowDataLoss
         /// <summary>
         /// <para>

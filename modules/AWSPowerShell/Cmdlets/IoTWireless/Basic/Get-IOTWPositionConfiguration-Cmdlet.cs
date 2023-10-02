@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class GetIOTWPositionConfigurationCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     public partial class GetIVSRTStageSessionCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>

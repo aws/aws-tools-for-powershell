@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public partial class GetCGISRecordListCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetName
         /// <summary>
         /// <para>

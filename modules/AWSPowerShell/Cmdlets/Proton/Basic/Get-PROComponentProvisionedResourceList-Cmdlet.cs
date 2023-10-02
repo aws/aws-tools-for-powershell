@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROComponentProvisionedResourceListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComponentName
         /// <summary>
         /// <para>

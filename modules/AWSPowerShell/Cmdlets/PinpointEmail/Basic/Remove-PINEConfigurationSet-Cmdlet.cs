@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class RemovePINEConfigurationSetCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     public partial class GetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>

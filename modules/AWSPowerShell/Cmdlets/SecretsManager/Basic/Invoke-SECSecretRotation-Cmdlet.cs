@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class InvokeSECSecretRotationCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RotationRules_AutomaticallyAfterDay
         /// <summary>
         /// <para>

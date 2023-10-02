@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class UpdateSFNMapRunCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MapRunArn
         /// <summary>
         /// <para>

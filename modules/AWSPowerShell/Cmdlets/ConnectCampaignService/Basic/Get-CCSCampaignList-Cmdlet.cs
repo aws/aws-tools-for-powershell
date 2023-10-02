@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public partial class GetCCSCampaignListCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceIdFilter_Operator
         /// <summary>
         /// <para>

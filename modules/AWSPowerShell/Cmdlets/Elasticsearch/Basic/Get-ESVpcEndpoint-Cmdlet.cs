@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class GetESVpcEndpointCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>

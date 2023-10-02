@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public partial class RemoveSQResourceTagCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

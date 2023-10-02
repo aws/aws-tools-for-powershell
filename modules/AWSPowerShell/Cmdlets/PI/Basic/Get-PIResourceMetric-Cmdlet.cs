@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
     public partial class GetPIResourceMetricCmdlet : AmazonPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

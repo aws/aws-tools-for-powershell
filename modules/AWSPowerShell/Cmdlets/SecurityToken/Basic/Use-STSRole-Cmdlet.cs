@@ -125,6 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DurationInSeconds
         /// <summary>
         /// <para>

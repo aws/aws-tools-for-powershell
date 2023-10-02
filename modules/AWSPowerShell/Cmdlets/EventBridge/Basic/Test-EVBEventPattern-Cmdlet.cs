@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class TestEVBEventPatternCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Event
         /// <summary>
         /// <para>

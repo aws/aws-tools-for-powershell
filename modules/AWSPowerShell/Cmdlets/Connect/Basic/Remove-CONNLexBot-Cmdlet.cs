@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class RemoveCONNLexBotCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BotName
         /// <summary>
         /// <para>

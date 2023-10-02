@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class ConfirmDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionId
         /// <summary>
         /// <para>

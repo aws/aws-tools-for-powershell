@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BucketName
         /// <summary>
         /// <para>

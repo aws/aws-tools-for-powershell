@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public partial class StopATHCalculationExecutionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CalculationExecutionId
         /// <summary>
         /// <para>

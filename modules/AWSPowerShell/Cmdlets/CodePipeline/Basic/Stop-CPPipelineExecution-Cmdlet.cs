@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class StopCPPipelineExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Abandon
         /// <summary>
         /// <para>

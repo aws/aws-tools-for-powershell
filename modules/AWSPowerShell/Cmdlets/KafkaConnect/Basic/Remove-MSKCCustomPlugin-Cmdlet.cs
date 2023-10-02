@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     public partial class RemoveMSKCCustomPluginCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CustomPluginArn
         /// <summary>
         /// <para>

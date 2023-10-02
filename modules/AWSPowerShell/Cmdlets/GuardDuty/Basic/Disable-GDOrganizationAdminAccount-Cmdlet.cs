@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class DisableGDOrganizationAdminAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>

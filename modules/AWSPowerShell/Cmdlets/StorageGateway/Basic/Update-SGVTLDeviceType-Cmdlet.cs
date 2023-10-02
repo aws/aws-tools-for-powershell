@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGVTLDeviceTypeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceType
         /// <summary>
         /// <para>

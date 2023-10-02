@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataModelS3Configuration_BucketName
         /// <summary>
         /// <para>

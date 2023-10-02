@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class GetWAFRRateBasedRuleManagedKeyCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class ExportDDBTableToPointInTimeCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ExportFormat
         /// <summary>
         /// <para>

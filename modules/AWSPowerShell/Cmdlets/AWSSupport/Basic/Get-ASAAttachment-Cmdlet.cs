@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public partial class GetASAAttachmentCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AttachmentId
         /// <summary>
         /// <para>

@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     public partial class ResolveGGV2ComponentCandidateCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Platform_Attribute
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class UpdateSESAccountSendingEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>

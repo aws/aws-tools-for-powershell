@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     public partial class RemoveLRSV2SessionCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BotAliasId
         /// <summary>
         /// <para>

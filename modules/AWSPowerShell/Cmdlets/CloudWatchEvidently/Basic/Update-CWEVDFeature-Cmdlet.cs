@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     public partial class UpdateCWEVDFeatureCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AddOrUpdateVariation
         /// <summary>
         /// <para>

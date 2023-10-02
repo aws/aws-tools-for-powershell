@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

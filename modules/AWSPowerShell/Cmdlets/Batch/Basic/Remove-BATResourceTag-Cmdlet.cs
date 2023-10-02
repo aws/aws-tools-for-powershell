@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class RemoveBATResourceTagCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

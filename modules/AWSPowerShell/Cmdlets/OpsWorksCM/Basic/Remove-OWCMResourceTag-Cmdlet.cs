@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class RemoveOWCMResourceTagCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

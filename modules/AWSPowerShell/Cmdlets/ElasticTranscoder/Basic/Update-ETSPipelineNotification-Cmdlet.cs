@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class UpdateETSPipelineNotificationCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Notifications_Completed
         /// <summary>
         /// <para>

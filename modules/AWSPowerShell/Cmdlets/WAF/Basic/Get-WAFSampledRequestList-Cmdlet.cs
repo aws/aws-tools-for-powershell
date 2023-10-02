@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class GetWAFSampledRequestListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TimeWindow_EndTime
         /// <summary>
         /// <para>

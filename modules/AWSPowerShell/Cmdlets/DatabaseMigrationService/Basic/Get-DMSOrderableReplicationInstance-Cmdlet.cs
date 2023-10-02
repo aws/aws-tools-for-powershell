@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSOrderableReplicationInstanceCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Marker
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class SendECRLayerPartCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LayerPartBlob
         /// <summary>
         /// <para>

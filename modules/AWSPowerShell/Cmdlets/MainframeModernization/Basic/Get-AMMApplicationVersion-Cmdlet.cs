@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     public partial class GetAMMApplicationVersionCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

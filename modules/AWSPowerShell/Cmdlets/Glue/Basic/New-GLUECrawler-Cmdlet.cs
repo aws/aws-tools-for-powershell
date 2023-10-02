@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUECrawlerCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LakeFormationConfiguration_AccountId
         /// <summary>
         /// <para>

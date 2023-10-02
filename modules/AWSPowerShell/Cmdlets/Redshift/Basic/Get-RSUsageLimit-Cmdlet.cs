@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSUsageLimitCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class GetKVDataEndpointCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter APIName
         /// <summary>
         /// <para>

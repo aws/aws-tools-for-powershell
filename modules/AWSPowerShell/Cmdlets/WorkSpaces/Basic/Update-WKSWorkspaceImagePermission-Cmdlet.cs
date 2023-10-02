@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class UpdateWKSWorkspaceImagePermissionCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AllowCopyImage
         /// <summary>
         /// <para>

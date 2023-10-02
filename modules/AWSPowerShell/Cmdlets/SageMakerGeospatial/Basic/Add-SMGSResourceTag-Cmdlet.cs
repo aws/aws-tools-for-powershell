@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     public partial class AddSMGSResourceTagCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

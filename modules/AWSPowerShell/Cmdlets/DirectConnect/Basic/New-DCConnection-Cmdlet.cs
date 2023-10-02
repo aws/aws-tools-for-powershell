@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class NewDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Bandwidth
         /// <summary>
         /// <para>

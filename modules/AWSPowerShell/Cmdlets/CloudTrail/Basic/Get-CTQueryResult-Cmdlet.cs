@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTQueryResultCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxQueryResult
         /// <summary>
         /// <para>

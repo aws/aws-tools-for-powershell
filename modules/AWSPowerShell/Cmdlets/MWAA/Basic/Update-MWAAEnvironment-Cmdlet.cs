@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AirflowConfigurationOption
         /// <summary>
         /// <para>

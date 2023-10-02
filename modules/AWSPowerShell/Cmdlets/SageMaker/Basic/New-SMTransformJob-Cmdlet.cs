@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMTransformJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TransformOutput_Accept
         /// <summary>
         /// <para>

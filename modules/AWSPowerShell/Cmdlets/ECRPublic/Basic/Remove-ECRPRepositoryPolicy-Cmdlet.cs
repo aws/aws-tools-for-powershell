@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     public partial class RemoveECRPRepositoryPolicyCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RegistryId
         /// <summary>
         /// <para>

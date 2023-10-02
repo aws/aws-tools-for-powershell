@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class UpdateSECSecretVersionStageCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MoveToVersionId
         /// <summary>
         /// <para>

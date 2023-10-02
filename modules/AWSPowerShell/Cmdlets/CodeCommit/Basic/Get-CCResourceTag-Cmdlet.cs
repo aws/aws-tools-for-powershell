@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class GetCCResourceTagCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

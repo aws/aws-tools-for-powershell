@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public partial class ConfirmAUDMAssessmentReportIntegrityCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3RelativePath
         /// <summary>
         /// <para>

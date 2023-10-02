@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMSipRuleCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SipRuleId
         /// <summary>
         /// <para>

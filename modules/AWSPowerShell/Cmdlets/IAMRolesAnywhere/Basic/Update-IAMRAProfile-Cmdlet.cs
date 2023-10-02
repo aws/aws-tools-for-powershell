@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class UpdateIAMRAProfileCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>

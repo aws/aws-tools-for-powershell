@@ -90,6 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RequestIAMServiceLastAccessedDetailCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

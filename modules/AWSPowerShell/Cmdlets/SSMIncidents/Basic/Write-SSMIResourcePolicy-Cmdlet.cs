@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public partial class WriteSSMIResourcePolicyCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

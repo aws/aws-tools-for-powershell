@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     public partial class WriteVPCLAuthPolicyCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Policy
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class GetSFNResourceTagCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

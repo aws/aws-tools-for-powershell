@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class NewCFPublicKeyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PublicKeyConfig_CallerReference
         /// <summary>
         /// <para>

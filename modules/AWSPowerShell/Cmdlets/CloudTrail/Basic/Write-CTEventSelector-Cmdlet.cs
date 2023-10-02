@@ -87,6 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class WriteCTEventSelectorCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdvancedEventSelector
         /// <summary>
         /// <para>

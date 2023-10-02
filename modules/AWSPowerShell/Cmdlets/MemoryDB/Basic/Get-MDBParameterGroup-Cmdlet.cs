@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     public partial class GetMDBParameterGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>

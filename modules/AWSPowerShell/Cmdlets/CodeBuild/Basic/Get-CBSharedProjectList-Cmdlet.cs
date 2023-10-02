@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class GetCBSharedProjectListCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SortBy
         /// <summary>
         /// <para>

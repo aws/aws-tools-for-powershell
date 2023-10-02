@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     public partial class NewHSM2ClusterCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HsmType
         /// <summary>
         /// <para>

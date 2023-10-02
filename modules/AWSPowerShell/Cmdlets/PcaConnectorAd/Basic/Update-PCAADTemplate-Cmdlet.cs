@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class UpdatePCAADTemplateCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Definition_TemplateV3_PrivateKeyAttributes_Algorithm
         /// <summary>
         /// <para>

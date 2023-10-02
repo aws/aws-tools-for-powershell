@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class NewASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociatePublicIpAddress
         /// <summary>
         /// <para>

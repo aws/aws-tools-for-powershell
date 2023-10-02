@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class RemoveDMSReplicationInstanceCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplicationInstanceArn
         /// <summary>
         /// <para>

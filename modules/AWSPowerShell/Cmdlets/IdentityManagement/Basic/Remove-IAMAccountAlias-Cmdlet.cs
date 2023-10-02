@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RemoveIAMAccountAliasCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountAlias
         /// <summary>
         /// <para>

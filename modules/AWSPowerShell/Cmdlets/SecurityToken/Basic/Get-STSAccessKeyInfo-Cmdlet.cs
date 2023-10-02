@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     public partial class GetSTSAccessKeyInfoCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdOfAccessKey
         /// <summary>
         /// <para>

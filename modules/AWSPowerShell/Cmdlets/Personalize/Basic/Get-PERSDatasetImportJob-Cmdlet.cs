@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSDatasetImportJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DatasetImportJobArn
         /// <summary>
         /// <para>

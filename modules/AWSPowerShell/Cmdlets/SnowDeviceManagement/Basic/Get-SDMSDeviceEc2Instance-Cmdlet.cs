@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     public partial class GetSDMSDeviceEc2InstanceCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

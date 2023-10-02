@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class GetSES2ExportJobCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

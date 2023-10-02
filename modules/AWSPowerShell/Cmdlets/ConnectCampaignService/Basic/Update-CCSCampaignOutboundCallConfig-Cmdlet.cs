@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public partial class UpdateCCSCampaignOutboundCallConfigCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectContactFlowId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     public partial class GetPCAADDirectoryRegistrationCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DirectoryRegistrationArn
         /// <summary>
         /// <para>

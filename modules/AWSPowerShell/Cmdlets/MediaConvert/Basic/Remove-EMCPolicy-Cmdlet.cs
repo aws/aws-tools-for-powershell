@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class RemoveEMCPolicyCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.

@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RevokeEC2SecurityGroupEgressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupId
         /// <summary>
         /// <para>

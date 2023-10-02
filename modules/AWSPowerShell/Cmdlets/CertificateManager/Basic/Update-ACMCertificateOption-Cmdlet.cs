@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     public partial class UpdateACMCertificateOptionCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateArn
         /// <summary>
         /// <para>

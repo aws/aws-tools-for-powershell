@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCL
     public partial class GetCCLRealtimeContactAnalysisSegmentListCmdlet : AmazonConnectContactLensClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>

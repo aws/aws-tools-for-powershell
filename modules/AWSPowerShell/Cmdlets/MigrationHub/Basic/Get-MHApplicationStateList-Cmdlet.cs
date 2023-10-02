@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
     public partial class GetMHApplicationStateListCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

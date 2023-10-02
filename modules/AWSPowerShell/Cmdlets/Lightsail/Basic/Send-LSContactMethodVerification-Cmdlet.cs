@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class SendLSContactMethodVerificationCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Protocol
         /// <summary>
         /// <para>

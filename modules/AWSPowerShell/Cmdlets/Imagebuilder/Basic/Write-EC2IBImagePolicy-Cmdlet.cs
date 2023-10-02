@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class WriteEC2IBImagePolicyCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImageArn
         /// <summary>
         /// <para>

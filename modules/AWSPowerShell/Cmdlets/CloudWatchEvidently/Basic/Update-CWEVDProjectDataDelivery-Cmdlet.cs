@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     public partial class UpdateCWEVDProjectDataDeliveryCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3Destination_Bucket
         /// <summary>
         /// <para>

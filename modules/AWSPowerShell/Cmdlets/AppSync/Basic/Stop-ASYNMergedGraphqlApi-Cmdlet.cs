@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class StopASYNMergedGraphqlApiCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPEntitiesDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

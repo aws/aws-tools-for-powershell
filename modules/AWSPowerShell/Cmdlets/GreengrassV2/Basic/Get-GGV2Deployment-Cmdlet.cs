@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     public partial class GetGGV2DeploymentCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeploymentId
         /// <summary>
         /// <para>

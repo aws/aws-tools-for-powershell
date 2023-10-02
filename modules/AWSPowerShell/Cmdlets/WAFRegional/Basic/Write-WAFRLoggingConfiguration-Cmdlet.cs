@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class WriteWAFRLoggingConfigurationCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LoggingConfiguration_LogDestinationConfig
         /// <summary>
         /// <para>

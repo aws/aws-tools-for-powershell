@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class CopyRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CopyTag
         /// <summary>
         /// <para>

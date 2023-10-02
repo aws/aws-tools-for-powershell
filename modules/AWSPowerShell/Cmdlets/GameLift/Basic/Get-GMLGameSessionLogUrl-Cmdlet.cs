@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GameSessionId
         /// <summary>
         /// <para>

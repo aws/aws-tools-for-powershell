@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class WriteS3BucketAnalyticsConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AnalyticsFilter_AnalyticsFilterPredicate
         /// <summary>
         /// <para>

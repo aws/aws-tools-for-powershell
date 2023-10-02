@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class GetCFGRemediationExceptionCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class NewMBCNodeCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NodeConfiguration_AvailabilityZone
         /// <summary>
         /// <para>
@@ -110,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <code>NetworkId</code>s:</para><ul><li><para><code>n-ethereum-mainnet</code></para></li><li><para><code>n-ethereum-goerli</code></para></li><li><para><code>n-ethereum-rinkeby</code></para></li></ul>
+        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <code>NetworkId</code>s:</para><ul><li><para><code>n-ethereum-mainnet</code></para></li><li><para><code>n-ethereum-goerli</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

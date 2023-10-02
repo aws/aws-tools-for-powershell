@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FileSystemId
         /// <summary>
         /// <para>

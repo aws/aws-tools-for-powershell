@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public partial class SetELBHealthCheckCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter HealthCheck_HealthyThreshold
         /// <summary>
         /// <para>

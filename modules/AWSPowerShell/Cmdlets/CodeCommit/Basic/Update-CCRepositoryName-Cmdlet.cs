@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public partial class UpdateCCRepositoryNameCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NewName
         /// <summary>
         /// <para>

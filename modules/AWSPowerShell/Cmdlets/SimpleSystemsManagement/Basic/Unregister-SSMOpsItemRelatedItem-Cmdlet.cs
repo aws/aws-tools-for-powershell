@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UnregisterSSMOpsItemRelatedItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssociationId
         /// <summary>
         /// <para>

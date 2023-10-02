@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class NewWAF2IPSetCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Address
         /// <summary>
         /// <para>

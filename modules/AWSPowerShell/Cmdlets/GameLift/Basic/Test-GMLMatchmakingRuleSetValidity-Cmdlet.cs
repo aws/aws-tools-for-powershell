@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class TestGMLMatchmakingRuleSetValidityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleSetBody
         /// <summary>
         /// <para>

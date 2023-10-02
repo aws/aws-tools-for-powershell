@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     public partial class RemoveSARApplicationCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

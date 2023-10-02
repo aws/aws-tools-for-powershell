@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public partial class NewGACLEndpointGroupCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndpointConfiguration
         /// <summary>
         /// <para>

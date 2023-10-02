@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     public partial class GetCMPMPersonalHealthInformationDetectionJobListCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter_JobName
         /// <summary>
         /// <para>

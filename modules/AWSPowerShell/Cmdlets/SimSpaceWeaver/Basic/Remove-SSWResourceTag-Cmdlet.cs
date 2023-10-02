@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     public partial class RemoveSSWResourceTagCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -80,6 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Comment
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     public partial class NewRBINRuleCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

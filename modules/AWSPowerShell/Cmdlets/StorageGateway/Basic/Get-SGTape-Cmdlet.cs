@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGTapeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TapeARNs
         /// <summary>
         /// <para>

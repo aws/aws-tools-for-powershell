@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class GetROBOSimulationApplicationCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Application
         /// <summary>
         /// <para>

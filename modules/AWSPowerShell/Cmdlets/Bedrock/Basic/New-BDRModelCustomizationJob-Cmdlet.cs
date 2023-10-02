@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class NewBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BaseModelIdentifier
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class NewEC2IBContainerRecipeCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceConfiguration_BlockDeviceMapping
         /// <summary>
         /// <para>

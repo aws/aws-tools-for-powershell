@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RemoveIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>

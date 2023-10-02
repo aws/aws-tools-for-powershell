@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class GetS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Buckets'.

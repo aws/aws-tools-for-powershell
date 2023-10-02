@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class WriteKNDRPrincipalMappingCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter S3PathforGroupMembers_Bucket
         /// <summary>
         /// <para>

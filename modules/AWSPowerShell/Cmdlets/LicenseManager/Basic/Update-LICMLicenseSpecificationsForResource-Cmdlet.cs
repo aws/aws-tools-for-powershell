@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public partial class UpdateLICMLicenseSpecificationsForResourceCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AddLicenseSpecification
         /// <summary>
         /// <para>

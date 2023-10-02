@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupVaultName
         /// <summary>
         /// <para>

@@ -105,6 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class WriteGMLScalingPolicyCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ComparisonOperator
         /// <summary>
         /// <para>

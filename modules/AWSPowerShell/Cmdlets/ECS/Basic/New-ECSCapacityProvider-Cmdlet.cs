@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class NewECSCapacityProviderCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoScalingGroupProvider_AutoScalingGroupArn
         /// <summary>
         /// <para>

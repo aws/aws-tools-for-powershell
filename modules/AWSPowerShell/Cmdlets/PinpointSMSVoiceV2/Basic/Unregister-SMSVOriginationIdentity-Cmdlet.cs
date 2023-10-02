@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     public partial class UnregisterSMSVOriginationIdentityCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IsoCountryCode
         /// <summary>
         /// <para>

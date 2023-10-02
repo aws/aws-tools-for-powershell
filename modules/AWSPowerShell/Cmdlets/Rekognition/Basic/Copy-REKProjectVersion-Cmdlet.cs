@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class CopyREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DestinationProjectArn
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class StartQLDBStreamJournalToKinesiCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter KinesisConfiguration_AggregationEnabled
         /// <summary>
         /// <para>

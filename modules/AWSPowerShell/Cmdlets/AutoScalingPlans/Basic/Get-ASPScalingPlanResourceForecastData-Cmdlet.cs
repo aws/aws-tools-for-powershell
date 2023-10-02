@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     public partial class GetASPScalingPlanResourceForecastDataCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

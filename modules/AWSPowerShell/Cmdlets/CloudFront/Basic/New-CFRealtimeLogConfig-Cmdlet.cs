@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class NewCFRealtimeLogConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndPoint
         /// <summary>
         /// <para>

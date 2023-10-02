@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class MeasureCFNTemplateCostCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>

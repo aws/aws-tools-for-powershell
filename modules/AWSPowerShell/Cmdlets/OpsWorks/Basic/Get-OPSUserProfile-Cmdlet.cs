@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class GetOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IamUserArn
         /// <summary>
         /// <para>

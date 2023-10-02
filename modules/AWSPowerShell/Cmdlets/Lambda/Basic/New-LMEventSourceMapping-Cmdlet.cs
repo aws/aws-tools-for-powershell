@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class NewLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BatchSize
         /// <summary>
         /// <para>

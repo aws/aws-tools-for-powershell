@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class RemoveCONNUserCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

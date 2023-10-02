@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class RemoveSESIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Identity
         /// <summary>
         /// <para>

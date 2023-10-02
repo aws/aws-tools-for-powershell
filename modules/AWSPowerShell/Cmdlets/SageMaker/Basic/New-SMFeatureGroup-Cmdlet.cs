@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMFeatureGroupCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DataCatalogConfig_Catalog
         /// <summary>
         /// <para>

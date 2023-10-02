@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class MoveEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InputDeviceId
         /// <summary>
         /// <para>

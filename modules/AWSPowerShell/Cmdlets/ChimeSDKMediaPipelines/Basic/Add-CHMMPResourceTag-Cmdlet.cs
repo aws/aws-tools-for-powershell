@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     public partial class AddCHMMPResourceTagCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

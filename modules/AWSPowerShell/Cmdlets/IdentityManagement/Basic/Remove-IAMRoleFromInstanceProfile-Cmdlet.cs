@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class RemoveIAMRoleFromInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceProfileName
         /// <summary>
         /// <para>

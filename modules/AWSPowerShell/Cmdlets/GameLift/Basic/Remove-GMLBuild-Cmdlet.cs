@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class RemoveGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BuildId
         /// <summary>
         /// <para>

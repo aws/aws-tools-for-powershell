@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class AddRAMResourceTagCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

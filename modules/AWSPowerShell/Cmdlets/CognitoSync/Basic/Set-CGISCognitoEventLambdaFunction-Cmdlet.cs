@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public partial class SetCGISCognitoEventLambdaFunctionCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Event
         /// <summary>
         /// <para>

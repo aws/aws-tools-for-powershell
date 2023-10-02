@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class SplitIOTWAwsAccountFromPartnerAccountCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PartnerAccountId
         /// <summary>
         /// <para>

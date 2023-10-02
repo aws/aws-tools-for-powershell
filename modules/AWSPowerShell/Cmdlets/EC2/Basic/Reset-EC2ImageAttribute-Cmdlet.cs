@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class ResetEC2ImageAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

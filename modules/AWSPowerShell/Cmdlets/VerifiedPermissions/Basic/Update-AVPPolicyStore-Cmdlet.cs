@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class UpdateAVPPolicyStoreCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ValidationSettings_Mode
         /// <summary>
         /// <para>

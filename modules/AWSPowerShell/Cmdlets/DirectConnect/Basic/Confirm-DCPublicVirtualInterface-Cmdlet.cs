@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class ConfirmDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>

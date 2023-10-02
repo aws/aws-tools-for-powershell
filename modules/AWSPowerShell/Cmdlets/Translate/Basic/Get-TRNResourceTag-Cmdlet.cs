@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class GetTRNResourceTagCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

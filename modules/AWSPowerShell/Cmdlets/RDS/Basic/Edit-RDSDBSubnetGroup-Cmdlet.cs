@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class EditRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBSubnetGroupDescription
         /// <summary>
         /// <para>

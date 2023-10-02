@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class SetRAMDefaultPermissionVersionCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PermissionArn
         /// <summary>
         /// <para>

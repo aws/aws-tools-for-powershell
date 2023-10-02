@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     public partial class FindCMPMICD10CMCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Text
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class GetRAMResourceTypeListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceRegionScope
         /// <summary>
         /// <para>

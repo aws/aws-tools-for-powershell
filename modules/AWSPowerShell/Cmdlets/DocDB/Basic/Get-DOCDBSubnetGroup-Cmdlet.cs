@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class GetDOCDBSubnetGroupCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>

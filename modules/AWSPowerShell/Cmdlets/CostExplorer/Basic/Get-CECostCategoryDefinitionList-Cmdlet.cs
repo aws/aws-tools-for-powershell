@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCECostCategoryDefinitionListCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EffectiveOn
         /// <summary>
         /// <para>

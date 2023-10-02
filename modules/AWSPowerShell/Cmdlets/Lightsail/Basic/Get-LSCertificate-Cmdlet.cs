@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSCertificateCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CertificateName
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     public partial class RemoveSCARResourceTagCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     public partial class AddPIPESResourceTagCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

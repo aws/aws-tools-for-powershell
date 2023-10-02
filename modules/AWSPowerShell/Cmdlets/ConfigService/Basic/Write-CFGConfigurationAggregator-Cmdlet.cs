@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public partial class WriteCFGConfigurationAggregatorCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountAggregationSource
         /// <summary>
         /// <para>

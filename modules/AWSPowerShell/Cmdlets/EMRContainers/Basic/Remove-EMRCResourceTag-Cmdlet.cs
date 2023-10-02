@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public partial class RemoveEMRCResourceTagCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

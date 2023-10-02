@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class GetFRCWhatIfForecastCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter WhatIfForecastArn
         /// <summary>
         /// <para>

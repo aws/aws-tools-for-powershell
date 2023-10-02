@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class UpdateEMPOriginEndpointCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Authorization_CdnIdentifierSecret
         /// <summary>
         /// <para>

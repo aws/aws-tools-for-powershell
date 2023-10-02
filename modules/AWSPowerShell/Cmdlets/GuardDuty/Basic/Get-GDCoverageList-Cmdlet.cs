@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class GetGDCoverageListCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SortCriteria_AttributeName
         /// <summary>
         /// <para>

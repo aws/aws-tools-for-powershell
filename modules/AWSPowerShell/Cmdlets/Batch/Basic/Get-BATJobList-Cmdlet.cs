@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class GetBATJobListCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ArrayJobId
         /// <summary>
         /// <para>

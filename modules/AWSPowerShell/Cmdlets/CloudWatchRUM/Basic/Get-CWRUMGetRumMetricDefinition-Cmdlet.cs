@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     public partial class GetCWRUMGetRumMetricDefinitionCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AppMonitorName
         /// <summary>
         /// <para>

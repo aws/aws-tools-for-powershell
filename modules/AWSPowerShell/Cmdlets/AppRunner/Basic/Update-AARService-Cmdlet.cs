@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AuthenticationConfiguration_AccessRoleArn
         /// <summary>
         /// <para>

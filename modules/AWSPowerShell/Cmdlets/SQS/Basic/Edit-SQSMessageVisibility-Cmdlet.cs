@@ -94,6 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public partial class EditSQSMessageVisibilityCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter QueueUrl
         /// <summary>
         /// <para>

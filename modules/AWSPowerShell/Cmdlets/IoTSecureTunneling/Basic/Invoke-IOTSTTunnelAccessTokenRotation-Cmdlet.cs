@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ClientMode
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class RemoveECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FinalSnapshotIdentifier
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class NewBAKFrameworkCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FrameworkControl
         /// <summary>
         /// <para>

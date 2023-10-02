@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>

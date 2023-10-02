@@ -136,6 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class NewIAMOrganizationsAccessReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EntityPath
         /// <summary>
         /// <para>

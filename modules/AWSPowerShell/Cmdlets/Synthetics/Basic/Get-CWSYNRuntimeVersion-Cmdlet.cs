@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     public partial class GetCWSYNRuntimeVersionCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

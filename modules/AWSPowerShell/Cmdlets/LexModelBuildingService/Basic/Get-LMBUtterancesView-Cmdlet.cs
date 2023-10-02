@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class GetLMBUtterancesViewCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BotName
         /// <summary>
         /// <para>

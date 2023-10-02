@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class AddCONNResourceTagCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

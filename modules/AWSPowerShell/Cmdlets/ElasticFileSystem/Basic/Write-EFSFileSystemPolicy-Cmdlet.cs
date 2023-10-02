@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class WriteEFSFileSystemPolicyCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BypassPolicyLockoutSafetyCheck
         /// <summary>
         /// <para>

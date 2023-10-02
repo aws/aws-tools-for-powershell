@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class GetECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>

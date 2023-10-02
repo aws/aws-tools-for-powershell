@@ -81,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     public partial class RestoreKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EncryptionSpecificationOverride_KmsKeyIdentifier
         /// <summary>
         /// <para>

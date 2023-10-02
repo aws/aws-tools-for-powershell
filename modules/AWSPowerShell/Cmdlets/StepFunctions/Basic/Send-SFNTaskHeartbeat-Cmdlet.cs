@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class SendSFNTaskHeartbeatCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TaskToken
         /// <summary>
         /// <para>

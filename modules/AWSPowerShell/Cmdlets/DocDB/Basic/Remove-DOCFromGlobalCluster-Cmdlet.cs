@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class RemoveDOCFromGlobalClusterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DbClusterIdentifier
         /// <summary>
         /// <para>

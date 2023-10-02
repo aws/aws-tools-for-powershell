@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class MoveORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

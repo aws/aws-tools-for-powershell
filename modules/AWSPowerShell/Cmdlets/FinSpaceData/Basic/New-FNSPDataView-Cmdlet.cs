@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class NewFNSPDataViewCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AsOfTimestamp
         /// <summary>
         /// <para>

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class StartGLUEMLEvaluationTaskRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TransformId
         /// <summary>
         /// <para>

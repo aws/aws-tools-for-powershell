@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public partial class GetDOCResourceTagCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

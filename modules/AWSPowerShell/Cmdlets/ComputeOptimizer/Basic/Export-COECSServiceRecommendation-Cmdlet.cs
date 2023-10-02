@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class ExportCOECSServiceRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

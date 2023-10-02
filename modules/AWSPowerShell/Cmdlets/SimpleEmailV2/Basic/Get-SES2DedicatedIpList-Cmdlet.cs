@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class GetSES2DedicatedIpListCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PoolName
         /// <summary>
         /// <para>

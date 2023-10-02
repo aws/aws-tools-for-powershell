@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class GetHCResourceTagCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

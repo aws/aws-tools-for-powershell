@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class UpdateLMFunctionUrlConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cors_AllowCredential
         /// <summary>
         /// <para>

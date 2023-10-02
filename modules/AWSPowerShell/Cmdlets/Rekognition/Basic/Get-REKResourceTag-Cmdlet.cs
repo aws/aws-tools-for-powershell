@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKResourceTagCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSDBClusterSnapshotAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>

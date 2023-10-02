@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
     public partial class GetMHProgressUpdateStreamCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

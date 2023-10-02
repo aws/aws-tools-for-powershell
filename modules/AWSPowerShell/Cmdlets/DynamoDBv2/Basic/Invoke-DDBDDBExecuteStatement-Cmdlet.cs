@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class InvokeDDBDDBExecuteStatementCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConsistentRead
         /// <summary>
         /// <para>

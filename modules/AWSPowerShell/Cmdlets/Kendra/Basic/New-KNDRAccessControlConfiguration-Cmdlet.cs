@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class NewKNDRAccessControlConfigurationCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessControlList
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class RemoveSFNStateMachineAliasCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StateMachineAliasArn
         /// <summary>
         /// <para>

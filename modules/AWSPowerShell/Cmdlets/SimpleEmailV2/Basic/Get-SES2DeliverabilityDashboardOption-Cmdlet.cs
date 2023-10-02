@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class GetSES2DeliverabilityDashboardOptionCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

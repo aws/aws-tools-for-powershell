@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RoleValues_Admin
         /// <summary>
         /// <para>

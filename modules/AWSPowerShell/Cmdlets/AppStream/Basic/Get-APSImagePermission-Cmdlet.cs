@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class GetAPSImagePermissionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

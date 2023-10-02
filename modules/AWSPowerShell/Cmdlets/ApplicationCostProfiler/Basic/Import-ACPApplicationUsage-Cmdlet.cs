@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     public partial class ImportACPApplicationUsageCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SourceS3Location_Bucket
         /// <summary>
         /// <para>

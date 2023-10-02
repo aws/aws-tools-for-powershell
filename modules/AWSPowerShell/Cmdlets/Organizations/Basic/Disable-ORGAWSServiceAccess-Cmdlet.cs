@@ -93,6 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class DisableORGAWSServiceAccessCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>

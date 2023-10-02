@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class UpdateAPSAppBlockBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccessEndpoint
         /// <summary>
         /// <para>

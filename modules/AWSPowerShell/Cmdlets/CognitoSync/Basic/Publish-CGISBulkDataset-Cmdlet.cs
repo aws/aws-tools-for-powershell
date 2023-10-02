@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public partial class PublishCGISBulkDatasetCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>

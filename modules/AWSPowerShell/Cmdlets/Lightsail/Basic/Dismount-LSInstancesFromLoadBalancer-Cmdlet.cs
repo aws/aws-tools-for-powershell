@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class DismountLSInstancesFromLoadBalancerCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter InstanceName
         /// <summary>
         /// <para>

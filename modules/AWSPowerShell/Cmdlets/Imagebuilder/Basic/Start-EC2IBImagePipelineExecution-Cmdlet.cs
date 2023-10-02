@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class StartEC2IBImagePipelineExecutionCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>

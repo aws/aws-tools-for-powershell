@@ -95,6 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class WriteCWERuleCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

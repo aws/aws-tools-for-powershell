@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class TestCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TemplateBody
         /// <summary>
         /// <para>

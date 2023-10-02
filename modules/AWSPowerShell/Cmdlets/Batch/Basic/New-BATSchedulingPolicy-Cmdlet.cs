@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class NewBATSchedulingPolicyCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter FairsharePolicy_ComputeReservation
         /// <summary>
         /// <para>

@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class ImportSCAsProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>

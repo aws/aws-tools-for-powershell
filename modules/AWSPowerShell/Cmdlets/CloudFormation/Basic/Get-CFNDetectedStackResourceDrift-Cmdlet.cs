@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNDetectedStackResourceDriftCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StackName
         /// <summary>
         /// <para>

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     public partial class NewWAFWebACLMigrationStackCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter IgnoreUnsupportedType
         /// <summary>
         /// <para>

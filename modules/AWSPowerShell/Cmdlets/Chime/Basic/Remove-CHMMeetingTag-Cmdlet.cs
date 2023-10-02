@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RemoveCHMMeetingTagCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MeetingId
         /// <summary>
         /// <para>

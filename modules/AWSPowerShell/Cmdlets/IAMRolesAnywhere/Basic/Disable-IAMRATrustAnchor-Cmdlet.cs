@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class DisableIAMRATrustAnchorCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TrustAnchorId
         /// <summary>
         /// <para>

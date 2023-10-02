@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSEventCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Duration
         /// <summary>
         /// <para>

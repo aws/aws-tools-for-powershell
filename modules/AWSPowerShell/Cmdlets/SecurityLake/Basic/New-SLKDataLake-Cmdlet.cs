@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Configuration
         /// <summary>
         /// <para>

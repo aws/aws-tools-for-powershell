@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class GetSHUBFindingHistoryCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

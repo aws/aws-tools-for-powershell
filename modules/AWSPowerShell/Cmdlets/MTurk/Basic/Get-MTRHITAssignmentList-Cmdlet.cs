@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public partial class GetMTRHITAssignmentListCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AssignmentStatus
         /// <summary>
         /// <para>

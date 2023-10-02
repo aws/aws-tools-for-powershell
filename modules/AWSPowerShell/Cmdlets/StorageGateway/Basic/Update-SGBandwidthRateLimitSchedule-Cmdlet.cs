@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGBandwidthRateLimitScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BandwidthRateLimitInterval
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     public partial class GetLOMResourceTagCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

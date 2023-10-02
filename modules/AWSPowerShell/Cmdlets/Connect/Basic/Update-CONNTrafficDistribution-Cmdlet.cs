@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNTrafficDistributionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AgentConfig_Distribution
         /// <summary>
         /// <para>

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class StopCOMPTrainingEntityRecognizerCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EntityRecognizerArn
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLScriptListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Limit
         /// <summary>
         /// <para>

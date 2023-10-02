@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class NewAMSHGatewayRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix
         /// <summary>
         /// <para>

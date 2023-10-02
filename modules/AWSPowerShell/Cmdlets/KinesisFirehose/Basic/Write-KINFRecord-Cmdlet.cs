@@ -88,6 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     public partial class WriteKINFRecordCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Record_Data
         /// <summary>
         /// <para>

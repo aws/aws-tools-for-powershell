@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UUID
         /// <summary>
         /// <para>

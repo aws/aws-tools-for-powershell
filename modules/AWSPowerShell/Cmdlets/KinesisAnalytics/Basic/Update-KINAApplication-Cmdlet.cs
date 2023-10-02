@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     public partial class UpdateKINAApplicationCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplicationUpdate_ApplicationCodeUpdate
         /// <summary>
         /// <para>

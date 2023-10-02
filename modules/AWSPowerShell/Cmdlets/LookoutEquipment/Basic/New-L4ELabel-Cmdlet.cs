@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     public partial class NewL4ELabelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>

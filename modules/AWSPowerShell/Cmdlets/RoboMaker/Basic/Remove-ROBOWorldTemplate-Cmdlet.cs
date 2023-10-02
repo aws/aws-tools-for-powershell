@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public partial class RemoveROBOWorldTemplateCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Template
         /// <summary>
         /// <para>

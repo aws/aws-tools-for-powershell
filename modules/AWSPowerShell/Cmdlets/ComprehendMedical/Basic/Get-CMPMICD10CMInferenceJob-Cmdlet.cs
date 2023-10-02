@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     public partial class GetCMPMICD10CMInferenceJobCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class GetETSJobsByStatusCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Ascending
         /// <summary>
         /// <para>

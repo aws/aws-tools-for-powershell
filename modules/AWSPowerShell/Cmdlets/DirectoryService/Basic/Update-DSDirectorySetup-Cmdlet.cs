@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class UpdateDSDirectorySetupCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter CreateSnapshotBeforeUpdate
         /// <summary>
         /// <para>

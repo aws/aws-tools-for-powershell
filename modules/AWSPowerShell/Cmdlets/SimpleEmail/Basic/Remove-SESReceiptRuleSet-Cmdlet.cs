@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class RemoveSESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter RuleSetName
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
     public partial class GetPIDimensionKeyCmdlet : AmazonPIClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AdditionalMetric
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Sidewalk_AppServerPrivateKey
         /// <summary>
         /// <para>

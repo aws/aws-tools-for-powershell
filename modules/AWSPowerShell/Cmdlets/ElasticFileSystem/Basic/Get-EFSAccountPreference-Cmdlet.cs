@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class GetEFSAccountPreferenceCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

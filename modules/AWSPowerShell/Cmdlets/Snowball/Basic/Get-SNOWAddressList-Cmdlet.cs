@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public partial class GetSNOWAddressListCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

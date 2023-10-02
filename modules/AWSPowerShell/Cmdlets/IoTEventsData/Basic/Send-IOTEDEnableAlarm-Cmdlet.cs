@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     public partial class SendIOTEDEnableAlarmCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EnableActionRequest
         /// <summary>
         /// <para>

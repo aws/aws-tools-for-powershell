@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public partial class GetCCSInstanceOnboardingJobStatusCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectInstanceId
         /// <summary>
         /// <para>

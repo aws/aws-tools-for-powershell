@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public partial class SubmitNPTPendingMaintenanceActionCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ApplyAction
         /// <summary>
         /// <para>

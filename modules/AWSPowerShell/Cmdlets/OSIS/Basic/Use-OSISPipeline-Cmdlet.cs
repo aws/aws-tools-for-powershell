@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
     public partial class UseOSISPipelineCmdlet : AmazonOSISClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PipelineConfigurationBody
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public partial class StopEMRCJobRunCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class GetDCVirtualInterfaceTestHistoryListCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BgpPeer
         /// <summary>
         /// <para>

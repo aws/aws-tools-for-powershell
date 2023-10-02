@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class GetNSStreamingSessionBackupCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BackupId
         /// <summary>
         /// <para>

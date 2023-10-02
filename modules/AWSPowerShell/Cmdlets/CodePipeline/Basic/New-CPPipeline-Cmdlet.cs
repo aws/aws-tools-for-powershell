@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class NewCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Pipeline
         /// <summary>
         /// <para>

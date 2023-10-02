@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public partial class RemoveAASScheduledActionCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>

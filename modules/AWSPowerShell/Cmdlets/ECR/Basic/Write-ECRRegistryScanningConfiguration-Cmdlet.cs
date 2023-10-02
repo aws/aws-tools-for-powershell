@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class WriteECRRegistryScanningConfigurationCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Rule
         /// <summary>
         /// <para>

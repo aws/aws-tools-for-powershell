@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     public partial class RemoveEMSContainerPolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

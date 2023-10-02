@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     public partial class GetCMPMEntitiesDetectionV2JobCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

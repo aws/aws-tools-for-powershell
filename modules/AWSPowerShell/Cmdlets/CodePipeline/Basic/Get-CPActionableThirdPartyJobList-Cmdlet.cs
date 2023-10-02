@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPActionableThirdPartyJobListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionTypeId_Category
         /// <summary>
         /// <para>

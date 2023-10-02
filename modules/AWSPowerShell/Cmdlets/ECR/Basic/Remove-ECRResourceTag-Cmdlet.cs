@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class RemoveECRResourceTagCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

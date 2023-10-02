@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SME
     public partial class GetSMEDeviceRegistrationCmdlet : AmazonSagemakerEdgeManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter DeviceFleetName
         /// <summary>
         /// <para>

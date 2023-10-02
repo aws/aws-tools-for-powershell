@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class AddR53DDelegationSignerToDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SigningAttributes_Algorithm
         /// <summary>
         /// <para>

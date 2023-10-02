@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class UpdateCWEApiDestinationCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ConnectionArn
         /// <summary>
         /// <para>

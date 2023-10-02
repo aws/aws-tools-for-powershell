@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class RemoveLMBBotChannelAssociationCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter BotAlias
         /// <summary>
         /// <para>

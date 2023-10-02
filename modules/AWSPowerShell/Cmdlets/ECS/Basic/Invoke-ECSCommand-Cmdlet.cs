@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>

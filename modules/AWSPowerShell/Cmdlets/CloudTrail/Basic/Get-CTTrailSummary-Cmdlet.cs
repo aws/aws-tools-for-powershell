@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTTrailSummaryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

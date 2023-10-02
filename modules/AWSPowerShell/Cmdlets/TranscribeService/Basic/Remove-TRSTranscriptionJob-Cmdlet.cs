@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class RemoveTRSTranscriptionJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>

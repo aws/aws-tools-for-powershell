@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public partial class UpdateSHLDSubscriptionCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AutoRenew
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNStackEventCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StackName
         /// <summary>
         /// <para>

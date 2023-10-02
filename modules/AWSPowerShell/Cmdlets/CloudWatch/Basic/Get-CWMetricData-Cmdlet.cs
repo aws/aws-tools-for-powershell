@@ -98,6 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     public partial class GetCWMetricDataCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter UtcEndTime
         /// <summary>
         /// <para>

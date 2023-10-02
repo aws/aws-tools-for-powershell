@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     public partial class AddAG2ResourceTagCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

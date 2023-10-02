@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class RequestEMLDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
     public partial class GetLLMSLinuxSubscriptionListCmdlet : AmazonLicenseManagerLinuxSubscriptionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

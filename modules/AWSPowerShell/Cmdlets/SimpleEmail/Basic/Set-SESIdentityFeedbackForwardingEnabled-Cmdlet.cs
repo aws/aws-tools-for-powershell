@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class SetSESIdentityFeedbackForwardingEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ForwardingEnabled
         /// <summary>
         /// <para>

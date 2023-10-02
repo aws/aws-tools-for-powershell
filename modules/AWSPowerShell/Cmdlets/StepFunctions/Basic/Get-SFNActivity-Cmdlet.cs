@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class GetSFNActivityCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActivityArn
         /// <summary>
         /// <para>

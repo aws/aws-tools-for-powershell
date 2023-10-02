@@ -78,6 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.KVM
     public partial class GetKVMMediaCmdlet : AmazonKinesisVideoMediaClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StartSelector
         /// <summary>
         /// <para>

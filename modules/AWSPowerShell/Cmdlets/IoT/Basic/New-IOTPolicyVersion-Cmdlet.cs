@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>

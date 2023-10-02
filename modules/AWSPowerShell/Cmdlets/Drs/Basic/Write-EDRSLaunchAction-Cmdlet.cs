@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class WriteEDRSLaunchActionCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter ActionCode
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public partial class RemoveETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

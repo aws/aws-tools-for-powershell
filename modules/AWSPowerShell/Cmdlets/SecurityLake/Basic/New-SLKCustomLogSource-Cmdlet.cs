@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     public partial class NewSLKCustomLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EventClass
         /// <summary>
         /// <para>

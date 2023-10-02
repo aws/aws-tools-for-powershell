@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VerifiedAccessEndpointPolicyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter SseSpecification_CustomerManagedKeyEnabled
         /// <summary>
         /// <para>

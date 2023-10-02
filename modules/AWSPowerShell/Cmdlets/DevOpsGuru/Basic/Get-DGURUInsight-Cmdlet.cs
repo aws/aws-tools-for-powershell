@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class GetDGURUInsightCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

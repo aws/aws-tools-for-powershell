@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class UpdateDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter EncryptionMode
         /// <summary>
         /// <para>

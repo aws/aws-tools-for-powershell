@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     public partial class SearchIOTTGSystemTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

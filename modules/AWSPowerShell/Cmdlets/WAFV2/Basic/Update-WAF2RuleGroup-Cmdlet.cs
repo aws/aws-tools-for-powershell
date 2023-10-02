@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class UpdateWAF2RuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter VisibilityConfig_CloudWatchMetricsEnabled
         /// <summary>
         /// <para>

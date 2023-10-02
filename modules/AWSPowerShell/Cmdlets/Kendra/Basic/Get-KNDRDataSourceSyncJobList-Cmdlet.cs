@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRDataSourceSyncJobListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter StartTimeFilter_EndTime
         /// <summary>
         /// <para>

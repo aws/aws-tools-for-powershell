@@ -1,4 +1,13 @@
-﻿### 4.1.424 (2023-09-28 21:52Z)
+﻿### 4.1.425 (2023-10-02 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.655.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRProvisionedModelThroughput leveraging the GetProvisionedModelThroughput service API.
+    * Added cmdlet Get-BDRProvisionedModelThroughputList leveraging the ListProvisionedModelThroughputs service API.
+    * Added cmdlet New-BDRProvisionedModelThroughput leveraging the CreateProvisionedModelThroughput service API.
+    * Added cmdlet Remove-BDRProvisionedModelThroughput leveraging the DeleteProvisionedModelThroughput service API.
+    * Added cmdlet Update-BDRProvisionedModelThroughput leveraging the UpdateProvisionedModelThroughput service API.
+
+### 4.1.424 (2023-09-28 21:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.654.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BDR and can be listed using the command 'Get-AWSCmdletName -Service BDR'.
   * Amazon Bedrock Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BDRR and can be listed using the command 'Get-AWSCmdletName -Service BDRR'.

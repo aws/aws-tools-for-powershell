@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     public partial class NewGGV2ComponentVersionCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter LambdaFunction_ComponentDependency
         /// <summary>
         /// <para>

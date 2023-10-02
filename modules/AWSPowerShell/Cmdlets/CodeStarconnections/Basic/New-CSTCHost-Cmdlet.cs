@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     public partial class NewCSTCHostCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

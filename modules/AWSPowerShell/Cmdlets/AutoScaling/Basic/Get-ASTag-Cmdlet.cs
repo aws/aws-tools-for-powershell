@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     public partial class GetASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
