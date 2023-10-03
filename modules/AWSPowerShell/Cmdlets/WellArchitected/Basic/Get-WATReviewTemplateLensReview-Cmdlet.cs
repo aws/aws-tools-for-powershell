@@ -22,31 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.WellArchitected;
+using Amazon.WellArchitected.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// Gets basic information about the security profle.
+    /// Get a lens review associated with a review template.
     /// </summary>
-    [Cmdlet("Get", "CONNSecurityProfile")]
-    [OutputType("Amazon.Connect.Model.SecurityProfile")]
-    [AWSCmdlet("Calls the Amazon Connect Service DescribeSecurityProfile API operation.", Operation = new[] {"DescribeSecurityProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeSecurityProfileResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.SecurityProfile or Amazon.Connect.Model.DescribeSecurityProfileResponse",
-        "This cmdlet returns an Amazon.Connect.Model.SecurityProfile object.",
-        "The service call response (type Amazon.Connect.Model.DescribeSecurityProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WATReviewTemplateLensReview")]
+    [OutputType("Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse")]
+    [AWSCmdlet("Calls the AWS Well-Architected Tool GetReviewTemplateLensReview API operation.", Operation = new[] {"GetReviewTemplateLensReview"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse))]
+    [AWSCmdletOutput("Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse",
+        "This cmdlet returns an Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNSecurityProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetWATReviewTemplateLensReviewCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter LensAlias
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,13 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String LensAlias { get; set; }
         #endregion
         
-        #region Parameter SecurityProfileId
+        #region Parameter TemplateArn
         /// <summary>
         /// <para>
-        /// <para>The identifier for the security profle.</para>
+        /// <para>The review template ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,26 +72,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SecurityProfileId { get; set; }
+        public System.String TemplateArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecurityProfile'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeSecurityProfileResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeSecurityProfileResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse).
+        /// Specifying the name of a property of type Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecurityProfile";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SecurityProfileId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SecurityProfileId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TemplateArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TemplateArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SecurityProfileId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TemplateArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeSecurityProfileResponse, GetCONNSecurityProfileCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse, GetWATReviewTemplateLensReviewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,21 +118,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SecurityProfileId;
+                context.Select = (response, cmdlet) => this.TemplateArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceId = this.InstanceId;
+            context.LensAlias = this.LensAlias;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.LensAlias == null && ParameterWasBound(nameof(this.LensAlias)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LensAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SecurityProfileId = this.SecurityProfileId;
+            context.TemplateArn = this.TemplateArn;
             #if MODULAR
-            if (this.SecurityProfileId == null && ParameterWasBound(nameof(this.SecurityProfileId)))
+            if (this.TemplateArn == null && ParameterWasBound(nameof(this.TemplateArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter SecurityProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TemplateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DescribeSecurityProfileRequest();
+            var request = new Amazon.WellArchitected.Model.GetReviewTemplateLensReviewRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.LensAlias != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.LensAlias = cmdletContext.LensAlias;
             }
-            if (cmdletContext.SecurityProfileId != null)
+            if (cmdletContext.TemplateArn != null)
             {
-                request.SecurityProfileId = cmdletContext.SecurityProfileId;
+                request.TemplateArn = cmdletContext.TemplateArn;
             }
             
             CmdletOutput output;
@@ -194,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DescribeSecurityProfileResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeSecurityProfileRequest request)
+        private Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.GetReviewTemplateLensReviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeSecurityProfile");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "GetReviewTemplateLensReview");
             try
             {
                 #if DESKTOP
-                return client.DescribeSecurityProfile(request);
+                return client.GetReviewTemplateLensReview(request);
                 #elif CORECLR
-                return client.DescribeSecurityProfileAsync(request).GetAwaiter().GetResult();
+                return client.GetReviewTemplateLensReviewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.String SecurityProfileId { get; set; }
-            public System.Func<Amazon.Connect.Model.DescribeSecurityProfileResponse, GetCONNSecurityProfileCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecurityProfile;
+            public System.String LensAlias { get; set; }
+            public System.String TemplateArn { get; set; }
+            public System.Func<Amazon.WellArchitected.Model.GetReviewTemplateLensReviewResponse, GetWATReviewTemplateLensReviewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -64,6 +64,24 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.Boolean? EventBridgeEnabled { get; set; }
         #endregion
         
+        #region Parameter KmsKeyEnableGeospatialQuery
+        /// <summary>
+        /// <para>
+        /// <para>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// Web Services KMS customer managed key</a>.</para><para>This parameter is only used if you are using a KMS customer managed key.</para><note><para>If you wish to encrypt your data using your own KMS customer managed key, then the
+        /// Bounding Polygon Queries feature will be disabled by default. This is because by using
+        /// this feature, a representation of your device positions will not be encrypted using
+        /// the your KMS managed key. The exact device position, however; is still encrypted using
+        /// your managed key.</para><para>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by
+        /// setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to true when creating
+        /// or updating a Tracker.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KmsKeyEnableGeospatialQueries")]
+        public System.Boolean? KmsKeyEnableGeospatialQuery { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -220,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.EventBridgeEnabled = this.EventBridgeEnabled;
+            context.KmsKeyEnableGeospatialQuery = this.KmsKeyEnableGeospatialQuery;
             context.KmsKeyId = this.KmsKeyId;
             context.PositionFiltering = this.PositionFiltering;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -266,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.EventBridgeEnabled != null)
             {
                 request.EventBridgeEnabled = cmdletContext.EventBridgeEnabled.Value;
+            }
+            if (cmdletContext.KmsKeyEnableGeospatialQuery != null)
+            {
+                request.KmsKeyEnableGeospatialQueries = cmdletContext.KmsKeyEnableGeospatialQuery.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -358,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String Description { get; set; }
             public System.Boolean? EventBridgeEnabled { get; set; }
+            public System.Boolean? KmsKeyEnableGeospatialQuery { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.LocationService.PositionFiltering PositionFiltering { get; set; }
             [System.ObsoleteAttribute]

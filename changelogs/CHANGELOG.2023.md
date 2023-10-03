@@ -1,4 +1,31 @@
-﻿### 4.1.425 (2023-10-02 21:20Z)
+﻿### 4.1.426 (2023-10-03 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.656.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNMetricDataV2: added parameters Interval_IntervalPeriod and Interval_TimeZone.
+  * Amazon Location Service
+    * Modified cmdlet Edit-LOCTracker: added parameter KmsKeyEnableGeospatialQuery.
+    * Modified cmdlet Get-LOCDevicePositionList: added parameter FilterGeometry_Polygon.
+    * Modified cmdlet New-LOCTracker: added parameter KmsKeyEnableGeospatialQuery.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Convert-WATReviewTemplateLensReview leveraging the UpgradeReviewTemplateLensReview service API.
+    * Added cmdlet Get-WATReviewTemplate leveraging the GetReviewTemplate service API.
+    * Added cmdlet Get-WATReviewTemplateAnswer leveraging the GetReviewTemplateAnswer service API.
+    * Added cmdlet Get-WATReviewTemplateAnswerList leveraging the ListReviewTemplateAnswers service API.
+    * Added cmdlet Get-WATReviewTemplateLensReview leveraging the GetReviewTemplateLensReview service API.
+    * Added cmdlet Get-WATReviewTemplateList leveraging the ListReviewTemplates service API.
+    * Added cmdlet Get-WATTemplateShareList leveraging the ListTemplateShares service API.
+    * Added cmdlet New-WATReviewTemplate leveraging the CreateReviewTemplate service API.
+    * Added cmdlet New-WATTemplateShare leveraging the CreateTemplateShare service API.
+    * Added cmdlet Remove-WATReviewTemplate leveraging the DeleteReviewTemplate service API.
+    * Added cmdlet Remove-WATTemplateShare leveraging the DeleteTemplateShare service API.
+    * Added cmdlet Update-WATReviewTemplate leveraging the UpdateReviewTemplate service API.
+    * Added cmdlet Update-WATReviewTemplateAnswer leveraging the UpdateReviewTemplateAnswer service API.
+    * Added cmdlet Update-WATReviewTemplateLensReview leveraging the UpdateReviewTemplateLensReview service API.
+    * Modified cmdlet Get-WATNotificationList: added parameter ResourceArn.
+    * Modified cmdlet Get-WATShareInvitationList: added parameter TemplateNamePrefix.
+    * Modified cmdlet New-WATWorkload: added parameter ReviewTemplateArn.
+
+### 4.1.425 (2023-10-02 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.655.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRProvisionedModelThroughput leveraging the GetProvisionedModelThroughput service API.

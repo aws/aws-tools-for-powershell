@@ -213,6 +213,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.IntervalPeriod
+        "Get-CONNMetricDataV2/Interval_IntervalPeriod"
+        {
+            $v = "DAY","FIFTEEN_MIN","HOUR","THIRTY_MIN","TOTAL","WEEK"
+            break
+        }
+
         # Amazon.Connect.LexVersion
         "Get-CONNBotList/LexVersion"
         {
@@ -401,6 +408,7 @@ $CONN_map = @{
     "EventSourceName"=@("Get-CONNRuleList")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
+    "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")

@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// Adds one or more tags to the specified resource.
     /// 
     ///  <note><para>
-    /// The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile ARN.
+    /// The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN,
+    /// or review template ARN.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "WATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

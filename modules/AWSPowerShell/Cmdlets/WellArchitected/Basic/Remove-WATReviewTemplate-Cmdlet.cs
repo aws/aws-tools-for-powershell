@@ -22,48 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.WellArchitected;
+using Amazon.WellArchitected.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// Gets basic information about the security profle.
+    /// Delete a review template.
+    /// 
+    ///  
+    /// <para>
+    /// Only the owner of a review template can delete it.
+    /// </para><para>
+    /// After the review template is deleted, Amazon Web Services accounts, users, organizations,
+    /// and organizational units (OUs) that you shared the review template with will no longer
+    /// be able to apply it to new workloads.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CONNSecurityProfile")]
-    [OutputType("Amazon.Connect.Model.SecurityProfile")]
-    [AWSCmdlet("Calls the Amazon Connect Service DescribeSecurityProfile API operation.", Operation = new[] {"DescribeSecurityProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeSecurityProfileResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.SecurityProfile or Amazon.Connect.Model.DescribeSecurityProfileResponse",
-        "This cmdlet returns an Amazon.Connect.Model.SecurityProfile object.",
-        "The service call response (type Amazon.Connect.Model.DescribeSecurityProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WATReviewTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteReviewTemplate API operation.", Operation = new[] {"DeleteReviewTemplate"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteReviewTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteReviewTemplateResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.WellArchitected.Model.DeleteReviewTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNSecurityProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class RemoveWATReviewTemplateCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ClientRequestToken { get; set; }
         #endregion
         
-        #region Parameter SecurityProfileId
+        #region Parameter TemplateArn
         /// <summary>
         /// <para>
-        /// <para>The identifier for the security profle.</para>
+        /// <para>The review template ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,34 +75,49 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SecurityProfileId { get; set; }
+        public System.String TemplateArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecurityProfile'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeSecurityProfileResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeSecurityProfileResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.DeleteReviewTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecurityProfile";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SecurityProfileId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SecurityProfileId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TemplateArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TemplateArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SecurityProfileId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TemplateArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TemplateArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WATReviewTemplate (DeleteReviewTemplate)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -111,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeSecurityProfileResponse, GetCONNSecurityProfileCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.DeleteReviewTemplateResponse, RemoveWATReviewTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,21 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SecurityProfileId;
+                context.Select = (response, cmdlet) => this.TemplateArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceId = this.InstanceId;
+            context.ClientRequestToken = this.ClientRequestToken;
+            context.TemplateArn = this.TemplateArn;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.TemplateArn == null && ParameterWasBound(nameof(this.TemplateArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SecurityProfileId = this.SecurityProfileId;
-            #if MODULAR
-            if (this.SecurityProfileId == null && ParameterWasBound(nameof(this.SecurityProfileId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SecurityProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TemplateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DescribeSecurityProfileRequest();
+            var request = new Amazon.WellArchitected.Model.DeleteReviewTemplateRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.ClientRequestToken != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
-            if (cmdletContext.SecurityProfileId != null)
+            if (cmdletContext.TemplateArn != null)
             {
-                request.SecurityProfileId = cmdletContext.SecurityProfileId;
+                request.TemplateArn = cmdletContext.TemplateArn;
             }
             
             CmdletOutput output;
@@ -194,15 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DescribeSecurityProfileResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeSecurityProfileRequest request)
+        private Amazon.WellArchitected.Model.DeleteReviewTemplateResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.DeleteReviewTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeSecurityProfile");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "DeleteReviewTemplate");
             try
             {
                 #if DESKTOP
-                return client.DescribeSecurityProfile(request);
+                return client.DeleteReviewTemplate(request);
                 #elif CORECLR
-                return client.DescribeSecurityProfileAsync(request).GetAwaiter().GetResult();
+                return client.DeleteReviewTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.String SecurityProfileId { get; set; }
-            public System.Func<Amazon.Connect.Model.DescribeSecurityProfileResponse, GetCONNSecurityProfileCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecurityProfile;
+            public System.String ClientRequestToken { get; set; }
+            public System.String TemplateArn { get; set; }
+            public System.Func<Amazon.WellArchitected.Model.DeleteReviewTemplateResponse, RemoveWATReviewTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter ProfileNamePrefix
         /// <summary>
         /// <para>
-        /// <para>Prefix for profile name.</para>
+        /// <para>An optional string added to the beginning of each profile name returned in the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

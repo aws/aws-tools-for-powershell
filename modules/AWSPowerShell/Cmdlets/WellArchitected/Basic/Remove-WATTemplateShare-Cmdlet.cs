@@ -28,42 +28,38 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// List the workload shares associated with the workload.
+    /// Delete a review template share.
+    /// 
+    ///  
+    /// <para>
+    /// After the review template share is deleted, Amazon Web Services accounts, users, organizations,
+    /// and organizational units (OUs) that you shared the review template with will no longer
+    /// be able to apply it to new workloads.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "WATWorkloadShareList")]
-    [OutputType("Amazon.WellArchitected.Model.ListWorkloadSharesResponse")]
-    [AWSCmdlet("Calls the AWS Well-Architected Tool ListWorkloadShares API operation.", Operation = new[] {"ListWorkloadShares"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListWorkloadSharesResponse))]
-    [AWSCmdletOutput("Amazon.WellArchitected.Model.ListWorkloadSharesResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.ListWorkloadSharesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WATTemplateShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteTemplateShare API operation.", Operation = new[] {"DeleteTemplateShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteTemplateShareResponse))]
+    [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteTemplateShareResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.WellArchitected.Model.DeleteTemplateShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWATWorkloadShareListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
+    public partial class RemoveWATTemplateShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SharedWithPrefix
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID
-        /// with which the workload is shared.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SharedWithPrefix { get; set; }
-        #endregion
-        
-        #region Parameter Status
+        #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WellArchitected.ShareStatus")]
-        public Amazon.WellArchitected.ShareStatus Status { get; set; }
+        public System.String ClientRequestToken { get; set; }
         #endregion
         
-        #region Parameter WorkloadId
+        #region Parameter ShareId
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
@@ -77,35 +73,30 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkloadId { get; set; }
+        public System.String ShareId { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter TemplateArn
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for this request.</para>
+        /// <para>The review template ARN.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TemplateArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.ListWorkloadSharesResponse).
-        /// Specifying the name of a property of type Amazon.WellArchitected.Model.ListWorkloadSharesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.DeleteTemplateShareResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,18 +105,34 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkloadId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkloadId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ShareId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ShareId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkloadId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ShareId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ShareId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WATTemplateShare (DeleteTemplateShare)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -135,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.ListWorkloadSharesResponse, GetWATWorkloadShareListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.DeleteTemplateShareResponse, RemoveWATTemplateShareCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,18 +151,22 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.WorkloadId;
+                context.Select = (response, cmdlet) => this.ShareId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SharedWithPrefix = this.SharedWithPrefix;
-            context.Status = this.Status;
-            context.WorkloadId = this.WorkloadId;
+            context.ClientRequestToken = this.ClientRequestToken;
+            context.ShareId = this.ShareId;
             #if MODULAR
-            if (this.WorkloadId == null && ParameterWasBound(nameof(this.WorkloadId)))
+            if (this.ShareId == null && ParameterWasBound(nameof(this.ShareId)))
             {
-                WriteWarning("You are passing $null as a value for parameter WorkloadId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ShareId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TemplateArn = this.TemplateArn;
+            #if MODULAR
+            if (this.TemplateArn == null && ParameterWasBound(nameof(this.TemplateArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TemplateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,27 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WellArchitected.Model.ListWorkloadSharesRequest();
+            var request = new Amazon.WellArchitected.Model.DeleteTemplateShareRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.ClientRequestToken != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.ShareId != null)
             {
-                request.NextToken = cmdletContext.NextToken;
+                request.ShareId = cmdletContext.ShareId;
             }
-            if (cmdletContext.SharedWithPrefix != null)
+            if (cmdletContext.TemplateArn != null)
             {
-                request.SharedWithPrefix = cmdletContext.SharedWithPrefix;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
-            }
-            if (cmdletContext.WorkloadId != null)
-            {
-                request.WorkloadId = cmdletContext.WorkloadId;
+                request.TemplateArn = cmdletContext.TemplateArn;
             }
             
             CmdletOutput output;
@@ -227,15 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         #region AWS Service Operation Call
         
-        private Amazon.WellArchitected.Model.ListWorkloadSharesResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.ListWorkloadSharesRequest request)
+        private Amazon.WellArchitected.Model.DeleteTemplateShareResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.DeleteTemplateShareRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "ListWorkloadShares");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "DeleteTemplateShare");
             try
             {
                 #if DESKTOP
-                return client.ListWorkloadShares(request);
+                return client.DeleteTemplateShare(request);
                 #elif CORECLR
-                return client.ListWorkloadSharesAsync(request).GetAwaiter().GetResult();
+                return client.DeleteTemplateShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -255,13 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SharedWithPrefix { get; set; }
-            public Amazon.WellArchitected.ShareStatus Status { get; set; }
-            public System.String WorkloadId { get; set; }
-            public System.Func<Amazon.WellArchitected.Model.ListWorkloadSharesResponse, GetWATWorkloadShareListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ClientRequestToken { get; set; }
+            public System.String ShareId { get; set; }
+            public System.String TemplateArn { get; set; }
+            public System.Func<Amazon.WellArchitected.Model.DeleteTemplateShareResponse, RemoveWATTemplateShareCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

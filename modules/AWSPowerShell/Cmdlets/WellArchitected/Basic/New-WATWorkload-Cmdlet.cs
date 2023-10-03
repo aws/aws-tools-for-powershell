@@ -44,7 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// </para><para>
     /// You also must specify <code>ReviewOwner</code>, even though the parameter is listed
     /// as not being required in the following section. 
-    /// </para></important>
+    /// </para></important><para>
+    /// When creating a workload using a review template, you must have the following IAM
+    /// permissions:
+    /// </para><ul><li><para><code>wellarchitected:GetReviewTemplate</code></para></li><li><para><code>wellarchitected:GetReviewTemplateAnswer</code></para></li><li><para><code>wellarchitected:ListReviewTemplateAnswers</code></para></li><li><para><code>wellarchitected:GetReviewTemplateLensReview</code></para></li></ul>
     /// </summary>
     [Cmdlet("New", "WATWorkload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.CreateWorkloadResponse")]
@@ -236,6 +239,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String ReviewOwner { get; set; }
         #endregion
         
+        #region Parameter ReviewTemplateArn
+        /// <summary>
+        /// <para>
+        /// <para>The list of review template ARNs to associate with the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReviewTemplateArns")]
+        public System.String[] ReviewTemplateArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -386,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 context.ProfileArn = new List<System.String>(this.ProfileArn);
             }
             context.ReviewOwner = this.ReviewOwner;
+            if (this.ReviewTemplateArn != null)
+            {
+                context.ReviewTemplateArn = new List<System.String>(this.ReviewTemplateArn);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -506,6 +524,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 request.ReviewOwner = cmdletContext.ReviewOwner;
             }
+            if (cmdletContext.ReviewTemplateArn != null)
+            {
+                request.ReviewTemplateArns = cmdletContext.ReviewTemplateArn;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -592,6 +614,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public List<System.String> PillarPriority { get; set; }
             public List<System.String> ProfileArn { get; set; }
             public System.String ReviewOwner { get; set; }
+            public List<System.String> ReviewTemplateArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkloadName { get; set; }
             public System.Func<Amazon.WellArchitected.Model.CreateWorkloadResponse, NewWATWorkloadCmdlet, object> Select { get; set; } =

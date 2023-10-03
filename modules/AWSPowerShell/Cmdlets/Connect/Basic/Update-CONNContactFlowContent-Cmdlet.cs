@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-        /// contact flow in Amazon Connect Flow language</a>. </para>
+        /// <para>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+        /// contact flow in Amazon Connect Flow language</a>. </para><para>Length Constraints: Minimum length of 1. Maximum length of 256000.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

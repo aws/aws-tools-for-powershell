@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     /// <para>
     /// You can also use a sink policy to limit the types of data that is shared. The three
     /// types that you can allow or deny are:
-    /// </para><ul><li><para><b>Metrics</b> - Specify with <code>AWS::CloudWatch::Metric</code></para></li><li><para><b>Log groups</b> - Specify with <code>AWS::Logs::LogGroup</code></para></li><li><para><b>Traces</b> - Specify with <code>AWS::XRay::Trace</code></para></li></ul><para>
+    /// </para><ul><li><para><b>Metrics</b> - Specify with <code>AWS::CloudWatch::Metric</code></para></li><li><para><b>Log groups</b> - Specify with <code>AWS::Logs::LogGroup</code></para></li><li><para><b>Traces</b> - Specify with <code>AWS::XRay::Trace</code></para></li><li><para><b>Application Insights - Applications</b> - Specify with <code>AWS::ApplicationInsights::Application</code></para></li></ul><para>
     /// See the examples in this section to see how to specify permitted source accounts and
     /// data types.
     /// </para>

@@ -28,63 +28,24 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// List the lens shares associated with the lens.
+    /// List review templates.
     /// </summary>
-    [Cmdlet("Get", "WATLensShareList")]
-    [OutputType("Amazon.WellArchitected.Model.LensShareSummary")]
-    [AWSCmdlet("Calls the AWS Well-Architected Tool ListLensShares API operation.", Operation = new[] {"ListLensShares"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListLensSharesResponse))]
-    [AWSCmdletOutput("Amazon.WellArchitected.Model.LensShareSummary or Amazon.WellArchitected.Model.ListLensSharesResponse",
-        "This cmdlet returns a collection of Amazon.WellArchitected.Model.LensShareSummary objects.",
-        "The service call response (type Amazon.WellArchitected.Model.ListLensSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WATReviewTemplateList")]
+    [OutputType("Amazon.WellArchitected.Model.ReviewTemplateSummary")]
+    [AWSCmdlet("Calls the AWS Well-Architected Tool ListReviewTemplates API operation.", Operation = new[] {"ListReviewTemplates"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListReviewTemplatesResponse))]
+    [AWSCmdletOutput("Amazon.WellArchitected.Model.ReviewTemplateSummary or Amazon.WellArchitected.Model.ListReviewTemplatesResponse",
+        "This cmdlet returns a collection of Amazon.WellArchitected.Model.ReviewTemplateSummary objects.",
+        "The service call response (type Amazon.WellArchitected.Model.ListReviewTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWATLensShareListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
+    public partial class GetWATReviewTemplateListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LensAlias
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LensAlias { get; set; }
-        #endregion
-        
-        #region Parameter SharedWithPrefix
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID
-        /// with which the lens is shared.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SharedWithPrefix { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WellArchitected.ShareStatus")]
-        public Amazon.WellArchitected.ShareStatus Status { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for this request.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,13 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'LensShareSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.ListLensSharesResponse).
-        /// Specifying the name of a property of type Amazon.WellArchitected.Model.ListLensSharesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReviewTemplates'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.ListReviewTemplatesResponse).
+        /// Specifying the name of a property of type Amazon.WellArchitected.Model.ListReviewTemplatesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "LensShareSummaries";
+        public string Select { get; set; } = "ReviewTemplates";
         #endregion
         
         protected override void ProcessRecord()
@@ -125,20 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.ListLensSharesResponse, GetWATLensShareListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.ListReviewTemplatesResponse, GetWATReviewTemplateListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.LensAlias = this.LensAlias;
-            #if MODULAR
-            if (this.LensAlias == null && ParameterWasBound(nameof(this.LensAlias)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LensAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.SharedWithPrefix = this.SharedWithPrefix;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,12 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WellArchitected.Model.ListLensSharesRequest();
+            var request = new Amazon.WellArchitected.Model.ListReviewTemplatesRequest();
             
-            if (cmdletContext.LensAlias != null)
-            {
-                request.LensAlias = cmdletContext.LensAlias;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -166,14 +114,6 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SharedWithPrefix != null)
-            {
-                request.SharedWithPrefix = cmdletContext.SharedWithPrefix;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -208,15 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         #region AWS Service Operation Call
         
-        private Amazon.WellArchitected.Model.ListLensSharesResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.ListLensSharesRequest request)
+        private Amazon.WellArchitected.Model.ListReviewTemplatesResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.ListReviewTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "ListLensShares");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "ListReviewTemplates");
             try
             {
                 #if DESKTOP
-                return client.ListLensShares(request);
+                return client.ListReviewTemplates(request);
                 #elif CORECLR
-                return client.ListLensSharesAsync(request).GetAwaiter().GetResult();
+                return client.ListReviewTemplatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -236,13 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LensAlias { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String SharedWithPrefix { get; set; }
-            public Amazon.WellArchitected.ShareStatus Status { get; set; }
-            public System.Func<Amazon.WellArchitected.Model.ListLensSharesResponse, GetWATLensShareListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.LensShareSummaries;
+            public System.Func<Amazon.WellArchitected.Model.ListReviewTemplatesResponse, GetWATReviewTemplateListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ReviewTemplates;
         }
         
     }

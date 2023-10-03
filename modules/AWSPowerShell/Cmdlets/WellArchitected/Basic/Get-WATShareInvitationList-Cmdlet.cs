@@ -28,7 +28,13 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// List the workload invitations.
+    /// List the share invitations.
+    /// 
+    ///  
+    /// <para><code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>, <code>ProfileNamePrefix</code>,
+    /// and <code>TemplateNamePrefix</code> are mutually exclusive. Use the parameter that
+    /// matches your <code>ShareResourceType</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "WATShareInvitationList")]
     [OutputType("Amazon.WellArchitected.Model.ShareInvitationSummary")]
@@ -55,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter ProfileNamePrefix
         /// <summary>
         /// <para>
-        /// <para>Profile name prefix.</para>
+        /// <para>An optional string added to the beginning of each profile name returned in the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.WellArchitected.ShareResourceType")]
         public Amazon.WellArchitected.ShareResourceType ShareResourceType { get; set; }
+        #endregion
+        
+        #region Parameter TemplateNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>An optional string added to the beginning of each review template name returned in
+        /// the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateNamePrefix { get; set; }
         #endregion
         
         #region Parameter WorkloadNamePrefix
@@ -155,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             context.NextToken = this.NextToken;
             context.ProfileNamePrefix = this.ProfileNamePrefix;
             context.ShareResourceType = this.ShareResourceType;
+            context.TemplateNamePrefix = this.TemplateNamePrefix;
             context.WorkloadNamePrefix = this.WorkloadNamePrefix;
             
             // allow further manipulation of loaded context prior to processing
@@ -191,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.ShareResourceType != null)
             {
                 request.ShareResourceType = cmdletContext.ShareResourceType;
+            }
+            if (cmdletContext.TemplateNamePrefix != null)
+            {
+                request.TemplateNamePrefix = cmdletContext.TemplateNamePrefix;
             }
             if (cmdletContext.WorkloadNamePrefix != null)
             {
@@ -262,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public System.String NextToken { get; set; }
             public System.String ProfileNamePrefix { get; set; }
             public Amazon.WellArchitected.ShareResourceType ShareResourceType { get; set; }
+            public System.String TemplateNamePrefix { get; set; }
             public System.String WorkloadNamePrefix { get; set; }
             public System.Func<Amazon.WellArchitected.Model.ListShareInvitationsResponse, GetWATShareInvitationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ShareInvitationSummaries;

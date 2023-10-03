@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the related resource for the notification.</para><note><para>Only one of <code>WorkloadID</code> or <code>ResourceARN</code> should be specified.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter WorkloadId
         /// <summary>
         /// <para>
@@ -121,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ResourceArn = this.ResourceArn;
             context.WorkloadId = this.WorkloadId;
             
             // allow further manipulation of loaded context prior to processing
@@ -145,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             if (cmdletContext.WorkloadId != null)
             {
@@ -213,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ResourceArn { get; set; }
             public System.String WorkloadId { get; set; }
             public System.Func<Amazon.WellArchitected.Model.ListNotificationsResponse, GetWATNotificationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NotificationSummaries;

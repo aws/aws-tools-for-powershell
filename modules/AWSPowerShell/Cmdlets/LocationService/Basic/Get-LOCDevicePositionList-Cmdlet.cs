@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter FilterGeometry_Polygon
+        /// <summary>
+        /// <para>
+        /// <para>The set of arrays which define the polygon. A polygon can have between 4 and 1000
+        /// vertices.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double[][][] FilterGeometry_Polygon { get; set; }
+        #endregion
+        
         #region Parameter TrackerName
         /// <summary>
         /// <para>
@@ -129,6 +140,20 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.TrackerName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.FilterGeometry_Polygon != null)
+            {
+                context.FilterGeometry_Polygon = new List<List<List<System.Double>>>();
+                foreach (var innerList in this.FilterGeometry_Polygon)
+                {
+                    var innerListCopy = new List<List<System.Double>>();
+                    context.FilterGeometry_Polygon.Add(innerListCopy);
+                    foreach (var innermostList in innerList)
+                    {
+                        var innermostListCopy = new List<System.Double>(innermostList);
+                        innerListCopy.Add(innermostListCopy);
+                    }
+                }
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.TrackerName = this.TrackerName;
@@ -154,6 +179,25 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // create request
             var request = new Amazon.LocationService.Model.ListDevicePositionsRequest();
             
+            
+             // populate FilterGeometry
+            var requestFilterGeometryIsNull = true;
+            request.FilterGeometry = new Amazon.LocationService.Model.TrackingFilterGeometry();
+            List<List<List<System.Double>>> requestFilterGeometry_filterGeometry_Polygon = null;
+            if (cmdletContext.FilterGeometry_Polygon != null)
+            {
+                requestFilterGeometry_filterGeometry_Polygon = cmdletContext.FilterGeometry_Polygon;
+            }
+            if (requestFilterGeometry_filterGeometry_Polygon != null)
+            {
+                request.FilterGeometry.Polygon = requestFilterGeometry_filterGeometry_Polygon;
+                requestFilterGeometryIsNull = false;
+            }
+             // determine if request.FilterGeometry should be set to null
+            if (requestFilterGeometryIsNull)
+            {
+                request.FilterGeometry = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -227,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<List<List<System.Double>>> FilterGeometry_Polygon { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String TrackerName { get; set; }

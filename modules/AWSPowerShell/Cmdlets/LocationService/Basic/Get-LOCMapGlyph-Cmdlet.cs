@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of fonts to load glyphs from in order of preference. For example,
-        /// <code>Noto Sans Regular, Arial Unicode</code>.</para><para>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>
+        /// <code>Noto Sans Regular, Arial Unicode</code>.</para><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>
         /// styles: </para><ul><li><para>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code>
         /// | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code></para></li><li><para>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code>
         /// | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code></para></li><li><para>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code>

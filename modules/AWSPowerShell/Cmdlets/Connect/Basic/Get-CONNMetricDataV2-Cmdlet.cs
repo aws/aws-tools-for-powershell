@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// the previous version of this API. It has new metrics, offers filtering at a metric
     /// level, and offers the ability to filter and group data by channels, queues, routing
     /// profiles, agents, and agent hierarchy levels. It can retrieve historical data for
-    /// the last 35 days, in 24-hour intervals.
+    /// the last 3 months, at varying intervals. 
     /// </para><para>
     /// For a description of the historical metrics that are supported by <code>GetMetricDataV2</code>
     /// and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for
         /// the retrieval of historical metrics data. The time must be later than the start time
-        /// timestamp. It cannot be later than the current timestamp.</para><para>The time range between the start and end time must be less than 24 hours.</para>
+        /// timestamp. It cannot be later than the current timestamp.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,35 +118,58 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] Grouping { get; set; }
         #endregion
         
+        #region Parameter Interval_IntervalPeriod
+        /// <summary>
+        /// <para>
+        /// <para><code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid
+        /// <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code>
+        /// | <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </para><para>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>, <code>StartTime</code>
+        /// and <code>EndTime</code> differs by 1 day, then Amazon Connect returns 48 results
+        /// in the response. Each result is aggregated by the THIRTY_MIN period. By default Amazon
+        /// Connect aggregates results based on the <code>TOTAL</code> interval period. </para><para>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code>
+        /// based on what <code>IntervalPeriod</code> is requested. </para><ul><li><para><code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+        /// must be less than 3 days.</para></li><li><para><code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+        /// must be less than 3 days.</para></li><li><para><code>HOUR</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+        /// must be less than 3 days.</para></li><li><para><code>DAY</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+        /// must be less than 35 days.</para></li><li><para><code>WEEK</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+        /// must be less than 35 days.</para></li><li><para><code>TOTAL</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+        /// must be less than 35 days.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.IntervalPeriod")]
+        public Amazon.Connect.IntervalPeriod Interval_IntervalPeriod { get; set; }
+        #endregion
+        
         #region Parameter Metric
         /// <summary>
         /// <para>
         /// <para>The metrics to retrieve. Specify the name, groupings, and filters for each metric.
         /// The following historical metrics are available. For a description of each metric,
         /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
-        /// metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</para><dl><dt>AGENT_ADHERENT_TIME</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
+        /// metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</para><dl><dt>ABANDONMENT_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AGENT_ADHERENT_TIME</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
         /// capacity planning, and scheduling</a> is available.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy
         /// </para></dd><dt>AGENT_NON_RESPONSE</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy
-        /// </para></dd><dt>AGENT_OCCUPANCY</dt><dd><para>Unit: Percentage</para><para>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </para></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
+        /// </para></dd><dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para><para>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</para></dd><dt>AGENT_OCCUPANCY</dt><dd><para>Unit: Percentage</para><para>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </para></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
         /// capacity planning, and scheduling</a> is available.</para><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
         /// capacity planning, and scheduling</a> is available.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_ABANDON_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only
         /// supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code>
-        /// | <code>CALLBACK</code> | <code>API</code></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only
-        /// supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code>
-        /// | <code>CALLBACK</code> | <code>API</code></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_CONTACT_DURATION</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// | <code>CALLBACK</code> | <code>API</code></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para><note><para>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</para></note></dd><dt>AVG_CONTACT_DURATION</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_HANDLE_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_HOLD_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
-        /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_HOLDS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_HOLD_TIME_ALL_CONTACTS</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_HOLDS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_INTERACTION_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_INTERRUPTIONS_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_INTERRUPTION_TIME_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_NON_TALK_TIME</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
-        /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_TALK_TIME</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
+        /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_RESOLUTION_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile</para></dd><dt>AVG_TALK_TIME</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_TALK_TIME_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>AVG_TALK_TIME_CUSTOMER</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_ABANDONED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_CREATED</dt><dd><para>Unit: Count</para><para>Valid metric filter key: <code>INITIATION_METHOD</code></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>CONTACTS_HANDLED</dt><dd><para>Unit: Count</para><para>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
-        /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_QUEUED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_QUEUED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_RESOLVED_IN_X</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile</para><para>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800
+        /// (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code>
+        /// (for "Less than").</para></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature</para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>MAX_QUEUED_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para></dd><dt>SERVICE_LEVEL</dt><dd><para>You can include up to 20 SERVICE_LEVEL metrics in a request.</para><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile</para><para>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
         /// (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code>
         /// (for "Less than"). </para></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile</para><para>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
@@ -191,9 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The timestamp, in UNIX Epoch time format, at which to start the reporting interval
         /// for the retrieval of historical metrics data. The time must be before the end time
-        /// timestamp. The time range between the start and end time must be less than 24 hours.
-        /// The start time cannot be earlier than 35 days before the time of the request. Historical
-        /// metrics are available for 35 days.</para>
+        /// timestamp. The start and end time depends on the <code>IntervalPeriod</code> selected.
+        /// By default the time range between start and end time is 35 days. Historical metrics
+        /// are available for 3 months.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -204,6 +227,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? StartTime { get; set; }
+        #endregion
+        
+        #region Parameter Interval_TimeZone
+        /// <summary>
+        /// <para>
+        /// <para>The timezone applied to requested metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Interval_TimeZone { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -289,6 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.Grouping = new List<System.String>(this.Grouping);
             }
+            context.Interval_IntervalPeriod = this.Interval_IntervalPeriod;
+            context.Interval_TimeZone = this.Interval_TimeZone;
             context.MaxResult = this.MaxResult;
             if (this.Metric != null)
             {
@@ -344,6 +379,35 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Grouping != null)
             {
                 request.Groupings = cmdletContext.Grouping;
+            }
+            
+             // populate Interval
+            var requestIntervalIsNull = true;
+            request.Interval = new Amazon.Connect.Model.IntervalDetails();
+            Amazon.Connect.IntervalPeriod requestInterval_interval_IntervalPeriod = null;
+            if (cmdletContext.Interval_IntervalPeriod != null)
+            {
+                requestInterval_interval_IntervalPeriod = cmdletContext.Interval_IntervalPeriod;
+            }
+            if (requestInterval_interval_IntervalPeriod != null)
+            {
+                request.Interval.IntervalPeriod = requestInterval_interval_IntervalPeriod;
+                requestIntervalIsNull = false;
+            }
+            System.String requestInterval_interval_TimeZone = null;
+            if (cmdletContext.Interval_TimeZone != null)
+            {
+                requestInterval_interval_TimeZone = cmdletContext.Interval_TimeZone;
+            }
+            if (requestInterval_interval_TimeZone != null)
+            {
+                request.Interval.TimeZone = requestInterval_interval_TimeZone;
+                requestIntervalIsNull = false;
+            }
+             // determine if request.Interval should be set to null
+            if (requestIntervalIsNull)
+            {
+                request.Interval = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -449,6 +513,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.DateTime? EndTime { get; set; }
             public List<Amazon.Connect.Model.FilterV2> Filter { get; set; }
             public List<System.String> Grouping { get; set; }
+            public Amazon.Connect.IntervalPeriod Interval_IntervalPeriod { get; set; }
+            public System.String Interval_TimeZone { get; set; }
             public System.Int32? MaxResult { get; set; }
             public List<Amazon.Connect.Model.MetricV2> Metric { get; set; }
             public System.String NextToken { get; set; }

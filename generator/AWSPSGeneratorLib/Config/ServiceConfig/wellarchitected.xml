@@ -48,6 +48,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateReviewTemplate" OutputProperty="TemplateArn" Verb="New" Noun="ReviewTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplateShare" OutputProperty="*" Verb="New" Noun="TemplateShare" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkload" OutputProperty="*" Verb="New" Noun="Workload" ShouldProcessTarget="WorkloadName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -69,6 +77,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProfileShare" Verb="Remove" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReviewTemplate" Verb="Remove" Noun="ReviewTemplate" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplateShare" Verb="Remove" Noun="TemplateShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +144,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetReviewTemplate" OutputProperty="ReviewTemplate" Verb="Get" Noun="ReviewTemplate" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReviewTemplateAnswer" OutputProperty="*" Verb="Get" Noun="ReviewTemplateAnswer" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReviewTemplateLensReview" OutputProperty="*" Verb="Get" Noun="ReviewTemplateLensReview" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -184,11 +212,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListReviewTemplateAnswers" OutputProperty="*" Verb="Get" Noun="ReviewTemplateAnswerList" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReviewTemplates" OutputProperty="ReviewTemplates" Verb="Get" Noun="ReviewTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListShareInvitations" OutputProperty="ShareInvitationSummaries" Verb="Get" Noun="ShareInvitationList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="WorkloadArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateShares" OutputProperty="*" Verb="Get" Noun="TemplateShareList" PipelineParameter="TemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,6 +264,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReviewTemplate" OutputProperty="ReviewTemplate" Verb="Update" Noun="ReviewTemplate" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReviewTemplateAnswer" OutputProperty="*" Verb="Update" Noun="ReviewTemplateAnswer" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReviewTemplateLensReview" OutputProperty="*" Verb="Update" Noun="ReviewTemplateLensReview" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateShareInvitation" OutputProperty="ShareInvitation" Verb="Update" Noun="ShareInvitation" ShouldProcessTarget="ShareInvitationId" PipelineParameter="ShareInvitationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -241,6 +293,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpgradeProfileVersion" Verb="Update" Noun="ProfileVersion" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradeReviewTemplateLensReview" Verb="Convert" Noun="ReviewTemplateLensReview" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
