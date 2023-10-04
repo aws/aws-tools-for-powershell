@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="*" Verb="New" Noun="Connector" ShouldProcessTarget="Name" PipelineParameter="SsmInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLaunchConfigurationTemplate" OutputProperty="*" Verb="New" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="PostLaunchActions_CloudWatchLogGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationID" PipelineParameter="ApplicationID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorID" PipelineParameter="ConnectorID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplications" OutputProperty="Items" Verb="Get" Noun="ApplicationList" PipelineParameter="Filters_IsArchived" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Items" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -255,6 +267,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnector" OutputProperty="*" Verb="Update" Noun="Connector" ShouldProcessTarget="Name" PipelineParameter="ConnectorID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLaunchConfiguration" OutputProperty="*" Verb="Update" Noun="LaunchConfiguration" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -268,6 +284,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateReplicationConfigurationTemplate" OutputProperty="*" Verb="Update" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="ReplicationConfigurationTemplateID" PipelineParameter="ReplicationConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSourceServer" OutputProperty="*" Verb="Update" Noun="SourceServer" ShouldProcessTarget="" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

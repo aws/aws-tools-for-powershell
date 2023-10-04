@@ -1,4 +1,19 @@
-﻿### 4.1.426 (2023-10-03 21:20Z)
+﻿### 4.1.427 (2023-10-04 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.657.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppConfig
+    * Modified cmdlet New-APPCConfigurationProfile: added parameter KmsKeyIdentifier.
+    * Modified cmdlet Update-APPCConfigurationProfile: added parameter KmsKeyIdentifier.
+  * Amazon Application Migration Service
+    * Added cmdlet Get-MGNConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet New-MGNConnector leveraging the CreateConnector service API.
+    * Added cmdlet Remove-MGNConnector leveraging the DeleteConnector service API.
+    * Added cmdlet Update-MGNConnector leveraging the UpdateConnector service API.
+    * Added cmdlet Update-MGNSourceServer leveraging the UpdateSourceServer service API.
+  * Amazon DataZone. Added cmdlets to support the service. Cmdlets for the service have the noun prefix DZ and can be listed using the command 'Get-AWSCmdletName -Service DZ'.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAlgorithm: added parameters AdditionalS3DataSource_CompressionType, AdditionalS3DataSource_S3DataType and AdditionalS3DataSource_S3Uri.
+
+### 4.1.426 (2023-10-03 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.656.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Get-CONNMetricDataV2: added parameters Interval_IntervalPeriod and Interval_TimeZone.

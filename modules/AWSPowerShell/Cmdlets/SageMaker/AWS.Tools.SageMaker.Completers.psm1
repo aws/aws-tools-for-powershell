@@ -90,6 +90,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AdditionalS3DataSourceDataType
+        "New-SMAlgorithm/TrainingSpecification_AdditionalS3DataSource_S3DataType"
+        {
+            $v = "S3Object"
+            break
+        }
+
         # Amazon.SageMaker.AlgorithmSortBy
         "Get-SMAlgorithmList/SortBy"
         {
@@ -327,7 +334,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.CompressionType
-        "New-SMTransformJob/TransformInput_CompressionType"
+        {
+            ($_ -eq "New-SMAlgorithm/TrainingSpecification_AdditionalS3DataSource_CompressionType") -Or
+            ($_ -eq "New-SMTransformJob/TransformInput_CompressionType")
+        }
         {
             $v = "Gzip","None"
             break
@@ -1496,6 +1506,8 @@ $SM_map = @{
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
+    "TrainingSpecification_AdditionalS3DataSource_CompressionType"=@("New-SMAlgorithm")
+    "TrainingSpecification_AdditionalS3DataSource_S3DataType"=@("New-SMAlgorithm")
     "TransformInput_CompressionType"=@("New-SMTransformJob")
     "TransformInput_DataSource_S3DataSource_S3DataType"=@("New-SMTransformJob")
     "TransformInput_SplitType"=@("New-SMTransformJob")

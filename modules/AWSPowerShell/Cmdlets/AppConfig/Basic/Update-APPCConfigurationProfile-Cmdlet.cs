@@ -89,6 +89,21 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for a Key Management Service key to encrypt new configuration data
+        /// versions in the AppConfig hosted configuration store. This attribute is only used
+        /// for <code>hosted</code> configuration types. The identifier can be an KMS key ID,
+        /// alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed
+        /// in other configuration stores, see the documentation for how to specify an KMS key
+        /// for that particular service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -198,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             #endif
             context.Description = this.Description;
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.Name = this.Name;
             context.RetrievalRoleArn = this.RetrievalRoleArn;
             if (this.Validator != null)
@@ -231,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             if (cmdletContext.Name != null)
             {
@@ -308,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String ApplicationId { get; set; }
             public System.String ConfigurationProfileId { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.String Name { get; set; }
             public System.String RetrievalRoleArn { get; set; }
             public List<Amazon.AppConfig.Model.Validator> Validator { get; set; }

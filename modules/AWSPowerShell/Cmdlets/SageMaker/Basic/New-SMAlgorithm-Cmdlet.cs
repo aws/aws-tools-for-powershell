@@ -80,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? CertifyForMarketplace { get; set; }
         #endregion
         
+        #region Parameter AdditionalS3DataSource_CompressionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of compression used for an additional data source used in inference or training.
+        /// Specify <code>None</code> if your additional data source is not compressed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingSpecification_AdditionalS3DataSource_CompressionType")]
+        [AWSConstantClassSource("Amazon.SageMaker.CompressionType")]
+        public Amazon.SageMaker.CompressionType AdditionalS3DataSource_CompressionType { get; set; }
+        #endregion
+        
         #region Parameter InferenceSpecification_Container
         /// <summary>
         /// <para>
@@ -101,6 +114,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TrainingSpecification_MetricDefinitions")]
         public Amazon.SageMaker.Model.MetricDefinition[] TrainingSpecification_MetricDefinition { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalS3DataSource_S3DataType
+        /// <summary>
+        /// <para>
+        /// <para>The data type of the additional data source that you specify for use in inference
+        /// or training. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingSpecification_AdditionalS3DataSource_S3DataType")]
+        [AWSConstantClassSource("Amazon.SageMaker.AdditionalS3DataSourceDataType")]
+        public Amazon.SageMaker.AdditionalS3DataSourceDataType AdditionalS3DataSource_S3DataType { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalS3DataSource_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The uniform resource identifier (URI) used to identify an additional data source used
+        /// in inference or training.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingSpecification_AdditionalS3DataSource_S3Uri")]
+        public System.String AdditionalS3DataSource_S3Uri { get; set; }
         #endregion
         
         #region Parameter InferenceSpecification_SupportedContentType
@@ -378,6 +416,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.AdditionalS3DataSource_CompressionType = this.AdditionalS3DataSource_CompressionType;
+            context.AdditionalS3DataSource_S3DataType = this.AdditionalS3DataSource_S3DataType;
+            context.AdditionalS3DataSource_S3Uri = this.AdditionalS3DataSource_S3Uri;
             if (this.TrainingSpecification_MetricDefinition != null)
             {
                 context.TrainingSpecification_MetricDefinition = new List<Amazon.SageMaker.Model.MetricDefinition>(this.TrainingSpecification_MetricDefinition);
@@ -599,6 +640,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.TrainingSpecification.TrainingImageDigest = requestTrainingSpecification_trainingSpecification_TrainingImageDigest;
                 requestTrainingSpecificationIsNull = false;
             }
+            Amazon.SageMaker.Model.AdditionalS3DataSource requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource = null;
+            
+             // populate AdditionalS3DataSource
+            var requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull = true;
+            requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource = new Amazon.SageMaker.Model.AdditionalS3DataSource();
+            Amazon.SageMaker.CompressionType requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_CompressionType = null;
+            if (cmdletContext.AdditionalS3DataSource_CompressionType != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_CompressionType = cmdletContext.AdditionalS3DataSource_CompressionType;
+            }
+            if (requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_CompressionType != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource.CompressionType = requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_CompressionType;
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull = false;
+            }
+            Amazon.SageMaker.AdditionalS3DataSourceDataType requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3DataType = null;
+            if (cmdletContext.AdditionalS3DataSource_S3DataType != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3DataType = cmdletContext.AdditionalS3DataSource_S3DataType;
+            }
+            if (requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3DataType != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource.S3DataType = requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3DataType;
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull = false;
+            }
+            System.String requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3Uri = null;
+            if (cmdletContext.AdditionalS3DataSource_S3Uri != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3Uri = cmdletContext.AdditionalS3DataSource_S3Uri;
+            }
+            if (requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3Uri != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource.S3Uri = requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3Uri;
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull = false;
+            }
+             // determine if requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource should be set to null
+            if (requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource = null;
+            }
+            if (requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource != null)
+            {
+                request.TrainingSpecification.AdditionalS3DataSource = requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource;
+                requestTrainingSpecificationIsNull = false;
+            }
              // determine if request.TrainingSpecification should be set to null
             if (requestTrainingSpecificationIsNull)
             {
@@ -703,6 +789,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> InferenceSpecification_SupportedResponseMIMEType { get; set; }
             public List<System.String> InferenceSpecification_SupportedTransformInstanceType { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public Amazon.SageMaker.CompressionType AdditionalS3DataSource_CompressionType { get; set; }
+            public Amazon.SageMaker.AdditionalS3DataSourceDataType AdditionalS3DataSource_S3DataType { get; set; }
+            public System.String AdditionalS3DataSource_S3Uri { get; set; }
             public List<Amazon.SageMaker.Model.MetricDefinition> TrainingSpecification_MetricDefinition { get; set; }
             public List<Amazon.SageMaker.Model.HyperParameterSpecification> TrainingSpecification_SupportedHyperParameter { get; set; }
             public List<System.String> TrainingSpecification_SupportedTrainingInstanceType { get; set; }

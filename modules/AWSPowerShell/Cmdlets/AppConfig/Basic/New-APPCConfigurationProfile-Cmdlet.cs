@@ -103,6 +103,21 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for an Key Management Service key to encrypt new configuration data
+        /// versions in the AppConfig hosted configuration store. This attribute is only used
+        /// for <code>hosted</code> configuration types. The identifier can be an KMS key ID,
+        /// alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed
+        /// in other configuration stores, see the documentation for how to specify an KMS key
+        /// for that particular service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter LocationUri
         /// <summary>
         /// <para>
@@ -264,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             #endif
             context.Description = this.Description;
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.LocationUri = this.LocationUri;
             #if MODULAR
             if (this.LocationUri == null && ParameterWasBound(nameof(this.LocationUri)))
@@ -315,6 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             if (cmdletContext.LocationUri != null)
             {
@@ -403,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         {
             public System.String ApplicationId { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.String LocationUri { get; set; }
             public System.String Name { get; set; }
             public System.String RetrievalRoleArn { get; set; }

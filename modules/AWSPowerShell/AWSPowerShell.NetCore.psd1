@@ -155,6 +155,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.DataExchange.dll',
         'AWSSDK.DataPipeline.dll',
         'AWSSDK.DataSync.dll',
+        'AWSSDK.DataZone.dll',
         'AWSSDK.DAX.dll',
         'AWSSDK.Detective.dll',
         'AWSSDK.DeviceFarm.dll',

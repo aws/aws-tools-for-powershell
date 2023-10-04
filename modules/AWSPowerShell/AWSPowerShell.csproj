@@ -361,6 +361,9 @@
     <Reference Include="AWSSDK.DataSync">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DataSync.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DataZone">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DataZone.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DAX">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DAX.dll</HintPath>
     </Reference>
@@ -1412,6 +1415,9 @@
     </Reference>
     <Reference Include="AWSSDK.DataSync">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DataSync.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DataZone">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DataZone.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DAX">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DAX.dll</HintPath>

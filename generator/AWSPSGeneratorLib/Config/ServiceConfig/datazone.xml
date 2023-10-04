@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>datazone</C2jFilename>
+    <AssemblyName>DataZone</AssemblyName>
+    <ServiceNounPrefix>DZ</ServiceNounPrefix>
+    <ServiceName>Amazon DataZone</ServiceName>
+    <ServiceClientInterface>IAmazonDataZone</ServiceClientInterface>
+    <ServiceClient>AmazonDataZoneClient</ServiceClient>
+    <ServiceModuleGuid>d010e85f-7292-4d5a-ac46-fc86e6837814</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptPredictions" OutputProperty="*" Verb="Approve" Noun="Prediction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptSubscriptionRequest" OutputProperty="*" Verb="Approve" Noun="SubscriptionRequest" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSubscription" OutputProperty="*" Verb="Stop" Noun="Subscription" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssetRevision" OutputProperty="*" Verb="New" Noun="AssetRevision" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssetType" OutputProperty="*" Verb="New" Noun="AssetType" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentProfile" OutputProperty="*" Verb="New" Noun="EnvironmentProfile" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFormType" OutputProperty="*" Verb="New" Noun="FormType" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlossary" OutputProperty="*" Verb="New" Noun="Glossary" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlossaryTerm" OutputProperty="*" Verb="New" Noun="GlossaryTerm" ShouldProcessTarget="GlossaryIdentifier" PipelineParameter="GlossaryIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroupProfile" OutputProperty="*" Verb="New" Noun="GroupProfile" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateListingChangeSet" OutputProperty="*" Verb="New" Noun="ListingChangeSet" ShouldProcessTarget="EntityIdentifier" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="Id" Verb="New" Noun="Project" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProjectMembership" Verb="New" Noun="ProjectMembership" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriptionGrant" OutputProperty="*" Verb="New" Noun="SubscriptionGrant" ShouldProcessTarget="SubscriptionTargetIdentifier" PipelineParameter="SubscriptionTargetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriptionRequest" OutputProperty="*" Verb="New" Noun="SubscriptionRequest" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriptionTarget" OutputProperty="*" Verb="New" Noun="SubscriptionTarget" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserProfile" OutputProperty="*" Verb="New" Noun="UserProfile" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssetType" Verb="Remove" Noun="AssetType" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="Status" Verb="Remove" Noun="Domain" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentBlueprintConfiguration" Verb="Remove" Noun="EnvironmentBlueprintConfiguration" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentProfile" Verb="Remove" Noun="EnvironmentProfile" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFormType" Verb="Remove" Noun="FormType" ShouldProcessTarget="FormTypeIdentifier" PipelineParameter="FormTypeIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlossary" Verb="Remove" Noun="Glossary" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlossaryTerm" Verb="Remove" Noun="GlossaryTerm" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteListing" Verb="Remove" Noun="Listing" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProjectMembership" Verb="Remove" Noun="ProjectMembership" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriptionGrant" OutputProperty="*" Verb="Remove" Noun="SubscriptionGrant" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriptionRequest" Verb="Remove" Noun="SubscriptionRequest" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriptionTarget" Verb="Remove" Noun="SubscriptionTarget" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetType" OutputProperty="*" Verb="Get" Noun="AssetType" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataSourceRun" OutputProperty="*" Verb="Get" Noun="DataSourceRun" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentBlueprint" OutputProperty="*" Verb="Get" Noun="EnvironmentBlueprint" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentBlueprintConfiguration" OutputProperty="*" Verb="Get" Noun="EnvironmentBlueprintConfiguration" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentProfile" OutputProperty="*" Verb="Get" Noun="EnvironmentProfile" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFormType" OutputProperty="*" Verb="Get" Noun="FormType" PipelineParameter="FormTypeIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlossary" OutputProperty="*" Verb="Get" Noun="Glossary" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlossaryTerm" OutputProperty="*" Verb="Get" Noun="GlossaryTerm" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupProfile" OutputProperty="*" Verb="Get" Noun="GroupProfile" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIamPortalLoginUrl" OutputProperty="*" Verb="Get" Noun="IamPortalLoginUrl" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetListing" OutputProperty="*" Verb="Get" Noun="Listing" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscription" OutputProperty="*" Verb="Get" Noun="Subscription" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionGrant" OutputProperty="*" Verb="Get" Noun="SubscriptionGrant" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionRequestDetails" OutputProperty="*" Verb="Get" Noun="SubscriptionRequestDetail" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionTarget" OutputProperty="*" Verb="Get" Noun="SubscriptionTarget" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserProfile" OutputProperty="*" Verb="Get" Noun="UserProfile" PipelineParameter="UserIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetRevisions" OutputProperty="Items" Verb="Get" Noun="AssetRevisionList" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSourceRunActivities" OutputProperty="Items" Verb="Get" Noun="DataSourceRunActivityList" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSourceRuns" OutputProperty="Items" Verb="Get" Noun="DataSourceRunList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="Items" Verb="Get" Noun="DataSourceList" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="*" Verb="Get" Noun="DomainList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentBlueprintConfigurations" OutputProperty="*" Verb="Get" Noun="EnvironmentBlueprintConfigurationList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentBlueprints" OutputProperty="Items" Verb="Get" Noun="EnvironmentBlueprintList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentProfiles" OutputProperty="Items" Verb="Get" Noun="EnvironmentProfileList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Region" NewName="AwsRegion" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="*" Verb="Get" Noun="EnvironmentList" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Region" NewName="AwsRegion" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotifications" OutputProperty="Notifications" Verb="Get" Noun="NotificationList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjectMemberships" OutputProperty="Members" Verb="Get" Noun="ProjectMembershipList" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="*" Verb="Get" Noun="ProjectList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptionGrants" OutputProperty="*" Verb="Get" Noun="SubscriptionGrantList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptionRequests" OutputProperty="*" Verb="Get" Noun="SubscriptionRequestList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptions" OutputProperty="*" Verb="Get" Noun="SubscriptionList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptionTargets" OutputProperty="*" Verb="Get" Noun="SubscriptionTargetList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEnvironmentBlueprintConfiguration" OutputProperty="*" Verb="Write" Noun="EnvironmentBlueprintConfiguration" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectPredictions" OutputProperty="*" Verb="Deny" Noun="Prediction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectSubscriptionRequest" OutputProperty="*" Verb="Deny" Noun="SubscriptionRequest" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeSubscription" OutputProperty="*" Verb="Revoke" Noun="Subscription" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Search" OutputProperty="*" Verb="Search" Noun="Resource" ShouldProcessTarget="DomainIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchGroupProfiles" OutputProperty="*" Verb="Search" Noun="GroupProfile" ShouldProcessTarget="DomainIdentifier" PipelineParameter="GroupType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchListings" OutputProperty="*" Verb="Search" Noun="Listing" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTypes" OutputProperty="*" Verb="Search" Noun="Type" ShouldProcessTarget="DomainIdentifier" PipelineParameter="SearchScope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchUserProfiles" OutputProperty="*" Verb="Search" Noun="UserProfile" ShouldProcessTarget="DomainIdentifier" PipelineParameter="UserType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataSourceRun" OutputProperty="*" Verb="Start" Noun="DataSourceRun" ShouldProcessTarget="DataSourceIdentifier" PipelineParameter="DataSourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentProfile" OutputProperty="*" Verb="Update" Noun="EnvironmentProfile" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlossary" OutputProperty="*" Verb="Update" Noun="Glossary" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlossaryTerm" OutputProperty="*" Verb="Update" Noun="GlossaryTerm" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroupProfile" OutputProperty="*" Verb="Update" Noun="GroupProfile" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="Id" Verb="Update" Noun="Project" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriptionGrantStatus" OutputProperty="*" Verb="Update" Noun="SubscriptionGrantStatus" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriptionRequest" OutputProperty="*" Verb="Update" Noun="SubscriptionRequest" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriptionTarget" OutputProperty="*" Verb="Update" Noun="SubscriptionTarget" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserProfile" OutputProperty="*" Verb="Update" Noun="UserProfile" ShouldProcessTarget="UserIdentifier" PipelineParameter="UserIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

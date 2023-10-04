@@ -129,10 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The ARN from a reference execution of the current pipeline. Used to copy input collaterals
         /// needed for the selected steps to run. The execution status of the pipeline can be
-        /// either <code>Failed</code> or <code>Success</code>.</para><para>This field is required if the steps you specify for <code>SelectedSteps</code> depend
-        /// on output collaterals from any non-specified pipeline steps. For more information,
-        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-selective-ex.html">Selective
-        /// Execution for Pipeline Steps</a>.</para>
+        /// either <code>Failed</code> or <code>Success</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
