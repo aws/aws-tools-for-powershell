@@ -101,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludePublic
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to include manual DB cluster snapshots that are public
-        /// and can be copied or restored by any Amazon Web Services account. By default, the
-        /// public snapshots are not included.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
+        /// <para>Specifies whether to include manual DB cluster snapshots that are public and can be
+        /// copied or restored by any Amazon Web Services account. By default, the public snapshots
+        /// are not included.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
         /// API action.</para>
         /// </para>
         /// </summary>
@@ -114,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to include shared manual DB cluster snapshots from
-        /// other Amazon Web Services accounts that this Amazon Web Services account has been
-        /// given permission to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB cluster
+        /// <para>Specifies whether to include shared manual DB cluster snapshots from other Amazon
+        /// Web Services accounts that this Amazon Web Services account has been given permission
+        /// to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB cluster
         /// snapshot from another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code>
         /// API action.</para>
         /// </para>

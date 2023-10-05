@@ -82,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>A value that indicates to return only parameters for a specific source. Parameter
-        /// sources can be <code>engine</code>, <code>service</code>, or <code>customer</code>.</para>
+        /// <para>A specific source to return parameters for.</para><para>Valid Values:</para><ul><li><para><code>customer</code></para></li><li><para><code>engine</code></para></li><li><para><code>service</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

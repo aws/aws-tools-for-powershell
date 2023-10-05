@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to apply the change immediately or during the next
-        /// maintenance window for each instance associated with the option group.</para>
+        /// <para>Specifies whether to apply the change immediately or during the next maintenance window
+        /// for each instance associated with the option group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

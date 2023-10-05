@@ -111,6 +111,13 @@ $R53_Completers = {
             break
         }
 
+        # Amazon.Route53.HostedZoneType
+        "Get-R53HostedZoneList/HostedZoneType"
+        {
+            $v = "PrivateHostedZone"
+            break
+        }
+
         # Amazon.Route53.InsufficientDataHealthStatus
         {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_InsufficientDataHealthStatus") -Or
@@ -179,6 +186,7 @@ $R53_map = @{
     "HealthCheckConfig_AlarmIdentifier_Region"=@("New-R53HealthCheck")
     "HealthCheckConfig_InsufficientDataHealthStatus"=@("New-R53HealthCheck")
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
+    "HostedZoneType"=@("Get-R53HostedZoneList")
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
     "RecordType"=@("Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")

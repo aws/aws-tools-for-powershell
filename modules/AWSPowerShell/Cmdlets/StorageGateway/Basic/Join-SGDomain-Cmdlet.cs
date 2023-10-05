@@ -30,6 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Adds a file gateway to an Active Directory domain. This operation is only supported
     /// for file gateways that support the SMB file protocol.
+    /// 
+    ///  <note><para>
+    /// Joining a domain creates an Active Directory computer account in the default organizational
+    /// unit, using the gateway's <b>Gateway ID</b> as the account name (for example, SGW-1234ADE).
+    /// If your Active Directory environment requires that you pre-stage accounts to facilitate
+    /// the join domain process, you will need to create this account ahead of time.
+    /// </para><para>
+    /// To create the gateway's computer account in an organizational unit other than the
+    /// default, you must specify the organizational unit when joining the domain.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Join", "SGDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

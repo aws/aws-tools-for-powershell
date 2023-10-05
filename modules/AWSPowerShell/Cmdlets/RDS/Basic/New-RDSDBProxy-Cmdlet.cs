@@ -82,12 +82,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DebugLogging
         /// <summary>
         /// <para>
-        /// <para>Whether the proxy includes detailed information about SQL statements in its logs.
-        /// This information helps you to debug issues involving SQL behavior or the performance
-        /// and scalability of the proxy connections. The debug information includes the text
-        /// of SQL statements that you submit through the proxy. Thus, only enable this setting
-        /// when needed for debugging, and only when you have security measures in place to safeguard
-        /// any sensitive information that appears in the logs.</para>
+        /// <para>Specifies whether the proxy includes detailed information about SQL statements in
+        /// its logs. This information helps you to debug issues involving SQL behavior or the
+        /// performance and scalability of the proxy connections. The debug information includes
+        /// the text of SQL statements that you submit through the proxy. Thus, only enable this
+        /// setting when needed for debugging, and only when you have security measures in place
+        /// to safeguard any sensitive information that appears in the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RequireTLS
         /// <summary>
         /// <para>
-        /// <para>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption
-        /// is required for connections to the proxy. By enabling this setting, you can enforce
-        /// encrypted TLS connections to the proxy.</para>
+        /// <para>Specifies whether Transport Layer Security (TLS) encryption is required for connections
+        /// to the proxy. By enabling this setting, you can enforce encrypted TLS connections
+        /// to the proxy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

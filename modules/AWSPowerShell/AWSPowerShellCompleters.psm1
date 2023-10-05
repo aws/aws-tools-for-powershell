@@ -51250,6 +51250,13 @@ $R53_Completers = {
             break
         }
 
+        # Amazon.Route53.HostedZoneType
+        "Get-R53HostedZoneList/HostedZoneType"
+        {
+            $v = "PrivateHostedZone"
+            break
+        }
+
         # Amazon.Route53.InsufficientDataHealthStatus
         {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_InsufficientDataHealthStatus") -Or
@@ -51318,6 +51325,7 @@ $R53_map = @{
     "HealthCheckConfig_AlarmIdentifier_Region"=@("New-R53HealthCheck")
     "HealthCheckConfig_InsufficientDataHealthStatus"=@("New-R53HealthCheck")
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
+    "HostedZoneType"=@("Get-R53HostedZoneList")
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
     "RecordType"=@("Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")
@@ -63670,6 +63678,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.OperatingSystemName
+        "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
+        {
+            $v = "AMAZON_LINUX_2","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            break
+        }
+
         # Amazon.WorkSpaces.ReconnectEnum
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
@@ -63712,6 +63727,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.WorkSpaceApplicationLicenseType
+        "Get-WKSApplication/LicenseType"
+        {
+            $v = "LICENSED","UNLICENSED"
+            break
+        }
+
         # Amazon.WorkSpaces.WorkspaceImageIngestionProcess
         "Import-WKSWorkspaceImage/IngestionProcess"
         {
@@ -63735,6 +63757,7 @@ $WKS_map = @{
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
+    "LicenseType"=@("Get-WKSApplication")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")
@@ -63751,6 +63774,7 @@ $WKS_map = @{
     "WorkspaceAccessProperties_DeviceTypeWindows"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeZeroClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
+    "WorkspaceProperties_OperatingSystemName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceState"=@("Edit-WKSWorkspaceState")
 }
@@ -63807,6 +63831,7 @@ $WKS_SelectCompleters = {
 $WKS_SelectMap = @{
     "Select"=@("Register-WKSConnectionAlias",
                "Register-WKSIpGroup",
+               "Register-WKSWorkspaceApplication",
                "Approve-WKSIpRule",
                "Copy-WKSWorkspaceImage",
                "New-WKSConnectClientAddIn",
@@ -63825,16 +63850,22 @@ $WKS_SelectMap = @{
                "Remove-WKSTag",
                "Remove-WKSWorkspaceBundle",
                "Remove-WKSWorkspaceImage",
+               "Publish-WKSWorkspaceApplication",
                "Unregister-WKSWorkspaceDirectory",
                "Get-WKSAccount",
                "Get-WKSAccountModification",
+               "Get-WKSApplicationAssociation",
+               "Get-WKSApplication",
+               "Get-WKSBundleAssociation",
                "Get-WKSClientBranding",
                "Get-WKSClientProperty",
                "Get-WKSConnectClientAddIn",
                "Get-WKSConnectionAlias",
                "Get-WKSConnectionAliasPermission",
+               "Get-WKSImageAssociation",
                "Get-WKSIpGroup",
                "Get-WKSTag",
+               "Get-WKSWorkspaceAssociation",
                "Get-WKSWorkspaceBundle",
                "Get-WKSWorkspaceDirectory",
                "Get-WKSWorkspaceImagePermission",
@@ -63844,6 +63875,7 @@ $WKS_SelectMap = @{
                "Get-WKSWorkspaceSnapshot",
                "Unregister-WKSConnectionAlias",
                "Unregister-WKSIpGroup",
+               "Unregister-WKSWorkspaceApplication",
                "Import-WKSClientBranding",
                "Import-WKSWorkspaceImage",
                "Get-WKSAvailableManagementCidrRangeList",

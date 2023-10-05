@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RemoveCustomerOverride
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to remove the override for the default certificate.
-        /// If the override is removed, the default certificate is the system default.</para>
+        /// <para>Specifies whether to remove the override for the default certificate. If the override
+        /// is removed, the default certificate is the system default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

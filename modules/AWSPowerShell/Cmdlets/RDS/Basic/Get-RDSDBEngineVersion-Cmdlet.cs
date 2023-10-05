@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns a list of the available DB engines.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the properties of specific versions of DB engines.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSDBEngineVersion")]
     [OutputType("Amazon.RDS.Model.DBEngineVersion")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of a specific DB parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DBParameterGroupFamily.</para></li></ul>
+        /// <para>The name of a specific DB parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DB parameter group family.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DefaultOnly
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether only the default version of the specified engine or
-        /// engine and major version combination is returned.</para>
+        /// <para>Specifies whether to return only the default version of the specified engine or the
+        /// engine and major version combination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to return.</para><para>Valid Values:</para><ul><li><para><code>aurora-mysql</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>custom-oracle-ee</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The database engine to return version details for.</para><para>Valid Values:</para><ul><li><para><code>aurora-mysql</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>custom-oracle-ee</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The database engine version to return.</para><para>Example: <code>5.1.49</code></para>
+        /// <para>A specific database engine version to return details for.</para><para>Example: <code>5.1.49</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeAll
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to include engine versions that aren't available in
-        /// the list. The default is to list only available engine versions.</para>
+        /// <para>Specifies whether to also list the engine versions that aren't available. The default
+        /// is to list only available engine versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,11 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ListSupportedCharacterSet
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to list the supported character sets for each engine
-        /// version.</para><para>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code>
+        /// <para>Specifies whether to list the supported character sets for each engine version.</para><para>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code>
         /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// character sets for each engine version.</para><para>For RDS Custom, the default is not to list supported character sets. If you set <code>ListSupportedCharacterSets</code>
-        /// to <code>true</code>, RDS Custom returns no results.</para>
+        /// character sets for each engine version.</para><para>For RDS Custom, the default is not to list supported character sets. If you enable
+        /// this parameter, RDS Custom returns no results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,10 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ListSupportedTimezone
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to list the supported time zones for each engine version.</para><para>If this parameter is enabled and the requested engine supports the <code>TimeZone</code>
+        /// <para>Specifies whether to list the supported time zones for each engine version.</para><para>If this parameter is enabled and the requested engine supports the <code>TimeZone</code>
         /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// time zones for each engine version.</para><para>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
-        /// to <code>true</code>, RDS Custom returns no results.</para>
+        /// time zones for each engine version.</para><para>For RDS Custom, the default is not to list supported time zones. If you enable this
+        /// parameter, RDS Custom returns no results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -530,8 +530,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UseDefaultProcessorFeature
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance class of the DB instance uses its default
-        /// processor features.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>Specifies whether the DB instance class of the DB instance uses its default processor
+        /// features.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

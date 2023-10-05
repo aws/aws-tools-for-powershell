@@ -548,7 +548,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master user.</para><para>This setting doesn't apply to Amazon Aurora DB instances. The password for the master
-        /// user is managed by the DB cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@".</para></li></ul><para>Length Constraints:</para><ul><li><para>RDS for MariaDB - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MySQL - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Oracle - Must contain from 8 to 30 characters.</para></li><li><para>RDS for PostgreSQL - Must contain from 8 to 128 characters.</para></li></ul>
+        /// user is managed by the DB cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle,
+        /// can't include the "&amp;" (ampersand) or the "'" (single quotes) character.</para></li></ul><para>Length Constraints:</para><ul><li><para>RDS for MariaDB - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MySQL - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Oracle - Must contain from 8 to 30 characters.</para></li><li><para>RDS for PostgreSQL - Must contain from 8 to 128 characters.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

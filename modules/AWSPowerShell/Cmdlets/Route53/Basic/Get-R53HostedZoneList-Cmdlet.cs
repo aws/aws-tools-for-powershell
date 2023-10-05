@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.String DelegationSetId { get; set; }
         #endregion
         
+        #region Parameter HostedZoneType
+        /// <summary>
+        /// <para>
+        /// <para> (Optional) Specifies if the hosted zone is private. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53.HostedZoneType")]
+        public Amazon.Route53.HostedZoneType HostedZoneType { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -179,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             }
             #endif
             context.DelegationSetId = this.DelegationSetId;
+            context.HostedZoneType = this.HostedZoneType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (cmdletContext.DelegationSetId != null)
             {
                 request.DelegationSetId = cmdletContext.DelegationSetId;
+            }
+            if (cmdletContext.HostedZoneType != null)
+            {
+                request.HostedZoneType = cmdletContext.HostedZoneType;
             }
             
             // Initialize loop variant and commence piping
@@ -266,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (cmdletContext.DelegationSetId != null)
             {
                 request.DelegationSetId = cmdletContext.DelegationSetId;
+            }
+            if (cmdletContext.HostedZoneType != null)
+            {
+                request.HostedZoneType = cmdletContext.HostedZoneType;
             }
             
             // Initialize loop variants and commence piping
@@ -393,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.String Marker { get; set; }
             public int? MaxItem { get; set; }
             public System.String DelegationSetId { get; set; }
+            public Amazon.Route53.HostedZoneType HostedZoneType { get; set; }
             public System.Func<Amazon.Route53.Model.ListHostedZonesResponse, GetR53HostedZoneListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.HostedZones;
         }

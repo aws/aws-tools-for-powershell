@@ -58,10 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyOptionGroup
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy the DB option group associated with the source
-        /// DB snapshot to the target Amazon Web Services account and associate with the target
-        /// DB snapshot. The associated option group can be copied only with cross-account snapshot
-        /// copy calls.</para>
+        /// <para>Specifies whether to copy the DB option group associated with the source DB snapshot
+        /// to the target Amazon Web Services account and associate with the target DB snapshot.
+        /// The associated option group can be copied only with cross-account snapshot copy calls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTag
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the source DB snapshot to the
-        /// target DB snapshot. By default, tags aren't copied.</para>
+        /// <para>Specifies whether to copy all tags from the source DB snapshot to the target DB snapshot.
+        /// By default, tags aren't copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

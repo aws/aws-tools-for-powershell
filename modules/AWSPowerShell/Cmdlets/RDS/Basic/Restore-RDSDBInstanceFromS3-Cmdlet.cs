@@ -63,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether minor engine upgrades are applied automatically to
-        /// the DB instance during the maintenance window. By default, minor engine upgrades are
-        /// not applied automatically.</para>
+        /// <para>Specifies whether to automatically apply minor engine upgrades to the DB instance
+        /// during the maintenance window. By default, minor engine upgrades are not applied automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the DB instance to snapshots
-        /// of the DB instance. By default, tags are not copied.</para>
+        /// <para>Specifies whether to copy all tags from the DB instance to snapshots of the DB instance.
+        /// By default, tags are not copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
-        /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// <para>Specifies whether to enable deletion protection for the DB instance. The database
+        /// can't be deleted when deletion protection is enabled. By default, deletion protection
+        /// isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
         /// Deleting a DB Instance</a>.</para>
         /// </para>
         /// </summary>
@@ -219,8 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
+        /// (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>
@@ -232,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable Performance Insights for the DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+        /// <para>Specifies whether to enable Performance Insights for the DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
         /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -311,8 +310,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ManageMasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to manage the master user password with Amazon Web
-        /// Services Secrets Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
+        /// Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
         /// <code>MasterUserPassword</code> is specified.</para></li></ul>
@@ -405,9 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment. If the DB
-        /// instance is a Multi-AZ deployment, you can't set the <code>AvailabilityZone</code>
-        /// parameter.</para>
+        /// <para>Specifies whether the DB instance is a Multi-AZ deployment. If the DB instance is
+        /// a Multi-AZ deployment, you can't set the <code>AvailabilityZone</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -417,7 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB instance.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// <para>The network type of the DB instance.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
         /// DB instance. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
         /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para>
@@ -514,7 +512,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint
+        /// <para>Specifies whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint
         /// resolves to the private IP address from within the DB instance's virtual private cloud
         /// (VPC). It resolves to the public IP address from outside of the DB instance's VPC.
         /// Access to the DB instance is ultimately controlled by the security group it uses.
@@ -609,7 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the new DB instance is encrypted or not.</para>
+        /// <para>Specifies whether the new DB instance is encrypted or not.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -629,7 +627,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid Values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
         /// for the <code>Iops</code> parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
         /// <code>gp2</code></para>
         /// </para>
@@ -653,8 +651,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UseDefaultProcessorFeature
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance class of the DB instance uses its default
-        /// processor features.</para>
+        /// <para>Specifies whether the DB instance class of the DB instance uses its default processor
+        /// features.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

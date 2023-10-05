@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTag
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the source DB cluster snapshot
-        /// to the target DB cluster snapshot. By default, tags are not copied.</para>
+        /// <para>Specifies whether to copy all tags from the source DB cluster snapshot to the target
+        /// DB cluster snapshot. By default, tags are not copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

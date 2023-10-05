@@ -1,4 +1,19 @@
-﻿### 4.1.427 (2023-10-04 21:19Z)
+﻿### 4.1.428 (2023-10-05 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.658.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Route 53
+    * Modified cmdlet Get-R53HostedZoneList: added parameter HostedZoneType.
+  * Amazon WorkSpaces
+    * Added cmdlet Get-WKSApplication leveraging the DescribeApplications service API.
+    * Added cmdlet Get-WKSApplicationAssociation leveraging the DescribeApplicationAssociations service API.
+    * Added cmdlet Get-WKSBundleAssociation leveraging the DescribeBundleAssociations service API.
+    * Added cmdlet Get-WKSImageAssociation leveraging the DescribeImageAssociations service API.
+    * Added cmdlet Get-WKSWorkspaceAssociation leveraging the DescribeWorkspaceAssociations service API.
+    * Added cmdlet Publish-WKSWorkspaceApplication leveraging the DeployWorkspaceApplications service API.
+    * Added cmdlet Register-WKSWorkspaceApplication leveraging the AssociateWorkspaceApplication service API.
+    * Added cmdlet Unregister-WKSWorkspaceApplication leveraging the DisassociateWorkspaceApplication service API.
+    * Modified cmdlet Edit-WKSWorkspaceProperty: added parameter WorkspaceProperties_OperatingSystemName.
+
+### 4.1.427 (2023-10-04 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.657.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppConfig
     * Modified cmdlet New-APPCConfigurationProfile: added parameter KmsKeyIdentifier.

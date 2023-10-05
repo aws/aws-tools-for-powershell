@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
-        /// standard 3166-1 alpha-2</a>.</para>
+        /// standard 3166-1 alpha-2</a>.</para><para>Route 53 also supports the contry code <b>UA</b> forr Ukraine.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

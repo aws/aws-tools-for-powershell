@@ -116,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_AutoPause
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to allow or disallow automatic pause for an Aurora
-        /// DB cluster in <code>serverless</code> DB engine mode. A DB cluster can be paused only
-        /// when it's idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
+        /// <para>Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in
+        /// <code>serverless</code> DB engine mode. A DB cluster can be paused only when it's
+        /// idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
         /// up with a snapshot. In this case, the DB cluster is restored when there is a request
         /// to connect to it.</para></note>
         /// </para>

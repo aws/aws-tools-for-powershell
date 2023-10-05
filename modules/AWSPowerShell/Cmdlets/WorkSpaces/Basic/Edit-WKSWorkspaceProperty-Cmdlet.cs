@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
         #endregion
         
+        #region Parameter WorkspaceProperties_OperatingSystemName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the operating system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.OperatingSystemName")]
+        public Amazon.WorkSpaces.OperatingSystemName WorkspaceProperties_OperatingSystemName { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceProperties_Protocol
         /// <summary>
         /// <para>
@@ -212,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             #endif
             context.WorkspaceProperties_ComputeTypeName = this.WorkspaceProperties_ComputeTypeName;
+            context.WorkspaceProperties_OperatingSystemName = this.WorkspaceProperties_OperatingSystemName;
             if (this.WorkspaceProperties_Protocol != null)
             {
                 context.WorkspaceProperties_Protocol = new List<System.String>(this.WorkspaceProperties_Protocol);
@@ -252,6 +264,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceProperties_workspaceProperties_ComputeTypeName != null)
             {
                 request.WorkspaceProperties.ComputeTypeName = requestWorkspaceProperties_workspaceProperties_ComputeTypeName;
+                requestWorkspacePropertiesIsNull = false;
+            }
+            Amazon.WorkSpaces.OperatingSystemName requestWorkspaceProperties_workspaceProperties_OperatingSystemName = null;
+            if (cmdletContext.WorkspaceProperties_OperatingSystemName != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_OperatingSystemName = cmdletContext.WorkspaceProperties_OperatingSystemName;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_OperatingSystemName != null)
+            {
+                request.WorkspaceProperties.OperatingSystemName = requestWorkspaceProperties_workspaceProperties_OperatingSystemName;
                 requestWorkspacePropertiesIsNull = false;
             }
             List<System.String> requestWorkspaceProperties_workspaceProperties_Protocol = null;
@@ -372,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             public System.String WorkspaceId { get; set; }
             public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
+            public Amazon.WorkSpaces.OperatingSystemName WorkspaceProperties_OperatingSystemName { get; set; }
             public List<System.String> WorkspaceProperties_Protocol { get; set; }
             public System.Int32? WorkspaceProperties_RootVolumeSizeGib { get; set; }
             public Amazon.WorkSpaces.RunningMode WorkspaceProperties_RunningMode { get; set; }

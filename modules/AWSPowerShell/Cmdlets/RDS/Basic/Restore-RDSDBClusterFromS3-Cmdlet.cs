@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the restored DB cluster to snapshots
-        /// of the restored DB cluster. The default is not to copy them.</para>
+        /// <para>Specifies whether to copy all tags from the restored DB cluster to snapshots of the
+        /// restored DB cluster. The default is not to copy them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
-        /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection isn't enabled.</para>
+        /// <para>Specifies whether to enable deletion protection for the DB cluster. The database can't
+        /// be deleted when deletion protection is enabled. By default, deletion protection isn't
+        /// enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,8 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
+        /// (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -273,8 +273,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ManageMasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to manage the master user password with Amazon Web
-        /// Services Secrets Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
+        /// Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
         /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
         /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para>
@@ -470,7 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier for the database engine that was backed up to create the files stored
-        /// in the Amazon S3 bucket.</para><para>Valid values: <code>mysql</code></para>
+        /// in the Amazon S3 bucket.</para><para>Valid Values: <code>mysql</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -504,7 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the restored DB cluster is encrypted.</para>
+        /// <para>Specifies whether the restored DB cluster is encrypted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,7 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid values: <code>aurora</code>, <code>aurora-iopt1</code></para><para>Default: <code>aurora</code></para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid Values: <code>aurora</code>, <code>aurora-iopt1</code></para><para>Default: <code>aurora</code></para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// error.</para></li><li><para>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code>
         /// as an existing health check but with different settings, Route 53 returns a <code>HealthCheckAlreadyExists</code>
         /// error.</para></li><li><para>If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code>
-        /// but settings identical to an existing health check, Route 53 creates the health check.</para></li></ul>
+        /// but settings identical to an existing health check, Route 53 creates the health check.</para></li></ul><para> Route 53 does not store the <code>CallerReference</code> for a deleted health check
+        /// indefinitely. The <code>CallerReference</code> for a deleted health check will be
+        /// deleted after a number of days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

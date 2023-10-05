@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether minor version upgrades are applied automatically to
-        /// the DB instance during the maintenance window.</para><para>If you restore an RDS Custom DB instance, you must disable this parameter.</para>
+        /// <para>Specifies whether to automatically apply minor version upgrades to the DB instance
+        /// during the maintenance window.</para><para>If you restore an RDS Custom DB instance, you must disable this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the restored DB instance to snapshots
-        /// of the DB instance.</para><para>In most cases, tags aren't copied by default. However, when you restore a DB instance
+        /// <para>Specifies whether to copy all tags from the restored DB instance to snapshots of the
+        /// DB instance.</para><para>In most cases, tags aren't copied by default. However, when you restore a DB instance
         /// from a DB snapshot, RDS checks whether you specify new tags. If yes, the new tags
         /// are added to the restored DB instance. If there are no new tags, RDS looks for the
         /// tags from the source DB instance for the DB snapshot, and then adds those tags to
@@ -229,9 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
-        /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// <para>Specifies whether to enable deletion protection for the DB instance. The database
+        /// can't be deleted when deletion protection is enabled. By default, deletion protection
+        /// isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
         /// Deleting a DB Instance</a>.</para>
         /// </para>
         /// </summary>
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ARN for the Secrets Manager secret with the credentials for the user joining the
-        /// domain.</para><para>Constraints:</para><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
+        /// domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,8 +321,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableCustomerOwnedIp
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable a customer-owned IP address (CoIP) for an
-        /// RDS on Outposts DB instance.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// <para>Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts
+        /// DB instance.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
         /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
         /// latency for connections to the DB instance from outside of its virtual private cloud
         /// (VPC) on your local network.</para><para>This setting doesn't apply to RDS Custom.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
@@ -337,8 +337,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
+        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>License model information for the restored DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Same as source.</para><para>Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
+        /// <para>License model information for the restored DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: Same as source.</para><para>Valid Values: <code>license-included</code> | <code>bring-your-own-license</code>
         /// | <code>general-public-license</code></para>
         /// </para>
         /// </summary>
@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB
+        /// <para>Specifies whether the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB
         /// instance is a Multi-AZ deployment.</para>
         /// </para>
         /// </summary>
@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB instance.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// <para>The network type of the DB instance.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
         /// DB instance. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
         /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para>
@@ -446,7 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint
+        /// <para>Specifies whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint
         /// resolves to the private IP address from within the DB instance's virtual private cloud
         /// (VPC). It resolves to the public IP address from outside of the DB instance's VPC.
         /// Access to the DB instance is ultimately controlled by the security group it uses.
@@ -472,7 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid Values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
         /// for the <code>Iops</code> parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para>
         /// </para>
@@ -515,8 +515,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UseDefaultProcessorFeature
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance class of the DB instance uses its default
-        /// processor features.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>Specifies whether the DB instance class of the DB instance uses its default processor
+        /// features.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

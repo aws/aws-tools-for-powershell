@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ExportOnly
         /// <summary>
         /// <para>
-        /// <para>The data to be exported from the snapshot or cluster. If this parameter is not provided,
-        /// all of the data is exported. Valid values are the following:</para><ul><li><para><code>database</code> - Export all the data from a specified database.</para></li><li><para><code>database.table</code><i>table-name</i> - Export a table of the snapshot or
+        /// <para>The data to be exported from the snapshot or cluster. If this parameter isn't provided,
+        /// all of the data is exported.</para><para>Valid Values:</para><ul><li><para><code>database</code> - Export all the data from a specified database.</para></li><li><para><code>database.table</code><i>table-name</i> - Export a table of the snapshot or
         /// cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora
         /// MySQL.</para></li><li><para><code>database.schema</code><i>schema-name</i> - Export a database schema of the
         /// snapshot or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><code>database.schema.table</code><i>table-name</i> - Export a table of the database

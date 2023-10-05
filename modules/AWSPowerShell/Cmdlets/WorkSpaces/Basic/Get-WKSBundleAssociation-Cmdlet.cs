@@ -22,44 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.StorageGateway;
-using Amazon.StorageGateway.Model;
+using Amazon.WorkSpaces;
+using Amazon.WorkSpaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SG
+namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Sends you notification through CloudWatch Events when all files written to your file
-    /// share have been uploaded to S3. Amazon S3.
-    /// 
-    ///  
-    /// <para>
-    /// Storage Gateway can send a notification through Amazon CloudWatch Events when all
-    /// files written to your file share up to that point in time have been uploaded to Amazon
-    /// S3. These files include files written to the file share up to the time that you make
-    /// a request for notification. When the upload is done, Storage Gateway sends you notification
-    /// through an Amazon CloudWatch Event. You can configure CloudWatch Events to send the
-    /// notification through event targets such as Amazon SNS or Lambda function. This operation
-    /// is only supported for S3 File Gateways.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
-    /// file upload notification</a> in the <i>Amazon S3 File Gateway User Guide</i>.
-    /// </para>
+    /// Describes the associations between the applications and the specified bundle.
     /// </summary>
-    [Cmdlet("Send", "SGUploadedNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse")]
-    [AWSCmdlet("Calls the AWS Storage Gateway NotifyWhenUploaded API operation.", Operation = new[] {"NotifyWhenUploaded"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.NotifyWhenUploadedResponse))]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.NotifyWhenUploadedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WKSBundleAssociation")]
+    [OutputType("Amazon.WorkSpaces.Model.BundleResourceAssociation")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeBundleAssociations API operation.", Operation = new[] {"DescribeBundleAssociations"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.WorkSpaces.Model.BundleResourceAssociation or Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.WorkSpaces.Model.BundleResourceAssociation objects.",
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SendSGUploadedNotificationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetWKSBundleAssociationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FileShareARN
+        #region Parameter AssociatedResourceType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The resource types of the associated resource.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("AssociatedResourceTypes")]
+        public System.String[] AssociatedResourceType { get; set; }
+        #endregion
+        
+        #region Parameter BundleId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the bundle.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,50 +74,34 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileShareARN { get; set; }
+        public System.String BundleId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StorageGateway.Model.NotifyWhenUploadedResponse).
-        /// Specifying the name of a property of type Amazon.StorageGateway.Model.NotifyWhenUploadedResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Associations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Associations";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FileShareARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FileShareARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the BundleId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BundleId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileShareARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BundleId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileShareARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SGUploadedNotification (NotifyWhenUploaded)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -123,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StorageGateway.Model.NotifyWhenUploadedResponse, SendSGUploadedNotificationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse, GetWKSBundleAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,14 +120,24 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FileShareARN;
+                context.Select = (response, cmdlet) => this.BundleId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FileShareARN = this.FileShareARN;
-            #if MODULAR
-            if (this.FileShareARN == null && ParameterWasBound(nameof(this.FileShareARN)))
+            if (this.AssociatedResourceType != null)
             {
-                WriteWarning("You are passing $null as a value for parameter FileShareARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AssociatedResourceType = new List<System.String>(this.AssociatedResourceType);
+            }
+            #if MODULAR
+            if (this.AssociatedResourceType == null && ParameterWasBound(nameof(this.AssociatedResourceType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AssociatedResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.BundleId = this.BundleId;
+            #if MODULAR
+            if (this.BundleId == null && ParameterWasBound(nameof(this.BundleId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BundleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -156,11 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.NotifyWhenUploadedRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeBundleAssociationsRequest();
             
-            if (cmdletContext.FileShareARN != null)
+            if (cmdletContext.AssociatedResourceType != null)
             {
-                request.FileShareARN = cmdletContext.FileShareARN;
+                request.AssociatedResourceTypes = cmdletContext.AssociatedResourceType;
+            }
+            if (cmdletContext.BundleId != null)
+            {
+                request.BundleId = cmdletContext.BundleId;
             }
             
             CmdletOutput output;
@@ -195,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private Amazon.StorageGateway.Model.NotifyWhenUploadedResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.NotifyWhenUploadedRequest request)
+        private Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeBundleAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "NotifyWhenUploaded");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DescribeBundleAssociations");
             try
             {
                 #if DESKTOP
-                return client.NotifyWhenUploaded(request);
+                return client.DescribeBundleAssociations(request);
                 #elif CORECLR
-                return client.NotifyWhenUploadedAsync(request).GetAwaiter().GetResult();
+                return client.DescribeBundleAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,9 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileShareARN { get; set; }
-            public System.Func<Amazon.StorageGateway.Model.NotifyWhenUploadedResponse, SendSGUploadedNotificationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<System.String> AssociatedResourceType { get; set; }
+            public System.String BundleId { get; set; }
+            public System.Func<Amazon.WorkSpaces.Model.DescribeBundleAssociationsResponse, GetWKSBundleAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Associations;
         }
         
     }

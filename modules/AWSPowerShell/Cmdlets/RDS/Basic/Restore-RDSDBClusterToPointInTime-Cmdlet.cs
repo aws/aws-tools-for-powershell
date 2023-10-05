@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_AutoPause
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to allow or disallow automatic pause for an Aurora
-        /// DB cluster in <code>serverless</code> DB engine mode. A DB cluster can be paused only
-        /// when it's idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
+        /// <para>Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in
+        /// <code>serverless</code> DB engine mode. A DB cluster can be paused only when it's
+        /// idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
         /// up with a snapshot. In this case, the DB cluster is restored when there is a request
         /// to connect to it.</para></note>
         /// </para>
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to copy all tags from the restored DB cluster to snapshots
-        /// of the restored DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>Specifies whether to copy all tags from the restored DB cluster to snapshots of the
+        /// restored DB cluster. The default is not to copy them.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
-        /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection isn't enabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>Specifies whether to enable deletion protection for the DB cluster. The database can't
+        /// be deleted when deletion protection is enabled. By default, deletion protection isn't
+        /// enabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specify the Active Directory directory ID to restore the DB cluster in. The domain
-        /// must be created prior to this operation.</para><para>For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
+        /// <para>The Active Directory directory ID to restore the DB cluster in. The domain must be
+        /// created prior to this operation.</para><para>For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
         /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
         /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
@@ -175,8 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>The name of the IAM role to be used when making API calls to the Directory Service.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
+        /// (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
@@ -310,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
         /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
         /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
@@ -343,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB cluster is publicly accessible.</para><para>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+        /// <para>Specifies whether the DB cluster is publicly accessible.</para><para>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
         /// resolves to the private IP address from within the DB cluster's virtual private cloud
         /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
         /// Access to the DB cluster is ultimately controlled by the security group it uses. That
@@ -433,7 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter
-        /// is required.</para><para>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters);
+        /// is required.</para><para>Valid Values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters);
         /// <code>io1</code> (Multi-AZ DB clusters)</para><para>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
@@ -470,9 +469,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UseLatestRestorableTime
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to restore the DB cluster to the latest restorable
-        /// backup time. By default, the DB cluster isn't restored to the latest restorable backup
-        /// time.</para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>Specifies whether to restore the DB cluster to the latest restorable backup time.
+        /// By default, the DB cluster isn't restored to the latest restorable backup time.</para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

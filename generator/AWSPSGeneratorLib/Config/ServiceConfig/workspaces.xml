@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWorkspaceApplication" OutputProperty="Association" Verb="Register" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AuthorizeIpRules" Verb="Approve" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +107,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeployWorkspaceApplications" OutputProperty="Deployment" Verb="Publish" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceDeployment" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterWorkspaceDirectory" Verb="Unregister" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +122,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountModifications" OutputProperty="AccountModifications" Verb="Get" Noun="AccountModification" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationAssociations" OutputProperty="Associations" Verb="Get" Noun="ApplicationAssociation" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="LicenseType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBundleAssociations" OutputProperty="Associations" Verb="Get" Noun="BundleAssociation" PipelineParameter="BundleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +157,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageAssociations" OutputProperty="Associations" Verb="Get" Noun="ImageAssociation" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -143,6 +169,10 @@
             <Params>
                 <Param Name="ResourceId" NewName="WorkspaceId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceAssociations" OutputProperty="Associations" Verb="Get" Noun="WorkspaceAssociation" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspaceBundles" OutputProperty="Bundles" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaceBundles">
@@ -179,6 +209,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIpGroups" Verb="Unregister" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWorkspaceApplication" OutputProperty="Association" Verb="Unregister" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

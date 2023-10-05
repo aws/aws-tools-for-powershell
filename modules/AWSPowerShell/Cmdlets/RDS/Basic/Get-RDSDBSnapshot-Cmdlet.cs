@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludePublic
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to include manual DB cluster snapshots that are public
-        /// and can be copied or restored by any Amazon Web Services account. By default, the
-        /// public snapshots are not included.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
+        /// <para>Specifies whether to include manual DB cluster snapshots that are public and can be
+        /// copied or restored by any Amazon Web Services account. By default, the public snapshots
+        /// are not included.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
         /// API.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to include shared manual DB cluster snapshots from
-        /// other Amazon Web Services accounts that this Amazon Web Services account has been
-        /// given permission to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB snapshot
+        /// <para>Specifies whether to include shared manual DB cluster snapshots from other Amazon
+        /// Web Services accounts that this Amazon Web Services account has been given permission
+        /// to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB snapshot
         /// from another Amazon Web Services account by using the <code>ModifyDBSnapshotAttribute</code>
         /// API action.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>

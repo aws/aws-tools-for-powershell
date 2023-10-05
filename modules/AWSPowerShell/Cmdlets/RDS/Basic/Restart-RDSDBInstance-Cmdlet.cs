@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the reboot is conducted through a Multi-AZ failover.</para><para>Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.</para>
+        /// <para>Specifies whether the reboot is conducted through a Multi-AZ failover.</para><para>Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

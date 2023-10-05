@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to reset all parameters in the DB cluster parameter
-        /// group to their default values. You can't use this parameter if there is a list of
-        /// parameter names specified for the <code>Parameters</code> parameter.</para>
+        /// <para>Specifies whether to reset all parameters in the DB cluster parameter group to their
+        /// default values. You can't use this parameter if there is a list of parameter names
+        /// specified for the <code>Parameters</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

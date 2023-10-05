@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DeleteAutomatedBackup
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to remove automated backups immediately after the DB
-        /// cluster is deleted. This parameter isn't case-sensitive. The default is to remove
-        /// automated backups immediately after the DB cluster is deleted.</para>
+        /// <para>Specifies whether to remove automated backups immediately after the DB cluster is
+        /// deleted. This parameter isn't case-sensitive. The default is to remove automated backups
+        /// immediately after the DB cluster is deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to skip the creation of a final DB cluster snapshot
-        /// before the DB cluster is deleted. If skip is specified, no DB cluster snapshot is
-        /// created. If skip isn't specified, a DB cluster snapshot is created before the DB cluster
-        /// is deleted. By default, skip isn't specified, and the DB cluster snapshot is created.
-        /// By default, this parameter is disabled.</para><note><para>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code>
+        /// <para>Specifies whether to skip the creation of a final DB cluster snapshot before the DB
+        /// cluster is deleted. If skip is specified, no DB cluster snapshot is created. If skip
+        /// isn't specified, a DB cluster snapshot is created before the DB cluster is deleted.
+        /// By default, skip isn't specified, and the DB cluster snapshot is created. By default,
+        /// this parameter is disabled.</para><note><para>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code>
         /// is disabled.</para></note>
         /// </para>
         /// </summary>

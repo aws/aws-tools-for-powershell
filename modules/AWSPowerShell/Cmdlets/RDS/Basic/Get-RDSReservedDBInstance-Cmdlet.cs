@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to show only those reservations that support Multi-AZ.</para>
+        /// <para>Specifies whether to show only those reservations that support Multi-AZ.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

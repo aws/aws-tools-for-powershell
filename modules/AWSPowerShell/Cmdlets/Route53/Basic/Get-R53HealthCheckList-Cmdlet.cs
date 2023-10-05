@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The maximum number of health checks that you want <code>ListHealthChecks</code> to
-        /// return in response to the current request. Amazon Route 53 returns a maximum of 100
-        /// items. If you set <code>MaxItems</code> to a value greater than 100, Route 53 returns
-        /// only the first 100 health checks. </para>
+        /// return in response to the current request. Amazon Route 53 returns a maximum of 1000
+        /// items. If you set <code>MaxItems</code> to a value greater than 1000, Route 53 returns
+        /// only the first 1000 health checks. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
