@@ -22,31 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MarketplaceCatalog;
-using Amazon.MarketplaceCatalog.Model;
+using Amazon.FSx;
+using Amazon.FSx.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MCAT
+namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Gets a resource-based policy of an entity that is identified by its resource ARN.
+    /// After performing steps to repair the Active Directory configuration of an FSx for
+    /// Windows File Server file system, use this action to initiate the process of Amazon
+    /// FSx attempting to reconnect to the file system.
     /// </summary>
-    [Cmdlet("Get", "MCATResourcePolicy")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Marketplace Catalog Service GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse))]
-    [AWSCmdletOutput("System.String or Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "FSXMisconfiguredStateRecovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.FSx.Model.FileSystem")]
+    [AWSCmdlet("Calls the Amazon FSx StartMisconfiguredStateRecovery API operation.", Operation = new[] {"StartMisconfiguredStateRecovery"}, SelectReturnType = typeof(Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse))]
+    [AWSCmdletOutput("Amazon.FSx.Model.FileSystem or Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse",
+        "This cmdlet returns an Amazon.FSx.Model.FileSystem object.",
+        "The service call response (type Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMCATResourcePolicyCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
+    public partial class StartFSXMisconfiguredStateRecoveryCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the entity resource that is associated with the
-        /// resource policy.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter FileSystemId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,34 +70,50 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String FileSystemId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Policy'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse).
-        /// Specifying the name of a property of type Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'FileSystem'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse).
+        /// Specifying the name of a property of type Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Policy";
+        public string Select { get; set; } = "FileSystem";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FileSystemId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileSystemId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-FSXMisconfiguredStateRecovery (StartMisconfiguredStateRecovery)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -94,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse, GetMCATResourcePolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse, StartFSXMisconfiguredStateRecoveryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,14 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.FileSystemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ClientRequestToken = this.ClientRequestToken;
+            context.FileSystemId = this.FileSystemId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MarketplaceCatalog.Model.GetResourcePolicyRequest();
+            var request = new Amazon.FSx.Model.StartMisconfiguredStateRecoveryRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ClientRequestToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.FileSystemId != null)
+            {
+                request.FileSystemId = cmdletContext.FileSystemId;
             }
             
             CmdletOutput output;
@@ -166,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         
         #region AWS Service Operation Call
         
-        private Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonMarketplaceCatalog client, Amazon.MarketplaceCatalog.Model.GetResourcePolicyRequest request)
+        private Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.StartMisconfiguredStateRecoveryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Catalog Service", "GetResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "StartMisconfiguredStateRecovery");
             try
             {
                 #if DESKTOP
-                return client.GetResourcePolicy(request);
+                return client.StartMisconfiguredStateRecovery(request);
                 #elif CORECLR
-                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
+                return client.StartMisconfiguredStateRecoveryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.MarketplaceCatalog.Model.GetResourcePolicyResponse, GetMCATResourcePolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Policy;
+            public System.String ClientRequestToken { get; set; }
+            public System.String FileSystemId { get; set; }
+            public System.Func<Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse, StartFSXMisconfiguredStateRecoveryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.FileSystem;
         }
         
     }

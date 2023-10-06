@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon
         /// Web Services advertises IP addresses.</para><para>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code>
-        /// error.</para><para>You cannot use a network border group with EC2 Classic. If you attempt this operation
-        /// on EC2 classic, you receive an <code>InvalidParameterCombination</code> error.</para>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

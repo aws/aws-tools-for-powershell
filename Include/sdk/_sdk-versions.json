@@ -1,7 +1,7 @@
 
 {
-    "ProductVersion" : "3.7.658.0",
-    "CoreVersion"    : "3.7.202.21",
+    "ProductVersion" : "3.7.660.0",
+    "CoreVersion"    : "3.7.203.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "ServiceVersions"     : {
@@ -144,7 +144,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.202.7",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.218.3",
+            "Version" : "3.7.219.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.205.7",
+            "Version" : "3.7.205.8",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"
@@ -1226,7 +1226,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.205.7",
+            "Version" : "3.7.206.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.201.48",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"
@@ -1298,7 +1298,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.201.39",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"
@@ -1570,7 +1570,7 @@
             "InPreview"               : false
         },
         "MarketplaceCatalog"              : {
-            "Version" : "3.7.200.52",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.202.21"

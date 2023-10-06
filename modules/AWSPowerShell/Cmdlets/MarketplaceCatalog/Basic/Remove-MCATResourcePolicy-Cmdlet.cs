@@ -28,7 +28,7 @@ using Amazon.MarketplaceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// Deletes a resource-based policy on an Entity that is identified by its resource ARN.
+    /// Deletes a resource-based policy on an entity that is identified by its resource ARN.
     /// </summary>
     [Cmdlet("Remove", "MCATResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Entity resource that is associated with the
+        /// <para>The Amazon Resource Name (ARN) of the entity resource that is associated with the
         /// resource policy.</para>
         /// </para>
         /// </summary>

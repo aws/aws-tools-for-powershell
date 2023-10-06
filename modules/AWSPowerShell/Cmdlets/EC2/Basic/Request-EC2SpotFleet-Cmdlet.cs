@@ -277,7 +277,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
         /// in your request, Spot Fleet will launch instances until it reaches the maximum amount
         /// you're willing to pay. When the maximum amount you're willing to pay is reached, the
-        /// fleet stops launching instances even if it hasn’t met the target capacity.</para>
+        /// fleet stops launching instances even if it hasn’t met the target capacity.</para><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
+        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
+        /// charge for surplus credits. The <code>onDemandMaxTotalPrice</code> does not account
+        /// for surplus credits, and, if you use surplus credits, your final cost might be higher
+        /// than what you specified for <code>onDemandMaxTotalPrice</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,12 +337,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum amount per hour for Spot Instances that you're willing to pay. You can
-        /// use the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
+        /// use the <code>spotMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
         /// parameter, or both parameters to ensure that your fleet cost does not exceed your
         /// budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
         /// in your request, Spot Fleet will launch instances until it reaches the maximum amount
         /// you're willing to pay. When the maximum amount you're willing to pay is reached, the
-        /// fleet stops launching instances even if it hasn’t met the target capacity.</para>
+        /// fleet stops launching instances even if it hasn’t met the target capacity.</para><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
+        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
+        /// charge for surplus credits. The <code>spotMaxTotalPrice</code> does not account for
+        /// surplus credits, and, if you use surplus credits, your final cost might be higher
+        /// than what you specified for <code>spotMaxTotalPrice</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,8 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
         /// template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the
         /// <code><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">SpotFleetTagSpecification</a></code> (valid only if you use <code>LaunchSpecifications</code>). For information
-        /// about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
-        /// Your Resources</a>.</para>
+        /// about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag
+        /// your resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

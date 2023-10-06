@@ -184,7 +184,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OnDemandOptions_MaxTotalPrice
         /// <summary>
         /// <para>
-        /// <para>The maximum amount per hour for On-Demand Instances that you're willing to pay.</para>
+        /// <para>The maximum amount per hour for On-Demand Instances that you're willing to pay.</para><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
+        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
+        /// charge for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
+        /// credits, and, if you use surplus credits, your final cost might be higher than what
+        /// you specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +202,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The maximum amount per hour for Spot Instances that you're willing to pay. We do not
         /// recommend using this parameter because it can lead to increased interruptions. If
         /// you do not specify this parameter, you will pay the current Spot price.</para><important><para>If you specify a maximum price, your Spot Instances will be interrupted more frequently
-        /// than if you do not specify this parameter.</para></important>
+        /// than if you do not specify this parameter.</para></important><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
+        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
+        /// charge for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
+        /// credits, and, if you use surplus credits, your final cost might be higher than what
+        /// you specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The key-value pair for tagging the EC2 Fleet request on creation. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag
         /// your resources</a>.</para><para>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
         /// to tag the fleet or <code>instance</code> to tag the instances at launch.</para><para>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
         /// type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of

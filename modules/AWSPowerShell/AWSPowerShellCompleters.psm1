@@ -26621,6 +26621,7 @@ $FSX_SelectMap = @{
                "Get-FSXResourceTagList",
                "Clear-FSXFileSystemNfsV3Lock",
                "Restore-FSXVolumeFromSnapshot",
+               "Start-FSXMisconfiguredStateRecovery",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
                "Update-FSXDataRepositoryAssociation",
@@ -48613,7 +48614,7 @@ $QS_Completers = {
             ($_ -eq "Remove-QSFolderMembership/MemberType")
         }
         {
-            $v = "ANALYSIS","DASHBOARD","DATASET","TOPIC"
+            $v = "ANALYSIS","DASHBOARD","DATASET","DATASOURCE","TOPIC"
             break
         }
 
@@ -48749,6 +48750,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ValidationStrategyMode
+        {
+            ($_ -eq "New-QSAnalysis/ValidationStrategy_Mode") -Or
+            ($_ -eq "New-QSDashboard/ValidationStrategy_Mode") -Or
+            ($_ -eq "New-QSTemplate/ValidationStrategy_Mode") -Or
+            ($_ -eq "Update-QSAnalysis/ValidationStrategy_Mode") -Or
+            ($_ -eq "Update-QSDashboard/ValidationStrategy_Mode") -Or
+            ($_ -eq "Update-QSTemplate/ValidationStrategy_Mode")
+        }
+        {
+            $v = "LENIENT","STRICT"
+            break
+        }
+
 
     }
 
@@ -48797,6 +48812,7 @@ $QS_map = @{
     "SharingModel"=@("New-QSFolder")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
+    "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
 }
 
 _awsArgumentCompleterRegistration $QS_Completers $QS_map

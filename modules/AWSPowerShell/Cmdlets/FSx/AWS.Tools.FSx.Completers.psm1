@@ -404,6 +404,7 @@ $FSX_SelectMap = @{
                "Get-FSXResourceTagList",
                "Clear-FSXFileSystemNfsV3Lock",
                "Restore-FSXVolumeFromSnapshot",
+               "Start-FSXMisconfiguredStateRecovery",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
                "Update-FSXDataRepositoryAssociation",

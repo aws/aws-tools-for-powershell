@@ -61,6 +61,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DataSourceParameters[] CredentialPair_AlternateDataSourceParameter { get; set; }
         #endregion
         
+        #region Parameter IAMParameters_AutoCreateDatabaseUser
+        /// <summary>
+        /// <para>
+        /// <para>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>,
+        /// set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>,
+        /// Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you
+        /// use for this operation must grant access to <code>redshift:CreateClusterUser</code>
+        /// to successfully create the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_RedshiftParameters_IAMParameters_AutoCreateDatabaseUser")]
+        public System.Boolean? IAMParameters_AutoCreateDatabaseUser { get; set; }
+        #endregion
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
@@ -244,6 +259,35 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TeradataParameters_Database")]
         public System.String TeradataParameters_Database { get; set; }
+        #endregion
+        
+        #region Parameter IAMParameters_DatabaseGroup
+        /// <summary>
+        /// <para>
+        /// <para>A list of groups whose permissions will be granted to Amazon QuickSight to access
+        /// the cluster. These permissions are combined with the permissions granted to Amazon
+        /// QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter,
+        /// the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_RedshiftParameters_IAMParameters_DatabaseGroups")]
+        public System.String[] IAMParameters_DatabaseGroup { get; set; }
+        #endregion
+        
+        #region Parameter IAMParameters_DatabaseUser
+        /// <summary>
+        /// <para>
+        /// <para>The user whose permissions and group memberships will be used by Amazon QuickSight
+        /// to access the cluster. If this user already exists in your database, Amazon QuickSight
+        /// is granted the same permissions that the user has. If the user doesn't exist, set
+        /// the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a
+        /// new user with PUBLIC permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_RedshiftParameters_IAMParameters_DatabaseUser")]
+        public System.String IAMParameters_DatabaseUser { get; set; }
         #endregion
         
         #region Parameter AwsIotAnalyticsParameters_DataSetName
@@ -692,6 +736,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AthenaParameters_RoleArn { get; set; }
         #endregion
         
+        #region Parameter IAMParameters_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code>
+        /// on your cluster. The calling principal must have <code>iam:PassRole</code> access
+        /// to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon
+        /// QuickSight service principal to assume the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_RedshiftParameters_IAMParameters_RoleArn")]
+        public System.String IAMParameters_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter S3Parameters_RoleArn
         /// <summary>
         /// <para>
@@ -916,6 +974,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.RedshiftParameters_ClusterId = this.RedshiftParameters_ClusterId;
             context.RedshiftParameters_Database = this.RedshiftParameters_Database;
             context.RedshiftParameters_Host = this.RedshiftParameters_Host;
+            context.IAMParameters_AutoCreateDatabaseUser = this.IAMParameters_AutoCreateDatabaseUser;
+            if (this.IAMParameters_DatabaseGroup != null)
+            {
+                context.IAMParameters_DatabaseGroup = new List<System.String>(this.IAMParameters_DatabaseGroup);
+            }
+            context.IAMParameters_DatabaseUser = this.IAMParameters_DatabaseUser;
+            context.IAMParameters_RoleArn = this.IAMParameters_RoleArn;
             context.RedshiftParameters_Port = this.RedshiftParameters_Port;
             context.ManifestFileLocation_Bucket = this.ManifestFileLocation_Bucket;
             context.ManifestFileLocation_Key = this.ManifestFileLocation_Key;
@@ -1945,6 +2010,61 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Port = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port.Value;
                 requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.RedshiftIAMParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
+            
+             // populate IAMParameters
+            var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = new Amazon.QuickSight.Model.RedshiftIAMParameters();
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser = null;
+            if (cmdletContext.IAMParameters_AutoCreateDatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser = cmdletContext.IAMParameters_AutoCreateDatabaseUser.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.AutoCreateDatabaseUser = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+            List<System.String> requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup = null;
+            if (cmdletContext.IAMParameters_DatabaseGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup = cmdletContext.IAMParameters_DatabaseGroup;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.DatabaseGroups = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser = null;
+            if (cmdletContext.IAMParameters_DatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser = cmdletContext.IAMParameters_DatabaseUser;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.DatabaseUser = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn = null;
+            if (cmdletContext.IAMParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn = cmdletContext.IAMParameters_RoleArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.IAMParameters = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
              // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters should be set to null
             if (requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull)
             {
@@ -2107,6 +2227,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String RedshiftParameters_ClusterId { get; set; }
             public System.String RedshiftParameters_Database { get; set; }
             public System.String RedshiftParameters_Host { get; set; }
+            public System.Boolean? IAMParameters_AutoCreateDatabaseUser { get; set; }
+            public List<System.String> IAMParameters_DatabaseGroup { get; set; }
+            public System.String IAMParameters_DatabaseUser { get; set; }
+            public System.String IAMParameters_RoleArn { get; set; }
             public System.Int32? RedshiftParameters_Port { get; set; }
             public System.String ManifestFileLocation_Bucket { get; set; }
             public System.String ManifestFileLocation_Key { get; set; }

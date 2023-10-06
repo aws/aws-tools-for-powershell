@@ -73,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BootMode
         /// <summary>
         /// <para>
-        /// <para>The boot mode of the virtual machine.</para>
+        /// <para>The boot mode of the virtual machine.</para><note><para>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For
+        /// more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot
+        /// modes</a> in the <i>VM Import/Export User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

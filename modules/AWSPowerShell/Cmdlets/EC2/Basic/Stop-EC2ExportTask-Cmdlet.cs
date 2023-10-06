@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ExportTaskId
         /// <summary>
         /// <para>
-        /// <para>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</para>
+        /// <para>The ID of the export task. This is the ID returned by the <code>CreateInstanceExportTask</code>
+        /// and <code>ExportImage</code> operations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

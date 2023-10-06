@@ -28,7 +28,7 @@ using Amazon.MarketplaceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// Attaches a resource-based policy to an Entity. Examples of an entity include: <code>AmiProduct</code>
+    /// Attaches a resource-based policy to an entity. Examples of an entity include: <code>AmiProduct</code>
     /// and <code>ContainerProduct</code>.
     /// </summary>
     [Cmdlet("Write", "MCATResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Entity resource you want to associate with a
-        /// resource policy. </para>
+        /// <para>The Amazon Resource Name (ARN) of the entity resource you want to associate with a
+        /// resource policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

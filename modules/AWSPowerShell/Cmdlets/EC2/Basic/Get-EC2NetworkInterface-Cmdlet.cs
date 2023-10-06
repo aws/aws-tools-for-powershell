@@ -28,7 +28,15 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your network interfaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more of your network interfaces.
+    /// 
+    ///  
+    /// <para>
+    /// If you have a large number of network interfaces, the operation fails unless you use
+    /// pagination or one of the following filters: <code>group-id</code>, <code>mac-address</code>,
+    /// <code>private-dns-name</code>, <code>private-ip-address</code>, <code>private-dns-name</code>,
+    /// <code>subnet-id</code>, or <code>vpc-id</code>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterface")]
     [OutputType("Amazon.EC2.Model.NetworkInterface")]
@@ -45,31 +53,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>addresses.private-ip-address</code> - The private IPv4 addresses associated
-        /// with the network interface.</para></li><li><para><code>addresses.primary</code> - Whether the private IPv4 address is the primary
-        /// IP address associated with the network interface. </para></li><li><para><code>addresses.association.public-ip</code> - The association ID returned when the
-        /// network interface was associated with the Elastic IP address (IPv4).</para></li><li><para><code>addresses.association.owner-id</code> - The owner ID of the addresses associated
-        /// with the network interface.</para></li><li><para><code>association.association-id</code> - The association ID returned when the network
-        /// interface was associated with an IPv4 address.</para></li><li><para><code>association.allocation-id</code> - The allocation ID returned when you allocated
-        /// the Elastic IP address (IPv4) for your network interface.</para></li><li><para><code>association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4)
+        /// <para>One or more filters.</para><ul><li><para><code>association.allocation-id</code> - The allocation ID returned when you allocated
+        /// the Elastic IP address (IPv4) for your network interface.</para></li><li><para><code>association.association-id</code> - The association ID returned when the network
+        /// interface was associated with an IPv4 address.</para></li><li><para><code>addresses.association.owner-id</code> - The owner ID of the addresses associated
+        /// with the network interface.</para></li><li><para><code>addresses.association.public-ip</code> - The association ID returned when the
+        /// network interface was associated with the Elastic IP address (IPv4).</para></li><li><para><code>addresses.primary</code> - Whether the private IPv4 address is the primary
+        /// IP address associated with the network interface. </para></li><li><para><code>addresses.private-ip-address</code> - The private IPv4 addresses associated
+        /// with the network interface.</para></li><li><para><code>association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4)
         /// associated with the network interface.</para></li><li><para><code>association.public-ip</code> - The address of the Elastic IP address (IPv4)
         /// bound to the network interface.</para></li><li><para><code>association.public-dns-name</code> - The public DNS name for the network interface
-        /// (IPv4).</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.attach-time</code> - The time that the network interface was attached
-        /// to an instance.</para></li><li><para><code>attachment.delete-on-termination</code> - Indicates whether the attachment
+        /// (IPv4).</para></li><li><para><code>attachment.attach-time</code> - The time that the network interface was attached
+        /// to an instance.</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.delete-on-termination</code> - Indicates whether the attachment
         /// is deleted when an instance is terminated.</para></li><li><para><code>attachment.device-index</code> - The device index to which the network interface
         /// is attached.</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance to which the network
         /// interface is attached.</para></li><li><para><code>attachment.instance-owner-id</code> - The owner ID of the instance to which
         /// the network interface is attached.</para></li><li><para><code>attachment.status</code> - The status of the attachment (<code>attaching</code>
-        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the network interface.</para></li><li><para><code>description</code> - The description of the network interface.</para></li><li><para><code>group-id</code> - The ID of a security group associated with the network interface.</para></li><li><para><code>group-name</code> - The name of a security group associated with the network
-        /// interface.</para></li><li><para><code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network
+        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the network interface.</para></li><li><para><code>description</code> - The description of the network interface.</para></li><li><para><code>group-id</code> - The ID of a security group associated with the network interface.</para></li><li><para><code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network
         /// interface.</para></li><li><para><code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code>
-        /// | <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>efa</code>
-        /// | <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code>
+        /// | <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>ec2_instance_connect_endpoint</code>
+        /// | <code>efa</code> | <code>efs</code> | <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code>
         /// | <code>global_accelerator_managed</code> | <code>interface</code> | <code>iot_rules_managed</code>
         /// | <code>lambda</code> | <code>load_balancer</code> | <code>nat_gateway</code> | <code>network_load_balancer</code>
         /// | <code>quicksight</code> | <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</para></li><li><para><code>mac-address</code> - The MAC address of the network interface.</para></li><li><para><code>network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the network interface
-        /// owner.</para></li><li><para><code>private-ip-address</code> - The private IPv4 address or addresses of the network
-        /// interface.</para></li><li><para><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</para></li><li><para><code>requester-id</code> - The alias or Amazon Web Services account ID of the principal
+        /// owner.</para></li><li><para><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</para></li><li><para><code>private-ip-address</code> - The private IPv4 address or addresses of the network
+        /// interface.</para></li><li><para><code>requester-id</code> - The alias or Amazon Web Services account ID of the principal
         /// or service that created the network interface.</para></li><li><para><code>requester-managed</code> - Indicates whether the network interface is being
         /// managed by an Amazon Web Service (for example, Amazon Web Services Management Console,
         /// Auto Scaling, and so on).</para></li><li><para><code>source-dest-check</code> - Indicates whether the network interface performs

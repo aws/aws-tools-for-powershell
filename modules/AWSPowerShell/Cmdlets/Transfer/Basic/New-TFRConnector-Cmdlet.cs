@@ -226,13 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SftpConfig_TrustedHostKey
         /// <summary>
         /// <para>
-        /// <para>The public portion of the host key, or keys, that are used to authenticate the user
-        /// to the external server to which you are connecting. You can use the <code>ssh-keyscan</code>
-        /// command against the SFTP server to retrieve the necessary key.</para><para>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
+        /// <para>The public portion of the host key, or keys, that are used to identify the external
+        /// server to which you are connecting. You can use the <code>ssh-keyscan</code> command
+        /// against the SFTP server to retrieve the necessary key.</para><para>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
         /// <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with
         /// spaces between each element. Specify only the <code>&lt;key type&gt;</code> and <code>&lt;body
-        /// base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the key type is <code>ssh-rsa</code>.</para></li><li><para>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>,
-        /// or <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</para></li></ul>
+        /// base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</para></li><li><para>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either <code>ecdsa-sha2-nistp256</code>,
+        /// <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on
+        /// the size of the key you generated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

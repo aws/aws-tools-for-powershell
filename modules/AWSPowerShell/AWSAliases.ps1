@@ -11282,6 +11282,7 @@ Set-Alias -Name Release-FSXFileSystemNfsV3Locks -Value Clear-FSXFileSystemNfsV3L
 Set-Alias -Name Release-FSXFileSystemNfsV3Lock -Value Clear-FSXFileSystemNfsV3Lock
 Set-Alias -Name FSX-ReleaseFileSystemNfsV3Locks -Value Clear-FSXFileSystemNfsV3Lock
 Set-Alias -Name FSX-RestoreVolumeFromSnapshot -Value Restore-FSXVolumeFromSnapshot
+Set-Alias -Name FSX-StartMisconfiguredStateRecovery -Value Start-FSXMisconfiguredStateRecovery
 Set-Alias -Name FSX-TagResource -Value Add-FSXResourceTag
 Set-Alias -Name FSX-UntagResource -Value Remove-FSXResourceTag
 Set-Alias -Name FSX-UpdateDataRepositoryAssociation -Value Update-FSXDataRepositoryAssociation

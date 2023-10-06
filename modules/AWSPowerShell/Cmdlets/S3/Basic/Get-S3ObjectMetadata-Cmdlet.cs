@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// ETag that should not be matched as a pre-condition for returning the object,
-        /// otherwise a PreconditionFailed signal is returned.
+        /// otherwise a NotModified (304) signal is returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

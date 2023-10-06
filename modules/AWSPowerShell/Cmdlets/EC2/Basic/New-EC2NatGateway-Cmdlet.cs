@@ -44,7 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT
     /// gateways</a> in the <i>Amazon VPC User Guide</i>.
-    /// </para>
+    /// </para><important><para>
+    /// When you create a public NAT gateway and assign it an EIP or secondary EIPs, the network
+    /// border group of the EIPs must match the network border group of the Availability Zone
+    /// (AZ) that the public NAT gateway is in. If it's not the same, the NAT gateway will
+    /// fail to launch. You can see the network border group for the subnet's AZ by viewing
+    /// the details of the subnet. Similarly, you can view the network border group of an
+    /// EIP by viewing the details of the EIP address. For more information about network
+    /// border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip">Allocate
+    /// an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateNatGatewayResponse")]

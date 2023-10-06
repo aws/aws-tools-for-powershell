@@ -119,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-FSXStorageVirtualMachine', 
         'Remove-FSXVolume', 
         'Restore-FSXVolumeFromSnapshot', 
+        'Start-FSXMisconfiguredStateRecovery', 
         'Stop-FSXDataRepositoryTask', 
         'Unregister-FSXFileSystemAlias', 
         'Update-FSXDataRepositoryAssociation', 

@@ -1,4 +1,18 @@
-﻿### 4.1.428 (2023-10-05 21:19Z)
+﻿### 4.1.429 (2023-10-06 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.660.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon FSx
+    * Added cmdlet Start-FSXMisconfiguredStateRecovery leveraging the StartMisconfiguredStateRecovery service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSAnalysis: added parameter ValidationStrategy_Mode.
+    * Modified cmdlet New-QSDashboard: added parameter ValidationStrategy_Mode.
+    * Modified cmdlet New-QSDataSource: added parameters IAMParameters_AutoCreateDatabaseUser, IAMParameters_DatabaseGroup, IAMParameters_DatabaseUser and IAMParameters_RoleArn.
+    * Modified cmdlet New-QSTemplate: added parameter ValidationStrategy_Mode.
+    * Modified cmdlet Update-QSAnalysis: added parameter ValidationStrategy_Mode.
+    * Modified cmdlet Update-QSDashboard: added parameter ValidationStrategy_Mode.
+    * Modified cmdlet Update-QSDataSource: added parameters IAMParameters_AutoCreateDatabaseUser, IAMParameters_DatabaseGroup, IAMParameters_DatabaseUser and IAMParameters_RoleArn.
+    * Modified cmdlet Update-QSTemplate: added parameter ValidationStrategy_Mode.
+
+### 4.1.428 (2023-10-05 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.658.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Route 53
     * Modified cmdlet Get-R53HostedZoneList: added parameter HostedZoneType.

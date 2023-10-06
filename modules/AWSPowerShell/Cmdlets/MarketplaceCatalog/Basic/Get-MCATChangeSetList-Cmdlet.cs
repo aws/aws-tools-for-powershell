@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code>
-        /// (default), <code>Visibility</code>, <code>EntityId</code>, and <code>Name</code>.</para><para>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
+        /// (default) and <code>EntityId</code>. In addition to <code>LastModifiedDate</code>
+        /// and <code>EntityId</code>, each <code>EntityType</code> might support additional fields.</para><para>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
         /// and <code>EndTime</code>.</para>
         /// </para>
         /// </summary>

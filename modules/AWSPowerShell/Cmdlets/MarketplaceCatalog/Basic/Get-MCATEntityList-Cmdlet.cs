@@ -90,7 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter OwnershipType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Filters the returned set of entities based on their owner. The default is <code>SELF</code>.
+        /// To list entities shared with you through AWS Resource Access Manager (AWS RAM), set
+        /// to <code>SHARED</code>. Entities shared through the AWS Marketplace Catalog API <code>PutResourcePolicy</code>
+        /// operation can't be discovered through the <code>SHARED</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code>
-        /// (default), <code>Visibility</code>, <code>EntityId</code>, and <code>Name</code>.</para><para>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
+        /// (default) and <code>EntityId</code>. In addition to <code>LastModifiedDate</code>
+        /// and <code>EntityId</code>, each <code>EntityType</code> might support additional fields.</para><para>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
         /// and <code>EndTime</code>.</para>
         /// </para>
         /// </summary>

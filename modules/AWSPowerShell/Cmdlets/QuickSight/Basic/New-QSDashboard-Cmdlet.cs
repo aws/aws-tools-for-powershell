@@ -332,6 +332,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String PaperMargin_Left { get; set; }
         #endregion
         
+        #region Parameter ValidationStrategy_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The mode of validation for the asset to be creaed or updated. When you set this value
+        /// to <code>STRICT</code>, strict validation for every error is enforced. When you set
+        /// this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.ValidationStrategyMode")]
+        public Amazon.QuickSight.ValidationStrategyMode ValidationStrategy_Mode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -696,6 +709,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
             }
             context.ThemeArn = this.ThemeArn;
+            context.ValidationStrategy_Mode = this.ValidationStrategy_Mode;
             context.VersionDescription = this.VersionDescription;
             
             // allow further manipulation of loaded context prior to processing
@@ -1510,6 +1524,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.ThemeArn = cmdletContext.ThemeArn;
             }
+            
+             // populate ValidationStrategy
+            var requestValidationStrategyIsNull = true;
+            request.ValidationStrategy = new Amazon.QuickSight.Model.ValidationStrategy();
+            Amazon.QuickSight.ValidationStrategyMode requestValidationStrategy_validationStrategy_Mode = null;
+            if (cmdletContext.ValidationStrategy_Mode != null)
+            {
+                requestValidationStrategy_validationStrategy_Mode = cmdletContext.ValidationStrategy_Mode;
+            }
+            if (requestValidationStrategy_validationStrategy_Mode != null)
+            {
+                request.ValidationStrategy.Mode = requestValidationStrategy_validationStrategy_Mode;
+                requestValidationStrategyIsNull = false;
+            }
+             // determine if request.ValidationStrategy should be set to null
+            if (requestValidationStrategyIsNull)
+            {
+                request.ValidationStrategy = null;
+            }
             if (cmdletContext.VersionDescription != null)
             {
                 request.VersionDescription = cmdletContext.VersionDescription;
@@ -1614,6 +1647,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.DataSetReference> SourceTemplate_DataSetReference { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.String ThemeArn { get; set; }
+            public Amazon.QuickSight.ValidationStrategyMode ValidationStrategy_Mode { get; set; }
             public System.String VersionDescription { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateDashboardResponse, NewQSDashboardCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
