@@ -1,5 +1,5 @@
 ﻿### 4.1.16.0 (2021-11-19)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.164.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.164.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify Backend
     * Added cmdlet Get-AMPBBackendStorage leveraging the GetBackendStorage service API.
     * Added cmdlet Get-AMPBS3BucketList leveraging the ListS3Buckets service API.
@@ -379,7 +379,7 @@
     * Added cmdlet Write-WMInboundDmarcSetting leveraging the PutInboundDmarcSettings service API.
 
 ### 4.1.15.0 (2021-10-01)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.128.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.128.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACCT and can be listed using the command 'Get-AWSCmdletName -Service ACCT'.
   * Amazon Amplify Backend
     * Added cmdlet Import-AMPBBackendAuth leveraging the ImportBackendAuth service API.
@@ -885,7 +885,7 @@
     * Update code signing certificate. Customers will require SkipPublisherCheck parameter to install newer version of an existing module.
 
 ### 4.1.14.0 (2021-06-24)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.60.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.60.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Mesh
     * Modified cmdlet New-AMSHGatewayRoute: added parameters Match_Metadata, Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_GrpcRoute_Match_Hostname_Exact, Spec_GrpcRoute_Match_Hostname_Suffix, Spec_Http2Route_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_Http2Route_Action_Rewrite_Path_Exact, Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix, Spec_Http2Route_Action_Rewrite_Prefix_Value, Spec_Http2Route_Match_Headers, Spec_Http2Route_Match_Hostname_Exact, Spec_Http2Route_Match_Hostname_Suffix, Spec_Http2Route_Match_Method, Spec_Http2Route_Match_Path_Exact, Spec_Http2Route_Match_Path_Regex, Spec_Http2Route_Match_QueryParameters, Spec_HttpRoute_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_HttpRoute_Action_Rewrite_Path_Exact, Spec_HttpRoute_Action_Rewrite_Prefix_DefaultPrefix, Spec_HttpRoute_Action_Rewrite_Prefix_Value, Spec_HttpRoute_Match_Headers, Spec_HttpRoute_Match_Hostname_Exact, Spec_HttpRoute_Match_Hostname_Suffix, Spec_HttpRoute_Match_Method, Spec_HttpRoute_Match_Path_Exact, Spec_HttpRoute_Match_Path_Regex, Spec_HttpRoute_Match_QueryParameters and Spec_Priority.
     * Modified cmdlet New-AMSHRoute: added parameters Spec_Http2Route_Match_Path_Exact, Spec_Http2Route_Match_Path_Regex, Spec_Http2Route_Match_QueryParameters, Spec_HttpRoute_Match_Path_Exact, Spec_HttpRoute_Match_Path_Regex and Spec_HttpRoute_Match_QueryParameters.
@@ -1015,7 +1015,7 @@
     * Modified cmdlet Get-WAF2RuleGroup: added parameter ARN.
 
 ### 4.1.13.0 (2021-06-01)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Made 'Service' parameter positional for Get-AWSService cmdlet.
   * Amazon AmazonMWAA
     * Modified cmdlet New-MWAAEnvironment: added parameter Scheduler.
@@ -1281,7 +1281,7 @@
 
 ### 4.1.12.0 (2021-04-22)
   * Removed "PS C:\> " from one-line PowerShell API cmdlet examples.
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.19.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.19.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Added cmdlet Get-DMSEndpointSetting leveraging the DescribeEndpointSettings service API.
     * Modified cmdlet Edit-DMSEndpoint: added parameters KafkaSettings_SaslPassword, KafkaSettings_SaslUsername, KafkaSettings_SecurityProtocol, KafkaSettings_SslCaCertificateArn, KafkaSettings_SslClientCertificateArn, KafkaSettings_SslClientKeyArn, KafkaSettings_SslClientKeyPassword, MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode, MicrosoftSQLServerSettings_UseThirdPartyBackupDevice, MySQLSettings_CleanSourceMetadataOnMismatch and OracleSettings_SpatialDataOptionToGeoJsonFunctionName.
@@ -1324,7 +1324,7 @@
   * Added example for LaunchTemplate for Get-ASAutoscalingGroup CmdLet.
   * Documentation examples for ELB2 CmdLets
   * Removed "PS C:\> " from all PowerShell API CmdLet examples.
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.15.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.15.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBProfile: added parameter DataRetentionOptIn.
     * Modified cmdlet Update-ALXBProfile: added parameter DataRetentionOptIn.
@@ -1517,7 +1517,7 @@
     * Added cmdlet Update-WMMobileDeviceAccessRule leveraging the UpdateMobileDeviceAccessRule service API.
 
 ### 4.1.10.0 (2021-03-22)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.135.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.135.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBAddressBook: added parameter Tag.
     * Modified cmdlet New-ALXBConferenceProvider: added parameter Tag.
@@ -1719,7 +1719,7 @@
     * Added cmdlet Update-WKSWorkspaceBundle leveraging the UpdateWorkspaceBundle service API.
 
 ### 4.1.9.0 (2021-02-25)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.118.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.118.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Appflow
     * Modified cmdlet New-AFFlow: added parameters Scheduled_FirstExecutionFrom and Scheduled_ScheduleOffset.
     * Modified cmdlet Update-AFFlow: added parameters Scheduled_FirstExecutionFrom and Scheduled_ScheduleOffset.
@@ -1871,7 +1871,7 @@
     * Added cmdlet Write-WMMFRawMessageContent leveraging the PutRawMessageContent service API.
 
 ### 4.1.8.0 (2021-02-02)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.101.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.101.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Mesh
     * Modified cmdlet New-AMSHVirtualGateway: added parameters File_PrivateKey, Match_Exact, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName and Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName.
     * Modified cmdlet New-AMSHVirtualNode: added parameters File_PrivateKey, Match_Exact, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName and Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName.
@@ -1989,7 +1989,7 @@
     * Modified cmdlet Update-TFRUser: added parameters PosixProfile_Gid, PosixProfile_SecondaryGid and PosixProfile_Uid.
 
 ### 4.1.7.0 (2021-01-05)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.84.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/changelogs/SDK.CHANGELOG.ALL.md.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.84.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Use ECSTaskCredentials when either AWS_CONTAINER_CREDENTIALS_RELATIVE_URI or AWS_CONTAINER_CREDENTIALS_FULL_URI set
   * Amazon API Gateway V2
     * Modified cmdlet New-AG2Integration: added parameter ResponseParameter.
