@@ -25,7 +25,7 @@
         <Cmdlet Name="@operation.SelectedVerb-@operation.SelectedNoun" Operations="@operation.MethodName" />
             }
         }
-        @foreach (var cmdlet in module.SelectMany(config => config.AdvancedCmdlets))
+        @foreach (var cmdlet in module.SelectMany(config => config.AdvancedCmdlets).GroupBy(a => a.Key).Select(a => a.First()))
         {
         <Cmdlet Name="@cmdlet.Key" Operations="@string.Join(",", cmdlet.Value.OperationNames)" />
         }
