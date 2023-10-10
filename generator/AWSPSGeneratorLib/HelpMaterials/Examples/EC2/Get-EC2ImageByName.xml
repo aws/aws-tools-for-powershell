@@ -3,7 +3,19 @@
   <example>
     <code>Get-EC2ImageByName
     
+WINDOWS_2016_BASE
+WINDOWS_2016_NANO
+WINDOWS_2016_CORE
+WINDOWS_2016_CONTAINER
+WINDOWS_2016_SQL_SERVER_ENTERPRISE_2016
+WINDOWS_2016_SQL_SERVER_STANDARD_2016
+WINDOWS_2016_SQL_SERVER_WEB_2016
+WINDOWS_2016_SQL_SERVER_EXPRESS_2016
 WINDOWS_2012R2_BASE
+WINDOWS_2012R2_CORE
+WINDOWS_2012R2_SQL_SERVER_EXPRESS_2016
+WINDOWS_2012R2_SQL_SERVER_STANDARD_2016
+WINDOWS_2012R2_SQL_SERVER_WEB_2016
 WINDOWS_2012R2_SQL_SERVER_EXPRESS_2014
 WINDOWS_2012R2_SQL_SERVER_STANDARD_2014
 WINDOWS_2012R2_SQL_SERVER_WEB_2014
@@ -33,19 +45,19 @@ VPC_NAT</code>
     <description>This example describes the complete set of filter names that are currently supported.</description>
   </example>
   <example>
-    <code>Get-EC2ImageByName -Names WINDOWS_2012R2_BASE
+    <code>Get-EC2ImageByName -Names WINDOWS_2016_BASE
     
 Architecture        : x86_64
 BlockDeviceMappings : {/dev/sda1, xvdca, xvdcb, xvdcc...}
 CreationDate        : yyyy.mm.ddThh:mm:ss.000Z
-Description         : Microsoft Windows Server 2012 R2 RTM 64-bit Locale English AMI provided by Amazon
+Description         : Microsoft Windows Server 2016 with Desktop Experience Locale English AMI provided by Amazon
 Hypervisor          : xen
 ImageId             : ami-xxxxxxxx
-ImageLocation       : amazon/Windows_Server-2012-R2_RTM-English-64Bit-Base-yyyy.mm.dd
+ImageLocation       : amazon/Windows_Server-2016-English-Full-Base-yyyy.mm.dd
 ImageOwnerAlias     : amazon
 ImageType           : machine
 KernelId            :
-Name                : Windows_Server-2012-R2_RTM-English-64Bit-Base-yyyy.mm.dd
+Name                : Windows_Server-2016-English-Full-Base-yyyy.mm.dd
 OwnerId             : 801119661308
 Platform            : Windows
 ProductCodes        : {}

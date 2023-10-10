@@ -27,7 +27,7 @@ Describe -Tag "Smoke" "EC2" {
         }
 
         It "Can get an image by name" {
-            $image = Get-EC2ImageByName windows_2012r2_base
+            $image = Get-EC2ImageByName WINDOWS_2016_BASE
             $image | Should -Not -Be $null
         }
     }
