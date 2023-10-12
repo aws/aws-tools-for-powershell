@@ -28,13 +28,14 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Lists the entries (images) within a dataset. An entry is a JSON Line that contains
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
+    ///  Lists the entries (images) within a dataset. An entry is a JSON Line that contains
     /// the information for a single image, including the image location, assigned labels,
     /// and object location bounding boxes. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/md-manifest-files.html">Creating
     /// a manifest file</a>.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// JSON Lines in the response include information about non-terminal errors found in
     /// the dataset. Non terminal errors are reported in <code>errors</code> lists within
     /// each JSON Line. The same information is reported in the training and testing validation

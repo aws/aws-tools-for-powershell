@@ -1645,6 +1645,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableImage" OutputProperty="Return" Verb="Disable" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableImageBlockPublicAccess" OutputProperty="ImageBlockPublicAccessState" Verb="Disable" Noun="ImageBlockPublicAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1750,6 +1754,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableFastSnapshotRestores" OutputProperty="*" Verb="Enable" Noun="FastSnapshotRestore" ShouldProcessTarget="SourceSnapshotIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableImage" OutputProperty="Return" Verb="Enable" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

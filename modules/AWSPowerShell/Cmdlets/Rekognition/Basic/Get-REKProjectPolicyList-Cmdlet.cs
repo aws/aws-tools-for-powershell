@@ -28,10 +28,11 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Gets a list of the project policies attached to a project.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a
     /// project policy from a project, call <a>DeleteProjectPolicy</a>.
     /// </para><para>

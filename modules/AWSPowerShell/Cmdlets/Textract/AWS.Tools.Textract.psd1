@@ -86,19 +86,31 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-TXTResourceTag', 
         'Find-TXTDocumentText', 
+        'Get-TXTAdapter', 
+        'Get-TXTAdapterList', 
+        'Get-TXTAdapterVersion', 
+        'Get-TXTAdapterVersionList', 
         'Get-TXTDocumentAnalysis', 
         'Get-TXTDocumentTextDetection', 
         'Get-TXTExpenseAnalysis', 
         'Get-TXTLendingAnalysis', 
         'Get-TXTLendingAnalysisSummary', 
+        'Get-TXTResourceTag', 
         'Invoke-TXTAnalyzeID', 
         'Invoke-TXTDocumentAnalysis', 
         'Invoke-TXTExpenseAnalysis', 
+        'New-TXTAdapter', 
+        'New-TXTAdapterVersion', 
+        'Remove-TXTAdapter', 
+        'Remove-TXTAdapterVersion', 
+        'Remove-TXTResourceTag', 
         'Start-TXTDocumentAnalysis', 
         'Start-TXTDocumentTextDetection', 
         'Start-TXTExpenseAnalysis', 
-        'Start-TXTLendingAnalysis')
+        'Start-TXTLendingAnalysis', 
+        'Update-TXTAdapter')
 
     # Variables to export from this module
     VariablesToExport = '*'

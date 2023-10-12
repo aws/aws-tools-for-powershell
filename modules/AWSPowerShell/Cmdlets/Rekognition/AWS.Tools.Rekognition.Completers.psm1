@@ -101,6 +101,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.CustomizationFeature
+        "New-REKProject/Feature"
+        {
+            $v = "CONTENT_MODERATION","CUSTOM_LABELS"
+            break
+        }
+
         # Amazon.Rekognition.DatasetType
         "New-REKDataset/DatasetType"
         {
@@ -143,6 +150,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.ProjectAutoUpdate
+        "New-REKProject/AutoUpdate"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Rekognition.QualityFilter
         {
             ($_ -eq "Add-REKDetectedFacesToCollection/QualityFilter") -Or
@@ -165,8 +179,10 @@ $REK_Completers = {
 
 $REK_map = @{
     "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
+    "AutoUpdate"=@("New-REKProject")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
+    "Feature"=@("New-REKProject")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage","Search-REKUsersByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
 }

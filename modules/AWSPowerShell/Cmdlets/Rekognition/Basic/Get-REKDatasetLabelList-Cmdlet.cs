@@ -28,12 +28,13 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Lists the labels in a dataset. Amazon Rekognition Custom Labels uses labels to describe
     /// images. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/md-labeling-images.html">Labeling
     /// images</a>. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     ///  Lists the labels in a dataset. Amazon Rekognition Custom Labels uses labels to describe
     /// images. For more information, see Labeling images in the <i>Amazon Rekognition Custom
     /// Labels Developer Guide</i>. 

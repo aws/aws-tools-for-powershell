@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdaptersConfig_Adapter
+        /// <summary>
+        /// <para>
+        /// <para>A list of adapters to be used when analyzing the specified document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdaptersConfig_Adapters")]
+        public Amazon.Textract.Model.Adapter[] AdaptersConfig_Adapter { get; set; }
+        #endregion
+        
         #region Parameter S3Object_Bucket
         /// <summary>
         /// <para>
@@ -271,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 context.Select = (response, cmdlet) => this.FeatureType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdaptersConfig_Adapter != null)
+            {
+                context.AdaptersConfig_Adapter = new List<Amazon.Textract.Model.Adapter>(this.AdaptersConfig_Adapter);
+            }
             context.ClientRequestToken = this.ClientRequestToken;
             context.S3Object_Bucket = this.S3Object_Bucket;
             context.S3Object_Name = this.S3Object_Name;
@@ -311,6 +326,25 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             // create request
             var request = new Amazon.Textract.Model.StartDocumentAnalysisRequest();
             
+            
+             // populate AdaptersConfig
+            var requestAdaptersConfigIsNull = true;
+            request.AdaptersConfig = new Amazon.Textract.Model.AdaptersConfig();
+            List<Amazon.Textract.Model.Adapter> requestAdaptersConfig_adaptersConfig_Adapter = null;
+            if (cmdletContext.AdaptersConfig_Adapter != null)
+            {
+                requestAdaptersConfig_adaptersConfig_Adapter = cmdletContext.AdaptersConfig_Adapter;
+            }
+            if (requestAdaptersConfig_adaptersConfig_Adapter != null)
+            {
+                request.AdaptersConfig.Adapters = requestAdaptersConfig_adaptersConfig_Adapter;
+                requestAdaptersConfigIsNull = false;
+            }
+             // determine if request.AdaptersConfig should be set to null
+            if (requestAdaptersConfigIsNull)
+            {
+                request.AdaptersConfig = null;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -519,6 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Textract.Model.Adapter> AdaptersConfig_Adapter { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String S3Object_Bucket { get; set; }
             public System.String S3Object_Name { get; set; }

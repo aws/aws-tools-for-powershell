@@ -114,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The provider for the remote repository.</para>
+        /// <para> The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT,
+        /// GITLAB, BITBUCKET. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the remote repository that contains the job artifacts.</para>
+        /// <para>The name of the remote repository that contains the job artifacts. For BitBucket providers,
+        /// <code>RepositoryName</code> should include <code>WorkspaceName</code>. Use the format
+        /// <code>&lt;WorkspaceName&gt;/&lt;RepositoryName&gt;</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

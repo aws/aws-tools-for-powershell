@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class NewMLDataSourceFromRedshiftCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DatabaseInformation_ClusterIdentifier

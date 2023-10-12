@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdaptersConfig_Adapter
+        /// <summary>
+        /// <para>
+        /// <para>A list of adapters to be used when analyzing the specified document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdaptersConfig_Adapters")]
+        public Amazon.Textract.Model.Adapter[] AdaptersConfig_Adapter { get; set; }
+        #endregion
+        
         #region Parameter S3Object_Bucket
         /// <summary>
         /// <para>
@@ -130,12 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <para>A list of the types of analysis to perform. Add TABLES to the list to return information
         /// about the tables that are detected in the input document. Add FORMS to return detected
         /// form data. Add SIGNATURES to return the locations of detected signatures. Add LAYOUT
-        /// to the list to return information about the layout of the document. To perform both
-        /// forms and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect
-        /// signatures within the document and within form data and table data, add SIGNATURES
-        /// to either TABLES or FORMS. All lines and words detected in the document are included
-        /// in the response (including text that isn't related to the value of <code>FeatureTypes</code>).
-        /// </para>
+        /// to the list to return information about the layout of the document. All lines and
+        /// words detected in the document are included in the response (including text that isn't
+        /// related to the value of <code>FeatureTypes</code>). </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -248,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 context.Select = CreateSelectDelegate<Amazon.Textract.Model.AnalyzeDocumentResponse, InvokeTXTDocumentAnalysisCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AdaptersConfig_Adapter != null)
+            {
+                context.AdaptersConfig_Adapter = new List<Amazon.Textract.Model.Adapter>(this.AdaptersConfig_Adapter);
+            }
             context.Document_Byte = this.Document_Byte;
             context.S3Object_Bucket = this.S3Object_Bucket;
             context.S3Object_Name = this.S3Object_Name;
@@ -292,6 +304,25 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 // create request
                 var request = new Amazon.Textract.Model.AnalyzeDocumentRequest();
                 
+                
+                 // populate AdaptersConfig
+                var requestAdaptersConfigIsNull = true;
+                request.AdaptersConfig = new Amazon.Textract.Model.AdaptersConfig();
+                List<Amazon.Textract.Model.Adapter> requestAdaptersConfig_adaptersConfig_Adapter = null;
+                if (cmdletContext.AdaptersConfig_Adapter != null)
+                {
+                    requestAdaptersConfig_adaptersConfig_Adapter = cmdletContext.AdaptersConfig_Adapter;
+                }
+                if (requestAdaptersConfig_adaptersConfig_Adapter != null)
+                {
+                    request.AdaptersConfig.Adapters = requestAdaptersConfig_adaptersConfig_Adapter;
+                    requestAdaptersConfigIsNull = false;
+                }
+                 // determine if request.AdaptersConfig should be set to null
+                if (requestAdaptersConfigIsNull)
+                {
+                    request.AdaptersConfig = null;
+                }
                 
                  // populate Document
                 var requestDocumentIsNull = true;
@@ -503,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Textract.Model.Adapter> AdaptersConfig_Adapter { get; set; }
             public byte[] Document_Byte { get; set; }
             public System.String S3Object_Bucket { get; set; }
             public System.String S3Object_Name { get; set; }

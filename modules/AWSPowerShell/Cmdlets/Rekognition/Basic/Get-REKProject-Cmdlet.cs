@@ -28,7 +28,7 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets information about your Amazon Rekognition Custom Labels projects. 
+    /// Gets information about your Rekognition projects.
     /// 
     ///  
     /// <para>
@@ -48,12 +48,23 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of customization to filter projects by. If no value is specified,
+        /// CUSTOM_LABELS is used as a default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public System.String[] Feature { get; set; }
+        #endregion
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>A list of the projects that you want Amazon Rekognition Custom Labels to describe.
-        /// If you don't specify a value, the response includes descriptions for all the projects
-        /// in your AWS account.</para>
+        /// <para>A list of the projects that you want Rekognition to describe. If you don't specify
+        /// a value, the response includes descriptions for all the projects in your AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>If the previous response was incomplete (because there is more results to retrieve),
-        /// Amazon Rekognition Custom Labels returns a pagination token in the response. You can
-        /// use this pagination token to retrieve the next set of results. </para>
+        /// Rekognition returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -131,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DescribeProjectsResponse, GetREKProjectCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Feature != null)
+            {
+                context.Feature = new List<System.String>(this.Feature);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -165,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request and set iteration invariants
             var request = new Amazon.Rekognition.Model.DescribeProjectsRequest();
             
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -228,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             
             // create request and set iteration invariants
             var request = new Amazon.Rekognition.Model.DescribeProjectsRequest();
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
+            }
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectNames = cmdletContext.ProjectName;
@@ -351,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Feature { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> ProjectName { get; set; }

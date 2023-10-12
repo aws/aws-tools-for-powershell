@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     /// available Amazon Web Services Regions. Use with a <code>RegionCode</code> filter to
     /// get the Price List reference that's specific to a specific Amazon Web Services Region.
     /// You can use the <code>PriceListArn</code> from the response to get your preferred
-    /// Price List files through the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html"><code>GetPriceListFileUrl</code></a> API.
+    /// Price List files through the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html">GetPriceListFileUrl</a>
+    /// API.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PLSPriceListList")]
@@ -94,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// to get the price list only for the <code>US East (N. Virginia)</code> Region, use
         /// <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all
         /// applicable Regions. The available <code>RegionCode</code> list can be retrieved from
-        /// <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html"><code>GetAttributeValues</code></a> API.</para>
+        /// <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">GetAttributeValues</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// <para>The service code or the Savings Plan service code for the attributes that you want
         /// to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use
         /// <code>AmazonEC2</code>. For a full list of service codes containing On-Demand and
-        /// Reserved Instance (RI) pricing, use the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion"><code>DescribeServices</code></a> API.</para><para>To retrieve the Compute Savings Plan price lists, use <code>ComputeSavingsPlans</code>.
-        /// To retrieve Machine Learning Savings Plans price lists, use <code>MachineLearningSavingsPlans</code>.
+        /// Reserved Instance (RI) pricing, use the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion">DescribeServices</a>
+        /// API.</para><para>To retrieve the Reserved Instance and Compute Savings Plan price lists, use <code>ComputeSavingsPlans</code>.
+        /// </para><para>To retrieve Machine Learning Savings Plans price lists, use <code>MachineLearningSavingsPlans</code>.
         /// </para>
         /// </para>
         /// </summary>

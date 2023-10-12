@@ -28,7 +28,8 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Creates a filter resource using specified filter criteria.
+    /// Creates a filter resource using specified filter criteria. When the filter action
+    /// is set to <code>SUPPRESS</code> this action creates a suppression rule.
     /// </summary>
     [Cmdlet("New", "INS2Filter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

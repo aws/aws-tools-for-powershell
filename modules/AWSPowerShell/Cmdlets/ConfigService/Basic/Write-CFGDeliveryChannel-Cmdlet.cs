@@ -28,8 +28,10 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Creates a delivery channel object to deliver configuration information to an Amazon
-    /// S3 bucket and Amazon SNS topic.
+    /// Creates a delivery channel object to deliver configuration information and other compliance
+    /// information to an Amazon S3 bucket and Amazon SNS topic. For more information, see
+    /// <a href="https://docs.aws.amazon.com/config/latest/developerguide/notifications-for-AWS-Config.html">Notifications
+    /// that Config Sends to an Amazon SNS topic</a>.
     /// 
     ///  
     /// <para>

@@ -28,11 +28,12 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels
     /// model. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// You specify which version of a model version to use by using the <code>ProjectVersionArn</code>
     /// input parameter. 
     /// </para><para>
@@ -137,7 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ProjectVersionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the model version that you want to use.</para>
+        /// <para>The ARN of the model version that you want to use. Only models associated with Custom
+        /// Labels projects accepted by the operation. If a provided ARN refers to a model version
+        /// associated with a project for a different feature type, then an InvalidParameterException
+        /// is returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

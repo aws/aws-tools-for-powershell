@@ -94,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
         /// that you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><code>platform</code> - The platform. The only supported value is <code>windows</code>.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</para></li><li><para><code>ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>root-device-name</code> - The device name of the root device volume (for example,
         /// <code>/dev/sda1</code>).</para></li><li><para><code>root-device-type</code> - The type of the root device volume (<code>ebs</code>
-        /// | <code>instance-store</code>).</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
+        /// | <code>instance-store</code>).</para></li><li><para><code>source-instance-id</code> - The ID of the instance that the AMI was created
+        /// from if the AMI was created using CreateImage. This filter is applicable only if the
+        /// AMI was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
         /// | <code>failed</code>).</para></li><li><para><code>state-reason-code</code> - The reason code for the state change.</para></li><li><para><code>state-reason-message</code> - The message for the state change.</para></li><li><para><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced
         /// networking with the Intel 82599 VF interface is enabled.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -130,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IncludeDeprecated { get; set; }
+        #endregion
+        
+        #region Parameter IncludeDisabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include disabled AMIs.</para><para>Default: No disabled AMIs are included in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeDisabled { get; set; }
         #endregion
         
         #region Parameter Owner
@@ -243,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.ImageId = new List<System.String>(this.ImageId);
             }
             context.IncludeDeprecated = this.IncludeDeprecated;
+            context.IncludeDisabled = this.IncludeDisabled;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.Owner != null)
@@ -284,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.IncludeDeprecated != null)
             {
                 request.IncludeDeprecated = cmdletContext.IncludeDeprecated.Value;
+            }
+            if (cmdletContext.IncludeDisabled != null)
+            {
+                request.IncludeDisabled = cmdletContext.IncludeDisabled.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -382,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public List<System.String> ImageId { get; set; }
             public System.Boolean? IncludeDeprecated { get; set; }
+            public System.Boolean? IncludeDisabled { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> Owner { get; set; }

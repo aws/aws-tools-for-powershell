@@ -31,7 +31,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAdapter" OutputProperty="AdapterId" Verb="New" Noun="Adapter" ShouldProcessTarget="AdapterName" PipelineParameter="AdapterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAdapterVersion" OutputProperty="*" Verb="New" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAdapter" Verb="Remove" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAdapterVersion" Verb="Remove" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetectDocumentText" OutputProperty="Blocks" Verb="Find" Noun="DocumentText" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAdapter" OutputProperty="*" Verb="Get" Noun="Adapter" PipelineParameter="AdapterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAdapterVersion" OutputProperty="*" Verb="Get" Noun="AdapterVersion" PipelineParameter="AdapterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,6 +79,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAdapters" OutputProperty="Adapters" Verb="Get" Noun="AdapterList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAdapterVersions" OutputProperty="AdapterVersions" Verb="Get" Noun="AdapterVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="FeatureTypes" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +104,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartLendingAnalysis" OutputProperty="JobId" Verb="Start" Noun="LendingAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAdapter" OutputProperty="*" Verb="Update" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

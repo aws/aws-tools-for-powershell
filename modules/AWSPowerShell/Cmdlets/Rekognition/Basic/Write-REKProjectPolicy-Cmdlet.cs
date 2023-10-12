@@ -28,13 +28,15 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting
     /// AWS account. A project policy specifies that a trusted AWS account can copy a model
     /// version from a trusting AWS account to a project in the trusted AWS account. To copy
-    /// a model version you use the <a>CopyProjectVersion</a> operation.
-    /// 
-    ///  
-    /// <para>
+    /// a model version you use the <a>CopyProjectVersion</a> operation. Only applies to Custom
+    /// Labels projects.
+    /// </para><para>
     /// For more information about the format of a project policy document, see Attaching
     /// a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
     /// 

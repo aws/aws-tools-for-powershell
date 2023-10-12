@@ -126,6 +126,7 @@ $ACT_SelectMap = @{
     "Select"=@("Disable-ACTControl",
                "Enable-ACTControl",
                "Get-ACTControlOperation",
+               "Get-ACTEnabledControl",
                "Get-ACTEnabledControlList")
 }
 

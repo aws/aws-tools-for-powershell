@@ -1,4 +1,43 @@
-﻿### 4.1.429 (2023-10-06 21:05Z)
+﻿### 4.1.430 (2023-10-12 21:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.662.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Tower
+    * Added cmdlet Get-ACTEnabledControl leveraging the GetEnabledControl service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2Image leveraging the DisableImage service API.
+    * Added cmdlet Enable-EC2Image leveraging the EnableImage service API.
+    * Modified cmdlet Get-EC2Image: added parameter IncludeDisabled.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter VpcConfig_Ipv6AllowedForDualStack.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameter VpcConfig_Ipv6AllowedForDualStack.
+  * Amazon Rekognition
+    * Modified cmdlet Find-REKModerationLabel: added parameter ProjectVersion.
+    * Modified cmdlet Get-REKProject: added parameter Feature.
+    * Modified cmdlet New-REKProject: added parameters AutoUpdate and Feature.
+    * Modified cmdlet New-REKProjectVersion: added parameters ContentModeration_ConfidenceThreshold and VersionDescription.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBInstance: added parameter DedicatedLogVolume.
+    * Modified cmdlet New-RDSDBInstance: added parameter DedicatedLogVolume.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter DedicatedLogVolume.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter DedicatedLogVolume.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter DedicatedLogVolume.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter DedicatedLogVolume.
+  * Amazon Textract
+    * Added cmdlet Add-TXTResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-TXTAdapter leveraging the GetAdapter service API.
+    * Added cmdlet Get-TXTAdapterList leveraging the ListAdapters service API.
+    * Added cmdlet Get-TXTAdapterVersion leveraging the GetAdapterVersion service API.
+    * Added cmdlet Get-TXTAdapterVersionList leveraging the ListAdapterVersions service API.
+    * Added cmdlet Get-TXTResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-TXTAdapter leveraging the CreateAdapter service API.
+    * Added cmdlet New-TXTAdapterVersion leveraging the CreateAdapterVersion service API.
+    * Added cmdlet Remove-TXTAdapter leveraging the DeleteAdapter service API.
+    * Added cmdlet Remove-TXTAdapterVersion leveraging the DeleteAdapterVersion service API.
+    * Added cmdlet Remove-TXTResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Update-TXTAdapter leveraging the UpdateAdapter service API.
+    * Modified cmdlet Invoke-TXTDocumentAnalysis: added parameter AdaptersConfig_Adapter.
+    * Modified cmdlet Start-TXTDocumentAnalysis: added parameter AdaptersConfig_Adapter.
+
+### 4.1.429 (2023-10-06 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.660.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon FSx
     * Added cmdlet Start-FSXMisconfiguredStateRecovery leveraging the StartMisconfiguredStateRecovery service API.

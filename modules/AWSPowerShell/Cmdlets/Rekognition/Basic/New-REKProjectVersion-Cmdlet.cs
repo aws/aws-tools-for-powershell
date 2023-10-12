@@ -28,16 +28,25 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Creates a new version of a model and begins training. Models are managed as part of
-    /// an Amazon Rekognition Custom Labels project. The response from <code>CreateProjectVersion</code>
-    /// is an Amazon Resource Name (ARN) for the version of the model. 
+    /// Creates a new version of Amazon Rekognition project (like a Custom Labels model or
+    /// a custom adapter) and begins training. Models and adapters are managed as part of
+    /// a Rekognition project. The response from <code>CreateProjectVersion</code> is an Amazon
+    /// Resource Name (ARN) for the project version. 
     /// 
     ///  
     /// <para>
-    /// Training uses the training and test datasets associated with the project. For more
-    /// information, see Creating training and test dataset in the <i>Amazon Rekognition Custom
-    /// Labels Developer Guide</i>. 
-    /// </para><note><para>
+    /// The FeatureConfig operation argument allows you to configure specific model or adapter
+    /// settings. You can provide a description to the project version by using the VersionDescription
+    /// argment. Training can take a while to complete. You can get the current status by
+    /// calling <a>DescribeProjectVersions</a>. Training completed successfully if the value
+    /// of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>. Once training
+    /// has successfully completed, call <a>DescribeProjectVersions</a> to get the training
+    /// results and evaluate the model.
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code>
+    /// action.
+    /// </para><note><para><i>The following applies only to projects with Amazon Rekognition Custom Labels as
+    /// the chosen feature:</i></para><para>
     /// You can train a model in a project that doesn't have associated datasets by specifying
     /// manifest files in the <code>TrainingData</code> and <code>TestingData</code> fields.
     /// 
@@ -49,23 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// Instead of training with a project without associated datasets, we recommend that
     /// you use the manifest files to create training and test datasets for the project.
-    /// </para></note><para>
-    /// Training takes a while to complete. You can get the current status by calling <a>DescribeProjectVersions</a>.
-    /// Training completed successfully if the value of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>.
-    /// </para><para>
-    /// If training fails, see Debugging a failed model training in the <i>Amazon Rekognition
-    /// Custom Labels</i> developer guide. 
-    /// </para><para>
-    /// Once training has successfully completed, call <a>DescribeProjectVersions</a> to get
-    /// the training results and evaluate the model. For more information, see Improving a
-    /// trained Amazon Rekognition Custom Labels model in the <i>Amazon Rekognition Custom
-    /// Labels</i> developers guide. 
-    /// </para><para>
-    /// After evaluating the model, you start the model by calling <a>StartProjectVersion</a>.
-    /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code>
-    /// action.
-    /// </para>
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "REKProjectVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -93,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter TrainingData_Asset
         /// <summary>
         /// <para>
-        /// <para>A Sagemaker GroundTruth manifest file that contains the training images (assets).</para>
+        /// <para>A manifest file that contains references to the training images and ground-truth annotations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,13 +97,24 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter TestingData_AutoCreate
         /// <summary>
         /// <para>
-        /// <para>If specified, Amazon Rekognition Custom Labels temporarily splits the training dataset
-        /// (80%) to create a test dataset (20%) for the training job. After training completes,
-        /// the test dataset is not stored and the training dataset reverts to its previous size.</para>
+        /// <para>If specified, Rekognition splits training dataset to create a test dataset for the
+        /// training job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TestingData_AutoCreate { get; set; }
+        #endregion
+        
+        #region Parameter ContentModeration_ConfidenceThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The confidence level you plan to use to identify if unsafe content is present during
+        /// inference.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FeatureConfig_ContentModeration_ConfidenceThreshold")]
+        public System.Single? ContentModeration_ConfidenceThreshold { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -118,10 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply
         /// the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for
-        /// your KMS key, or an alias ARN. The key is used to encrypt training and test images
-        /// copied into the service for model training. Your source images are unaffected. The
-        /// key is also used to encrypt training results and manifest files written to the output
-        /// Amazon S3 bucket (<code>OutputConfig</code>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
+        /// your KMS key, or an alias ARN. The key is used to encrypt training images, test images,
+        /// and manifest files copied into the service for the project version. Your source images
+        /// are unaffected. The key is also used to encrypt training results and manifest files
+        /// written to the output Amazon S3 bucket (<code>OutputConfig</code>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
         /// key.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service
         /// are encrypted using a key that AWS owns and manages.</para>
         /// </para>
@@ -133,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Rekognition Custom Labels project that manages the model that
-        /// you want to train.</para>
+        /// <para>The ARN of the Amazon Rekognition project that will manage the project version you
+        /// want to train.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> A set of tags (key-value pairs) that you want to attach to the model. </para>
+        /// <para> A set of tags (key-value pairs) that you want to attach to the project version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,10 +183,20 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter VersionDescription
+        /// <summary>
+        /// <para>
+        /// <para>A description applied to the project version being created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionDescription { get; set; }
+        #endregion
+        
         #region Parameter VersionName
         /// <summary>
         /// <para>
-        /// <para>A name for the version of the model. This value must be unique.</para>
+        /// <para>A name for the version of the project version. This value must be unique.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -258,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = (response, cmdlet) => this.VersionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContentModeration_ConfidenceThreshold = this.ContentModeration_ConfidenceThreshold;
             context.KmsKeyId = this.KmsKeyId;
             context.OutputConfig_S3Bucket = this.OutputConfig_S3Bucket;
             context.OutputConfig_S3KeyPrefix = this.OutputConfig_S3KeyPrefix;
@@ -285,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             {
                 context.TrainingData_Asset = new List<Amazon.Rekognition.Model.Asset>(this.TrainingData_Asset);
             }
+            context.VersionDescription = this.VersionDescription;
             context.VersionName = this.VersionName;
             #if MODULAR
             if (this.VersionName == null && ParameterWasBound(nameof(this.VersionName)))
@@ -308,6 +324,40 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request
             var request = new Amazon.Rekognition.Model.CreateProjectVersionRequest();
             
+            
+             // populate FeatureConfig
+            var requestFeatureConfigIsNull = true;
+            request.FeatureConfig = new Amazon.Rekognition.Model.CustomizationFeatureConfig();
+            Amazon.Rekognition.Model.CustomizationFeatureContentModerationConfig requestFeatureConfig_featureConfig_ContentModeration = null;
+            
+             // populate ContentModeration
+            var requestFeatureConfig_featureConfig_ContentModerationIsNull = true;
+            requestFeatureConfig_featureConfig_ContentModeration = new Amazon.Rekognition.Model.CustomizationFeatureContentModerationConfig();
+            System.Single? requestFeatureConfig_featureConfig_ContentModeration_contentModeration_ConfidenceThreshold = null;
+            if (cmdletContext.ContentModeration_ConfidenceThreshold != null)
+            {
+                requestFeatureConfig_featureConfig_ContentModeration_contentModeration_ConfidenceThreshold = cmdletContext.ContentModeration_ConfidenceThreshold.Value;
+            }
+            if (requestFeatureConfig_featureConfig_ContentModeration_contentModeration_ConfidenceThreshold != null)
+            {
+                requestFeatureConfig_featureConfig_ContentModeration.ConfidenceThreshold = requestFeatureConfig_featureConfig_ContentModeration_contentModeration_ConfidenceThreshold.Value;
+                requestFeatureConfig_featureConfig_ContentModerationIsNull = false;
+            }
+             // determine if requestFeatureConfig_featureConfig_ContentModeration should be set to null
+            if (requestFeatureConfig_featureConfig_ContentModerationIsNull)
+            {
+                requestFeatureConfig_featureConfig_ContentModeration = null;
+            }
+            if (requestFeatureConfig_featureConfig_ContentModeration != null)
+            {
+                request.FeatureConfig.ContentModeration = requestFeatureConfig_featureConfig_ContentModeration;
+                requestFeatureConfigIsNull = false;
+            }
+             // determine if request.FeatureConfig should be set to null
+            if (requestFeatureConfigIsNull)
+            {
+                request.FeatureConfig = null;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -397,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             {
                 request.TrainingData = null;
             }
+            if (cmdletContext.VersionDescription != null)
+            {
+                request.VersionDescription = cmdletContext.VersionDescription;
+            }
             if (cmdletContext.VersionName != null)
             {
                 request.VersionName = cmdletContext.VersionName;
@@ -462,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Single? ContentModeration_ConfidenceThreshold { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OutputConfig_S3Bucket { get; set; }
             public System.String OutputConfig_S3KeyPrefix { get; set; }
@@ -470,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             public List<Amazon.Rekognition.Model.Asset> TestingData_Asset { get; set; }
             public System.Boolean? TestingData_AutoCreate { get; set; }
             public List<Amazon.Rekognition.Model.Asset> TrainingData_Asset { get; set; }
+            public System.String VersionDescription { get; set; }
             public System.String VersionName { get; set; }
             public System.Func<Amazon.Rekognition.Model.CreateProjectVersionResponse, NewREKProjectVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProjectVersionArn;

@@ -34,13 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// The <code>FeatureGroup</code> defines the schema and features contained in the FeatureGroup.
+    /// The <code>FeatureGroup</code> defines the schema and features contained in the <code>FeatureGroup</code>.
     /// A <code>FeatureGroup</code> definition is composed of a list of <code>Features</code>,
     /// a <code>RecordIdentifierFeatureName</code>, an <code>EventTimeFeatureName</code> and
     /// configurations for its <code>OnlineStore</code> and <code>OfflineStore</code>. Check
     /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon
     /// Web Services service quotas</a> to see the <code>FeatureGroup</code>s quota for your
     /// Amazon Web Services account.
+    /// </para><para>
+    /// Note that it can take approximately 10-15 minutes to provision an <code>OnlineStore</code><code>FeatureGroup</code> with the <code>InMemory</code><code>StorageType</code>.
     /// </para><important><para>
     /// You must include at least one of <code>OnlineStoreConfig</code> and <code>OfflineStoreConfig</code>
     /// to create a <code>FeatureGroup</code>.

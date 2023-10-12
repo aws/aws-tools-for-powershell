@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     /// (Section 1.10).</b></i><para>
     /// This returns the URL that you can retrieve your Price List file from. This URL is
     /// based on the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve
-    /// from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html"><code>ListPriceLists</code></a> response. 
+    /// from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
+    /// response. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "PLSPriceListFileUrl")]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// <summary>
         /// <para>
         /// <para>The format that you want to retrieve your Price List files in. The <code>FileFormat</code>
-        /// can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html"><code>ListPriceLists</code></a> response. </para>
+        /// can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
+        /// response. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// <summary>
         /// <para>
         /// <para>The unique identifier that maps to where your Price List files are located. <code>PriceListArn</code>
-        /// can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html"><code>ListPriceLists</code></a> response. </para>
+        /// can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
+        /// response. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

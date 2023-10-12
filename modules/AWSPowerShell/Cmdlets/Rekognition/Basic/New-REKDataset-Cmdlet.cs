@@ -28,12 +28,13 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by
     /// using an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition
     /// Custom Labels dataset.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To create a training dataset for a project, specify <code>TRAIN</code> for the value
     /// of <code>DatasetType</code>. To create the test dataset for a project, specify <code>TEST</code>
     /// for the value of <code>DatasetType</code>. 

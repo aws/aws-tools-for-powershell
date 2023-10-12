@@ -28,8 +28,9 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Deletes an Amazon Rekognition Custom Labels project. To delete a project you must
-    /// first delete all models associated with the project. To delete a model, see <a>DeleteProjectVersion</a>.
+    /// Deletes a Amazon Rekognition project. To delete a project you must first delete all
+    /// models or adapters associated with the project. To delete a model or adapter, see
+    /// <a>DeleteProjectVersion</a>.
     /// 
     ///  
     /// <para><code>DeleteProject</code> is an asynchronous operation. To check if the project

@@ -28,15 +28,13 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources
-    /// (datasets, model versions) that you use to create and manage Amazon Rekognition Custom
-    /// Labels models. 
-    /// 
-    ///  
-    /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:CreateProject</code>
+    /// Creates a new Amazon Rekognition project. A project is a group of resources (datasets,
+    /// model versions) that you use to create and manage a Amazon Rekognition Custom Labels
+    /// Model or custom adapter. You can specify a feature to create the project with, if
+    /// no feature is specified then Custom Labels is used by default. For adapters, you can
+    /// also choose whether or not to have the project auto update by using the AutoUpdate
+    /// argument. This operation requires permissions to perform the <code>rekognition:CreateProject</code>
     /// action.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "REKProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,6 +47,31 @@ namespace Amazon.PowerShell.Cmdlets.REK
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AutoUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether automatic retraining should be attempted for the versions of the
+        /// project. Automatic retraining is done as a best effort. Required argument for Content
+        /// Moderation. Applicable only to adapters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Rekognition.ProjectAutoUpdate")]
+        public Amazon.Rekognition.ProjectAutoUpdate AutoUpdate { get; set; }
+        #endregion
+        
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>Specifies feature that is being customized. If no value is provided CUSTOM_LABELS
+        /// is used as a default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Rekognition.CustomizationFeature")]
+        public Amazon.Rekognition.CustomizationFeature Feature { get; set; }
+        #endregion
         
         #region Parameter ProjectName
         /// <summary>
@@ -129,6 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = (response, cmdlet) => this.ProjectName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoUpdate = this.AutoUpdate;
+            context.Feature = this.Feature;
             context.ProjectName = this.ProjectName;
             #if MODULAR
             if (this.ProjectName == null && ParameterWasBound(nameof(this.ProjectName)))
@@ -152,6 +177,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request
             var request = new Amazon.Rekognition.Model.CreateProjectRequest();
             
+            if (cmdletContext.AutoUpdate != null)
+            {
+                request.AutoUpdate = cmdletContext.AutoUpdate;
+            }
+            if (cmdletContext.Feature != null)
+            {
+                request.Feature = cmdletContext.Feature;
+            }
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
@@ -217,6 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Rekognition.ProjectAutoUpdate AutoUpdate { get; set; }
+            public Amazon.Rekognition.CustomizationFeature Feature { get; set; }
             public System.String ProjectName { get; set; }
             public System.Func<Amazon.Rekognition.Model.CreateProjectResponse, NewREKProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProjectArn;

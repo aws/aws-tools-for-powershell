@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEnabledControl" OutputProperty="EnabledControlDetails" Verb="Get" Noun="EnabledControl" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnabledControls" OutputProperty="EnabledControls" Verb="Get" Noun="EnabledControlList" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

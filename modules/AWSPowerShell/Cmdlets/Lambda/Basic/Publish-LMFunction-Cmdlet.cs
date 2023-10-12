@@ -220,6 +220,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Code_ImageUri { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_Ipv6AllowedForDualStack
+        /// <summary>
+        /// <para>
+        /// <para>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
+        #endregion
+        
         #region Parameter ImageConfig_IsCommandSet
         /// <summary>
         /// <para>
@@ -673,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             context.Timeout = this.Timeout;
             context.TracingConfig_Mode = this.TracingConfig_Mode;
+            context.VpcConfig_Ipv6AllowedForDualStack = this.VpcConfig_Ipv6AllowedForDualStack;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -999,6 +1010,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                  // populate VpcConfig
                 var requestVpcConfigIsNull = true;
                 request.VpcConfig = new Amazon.Lambda.Model.VpcConfig();
+                System.Boolean? requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack = null;
+                if (cmdletContext.VpcConfig_Ipv6AllowedForDualStack != null)
+                {
+                    requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack = cmdletContext.VpcConfig_Ipv6AllowedForDualStack.Value;
+                }
+                if (requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack != null)
+                {
+                    request.VpcConfig.Ipv6AllowedForDualStack = requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack.Value;
+                    requestVpcConfigIsNull = false;
+                }
                 List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
                 if (cmdletContext.VpcConfig_SecurityGroupId != null)
                 {
@@ -1144,6 +1165,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
+            public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public System.Boolean? VpcConfig_IsSecurityGroupIdsSet { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }

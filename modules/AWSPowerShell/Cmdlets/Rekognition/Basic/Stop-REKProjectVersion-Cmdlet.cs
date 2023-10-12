@@ -28,11 +28,13 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Stops a running model. The operation might take a while to complete. To check the
-    /// current status, call <a>DescribeProjectVersions</a>. 
-    /// 
-    ///  
-    /// <para>
+    /// current status, call <a>DescribeProjectVersions</a>. Only applies to Custom Labels
+    /// projects.
+    /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
     /// action.
     /// </para>
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ProjectVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model version that you want to delete.</para><para>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
+        /// <para>The Amazon Resource Name (ARN) of the model version that you want to stop.</para><para>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
         /// action.</para>
         /// </para>
         /// </summary>

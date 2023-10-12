@@ -28,13 +28,14 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <note><para>
+    /// This operation applies only to Amazon Rekognition Custom Labels.
+    /// </para></note><para>
     /// Copies a version of an Amazon Rekognition Custom Labels model from a source project
     /// to a destination project. The source and destination projects can be in different
     /// AWS accounts but must be in the same AWS Region. You can't copy a model to another
     /// AWS service. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To copy a model version to a different AWS account, you need to create a resource-based
     /// policy known as a <i>project policy</i>. You attach the project policy to the source
     /// project by calling <a>PutProjectPolicy</a>. The project policy gives permission to
@@ -46,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// If you are copying a model version to a project in the same AWS account, you don't
     /// need to create a project policy.
     /// </para><note><para>
+    /// Copying project versions is supported only for Custom Labels models. 
+    /// </para><para>
     /// To copy a model, the destination project, source project, and source model version
     /// must already exist.
     /// </para></note><para>

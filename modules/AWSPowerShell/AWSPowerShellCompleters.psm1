@@ -14031,7 +14031,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::AccessAnalyzer::Analyzer","AWS::ACM::Certificate","AWS::ACMPCA::CertificateAuthority","AWS::AmazonMQ::Broker","AWS::Amplify::App","AWS::Amplify::Branch","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AppConfig::Application","AWS::AppConfig::ConfigurationProfile","AWS::AppConfig::DeploymentStrategy","AWS::AppConfig::Environment","AWS::AppConfig::HostedConfigurationVersion","AWS::AppFlow::Flow","AWS::AppIntegrations::EventIntegration","AWS::AppMesh::Route","AWS::AppMesh::VirtualGateway","AWS::AppMesh::VirtualNode","AWS::AppMesh::VirtualRouter","AWS::AppMesh::VirtualService","AWS::AppRunner::Service","AWS::AppRunner::VpcConnector","AWS::AppStream::Application","AWS::AppStream::DirectoryConfig","AWS::AppSync::GraphQLApi","AWS::Athena::DataCatalog","AWS::Athena::PreparedStatement","AWS::Athena::WorkGroup","AWS::AuditManager::Assessment","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::AutoScaling::WarmPool","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::Backup::ReportPlan","AWS::Batch::ComputeEnvironment","AWS::Batch::JobQueue","AWS::Budgets::BudgetsAction","AWS::Cassandra::Keyspace","AWS::Cloud9::EnvironmentEC2","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CloudWatch::MetricStream","AWS::CodeArtifact::Repository","AWS::CodeBuild::Project","AWS::CodeDeploy::Application","AWS::CodeDeploy::DeploymentConfig","AWS::CodeDeploy::DeploymentGroup","AWS::CodeGuruReviewer::RepositoryAssociation","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::Connect::PhoneNumber","AWS::CustomerProfiles::Domain","AWS::CustomerProfiles::ObjectType","AWS::DataSync::LocationEFS","AWS::DataSync::LocationFSxLustre","AWS::DataSync::LocationFSxWindows","AWS::DataSync::LocationHDFS","AWS::DataSync::LocationNFS","AWS::DataSync::LocationObjectStorage","AWS::DataSync::LocationS3","AWS::DataSync::LocationSMB","AWS::DataSync::Task","AWS::Detective::Graph","AWS::DeviceFarm::InstanceProfile","AWS::DeviceFarm::Project","AWS::DeviceFarm::TestGridProject","AWS::DMS::Certificate","AWS::DMS::Endpoint","AWS::DMS::EventSubscription","AWS::DMS::ReplicationSubnetGroup","AWS::DynamoDB::Table","AWS::EC2::CapacityReservation","AWS::EC2::ClientVpnEndpoint","AWS::EC2::CustomerGateway","AWS::EC2::DHCPOptions","AWS::EC2::EC2Fleet","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::IPAM","AWS::EC2::IPAMScope","AWS::EC2::LaunchTemplate","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInsightsAccessScopeAnalysis","AWS::EC2::NetworkInsightsPath","AWS::EC2::NetworkInterface","AWS::EC2::PrefixList","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::SpotFleet","AWS::EC2::Subnet","AWS::EC2::SubnetRouteTableAssociation","AWS::EC2::TrafficMirrorFilter","AWS::EC2::TrafficMirrorSession","AWS::EC2::TrafficMirrorTarget","AWS::EC2::TransitGateway","AWS::EC2::TransitGatewayAttachment","AWS::EC2::TransitGatewayRouteTable","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::PublicRepository","AWS::ECR::PullThroughCacheRule","AWS::ECR::RegistryPolicy","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::ECS::TaskSet","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Addon","AWS::EKS::Cluster","AWS::EKS::FargateProfile","AWS::EKS::IdentityProviderConfig","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::Listener","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::EMR::SecurityConfiguration","AWS::Events::ApiDestination","AWS::Events::Archive","AWS::Events::Connection","AWS::Events::Endpoint","AWS::Events::EventBus","AWS::Events::Rule","AWS::EventSchemas::Discoverer","AWS::EventSchemas::Registry","AWS::EventSchemas::RegistryPolicy","AWS::EventSchemas::Schema","AWS::Evidently::Launch","AWS::Evidently::Project","AWS::FIS::ExperimentTemplate","AWS::Forecast::Dataset","AWS::Forecast::DatasetGroup","AWS::FraudDetector::EntityType","AWS::FraudDetector::Label","AWS::FraudDetector::Outcome","AWS::FraudDetector::Variable","AWS::GlobalAccelerator::Accelerator","AWS::GlobalAccelerator::EndpointGroup","AWS::GlobalAccelerator::Listener","AWS::Glue::Classifier","AWS::Glue::Job","AWS::Glue::MLTransform","AWS::GreengrassV2::ComponentVersion","AWS::GroundStation::Config","AWS::GroundStation::MissionProfile","AWS::GuardDuty::Detector","AWS::GuardDuty::Filter","AWS::GuardDuty::IPSet","AWS::GuardDuty::ThreatIntelSet","AWS::HealthLake::FHIRDatastore","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::SAMLProvider","AWS::IAM::ServerCertificate","AWS::IAM::User","AWS::ImageBuilder::ContainerRecipe","AWS::ImageBuilder::DistributionConfiguration","AWS::ImageBuilder::ImagePipeline","AWS::ImageBuilder::InfrastructureConfiguration","AWS::IoT::AccountAuditConfiguration","AWS::IoT::Authorizer","AWS::IoT::CustomMetric","AWS::IoT::Dimension","AWS::IoT::FleetMetric","AWS::IoT::MitigationAction","AWS::IoT::Policy","AWS::IoT::RoleAlias","AWS::IoT::ScheduledAudit","AWS::IoT::SecurityProfile","AWS::IoTAnalytics::Channel","AWS::IoTAnalytics::Dataset","AWS::IoTAnalytics::Datastore","AWS::IoTAnalytics::Pipeline","AWS::IoTEvents::AlarmModel","AWS::IoTEvents::DetectorModel","AWS::IoTEvents::Input","AWS::IoTSiteWise::AssetModel","AWS::IoTSiteWise::Dashboard","AWS::IoTSiteWise::Gateway","AWS::IoTSiteWise::Portal","AWS::IoTSiteWise::Project","AWS::IoTTwinMaker::Entity","AWS::IoTTwinMaker::Scene","AWS::IoTTwinMaker::Workspace","AWS::IoTWireless::ServiceProfile","AWS::IVS::Channel","AWS::IVS::PlaybackKeyPair","AWS::IVS::RecordingConfiguration","AWS::Kendra::Index","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KinesisAnalyticsV2::Application","AWS::KinesisFirehose::DeliveryStream","AWS::KinesisVideo::SignalingChannel","AWS::KinesisVideo::Stream","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lex::Bot","AWS::Lex::BotAlias","AWS::Lightsail::Bucket","AWS::Lightsail::Certificate","AWS::Lightsail::Disk","AWS::Lightsail::StaticIp","AWS::Logs::Destination","AWS::LookoutMetrics::Alert","AWS::LookoutVision::Project","AWS::MediaConnect::FlowEntitlement","AWS::MediaConnect::FlowVpcInterface","AWS::MediaPackage::PackagingConfiguration","AWS::MediaPackage::PackagingGroup","AWS::MediaTailor::PlaybackConfiguration","AWS::MSK::Cluster","AWS::MSK::Configuration","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::NetworkManager::CustomerGatewayAssociation","AWS::NetworkManager::Device","AWS::NetworkManager::GlobalNetwork","AWS::NetworkManager::Link","AWS::NetworkManager::LinkAssociation","AWS::NetworkManager::Site","AWS::NetworkManager::TransitGatewayRegistration","AWS::OpenSearch::Domain","AWS::Panorama::Package","AWS::Personalize::Dataset","AWS::Personalize::Schema","AWS::Personalize::Solution","AWS::Pinpoint::App","AWS::Pinpoint::ApplicationSettings","AWS::Pinpoint::Campaign","AWS::Pinpoint::EmailChannel","AWS::Pinpoint::EmailTemplate","AWS::Pinpoint::EventStream","AWS::Pinpoint::InAppTemplate","AWS::Pinpoint::Segment","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::RDS::GlobalCluster","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::Redshift::ScheduledAction","AWS::ResilienceHub::App","AWS::ResilienceHub::ResiliencyPolicy","AWS::RoboMaker::RobotApplication","AWS::RoboMaker::RobotApplicationVersion","AWS::RoboMaker::SimulationApplication","AWS::Route53::HostedZone","AWS::Route53RecoveryControl::Cluster","AWS::Route53RecoveryControl::ControlPanel","AWS::Route53RecoveryControl::RoutingControl","AWS::Route53RecoveryControl::SafetyRule","AWS::Route53RecoveryReadiness::Cell","AWS::Route53RecoveryReadiness::ReadinessCheck","AWS::Route53RecoveryReadiness::RecoveryGroup","AWS::Route53RecoveryReadiness::ResourceSet","AWS::Route53Resolver::FirewallDomainList","AWS::Route53Resolver::FirewallRuleGroupAssociation","AWS::Route53Resolver::ResolverEndpoint","AWS::Route53Resolver::ResolverRule","AWS::Route53Resolver::ResolverRuleAssociation","AWS::RUM::AppMonitor","AWS::S3::AccessPoint","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3::StorageLens","AWS::SageMaker::AppImageConfig","AWS::SageMaker::CodeRepository","AWS::SageMaker::Domain","AWS::SageMaker::Image","AWS::SageMaker::Model","AWS::SageMaker::NotebookInstanceLifecycleConfig","AWS::SageMaker::Workteam","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::ServiceDiscovery::HttpNamespace","AWS::ServiceDiscovery::PublicDnsNamespace","AWS::ServiceDiscovery::Service","AWS::SES::ConfigurationSet","AWS::SES::ContactList","AWS::SES::ReceiptFilter","AWS::SES::ReceiptRuleSet","AWS::SES::Template","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::Signer::SigningProfile","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::StepFunctions::Activity","AWS::StepFunctions::StateMachine","AWS::Transfer::Agreement","AWS::Transfer::Connector","AWS::Transfer::Workflow","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::WorkSpaces::ConnectionAlias","AWS::WorkSpaces::Workspace","AWS::XRay::EncryptionConfig"
+            $v = "AWS::AccessAnalyzer::Analyzer","AWS::ACM::Certificate","AWS::ACMPCA::CertificateAuthority","AWS::AmazonMQ::Broker","AWS::Amplify::App","AWS::Amplify::Branch","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AppConfig::Application","AWS::AppConfig::ConfigurationProfile","AWS::AppConfig::DeploymentStrategy","AWS::AppConfig::Environment","AWS::AppConfig::HostedConfigurationVersion","AWS::AppFlow::Flow","AWS::AppIntegrations::EventIntegration","AWS::AppMesh::Route","AWS::AppMesh::VirtualGateway","AWS::AppMesh::VirtualNode","AWS::AppMesh::VirtualRouter","AWS::AppMesh::VirtualService","AWS::AppRunner::Service","AWS::AppRunner::VpcConnector","AWS::AppStream::Application","AWS::AppStream::DirectoryConfig","AWS::AppStream::Stack","AWS::AppSync::GraphQLApi","AWS::APS::RuleGroupsNamespace","AWS::Athena::DataCatalog","AWS::Athena::PreparedStatement","AWS::Athena::WorkGroup","AWS::AuditManager::Assessment","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::AutoScaling::WarmPool","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::Backup::ReportPlan","AWS::Batch::ComputeEnvironment","AWS::Batch::JobQueue","AWS::Batch::SchedulingPolicy","AWS::Budgets::BudgetsAction","AWS::Cassandra::Keyspace","AWS::Cloud9::EnvironmentEC2","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CloudWatch::MetricStream","AWS::CodeArtifact::Repository","AWS::CodeBuild::Project","AWS::CodeBuild::ReportGroup","AWS::CodeDeploy::Application","AWS::CodeDeploy::DeploymentConfig","AWS::CodeDeploy::DeploymentGroup","AWS::CodeGuruProfiler::ProfilingGroup","AWS::CodeGuruReviewer::RepositoryAssociation","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::Connect::PhoneNumber","AWS::CustomerProfiles::Domain","AWS::CustomerProfiles::ObjectType","AWS::DataSync::LocationEFS","AWS::DataSync::LocationFSxLustre","AWS::DataSync::LocationFSxWindows","AWS::DataSync::LocationHDFS","AWS::DataSync::LocationNFS","AWS::DataSync::LocationObjectStorage","AWS::DataSync::LocationS3","AWS::DataSync::LocationSMB","AWS::DataSync::Task","AWS::Detective::Graph","AWS::DeviceFarm::InstanceProfile","AWS::DeviceFarm::Project","AWS::DeviceFarm::TestGridProject","AWS::DMS::Certificate","AWS::DMS::Endpoint","AWS::DMS::EventSubscription","AWS::DMS::ReplicationSubnetGroup","AWS::DynamoDB::Table","AWS::EC2::CapacityReservation","AWS::EC2::ClientVpnEndpoint","AWS::EC2::CustomerGateway","AWS::EC2::DHCPOptions","AWS::EC2::EC2Fleet","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::IPAM","AWS::EC2::IPAMScope","AWS::EC2::LaunchTemplate","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInsightsAccessScopeAnalysis","AWS::EC2::NetworkInsightsPath","AWS::EC2::NetworkInterface","AWS::EC2::PrefixList","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::SpotFleet","AWS::EC2::Subnet","AWS::EC2::SubnetRouteTableAssociation","AWS::EC2::TrafficMirrorFilter","AWS::EC2::TrafficMirrorSession","AWS::EC2::TrafficMirrorTarget","AWS::EC2::TransitGateway","AWS::EC2::TransitGatewayAttachment","AWS::EC2::TransitGatewayRouteTable","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::PublicRepository","AWS::ECR::PullThroughCacheRule","AWS::ECR::RegistryPolicy","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::ECS::TaskSet","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Addon","AWS::EKS::Cluster","AWS::EKS::FargateProfile","AWS::EKS::IdentityProviderConfig","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::Listener","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::EMR::SecurityConfiguration","AWS::Events::ApiDestination","AWS::Events::Archive","AWS::Events::Connection","AWS::Events::Endpoint","AWS::Events::EventBus","AWS::Events::Rule","AWS::EventSchemas::Discoverer","AWS::EventSchemas::Registry","AWS::EventSchemas::RegistryPolicy","AWS::EventSchemas::Schema","AWS::Evidently::Launch","AWS::Evidently::Project","AWS::FIS::ExperimentTemplate","AWS::Forecast::Dataset","AWS::Forecast::DatasetGroup","AWS::FraudDetector::EntityType","AWS::FraudDetector::Label","AWS::FraudDetector::Outcome","AWS::FraudDetector::Variable","AWS::GlobalAccelerator::Accelerator","AWS::GlobalAccelerator::EndpointGroup","AWS::GlobalAccelerator::Listener","AWS::Glue::Classifier","AWS::Glue::Job","AWS::Glue::MLTransform","AWS::GreengrassV2::ComponentVersion","AWS::GroundStation::Config","AWS::GroundStation::MissionProfile","AWS::GuardDuty::Detector","AWS::GuardDuty::Filter","AWS::GuardDuty::IPSet","AWS::GuardDuty::ThreatIntelSet","AWS::HealthLake::FHIRDatastore","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::SAMLProvider","AWS::IAM::ServerCertificate","AWS::IAM::User","AWS::ImageBuilder::ContainerRecipe","AWS::ImageBuilder::DistributionConfiguration","AWS::ImageBuilder::ImagePipeline","AWS::ImageBuilder::InfrastructureConfiguration","AWS::InspectorV2::Filter","AWS::IoT::AccountAuditConfiguration","AWS::IoT::Authorizer","AWS::IoT::CustomMetric","AWS::IoT::Dimension","AWS::IoT::FleetMetric","AWS::IoT::JobTemplate","AWS::IoT::MitigationAction","AWS::IoT::Policy","AWS::IoT::ProvisioningTemplate","AWS::IoT::RoleAlias","AWS::IoT::ScheduledAudit","AWS::IoT::SecurityProfile","AWS::IoTAnalytics::Channel","AWS::IoTAnalytics::Dataset","AWS::IoTAnalytics::Datastore","AWS::IoTAnalytics::Pipeline","AWS::IoTEvents::AlarmModel","AWS::IoTEvents::DetectorModel","AWS::IoTEvents::Input","AWS::IoTSiteWise::AssetModel","AWS::IoTSiteWise::Dashboard","AWS::IoTSiteWise::Gateway","AWS::IoTSiteWise::Portal","AWS::IoTSiteWise::Project","AWS::IoTTwinMaker::ComponentType","AWS::IoTTwinMaker::Entity","AWS::IoTTwinMaker::Scene","AWS::IoTTwinMaker::Workspace","AWS::IoTWireless::FuotaTask","AWS::IoTWireless::MulticastGroup","AWS::IoTWireless::ServiceProfile","AWS::IVS::Channel","AWS::IVS::PlaybackKeyPair","AWS::IVS::RecordingConfiguration","AWS::Kendra::Index","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KinesisAnalyticsV2::Application","AWS::KinesisFirehose::DeliveryStream","AWS::KinesisVideo::SignalingChannel","AWS::KinesisVideo::Stream","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lex::Bot","AWS::Lex::BotAlias","AWS::Lightsail::Bucket","AWS::Lightsail::Certificate","AWS::Lightsail::Disk","AWS::Lightsail::StaticIp","AWS::Logs::Destination","AWS::LookoutMetrics::Alert","AWS::LookoutVision::Project","AWS::MediaConnect::FlowEntitlement","AWS::MediaConnect::FlowSource","AWS::MediaConnect::FlowVpcInterface","AWS::MediaPackage::PackagingConfiguration","AWS::MediaPackage::PackagingGroup","AWS::MediaTailor::PlaybackConfiguration","AWS::MSK::BatchScramSecret","AWS::MSK::Cluster","AWS::MSK::Configuration","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::NetworkManager::CustomerGatewayAssociation","AWS::NetworkManager::Device","AWS::NetworkManager::GlobalNetwork","AWS::NetworkManager::Link","AWS::NetworkManager::LinkAssociation","AWS::NetworkManager::Site","AWS::NetworkManager::TransitGatewayRegistration","AWS::OpenSearch::Domain","AWS::Panorama::Package","AWS::Personalize::Dataset","AWS::Personalize::DatasetGroup","AWS::Personalize::Schema","AWS::Personalize::Solution","AWS::Pinpoint::App","AWS::Pinpoint::ApplicationSettings","AWS::Pinpoint::Campaign","AWS::Pinpoint::EmailChannel","AWS::Pinpoint::EmailTemplate","AWS::Pinpoint::EventStream","AWS::Pinpoint::InAppTemplate","AWS::Pinpoint::Segment","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::RDS::GlobalCluster","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::Redshift::ScheduledAction","AWS::ResilienceHub::App","AWS::ResilienceHub::ResiliencyPolicy","AWS::RoboMaker::RobotApplication","AWS::RoboMaker::RobotApplicationVersion","AWS::RoboMaker::SimulationApplication","AWS::Route53::HostedZone","AWS::Route53RecoveryControl::Cluster","AWS::Route53RecoveryControl::ControlPanel","AWS::Route53RecoveryControl::RoutingControl","AWS::Route53RecoveryControl::SafetyRule","AWS::Route53RecoveryReadiness::Cell","AWS::Route53RecoveryReadiness::ReadinessCheck","AWS::Route53RecoveryReadiness::RecoveryGroup","AWS::Route53RecoveryReadiness::ResourceSet","AWS::Route53Resolver::FirewallDomainList","AWS::Route53Resolver::FirewallRuleGroupAssociation","AWS::Route53Resolver::ResolverEndpoint","AWS::Route53Resolver::ResolverQueryLoggingConfig","AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation","AWS::Route53Resolver::ResolverRule","AWS::Route53Resolver::ResolverRuleAssociation","AWS::RUM::AppMonitor","AWS::S3::AccessPoint","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3::StorageLens","AWS::SageMaker::AppImageConfig","AWS::SageMaker::CodeRepository","AWS::SageMaker::Domain","AWS::SageMaker::FeatureGroup","AWS::SageMaker::Image","AWS::SageMaker::Model","AWS::SageMaker::NotebookInstanceLifecycleConfig","AWS::SageMaker::Workteam","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::ServiceDiscovery::HttpNamespace","AWS::ServiceDiscovery::Instance","AWS::ServiceDiscovery::PublicDnsNamespace","AWS::ServiceDiscovery::Service","AWS::SES::ConfigurationSet","AWS::SES::ContactList","AWS::SES::ReceiptFilter","AWS::SES::ReceiptRuleSet","AWS::SES::Template","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::Signer::SigningProfile","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::StepFunctions::Activity","AWS::StepFunctions::StateMachine","AWS::Transfer::Agreement","AWS::Transfer::Certificate","AWS::Transfer::Connector","AWS::Transfer::Workflow","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::WorkSpaces::ConnectionAlias","AWS::WorkSpaces::Workspace","AWS::XRay::EncryptionConfig"
             break
         }
 
@@ -15309,6 +15309,7 @@ $ACT_SelectMap = @{
     "Select"=@("Disable-ACTControl",
                "Enable-ACTControl",
                "Get-ACTControlOperation",
+               "Get-ACTEnabledControl",
                "Get-ACTEnabledControlList")
 }
 
@@ -19960,7 +19961,7 @@ $EC2_Completers = {
         # Amazon.EC2.CapacityReservationInstancePlatform
         "Add-EC2CapacityReservation/InstancePlatform"
         {
-            $v = "Linux with SQL Server Enterprise","Linux with SQL Server Standard","Linux with SQL Server Web","Linux/UNIX","Red Hat Enterprise Linux","RHEL with HA","RHEL with HA and SQL Server Enterprise","RHEL with HA and SQL Server Standard","RHEL with SQL Server Enterprise","RHEL with SQL Server Standard","RHEL with SQL Server Web","SUSE Linux","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
+            $v = "Linux with SQL Server Enterprise","Linux with SQL Server Standard","Linux with SQL Server Web","Linux/UNIX","Red Hat Enterprise Linux","RHEL with HA","RHEL with HA and SQL Server Enterprise","RHEL with HA and SQL Server Standard","RHEL with SQL Server Enterprise","RHEL with SQL Server Standard","RHEL with SQL Server Web","SUSE Linux","Ubuntu Pro","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
             break
         }
 
@@ -21436,6 +21437,7 @@ $EC2_SelectMap = @{
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
+               "Disable-EC2Image",
                "Disable-EC2ImageBlockPublicAccess",
                "Disable-EC2ImageDeprecation",
                "Disable-EC2IpamOrganizationAdminAccount",
@@ -21463,6 +21465,7 @@ $EC2_SelectMap = @{
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
+               "Enable-EC2Image",
                "Enable-EC2ImageBlockPublicAccess",
                "Enable-EC2ImageDeprecation",
                "Enable-EC2IpamOrganizationAdminAccount",
@@ -27537,7 +27540,7 @@ $GLUE_Completers = {
             ($_ -eq "New-GLUEJob/SourceControlDetails_Provider")
         }
         {
-            $v = "AWS_CODE_COMMIT","GITHUB"
+            $v = "AWS_CODE_COMMIT","BITBUCKET","GITHUB","GITLAB"
             break
         }
 
@@ -50293,6 +50296,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.CustomizationFeature
+        "New-REKProject/Feature"
+        {
+            $v = "CONTENT_MODERATION","CUSTOM_LABELS"
+            break
+        }
+
         # Amazon.Rekognition.DatasetType
         "New-REKDataset/DatasetType"
         {
@@ -50335,6 +50345,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.ProjectAutoUpdate
+        "New-REKProject/AutoUpdate"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Rekognition.QualityFilter
         {
             ($_ -eq "Add-REKDetectedFacesToCollection/QualityFilter") -Or
@@ -50357,8 +50374,10 @@ $REK_Completers = {
 
 $REK_map = @{
     "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
+    "AutoUpdate"=@("New-REKProject")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
+    "Feature"=@("New-REKProject")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage","Search-REKUsersByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
 }
@@ -60354,6 +60373,35 @@ _awsArgumentCompleterRegistration $CWSYN_SelectCompleters $CWSYN_SelectMap
 # Argument completions for service Amazon Textract
 
 
+$TXT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Textract.AutoUpdate
+        {
+            ($_ -eq "New-TXTAdapter/AutoUpdate") -Or
+            ($_ -eq "Update-TXTAdapter/AutoUpdate")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TXT_map = @{
+    "AutoUpdate"=@("New-TXTAdapter","Update-TXTAdapter")
+}
+
+_awsArgumentCompleterRegistration $TXT_Completers $TXT_map
+
 $TXT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -60405,16 +60453,28 @@ $TXT_SelectMap = @{
     "Select"=@("Invoke-TXTDocumentAnalysis",
                "Invoke-TXTExpenseAnalysis",
                "Invoke-TXTAnalyzeID",
+               "New-TXTAdapter",
+               "New-TXTAdapterVersion",
+               "Remove-TXTAdapter",
+               "Remove-TXTAdapterVersion",
                "Find-TXTDocumentText",
+               "Get-TXTAdapter",
+               "Get-TXTAdapterVersion",
                "Get-TXTDocumentAnalysis",
                "Get-TXTDocumentTextDetection",
                "Get-TXTExpenseAnalysis",
                "Get-TXTLendingAnalysis",
                "Get-TXTLendingAnalysisSummary",
+               "Get-TXTAdapterList",
+               "Get-TXTAdapterVersionList",
+               "Get-TXTResourceTag",
                "Start-TXTDocumentAnalysis",
                "Start-TXTDocumentTextDetection",
                "Start-TXTExpenseAnalysis",
-               "Start-TXTLendingAnalysis")
+               "Start-TXTLendingAnalysis",
+               "Add-TXTResourceTag",
+               "Remove-TXTResourceTag",
+               "Update-TXTAdapter")
 }
 
 _awsArgumentCompleterRegistration $TXT_SelectCompleters $TXT_SelectMap
@@ -60871,7 +60931,7 @@ $TRS_Completers = {
             ($_ -eq "Start-TRSTranscriptionJob/MediaFormat")
         }
         {
-            $v = "amr","flac","mp3","mp4","ogg","wav","webm"
+            $v = "amr","flac","m4a","mp3","mp4","ogg","wav","webm"
             break
         }
 

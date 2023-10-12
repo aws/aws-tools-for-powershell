@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code>
         /// | <code>Completed</code> | <code>Failed</code>)</para></li><li><para><code>bucket</code> - Returns task information for tasks that targeted a specific
-        /// bucket. For the filter value, specify the bucket name.</para></li></ul>
+        /// bucket. For the filter value, specify the bucket name.</para></li></ul><note><para>When you specify the <code>ImageIds</code> parameter, any filters that you specify
+        /// are ignored. To use the filters, you must remove the <code>ImageIds</code> parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of items to return for this request. To get the next page of items,
         /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You cannot specify this parameter and the <code>ImageIDs</code> parameter in the same
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You cannot specify this parameter and the <code>ImageIds</code> parameter in the same
         /// call.</para>
         /// </para>
         /// </summary>

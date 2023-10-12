@@ -161,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ScanStatusCode
         /// <summary>
         /// <para>
-        /// <para>The scan status code to filter on.</para>
+        /// <para>The scan status code to filter on. Valid values are: <code>ValidationException</code>,
+        /// <code>InternalServerException</code>, <code>ResourceNotFoundException</code>, <code>BadRequestException</code>,
+        /// and <code>ThrottlingException</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

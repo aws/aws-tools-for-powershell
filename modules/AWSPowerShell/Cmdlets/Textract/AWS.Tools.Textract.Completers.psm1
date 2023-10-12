@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Textract
 
 
+$TXT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Textract.AutoUpdate
+        {
+            ($_ -eq "New-TXTAdapter/AutoUpdate") -Or
+            ($_ -eq "Update-TXTAdapter/AutoUpdate")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TXT_map = @{
+    "AutoUpdate"=@("New-TXTAdapter","Update-TXTAdapter")
+}
+
+_awsArgumentCompleterRegistration $TXT_Completers $TXT_map
+
 $TXT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -126,16 +155,28 @@ $TXT_SelectMap = @{
     "Select"=@("Invoke-TXTDocumentAnalysis",
                "Invoke-TXTExpenseAnalysis",
                "Invoke-TXTAnalyzeID",
+               "New-TXTAdapter",
+               "New-TXTAdapterVersion",
+               "Remove-TXTAdapter",
+               "Remove-TXTAdapterVersion",
                "Find-TXTDocumentText",
+               "Get-TXTAdapter",
+               "Get-TXTAdapterVersion",
                "Get-TXTDocumentAnalysis",
                "Get-TXTDocumentTextDetection",
                "Get-TXTExpenseAnalysis",
                "Get-TXTLendingAnalysis",
                "Get-TXTLendingAnalysisSummary",
+               "Get-TXTAdapterList",
+               "Get-TXTAdapterVersionList",
+               "Get-TXTResourceTag",
                "Start-TXTDocumentAnalysis",
                "Start-TXTDocumentTextDetection",
                "Start-TXTExpenseAnalysis",
-               "Start-TXTLendingAnalysis")
+               "Start-TXTLendingAnalysis",
+               "Add-TXTResourceTag",
+               "Remove-TXTResourceTag",
+               "Update-TXTAdapter")
 }
 
 _awsArgumentCompleterRegistration $TXT_SelectCompleters $TXT_SelectMap

@@ -188,7 +188,7 @@ $EC2_Completers = {
         # Amazon.EC2.CapacityReservationInstancePlatform
         "Add-EC2CapacityReservation/InstancePlatform"
         {
-            $v = "Linux with SQL Server Enterprise","Linux with SQL Server Standard","Linux with SQL Server Web","Linux/UNIX","Red Hat Enterprise Linux","RHEL with HA","RHEL with HA and SQL Server Enterprise","RHEL with HA and SQL Server Standard","RHEL with SQL Server Enterprise","RHEL with SQL Server Standard","RHEL with SQL Server Web","SUSE Linux","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
+            $v = "Linux with SQL Server Enterprise","Linux with SQL Server Standard","Linux with SQL Server Web","Linux/UNIX","Red Hat Enterprise Linux","RHEL with HA","RHEL with HA and SQL Server Enterprise","RHEL with HA and SQL Server Standard","RHEL with SQL Server Enterprise","RHEL with SQL Server Standard","RHEL with SQL Server Web","SUSE Linux","Ubuntu Pro","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
             break
         }
 
@@ -1664,6 +1664,7 @@ $EC2_SelectMap = @{
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
+               "Disable-EC2Image",
                "Disable-EC2ImageBlockPublicAccess",
                "Disable-EC2ImageDeprecation",
                "Disable-EC2IpamOrganizationAdminAccount",
@@ -1691,6 +1692,7 @@ $EC2_SelectMap = @{
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
+               "Enable-EC2Image",
                "Enable-EC2ImageBlockPublicAccess",
                "Enable-EC2ImageDeprecation",
                "Enable-EC2IpamOrganizationAdminAccount",

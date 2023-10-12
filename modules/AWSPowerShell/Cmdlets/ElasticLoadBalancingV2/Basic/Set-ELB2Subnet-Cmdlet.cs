@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Enables the Availability Zones for the specified public subnets for the specified
-    /// Application Load Balancer or Network Load Balancer. The specified subnets replace
-    /// the previously enabled subnets.
+    /// Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified
+    /// subnets replace the previously enabled subnets.
     /// 
     ///  
     /// <para>
-    /// When you specify subnets for a Network Load Balancer, you must include all subnets
-    /// that were enabled previously, with their existing configurations, plus any additional
-    /// subnets.
+    /// When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you
+    /// must include all subnets that were enabled previously, with their existing configurations,
+    /// plus any additional subnets.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>[Network Load Balancers] The type of IP addresses used by the subnets for your load
         /// balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code>
         /// (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load
-        /// balancer with a UDP or TCP_UDP listener.</para>
+        /// balancer with a UDP or TCP_UDP listener.</para><para>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load
+        /// balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code>
+        /// (for IPv4 and IPv6 addresses).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// You can specify one Elastic IP address per subnet if you need static IP addresses
         /// for your internet-facing load balancer. For internal load balancers, you can specify
         /// one private IP address per subnet from the IPv4 range of the subnet. For internet-facing
-        /// load balancer, you can specify one IPv6 address per subnet.</para>
+        /// load balancer, you can specify one IPv6 address per subnet.</para><para>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
         /// You must specify either subnets or subnet mappings.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
         /// Zones.</para><para>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</para><para>[Application Load Balancers on Local Zones] You can specify subnets from one or more
-        /// Local Zones.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</para>
+        /// Local Zones.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</para><para>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -255,7 +255,7 @@ $GLUE_Completers = {
             ($_ -eq "New-GLUEJob/SourceControlDetails_Provider")
         }
         {
-            $v = "AWS_CODE_COMMIT","GITHUB"
+            $v = "AWS_CODE_COMMIT","BITBUCKET","GITHUB","GITLAB"
             break
         }
 

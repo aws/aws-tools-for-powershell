@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Disable-ACTControl', 
         'Enable-ACTControl', 
         'Get-ACTControlOperation', 
+        'Get-ACTEnabledControl', 
         'Get-ACTEnabledControlList')
 
     # Variables to export from this module

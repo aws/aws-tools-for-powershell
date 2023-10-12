@@ -189,6 +189,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DedicatedLogVolume
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable a dedicated log volume (DLV) for the DB instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DedicatedLogVolume { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
@@ -759,6 +769,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroup = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DedicatedLogVolume = this.DedicatedLogVolume;
             context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
@@ -897,6 +908,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DedicatedLogVolume != null)
+            {
+                request.DedicatedLogVolume = cmdletContext.DedicatedLogVolume.Value;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -1118,6 +1133,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public List<System.String> DBSecurityGroup { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DedicatedLogVolume { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

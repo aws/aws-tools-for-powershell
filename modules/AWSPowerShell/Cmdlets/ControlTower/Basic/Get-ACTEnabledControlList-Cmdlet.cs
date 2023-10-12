@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
     /// Lists the controls enabled by AWS Control Tower on the specified organizational unit
-    /// and the accounts it contains.
+    /// and the accounts it contains. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>
     /// </summary>
     [Cmdlet("Get", "ACTEnabledControlList")]
     [OutputType("Amazon.ControlTower.Model.EnabledControlSummary")]
@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter TargetIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ARN of the organizational unit.</para>
+        /// <para>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>,
+        /// see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the
+        /// overview page</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,6 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
     /// operations, passing image bytes is not supported. The image must be either a PNG or
     /// JPEG formatted file. 
+    /// </para><para>
+    /// You can specify an adapter to use when retrieving label predictions by providing a
+    /// <code>ProjectVersionArn</code> to the <code>ProjectVersion</code> argument.
     /// </para>
     /// </summary>
     [Cmdlet("Find", "REKModerationLabel")]
@@ -139,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String S3Object_Name { get; set; }
         #endregion
         
+        #region Parameter ProjectVersion
+        /// <summary>
+        /// <para>
+        /// <para>Identifier for the custom adapter. Expects the ProjectVersionArn as a value. Use the
+        /// CreateProject or CreateProjectVersion APIs to create a custom adapter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectVersion { get; set; }
+        #endregion
+        
         #region Parameter S3Object_Version
         /// <summary>
         /// <para>
@@ -187,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             context.S3Object_Name = this.S3Object_Name;
             context.S3Object_Version = this.S3Object_Version;
             context.MinConfidence = this.MinConfidence;
+            context.ProjectVersion = this.ProjectVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -330,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 {
                     request.MinConfidence = cmdletContext.MinConfidence.Value;
                 }
+                if (cmdletContext.ProjectVersion != null)
+                {
+                    request.ProjectVersion = cmdletContext.ProjectVersion;
+                }
                 
                 CmdletOutput output;
                 
@@ -407,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             public System.String S3Object_Name { get; set; }
             public System.String S3Object_Version { get; set; }
             public System.Single? MinConfidence { get; set; }
+            public System.String ProjectVersion { get; set; }
             public System.Func<Amazon.Rekognition.Model.DetectModerationLabelsResponse, FindREKModerationLabelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

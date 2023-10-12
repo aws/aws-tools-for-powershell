@@ -28,10 +28,9 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Lists and describes the versions of a model in an Amazon Rekognition Custom Labels
-    /// project. You can specify up to 10 model versions in <code>ProjectVersionArns</code>.
-    /// If you don't specify a value, descriptions for all model versions in the project are
-    /// returned.
+    /// Lists and describes the versions of an Amazon Rekognition project. You can specify
+    /// up to 10 model or adapter versions in <code>ProjectVersionArns</code>. If you don't
+    /// specify a value, descriptions for all model/adapter versions in the project are returned.
     /// 
     ///  
     /// <para>
@@ -54,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the project that contains the models you want to
-        /// describe.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project that contains the model/adapter you
+        /// want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,10 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter VersionName
         /// <summary>
         /// <para>
-        /// <para>A list of model version names that you want to describe. You can add up to 10 model
-        /// version names to the list. If you don't specify a value, all model descriptions are
-        /// returned. A version name is part of a model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code>
-        /// is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</para>
+        /// <para>A list of model or project version names that you want to describe. You can add up
+        /// to 10 model or project version names to the list. If you don't specify a value, all
+        /// project version descriptions are returned. A version name is part of a project version
+        /// ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in
+        /// the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>If the previous response was incomplete (because there is more results to retrieve),
-        /// Amazon Rekognition Custom Labels returns a pagination token in the response. You can
-        /// use this pagination token to retrieve the next set of results. </para>
+        /// Amazon Rekognition returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
