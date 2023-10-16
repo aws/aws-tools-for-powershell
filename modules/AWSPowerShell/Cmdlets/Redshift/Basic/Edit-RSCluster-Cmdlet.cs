@@ -53,6 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class EditRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AllowVersionUpgrade
@@ -261,6 +265,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MaintenanceTrackName { get; set; }
         #endregion
         
+        #region Parameter ManageMasterPassword
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage this cluster's
+        /// admin credentials. You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code>
+        /// is true. If <code>ManageMasterPassword</code> is false or not set, Amazon Redshift
+        /// uses <code>MasterUserPassword</code> for the admin user account's password. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterPassword { get; set; }
+        #endregion
+        
         #region Parameter ManualSnapshotRetentionPeriod
         /// <summary>
         /// <para>
@@ -273,13 +290,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
         #endregion
         
+        #region Parameter MasterPasswordSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's
+        /// admin credentials secret. You can only use this parameter if <code>ManageMasterPassword</code>
+        /// is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterPasswordSecretKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para>The new password for the cluster admin user. This change is asynchronously applied
         /// as soon as possible. Between the time of the request and the completion of the request,
         /// the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response. </para><note><para>Operations never return the password, so this operation provides a way to regain access
+        /// element of the operation response. </para><para>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code>
+        /// is <code>true</code>.</para><note><para>Operations never return the password, so this operation provides a way to regain access
         /// to the admin user account for a cluster if the password is lost.</para></note><para>Default: Uses existing setting.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code> (single
         /// quote), <code>"</code> (double quote), <code>\</code>, <code>/</code>, or <code>@</code>.</para></li></ul>
         /// </para>
@@ -457,7 +487,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
+            context.ManageMasterPassword = this.ManageMasterPassword;
             context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
+            context.MasterPasswordSecretKmsKeyId = this.MasterPasswordSecretKmsKeyId;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NewClusterIdentifier = this.NewClusterIdentifier;
             context.NodeType = this.NodeType;
@@ -549,9 +581,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
+            if (cmdletContext.ManageMasterPassword != null)
+            {
+                request.ManageMasterPassword = cmdletContext.ManageMasterPassword.Value;
+            }
             if (cmdletContext.ManualSnapshotRetentionPeriod != null)
             {
                 request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
+            }
+            if (cmdletContext.MasterPasswordSecretKmsKeyId != null)
+            {
+                request.MasterPasswordSecretKmsKeyId = cmdletContext.MasterPasswordSecretKmsKeyId;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -662,7 +702,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String HsmConfigurationIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceTrackName { get; set; }
+            public System.Boolean? ManageMasterPassword { get; set; }
             public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
+            public System.String MasterPasswordSecretKmsKeyId { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NewClusterIdentifier { get; set; }
             public System.String NodeType { get; set; }

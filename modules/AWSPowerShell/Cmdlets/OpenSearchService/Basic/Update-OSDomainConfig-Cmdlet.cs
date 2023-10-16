@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.sl
+    /// Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.
     /// </summary>
     [Cmdlet("Update", "OSDomainConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.DomainConfig")]

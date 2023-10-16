@@ -144,7 +144,7 @@ $OS_Completers = {
         # Amazon.OpenSearchService.PackageType
         "New-OSPackage/PackageType"
         {
-            $v = "TXT-DICTIONARY"
+            $v = "TXT-DICTIONARY","ZIP-PLUGIN"
             break
         }
 

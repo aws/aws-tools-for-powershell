@@ -90,6 +90,16 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.IdMappingType
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType")
+        }
+        {
+            $v = "PROVIDER"
+            break
+        }
+
         # Amazon.EntityResolution.IncrementalRunType
         {
             ($_ -eq "New-ERESMatchingWorkflow/IncrementalRunConfig_IncrementalRunType") -Or
@@ -106,7 +116,7 @@ $ERES_Completers = {
             ($_ -eq "Update-ERESMatchingWorkflow/ResolutionTechniques_ResolutionType")
         }
         {
-            $v = "ML_MATCHING","RULE_MATCHING"
+            $v = "ML_MATCHING","PROVIDER","RULE_MATCHING"
             break
         }
 
@@ -119,6 +129,7 @@ $ERES_Completers = {
 }
 
 $ERES_map = @{
+    "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
@@ -174,22 +185,33 @@ $ERES_SelectCompleters = {
 }
 
 $ERES_SelectMap = @{
-    "Select"=@("New-ERESMatchingWorkflow",
+    "Select"=@("New-ERESIdMappingWorkflow",
+               "New-ERESMatchingWorkflow",
                "New-ERESSchemaMapping",
+               "Remove-ERESIdMappingWorkflow",
                "Remove-ERESMatchingWorkflow",
                "Remove-ERESSchemaMapping",
+               "Get-ERESIdMappingJob",
+               "Get-ERESIdMappingWorkflow",
                "Get-ERESMatchId",
                "Get-ERESMatchingJob",
                "Get-ERESMatchingWorkflow",
+               "Get-ERESProviderService",
                "Get-ERESSchemaMapping",
+               "Get-ERESIdMappingJobList",
+               "Get-ERESIdMappingWorkflowList",
                "Get-ERESMatchingJobList",
                "Get-ERESMatchingWorkflowList",
+               "Get-ERESProviderServiceList",
                "Get-ERESSchemaMappingList",
                "Get-ERESResourceTag",
+               "Start-ERESIdMappingJob",
                "Start-ERESMatchingJob",
                "Add-ERESResourceTag",
                "Remove-ERESResourceTag",
-               "Update-ERESMatchingWorkflow")
+               "Update-ERESIdMappingWorkflow",
+               "Update-ERESMatchingWorkflow",
+               "Update-ERESSchemaMapping")
 }
 
 _awsArgumentCompleterRegistration $ERES_SelectCompleters $ERES_SelectMap

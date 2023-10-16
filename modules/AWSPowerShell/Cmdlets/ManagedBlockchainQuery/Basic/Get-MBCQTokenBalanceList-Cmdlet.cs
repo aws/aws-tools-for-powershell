@@ -28,10 +28,10 @@ using Amazon.ManagedBlockchainQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.MBCQ
 {
     /// <summary>
-    /// This action returns the following for a given a blockchain network:
+    /// This action returns the following for a given blockchain network:
     /// 
     ///  <ul><li><para>
-    /// Lists all token balances owned by an address (either a contact address or a wallet
+    /// Lists all token balances owned by an address (either a contract address or a wallet
     /// address).
     /// </para></li><li><para>
     /// Lists all token balances for all tokens created by a contract.

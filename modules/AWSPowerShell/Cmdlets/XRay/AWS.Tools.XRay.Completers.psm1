@@ -97,7 +97,7 @@ $XR_Completers = {
         # Amazon.XRay.TimeRangeType
         "Get-XRTraceSummary/TimeRangeType"
         {
-            $v = "Event","TraceId"
+            $v = "Event","Service","TraceId"
             break
         }
 

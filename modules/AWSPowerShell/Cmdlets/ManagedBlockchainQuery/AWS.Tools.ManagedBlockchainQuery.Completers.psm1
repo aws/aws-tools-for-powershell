@@ -89,6 +89,8 @@ $MBCQ_Completers = {
 
         # Amazon.ManagedBlockchainQuery.QueryNetwork
         {
+            ($_ -eq "Get-MBCQAssetContractList/ContractFilter_Network") -Or
+            ($_ -eq "Get-MBCQAssetContract/ContractIdentifier_Network") -Or
             ($_ -eq "Get-MBCQTransaction/Network") -Or
             ($_ -eq "Get-MBCQTransactionEventList/Network") -Or
             ($_ -eq "Get-MBCQTransactionList/Network") -Or
@@ -96,7 +98,14 @@ $MBCQ_Completers = {
             ($_ -eq "Get-MBCQTokenBalance/TokenIdentifier_Network")
         }
         {
-            $v = "BITCOIN_MAINNET","ETHEREUM_MAINNET"
+            $v = "BITCOIN_MAINNET","BITCOIN_TESTNET","ETHEREUM_MAINNET"
+            break
+        }
+
+        # Amazon.ManagedBlockchainQuery.QueryTokenStandard
+        "Get-MBCQAssetContractList/ContractFilter_TokenStandard"
+        {
+            $v = "ERC1155","ERC20","ERC721"
             break
         }
 
@@ -116,6 +125,9 @@ $MBCQ_Completers = {
 }
 
 $MBCQ_map = @{
+    "ContractFilter_Network"=@("Get-MBCQAssetContractList")
+    "ContractFilter_TokenStandard"=@("Get-MBCQAssetContractList")
+    "ContractIdentifier_Network"=@("Get-MBCQAssetContract")
     "Network"=@("Get-MBCQTransaction","Get-MBCQTransactionEventList","Get-MBCQTransactionList")
     "Sort_SortBy"=@("Get-MBCQTransactionList")
     "Sort_SortOrder"=@("Get-MBCQTransactionList")
@@ -174,8 +186,10 @@ $MBCQ_SelectCompleters = {
 
 $MBCQ_SelectMap = @{
     "Select"=@("Get-MBCQBatchTokenBalance",
+               "Get-MBCQAssetContract",
                "Get-MBCQTokenBalance",
                "Get-MBCQTransaction",
+               "Get-MBCQAssetContractList",
                "Get-MBCQTokenBalanceList",
                "Get-MBCQTransactionEventList",
                "Get-MBCQTransactionList")

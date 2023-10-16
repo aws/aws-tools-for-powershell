@@ -43,6 +43,30 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdminPasswordSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's
+        /// admin credentials secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdminPasswordSecretKmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ManageAdminPassword
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
+        /// snapshot's admin credentials. If <code>MmanageAdminPassword</code> is false or not
+        /// set, Amazon Redshift uses the admin credentials that the namespace or cluster had
+        /// at the time the snapshot was taken.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageAdminPassword { get; set; }
+        #endregion
+        
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
@@ -172,6 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.Select = (response, cmdlet) => this.NamespaceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AdminPasswordSecretKmsKeyId = this.AdminPasswordSecretKmsKeyId;
+            context.ManageAdminPassword = this.ManageAdminPassword;
             context.NamespaceName = this.NamespaceName;
             #if MODULAR
             if (this.NamespaceName == null && ParameterWasBound(nameof(this.NamespaceName)))
@@ -205,6 +231,14 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             // create request
             var request = new Amazon.RedshiftServerless.Model.RestoreFromSnapshotRequest();
             
+            if (cmdletContext.AdminPasswordSecretKmsKeyId != null)
+            {
+                request.AdminPasswordSecretKmsKeyId = cmdletContext.AdminPasswordSecretKmsKeyId;
+            }
+            if (cmdletContext.ManageAdminPassword != null)
+            {
+                request.ManageAdminPassword = cmdletContext.ManageAdminPassword.Value;
+            }
             if (cmdletContext.NamespaceName != null)
             {
                 request.NamespaceName = cmdletContext.NamespaceName;
@@ -286,6 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdminPasswordSecretKmsKeyId { get; set; }
+            public System.Boolean? ManageAdminPassword { get; set; }
             public System.String NamespaceName { get; set; }
             public System.String OwnerAccount { get; set; }
             public System.String SnapshotArn { get; set; }

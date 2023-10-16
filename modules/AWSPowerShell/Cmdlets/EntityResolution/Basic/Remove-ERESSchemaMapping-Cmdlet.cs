@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     /// <summary>
     /// Deletes the <code>SchemaMapping</code> with a given name. This operation will succeed
     /// even if a schema with the given name does not exist. This operation will fail if there
-    /// is a <code>DataIntegrationWorkflow</code> object that references the <code>SchemaMapping</code>
+    /// is a <code>MatchingWorkflow</code> object that references the <code>SchemaMapping</code>
     /// in the workflow's <code>InputSourceConfig</code>.
     /// </summary>
     [Cmdlet("Remove", "ERESSchemaMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

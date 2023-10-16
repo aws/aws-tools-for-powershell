@@ -49,6 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdminPasswordSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's
+        /// admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code>
+        /// is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdminPasswordSecretKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter AdminUsername
         /// <summary>
         /// <para>
@@ -64,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The password of the administrator for the first database created in the namespace.
-        /// This parameter must be updated together with <code>adminUsername</code>.</para>
+        /// This parameter must be updated together with <code>adminUsername</code>.</para><para>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is
+        /// true. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,6 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogExports")]
         public System.String[] LogExport { get; set; }
+        #endregion
+        
+        #region Parameter ManageAdminPassword
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's
+        /// admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code>
+        /// is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift
+        /// uses <code>adminUserPassword</code> for the admin user account's password. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageAdminPassword { get; set; }
         #endregion
         
         #region Parameter NamespaceName
@@ -197,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.Select = (response, cmdlet) => this.NamespaceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AdminPasswordSecretKmsKeyId = this.AdminPasswordSecretKmsKeyId;
             context.AdminUsername = this.AdminUsername;
             context.AdminUserPassword = this.AdminUserPassword;
             context.DefaultIamRoleArn = this.DefaultIamRoleArn;
@@ -209,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             {
                 context.LogExport = new List<System.String>(this.LogExport);
             }
+            context.ManageAdminPassword = this.ManageAdminPassword;
             context.NamespaceName = this.NamespaceName;
             #if MODULAR
             if (this.NamespaceName == null && ParameterWasBound(nameof(this.NamespaceName)))
@@ -232,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             // create request
             var request = new Amazon.RedshiftServerless.Model.UpdateNamespaceRequest();
             
+            if (cmdletContext.AdminPasswordSecretKmsKeyId != null)
+            {
+                request.AdminPasswordSecretKmsKeyId = cmdletContext.AdminPasswordSecretKmsKeyId;
+            }
             if (cmdletContext.AdminUsername != null)
             {
                 request.AdminUsername = cmdletContext.AdminUsername;
@@ -255,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.LogExport != null)
             {
                 request.LogExports = cmdletContext.LogExport;
+            }
+            if (cmdletContext.ManageAdminPassword != null)
+            {
+                request.ManageAdminPassword = cmdletContext.ManageAdminPassword.Value;
             }
             if (cmdletContext.NamespaceName != null)
             {
@@ -321,12 +357,14 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdminPasswordSecretKmsKeyId { get; set; }
             public System.String AdminUsername { get; set; }
             public System.String AdminUserPassword { get; set; }
             public System.String DefaultIamRoleArn { get; set; }
             public List<System.String> IamRole { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<System.String> LogExport { get; set; }
+            public System.Boolean? ManageAdminPassword { get; set; }
             public System.String NamespaceName { get; set; }
             public System.Func<Amazon.RedshiftServerless.Model.UpdateNamespaceResponse, UpdateRSSNamespaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Namespace;

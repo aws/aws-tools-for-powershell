@@ -22,37 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Redshift;
-using Amazon.Redshift.Model;
+using Amazon.EntityResolution;
+using Amazon.EntityResolution.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RS
+namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Reboots a cluster. This action is taken as soon as possible. It results in a momentary
-    /// outage to the cluster, during which the cluster status is set to <code>rebooting</code>.
-    /// A cluster event is created when the reboot is completed. Any pending cluster modifications
-    /// (see <a>ModifyCluster</a>) are applied at this reboot. For more information about
-    /// managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
-    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+    /// Lists all ID mapping jobs for a given workflow.
     /// </summary>
-    [Cmdlet("Restart", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Redshift.Model.Cluster")]
-    [AWSCmdlet("Calls the Amazon Redshift RebootCluster API operation.", Operation = new[] {"RebootCluster"}, SelectReturnType = typeof(Amazon.Redshift.Model.RebootClusterResponse))]
-    [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.RebootClusterResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.RebootClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ERESIdMappingJobList")]
+    [OutputType("Amazon.EntityResolution.Model.JobSummary")]
+    [AWSCmdlet("Calls the AWS EntityResolution ListIdMappingJobs API operation.", Operation = new[] {"ListIdMappingJobs"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListIdMappingJobsResponse))]
+    [AWSCmdletOutput("Amazon.EntityResolution.Model.JobSummary or Amazon.EntityResolution.Model.ListIdMappingJobsResponse",
+        "This cmdlet returns a collection of Amazon.EntityResolution.Model.JobSummary objects.",
+        "The service call response (type Amazon.EntityResolution.Model.ListIdMappingJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestartRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class GetERESIdMappingJobListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterIdentifier
+        #region Parameter WorkflowName
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier.</para>
+        /// <para>The name of the workflow to be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,50 +56,55 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterIdentifier { get; set; }
+        public System.String WorkflowName { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of objects returned per page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The pagination token from the previous API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.RebootClusterResponse).
-        /// Specifying the name of a property of type Amazon.Redshift.Model.RebootClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Jobs'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.ListIdMappingJobsResponse).
+        /// Specifying the name of a property of type Amazon.EntityResolution.Model.ListIdMappingJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Cluster";
+        public string Select { get; set; } = "Jobs";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkflowName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-RSCluster (RebootCluster)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -116,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.RebootClusterResponse, RestartRSClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.ListIdMappingJobsResponse, GetERESIdMappingJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,14 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterIdentifier;
+                context.Select = (response, cmdlet) => this.WorkflowName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClusterIdentifier = this.ClusterIdentifier;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.WorkflowName = this.WorkflowName;
             #if MODULAR
-            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
+            if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkflowName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,11 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Redshift.Model.RebootClusterRequest();
+            var request = new Amazon.EntityResolution.Model.ListIdMappingJobsRequest();
             
-            if (cmdletContext.ClusterIdentifier != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.WorkflowName != null)
+            {
+                request.WorkflowName = cmdletContext.WorkflowName;
             }
             
             CmdletOutput output;
@@ -188,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private Amazon.Redshift.Model.RebootClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RebootClusterRequest request)
+        private Amazon.EntityResolution.Model.ListIdMappingJobsResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.ListIdMappingJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RebootCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "ListIdMappingJobs");
             try
             {
                 #if DESKTOP
-                return client.RebootCluster(request);
+                return client.ListIdMappingJobs(request);
                 #elif CORECLR
-                return client.RebootClusterAsync(request).GetAwaiter().GetResult();
+                return client.ListIdMappingJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,9 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClusterIdentifier { get; set; }
-            public System.Func<Amazon.Redshift.Model.RebootClusterResponse, RestartRSClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Cluster;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String WorkflowName { get; set; }
+            public System.Func<Amazon.EntityResolution.Model.ListIdMappingJobsResponse, GetERESIdMappingJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Jobs;
         }
         
     }

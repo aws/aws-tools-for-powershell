@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
         #endregion
         
+        #region Parameter LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID
+        /// <summary>
+        /// <para>
+        /// <para>Optionally holds EC2 instance ID of an instance to launch into, instead of launching
+        /// a new instance during drill, recovery or failback.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -198,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             context.CopyPrivateIp = this.CopyPrivateIp;
             context.CopyTag = this.CopyTag;
             context.LaunchDisposition = this.LaunchDisposition;
+            context.LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID = this.LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID;
             context.Licensing_OsByol = this.Licensing_OsByol;
             context.Name = this.Name;
             context.PostLaunchEnabled = this.PostLaunchEnabled;
@@ -236,6 +248,25 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.LaunchDisposition != null)
             {
                 request.LaunchDisposition = cmdletContext.LaunchDisposition;
+            }
+            
+             // populate LaunchIntoInstanceProperties
+            var requestLaunchIntoInstancePropertiesIsNull = true;
+            request.LaunchIntoInstanceProperties = new Amazon.Drs.Model.LaunchIntoInstanceProperties();
+            System.String requestLaunchIntoInstanceProperties_launchIntoInstanceProperties_LaunchIntoEC2InstanceID = null;
+            if (cmdletContext.LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID != null)
+            {
+                requestLaunchIntoInstanceProperties_launchIntoInstanceProperties_LaunchIntoEC2InstanceID = cmdletContext.LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID;
+            }
+            if (requestLaunchIntoInstanceProperties_launchIntoInstanceProperties_LaunchIntoEC2InstanceID != null)
+            {
+                request.LaunchIntoInstanceProperties.LaunchIntoEC2InstanceID = requestLaunchIntoInstanceProperties_launchIntoInstanceProperties_LaunchIntoEC2InstanceID;
+                requestLaunchIntoInstancePropertiesIsNull = false;
+            }
+             // determine if request.LaunchIntoInstanceProperties should be set to null
+            if (requestLaunchIntoInstancePropertiesIsNull)
+            {
+                request.LaunchIntoInstanceProperties = null;
             }
             
              // populate Licensing
@@ -336,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public System.Boolean? CopyPrivateIp { get; set; }
             public System.Boolean? CopyTag { get; set; }
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
+            public System.String LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? PostLaunchEnabled { get; set; }

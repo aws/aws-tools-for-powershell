@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         public Amazon.EntityResolution.Model.InputSource[] InputSourceConfig { get; set; }
         #endregion
         
+        #region Parameter IntermediateSourceConfiguration_IntermediateS3Path
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location (bucket and prefix). For example: <code>s3://provider_bucket/DOC-EXAMPLE-BUCKET</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_IntermediateS3Path")]
+        public System.String IntermediateSourceConfiguration_IntermediateS3Path { get; set; }
+        #endregion
+        
         #region Parameter OutputSourceConfig
         /// <summary>
         /// <para>
@@ -119,6 +130,28 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.EntityResolution.Model.OutputSource[] OutputSourceConfig { get; set; }
+        #endregion
+        
+        #region Parameter ProviderProperties_ProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The required configuration fields to use with the provider service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResolutionTechniques_ProviderProperties_ProviderConfiguration")]
+        public System.Management.Automation.PSObject ProviderProperties_ProviderConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ProviderProperties_ProviderServiceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the provider service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResolutionTechniques_ProviderProperties_ProviderServiceArn")]
+        public System.String ProviderProperties_ProviderServiceArn { get; set; }
         #endregion
         
         #region Parameter ResolutionTechniques_ResolutionType
@@ -183,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter WorkflowName
         /// <summary>
         /// <para>
-        /// <para>The name of the workflow. There cannot be multiple <code>DataIntegrationWorkflows</code>
-        /// with the same name.</para>
+        /// <para>The name of the workflow. There can't be multiple <code>MatchingWorkflows</code> with
+        /// the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -262,6 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 WriteWarning("You are passing $null as a value for parameter OutputSourceConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IntermediateSourceConfiguration_IntermediateS3Path = this.IntermediateSourceConfiguration_IntermediateS3Path;
+            context.ProviderProperties_ProviderConfiguration = this.ProviderProperties_ProviderConfiguration;
+            context.ProviderProperties_ProviderServiceArn = this.ProviderProperties_ProviderServiceArn;
             context.ResolutionTechniques_ResolutionType = this.ResolutionTechniques_ResolutionType;
             #if MODULAR
             if (this.ResolutionTechniques_ResolutionType == null && ParameterWasBound(nameof(this.ResolutionTechniques_ResolutionType)))
@@ -392,6 +428,66 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 request.ResolutionTechniques.RuleBasedProperties = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties;
                 requestResolutionTechniquesIsNull = false;
             }
+            Amazon.EntityResolution.Model.ProviderProperties requestResolutionTechniques_resolutionTechniques_ProviderProperties = null;
+            
+             // populate ProviderProperties
+            var requestResolutionTechniques_resolutionTechniques_ProviderPropertiesIsNull = true;
+            requestResolutionTechniques_resolutionTechniques_ProviderProperties = new Amazon.EntityResolution.Model.ProviderProperties();
+            Amazon.Runtime.Documents.Document? requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderConfiguration = null;
+            if (cmdletContext.ProviderProperties_ProviderConfiguration != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderConfiguration = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.ProviderProperties_ProviderConfiguration);
+            }
+            if (requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderConfiguration != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties.ProviderConfiguration = requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderConfiguration.Value;
+                requestResolutionTechniques_resolutionTechniques_ProviderPropertiesIsNull = false;
+            }
+            System.String requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderServiceArn = null;
+            if (cmdletContext.ProviderProperties_ProviderServiceArn != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderServiceArn = cmdletContext.ProviderProperties_ProviderServiceArn;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderServiceArn != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties.ProviderServiceArn = requestResolutionTechniques_resolutionTechniques_ProviderProperties_providerProperties_ProviderServiceArn;
+                requestResolutionTechniques_resolutionTechniques_ProviderPropertiesIsNull = false;
+            }
+            Amazon.EntityResolution.Model.IntermediateSourceConfiguration requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration = null;
+            
+             // populate IntermediateSourceConfiguration
+            var requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfigurationIsNull = true;
+            requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration = new Amazon.EntityResolution.Model.IntermediateSourceConfiguration();
+            System.String requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_intermediateSourceConfiguration_IntermediateS3Path = null;
+            if (cmdletContext.IntermediateSourceConfiguration_IntermediateS3Path != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_intermediateSourceConfiguration_IntermediateS3Path = cmdletContext.IntermediateSourceConfiguration_IntermediateS3Path;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_intermediateSourceConfiguration_IntermediateS3Path != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration.IntermediateS3Path = requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_intermediateSourceConfiguration_IntermediateS3Path;
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfigurationIsNull = false;
+            }
+             // determine if requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration should be set to null
+            if (requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfigurationIsNull)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration = null;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties.IntermediateSourceConfiguration = requestResolutionTechniques_resolutionTechniques_ProviderProperties_resolutionTechniques_ProviderProperties_IntermediateSourceConfiguration;
+                requestResolutionTechniques_resolutionTechniques_ProviderPropertiesIsNull = false;
+            }
+             // determine if requestResolutionTechniques_resolutionTechniques_ProviderProperties should be set to null
+            if (requestResolutionTechniques_resolutionTechniques_ProviderPropertiesIsNull)
+            {
+                requestResolutionTechniques_resolutionTechniques_ProviderProperties = null;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_ProviderProperties != null)
+            {
+                request.ResolutionTechniques.ProviderProperties = requestResolutionTechniques_resolutionTechniques_ProviderProperties;
+                requestResolutionTechniquesIsNull = false;
+            }
              // determine if request.ResolutionTechniques should be set to null
             if (requestResolutionTechniquesIsNull)
             {
@@ -474,6 +570,9 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public Amazon.EntityResolution.IncrementalRunType IncrementalRunConfig_IncrementalRunType { get; set; }
             public List<Amazon.EntityResolution.Model.InputSource> InputSourceConfig { get; set; }
             public List<Amazon.EntityResolution.Model.OutputSource> OutputSourceConfig { get; set; }
+            public System.String IntermediateSourceConfiguration_IntermediateS3Path { get; set; }
+            public System.Management.Automation.PSObject ProviderProperties_ProviderConfiguration { get; set; }
+            public System.String ProviderProperties_ProviderServiceArn { get; set; }
             public Amazon.EntityResolution.ResolutionType ResolutionTechniques_ResolutionType { get; set; }
             public Amazon.EntityResolution.AttributeMatchingModel RuleBasedProperties_AttributeMatchingModel { get; set; }
             public List<Amazon.EntityResolution.Model.Rule> RuleBasedProperties_Rule { get; set; }

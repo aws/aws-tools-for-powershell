@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
         #endregion
         
+        #region Parameter LaunchIntoSourceInstance
+        /// <summary>
+        /// <para>
+        /// <para>DRS will set the 'launch into instance ID' of any source server when performing a
+        /// drill, recovery or failback to the previous region or availability zone, using the
+        /// instance ID of the source instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LaunchIntoSourceInstance { get; set; }
+        #endregion
+        
         #region Parameter Licensing_OsByol
         /// <summary>
         /// <para>
@@ -176,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             context.CopyTag = this.CopyTag;
             context.ExportBucketArn = this.ExportBucketArn;
             context.LaunchDisposition = this.LaunchDisposition;
+            context.LaunchIntoSourceInstance = this.LaunchIntoSourceInstance;
             context.Licensing_OsByol = this.Licensing_OsByol;
             context.PostLaunchEnabled = this.PostLaunchEnabled;
             if (this.Tag != null)
@@ -218,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.LaunchDisposition != null)
             {
                 request.LaunchDisposition = cmdletContext.LaunchDisposition;
+            }
+            if (cmdletContext.LaunchIntoSourceInstance != null)
+            {
+                request.LaunchIntoSourceInstance = cmdletContext.LaunchIntoSourceInstance.Value;
             }
             
              // populate Licensing
@@ -315,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public System.Boolean? CopyTag { get; set; }
             public System.String ExportBucketArn { get; set; }
             public Amazon.Drs.LaunchDisposition LaunchDisposition { get; set; }
+            public System.Boolean? LaunchIntoSourceInstance { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
             public System.Boolean? PostLaunchEnabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

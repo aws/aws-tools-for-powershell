@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>The number of results to show in a single call to <code>ListEmailTemplates</code>.
         /// If the number of results is larger than the number you specified in this parameter,
         /// then the response includes a <code>NextToken</code> element, which you can use to
-        /// obtain additional results.</para><para>The value you specify has to be at least 1, and can be no more than 10.</para>
+        /// obtain additional results.</para><para>The value you specify has to be at least 1, and can be no more than 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,18 +28,20 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Creates a schema mapping, which defines the schema of the input customer records table.
-    /// The <code>SchemaMapping</code> also provides Entity Resolution with some metadata
-    /// about the table, such as the attribute types of the columns and which columns to match
-    /// on.
+    /// Updates a schema mapping.
+    /// 
+    ///  <note><para>
+    /// A schema is immutable if it is being used by a workflow. Therefore, you can't update
+    /// a schema mapping if it's associated with a workflow. 
+    /// </para></note>
     /// </summary>
-    [Cmdlet("New", "ERESSchemaMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EntityResolution.Model.CreateSchemaMappingResponse")]
-    [AWSCmdlet("Calls the AWS EntityResolution CreateSchemaMapping API operation.", Operation = new[] {"CreateSchemaMapping"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.CreateSchemaMappingResponse))]
-    [AWSCmdletOutput("Amazon.EntityResolution.Model.CreateSchemaMappingResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.CreateSchemaMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "ERESSchemaMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EntityResolution.Model.UpdateSchemaMappingResponse")]
+    [AWSCmdlet("Calls the AWS EntityResolution UpdateSchemaMapping API operation.", Operation = new[] {"UpdateSchemaMapping"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.UpdateSchemaMappingResponse))]
+    [AWSCmdletOutput("Amazon.EntityResolution.Model.UpdateSchemaMappingResponse",
+        "This cmdlet returns an Amazon.EntityResolution.Model.UpdateSchemaMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewERESSchemaMappingCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
+    public partial class UpdateERESSchemaMappingCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -92,22 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         public System.String SchemaName { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.CreateSchemaMappingResponse).
-        /// Specifying the name of a property of type Amazon.EntityResolution.Model.CreateSchemaMappingResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.UpdateSchemaMappingResponse).
+        /// Specifying the name of a property of type Amazon.EntityResolution.Model.UpdateSchemaMappingResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SchemaName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ERESSchemaMapping (CreateSchemaMapping)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ERESSchemaMapping (UpdateSchemaMapping)"))
             {
                 return;
             }
@@ -153,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.CreateSchemaMappingResponse, NewERESSchemaMappingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.UpdateSchemaMappingResponse, UpdateERESSchemaMappingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -183,14 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 WriteWarning("You are passing $null as a value for parameter SchemaName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EntityResolution.Model.CreateSchemaMappingRequest();
+            var request = new Amazon.EntityResolution.Model.UpdateSchemaMappingRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -218,10 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             if (cmdletContext.SchemaName != null)
             {
                 request.SchemaName = cmdletContext.SchemaName;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -256,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         #region AWS Service Operation Call
         
-        private Amazon.EntityResolution.Model.CreateSchemaMappingResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.CreateSchemaMappingRequest request)
+        private Amazon.EntityResolution.Model.UpdateSchemaMappingResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.UpdateSchemaMappingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "CreateSchemaMapping");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "UpdateSchemaMapping");
             try
             {
                 #if DESKTOP
-                return client.CreateSchemaMapping(request);
+                return client.UpdateSchemaMapping(request);
                 #elif CORECLR
-                return client.CreateSchemaMappingAsync(request).GetAwaiter().GetResult();
+                return client.UpdateSchemaMappingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -287,8 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public System.String Description { get; set; }
             public List<Amazon.EntityResolution.Model.SchemaInputAttribute> MappedInputField { get; set; }
             public System.String SchemaName { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.EntityResolution.Model.CreateSchemaMappingResponse, NewERESSchemaMappingCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.EntityResolution.Model.UpdateSchemaMappingResponse, UpdateERESSchemaMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

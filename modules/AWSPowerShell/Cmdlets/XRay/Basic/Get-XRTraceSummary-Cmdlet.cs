@@ -123,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter TimeRangeType
         /// <summary>
         /// <para>
-        /// <para>A parameter to indicate whether to query trace summaries by TraceId or Event time.</para>
+        /// <para>A parameter to indicate whether to query trace summaries by TraceId, Event (trace
+        /// update time), or Service (segment end time).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

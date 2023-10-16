@@ -1,4 +1,36 @@
-﻿### 4.1.430 (2023-10-12 21:24Z)
+﻿### 4.1.431 (2023-10-16 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.663.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Disaster Recovery Service
+    * Modified cmdlet New-EDRSLaunchConfigurationTemplate: added parameter LaunchIntoSourceInstance.
+    * Modified cmdlet Update-EDRSLaunchConfiguration: added parameter LaunchIntoInstanceProperties_LaunchIntoEC2InstanceID.
+    * Modified cmdlet Update-EDRSLaunchConfigurationTemplate: added parameter LaunchIntoSourceInstance.
+  * Amazon EntityResolution
+    * Added cmdlet Get-ERESIdMappingJob leveraging the GetIdMappingJob service API.
+    * Added cmdlet Get-ERESIdMappingJobList leveraging the ListIdMappingJobs service API.
+    * Added cmdlet Get-ERESIdMappingWorkflow leveraging the GetIdMappingWorkflow service API.
+    * Added cmdlet Get-ERESIdMappingWorkflowList leveraging the ListIdMappingWorkflows service API.
+    * Added cmdlet Get-ERESProviderService leveraging the GetProviderService service API.
+    * Added cmdlet Get-ERESProviderServiceList leveraging the ListProviderServices service API.
+    * Added cmdlet New-ERESIdMappingWorkflow leveraging the CreateIdMappingWorkflow service API.
+    * Added cmdlet Remove-ERESIdMappingWorkflow leveraging the DeleteIdMappingWorkflow service API.
+    * Added cmdlet Start-ERESIdMappingJob leveraging the StartIdMappingJob service API.
+    * Added cmdlet Update-ERESIdMappingWorkflow leveraging the UpdateIdMappingWorkflow service API.
+    * Added cmdlet Update-ERESSchemaMapping leveraging the UpdateSchemaMapping service API.
+    * Modified cmdlet New-ERESMatchingWorkflow: added parameters IntermediateSourceConfiguration_IntermediateS3Path, ProviderProperties_ProviderConfiguration and ProviderProperties_ProviderServiceArn.
+    * Modified cmdlet Update-ERESMatchingWorkflow: added parameters IntermediateSourceConfiguration_IntermediateS3Path, ProviderProperties_ProviderConfiguration and ProviderProperties_ProviderServiceArn.
+  * Amazon Managed Blockchain Query
+    * Added cmdlet Get-MBCQAssetContract leveraging the GetAssetContract service API.
+    * Added cmdlet Get-MBCQAssetContractList leveraging the ListAssetContracts service API.
+  * Amazon Redshift
+    * Modified cmdlet Edit-RSCluster: added parameters ManageMasterPassword and MasterPasswordSecretKmsKeyId.
+    * Modified cmdlet New-RSCluster: added parameters ManageMasterPassword and MasterPasswordSecretKmsKeyId.
+    * Modified cmdlet Restore-RSFromClusterSnapshot: added parameters ManageMasterPassword and MasterPasswordSecretKmsKeyId.
+  * Amazon Redshift Serverless
+    * Modified cmdlet New-RSSNamespace: added parameters AdminPasswordSecretKmsKeyId and ManageAdminPassword.
+    * Modified cmdlet Restore-RSSFromSnapshot: added parameters AdminPasswordSecretKmsKeyId and ManageAdminPassword.
+    * Modified cmdlet Update-RSSNamespace: added parameters AdminPasswordSecretKmsKeyId and ManageAdminPassword.
+
+### 4.1.430 (2023-10-12 21:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.662.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Tower
     * Added cmdlet Get-ACTEnabledControl leveraging the GetEnabledControl service API.

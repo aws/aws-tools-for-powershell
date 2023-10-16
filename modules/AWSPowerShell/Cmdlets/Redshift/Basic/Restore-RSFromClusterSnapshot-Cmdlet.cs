@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class RestoreRSFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AdditionalInfo
@@ -288,6 +290,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MaintenanceTrackName { get; set; }
         #endregion
         
+        #region Parameter ManageMasterPassword
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
+        /// cluster's admin credentials. If <code>ManageMasterPassword</code> is false or not
+        /// set, Amazon Redshift uses the admin credentials the cluster had at the time the snapshot
+        /// was taken.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterPassword { get; set; }
+        #endregion
+        
         #region Parameter ManualSnapshotRetentionPeriod
         /// <summary>
         /// <para>
@@ -298,6 +313,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
+        #region Parameter MasterPasswordSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's
+        /// admin credentials secret. You can only use this parameter if <code>ManageMasterPassword</code>
+        /// is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterPasswordSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter NodeType
@@ -544,7 +571,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
+            context.ManageMasterPassword = this.ManageMasterPassword;
             context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
+            context.MasterPasswordSecretKmsKeyId = this.MasterPasswordSecretKmsKeyId;
             context.NodeType = this.NodeType;
             context.NumberOfNode = this.NumberOfNode;
             context.OwnerAccount = this.OwnerAccount;
@@ -653,9 +682,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
+            if (cmdletContext.ManageMasterPassword != null)
+            {
+                request.ManageMasterPassword = cmdletContext.ManageMasterPassword.Value;
+            }
             if (cmdletContext.ManualSnapshotRetentionPeriod != null)
             {
                 request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
+            }
+            if (cmdletContext.MasterPasswordSecretKmsKeyId != null)
+            {
+                request.MasterPasswordSecretKmsKeyId = cmdletContext.MasterPasswordSecretKmsKeyId;
             }
             if (cmdletContext.NodeType != null)
             {
@@ -789,7 +826,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public List<System.String> IamRole { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceTrackName { get; set; }
+            public System.Boolean? ManageMasterPassword { get; set; }
             public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
+            public System.String MasterPasswordSecretKmsKeyId { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNode { get; set; }
             public System.String OwnerAccount { get; set; }

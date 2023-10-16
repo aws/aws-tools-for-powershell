@@ -22,37 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Redshift;
-using Amazon.Redshift.Model;
+using Amazon.EntityResolution;
+using Amazon.EntityResolution.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RS
+namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Reboots a cluster. This action is taken as soon as possible. It results in a momentary
-    /// outage to the cluster, during which the cluster status is set to <code>rebooting</code>.
-    /// A cluster event is created when the reboot is completed. Any pending cluster modifications
-    /// (see <a>ModifyCluster</a>) are applied at this reboot. For more information about
-    /// managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
-    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+    /// Deletes the <code>IdMappingWorkflow</code> with a given name. This operation will
+    /// succeed even if a workflow with the given name does not exist.
     /// </summary>
-    [Cmdlet("Restart", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Redshift.Model.Cluster")]
-    [AWSCmdlet("Calls the Amazon Redshift RebootCluster API operation.", Operation = new[] {"RebootCluster"}, SelectReturnType = typeof(Amazon.Redshift.Model.RebootClusterResponse))]
-    [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.RebootClusterResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.RebootClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ERESIdMappingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS EntityResolution DeleteIdMappingWorkflow API operation.", Operation = new[] {"DeleteIdMappingWorkflow"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse))]
+    [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestartRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class RemoveERESIdMappingWorkflowCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterIdentifier
+        #region Parameter WorkflowName
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier.</para>
+        /// <para>The name of the workflow to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterIdentifier { get; set; }
+        public System.String WorkflowName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.RebootClusterResponse).
-        /// Specifying the name of a property of type Amazon.Redshift.Model.RebootClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Message'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse).
+        /// Specifying the name of a property of type Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Cluster";
+        public string Select { get; set; } = "Message";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkflowName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -102,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-RSCluster (RebootCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkflowName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ERESIdMappingWorkflow (DeleteIdMappingWorkflow)"))
             {
                 return;
             }
@@ -116,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.RebootClusterResponse, RestartRSClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse, RemoveERESIdMappingWorkflowCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,14 +119,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterIdentifier;
+                context.Select = (response, cmdlet) => this.WorkflowName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClusterIdentifier = this.ClusterIdentifier;
+            context.WorkflowName = this.WorkflowName;
             #if MODULAR
-            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
+            if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkflowName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,11 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Redshift.Model.RebootClusterRequest();
+            var request = new Amazon.EntityResolution.Model.DeleteIdMappingWorkflowRequest();
             
-            if (cmdletContext.ClusterIdentifier != null)
+            if (cmdletContext.WorkflowName != null)
             {
-                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+                request.WorkflowName = cmdletContext.WorkflowName;
             }
             
             CmdletOutput output;
@@ -188,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private Amazon.Redshift.Model.RebootClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RebootClusterRequest request)
+        private Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.DeleteIdMappingWorkflowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RebootCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "DeleteIdMappingWorkflow");
             try
             {
                 #if DESKTOP
-                return client.RebootCluster(request);
+                return client.DeleteIdMappingWorkflow(request);
                 #elif CORECLR
-                return client.RebootClusterAsync(request).GetAwaiter().GetResult();
+                return client.DeleteIdMappingWorkflowAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,9 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClusterIdentifier { get; set; }
-            public System.Func<Amazon.Redshift.Model.RebootClusterResponse, RestartRSClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Cluster;
+            public System.String WorkflowName { get; set; }
+            public System.Func<Amazon.EntityResolution.Model.DeleteIdMappingWorkflowResponse, RemoveERESIdMappingWorkflowCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Message;
         }
         
     }

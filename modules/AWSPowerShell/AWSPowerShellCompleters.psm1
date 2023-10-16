@@ -24143,6 +24143,16 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.IdMappingType
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType")
+        }
+        {
+            $v = "PROVIDER"
+            break
+        }
+
         # Amazon.EntityResolution.IncrementalRunType
         {
             ($_ -eq "New-ERESMatchingWorkflow/IncrementalRunConfig_IncrementalRunType") -Or
@@ -24159,7 +24169,7 @@ $ERES_Completers = {
             ($_ -eq "Update-ERESMatchingWorkflow/ResolutionTechniques_ResolutionType")
         }
         {
-            $v = "ML_MATCHING","RULE_MATCHING"
+            $v = "ML_MATCHING","PROVIDER","RULE_MATCHING"
             break
         }
 
@@ -24172,6 +24182,7 @@ $ERES_Completers = {
 }
 
 $ERES_map = @{
+    "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
@@ -24227,22 +24238,33 @@ $ERES_SelectCompleters = {
 }
 
 $ERES_SelectMap = @{
-    "Select"=@("New-ERESMatchingWorkflow",
+    "Select"=@("New-ERESIdMappingWorkflow",
+               "New-ERESMatchingWorkflow",
                "New-ERESSchemaMapping",
+               "Remove-ERESIdMappingWorkflow",
                "Remove-ERESMatchingWorkflow",
                "Remove-ERESSchemaMapping",
+               "Get-ERESIdMappingJob",
+               "Get-ERESIdMappingWorkflow",
                "Get-ERESMatchId",
                "Get-ERESMatchingJob",
                "Get-ERESMatchingWorkflow",
+               "Get-ERESProviderService",
                "Get-ERESSchemaMapping",
+               "Get-ERESIdMappingJobList",
+               "Get-ERESIdMappingWorkflowList",
                "Get-ERESMatchingJobList",
                "Get-ERESMatchingWorkflowList",
+               "Get-ERESProviderServiceList",
                "Get-ERESSchemaMappingList",
                "Get-ERESResourceTag",
+               "Start-ERESIdMappingJob",
                "Start-ERESMatchingJob",
                "Add-ERESResourceTag",
                "Remove-ERESResourceTag",
-               "Update-ERESMatchingWorkflow")
+               "Update-ERESIdMappingWorkflow",
+               "Update-ERESMatchingWorkflow",
+               "Update-ERESSchemaMapping")
 }
 
 _awsArgumentCompleterRegistration $ERES_SelectCompleters $ERES_SelectMap
@@ -38539,6 +38561,8 @@ $MBCQ_Completers = {
 
         # Amazon.ManagedBlockchainQuery.QueryNetwork
         {
+            ($_ -eq "Get-MBCQAssetContractList/ContractFilter_Network") -Or
+            ($_ -eq "Get-MBCQAssetContract/ContractIdentifier_Network") -Or
             ($_ -eq "Get-MBCQTransaction/Network") -Or
             ($_ -eq "Get-MBCQTransactionEventList/Network") -Or
             ($_ -eq "Get-MBCQTransactionList/Network") -Or
@@ -38546,7 +38570,14 @@ $MBCQ_Completers = {
             ($_ -eq "Get-MBCQTokenBalance/TokenIdentifier_Network")
         }
         {
-            $v = "BITCOIN_MAINNET","ETHEREUM_MAINNET"
+            $v = "BITCOIN_MAINNET","BITCOIN_TESTNET","ETHEREUM_MAINNET"
+            break
+        }
+
+        # Amazon.ManagedBlockchainQuery.QueryTokenStandard
+        "Get-MBCQAssetContractList/ContractFilter_TokenStandard"
+        {
+            $v = "ERC1155","ERC20","ERC721"
             break
         }
 
@@ -38566,6 +38597,9 @@ $MBCQ_Completers = {
 }
 
 $MBCQ_map = @{
+    "ContractFilter_Network"=@("Get-MBCQAssetContractList")
+    "ContractFilter_TokenStandard"=@("Get-MBCQAssetContractList")
+    "ContractIdentifier_Network"=@("Get-MBCQAssetContract")
     "Network"=@("Get-MBCQTransaction","Get-MBCQTransactionEventList","Get-MBCQTransactionList")
     "Sort_SortBy"=@("Get-MBCQTransactionList")
     "Sort_SortOrder"=@("Get-MBCQTransactionList")
@@ -38624,8 +38658,10 @@ $MBCQ_SelectCompleters = {
 
 $MBCQ_SelectMap = @{
     "Select"=@("Get-MBCQBatchTokenBalance",
+               "Get-MBCQAssetContract",
                "Get-MBCQTokenBalance",
                "Get-MBCQTransaction",
+               "Get-MBCQAssetContractList",
                "Get-MBCQTokenBalanceList",
                "Get-MBCQTransactionEventList",
                "Get-MBCQTransactionList")
@@ -44239,7 +44275,7 @@ $OS_Completers = {
         # Amazon.OpenSearchService.PackageType
         "New-OSPackage/PackageType"
         {
-            $v = "TXT-DICTIONARY"
+            $v = "TXT-DICTIONARY","ZIP-PLUGIN"
             break
         }
 
@@ -64181,7 +64217,7 @@ $XR_Completers = {
         # Amazon.XRay.TimeRangeType
         "Get-XRTraceSummary/TimeRangeType"
         {
-            $v = "Event","TraceId"
+            $v = "Event","Service","TraceId"
             break
         }
 

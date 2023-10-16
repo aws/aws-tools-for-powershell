@@ -28,36 +28,20 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Lists all jobs for a given workflow.
+    /// Returns a list of all the <code>IdMappingWorkflows</code> that have been created for
+    /// an Amazon Web Services account.
     /// </summary>
-    [Cmdlet("Get", "ERESMatchingJobList")]
-    [OutputType("Amazon.EntityResolution.Model.JobSummary")]
-    [AWSCmdlet("Calls the AWS EntityResolution ListMatchingJobs API operation.", Operation = new[] {"ListMatchingJobs"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListMatchingJobsResponse))]
-    [AWSCmdletOutput("Amazon.EntityResolution.Model.JobSummary or Amazon.EntityResolution.Model.ListMatchingJobsResponse",
-        "This cmdlet returns a collection of Amazon.EntityResolution.Model.JobSummary objects.",
-        "The service call response (type Amazon.EntityResolution.Model.ListMatchingJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ERESIdMappingWorkflowList")]
+    [OutputType("Amazon.EntityResolution.Model.IdMappingWorkflowSummary")]
+    [AWSCmdlet("Calls the AWS EntityResolution ListIdMappingWorkflows API operation.", Operation = new[] {"ListIdMappingWorkflows"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse))]
+    [AWSCmdletOutput("Amazon.EntityResolution.Model.IdMappingWorkflowSummary or Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse",
+        "This cmdlet returns a collection of Amazon.EntityResolution.Model.IdMappingWorkflowSummary objects.",
+        "The service call response (type Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetERESMatchingJobListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
+    public partial class GetERESIdMappingWorkflowListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter WorkflowName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the workflow to be retrieved.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkflowName { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -82,23 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Jobs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.ListMatchingJobsResponse).
-        /// Specifying the name of a property of type Amazon.EntityResolution.Model.ListMatchingJobsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkflowSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse).
+        /// Specifying the name of a property of type Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Jobs";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkflowName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "WorkflowSummaries";
         #endregion
         
         protected override void ProcessRecord()
@@ -111,30 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.ListMatchingJobsResponse, GetERESMatchingJobListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse, GetERESIdMappingWorkflowListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.WorkflowName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.WorkflowName = this.WorkflowName;
-            #if MODULAR
-            if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkflowName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EntityResolution.Model.ListMatchingJobsRequest();
+            var request = new Amazon.EntityResolution.Model.ListIdMappingWorkflowsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -158,10 +115,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.WorkflowName != null)
-            {
-                request.WorkflowName = cmdletContext.WorkflowName;
             }
             
             CmdletOutput output;
@@ -196,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         #region AWS Service Operation Call
         
-        private Amazon.EntityResolution.Model.ListMatchingJobsResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.ListMatchingJobsRequest request)
+        private Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.ListIdMappingWorkflowsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "ListMatchingJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "ListIdMappingWorkflows");
             try
             {
                 #if DESKTOP
-                return client.ListMatchingJobs(request);
+                return client.ListIdMappingWorkflows(request);
                 #elif CORECLR
-                return client.ListMatchingJobsAsync(request).GetAwaiter().GetResult();
+                return client.ListIdMappingWorkflowsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -226,9 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String WorkflowName { get; set; }
-            public System.Func<Amazon.EntityResolution.Model.ListMatchingJobsResponse, GetERESMatchingJobListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Jobs;
+            public System.Func<Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse, GetERESIdMappingWorkflowListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.WorkflowSummaries;
         }
         
     }

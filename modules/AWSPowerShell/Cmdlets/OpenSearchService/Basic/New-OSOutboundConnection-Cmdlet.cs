@@ -144,7 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CrossClusterSearch_SkipUnavailable
         /// <summary>
         /// <para>
-        /// <para>Status of SkipUnavailable param for outbound connection.</para>
+        /// <para>The status of the <code>SkipUnavailable</code> setting for the outbound connection.
+        /// This feature allows you to specify some clusters as optional and ensure that your
+        /// cross-cluster queries return partial results despite failures on one or more remote
+        /// clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token from the previous <code>ListSchemaMappings</code> API call.</para>
+        /// <para>The pagination token from the previous API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

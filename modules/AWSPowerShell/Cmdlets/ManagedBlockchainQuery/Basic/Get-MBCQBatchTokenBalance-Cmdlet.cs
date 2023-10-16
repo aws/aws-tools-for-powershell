@@ -28,7 +28,7 @@ using Amazon.ManagedBlockchainQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.MBCQ
 {
     /// <summary>
-    /// Gets the token balance for a batch of tokens by using the <code>GetTokenBalance</code>
+    /// Gets the token balance for a batch of tokens by using the <code>BatchGetTokenBalance</code>
     /// action for every token in the request.
     /// 
     ///  <note><para>
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter GetTokenBalanceInput
         /// <summary>
         /// <para>
-        /// <para>An array of <code>GetTokenBalanceInput</code> objects whose balance is being requested.</para>
+        /// <para>An array of <code>BatchGetTokenBalanceInputItem</code> objects whose balance is being
+        /// requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

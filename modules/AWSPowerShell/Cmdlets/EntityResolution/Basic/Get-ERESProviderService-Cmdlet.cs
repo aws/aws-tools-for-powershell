@@ -28,51 +28,62 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Returns a list of all the <code>MatchingWorkflows</code> that have been created for
-    /// an Amazon Web Services account.
+    /// Returns the <code>ProviderService</code> of a given name.
     /// </summary>
-    [Cmdlet("Get", "ERESMatchingWorkflowList")]
-    [OutputType("Amazon.EntityResolution.Model.MatchingWorkflowSummary")]
-    [AWSCmdlet("Calls the AWS EntityResolution ListMatchingWorkflows API operation.", Operation = new[] {"ListMatchingWorkflows"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse))]
-    [AWSCmdletOutput("Amazon.EntityResolution.Model.MatchingWorkflowSummary or Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse",
-        "This cmdlet returns a collection of Amazon.EntityResolution.Model.MatchingWorkflowSummary objects.",
-        "The service call response (type Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ERESProviderService")]
+    [OutputType("Amazon.EntityResolution.Model.GetProviderServiceResponse")]
+    [AWSCmdlet("Calls the AWS EntityResolution GetProviderService API operation.", Operation = new[] {"GetProviderService"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.GetProviderServiceResponse))]
+    [AWSCmdletOutput("Amazon.EntityResolution.Model.GetProviderServiceResponse",
+        "This cmdlet returns an Amazon.EntityResolution.Model.GetProviderServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetERESMatchingWorkflowListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
+    public partial class GetERESProviderServiceCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter MaxResult
+        #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects returned per page.</para>
+        /// <para>The name of the provider. This name is typically the company name.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProviderName { get; set; }
         #endregion
         
-        #region Parameter NextToken
+        #region Parameter ProviderServiceName
         /// <summary>
         /// <para>
-        /// <para>The pagination token from the previous API call.</para>
+        /// <para>The ARN (Amazon Resource Name) of the product that the provider service provides.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProviderServiceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkflowSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse).
-        /// Specifying the name of a property of type Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.GetProviderServiceResponse).
+        /// Specifying the name of a property of type Amazon.EntityResolution.Model.GetProviderServiceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "WorkflowSummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -87,11 +98,23 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse, GetERESMatchingWorkflowListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.GetProviderServiceResponse, GetERESProviderServiceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
+            context.ProviderName = this.ProviderName;
+            #if MODULAR
+            if (this.ProviderName == null && ParameterWasBound(nameof(this.ProviderName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProviderName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ProviderServiceName = this.ProviderServiceName;
+            #if MODULAR
+            if (this.ProviderServiceName == null && ParameterWasBound(nameof(this.ProviderServiceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProviderServiceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,15 +129,15 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EntityResolution.Model.ListMatchingWorkflowsRequest();
+            var request = new Amazon.EntityResolution.Model.GetProviderServiceRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.ProviderName != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.ProviderName = cmdletContext.ProviderName;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.ProviderServiceName != null)
             {
-                request.NextToken = cmdletContext.NextToken;
+                request.ProviderServiceName = cmdletContext.ProviderServiceName;
             }
             
             CmdletOutput output;
@@ -149,15 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         #region AWS Service Operation Call
         
-        private Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.ListMatchingWorkflowsRequest request)
+        private Amazon.EntityResolution.Model.GetProviderServiceResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.GetProviderServiceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "ListMatchingWorkflows");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "GetProviderService");
             try
             {
                 #if DESKTOP
-                return client.ListMatchingWorkflows(request);
+                return client.GetProviderService(request);
                 #elif CORECLR
-                return client.ListMatchingWorkflowsAsync(request).GetAwaiter().GetResult();
+                return client.GetProviderServiceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -177,10 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.EntityResolution.Model.ListMatchingWorkflowsResponse, GetERESMatchingWorkflowListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.WorkflowSummaries;
+            public System.String ProviderName { get; set; }
+            public System.String ProviderServiceName { get; set; }
+            public System.Func<Amazon.EntityResolution.Model.GetProviderServiceResponse, GetERESProviderServiceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
