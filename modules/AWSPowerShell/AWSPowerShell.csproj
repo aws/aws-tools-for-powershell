@@ -484,9 +484,6 @@
     <Reference Include="AWSSDK.GameLift">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GameLift.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.GameSparks">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GameSparks.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Glacier">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Glacier.dll</HintPath>
     </Reference>
@@ -1538,9 +1535,6 @@
     </Reference>
     <Reference Include="AWSSDK.GameLift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GameLift.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.GameSparks">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GameSparks.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glacier">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Glacier.dll</HintPath>

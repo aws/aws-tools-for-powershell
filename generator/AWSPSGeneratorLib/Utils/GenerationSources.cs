@@ -162,8 +162,7 @@ namespace AWSPowerShellGenerator.Utils
             var distinctAssemblyFilenames = foundNet45SdkFilenames.Union(foundNetstandard20SdkFilenames)
                 .Where(name => !name.StartsWith("Extensions.", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("Core", StringComparison.OrdinalIgnoreCase)
-                    && !name.Equals("RedshiftServerless", StringComparison.OrdinalIgnoreCase)
-                    && !name.Equals("SsmSap", StringComparison.OrdinalIgnoreCase));
+                    && !name.Equals("GameSparks", StringComparison.OrdinalIgnoreCase));
 
             return distinctAssemblyFilenames;
         }

@@ -2417,14 +2417,6 @@
             },
             "InPreview"               : false
         },
-        "GameSparks"                          : {
-            "Version" : "3.7.200.57",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.204.4"
-            },
-            "InPreview"               : false
-        },
         "PinpointSMSVoiceV2"                  : {
             "Version" : "3.7.200.57",
             "AssemblyVersionOverride" : "3.3",

@@ -1,3 +1,0 @@
-﻿# GameSparks
-
-Export-ModuleMember -Alias *

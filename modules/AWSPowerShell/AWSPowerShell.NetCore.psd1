@@ -196,7 +196,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.FraudDetector.dll',
         'AWSSDK.FSx.dll',
         'AWSSDK.GameLift.dll',
-        'AWSSDK.GameSparks.dll',
         'AWSSDK.Glacier.dll',
         'AWSSDK.GlobalAccelerator.dll',
         'AWSSDK.Glue.dll',
