@@ -14648,6 +14648,8 @@ Set-Alias -Name Create-MSKClusterV2 -Value New-MSKClusterV2
 Set-Alias -Name MSK-CreateClusterV2 -Value New-MSKClusterV2
 Set-Alias -Name Create-MSKConfiguration -Value New-MSKConfiguration
 Set-Alias -Name MSK-CreateConfiguration -Value New-MSKConfiguration
+Set-Alias -Name Create-MSKReplicator -Value New-MSKReplicator
+Set-Alias -Name MSK-CreateReplicator -Value New-MSKReplicator
 Set-Alias -Name Create-MSKVpcConnection -Value New-MSKVpcConnection
 Set-Alias -Name MSK-CreateVpcConnection -Value New-MSKVpcConnection
 Set-Alias -Name Delete-MSKCluster -Value Remove-MSKCluster
@@ -14656,6 +14658,8 @@ Set-Alias -Name Delete-MSKClusterPolicy -Value Remove-MSKClusterPolicy
 Set-Alias -Name MSK-DeleteClusterPolicy -Value Remove-MSKClusterPolicy
 Set-Alias -Name Delete-MSKConfiguration -Value Remove-MSKConfiguration
 Set-Alias -Name MSK-DeleteConfiguration -Value Remove-MSKConfiguration
+Set-Alias -Name Delete-MSKReplicator -Value Remove-MSKReplicator
+Set-Alias -Name MSK-DeleteReplicator -Value Remove-MSKReplicator
 Set-Alias -Name Delete-MSKVpcConnection -Value Remove-MSKVpcConnection
 Set-Alias -Name MSK-DeleteVpcConnection -Value Remove-MSKVpcConnection
 Set-Alias -Name Describe-MSKCluster -Value Get-MSKCluster
@@ -14670,6 +14674,8 @@ Set-Alias -Name Describe-MSKConfiguration -Value Get-MSKConfiguration
 Set-Alias -Name MSK-DescribeConfiguration -Value Get-MSKConfiguration
 Set-Alias -Name Describe-MSKConfigurationRevision -Value Get-MSKConfigurationRevision
 Set-Alias -Name MSK-DescribeConfigurationRevision -Value Get-MSKConfigurationRevision
+Set-Alias -Name Describe-MSKReplicator -Value Get-MSKReplicator
+Set-Alias -Name MSK-DescribeReplicator -Value Get-MSKReplicator
 Set-Alias -Name Describe-MSKVpcConnection -Value Get-MSKVpcConnection
 Set-Alias -Name MSK-DescribeVpcConnection -Value Get-MSKVpcConnection
 Set-Alias -Name Get-MSKBootstrapBrokers -Value Get-MSKBootstrapBroker
@@ -14704,6 +14710,9 @@ Set-Alias -Name MSK-ListKafkaVersions -Value Get-MSKKafkaVersionList
 Set-Alias -Name List-MSKNodes -Value Get-MSKNodeList
 Set-Alias -Name List-MSKNodeList -Value Get-MSKNodeList
 Set-Alias -Name MSK-ListNodes -Value Get-MSKNodeList
+Set-Alias -Name List-MSKReplicators -Value Get-MSKReplicatorList
+Set-Alias -Name List-MSKReplicatorList -Value Get-MSKReplicatorList
+Set-Alias -Name MSK-ListReplicators -Value Get-MSKReplicatorList
 Set-Alias -Name List-MSKScramSecrets -Value Get-MSKScramSecretList
 Set-Alias -Name List-MSKScramSecretList -Value Get-MSKScramSecretList
 Set-Alias -Name MSK-ListScramSecrets -Value Get-MSKScramSecretList
@@ -14727,6 +14736,7 @@ Set-Alias -Name MSK-UpdateClusterKafkaVersion -Value Update-MSKClusterKafkaVersi
 Set-Alias -Name MSK-UpdateConfiguration -Value Update-MSKConfiguration
 Set-Alias -Name MSK-UpdateConnectivity -Value Update-MSKConnectivity
 Set-Alias -Name MSK-UpdateMonitoring -Value Update-MSKMonitoring
+Set-Alias -Name MSK-UpdateReplicationInfo -Value Update-MSKReplicationInfo
 Set-Alias -Name MSK-UpdateSecurity -Value Update-MSKSecurity
 Set-Alias -Name MSK-UpdateStorage -Value Update-MSKStorage
 Set-Alias -Name Create-MSKCConnector -Value New-MSKCConnector
@@ -22159,6 +22169,7 @@ Set-Alias -Name Describe-R53RCRoutingControl -Value Get-R53RCRoutingControl
 Set-Alias -Name R53RC-DescribeRoutingControl -Value Get-R53RCRoutingControl
 Set-Alias -Name Describe-R53RCSafetyRule -Value Get-R53RCSafetyRule
 Set-Alias -Name R53RC-DescribeSafetyRule -Value Get-R53RCSafetyRule
+Set-Alias -Name R53RC-GetResourcePolicy -Value Get-R53RCResourcePolicy
 Set-Alias -Name List-R53RCAssociatedRoute53HealthChecks -Value Get-R53RCAssociatedRoute53HealthCheckList
 Set-Alias -Name List-R53RCAssociatedRoute53HealthCheckList -Value Get-R53RCAssociatedRoute53HealthCheckList
 Set-Alias -Name R53RC-ListAssociatedRoute53HealthChecks -Value Get-R53RCAssociatedRoute53HealthCheckList

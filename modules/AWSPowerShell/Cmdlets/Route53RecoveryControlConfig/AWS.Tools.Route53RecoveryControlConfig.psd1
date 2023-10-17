@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53RCClusterList', 
         'Get-R53RCControlPanel', 
         'Get-R53RCControlPanelList', 
+        'Get-R53RCResourcePolicy', 
         'Get-R53RCResourceTag', 
         'Get-R53RCRoutingControl', 
         'Get-R53RCRoutingControlList', 

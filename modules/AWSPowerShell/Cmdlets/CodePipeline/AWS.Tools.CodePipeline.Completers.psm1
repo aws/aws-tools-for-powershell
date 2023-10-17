@@ -132,7 +132,7 @@ $CP_Completers = {
         # Amazon.CodePipeline.StageRetryMode
         "Redo-CPStageExecution/RetryMode"
         {
-            $v = "FAILED_ACTIONS"
+            $v = "ALL_ACTIONS","FAILED_ACTIONS"
             break
         }
 

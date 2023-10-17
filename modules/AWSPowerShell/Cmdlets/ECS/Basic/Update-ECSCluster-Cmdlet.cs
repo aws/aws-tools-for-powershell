@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Web Services Region.</para><para>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates
         /// a Cloud Map namespace with the "API calls" method of instance discovery only. This
         /// instance discovery method is the "HTTP" namespace type in the Command Line Interface.
-        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the service with an empty string <code>""</code> for the namespace name,
+        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the cluster with an empty string <code>""</code> for the namespace name,
         /// the cluster configuration for Service Connect is removed. Note that the namespace
         /// will remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
         /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>

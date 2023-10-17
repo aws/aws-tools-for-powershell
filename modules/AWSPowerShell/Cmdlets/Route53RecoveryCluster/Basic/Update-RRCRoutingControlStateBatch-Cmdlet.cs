@@ -28,8 +28,8 @@ using Amazon.Route53RecoveryCluster.Model;
 namespace Amazon.PowerShell.Cmdlets.RRC
 {
     /// <summary>
-    /// Set multiple routing control states. You can set the value for each state to be On
-    /// or Off. When the state is On, traffic flows to a cell. When it's Off, traffic does
+    /// Set multiple routing control states. You can set the value for each state to be ON
+    /// or OFF. When the state is ON, traffic flows to a cell. When it's OFF, traffic does
     /// not flow.
     /// 
     ///  

@@ -165,6 +165,7 @@ $R53RC_SelectMap = @{
                "Get-R53RCControlPanel",
                "Get-R53RCRoutingControl",
                "Get-R53RCSafetyRule",
+               "Get-R53RCResourcePolicy",
                "Get-R53RCAssociatedRoute53HealthCheckList",
                "Get-R53RCClusterList",
                "Get-R53RCControlPanelList",

@@ -22,51 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53RecoveryCluster;
-using Amazon.Route53RecoveryCluster.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RRC
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Get the state for a routing control. A routing control is a simple on/off switch that
-    /// you can use to route traffic to cells. When a routing control state is set to ON,
-    /// traffic flows to a cell. When the state is set to OFF, traffic does not flow. 
-    /// 
-    ///  
-    /// <para>
-    /// Before you can create a routing control, you must first create a cluster, and then
-    /// host the control in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
-    /// Create routing control structures</a> in the Amazon Route 53 Application Recovery
-    /// Controller Developer Guide. You access one of the endpoints for the cluster to get
-    /// or update the routing control state to redirect traffic for your application. 
-    /// </para><para><i>You must specify Regional endpoints when you work with API cluster operations
-    /// to get or update routing control states in Route 53 ARC.</i></para><para>
-    /// To see a code example for getting a routing control state, including accessing Regional
-    /// cluster endpoints in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API
-    /// examples</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
-    /// </para><para>
-    /// Learn more about working with routing controls in the following topics in the Amazon
-    /// Route 53 Application Recovery Controller Developer Guide:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
-    /// Viewing and updating routing control states</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working
-    /// with routing controls in Route 53 ARC</a></para></li></ul>
+    /// Describes a replicator.
     /// </summary>
-    [Cmdlet("Get", "RRCRoutingControlState")]
-    [OutputType("Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse")]
-    [AWSCmdlet("Calls the Route53 Recovery Cluster GetRoutingControlState API operation.", Operation = new[] {"GetRoutingControlState"}, SelectReturnType = typeof(Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse))]
-    [AWSCmdletOutput("Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse",
-        "This cmdlet returns an Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MSKReplicator")]
+    [OutputType("Amazon.Kafka.Model.DescribeReplicatorResponse")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DescribeReplicator API operation.", Operation = new[] {"DescribeReplicator"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeReplicatorResponse))]
+    [AWSCmdletOutput("Amazon.Kafka.Model.DescribeReplicatorResponse",
+        "This cmdlet returns an Amazon.Kafka.Model.DescribeReplicatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRRCRoutingControlStateCmdlet : AmazonRoute53RecoveryClusterClientCmdlet, IExecutor
+    public partial class GetMSKReplicatorCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter RoutingControlArn
+        #region Parameter ReplicatorArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the routing control that you want to get the state
-        /// for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the replicator to be described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,14 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoutingControlArn { get; set; }
+        public System.String ReplicatorArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse).
-        /// Specifying the name of a property of type Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.DescribeReplicatorResponse).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.DescribeReplicatorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RoutingControlArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RoutingControlArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ReplicatorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReplicatorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RoutingControlArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReplicatorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.RRC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse, GetRRCRoutingControlStateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.DescribeReplicatorResponse, GetMSKReplicatorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.RRC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RoutingControlArn;
+                context.Select = (response, cmdlet) => this.ReplicatorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RoutingControlArn = this.RoutingControlArn;
+            context.ReplicatorArn = this.ReplicatorArn;
             #if MODULAR
-            if (this.RoutingControlArn == null && ParameterWasBound(nameof(this.RoutingControlArn)))
+            if (this.ReplicatorArn == null && ParameterWasBound(nameof(this.ReplicatorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoutingControlArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ReplicatorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -147,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateRequest();
+            var request = new Amazon.Kafka.Model.DescribeReplicatorRequest();
             
-            if (cmdletContext.RoutingControlArn != null)
+            if (cmdletContext.ReplicatorArn != null)
             {
-                request.RoutingControlArn = cmdletContext.RoutingControlArn;
+                request.ReplicatorArn = cmdletContext.ReplicatorArn;
             }
             
             CmdletOutput output;
@@ -186,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse CallAWSServiceOperation(IAmazonRoute53RecoveryCluster client, Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateRequest request)
+        private Amazon.Kafka.Model.DescribeReplicatorResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DescribeReplicatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Route53 Recovery Cluster", "GetRoutingControlState");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DescribeReplicator");
             try
             {
                 #if DESKTOP
-                return client.GetRoutingControlState(request);
+                return client.DescribeReplicator(request);
                 #elif CORECLR
-                return client.GetRoutingControlStateAsync(request).GetAwaiter().GetResult();
+                return client.DescribeReplicatorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.RRC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RoutingControlArn { get; set; }
-            public System.Func<Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse, GetRRCRoutingControlStateCmdlet, object> Select { get; set; } =
+            public System.String ReplicatorArn { get; set; }
+            public System.Func<Amazon.Kafka.Model.DescribeReplicatorResponse, GetMSKReplicatorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

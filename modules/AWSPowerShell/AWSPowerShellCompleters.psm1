@@ -12304,7 +12304,7 @@ $CP_Completers = {
         # Amazon.CodePipeline.StageRetryMode
         "Redo-CPStageExecution/RetryMode"
         {
-            $v = "FAILED_ACTIONS"
+            $v = "ALL_ACTIONS","FAILED_ACTIONS"
             break
         }
 
@@ -33571,10 +33571,12 @@ $MSK_SelectMap = @{
                "New-MSKCluster",
                "New-MSKClusterV2",
                "New-MSKConfiguration",
+               "New-MSKReplicator",
                "New-MSKVpcConnection",
                "Remove-MSKCluster",
                "Remove-MSKClusterPolicy",
                "Remove-MSKConfiguration",
+               "Remove-MSKReplicator",
                "Remove-MSKVpcConnection",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
@@ -33582,6 +33584,7 @@ $MSK_SelectMap = @{
                "Get-MSKClusterV2",
                "Get-MSKConfiguration",
                "Get-MSKConfigurationRevision",
+               "Get-MSKReplicator",
                "Get-MSKVpcConnection",
                "Get-MSKBootstrapBroker",
                "Get-MSKClusterPolicy",
@@ -33595,6 +33598,7 @@ $MSK_SelectMap = @{
                "Get-MSKConfigurationList",
                "Get-MSKKafkaVersionList",
                "Get-MSKNodeList",
+               "Get-MSKReplicatorList",
                "Get-MSKScramSecretList",
                "Get-MSKResourceTag",
                "Get-MSKVpcConnectionList",
@@ -33611,6 +33615,7 @@ $MSK_SelectMap = @{
                "Update-MSKConfiguration",
                "Update-MSKConnectivity",
                "Update-MSKMonitoring",
+               "Update-MSKReplicationInfo",
                "Update-MSKSecurity",
                "Update-MSKStorage")
 }
@@ -51881,6 +51886,7 @@ $R53RC_SelectMap = @{
                "Get-R53RCControlPanel",
                "Get-R53RCRoutingControl",
                "Get-R53RCSafetyRule",
+               "Get-R53RCResourcePolicy",
                "Get-R53RCAssociatedRoute53HealthCheckList",
                "Get-R53RCClusterList",
                "Get-R53RCControlPanelList",

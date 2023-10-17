@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicator" OutputProperty="*" Verb="New" Noun="Replicator" ShouldProcessTarget="ReplicatorName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcConnection" OutputProperty="*" Verb="New" Noun="VpcConnection" ShouldProcessTarget="TargetClusterArn" PipelineParameter="TargetClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteConfiguration" OutputProperty="*" Verb="Remove" Noun="Configuration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicator" OutputProperty="*" Verb="Remove" Noun="Replicator" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +91,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeConfigurationRevision" OutputProperty="*" Verb="Get" Noun="ConfigurationRevision" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicator" OutputProperty="*" Verb="Get" Noun="Replicator" PipelineParameter="ReplicatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReplicators" OutputProperty="Replicators" Verb="Get" Noun="ReplicatorList" PipelineParameter="ReplicatorNameFilter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -199,6 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMonitoring" OutputProperty="*" Verb="Update" Noun="Monitoring" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationInfo" OutputProperty="*" Verb="Update" Noun="ReplicationInfo" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

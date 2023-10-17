@@ -1,4 +1,15 @@
-﻿### 4.1.431 (2023-10-16 21:23Z)
+﻿### 4.1.432 (2023-10-17 21:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.664.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Get-MSKReplicator leveraging the DescribeReplicator service API.
+    * Added cmdlet Get-MSKReplicatorList leveraging the ListReplicators service API.
+    * Added cmdlet New-MSKReplicator leveraging the CreateReplicator service API.
+    * Added cmdlet Remove-MSKReplicator leveraging the DeleteReplicator service API.
+    * Added cmdlet Update-MSKReplicationInfo leveraging the UpdateReplicationInfo service API.
+  * Amazon Route53 Recovery Control Config
+    * Added cmdlet Get-R53RCResourcePolicy leveraging the GetResourcePolicy service API.
+
+### 4.1.431 (2023-10-16 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.663.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Disaster Recovery Service
     * Modified cmdlet New-EDRSLaunchConfigurationTemplate: added parameter LaunchIntoSourceInstance.

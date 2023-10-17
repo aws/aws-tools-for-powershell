@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     ///  
     /// <para>
     /// A routing control is a simple on/off switch in Route 53 ARC that you can use to route
-    /// traffic to cells. When a routing control state is On, traffic flows to a cell. When
-    /// the state is Off, traffic does not flow.
+    /// traffic to cells. When a routing control state is set to ON, traffic flows to a cell.
+    /// When the state is set to OFF, traffic does not flow.
     /// </para><para>
     /// Before you can create a routing control, you must first create a cluster, and then
     /// host the control in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">

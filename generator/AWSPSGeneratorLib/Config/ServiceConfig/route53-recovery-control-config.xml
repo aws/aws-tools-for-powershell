@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAssociatedRoute53HealthChecks" OutputProperty="HealthCheckIds" Verb="Get" Noun="AssociatedRoute53HealthCheckList" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
