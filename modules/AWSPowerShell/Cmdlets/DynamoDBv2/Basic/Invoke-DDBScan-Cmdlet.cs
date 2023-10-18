@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>A string that contains conditions that DynamoDB applies after the <code>Scan</code>
         /// operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code>
         /// criteria are not returned.</para><note><para>A <code>FilterExpression</code> is applied after the items have already been read;
-        /// the process of filtering does not consume any additional read capacity units.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter
+        /// the process of filtering does not consume any additional read capacity units.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter
         /// Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>

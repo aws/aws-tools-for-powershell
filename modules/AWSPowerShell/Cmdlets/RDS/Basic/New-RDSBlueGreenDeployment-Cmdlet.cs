@@ -124,6 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String TargetDBClusterParameterGroupName { get; set; }
         #endregion
         
+        #region Parameter TargetDBInstanceClass
+        /// <summary>
+        /// <para>
+        /// <para>Specify the DB instance class for the databases in the green environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetDBInstanceClass { get; set; }
+        #endregion
+        
         #region Parameter TargetDBParameterGroupName
         /// <summary>
         /// <para>
@@ -143,6 +153,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TargetEngineVersion { get; set; }
+        #endregion
+        
+        #region Parameter UpgradeTargetStorageConfig
+        /// <summary>
+        /// <para>
+        /// <para>Whether to upgrade the storage file system configuration on the green database. This
+        /// option migrates the green DB instance from the older 32-bit file system to the preferred
+        /// configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.UpgradeFileSystem">Upgrading
+        /// the storage file system for a DB instance</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UpgradeTargetStorageConfig { get; set; }
         #endregion
         
         #region Parameter Select
@@ -206,8 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBClusterParameterGroupName = this.TargetDBClusterParameterGroupName;
+            context.TargetDBInstanceClass = this.TargetDBInstanceClass;
             context.TargetDBParameterGroupName = this.TargetDBParameterGroupName;
             context.TargetEngineVersion = this.TargetEngineVersion;
+            context.UpgradeTargetStorageConfig = this.UpgradeTargetStorageConfig;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.TargetDBClusterParameterGroupName = cmdletContext.TargetDBClusterParameterGroupName;
             }
+            if (cmdletContext.TargetDBInstanceClass != null)
+            {
+                request.TargetDBInstanceClass = cmdletContext.TargetDBInstanceClass;
+            }
             if (cmdletContext.TargetDBParameterGroupName != null)
             {
                 request.TargetDBParameterGroupName = cmdletContext.TargetDBParameterGroupName;
@@ -247,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.TargetEngineVersion != null)
             {
                 request.TargetEngineVersion = cmdletContext.TargetEngineVersion;
+            }
+            if (cmdletContext.UpgradeTargetStorageConfig != null)
+            {
+                request.UpgradeTargetStorageConfig = cmdletContext.UpgradeTargetStorageConfig.Value;
             }
             
             CmdletOutput output;
@@ -313,8 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Source { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TargetDBClusterParameterGroupName { get; set; }
+            public System.String TargetDBInstanceClass { get; set; }
             public System.String TargetDBParameterGroupName { get; set; }
             public System.String TargetEngineVersion { get; set; }
+            public System.Boolean? UpgradeTargetStorageConfig { get; set; }
             public System.Func<Amazon.RDS.Model.CreateBlueGreenDeploymentResponse, NewRDSBlueGreenDeploymentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BlueGreenDeployment;
         }

@@ -30,8 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <summary>
     /// Searches an index given an input query.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// If you are working with large language models (LLMs) or implementing retrieval augmented
+    /// generation (RAG) systems, you can use Amazon Kendra's <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html">Retrieve</a>
+    /// API, which can return longer semantically relevant passages. We recommend using the
+    /// <code>Retrieve</code> API instead of filing a service limit increase to increase the
+    /// <code>Query</code> API document excerpt length.
+    /// </para></note><para>
     /// You can configure boosting or relevance tuning at the query level to override boosting
     /// at the index level, filter based on document fields/attributes and faceted search,
     /// and filter based on the user or their group access to documents. You can also include
@@ -89,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.DataSourceGroup[] UserContext_DataSourceGroup { get; set; }
         #endregion
         
+        #region Parameter CollapseConfiguration_DocumentAttributeKey
+        /// <summary>
+        /// <para>
+        /// <para>The document attribute used to group search results. You can use any attribute that
+        /// has the <code>Sortable</code> flag set to true. You can also sort by any of the following
+        /// built-in attributes:"_category","_created_at", "_last_updated_at", "_version", "_view_count".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CollapseConfiguration_DocumentAttributeKey { get; set; }
+        #endregion
+        
         #region Parameter SortingConfiguration_DocumentAttributeKey
         /// <summary>
         /// <para>
@@ -113,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DocumentRelevanceOverrideConfigurations")]
         public Amazon.Kendra.Model.DocumentRelevanceConfiguration[] DocumentRelevanceOverrideConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter CollapseConfiguration_Expand
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to expand the collapsed results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CollapseConfiguration_Expand { get; set; }
         #endregion
         
         #region Parameter Facet
@@ -167,6 +194,45 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String IndexId { get; set; }
         #endregion
         
+        #region Parameter ExpandConfiguration_MaxExpandedResultsPerItem
+        /// <summary>
+        /// <para>
+        /// <para>The number of expanded results to show per collapsed primary document. For instance,
+        /// if you set this value to 3, then at most 3 results per collapsed group will be displayed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CollapseConfiguration_ExpandConfiguration_MaxExpandedResultsPerItem")]
+        public System.Int32? ExpandConfiguration_MaxExpandedResultsPerItem { get; set; }
+        #endregion
+        
+        #region Parameter ExpandConfiguration_MaxResultItemsToExpand
+        /// <summary>
+        /// <para>
+        /// <para>The number of collapsed search result groups to expand. If you set this value to 10,
+        /// for example, only the first 10 out of 100 result groups will have expand functionality.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CollapseConfiguration_ExpandConfiguration_MaxResultItemsToExpand")]
+        public System.Int32? ExpandConfiguration_MaxResultItemsToExpand { get; set; }
+        #endregion
+        
+        #region Parameter CollapseConfiguration_MissingAttributeKeyStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the behavior for documents without a value for the collapse attribute.</para><para>Amazon Kendra offers three customization options:</para><ul><li><para>Choose to <code>COLLAPSE</code> all documents with null or missing values in one group.
+        /// This is the default configuration.</para></li><li><para>Choose to <code>IGNORE</code> documents with null or missing values. Ignored documents
+        /// will not appear in query results.</para></li><li><para>Choose to <code>EXPAND</code> each document with a null or missing value into a group
+        /// of its own.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.MissingAttributeKeyStrategy")]
+        public Amazon.Kendra.MissingAttributeKeyStrategy CollapseConfiguration_MissingAttributeKeyStrategy { get; set; }
+        #endregion
+        
         #region Parameter PageNumber
         /// <summary>
         /// <para>
@@ -214,6 +280,33 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestedDocumentAttributes")]
         public System.String[] RequestedDocumentAttribute { get; set; }
+        #endregion
+        
+        #region Parameter CollapseConfiguration_SortingConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A prioritized list of document attributes/fields that determine the primary document
+        /// among those in a collapsed group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CollapseConfiguration_SortingConfigurations")]
+        public Amazon.Kendra.Model.SortingConfiguration[] CollapseConfiguration_SortingConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter SortingConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Provides configuration information to determine how the results of a query are sorted.</para><para>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify
+        /// whether the results should be sorted in ascending or descending order. The sort field
+        /// quota can be increased.</para><para>If you don't provide a sorting configuration, the results are sorted by the relevance
+        /// that Amazon Kendra determines for the result. In the case of ties in sorting the results,
+        /// the results are sorted by relevance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SortingConfigurations")]
+        public Amazon.Kendra.Model.SortingConfiguration[] SortingConfiguration { get; set; }
         #endregion
         
         #region Parameter SortingConfiguration_SortOrder
@@ -337,6 +430,15 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AttributeFilter = this.AttributeFilter;
+            context.CollapseConfiguration_DocumentAttributeKey = this.CollapseConfiguration_DocumentAttributeKey;
+            context.CollapseConfiguration_Expand = this.CollapseConfiguration_Expand;
+            context.ExpandConfiguration_MaxExpandedResultsPerItem = this.ExpandConfiguration_MaxExpandedResultsPerItem;
+            context.ExpandConfiguration_MaxResultItemsToExpand = this.ExpandConfiguration_MaxResultItemsToExpand;
+            context.CollapseConfiguration_MissingAttributeKeyStrategy = this.CollapseConfiguration_MissingAttributeKeyStrategy;
+            if (this.CollapseConfiguration_SortingConfiguration != null)
+            {
+                context.CollapseConfiguration_SortingConfiguration = new List<Amazon.Kendra.Model.SortingConfiguration>(this.CollapseConfiguration_SortingConfiguration);
+            }
             if (this.DocumentRelevanceOverrideConfiguration != null)
             {
                 context.DocumentRelevanceOverrideConfiguration = new List<Amazon.Kendra.Model.DocumentRelevanceConfiguration>(this.DocumentRelevanceOverrideConfiguration);
@@ -362,6 +464,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
             context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
+            if (this.SortingConfiguration != null)
+            {
+                context.SortingConfiguration = new List<Amazon.Kendra.Model.SortingConfiguration>(this.SortingConfiguration);
+            }
             context.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion = this.SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion;
             if (this.UserContext_DataSourceGroup != null)
             {
@@ -393,6 +499,90 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.AttributeFilter != null)
             {
                 request.AttributeFilter = cmdletContext.AttributeFilter;
+            }
+            
+             // populate CollapseConfiguration
+            var requestCollapseConfigurationIsNull = true;
+            request.CollapseConfiguration = new Amazon.Kendra.Model.CollapseConfiguration();
+            System.String requestCollapseConfiguration_collapseConfiguration_DocumentAttributeKey = null;
+            if (cmdletContext.CollapseConfiguration_DocumentAttributeKey != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_DocumentAttributeKey = cmdletContext.CollapseConfiguration_DocumentAttributeKey;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_DocumentAttributeKey != null)
+            {
+                request.CollapseConfiguration.DocumentAttributeKey = requestCollapseConfiguration_collapseConfiguration_DocumentAttributeKey;
+                requestCollapseConfigurationIsNull = false;
+            }
+            System.Boolean? requestCollapseConfiguration_collapseConfiguration_Expand = null;
+            if (cmdletContext.CollapseConfiguration_Expand != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_Expand = cmdletContext.CollapseConfiguration_Expand.Value;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_Expand != null)
+            {
+                request.CollapseConfiguration.Expand = requestCollapseConfiguration_collapseConfiguration_Expand.Value;
+                requestCollapseConfigurationIsNull = false;
+            }
+            Amazon.Kendra.MissingAttributeKeyStrategy requestCollapseConfiguration_collapseConfiguration_MissingAttributeKeyStrategy = null;
+            if (cmdletContext.CollapseConfiguration_MissingAttributeKeyStrategy != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_MissingAttributeKeyStrategy = cmdletContext.CollapseConfiguration_MissingAttributeKeyStrategy;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_MissingAttributeKeyStrategy != null)
+            {
+                request.CollapseConfiguration.MissingAttributeKeyStrategy = requestCollapseConfiguration_collapseConfiguration_MissingAttributeKeyStrategy;
+                requestCollapseConfigurationIsNull = false;
+            }
+            List<Amazon.Kendra.Model.SortingConfiguration> requestCollapseConfiguration_collapseConfiguration_SortingConfiguration = null;
+            if (cmdletContext.CollapseConfiguration_SortingConfiguration != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_SortingConfiguration = cmdletContext.CollapseConfiguration_SortingConfiguration;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_SortingConfiguration != null)
+            {
+                request.CollapseConfiguration.SortingConfigurations = requestCollapseConfiguration_collapseConfiguration_SortingConfiguration;
+                requestCollapseConfigurationIsNull = false;
+            }
+            Amazon.Kendra.Model.ExpandConfiguration requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration = null;
+            
+             // populate ExpandConfiguration
+            var requestCollapseConfiguration_collapseConfiguration_ExpandConfigurationIsNull = true;
+            requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration = new Amazon.Kendra.Model.ExpandConfiguration();
+            System.Int32? requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxExpandedResultsPerItem = null;
+            if (cmdletContext.ExpandConfiguration_MaxExpandedResultsPerItem != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxExpandedResultsPerItem = cmdletContext.ExpandConfiguration_MaxExpandedResultsPerItem.Value;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxExpandedResultsPerItem != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration.MaxExpandedResultsPerItem = requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxExpandedResultsPerItem.Value;
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfigurationIsNull = false;
+            }
+            System.Int32? requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxResultItemsToExpand = null;
+            if (cmdletContext.ExpandConfiguration_MaxResultItemsToExpand != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxResultItemsToExpand = cmdletContext.ExpandConfiguration_MaxResultItemsToExpand.Value;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxResultItemsToExpand != null)
+            {
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration.MaxResultItemsToExpand = requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration_expandConfiguration_MaxResultItemsToExpand.Value;
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfigurationIsNull = false;
+            }
+             // determine if requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration should be set to null
+            if (requestCollapseConfiguration_collapseConfiguration_ExpandConfigurationIsNull)
+            {
+                requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration = null;
+            }
+            if (requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration != null)
+            {
+                request.CollapseConfiguration.ExpandConfiguration = requestCollapseConfiguration_collapseConfiguration_ExpandConfiguration;
+                requestCollapseConfigurationIsNull = false;
+            }
+             // determine if request.CollapseConfiguration should be set to null
+            if (requestCollapseConfigurationIsNull)
+            {
+                request.CollapseConfiguration = null;
             }
             if (cmdletContext.DocumentRelevanceOverrideConfiguration != null)
             {
@@ -454,6 +644,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestSortingConfigurationIsNull)
             {
                 request.SortingConfiguration = null;
+            }
+            if (cmdletContext.SortingConfiguration != null)
+            {
+                request.SortingConfigurations = cmdletContext.SortingConfiguration;
             }
             
              // populate SpellCorrectionConfiguration
@@ -589,6 +783,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Kendra.Model.AttributeFilter AttributeFilter { get; set; }
+            public System.String CollapseConfiguration_DocumentAttributeKey { get; set; }
+            public System.Boolean? CollapseConfiguration_Expand { get; set; }
+            public System.Int32? ExpandConfiguration_MaxExpandedResultsPerItem { get; set; }
+            public System.Int32? ExpandConfiguration_MaxResultItemsToExpand { get; set; }
+            public Amazon.Kendra.MissingAttributeKeyStrategy CollapseConfiguration_MissingAttributeKeyStrategy { get; set; }
+            public List<Amazon.Kendra.Model.SortingConfiguration> CollapseConfiguration_SortingConfiguration { get; set; }
             public List<Amazon.Kendra.Model.DocumentRelevanceConfiguration> DocumentRelevanceOverrideConfiguration { get; set; }
             public List<Amazon.Kendra.Model.Facet> Facet { get; set; }
             public System.String IndexId { get; set; }
@@ -599,6 +799,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public List<System.String> RequestedDocumentAttribute { get; set; }
             public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
             public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
+            public List<Amazon.Kendra.Model.SortingConfiguration> SortingConfiguration { get; set; }
             public System.Boolean? SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion { get; set; }
             public List<Amazon.Kendra.Model.DataSourceGroup> UserContext_DataSourceGroup { get; set; }
             public List<System.String> UserContext_Group { get; set; }

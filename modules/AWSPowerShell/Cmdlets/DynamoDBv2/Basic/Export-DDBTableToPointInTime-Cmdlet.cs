@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>Choice of whether to execute as a full export or incremental export. Valid values
-        /// are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code>
-        /// is provided, the <code>IncrementalExportSpecification</code> must also be used.</para>
+        /// are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT
+        /// is provided, the IncrementalExportSpecification must also be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter IncrementalExportSpecification_ExportViewType
         /// <summary>
         /// <para>
-        /// <para>Choice of whether to output the previous item image prior to the start time of the
-        /// incremental export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>.</para>
+        /// <para>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code>
+        /// and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

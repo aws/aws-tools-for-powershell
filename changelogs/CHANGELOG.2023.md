@@ -1,4 +1,12 @@
-﻿### 4.1.432 (2023-10-17 21:34Z)
+﻿### 4.1.433 (2023-10-18 21:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.665.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Kendra
+    * Modified cmdlet Invoke-KNDRQuery: added parameters CollapseConfiguration_DocumentAttributeKey, CollapseConfiguration_Expand, CollapseConfiguration_MissingAttributeKeyStrategy, CollapseConfiguration_SortingConfiguration, ExpandConfiguration_MaxExpandedResultsPerItem, ExpandConfiguration_MaxResultItemsToExpand and SortingConfiguration.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSBlueGreenDeployment: added parameters TargetDBInstanceClass and UpgradeTargetStorageConfig.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter UpgradeStorageConfig.
+
+### 4.1.432 (2023-10-17 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.664.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Managed Streaming for Apache Kafka (MSK)
     * Added cmdlet Get-MSKReplicator leveraging the DescribeReplicator service API.

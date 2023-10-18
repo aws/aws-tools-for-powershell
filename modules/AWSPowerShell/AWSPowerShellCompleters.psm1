@@ -33810,6 +33810,13 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.MissingAttributeKeyStrategy
+        "Invoke-KNDRQuery/CollapseConfiguration_MissingAttributeKeyStrategy"
+        {
+            $v = "COLLAPSE","EXPAND","IGNORE"
+            break
+        }
+
         # Amazon.Kendra.Mode
         "Update-KNDRQuerySuggestionsConfig/Mode"
         {
@@ -33861,6 +33868,7 @@ $KNDR_Completers = {
 
 $KNDR_map = @{
     "AttributeSuggestionsConfig_AttributeSuggestionsMode"=@("Update-KNDRQuerySuggestionsConfig")
+    "CollapseConfiguration_MissingAttributeKeyStrategy"=@("Invoke-KNDRQuery")
     "CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator"=@("New-KNDRDataSource","Update-KNDRDataSource","Write-KNDRDocumentBatch")
     "CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator"=@("New-KNDRDataSource","Update-KNDRDataSource","Write-KNDRDocumentBatch")
     "Edition"=@("New-KNDRIndex")

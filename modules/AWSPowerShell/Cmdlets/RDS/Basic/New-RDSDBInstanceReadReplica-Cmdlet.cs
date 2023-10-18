@@ -647,6 +647,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter UpgradeStorageConfig
+        /// <summary>
+        /// <para>
+        /// <para>Whether to upgrade the storage file system configuration on the read replica. This
+        /// option migrates the read replica from the old storage file system layout to the preferred
+        /// layout.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UpgradeStorageConfig { get; set; }
+        #endregion
+        
         #region Parameter UseDefaultProcessorFeature
         /// <summary>
         /// <para>
@@ -792,6 +804,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            context.UpgradeStorageConfig = this.UpgradeStorageConfig;
             context.UseDefaultProcessorFeature = this.UseDefaultProcessorFeature;
             if (this.VpcSecurityGroupId != null)
             {
@@ -981,6 +994,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.UpgradeStorageConfig != null)
+            {
+                request.UpgradeStorageConfig = cmdletContext.UpgradeStorageConfig.Value;
+            }
             if (cmdletContext.UseDefaultProcessorFeature != null)
             {
                 request.UseDefaultProcessorFeatures = cmdletContext.UseDefaultProcessorFeature.Value;
@@ -1092,6 +1109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public System.Boolean? UpgradeStorageConfig { get; set; }
             public System.Boolean? UseDefaultProcessorFeature { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBInstanceReadReplicaResponse, NewRDSDBInstanceReadReplicaCmdlet, object> Select { get; set; } =
