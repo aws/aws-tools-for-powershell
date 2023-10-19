@@ -34,26 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// The following restrictions apply to tags:
-    /// </para><ul><li><para>
-    /// Maximum number of tags per secret: 50
-    /// </para></li><li><para>
-    /// Maximum key length: 127 Unicode characters in UTF-8
-    /// </para></li><li><para>
-    /// Maximum value length: 255 Unicode characters in UTF-8
-    /// </para></li><li><para>
-    /// Tag keys and values are case sensitive.
-    /// </para></li><li><para>
-    /// Do not use the <code>aws:</code> prefix in your tag names or values because Amazon
-    /// Web Services reserves it for Amazon Web Services use. You can't edit or delete tag
-    /// names or values with this prefix. Tags with this prefix do not count against your
-    /// tags per secret limit.
-    /// </para></li><li><para>
-    /// If you use your tagging schema across multiple services and resources, other services
-    /// might have restrictions on allowed characters. Generally allowed characters: letters,
-    /// spaces, and numbers representable in UTF-8, plus the following special characters:
-    /// + - = . _ : / @.
-    /// </para></li></ul><important><para>
+    /// For tag quotas and naming restrictions, see <a href="https://docs.aws.amazon.com/general/latest/gr/arg.html#taged-reference-quotas">Service
+    /// quotas for Tagging</a> in the <i>Amazon Web Services General Reference guide</i>.
+    /// </para><important><para>
     /// If you use tags as part of your security strategy, then adding or removing a tag can
     /// change permissions. If successfully completing this operation would result in you
     /// losing your permissions for this secret, then the operation is blocked and returns

@@ -18781,9 +18781,13 @@ Set-Alias -Name Dissociate-OSDissociatePackage -Value Start-OSDissociatePackage
 Set-Alias -Name OS-DissociatePackage -Value Start-OSDissociatePackage
 Set-Alias -Name Get-OSCompatibleVersions -Value Get-OSCompatibleVersion
 Set-Alias -Name OS-GetCompatibleVersions -Value Get-OSCompatibleVersion
+Set-Alias -Name OS-GetDomainMaintenanceStatus -Value Get-OSDomainMaintenanceStatus
 Set-Alias -Name OS-GetPackageVersionHistory -Value Get-OSPackageVersionHistory
 Set-Alias -Name OS-GetUpgradeHistory -Value Get-OSUpgradeHistory
 Set-Alias -Name OS-GetUpgradeStatus -Value Get-OSUpgradeStatus
+Set-Alias -Name List-OSDomainMaintenances -Value Get-OSDomainMaintenanceList
+Set-Alias -Name List-OSDomainMaintenanceList -Value Get-OSDomainMaintenanceList
+Set-Alias -Name OS-ListDomainMaintenances -Value Get-OSDomainMaintenanceList
 Set-Alias -Name List-OSDomainNames -Value Get-OSDomainNameList
 Set-Alias -Name List-OSDomainNameList -Value Get-OSDomainNameList
 Set-Alias -Name OS-ListDomainNames -Value Get-OSDomainNameList
@@ -18820,6 +18824,7 @@ Set-Alias -Name OS-RejectInboundConnection -Value Deny-OSInboundConnection
 Set-Alias -Name Remove-OSTags -Value Remove-OSResourceTag
 Set-Alias -Name OS-RemoveTags -Value Remove-OSResourceTag
 Set-Alias -Name OS-RevokeVpcEndpointAccess -Value Revoke-OSVpcEndpointAccess
+Set-Alias -Name OS-StartDomainMaintenance -Value Start-OSDomainMaintenance
 Set-Alias -Name OS-StartServiceSoftwareUpdate -Value Start-OSServiceSoftwareUpdate
 Set-Alias -Name OS-UpdateDomainConfig -Value Update-OSDomainConfig
 Set-Alias -Name OS-UpdatePackage -Value Update-OSPackage

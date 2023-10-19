@@ -156,6 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Collections.Hashtable FieldFolder { get; set; }
         #endregion
         
+        #region Parameter FolderArn
+        /// <summary>
+        /// <para>
+        /// <para>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FolderArns")]
+        public System.String[] FolderArn { get; set; }
+        #endregion
+        
         #region Parameter RowLevelPermissionDataSet_FormatVersion
         /// <summary>
         /// <para>
@@ -425,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     context.FieldFolder.Add((String)hashKey, (FieldFolder)(this.FieldFolder[hashKey]));
                 }
             }
+            if (this.FolderArn != null)
+            {
+                context.FolderArn = new List<System.String>(this.FolderArn);
+            }
             context.ImportMode = this.ImportMode;
             #if MODULAR
             if (this.ImportMode == null && ParameterWasBound(nameof(this.ImportMode)))
@@ -555,6 +570,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.FieldFolder != null)
             {
                 request.FieldFolders = cmdletContext.FieldFolder;
+            }
+            if (cmdletContext.FolderArn != null)
+            {
+                request.FolderArns = cmdletContext.FolderArn;
             }
             if (cmdletContext.ImportMode != null)
             {
@@ -747,6 +766,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.Boolean? DataSetUsageConfiguration_DisableUseAsDirectQuerySource { get; set; }
             public System.Boolean? DataSetUsageConfiguration_DisableUseAsImportedSource { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder> FieldFolder { get; set; }
+            public List<System.String> FolderArn { get; set; }
             public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable> LogicalTableMap { get; set; }
             public System.String Name { get; set; }

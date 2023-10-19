@@ -22,38 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Neptunedata;
-using Amazon.Neptunedata.Model;
+using Amazon.OpenSearchService;
+using Amazon.OpenSearchService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NEPT
+namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Cancels a specified openCypher query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html">Neptune
-    /// openCypher status endpoint</a> for more information.
-    /// 
-    ///  
-    /// <para>
-    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
-    /// the IAM user or role making the request must have a policy attached that allows the
-    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery">neptune-db:CancelQuery</a>
-    /// IAM action in that cluster.
-    /// </para>
+    /// Starts the node maintenance (Node restart, Node reboot, Opensearch/Elasticsearch process
+    /// restart, Dashboard/kibana restart) on the data node.
     /// </summary>
-    [Cmdlet("Stop", "NEPTOpenCypherQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse")]
-    [AWSCmdlet("Calls the Amazon NeptuneData CancelOpenCypherQuery API operation.", Operation = new[] {"CancelOpenCypherQuery"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse))]
-    [AWSCmdletOutput("Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "OSDomainMaintenance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Service StartDomainMaintenance API operation.", Operation = new[] {"StartDomainMaintenance"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopNEPTOpenCypherQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
+    public partial class StartOSDomainMaintenanceCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter QueryId
+        #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the openCypher query to cancel.</para>
+        /// <para>The name of the action.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.OpenSearchService.MaintenanceType")]
+        public Amazon.OpenSearchService.MaintenanceType Action { get; set; }
+        #endregion
+        
+        #region Parameter DomainName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,29 +74,28 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryId { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter Silent
+        #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para>If set to <code>TRUE</code>, causes the cancelation of the openCypher query to happen
-        /// silently.</para>
+        /// <para>Id of the data node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? Silent { get; set; }
+        public System.String NodeId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse).
-        /// Specifying the name of a property of type Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MaintenanceId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "MaintenanceId";
         #endregion
         
         #region Parameter Force
@@ -104,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-NEPTOpenCypherQuery (CancelOpenCypherQuery)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-OSDomainMaintenance (StartDomainMaintenance)"))
             {
                 return;
             }
@@ -117,17 +126,24 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse, StopNEPTOpenCypherQueryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse, StartOSDomainMaintenanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.QueryId = this.QueryId;
+            context.Action = this.Action;
             #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
+            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Silent = this.Silent;
+            context.DomainName = this.DomainName;
+            #if MODULAR
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.NodeId = this.NodeId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,15 +158,19 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Neptunedata.Model.CancelOpenCypherQueryRequest();
+            var request = new Amazon.OpenSearchService.Model.StartDomainMaintenanceRequest();
             
-            if (cmdletContext.QueryId != null)
+            if (cmdletContext.Action != null)
             {
-                request.QueryId = cmdletContext.QueryId;
+                request.Action = cmdletContext.Action;
             }
-            if (cmdletContext.Silent != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.Silent = cmdletContext.Silent.Value;
+                request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.NodeId != null)
+            {
+                request.NodeId = cmdletContext.NodeId;
             }
             
             CmdletOutput output;
@@ -185,15 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         
         #region AWS Service Operation Call
         
-        private Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse CallAWSServiceOperation(IAmazonNeptunedata client, Amazon.Neptunedata.Model.CancelOpenCypherQueryRequest request)
+        private Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.StartDomainMaintenanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon NeptuneData", "CancelOpenCypherQuery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "StartDomainMaintenance");
             try
             {
                 #if DESKTOP
-                return client.CancelOpenCypherQuery(request);
+                return client.StartDomainMaintenance(request);
                 #elif CORECLR
-                return client.CancelOpenCypherQueryAsync(request).GetAwaiter().GetResult();
+                return client.StartDomainMaintenanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,10 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String QueryId { get; set; }
-            public System.Boolean? Silent { get; set; }
-            public System.Func<Amazon.Neptunedata.Model.CancelOpenCypherQueryResponse, StopNEPTOpenCypherQueryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.OpenSearchService.MaintenanceType Action { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String NodeId { get; set; }
+            public System.Func<Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse, StartOSDomainMaintenanceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MaintenanceId;
         }
         
     }

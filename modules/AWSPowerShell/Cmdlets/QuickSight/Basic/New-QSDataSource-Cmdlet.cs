@@ -115,6 +115,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String PrestoParameters_Catalog { get; set; }
         #endregion
         
+        #region Parameter StarburstParameters_Catalog
+        /// <summary>
+        /// <para>
+        /// <para>The catalog name for the Starburst data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_StarburstParameters_Catalog")]
+        public System.String StarburstParameters_Catalog { get; set; }
+        #endregion
+        
+        #region Parameter TrinoParameters_Catalog
+        /// <summary>
+        /// <para>
+        /// <para>The catalog name for the Trino data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_TrinoParameters_Catalog")]
+        public System.String TrinoParameters_Catalog { get; set; }
+        #endregion
+        
         #region Parameter RedshiftParameters_ClusterId
         /// <summary>
         /// <para>
@@ -351,6 +373,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AmazonOpenSearchParameters_Domain { get; set; }
         #endregion
         
+        #region Parameter FolderArn
+        /// <summary>
+        /// <para>
+        /// <para>When you create the data source, Amazon QuickSight adds the data source to these folders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FolderArns")]
+        public System.String[] FolderArn { get; set; }
+        #endregion
+        
         #region Parameter AuroraParameters_Host
         /// <summary>
         /// <para>
@@ -494,6 +527,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String SqlServerParameters_Host { get; set; }
         #endregion
         
+        #region Parameter StarburstParameters_Host
+        /// <summary>
+        /// <para>
+        /// <para>The host name of the Starburst data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_StarburstParameters_Host")]
+        public System.String StarburstParameters_Host { get; set; }
+        #endregion
+        
         #region Parameter TeradataParameters_Host
         /// <summary>
         /// <para>
@@ -503,6 +547,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TeradataParameters_Host")]
         public System.String TeradataParameters_Host { get; set; }
+        #endregion
+        
+        #region Parameter TrinoParameters_Host
+        /// <summary>
+        /// <para>
+        /// <para>The host name of the Trino data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_TrinoParameters_Host")]
+        public System.String TrinoParameters_Host { get; set; }
         #endregion
         
         #region Parameter RdsParameters_InstanceId
@@ -709,6 +764,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Int32? SqlServerParameters_Port { get; set; }
         #endregion
         
+        #region Parameter StarburstParameters_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port for the Starburst data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_StarburstParameters_Port")]
+        public System.Int32? StarburstParameters_Port { get; set; }
+        #endregion
+        
         #region Parameter TeradataParameters_Port
         /// <summary>
         /// <para>
@@ -718,6 +784,29 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TeradataParameters_Port")]
         public System.Int32? TeradataParameters_Port { get; set; }
+        #endregion
+        
+        #region Parameter TrinoParameters_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port for the Trino data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_TrinoParameters_Port")]
+        public System.Int32? TrinoParameters_Port { get; set; }
+        #endregion
+        
+        #region Parameter StarburstParameters_ProductType
+        /// <summary>
+        /// <para>
+        /// <para>The product type for the Starburst data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_StarburstParameters_ProductType")]
+        [AWSConstantClassSource("Amazon.QuickSight.StarburstProductType")]
+        public Amazon.QuickSight.StarburstProductType StarburstParameters_ProductType { get; set; }
         #endregion
         
         #region Parameter TwitterParameters_Query
@@ -1034,11 +1123,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.SqlServerParameters_Database = this.SqlServerParameters_Database;
             context.SqlServerParameters_Host = this.SqlServerParameters_Host;
             context.SqlServerParameters_Port = this.SqlServerParameters_Port;
+            context.StarburstParameters_Catalog = this.StarburstParameters_Catalog;
+            context.StarburstParameters_Host = this.StarburstParameters_Host;
+            context.StarburstParameters_Port = this.StarburstParameters_Port;
+            context.StarburstParameters_ProductType = this.StarburstParameters_ProductType;
             context.TeradataParameters_Database = this.TeradataParameters_Database;
             context.TeradataParameters_Host = this.TeradataParameters_Host;
             context.TeradataParameters_Port = this.TeradataParameters_Port;
+            context.TrinoParameters_Catalog = this.TrinoParameters_Catalog;
+            context.TrinoParameters_Host = this.TrinoParameters_Host;
+            context.TrinoParameters_Port = this.TrinoParameters_Port;
             context.TwitterParameters_MaxRow = this.TwitterParameters_MaxRow;
             context.TwitterParameters_Query = this.TwitterParameters_Query;
+            if (this.FolderArn != null)
+            {
+                context.FolderArn = new List<System.String>(this.FolderArn);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -2020,6 +2120,106 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.TeradataParameters = requestDataSourceParameters_dataSourceParameters_TeradataParameters;
                 requestDataSourceParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.TrinoParameters requestDataSourceParameters_dataSourceParameters_TrinoParameters = null;
+            
+             // populate TrinoParameters
+            var requestDataSourceParameters_dataSourceParameters_TrinoParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_TrinoParameters = new Amazon.QuickSight.Model.TrinoParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Catalog = null;
+            if (cmdletContext.TrinoParameters_Catalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Catalog = cmdletContext.TrinoParameters_Catalog;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Catalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters.Catalog = requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Catalog;
+                requestDataSourceParameters_dataSourceParameters_TrinoParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Host = null;
+            if (cmdletContext.TrinoParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Host = cmdletContext.TrinoParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters.Host = requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_TrinoParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Port = null;
+            if (cmdletContext.TrinoParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Port = cmdletContext.TrinoParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters.Port = requestDataSourceParameters_dataSourceParameters_TrinoParameters_trinoParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_TrinoParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_TrinoParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_TrinoParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_TrinoParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_TrinoParameters != null)
+            {
+                request.DataSourceParameters.TrinoParameters = requestDataSourceParameters_dataSourceParameters_TrinoParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.StarburstParameters requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
+            
+             // populate StarburstParameters
+            var requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_StarburstParameters = new Amazon.QuickSight.Model.StarburstParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog = null;
+            if (cmdletContext.StarburstParameters_Catalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog = cmdletContext.StarburstParameters_Catalog;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Catalog = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host = null;
+            if (cmdletContext.StarburstParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host = cmdletContext.StarburstParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Host = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port = null;
+            if (cmdletContext.StarburstParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port = cmdletContext.StarburstParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Port = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            Amazon.QuickSight.StarburstProductType requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType = null;
+            if (cmdletContext.StarburstParameters_ProductType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType = cmdletContext.StarburstParameters_ProductType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.ProductType = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_StarburstParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters != null)
+            {
+                request.DataSourceParameters.StarburstParameters = requestDataSourceParameters_dataSourceParameters_StarburstParameters;
+                requestDataSourceParametersIsNull = false;
+            }
             Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
             
              // populate RedshiftParameters
@@ -2134,6 +2334,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParametersIsNull)
             {
                 request.DataSourceParameters = null;
+            }
+            if (cmdletContext.FolderArn != null)
+            {
+                request.FolderArns = cmdletContext.FolderArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -2311,11 +2515,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String SqlServerParameters_Database { get; set; }
             public System.String SqlServerParameters_Host { get; set; }
             public System.Int32? SqlServerParameters_Port { get; set; }
+            public System.String StarburstParameters_Catalog { get; set; }
+            public System.String StarburstParameters_Host { get; set; }
+            public System.Int32? StarburstParameters_Port { get; set; }
+            public Amazon.QuickSight.StarburstProductType StarburstParameters_ProductType { get; set; }
             public System.String TeradataParameters_Database { get; set; }
             public System.String TeradataParameters_Host { get; set; }
             public System.Int32? TeradataParameters_Port { get; set; }
+            public System.String TrinoParameters_Catalog { get; set; }
+            public System.String TrinoParameters_Host { get; set; }
+            public System.Int32? TrinoParameters_Port { get; set; }
             public System.Int32? TwitterParameters_MaxRow { get; set; }
             public System.String TwitterParameters_Query { get; set; }
+            public List<System.String> FolderArn { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> Permission { get; set; }
             public System.Boolean? SslProperties_DisableSsl { get; set; }

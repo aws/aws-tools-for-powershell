@@ -28,12 +28,15 @@ using Amazon.Neptunedata.Model;
 namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
-    /// Cancels a specified load job. This is an HTTP <code>DELETE</code> request.
+    /// Cancels a specified load job. This is an HTTP <code>DELETE</code> request. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm">Neptune
+    /// Loader Get-Status API</a> for more information.
     /// 
     ///  
     /// <para>
-    /// See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm">Neptune
-    /// Loader Get-Status API</a> for more information.
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelloaderjob">neptune-db:CancelLoaderJob</a>
+    /// IAM action in that cluster..
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "NEPTLoaderJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

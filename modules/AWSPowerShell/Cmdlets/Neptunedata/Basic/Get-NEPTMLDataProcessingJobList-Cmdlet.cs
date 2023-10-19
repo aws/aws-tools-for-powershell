@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// <summary>
     /// Returns a list of Neptune ML data processing jobs. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html#machine-learning-api-dataprocessing-list-jobs">Listing
     /// active data-processing jobs using the Neptune ML dataprocessing command</a>.
+    /// 
+    ///  
+    /// <para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs">neptune-db:ListMLDataProcessingJobs</a>
+    /// IAM action in that cluster.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "NEPTMLDataProcessingJobList")]
     [OutputType("System.String")]

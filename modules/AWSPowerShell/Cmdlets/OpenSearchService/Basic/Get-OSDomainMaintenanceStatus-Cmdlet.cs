@@ -22,39 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Neptunedata;
-using Amazon.Neptunedata.Model;
+using Amazon.OpenSearchService;
+using Amazon.OpenSearchService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NEPT
+namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Cancels a Gremlin query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status-cancel.html">Gremlin
-    /// query cancellation</a> for more information.
-    /// 
-    ///  
-    /// <para>
-    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
-    /// the IAM user or role making the request must have a policy attached that allows the
-    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery">neptune-db:CancelQuery</a>
-    /// IAM action in that cluster.
-    /// </para>
+    /// Get the status of the maintenance action.
     /// </summary>
-    [Cmdlet("Stop", "NEPTGremlinQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon NeptuneData CancelGremlinQuery API operation.", Operation = new[] {"CancelGremlinQuery"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.CancelGremlinQueryResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Neptunedata.Model.CancelGremlinQueryResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Neptunedata.Model.CancelGremlinQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OSDomainMaintenanceStatus")]
+    [OutputType("Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Service GetDomainMaintenanceStatus API operation.", Operation = new[] {"GetDomainMaintenanceStatus"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse",
+        "This cmdlet returns an Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopNEPTGremlinQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
+    public partial class GetOSDomainMaintenanceStatusCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter QueryId
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier that identifies the query to be canceled.</para>
+        /// <para>The name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,40 +55,41 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryId { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter MaintenanceId
+        /// <summary>
+        /// <para>
+        /// <para>The request id of the maintenance action.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MaintenanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Neptunedata.Model.CancelGremlinQueryResponse).
-        /// Specifying the name of a property of type Amazon.Neptunedata.Model.CancelGremlinQueryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Status";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-NEPTGremlinQuery (CancelGremlinQuery)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -107,14 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Neptunedata.Model.CancelGremlinQueryResponse, StopNEPTGremlinQueryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse, GetOSDomainMaintenanceStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.QueryId = this.QueryId;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MaintenanceId = this.MaintenanceId;
+            #if MODULAR
+            if (this.MaintenanceId == null && ParameterWasBound(nameof(this.MaintenanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MaintenanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +129,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Neptunedata.Model.CancelGremlinQueryRequest();
+            var request = new Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusRequest();
             
-            if (cmdletContext.QueryId != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.QueryId = cmdletContext.QueryId;
+                request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.MaintenanceId != null)
+            {
+                request.MaintenanceId = cmdletContext.MaintenanceId;
             }
             
             CmdletOutput output;
@@ -170,15 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         
         #region AWS Service Operation Call
         
-        private Amazon.Neptunedata.Model.CancelGremlinQueryResponse CallAWSServiceOperation(IAmazonNeptunedata client, Amazon.Neptunedata.Model.CancelGremlinQueryRequest request)
+        private Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon NeptuneData", "CancelGremlinQuery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "GetDomainMaintenanceStatus");
             try
             {
                 #if DESKTOP
-                return client.CancelGremlinQuery(request);
+                return client.GetDomainMaintenanceStatus(request);
                 #elif CORECLR
-                return client.CancelGremlinQueryAsync(request).GetAwaiter().GetResult();
+                return client.GetDomainMaintenanceStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -198,9 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String QueryId { get; set; }
-            public System.Func<Amazon.Neptunedata.Model.CancelGremlinQueryResponse, StopNEPTGremlinQueryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Status;
+            public System.String DomainName { get; set; }
+            public System.String MaintenanceId { get; set; }
+            public System.Func<Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse, GetOSDomainMaintenanceStatusCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

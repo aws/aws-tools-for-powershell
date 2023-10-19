@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
     /// Deletes SPARQL statistics
+    /// 
+    ///  
+    /// <para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics">neptune-db:DeleteStatistics</a>
+    /// IAM action in that cluster.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "NEPTSparqlStatistic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Neptunedata.Model.DeleteSparqlStatisticsResponse")]

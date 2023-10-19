@@ -41,6 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// plans. You can use this information to identify potential evaluation and execution
     /// bottlenecks and to tune your query, as explained in <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html">Tuning
     /// Gremlin queries</a>. You can also use query hints to improve query execution plans.
+    /// </para><para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows one
+    /// of the following IAM actions in that cluster, depending on the query:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery">neptune-db:ReadDataViaQuery</a></para></li><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery">neptune-db:WriteDataViaQuery</a></para></li><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery">neptune-db:DeleteDataViaQuery</a></para></li></ul><para>
+    /// Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a>
+    /// IAM condition key can be used in the policy document to restrict the use of Gremlin
+    /// queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+    /// keys available in Neptune IAM data-access policy statements</a>).
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "NEPTGremlinExplainQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

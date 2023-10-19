@@ -368,8 +368,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_InstanceCount
         /// <summary>
         /// <para>
-        /// <para>Number of dedicated master nodes in the cluster. This number must be greater than
-        /// 1, otherwise you receive a validation exception.</para>
+        /// <para>Number of data nodes in the cluster. This number must be greater than 1, otherwise
+        /// you receive a validation exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

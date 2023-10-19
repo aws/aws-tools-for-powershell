@@ -30,6 +30,19 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// <summary>
     /// Lists active openCypher queries. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html">Neptune
     /// openCypher status endpoint</a> for more information.
+    /// 
+    ///  
+    /// <para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus">neptune-db:GetQueryStatus</a>
+    /// IAM action in that cluster.
+    /// </para><para>
+    /// Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a>
+    /// IAM condition key can be used in the policy document to restrict the use of openCypher
+    /// queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+    /// keys available in Neptune IAM data-access policy statements</a>).
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "NEPTOpenCypherQueryList")]
     [OutputType("Amazon.Neptunedata.Model.ListOpenCypherQueriesResponse")]

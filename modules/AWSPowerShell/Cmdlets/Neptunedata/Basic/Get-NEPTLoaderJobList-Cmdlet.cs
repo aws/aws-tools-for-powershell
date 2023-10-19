@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
     /// Retrieves a list of the <code>loadIds</code> for all active loader jobs.
+    /// 
+    ///  
+    /// <para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs">neptune-db:ListLoaderJobs</a>
+    /// IAM action in that cluster..
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "NEPTLoaderJobList")]
     [OutputType("Amazon.Neptunedata.Model.ListLoaderJobsResponse")]

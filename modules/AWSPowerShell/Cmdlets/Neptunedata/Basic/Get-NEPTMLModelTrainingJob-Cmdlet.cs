@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// <summary>
     /// Retrieves information about a Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model
     /// training using the <code>modeltraining</code> command</a>.
+    /// 
+    ///  
+    /// <para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus">neptune-db:GetMLModelTrainingJobStatus</a>
+    /// IAM action in that cluster.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "NEPTMLModelTrainingJob")]
     [OutputType("Amazon.Neptunedata.Model.GetMLModelTrainingJobResponse")]

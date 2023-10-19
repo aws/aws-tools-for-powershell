@@ -1,4 +1,18 @@
-﻿### 4.1.433 (2023-10-18 21:34Z)
+﻿### 4.1.434 (2023-10-19 23:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.666.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon GameSparks
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSDomainMaintenanceList leveraging the ListDomainMaintenances service API.
+    * Added cmdlet Get-OSDomainMaintenanceStatus leveraging the GetDomainMaintenanceStatus service API.
+    * Added cmdlet Start-OSDomainMaintenance leveraging the StartDomainMaintenance service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSAnalysis: added parameter FolderArn.
+    * Modified cmdlet New-QSDashboard: added parameter FolderArn.
+    * Modified cmdlet New-QSDataSet: added parameter FolderArn.
+    * Modified cmdlet New-QSDataSource: added parameters FolderArn, StarburstParameters_Catalog, StarburstParameters_Host, StarburstParameters_Port, StarburstParameters_ProductType, TrinoParameters_Catalog, TrinoParameters_Host and TrinoParameters_Port.
+    * Modified cmdlet Update-QSDataSource: added parameters StarburstParameters_Catalog, StarburstParameters_Host, StarburstParameters_Port, StarburstParameters_ProductType, TrinoParameters_Catalog, TrinoParameters_Host and TrinoParameters_Port.
+
+### 4.1.433 (2023-10-18 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.665.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Kendra
     * Modified cmdlet Invoke-KNDRQuery: added parameters CollapseConfiguration_DocumentAttributeKey, CollapseConfiguration_Expand, CollapseConfiguration_MissingAttributeKeyStrategy, CollapseConfiguration_SortingConfiguration, ExpandConfiguration_MaxExpandedResultsPerItem, ExpandConfiguration_MaxResultItemsToExpand and SortingConfiguration.

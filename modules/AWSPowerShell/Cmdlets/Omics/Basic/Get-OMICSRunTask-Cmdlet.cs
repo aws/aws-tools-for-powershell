@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The task's ID.</para>
+        /// <para>The workflow run ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

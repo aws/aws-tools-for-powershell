@@ -180,6 +180,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.FilterGroup[] Definition_FilterGroup { get; set; }
         #endregion
         
+        #region Parameter FolderArn
+        /// <summary>
+        /// <para>
+        /// <para>When you create the analysis, Amazon QuickSight adds the analysis to these folders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FolderArns")]
+        public System.String[] FolderArn { get; set; }
+        #endregion
+        
         #region Parameter Parameters_IntegerParameter
         /// <summary>
         /// <para>
@@ -509,6 +520,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.Definition_Sheet != null)
             {
                 context.Definition_Sheet = new List<Amazon.QuickSight.Model.SheetDefinition>(this.Definition_Sheet);
+            }
+            if (this.FolderArn != null)
+            {
+                context.FolderArn = new List<System.String>(this.FolderArn);
             }
             context.Name = this.Name;
             #if MODULAR
@@ -951,6 +966,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.Definition = null;
             }
+            if (cmdletContext.FolderArn != null)
+            {
+                request.FolderArns = cmdletContext.FolderArn;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -1158,6 +1177,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.FilterGroup> Definition_FilterGroup { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
+            public List<System.String> FolderArn { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.DateTimeParameter> Parameters_DateTimeParameter { get; set; }
             public List<Amazon.QuickSight.Model.DecimalParameter> Parameters_DecimalParameter { get; set; }

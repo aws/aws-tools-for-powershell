@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Core. Contact your account team to be allow-listed to use this value. For more information,
     /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
     /// </para></li><li><para>
-    /// PCoIP is only available for Windows bundles.
+    /// You don't need to specify the <code>PCOIP</code> protocol for Linux bundles because
+    /// <code>WSP</code> is the default protocol for those bundles.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

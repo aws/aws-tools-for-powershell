@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// 
     /// 
     ///  <important><para>
-    /// Changes you make to the policy template content are immediately reflected in authorization
-    /// decisions that involve all template-linked policies instantiated from this template.
+    /// Changes you make to the policy template content are immediately (within the constraints
+    /// of eventual consistency) reflected in authorization decisions that involve all template-linked
+    /// policies instantiated from this template.
     /// </para></important><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
     /// consistent</a></i>. It can take a few seconds for a new or changed element to be

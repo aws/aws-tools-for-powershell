@@ -150,6 +150,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainMaintenanceStatus" OutputProperty="*" Verb="Get" Noun="DomainMaintenanceStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -159,6 +163,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetUpgradeStatus" OutputProperty="*" Verb="Get" Noun="UpgradeStatus" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainMaintenances" OutputProperty="DomainMaintenances" Verb="Get" Noun="DomainMaintenanceList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,6 +223,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeVpcEndpointAccess" Verb="Revoke" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDomainMaintenance" OutputProperty="MaintenanceId" Verb="Start" Noun="DomainMaintenance" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

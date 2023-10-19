@@ -114,9 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// unique identifier for the new version. </para><note><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call
         /// this operation, then you can leave this parameter empty. The CLI or SDK generates
         /// a random UUID for you and includes it as the value for this parameter in the request.
-        /// If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager
-        /// service endpoint, then you must generate a <code>ClientRequestToken</code> yourself
-        /// for the new version and include the value in the request.</para></note><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
+        /// </para></note><para>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you
+        /// must generate a <code>ClientRequestToken</code> and include it in the request.</para><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
         /// accidental creation of duplicate versions if there are failures and retries during
         /// a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value to ensure uniqueness of your versions within the specified secret. </para><ul><li><para>If the <code>ClientRequestToken</code> value isn't already associated with a version
@@ -236,13 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
         /// JSON for Parameters</a>. If your command-line tool or SDK requires quotation marks
         /// around the parameter, you should use single quotes to avoid confusion with the double
-        /// quotes required in the JSON text.</para><para>The following restrictions apply to tags:</para><ul><li><para>Maximum number of tags per secret: 50</para></li><li><para>Maximum key length: 127 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 255 Unicode characters in UTF-8</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use the <code>aws:</code> prefix in your tag names or values because Amazon
-        /// Web Services reserves it for Amazon Web Services use. You can't edit or delete tag
-        /// names or values with this prefix. Tags with this prefix do not count against your
-        /// tags per secret limit.</para></li><li><para>If you use your tagging schema across multiple services and resources, other services
-        /// might have restrictions on allowed characters. Generally allowed characters: letters,
-        /// spaces, and numbers representable in UTF-8, plus the following special characters:
-        /// + - = . _ : / @.</para></li></ul>
+        /// quotes required in the JSON text.</para><para>For tag quotas and naming restrictions, see <a href="https://docs.aws.amazon.com/general/latest/gr/arg.html#taged-reference-quotas">Service
+        /// quotas for Tagging</a> in the <i>Amazon Web Services General Reference guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

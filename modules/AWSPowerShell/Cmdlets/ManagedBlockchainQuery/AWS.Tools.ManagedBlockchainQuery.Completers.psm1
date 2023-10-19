@@ -98,7 +98,7 @@ $MBCQ_Completers = {
             ($_ -eq "Get-MBCQTokenBalance/TokenIdentifier_Network")
         }
         {
-            $v = "BITCOIN_MAINNET","BITCOIN_TESTNET","ETHEREUM_MAINNET"
+            $v = "BITCOIN_MAINNET","BITCOIN_TESTNET","ETHEREUM_MAINNET","ETHEREUM_SEPOLIA_TESTNET"
             break
         }
 

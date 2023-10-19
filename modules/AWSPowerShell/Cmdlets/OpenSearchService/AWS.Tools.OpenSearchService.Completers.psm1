@@ -118,6 +118,23 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.MaintenanceStatus
+        "Get-OSDomainMaintenanceList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","PENDING","TIMED_OUT"
+            break
+        }
+
+        # Amazon.OpenSearchService.MaintenanceType
+        {
+            ($_ -eq "Get-OSDomainMaintenanceList/Action") -Or
+            ($_ -eq "Start-OSDomainMaintenance/Action")
+        }
+        {
+            $v = "REBOOT_NODE","RESTART_DASHBOARD","RESTART_SEARCH_PROCESS"
+            break
+        }
+
         # Amazon.OpenSearchService.OpenSearchPartitionInstanceType
         {
             ($_ -eq "New-OSDomain/ClusterConfig_DedicatedMasterType") -Or
@@ -201,6 +218,7 @@ $OS_Completers = {
 }
 
 $OS_map = @{
+    "Action"=@("Get-OSDomainMaintenanceList","Start-OSDomainMaintenance")
     "ActionType"=@("Update-OSScheduledAction")
     "AutoTuneOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
     "AutoTuneOptions_RollbackOnDisable"=@("Update-OSDomainConfig")
@@ -216,6 +234,7 @@ $OS_map = @{
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
+    "Status"=@("Get-OSDomainMaintenanceList")
 }
 
 _awsArgumentCompleterRegistration $OS_Completers $OS_map
@@ -299,9 +318,11 @@ $OS_SelectMap = @{
                "Get-OSVpcEndpoint",
                "Start-OSDissociatePackage",
                "Get-OSCompatibleVersion",
+               "Get-OSDomainMaintenanceStatus",
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
+               "Get-OSDomainMaintenanceList",
                "Get-OSDomainNameList",
                "Get-OSDomainsForPackageList",
                "Get-OSInstanceTypeDetailList",
@@ -316,6 +337,7 @@ $OS_SelectMap = @{
                "Deny-OSInboundConnection",
                "Remove-OSResourceTag",
                "Revoke-OSVpcEndpointAccess",
+               "Start-OSDomainMaintenance",
                "Start-OSServiceSoftwareUpdate",
                "Update-OSDomainConfig",
                "Update-OSPackage",

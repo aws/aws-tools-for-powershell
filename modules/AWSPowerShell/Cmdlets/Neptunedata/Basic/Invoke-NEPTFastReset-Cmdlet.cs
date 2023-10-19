@@ -38,6 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// UUID token which you then include when calling <code>ExecuteFastReset</code> again
     /// with <code>action</code> set to <code>performDatabaseReset</code>. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html">Empty
     /// an Amazon Neptune DB cluster using the fast reset API</a>.
+    /// </para><para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase">neptune-db:ResetDatabase</a>
+    /// IAM action in that cluster.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "NEPTFastReset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// Creates a new Neptune ML inference endpoint that lets you query one specific model
     /// that the model-training process constructed. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html">Managing
     /// inference endpoints using the endpoints command</a>.
+    /// 
+    ///  
+    /// <para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#createmlendpoint">neptune-db:CreateMLEndpoint</a>
+    /// IAM action in that cluster.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "NEPTMLEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Neptunedata.Model.CreateMLEndpointResponse")]

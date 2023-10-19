@@ -42,6 +42,21 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// </para><para>
     /// See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/streams.html">Capturing
     /// graph changes in real time using Neptune streams</a>.
+    /// </para><para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that allows the
+    /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords">neptune-db:GetStreamRecords</a>
+    /// IAM action in that cluster.
+    /// </para><para>
+    /// When invoking this operation in a Neptune cluster that has IAM authentication enabled,
+    /// the IAM user or role making the request must have a policy attached that enables one
+    /// of the following IAM actions, depending on the query:
+    /// </para><para>
+    /// Note that you can restrict property-graph queries using the following IAM context
+    /// keys:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a></para></li><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a></para></li></ul><para>
+    /// See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+    /// keys available in Neptune IAM data-access policy statements</a>).
     /// </para>
     /// </summary>
     [Cmdlet("Get", "NEPTPropertygraphStream")]

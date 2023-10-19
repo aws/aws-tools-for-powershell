@@ -194,7 +194,7 @@ $QS_Completers = {
         # Amazon.QuickSight.FolderType
         "New-QSFolder/FolderType"
         {
-            $v = "SHARED"
+            $v = "RESTRICTED","SHARED"
             break
         }
 
@@ -333,6 +333,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.StarburstProductType
+        {
+            ($_ -eq "New-QSDataSource/DataSourceParameters_StarburstParameters_ProductType") -Or
+            ($_ -eq "Update-QSDataSource/DataSourceParameters_StarburstParameters_ProductType")
+        }
+        {
+            $v = "ENTERPRISE","GALAXY"
+            break
+        }
+
         # Amazon.QuickSight.Status
         {
             ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_Status") -Or
@@ -409,6 +419,7 @@ $QS_map = @{
     "DashboardPublishOptions_VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
+    "DataSourceParameters_StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
