@@ -103,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOpsItem" Verb="Remove" Noun="OpsItem" ShouldProcessTarget="OpsItemId" PipelineParameter="OpsItemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOpsMetadata" Verb="Remove" Noun="OpsMetadata" ShouldProcessTarget="OpsMetadataArn" PipelineParameter="OpsMetadataArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

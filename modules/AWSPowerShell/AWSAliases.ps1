@@ -5923,6 +5923,7 @@ Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig
 Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
+Set-Alias -Name CONN-UpdatePhoneNumberMetadata -Value Update-CONNPhoneNumberMetadata
 Set-Alias -Name CONN-UpdatePrompt -Value Update-CONNPrompt
 Set-Alias -Name CONN-UpdateQueueHoursOfOperation -Value Update-CONNQueueHoursOfOperation
 Set-Alias -Name Update-CONNQueueMaxContacts -Value Update-CONNQueueMaxContact
@@ -7070,6 +7071,9 @@ Set-Alias -Name Update-DCVirtualInterfaceAttributes -Value Update-DCVirtualInter
 Set-Alias -Name DC-UpdateVirtualInterfaceAttributes -Value Update-DCVirtualInterfaceAttribute
 Set-Alias -Name Associate-ADSConfigurationItemsToApplication -Value Add-ADSConfigurationItemsToApplication
 Set-Alias -Name ADS-AssociateConfigurationItemsToApplication -Value Add-ADSConfigurationItemsToApplication
+Set-Alias -Name Batch-ADSDeleteAgents -Value Remove-ADSBatchAgent
+Set-Alias -Name Batch-ADSBatchAgent -Value Remove-ADSBatchAgent
+Set-Alias -Name ADS-BatchDeleteAgents -Value Remove-ADSBatchAgent
 Set-Alias -Name Batch-ADSDeleteImportData -Value Remove-ADSImportDataBatch
 Set-Alias -Name Batch-ADSImportDataBatch -Value Remove-ADSImportDataBatch
 Set-Alias -Name ADS-BatchDeleteImportData -Value Remove-ADSImportDataBatch
@@ -7087,6 +7091,8 @@ Set-Alias -Name ADS-DeleteTags -Value Remove-ADSTag
 Set-Alias -Name Describe-ADSAgents -Value Get-ADSAgent
 Set-Alias -Name Describe-ADSAgent -Value Get-ADSAgent
 Set-Alias -Name ADS-DescribeAgents -Value Get-ADSAgent
+Set-Alias -Name Describe-ADSBatchDeleteConfigurationTask -Value Get-ADSBatchDeleteConfigurationTask
+Set-Alias -Name ADS-DescribeBatchDeleteConfigurationTask -Value Get-ADSBatchDeleteConfigurationTask
 Set-Alias -Name Describe-ADSConfigurations -Value Get-ADSConfiguration
 Set-Alias -Name Describe-ADSConfiguration -Value Get-ADSConfiguration
 Set-Alias -Name ADS-DescribeConfigurations -Value Get-ADSConfiguration
@@ -7117,6 +7123,7 @@ Set-Alias -Name ADS-ListConfigurations -Value Get-ADSConfigurationList
 Set-Alias -Name List-ADSServerNeighbors -Value Get-ADSServerNeighborList
 Set-Alias -Name List-ADSServerNeighborList -Value Get-ADSServerNeighborList
 Set-Alias -Name ADS-ListServerNeighbors -Value Get-ADSServerNeighborList
+Set-Alias -Name ADS-StartBatchDeleteConfigurationTask -Value Start-ADSBatchDeleteConfigurationTask
 Set-Alias -Name ADS-StartContinuousExport -Value Start-ADSContinuousExport
 Set-Alias -Name Start-ADSDataCollectionByAgentIds -Value Start-ADSDataCollectionByAgentId
 Set-Alias -Name ADS-StartDataCollectionByAgentIds -Value Start-ADSDataCollectionByAgentId
@@ -24540,6 +24547,8 @@ Set-Alias -Name Delete-SSMInventory -Value Remove-SSMInventory
 Set-Alias -Name SSM-DeleteInventory -Value Remove-SSMInventory
 Set-Alias -Name Delete-SSMMaintenanceWindow -Value Remove-SSMMaintenanceWindow
 Set-Alias -Name SSM-DeleteMaintenanceWindow -Value Remove-SSMMaintenanceWindow
+Set-Alias -Name Delete-SSMOpsItem -Value Remove-SSMOpsItem
+Set-Alias -Name SSM-DeleteOpsItem -Value Remove-SSMOpsItem
 Set-Alias -Name Delete-SSMOpsMetadata -Value Remove-SSMOpsMetadata
 Set-Alias -Name SSM-DeleteOpsMetadata -Value Remove-SSMOpsMetadata
 Set-Alias -Name Delete-SSMParameter -Value Remove-SSMParameter

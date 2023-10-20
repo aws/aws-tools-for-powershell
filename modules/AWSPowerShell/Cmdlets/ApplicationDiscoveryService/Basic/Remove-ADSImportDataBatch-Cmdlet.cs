@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DeleteHistory
+        /// <summary>
+        /// <para>
+        /// <para> Set to <code>true</code> to remove the deleted import task from <a>DescribeImportTasks</a>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteHistory { get; set; }
+        #endregion
+        
         #region Parameter ImportTaskId
         /// <summary>
         /// <para>
@@ -133,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 context.Select = (response, cmdlet) => this.ImportTaskId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeleteHistory = this.DeleteHistory;
             if (this.ImportTaskId != null)
             {
                 context.ImportTaskId = new List<System.String>(this.ImportTaskId);
@@ -159,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // create request
             var request = new Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataRequest();
             
+            if (cmdletContext.DeleteHistory != null)
+            {
+                request.DeleteHistory = cmdletContext.DeleteHistory.Value;
+            }
             if (cmdletContext.ImportTaskId != null)
             {
                 request.ImportTaskIds = cmdletContext.ImportTaskId;
@@ -224,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteHistory { get; set; }
             public List<System.String> ImportTaskId { get; set; }
             public System.Func<Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataResponse, RemoveADSImportDataBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Errors;

@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of OpsItem to create. Systems Manager supports the following types of OpsItems:</para><ul><li><para><code>/aws/issue</code></para><para>This type of OpsItem is used for default OpsItems created by OpsCenter. </para></li><li><para><code>/aws/changerequest</code></para><para>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting
-        /// change requests. </para></li><li><para><code>/aws/insight</code></para><para>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
+        /// change requests. </para></li><li><para><code>/aws/insights</code></para><para>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
         /// OpsItems. </para></li></ul>
         /// </para>
         /// </summary>

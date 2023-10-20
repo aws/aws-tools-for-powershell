@@ -22,44 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.ApplicationDiscoveryService;
+using Amazon.ApplicationDiscoveryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token
-    /// is for the Amazon Connect user which corresponds to the IAM credentials that were
-    /// used to invoke this action. 
-    /// 
-    ///  
-    /// <para>
-    /// For more information about how SAML sign-in works in Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html&#xD;&#xA;            ">Configure SAML with IAM for Amazon Connect in the <i>Amazon Connect Administrator
-    /// Guide</i>.</a></para><note><para>
-    /// This API doesn't support root users. If you try to invoke GetFederationToken with
-    /// root credentials, an error message similar to the following one appears: 
-    /// </para><para><code>Provided identity: Principal: .... User: .... cannot be used for federation
-    /// with Amazon Connect</code></para></note>
+    /// Takes a unique deletion task identifier as input and returns metadata about a configuration
+    /// deletion task.
     /// </summary>
-    [Cmdlet("Get", "CONNFederationToken")]
-    [OutputType("Amazon.Connect.Model.Credentials")]
-    [AWSCmdlet("Calls the Amazon Connect Service GetFederationToken API operation.", Operation = new[] {"GetFederationToken"}, SelectReturnType = typeof(Amazon.Connect.Model.GetFederationTokenResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.Credentials or Amazon.Connect.Model.GetFederationTokenResponse",
-        "This cmdlet returns an Amazon.Connect.Model.Credentials object.",
-        "The service call response (type Amazon.Connect.Model.GetFederationTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ADSBatchDeleteConfigurationTask")]
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.BatchDeleteConfigurationTask")]
+    [AWSCmdlet("Calls the AWS Application Discovery Service DescribeBatchDeleteConfigurationTask API operation.", Operation = new[] {"DescribeBatchDeleteConfigurationTask"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse))]
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.BatchDeleteConfigurationTask or Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse",
+        "This cmdlet returns an Amazon.ApplicationDiscoveryService.Model.BatchDeleteConfigurationTask object.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNFederationTokenCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetADSBatchDeleteConfigurationTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para> The ID of the task to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String TaskId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Credentials'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.GetFederationTokenResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.GetFederationTokenResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Task'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Credentials";
+        public string Select { get; set; } = "Task";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TaskId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TaskId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TaskId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -107,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.GetFederationTokenResponse, GetCONNFederationTokenCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse, GetADSBatchDeleteConfigurationTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.TaskId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceId = this.InstanceId;
+            context.TaskId = this.TaskId;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.TaskId == null && ParameterWasBound(nameof(this.TaskId)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.GetFederationTokenRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.TaskId != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.TaskId = cmdletContext.TaskId;
             }
             
             CmdletOutput output;
@@ -179,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.GetFederationTokenResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.GetFederationTokenRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "GetFederationToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Application Discovery Service", "DescribeBatchDeleteConfigurationTask");
             try
             {
                 #if DESKTOP
-                return client.GetFederationToken(request);
+                return client.DescribeBatchDeleteConfigurationTask(request);
                 #elif CORECLR
-                return client.GetFederationTokenAsync(request).GetAwaiter().GetResult();
+                return client.DescribeBatchDeleteConfigurationTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.GetFederationTokenResponse, GetCONNFederationTokenCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Credentials;
+            public System.String TaskId { get; set; }
+            public System.Func<Amazon.ApplicationDiscoveryService.Model.DescribeBatchDeleteConfigurationTaskResponse, GetADSBatchDeleteConfigurationTaskCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Task;
         }
         
     }

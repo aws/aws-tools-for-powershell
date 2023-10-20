@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the flow module.</para>
+        /// <para>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+        /// flow in Amazon Connect Flow language</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

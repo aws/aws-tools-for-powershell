@@ -22,61 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MedicalImaging;
-using Amazon.MedicalImaging.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MIS
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Create a data store.
+    /// Updates a phone number’s metadata.
+    /// 
+    ///  <important><para>
+    /// To verify the status of a previous UpdatePhoneNumberMetadata operation, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a>
+    /// API.
+    /// </para></important>
     /// </summary>
-    [Cmdlet("New", "MISDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.MedicalImaging.Model.CreateDatastoreResponse")]
-    [AWSCmdlet("Calls the Amazon Medical Imaging Service CreateDatastore API operation.", Operation = new[] {"CreateDatastore"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.CreateDatastoreResponse))]
-    [AWSCmdletOutput("Amazon.MedicalImaging.Model.CreateDatastoreResponse",
-        "This cmdlet returns an Amazon.MedicalImaging.Model.CreateDatastoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CONNPhoneNumberMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service UpdatePhoneNumberMetadata API operation.", Operation = new[] {"UpdatePhoneNumberMetadata"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewMISDatastoreCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
+    public partial class UpdateCONNPhoneNumberMetadataCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DatastoreName
+        #region Parameter PhoneNumberDescription
         /// <summary>
         /// <para>
-        /// <para>The data store name.</para>
+        /// <para>The description of the phone number.</para>
         /// </para>
         /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PhoneNumberDescription { get; set; }
+        #endregion
+        
+        #region Parameter PhoneNumberId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) or resource ID of the phone number.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DatastoreName { get; set; }
-        #endregion
-        
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for
-        /// accessing encrypted data.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags provided when creating a data store.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PhoneNumberId { get; set; }
         #endregion
         
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for API idempotency.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MedicalImaging.Model.CreateDatastoreResponse).
-        /// Specifying the name of a property of type Amazon.MedicalImaging.Model.CreateDatastoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatastoreName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatastoreName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PhoneNumberId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PhoneNumberId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatastoreName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PhoneNumberId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatastoreName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MISDatastore (CreateDatastore)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumberId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNPhoneNumberMetadata (UpdatePhoneNumberMetadata)"))
             {
                 return;
             }
@@ -133,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MedicalImaging.Model.CreateDatastoreResponse, NewMISDatastoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse, UpdateCONNPhoneNumberMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,20 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatastoreName;
+                context.Select = (response, cmdlet) => this.PhoneNumberId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            context.DatastoreName = this.DatastoreName;
-            context.KmsKeyArn = this.KmsKeyArn;
-            if (this.Tag != null)
+            context.PhoneNumberDescription = this.PhoneNumberDescription;
+            context.PhoneNumberId = this.PhoneNumberId;
+            #if MODULAR
+            if (this.PhoneNumberId == null && ParameterWasBound(nameof(this.PhoneNumberId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter PhoneNumberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,23 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MedicalImaging.Model.CreateDatastoreRequest();
+            var request = new Amazon.Connect.Model.UpdatePhoneNumberMetadataRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.DatastoreName != null)
+            if (cmdletContext.PhoneNumberDescription != null)
             {
-                request.DatastoreName = cmdletContext.DatastoreName;
+                request.PhoneNumberDescription = cmdletContext.PhoneNumberDescription;
             }
-            if (cmdletContext.KmsKeyArn != null)
+            if (cmdletContext.PhoneNumberId != null)
             {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.PhoneNumberId = cmdletContext.PhoneNumberId;
             }
             
             CmdletOutput output;
@@ -221,15 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         #region AWS Service Operation Call
         
-        private Amazon.MedicalImaging.Model.CreateDatastoreResponse CallAWSServiceOperation(IAmazonMedicalImaging client, Amazon.MedicalImaging.Model.CreateDatastoreRequest request)
+        private Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdatePhoneNumberMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Medical Imaging Service", "CreateDatastore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdatePhoneNumberMetadata");
             try
             {
                 #if DESKTOP
-                return client.CreateDatastore(request);
+                return client.UpdatePhoneNumberMetadata(request);
                 #elif CORECLR
-                return client.CreateDatastoreAsync(request).GetAwaiter().GetResult();
+                return client.UpdatePhoneNumberMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,11 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public System.String DatastoreName { get; set; }
-            public System.String KmsKeyArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.MedicalImaging.Model.CreateDatastoreResponse, NewMISDatastoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String PhoneNumberDescription { get; set; }
+            public System.String PhoneNumberId { get; set; }
+            public System.Func<Amazon.Connect.Model.UpdatePhoneNumberMetadataResponse, UpdateCONNPhoneNumberMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

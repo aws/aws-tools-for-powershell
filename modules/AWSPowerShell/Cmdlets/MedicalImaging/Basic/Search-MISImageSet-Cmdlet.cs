@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
     /// Search image sets based on defined input attributes.
+    /// 
+    ///  <note><para><code>SearchImageSets</code> accepts a single search query parameter and returns
+    /// a paginated response of all image sets that have the matching criteria. All range
+    /// queries must be input as <code>(lowerBound, upperBound)</code>.
+    /// </para><para><code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting in
+    /// decreasing order from latest to oldest.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Search", "MISImageSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MedicalImaging.Model.ImageSetsMetadataSummary")]

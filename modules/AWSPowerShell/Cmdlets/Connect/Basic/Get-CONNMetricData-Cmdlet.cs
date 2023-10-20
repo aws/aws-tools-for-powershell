@@ -34,7 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
     /// Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a>
+    /// API. It provides more flexibility, features, and the ability to query longer time
+    /// ranges than <code>GetMetricData</code>. Use it to retrieve historical agent and contact
+    /// metrics for the last 3 months, at varying intervals. You can also use it to build
+    /// custom dashboards to measure historical queue and agent performance. For example,
+    /// you can track the number of incoming contacts for the last 7 days, with data split
+    /// by day, to see how contact volume changed per day of the week.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNMetricData")]
     [OutputType("Amazon.Connect.Model.HistoricalMetricResult")]

@@ -22,100 +22,79 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.ApplicationDiscoveryService;
+using Amazon.ApplicationDiscoveryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Updates the specified flow.
-    /// 
-    ///  
-    /// <para>
-    /// You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon
-    /// Connect Flow language</a>.
-    /// </para>
+    /// Takes a list of configurationId as input and starts an asynchronous deletion task
+    /// to remove the configurationItems. Returns a unique deletion task identifier.
     /// </summary>
-    [Cmdlet("Update", "CONNContactFlowContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UpdateContactFlowContent API operation.", Operation = new[] {"UpdateContactFlowContent"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateContactFlowContentResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateContactFlowContentResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateContactFlowContentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "ADSBatchDeleteConfigurationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Application Discovery Service StartBatchDeleteConfigurationTask API operation.", Operation = new[] {"StartBatchDeleteConfigurationTask"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCONNContactFlowContentCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class StartADSBatchDeleteConfigurationTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ContactFlowId
+        #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the flow.</para>
+        /// <para> The list of configuration IDs that will be deleted by the task. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactFlowId { get; set; }
+        [Alias("ConfigurationIds")]
+        public System.String[] ConfigurationId { get; set; }
         #endregion
         
-        #region Parameter Content
+        #region Parameter ConfigurationType
         /// <summary>
         /// <para>
-        /// <para>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-        /// flow in Amazon Connect Flow language</a>. </para><para>Length Constraints: Minimum length of 1. Maximum length of 256000.</para>
+        /// <para> The type of configuration item to delete. Supported types are: SERVER. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Content { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        [AWSConstantClassSource("Amazon.ApplicationDiscoveryService.DeletionConfigurationItemType")]
+        public Amazon.ApplicationDiscoveryService.DeletionConfigurationItemType ConfigurationType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateContactFlowContentResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TaskId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "TaskId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactFlowId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConfigurationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConfigurationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConfigurationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -135,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactFlowId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNContactFlowContent (UpdateContactFlowContent)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfigurationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ADSBatchDeleteConfigurationTask (StartBatchDeleteConfigurationTask)"))
             {
                 return;
             }
@@ -149,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateContactFlowContentResponse, UpdateCONNContactFlowContentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse, StartADSBatchDeleteConfigurationTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,28 +137,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactFlowId;
+                context.Select = (response, cmdlet) => this.ConfigurationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactFlowId = this.ContactFlowId;
-            #if MODULAR
-            if (this.ContactFlowId == null && ParameterWasBound(nameof(this.ContactFlowId)))
+            if (this.ConfigurationId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ConfigurationId = new List<System.String>(this.ConfigurationId);
+            }
+            #if MODULAR
+            if (this.ConfigurationId == null && ParameterWasBound(nameof(this.ConfigurationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ConfigurationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Content = this.Content;
+            context.ConfigurationType = this.ConfigurationType;
             #if MODULAR
-            if (this.Content == null && ParameterWasBound(nameof(this.Content)))
+            if (this.ConfigurationType == null && ParameterWasBound(nameof(this.ConfigurationType)))
             {
-                WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConfigurationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -196,19 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UpdateContactFlowContentRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskRequest();
             
-            if (cmdletContext.ContactFlowId != null)
+            if (cmdletContext.ConfigurationId != null)
             {
-                request.ContactFlowId = cmdletContext.ContactFlowId;
+                request.ConfigurationIds = cmdletContext.ConfigurationId;
             }
-            if (cmdletContext.Content != null)
+            if (cmdletContext.ConfigurationType != null)
             {
-                request.Content = cmdletContext.Content;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ConfigurationType = cmdletContext.ConfigurationType;
             }
             
             CmdletOutput output;
@@ -243,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UpdateContactFlowContentResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateContactFlowContentRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateContactFlowContent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Application Discovery Service", "StartBatchDeleteConfigurationTask");
             try
             {
                 #if DESKTOP
-                return client.UpdateContactFlowContent(request);
+                return client.StartBatchDeleteConfigurationTask(request);
                 #elif CORECLR
-                return client.UpdateContactFlowContentAsync(request).GetAwaiter().GetResult();
+                return client.StartBatchDeleteConfigurationTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -271,11 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactFlowId { get; set; }
-            public System.String Content { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.UpdateContactFlowContentResponse, UpdateCONNContactFlowContentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> ConfigurationId { get; set; }
+            public Amazon.ApplicationDiscoveryService.DeletionConfigurationItemType ConfigurationType { get; set; }
+            public System.Func<Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse, StartADSBatchDeleteConfigurationTaskCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TaskId;
         }
         
     }

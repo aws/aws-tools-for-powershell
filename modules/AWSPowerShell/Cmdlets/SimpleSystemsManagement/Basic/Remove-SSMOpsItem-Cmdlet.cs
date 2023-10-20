@@ -22,72 +22,70 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MedicalImaging;
-using Amazon.MedicalImaging.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MIS
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Create a data store.
+    /// Delete an OpsItem. You must have permission in Identity and Access Management (IAM)
+    /// to delete an OpsItem. 
+    /// 
+    ///  <important><para>
+    /// Note the following important information about this operation.
+    /// </para><ul><li><para>
+    /// Deleting an OpsItem is irreversible. You can't restore a deleted OpsItem.
+    /// </para></li><li><para>
+    /// This operation uses an <i>eventual consistency model</i>, which means the system can
+    /// take a few minutes to complete this operation. If you delete an OpsItem and immediately
+    /// call, for example, <a>GetOpsItem</a>, the deleted OpsItem might still appear in the
+    /// response. 
+    /// </para></li><li><para>
+    /// This operation is idempotent. The system doesn't throw an exception if you repeatedly
+    /// call this operation for the same OpsItem. If the first call is successful, all additional
+    /// calls return the same successful response as the first call.
+    /// </para></li><li><para>
+    /// This operation doesn't support cross-account calls. A delegated administrator or management
+    /// account can't delete OpsItems in other accounts, even if OpsCenter has been set up
+    /// for cross-account administration. For more information about cross-account administration,
+    /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setting-up-cross-account.html">Setting
+    /// up OpsCenter to centrally manage OpsItems across accounts</a> in the <i>Systems Manager
+    /// User Guide</i>.
+    /// </para></li></ul></important>
     /// </summary>
-    [Cmdlet("New", "MISDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.MedicalImaging.Model.CreateDatastoreResponse")]
-    [AWSCmdlet("Calls the Amazon Medical Imaging Service CreateDatastore API operation.", Operation = new[] {"CreateDatastore"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.CreateDatastoreResponse))]
-    [AWSCmdletOutput("Amazon.MedicalImaging.Model.CreateDatastoreResponse",
-        "This cmdlet returns an Amazon.MedicalImaging.Model.CreateDatastoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SSMOpsItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Systems Manager DeleteOpsItem API operation.", Operation = new[] {"DeleteOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse))]
+    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewMISDatastoreCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
+    public partial class RemoveSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DatastoreName
+        #region Parameter OpsItemId
         /// <summary>
         /// <para>
-        /// <para>The data store name.</para>
+        /// <para>The ID of the OpsItem that you want to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DatastoreName { get; set; }
-        #endregion
-        
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for
-        /// accessing encrypted data.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags provided when creating a data store.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for API idempotency.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OpsItemId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MedicalImaging.Model.CreateDatastoreResponse).
-        /// Specifying the name of a property of type Amazon.MedicalImaging.Model.CreateDatastoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatastoreName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatastoreName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OpsItemId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OpsItemId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatastoreName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OpsItemId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatastoreName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MISDatastore (CreateDatastore)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OpsItemId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMOpsItem (DeleteOpsItem)"))
             {
                 return;
             }
@@ -133,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MedicalImaging.Model.CreateDatastoreResponse, NewMISDatastoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse, RemoveSSMOpsItemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,20 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatastoreName;
+                context.Select = (response, cmdlet) => this.OpsItemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.DatastoreName = this.DatastoreName;
-            context.KmsKeyArn = this.KmsKeyArn;
-            if (this.Tag != null)
+            context.OpsItemId = this.OpsItemId;
+            #if MODULAR
+            if (this.OpsItemId == null && ParameterWasBound(nameof(this.OpsItemId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter OpsItemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,23 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MedicalImaging.Model.CreateDatastoreRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteOpsItemRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.OpsItemId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.DatastoreName != null)
-            {
-                request.DatastoreName = cmdletContext.DatastoreName;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.OpsItemId = cmdletContext.OpsItemId;
             }
             
             CmdletOutput output;
@@ -221,15 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         #region AWS Service Operation Call
         
-        private Amazon.MedicalImaging.Model.CreateDatastoreResponse CallAWSServiceOperation(IAmazonMedicalImaging client, Amazon.MedicalImaging.Model.CreateDatastoreRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteOpsItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Medical Imaging Service", "CreateDatastore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteOpsItem");
             try
             {
                 #if DESKTOP
-                return client.CreateDatastore(request);
+                return client.DeleteOpsItem(request);
                 #elif CORECLR
-                return client.CreateDatastoreAsync(request).GetAwaiter().GetResult();
+                return client.DeleteOpsItemAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,12 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String DatastoreName { get; set; }
-            public System.String KmsKeyArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.MedicalImaging.Model.CreateDatastoreResponse, NewMISDatastoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String OpsItemId { get; set; }
+            public System.Func<Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse, RemoveSSMOpsItemCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

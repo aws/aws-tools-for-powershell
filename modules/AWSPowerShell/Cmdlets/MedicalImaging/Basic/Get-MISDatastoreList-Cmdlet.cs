@@ -28,7 +28,7 @@ using Amazon.MedicalImaging.Model;
 namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
-    /// List data stores created by this AWS account.
+    /// List data stores.
     /// </summary>
     [Cmdlet("Get", "MISDatastoreList")]
     [OutputType("Amazon.MedicalImaging.Model.DatastoreSummary")]

@@ -268,6 +268,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CONNInstanceStorageConfig', 
         'Update-CONNParticipantRoleConfig', 
         'Update-CONNPhoneNumber', 
+        'Update-CONNPhoneNumberMetadata', 
         'Update-CONNPrompt', 
         'Update-CONNQueueHoursOfOperation', 
         'Update-CONNQueueMaxContact', 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>discovery</C2jFilename>
     <AssemblyName>ApplicationDiscoveryService</AssemblyName>
@@ -17,13 +18,16 @@
         <Map From="Configurations" To="Configuration" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateConfigurationItemsToApplication" Verb="Add" Noun="ConfigurationItemsToApplication" ShouldProcessTarget="ApplicationConfigurationId" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteAgents" OutputProperty="Errors" Verb="Remove" Noun="BatchAgent" ShouldProcessTarget="DeleteAgents" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBatchDeleteConfigurationTask" OutputProperty="Task" Verb="Get" Noun="BatchDeleteConfigurationTask" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartBatchDeleteConfigurationTask" OutputProperty="TaskId" Verb="Start" Noun="BatchDeleteConfigurationTask" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartContinuousExport" OutputProperty="*" Verb="Start" Noun="ContinuousExport" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -124,7 +136,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

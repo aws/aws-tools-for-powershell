@@ -28,7 +28,7 @@ using Amazon.MedicalImaging.Model;
 namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
-    /// List import jobs created by this AWS account for a specific data store.
+    /// List import jobs created for a specific data store.
     /// </summary>
     [Cmdlet("Get", "MISDICOMImportJobList")]
     [OutputType("Amazon.MedicalImaging.Model.DICOMImportJobSummary")]

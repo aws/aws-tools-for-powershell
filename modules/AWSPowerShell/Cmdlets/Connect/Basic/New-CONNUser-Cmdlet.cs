@@ -30,8 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Creates a user account for the specified Amazon Connect instance.
     /// 
-    ///  
-    /// <para>
+    ///  <important><para>
+    /// Certain <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html">UserIdentityInfo</a>
+    /// parameters are required in some situations. For example, <code>Email</code> is required
+    /// if you are using SAML for identity management. <code>FirstName</code> and <code>LastName</code>
+    /// are required if you are using Amazon Connect or SAML for identity management.
+    /// </para></important><para>
     /// For information about how to create user accounts using the Amazon Connect console,
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
     /// Users</a> in the <i>Amazon Connect Administrator Guide</i>.

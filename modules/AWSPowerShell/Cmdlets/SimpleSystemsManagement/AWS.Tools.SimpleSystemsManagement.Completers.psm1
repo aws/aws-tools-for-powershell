@@ -440,6 +440,7 @@ $SSM_SelectMap = @{
                "Remove-SSMDocument",
                "Remove-SSMInventory",
                "Remove-SSMMaintenanceWindow",
+               "Remove-SSMOpsItem",
                "Remove-SSMOpsMetadata",
                "Remove-SSMParameter",
                "Remove-SSMParameterCollection",

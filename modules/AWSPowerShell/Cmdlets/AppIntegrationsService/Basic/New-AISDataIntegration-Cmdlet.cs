@@ -151,14 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <para>How often the data should be pulled from data source.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ScheduleConfig_ScheduleExpression { get; set; }
         #endregion
         
@@ -317,12 +310,6 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             context.ScheduleConfig_FirstExecutionFrom = this.ScheduleConfig_FirstExecutionFrom;
             context.ScheduleConfig_Object = this.ScheduleConfig_Object;
             context.ScheduleConfig_ScheduleExpression = this.ScheduleConfig_ScheduleExpression;
-            #if MODULAR
-            if (this.ScheduleConfig_ScheduleExpression == null && ParameterWasBound(nameof(this.ScheduleConfig_ScheduleExpression)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ScheduleConfig_ScheduleExpression which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SourceURI = this.SourceURI;
             #if MODULAR
             if (this.SourceURI == null && ParameterWasBound(nameof(this.SourceURI)))

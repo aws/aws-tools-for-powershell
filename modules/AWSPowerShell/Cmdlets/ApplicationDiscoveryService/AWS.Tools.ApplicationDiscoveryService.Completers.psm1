@@ -87,6 +87,13 @@ $ADS_Completers = {
             break
         }
 
+        # Amazon.ApplicationDiscoveryService.DeletionConfigurationItemType
+        "Start-ADSBatchDeleteConfigurationTask/ConfigurationType"
+        {
+            $v = "SERVER"
+            break
+        }
+
         # Amazon.ApplicationDiscoveryService.OfferingClass
         "Start-ADSExportTask/Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass"
         {
@@ -124,7 +131,7 @@ $ADS_Completers = {
 }
 
 $ADS_map = @{
-    "ConfigurationType"=@("Get-ADSConfigurationList")
+    "ConfigurationType"=@("Get-ADSConfigurationList","Start-ADSBatchDeleteConfigurationTask")
     "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_OfferingClass"=@("Start-ADSExportTask")
     "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_PurchasingOption"=@("Start-ADSExportTask")
     "Preferences_Ec2RecommendationsPreferences_ReservedInstanceOptions_TermLength"=@("Start-ADSExportTask")
@@ -182,12 +189,14 @@ $ADS_SelectCompleters = {
 
 $ADS_SelectMap = @{
     "Select"=@("Add-ADSConfigurationItemsToApplication",
+               "Remove-ADSBatchAgent",
                "Remove-ADSImportDataBatch",
                "New-ADSApplication",
                "New-ADSTag",
                "Remove-ADSApplication",
                "Remove-ADSTag",
                "Get-ADSAgent",
+               "Get-ADSBatchDeleteConfigurationTask",
                "Get-ADSConfiguration",
                "Get-ADSContinuousExport",
                "Get-ADSExportConfiguration",
@@ -199,6 +208,7 @@ $ADS_SelectMap = @{
                "Get-ADSDiscoverySummary",
                "Get-ADSConfigurationList",
                "Get-ADSServerNeighborList",
+               "Start-ADSBatchDeleteConfigurationTask",
                "Start-ADSContinuousExport",
                "Start-ADSDataCollectionByAgentId",
                "Start-ADSExportTask",

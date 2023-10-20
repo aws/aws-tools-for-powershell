@@ -1,4 +1,16 @@
-﻿### 4.1.434 (2023-10-19 23:17Z)
+﻿### 4.1.435 (2023-10-20 23:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.667.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Discovery Service
+    * Added cmdlet Get-ADSBatchDeleteConfigurationTask leveraging the DescribeBatchDeleteConfigurationTask service API.
+    * Added cmdlet Remove-ADSBatchAgent leveraging the BatchDeleteAgents service API.
+    * Added cmdlet Start-ADSBatchDeleteConfigurationTask leveraging the StartBatchDeleteConfigurationTask service API.
+    * Modified cmdlet Remove-ADSImportDataBatch: added parameter DeleteHistory.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNPhoneNumberMetadata leveraging the UpdatePhoneNumberMetadata service API.
+  * Amazon Systems Manager
+    * Added cmdlet Remove-SSMOpsItem leveraging the DeleteOpsItem service API.
+
+### 4.1.434 (2023-10-19 23:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.666.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon GameSparks
   * Amazon OpenSearch Service
