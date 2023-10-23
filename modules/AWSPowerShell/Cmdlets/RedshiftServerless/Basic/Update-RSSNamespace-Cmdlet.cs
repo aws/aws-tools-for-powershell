@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <para>
         /// <para>The password of the administrator for the first database created in the namespace.
         /// This parameter must be updated together with <code>adminUsername</code>.</para><para>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is
-        /// true. </para>
+        /// true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

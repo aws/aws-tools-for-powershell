@@ -21491,6 +21491,7 @@ Set-Alias -Name Get-REKFaceLivenessSessionResults -Value Get-REKFaceLivenessSess
 Set-Alias -Name REK-GetFaceLivenessSessionResults -Value Get-REKFaceLivenessSessionResult
 Set-Alias -Name REK-GetFaceSearch -Value Get-REKFaceSearch
 Set-Alias -Name REK-GetLabelDetection -Value Get-REKLabelDetection
+Set-Alias -Name REK-GetMediaAnalysisJob -Value Get-REKMediaAnalysisJob
 Set-Alias -Name REK-GetPersonTracking -Value Get-REKPersonTracking
 Set-Alias -Name REK-GetSegmentDetection -Value Get-REKSegmentDetection
 Set-Alias -Name REK-GetTextDetection -Value Get-REKTextDetection
@@ -21509,6 +21510,9 @@ Set-Alias -Name REK-ListDatasetLabels -Value Get-REKDatasetLabelList
 Set-Alias -Name List-REKFaces -Value Get-REKFaceList
 Set-Alias -Name List-REKFaceList -Value Get-REKFaceList
 Set-Alias -Name REK-ListFaces -Value Get-REKFaceList
+Set-Alias -Name List-REKMediaAnalysisJobs -Value Get-REKMediaAnalysisJobList
+Set-Alias -Name List-REKMediaAnalysisJobList -Value Get-REKMediaAnalysisJobList
+Set-Alias -Name REK-ListMediaAnalysisJobs -Value Get-REKMediaAnalysisJobList
 Set-Alias -Name List-REKProjectPolicies -Value Get-REKProjectPolicyList
 Set-Alias -Name List-REKProjectPolicyList -Value Get-REKProjectPolicyList
 Set-Alias -Name REK-ListProjectPolicies -Value Get-REKProjectPolicyList
@@ -21535,6 +21539,7 @@ Set-Alias -Name REK-StartContentModeration -Value Start-REKContentModeration
 Set-Alias -Name REK-StartFaceDetection -Value Start-REKFaceDetection
 Set-Alias -Name REK-StartFaceSearch -Value Start-REKFaceSearch
 Set-Alias -Name REK-StartLabelDetection -Value Start-REKLabelDetection
+Set-Alias -Name REK-StartMediaAnalysisJob -Value Start-REKMediaAnalysisJob
 Set-Alias -Name REK-StartPersonTracking -Value Start-REKPersonTracking
 Set-Alias -Name REK-StartProjectVersion -Value Start-REKProjectVersion
 Set-Alias -Name REK-StartSegmentDetection -Value Start-REKSegmentDetection

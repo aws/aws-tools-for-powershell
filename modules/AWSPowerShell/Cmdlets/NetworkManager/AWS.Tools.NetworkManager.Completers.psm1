@@ -118,7 +118,7 @@ $NMGR_Completers = {
         # Amazon.NetworkManager.TunnelProtocol
         "New-NMGRConnectAttachment/Options_Protocol"
         {
-            $v = "GRE"
+            $v = "GRE","NO_ENCAP"
             break
         }
 

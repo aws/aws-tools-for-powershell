@@ -77,14 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         /// <para>The inside IP addresses used for BGP peering.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InsideCidrBlocks")]
         public System.String[] InsideCidrBlock { get; set; }
         #endregion
@@ -114,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? BgpOptions_PeerAsn { get; set; }
+        #endregion
+        
+        #region Parameter SubnetArn
+        /// <summary>
+        /// <para>
+        /// <para>The subnet ARN for the Connect peer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubnetArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -213,12 +216,6 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             {
                 context.InsideCidrBlock = new List<System.String>(this.InsideCidrBlock);
             }
-            #if MODULAR
-            if (this.InsideCidrBlock == null && ParameterWasBound(nameof(this.InsideCidrBlock)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InsideCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PeerAddress = this.PeerAddress;
             #if MODULAR
             if (this.PeerAddress == null && ParameterWasBound(nameof(this.PeerAddress)))
@@ -226,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 WriteWarning("You are passing $null as a value for parameter PeerAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SubnetArn = this.SubnetArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.NetworkManager.Model.Tag>(this.Tag);
@@ -284,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (cmdletContext.PeerAddress != null)
             {
                 request.PeerAddress = cmdletContext.PeerAddress;
+            }
+            if (cmdletContext.SubnetArn != null)
+            {
+                request.SubnetArn = cmdletContext.SubnetArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -356,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             public System.String CoreNetworkAddress { get; set; }
             public List<System.String> InsideCidrBlock { get; set; }
             public System.String PeerAddress { get; set; }
+            public System.String SubnetArn { get; set; }
             public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.NetworkManager.Model.CreateConnectPeerResponse, NewNMGRConnectPeerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectPeer;

@@ -202,6 +202,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMediaAnalysisJob" OutputProperty="*" Verb="Get" Noun="MediaAnalysisJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
@@ -236,6 +240,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMediaAnalysisJobs" OutputProperty="MediaAnalysisJobs" Verb="Get" Noun="MediaAnalysisJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -306,6 +314,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartLabelDetection" OutputProperty="JobId" Verb="Start" Noun="LabelDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMediaAnalysisJob" OutputProperty="JobId" Verb="Start" Noun="MediaAnalysisJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

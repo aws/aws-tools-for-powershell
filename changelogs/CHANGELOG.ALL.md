@@ -1,4 +1,13 @@
-﻿### 4.1.435 (2023-10-20 23:22Z)
+﻿### 4.1.436 (2023-10-23 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.668.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Manager
+    * Modified cmdlet New-NMGRConnectPeer: added parameter SubnetArn.
+  * Amazon Rekognition
+    * Added cmdlet Get-REKMediaAnalysisJob leveraging the GetMediaAnalysisJob service API.
+    * Added cmdlet Get-REKMediaAnalysisJobList leveraging the ListMediaAnalysisJobs service API.
+    * Added cmdlet Start-REKMediaAnalysisJob leveraging the StartMediaAnalysisJob service API.
+
+### 4.1.435 (2023-10-20 23:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.667.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Discovery Service
     * Added cmdlet Get-ADSBatchDeleteConfigurationTask leveraging the DescribeBatchDeleteConfigurationTask service API.

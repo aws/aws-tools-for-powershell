@@ -43334,7 +43334,7 @@ $NMGR_Completers = {
         # Amazon.NetworkManager.TunnelProtocol
         "New-NMGRConnectAttachment/Options_Protocol"
         {
-            $v = "GRE"
+            $v = "GRE","NO_ENCAP"
             break
         }
 
@@ -50476,6 +50476,7 @@ $REK_SelectMap = @{
                "Get-REKFaceLivenessSessionResult",
                "Get-REKFaceSearch",
                "Get-REKLabelDetection",
+               "Get-REKMediaAnalysisJob",
                "Get-REKPersonTracking",
                "Get-REKSegmentDetection",
                "Get-REKTextDetection",
@@ -50484,6 +50485,7 @@ $REK_SelectMap = @{
                "Get-REKDatasetEntryList",
                "Get-REKDatasetLabelList",
                "Get-REKFaceList",
+               "Get-REKMediaAnalysisJobList",
                "Get-REKProjectPolicyList",
                "Get-REKStreamProcessorList",
                "Get-REKResourceTag",
@@ -50499,6 +50501,7 @@ $REK_SelectMap = @{
                "Start-REKFaceDetection",
                "Start-REKFaceSearch",
                "Start-REKLabelDetection",
+               "Start-REKMediaAnalysisJob",
                "Start-REKPersonTracking",
                "Start-REKProjectVersion",
                "Start-REKSegmentDetection",
