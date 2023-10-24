@@ -1,4 +1,21 @@
-﻿### 4.1.436 (2023-10-23 21:38Z)
+﻿### 4.1.437 (2023-10-24 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.669.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodePipeline
+    * Modified cmdlet Start-CPPipelineExecution: added parameter Variable.
+  * Amazon Migration Hub Config
+    * Added cmdlet Remove-MHCHomeRegionControl leveraging the DeleteHomeRegionControl service API.
+  * Amazon Migration Hub Strategy Recommendations
+    * Added cmdlet Get-MHSAnalyzableServerList leveraging the ListAnalyzableServers service API.
+    * Modified cmdlet Start-MHSAssessment: added parameter AssessmentDataSourceType.
+  * Amazon OpenSearch Serverless
+    * Added cmdlet Get-OSSGetEffectiveLifecyclePolicy leveraging the BatchGetEffectiveLifecyclePolicy service API.
+    * Added cmdlet Get-OSSGetLifecyclePolicy leveraging the BatchGetLifecyclePolicy service API.
+    * Added cmdlet Get-OSSLifecyclePolicyList leveraging the ListLifecyclePolicies service API.
+    * Added cmdlet New-OSSLifecyclePolicy leveraging the CreateLifecyclePolicy service API.
+    * Added cmdlet Remove-OSSLifecyclePolicy leveraging the DeleteLifecyclePolicy service API.
+    * Added cmdlet Update-OSSLifecyclePolicy leveraging the UpdateLifecyclePolicy service API.
+
+### 4.1.436 (2023-10-23 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.668.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Network Manager
     * Modified cmdlet New-NMGRConnectPeer: added parameter SubnetArn.

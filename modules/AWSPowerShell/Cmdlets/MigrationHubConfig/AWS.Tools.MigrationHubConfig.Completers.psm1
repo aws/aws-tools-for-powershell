@@ -153,6 +153,7 @@ $MHC_SelectCompleters = {
 
 $MHC_SelectMap = @{
     "Select"=@("New-MHCHomeRegionControl",
+               "Remove-MHCHomeRegionControl",
                "Get-MHCHomeRegionControl",
                "Get-MHCHomeRegion")
 }

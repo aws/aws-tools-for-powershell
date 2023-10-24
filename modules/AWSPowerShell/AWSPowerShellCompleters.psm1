@@ -40933,6 +40933,7 @@ $MHC_SelectCompleters = {
 
 $MHC_SelectMap = @{
     "Select"=@("New-MHCHomeRegionControl",
+               "Remove-MHCHomeRegionControl",
                "Get-MHCHomeRegionControl",
                "Get-MHCHomeRegion")
 }
@@ -41265,6 +41266,13 @@ $MHS_Completers = {
             break
         }
 
+        # Amazon.MigrationHubStrategyRecommendations.AssessmentDataSourceType
+        "Start-MHSAssessment/AssessmentDataSourceType"
+        {
+            $v = "ApplicationDiscoveryService","ManualImport","StrategyRecommendationsApplicationDataCollector"
+            break
+        }
+
         # Amazon.MigrationHubStrategyRecommendations.DatabaseManagementPreference
         "Write-MHSPortfolioPreference/DatabasePreferences_DatabaseManagementPreference"
         {
@@ -41275,7 +41283,7 @@ $MHS_Completers = {
         # Amazon.MigrationHubStrategyRecommendations.DataSourceType
         "Start-MHSImportFileTask/DataSourceType"
         {
-            $v = "ApplicationDiscoveryService","Import","MPA"
+            $v = "ApplicationDiscoveryService","Import","MPA","StrategyRecommendationsApplicationDataCollector"
             break
         }
 
@@ -41302,6 +41310,7 @@ $MHS_Completers = {
 
         # Amazon.MigrationHubStrategyRecommendations.SortOrder
         {
+            ($_ -eq "Get-MHSAnalyzableServerList/Sort") -Or
             ($_ -eq "Get-MHSApplicationComponentList/Sort") -Or
             ($_ -eq "Get-MHSServerList/Sort")
         }
@@ -41352,12 +41361,13 @@ $MHS_map = @{
     "ApplicationComponentCriteria"=@("Get-MHSApplicationComponentList")
     "ApplicationMode"=@("Write-MHSPortfolioPreference")
     "AppType"=@("Update-MHSApplicationComponentConfig")
+    "AssessmentDataSourceType"=@("Start-MHSAssessment")
     "DatabasePreferences_DatabaseManagementPreference"=@("Write-MHSPortfolioPreference")
     "DataSourceType"=@("Start-MHSImportFileTask")
     "InclusionStatus"=@("Update-MHSApplicationComponentConfig")
     "OutputFormat"=@("Start-MHSRecommendationReportGeneration")
     "ServerCriteria"=@("Get-MHSServerList")
-    "Sort"=@("Get-MHSApplicationComponentList","Get-MHSServerList")
+    "Sort"=@("Get-MHSAnalyzableServerList","Get-MHSApplicationComponentList","Get-MHSServerList")
     "StrategyOption_Strategy"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
     "StrategyOption_TargetDestination"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
     "StrategyOption_ToolName"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
@@ -41423,6 +41433,7 @@ $MHS_SelectMap = @{
                "Get-MHSRecommendationReportDetail",
                "Get-MHSServerDetail",
                "Get-MHSServerStrategy",
+               "Get-MHSAnalyzableServerList",
                "Get-MHSApplicationComponentList",
                "Get-MHSCollectorList",
                "Get-MHSImportFileTaskList",
@@ -44450,6 +44461,18 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.LifecyclePolicyType
+        {
+            ($_ -eq "Get-OSSLifecyclePolicyList/Type") -Or
+            ($_ -eq "New-OSSLifecyclePolicy/Type") -Or
+            ($_ -eq "Remove-OSSLifecyclePolicy/Type") -Or
+            ($_ -eq "Update-OSSLifecyclePolicy/Type")
+        }
+        {
+            $v = "retention"
+            break
+        }
+
         # Amazon.OpenSearchServerless.SecurityConfigType
         {
             ($_ -eq "Get-OSSSecurityConfigList/Type") -Or
@@ -44490,7 +44513,7 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
-    "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSSecurityPolicy")
+    "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
 }
 
@@ -44545,14 +44568,18 @@ $OSS_SelectCompleters = {
 
 $OSS_SelectMap = @{
     "Select"=@("Get-OSSGetCollection",
+               "Get-OSSGetEffectiveLifecyclePolicy",
+               "Get-OSSGetLifecyclePolicy",
                "Get-OSSGetVpcEndpoint",
                "New-OSSAccessPolicy",
                "New-OSSCollection",
+               "New-OSSLifecyclePolicy",
                "New-OSSSecurityConfig",
                "New-OSSSecurityPolicy",
                "New-OSSVpcEndpoint",
                "Remove-OSSAccessPolicy",
                "Remove-OSSCollection",
+               "Remove-OSSLifecyclePolicy",
                "Remove-OSSSecurityConfig",
                "Remove-OSSSecurityPolicy",
                "Remove-OSSVpcEndpoint",
@@ -44563,6 +44590,7 @@ $OSS_SelectMap = @{
                "Get-OSSSecurityPolicy",
                "Get-OSSAccessPolicyList",
                "Get-OSSCollectionList",
+               "Get-OSSLifecyclePolicyList",
                "Get-OSSSecurityConfigList",
                "Get-OSSSecurityPolicyList",
                "Get-OSSResourceTag",
@@ -44572,6 +44600,7 @@ $OSS_SelectMap = @{
                "Update-OSSAccessPolicy",
                "Update-OSSAccountSetting",
                "Update-OSSCollection",
+               "Update-OSSLifecyclePolicy",
                "Update-OSSSecurityConfig",
                "Update-OSSSecurityPolicy",
                "Update-OSSVpcEndpoint")

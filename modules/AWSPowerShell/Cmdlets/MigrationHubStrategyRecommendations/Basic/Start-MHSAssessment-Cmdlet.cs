@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssessmentDataSourceType
+        /// <summary>
+        /// <para>
+        /// <para>The data source type of an assessment to be started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MigrationHubStrategyRecommendations.AssessmentDataSourceType")]
+        public Amazon.MigrationHubStrategyRecommendations.AssessmentDataSourceType AssessmentDataSourceType { get; set; }
+        #endregion
+        
         #region Parameter AssessmentTarget
         /// <summary>
         /// <para>
@@ -117,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
                 context.Select = CreateSelectDelegate<Amazon.MigrationHubStrategyRecommendations.Model.StartAssessmentResponse, StartMHSAssessmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AssessmentDataSourceType = this.AssessmentDataSourceType;
             if (this.AssessmentTarget != null)
             {
                 context.AssessmentTarget = new List<Amazon.MigrationHubStrategyRecommendations.Model.AssessmentTarget>(this.AssessmentTarget);
@@ -139,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.MHS
             // create request
             var request = new Amazon.MigrationHubStrategyRecommendations.Model.StartAssessmentRequest();
             
+            if (cmdletContext.AssessmentDataSourceType != null)
+            {
+                request.AssessmentDataSourceType = cmdletContext.AssessmentDataSourceType;
+            }
             if (cmdletContext.AssessmentTarget != null)
             {
                 request.AssessmentTargets = cmdletContext.AssessmentTarget;
@@ -212,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MigrationHubStrategyRecommendations.AssessmentDataSourceType AssessmentDataSourceType { get; set; }
             public List<Amazon.MigrationHubStrategyRecommendations.Model.AssessmentTarget> AssessmentTarget { get; set; }
             public System.String S3bucketForAnalysisData { get; set; }
             public System.String S3bucketForReportData { get; set; }

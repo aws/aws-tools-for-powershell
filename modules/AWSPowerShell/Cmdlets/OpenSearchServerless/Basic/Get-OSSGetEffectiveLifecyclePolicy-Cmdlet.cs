@@ -28,64 +28,48 @@ using Amazon.OpenSearchServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
-    /// Returns an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
-    /// access control for Amazon OpenSearch Serverless</a>.
+    /// Returns a list of successful and failed retrievals for the OpenSearch Serverless indexes.
+    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing
+    /// data lifecycle policies</a>.
     /// </summary>
-    [Cmdlet("Get", "OSSAccessPolicy")]
-    [OutputType("Amazon.OpenSearchServerless.Model.AccessPolicyDetail")]
-    [AWSCmdlet("Calls the OpenSearch Serverless GetAccessPolicy API operation.", Operation = new[] {"GetAccessPolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse))]
-    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.AccessPolicyDetail or Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse",
-        "This cmdlet returns an Amazon.OpenSearchServerless.Model.AccessPolicyDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OSSGetEffectiveLifecyclePolicy")]
+    [OutputType("Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse")]
+    [AWSCmdlet("Calls the OpenSearch Serverless BatchGetEffectiveLifecyclePolicy API operation.", Operation = new[] {"BatchGetEffectiveLifecyclePolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse",
+        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetOSSAccessPolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
+    public partial class GetOSSGetEffectiveLifecyclePolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the access policy.</para>
+        /// <para>The unique identifiers of policy types and resource names.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>Tye type of policy. Currently, the only supported value is <code>data</code>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.OpenSearchServerless.AccessPolicyType")]
-        public Amazon.OpenSearchServerless.AccessPolicyType Type { get; set; }
+        [Alias("ResourceIdentifiers")]
+        public Amazon.OpenSearchServerless.Model.LifecyclePolicyResourceIdentifier[] ResourceIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessPolicyDetail'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AccessPolicyDetail";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -100,21 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse, GetOSSAccessPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse, GetOSSGetEffectiveLifecyclePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ResourceIdentifier != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ResourceIdentifier = new List<Amazon.OpenSearchServerless.Model.LifecyclePolicyResourceIdentifier>(this.ResourceIdentifier);
             }
-            #endif
-            context.Type = this.Type;
             #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
+            if (this.ResourceIdentifier == null && ParameterWasBound(nameof(this.ResourceIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,15 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpenSearchServerless.Model.GetAccessPolicyRequest();
+            var request = new Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ResourceIdentifier != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
+                request.ResourceIdentifiers = cmdletContext.ResourceIdentifier;
             }
             
             CmdletOutput output;
@@ -174,15 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.GetAccessPolicyRequest request)
+        private Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "GetAccessPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "BatchGetEffectiveLifecyclePolicy");
             try
             {
                 #if DESKTOP
-                return client.GetAccessPolicy(request);
+                return client.BatchGetEffectiveLifecyclePolicy(request);
                 #elif CORECLR
-                return client.GetAccessPolicyAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetEffectiveLifecyclePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -202,10 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public Amazon.OpenSearchServerless.AccessPolicyType Type { get; set; }
-            public System.Func<Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse, GetOSSAccessPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AccessPolicyDetail;
+            public List<Amazon.OpenSearchServerless.Model.LifecyclePolicyResourceIdentifier> ResourceIdentifier { get; set; }
+            public System.Func<Amazon.OpenSearchServerless.Model.BatchGetEffectiveLifecyclePolicyResponse, GetOSSGetEffectiveLifecyclePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

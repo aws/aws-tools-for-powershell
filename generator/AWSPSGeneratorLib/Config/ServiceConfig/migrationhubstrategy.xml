@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAnalyzableServers" OutputProperty="AnalyzableServers" Verb="Get" Noun="AnalyzableServerList" PipelineParameter="Sort" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListApplicationComponents" OutputProperty="ApplicationComponentInfos" Verb="Get" Noun="ApplicationComponentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

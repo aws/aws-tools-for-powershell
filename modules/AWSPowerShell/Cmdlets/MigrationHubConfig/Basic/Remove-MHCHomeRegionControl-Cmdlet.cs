@@ -22,41 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodePipeline;
-using Amazon.CodePipeline.Model;
+using Amazon.MigrationHubConfig;
+using Amazon.MigrationHubConfig.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CP
+namespace Amazon.PowerShell.Cmdlets.MHC
 {
     /// <summary>
-    /// Starts the specified pipeline. Specifically, it begins processing the latest commit
-    /// to the source location specified as part of the pipeline.
+    /// This operation deletes the home region configuration for the calling account. The
+    /// operation does not delete discovery or migration tracking data in the home region.
     /// </summary>
-    [Cmdlet("Start", "CPPipelineExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS CodePipeline StartPipelineExecution API operation.", Operation = new[] {"StartPipelineExecution"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.StartPipelineExecutionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CodePipeline.Model.StartPipelineExecutionResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodePipeline.Model.StartPipelineExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "MHCHomeRegionControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Migration Hub Config DeleteHomeRegionControl API operation.", Operation = new[] {"DeleteHomeRegionControl"}, SelectReturnType = typeof(Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse))]
+    [AWSCmdletOutput("None or Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartCPPipelineExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class RemoveMHCHomeRegionControlCmdlet : AmazonMigrationHubConfigClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClientRequestToken
+        #region Parameter ControlId
         /// <summary>
         /// <para>
-        /// <para>The system-generated unique ID used to identify a unique execution request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the pipeline to start.</para>
+        /// <para>A unique identifier that's generated for each home region control. It's always a string
+        /// that begins with "hrc-" followed by 12 lowercase letters and numbers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,39 +58,25 @@ namespace Amazon.PowerShell.Cmdlets.CP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Variable
-        /// <summary>
-        /// <para>
-        /// <para>A list that overrides pipeline variables for a pipeline execution that's being started.
-        /// Variable names must match <code>[A-Za-z0-9@\-_]+</code>, and the values can be anything
-        /// except an empty string.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Variables")]
-        public Amazon.CodePipeline.Model.PipelineVariable[] Variable { get; set; }
+        public System.String ControlId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PipelineExecutionId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodePipeline.Model.StartPipelineExecutionResponse).
-        /// Specifying the name of a property of type Amazon.CodePipeline.Model.StartPipelineExecutionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PipelineExecutionId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ControlId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ControlId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ControlId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CPPipelineExecution (StartPipelineExecution)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ControlId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MHCHomeRegionControl (DeleteHomeRegionControl)"))
             {
                 return;
             }
@@ -133,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodePipeline.Model.StartPipelineExecutionResponse, StartCPPipelineExecutionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse, RemoveMHCHomeRegionControlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,21 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ControlId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientRequestToken = this.ClientRequestToken;
-            context.Name = this.Name;
+            context.ControlId = this.ControlId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ControlId == null && ParameterWasBound(nameof(this.ControlId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ControlId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Variable != null)
-            {
-                context.Variable = new List<Amazon.CodePipeline.Model.PipelineVariable>(this.Variable);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,19 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodePipeline.Model.StartPipelineExecutionRequest();
+            var request = new Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlRequest();
             
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.ControlId != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Variable != null)
-            {
-                request.Variables = cmdletContext.Variable;
+                request.ControlId = cmdletContext.ControlId;
             }
             
             CmdletOutput output;
@@ -218,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private Amazon.CodePipeline.Model.StartPipelineExecutionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.StartPipelineExecutionRequest request)
+        private Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse CallAWSServiceOperation(IAmazonMigrationHubConfig client, Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "StartPipelineExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub Config", "DeleteHomeRegionControl");
             try
             {
                 #if DESKTOP
-                return client.StartPipelineExecution(request);
+                return client.DeleteHomeRegionControl(request);
                 #elif CORECLR
-                return client.StartPipelineExecutionAsync(request).GetAwaiter().GetResult();
+                return client.DeleteHomeRegionControlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,11 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientRequestToken { get; set; }
-            public System.String Name { get; set; }
-            public List<Amazon.CodePipeline.Model.PipelineVariable> Variable { get; set; }
-            public System.Func<Amazon.CodePipeline.Model.StartPipelineExecutionResponse, StartCPPipelineExecutionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PipelineExecutionId;
+            public System.String ControlId { get; set; }
+            public System.Func<Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse, RemoveMHCHomeRegionControlCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

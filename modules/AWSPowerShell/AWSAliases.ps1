@@ -17432,6 +17432,8 @@ Set-Alias -Name MGN-UpdateSourceServerReplicationType -Value Update-MGNSourceSer
 Set-Alias -Name MGN-UpdateWave -Value Update-MGNWave
 Set-Alias -Name Create-MHCHomeRegionControl -Value New-MHCHomeRegionControl
 Set-Alias -Name MHC-CreateHomeRegionControl -Value New-MHCHomeRegionControl
+Set-Alias -Name Delete-MHCHomeRegionControl -Value Remove-MHCHomeRegionControl
+Set-Alias -Name MHC-DeleteHomeRegionControl -Value Remove-MHCHomeRegionControl
 Set-Alias -Name Describe-MHCHomeRegionControls -Value Get-MHCHomeRegionControl
 Set-Alias -Name Describe-MHCHomeRegionControl -Value Get-MHCHomeRegionControl
 Set-Alias -Name MHC-DescribeHomeRegionControls -Value Get-MHCHomeRegionControl
@@ -17545,6 +17547,9 @@ Set-Alias -Name Get-MHSServerDetails -Value Get-MHSServerDetail
 Set-Alias -Name MHS-GetServerDetails -Value Get-MHSServerDetail
 Set-Alias -Name Get-MHSServerStrategies -Value Get-MHSServerStrategy
 Set-Alias -Name MHS-GetServerStrategies -Value Get-MHSServerStrategy
+Set-Alias -Name List-MHSAnalyzableServers -Value Get-MHSAnalyzableServerList
+Set-Alias -Name List-MHSAnalyzableServerList -Value Get-MHSAnalyzableServerList
+Set-Alias -Name MHS-ListAnalyzableServers -Value Get-MHSAnalyzableServerList
 Set-Alias -Name List-MHSApplicationComponents -Value Get-MHSApplicationComponentList
 Set-Alias -Name List-MHSApplicationComponentList -Value Get-MHSApplicationComponentList
 Set-Alias -Name MHS-ListApplicationComponents -Value Get-MHSApplicationComponentList
@@ -18841,12 +18846,18 @@ Set-Alias -Name Upgrade-OSDomain -Value Update-OSDomain
 Set-Alias -Name OS-UpgradeDomain -Value Update-OSDomain
 Set-Alias -Name Batch-OSSGetCollection -Value Get-OSSGetCollection
 Set-Alias -Name OSS-BatchGetCollection -Value Get-OSSGetCollection
+Set-Alias -Name Batch-OSSGetEffectiveLifecyclePolicy -Value Get-OSSGetEffectiveLifecyclePolicy
+Set-Alias -Name OSS-BatchGetEffectiveLifecyclePolicy -Value Get-OSSGetEffectiveLifecyclePolicy
+Set-Alias -Name Batch-OSSGetLifecyclePolicy -Value Get-OSSGetLifecyclePolicy
+Set-Alias -Name OSS-BatchGetLifecyclePolicy -Value Get-OSSGetLifecyclePolicy
 Set-Alias -Name Batch-OSSGetVpcEndpoint -Value Get-OSSGetVpcEndpoint
 Set-Alias -Name OSS-BatchGetVpcEndpoint -Value Get-OSSGetVpcEndpoint
 Set-Alias -Name Create-OSSAccessPolicy -Value New-OSSAccessPolicy
 Set-Alias -Name OSS-CreateAccessPolicy -Value New-OSSAccessPolicy
 Set-Alias -Name Create-OSSCollection -Value New-OSSCollection
 Set-Alias -Name OSS-CreateCollection -Value New-OSSCollection
+Set-Alias -Name Create-OSSLifecyclePolicy -Value New-OSSLifecyclePolicy
+Set-Alias -Name OSS-CreateLifecyclePolicy -Value New-OSSLifecyclePolicy
 Set-Alias -Name Create-OSSSecurityConfig -Value New-OSSSecurityConfig
 Set-Alias -Name OSS-CreateSecurityConfig -Value New-OSSSecurityConfig
 Set-Alias -Name Create-OSSSecurityPolicy -Value New-OSSSecurityPolicy
@@ -18857,6 +18868,8 @@ Set-Alias -Name Delete-OSSAccessPolicy -Value Remove-OSSAccessPolicy
 Set-Alias -Name OSS-DeleteAccessPolicy -Value Remove-OSSAccessPolicy
 Set-Alias -Name Delete-OSSCollection -Value Remove-OSSCollection
 Set-Alias -Name OSS-DeleteCollection -Value Remove-OSSCollection
+Set-Alias -Name Delete-OSSLifecyclePolicy -Value Remove-OSSLifecyclePolicy
+Set-Alias -Name OSS-DeleteLifecyclePolicy -Value Remove-OSSLifecyclePolicy
 Set-Alias -Name Delete-OSSSecurityConfig -Value Remove-OSSSecurityConfig
 Set-Alias -Name OSS-DeleteSecurityConfig -Value Remove-OSSSecurityConfig
 Set-Alias -Name Delete-OSSSecurityPolicy -Value Remove-OSSSecurityPolicy
@@ -18876,6 +18889,9 @@ Set-Alias -Name OSS-ListAccessPolicies -Value Get-OSSAccessPolicyList
 Set-Alias -Name List-OSSCollections -Value Get-OSSCollectionList
 Set-Alias -Name List-OSSCollectionList -Value Get-OSSCollectionList
 Set-Alias -Name OSS-ListCollections -Value Get-OSSCollectionList
+Set-Alias -Name List-OSSLifecyclePolicies -Value Get-OSSLifecyclePolicyList
+Set-Alias -Name List-OSSLifecyclePolicyList -Value Get-OSSLifecyclePolicyList
+Set-Alias -Name OSS-ListLifecyclePolicies -Value Get-OSSLifecyclePolicyList
 Set-Alias -Name List-OSSSecurityConfigs -Value Get-OSSSecurityConfigList
 Set-Alias -Name List-OSSSecurityConfigList -Value Get-OSSSecurityConfigList
 Set-Alias -Name OSS-ListSecurityConfigs -Value Get-OSSSecurityConfigList
@@ -18892,6 +18908,7 @@ Set-Alias -Name OSS-UpdateAccessPolicy -Value Update-OSSAccessPolicy
 Set-Alias -Name Update-OSSAccountSettings -Value Update-OSSAccountSetting
 Set-Alias -Name OSS-UpdateAccountSettings -Value Update-OSSAccountSetting
 Set-Alias -Name OSS-UpdateCollection -Value Update-OSSCollection
+Set-Alias -Name OSS-UpdateLifecyclePolicy -Value Update-OSSLifecyclePolicy
 Set-Alias -Name OSS-UpdateSecurityConfig -Value Update-OSSSecurityConfig
 Set-Alias -Name OSS-UpdateSecurityPolicy -Value Update-OSSSecurityPolicy
 Set-Alias -Name OSS-UpdateVpcEndpoint -Value Update-OSSVpcEndpoint

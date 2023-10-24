@@ -107,6 +107,18 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.LifecyclePolicyType
+        {
+            ($_ -eq "Get-OSSLifecyclePolicyList/Type") -Or
+            ($_ -eq "New-OSSLifecyclePolicy/Type") -Or
+            ($_ -eq "Remove-OSSLifecyclePolicy/Type") -Or
+            ($_ -eq "Update-OSSLifecyclePolicy/Type")
+        }
+        {
+            $v = "retention"
+            break
+        }
+
         # Amazon.OpenSearchServerless.SecurityConfigType
         {
             ($_ -eq "Get-OSSSecurityConfigList/Type") -Or
@@ -147,7 +159,7 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
-    "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSSecurityPolicy")
+    "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
 }
 
@@ -202,14 +214,18 @@ $OSS_SelectCompleters = {
 
 $OSS_SelectMap = @{
     "Select"=@("Get-OSSGetCollection",
+               "Get-OSSGetEffectiveLifecyclePolicy",
+               "Get-OSSGetLifecyclePolicy",
                "Get-OSSGetVpcEndpoint",
                "New-OSSAccessPolicy",
                "New-OSSCollection",
+               "New-OSSLifecyclePolicy",
                "New-OSSSecurityConfig",
                "New-OSSSecurityPolicy",
                "New-OSSVpcEndpoint",
                "Remove-OSSAccessPolicy",
                "Remove-OSSCollection",
+               "Remove-OSSLifecyclePolicy",
                "Remove-OSSSecurityConfig",
                "Remove-OSSSecurityPolicy",
                "Remove-OSSVpcEndpoint",
@@ -220,6 +236,7 @@ $OSS_SelectMap = @{
                "Get-OSSSecurityPolicy",
                "Get-OSSAccessPolicyList",
                "Get-OSSCollectionList",
+               "Get-OSSLifecyclePolicyList",
                "Get-OSSSecurityConfigList",
                "Get-OSSSecurityPolicyList",
                "Get-OSSResourceTag",
@@ -229,6 +246,7 @@ $OSS_SelectMap = @{
                "Update-OSSAccessPolicy",
                "Update-OSSAccountSetting",
                "Update-OSSCollection",
+               "Update-OSSLifecyclePolicy",
                "Update-OSSSecurityConfig",
                "Update-OSSSecurityPolicy",
                "Update-OSSVpcEndpoint")

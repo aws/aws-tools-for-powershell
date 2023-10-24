@@ -80,8 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>Linux/UNIX (Amazon VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code>
         /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</para></li><li><para><code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards;
         /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The time stamp of the Spot price history, in UTC format
-        /// (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). You
-        /// can use wildcards (* and ?). Greater than or less than comparison is not supported.</para></li></ul>
+        /// (for example, <i>ddd MMM dd HH</i>:<i>mm</i>:<i>ss</i> UTC <i>YYYY</i>). You can use
+        /// wildcards (<code>*</code> and <code>?</code>). Greater than or less than comparison
+        /// is not supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

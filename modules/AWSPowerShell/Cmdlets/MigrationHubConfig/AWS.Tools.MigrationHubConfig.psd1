@@ -88,7 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Get-MHCHomeRegion', 
         'Get-MHCHomeRegionControl', 
-        'New-MHCHomeRegionControl')
+        'New-MHCHomeRegionControl', 
+        'Remove-MHCHomeRegionControl')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -22,6 +22,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetEffectiveLifecyclePolicy" OutputProperty="*" Verb="Get" Noun="GetEffectiveLifecyclePolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetLifecyclePolicy" OutputProperty="*" Verb="Get" Noun="GetLifecyclePolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetVpcEndpoint" OutputProperty="*" Verb="Get" Noun="GetVpcEndpoint" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCollection" OutputProperty="CreateCollectionDetail" Verb="New" Noun="Collection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLifecyclePolicy" OutputProperty="LifecyclePolicyDetail" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,6 +63,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCollection" OutputProperty="DeleteCollectionDetail" Verb="Remove" Noun="Collection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLifecyclePolicies" OutputProperty="LifecyclePolicySummaries" Verb="Get" Noun="LifecyclePolicyList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityConfigs" OutputProperty="SecurityConfigSummaries" Verb="Get" Noun="SecurityConfigList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -127,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCollection" OutputProperty="UpdateCollectionDetail" Verb="Update" Noun="Collection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLifecyclePolicy" OutputProperty="LifecyclePolicyDetail" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

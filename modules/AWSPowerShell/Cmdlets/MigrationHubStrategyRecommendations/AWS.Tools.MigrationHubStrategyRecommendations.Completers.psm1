@@ -101,6 +101,13 @@ $MHS_Completers = {
             break
         }
 
+        # Amazon.MigrationHubStrategyRecommendations.AssessmentDataSourceType
+        "Start-MHSAssessment/AssessmentDataSourceType"
+        {
+            $v = "ApplicationDiscoveryService","ManualImport","StrategyRecommendationsApplicationDataCollector"
+            break
+        }
+
         # Amazon.MigrationHubStrategyRecommendations.DatabaseManagementPreference
         "Write-MHSPortfolioPreference/DatabasePreferences_DatabaseManagementPreference"
         {
@@ -111,7 +118,7 @@ $MHS_Completers = {
         # Amazon.MigrationHubStrategyRecommendations.DataSourceType
         "Start-MHSImportFileTask/DataSourceType"
         {
-            $v = "ApplicationDiscoveryService","Import","MPA"
+            $v = "ApplicationDiscoveryService","Import","MPA","StrategyRecommendationsApplicationDataCollector"
             break
         }
 
@@ -138,6 +145,7 @@ $MHS_Completers = {
 
         # Amazon.MigrationHubStrategyRecommendations.SortOrder
         {
+            ($_ -eq "Get-MHSAnalyzableServerList/Sort") -Or
             ($_ -eq "Get-MHSApplicationComponentList/Sort") -Or
             ($_ -eq "Get-MHSServerList/Sort")
         }
@@ -188,12 +196,13 @@ $MHS_map = @{
     "ApplicationComponentCriteria"=@("Get-MHSApplicationComponentList")
     "ApplicationMode"=@("Write-MHSPortfolioPreference")
     "AppType"=@("Update-MHSApplicationComponentConfig")
+    "AssessmentDataSourceType"=@("Start-MHSAssessment")
     "DatabasePreferences_DatabaseManagementPreference"=@("Write-MHSPortfolioPreference")
     "DataSourceType"=@("Start-MHSImportFileTask")
     "InclusionStatus"=@("Update-MHSApplicationComponentConfig")
     "OutputFormat"=@("Start-MHSRecommendationReportGeneration")
     "ServerCriteria"=@("Get-MHSServerList")
-    "Sort"=@("Get-MHSApplicationComponentList","Get-MHSServerList")
+    "Sort"=@("Get-MHSAnalyzableServerList","Get-MHSApplicationComponentList","Get-MHSServerList")
     "StrategyOption_Strategy"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
     "StrategyOption_TargetDestination"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
     "StrategyOption_ToolName"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
@@ -259,6 +268,7 @@ $MHS_SelectMap = @{
                "Get-MHSRecommendationReportDetail",
                "Get-MHSServerDetail",
                "Get-MHSServerStrategy",
+               "Get-MHSAnalyzableServerList",
                "Get-MHSApplicationComponentList",
                "Get-MHSCollectorList",
                "Get-MHSImportFileTaskList",
