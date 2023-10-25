@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.669.0",
+    "ProductVersion" : "3.7.670.0",
     "CoreVersion"    : "3.7.204.8",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -218,7 +218,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.201.0",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.8"
@@ -1402,7 +1402,7 @@
             "InPreview"               : false
         },
         "GroundStation"                   : {
-            "Version" : "3.7.200.61",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.8"
@@ -2538,7 +2538,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.201.59",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.8"

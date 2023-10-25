@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Recent activity usually appears within four hours. IAM reports activity for at least
     /// the last 400 days, or less if your Region began supporting this feature within the
     /// last year. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions
-    /// where data is tracked</a>.
+    /// where data is tracked</a>. For more information about services and actions for which
+    /// action last accessed information is displayed, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-action-last-accessed.html">IAM
+    /// action last accessed information services and actions</a>.
     /// 
     ///  <important><para>
     /// The service last accessed data includes all attempts to access an Amazon Web Services

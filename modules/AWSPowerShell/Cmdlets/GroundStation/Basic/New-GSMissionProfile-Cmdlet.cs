@@ -100,6 +100,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.String StreamsKmsKey_KmsAliasArn { get; set; }
         #endregion
         
+        #region Parameter StreamsKmsKey_KmsAliasName
+        /// <summary>
+        /// <para>
+        /// <para>KMS Alias Name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamsKmsKey_KmsAliasName { get; set; }
+        #endregion
+        
         #region Parameter StreamsKmsKey_KmsKeyArn
         /// <summary>
         /// <para>
@@ -276,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             }
             #endif
             context.StreamsKmsKey_KmsAliasArn = this.StreamsKmsKey_KmsAliasArn;
+            context.StreamsKmsKey_KmsAliasName = this.StreamsKmsKey_KmsAliasName;
             context.StreamsKmsKey_KmsKeyArn = this.StreamsKmsKey_KmsKeyArn;
             context.StreamsKmsRole = this.StreamsKmsRole;
             if (this.Tag != null)
@@ -341,6 +352,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestStreamsKmsKey_streamsKmsKey_KmsAliasArn != null)
             {
                 request.StreamsKmsKey.KmsAliasArn = requestStreamsKmsKey_streamsKmsKey_KmsAliasArn;
+                requestStreamsKmsKeyIsNull = false;
+            }
+            System.String requestStreamsKmsKey_streamsKmsKey_KmsAliasName = null;
+            if (cmdletContext.StreamsKmsKey_KmsAliasName != null)
+            {
+                requestStreamsKmsKey_streamsKmsKey_KmsAliasName = cmdletContext.StreamsKmsKey_KmsAliasName;
+            }
+            if (requestStreamsKmsKey_streamsKmsKey_KmsAliasName != null)
+            {
+                request.StreamsKmsKey.KmsAliasName = requestStreamsKmsKey_streamsKmsKey_KmsAliasName;
                 requestStreamsKmsKeyIsNull = false;
             }
             System.String requestStreamsKmsKey_streamsKmsKey_KmsKeyArn = null;
@@ -437,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             public System.Int32? MinimumViableContactDurationSecond { get; set; }
             public System.String Name { get; set; }
             public System.String StreamsKmsKey_KmsAliasArn { get; set; }
+            public System.String StreamsKmsKey_KmsAliasName { get; set; }
             public System.String StreamsKmsKey_KmsKeyArn { get; set; }
             public System.String StreamsKmsRole { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

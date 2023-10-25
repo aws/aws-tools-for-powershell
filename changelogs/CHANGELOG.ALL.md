@@ -1,4 +1,10 @@
-﻿### 4.1.437 (2023-10-24 21:11Z)
+﻿### 4.1.438 (2023-10-25 23:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.670.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Ground Station
+    * Modified cmdlet New-GSMissionProfile: added parameter StreamsKmsKey_KmsAliasName.
+    * Modified cmdlet Update-GSMissionProfile: added parameter StreamsKmsKey_KmsAliasName.
+
+### 4.1.437 (2023-10-24 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.669.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodePipeline
     * Modified cmdlet Start-CPPipelineExecution: added parameter Variable.
