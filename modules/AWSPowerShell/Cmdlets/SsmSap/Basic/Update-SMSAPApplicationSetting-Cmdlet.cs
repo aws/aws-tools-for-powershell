@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         public Amazon.SsmSap.Model.ApplicationCredential[] CredentialsToRemove { get; set; }
         #endregion
         
+        #region Parameter DatabaseArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name of the SAP HANA database that replaces the current SAP HANA
+        /// connection with the SAP_ABAP application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatabaseArn { get; set; }
+        #endregion
+        
         #region Parameter Backint_EnsureNoBackupInProcess
         /// <summary>
         /// <para>
@@ -180,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             {
                 context.CredentialsToRemove = new List<Amazon.SsmSap.Model.ApplicationCredential>(this.CredentialsToRemove);
             }
+            context.DatabaseArn = this.DatabaseArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -236,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.CredentialsToRemove != null)
             {
                 request.CredentialsToRemove = cmdletContext.CredentialsToRemove;
+            }
+            if (cmdletContext.DatabaseArn != null)
+            {
+                request.DatabaseArn = cmdletContext.DatabaseArn;
             }
             
             CmdletOutput output;
@@ -303,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             public System.Boolean? Backint_EnsureNoBackupInProcess { get; set; }
             public List<Amazon.SsmSap.Model.ApplicationCredential> CredentialsToAddOrUpdate { get; set; }
             public List<Amazon.SsmSap.Model.ApplicationCredential> CredentialsToRemove { get; set; }
+            public System.String DatabaseArn { get; set; }
             public System.Func<Amazon.SsmSap.Model.UpdateApplicationSettingsResponse, UpdateSMSAPApplicationSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

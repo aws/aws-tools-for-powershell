@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     ///  
     /// <para>
     /// You call the <code>ConfirmSubscription</code> action with the token from the subscription
-    /// response. Confirmation tokens are valid for three days.
+    /// response. Confirmation tokens are valid for two days.
     /// </para><para>
     /// This action is throttled at 100 transactions per second (TPS).
     /// </para>
@@ -69,7 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// are held in the dead-letter queue for further analysis or reprocessing.</para></li></ul><para>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream
         /// subscriptions:</para><ul><li><para><code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</para><ul><li><para>Permission to write to the Kinesis Data Firehose delivery stream</para></li><li><para>Amazon SNS listed as a trusted entity</para></li></ul><para>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery
         /// stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
-        /// to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</para></li></ul>
+        /// to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO
+        /// topics</a>:</para><ul><li><para><code>ReplayPolicy</code> – Adds or updates an inline policy document for a subscription
+        /// to replay messages stored in the specified Amazon SNS topic.</para></li><li><para><code>ReplayStatus</code> – Retrieves the status of the subscription message replay,
+        /// which can be one of the following:</para><ul><li><para><code>Completed</code> – The replay has successfully redelivered all messages, and
+        /// is now delivering newly published messages. If an ending point was specified in the
+        /// <code>ReplayPolicy</code> then the subscription will no longer receive newly published
+        /// messages.</para></li><li><para><code>In progress</code> – The replay is currently replaying the selected messages.</para></li><li><para><code>Failed</code> – The replay was unable to complete.</para></li><li><para><code>Pending</code> – The default state while the replay initiates.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

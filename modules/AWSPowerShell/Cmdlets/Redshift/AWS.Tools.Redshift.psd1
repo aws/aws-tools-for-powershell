@@ -141,6 +141,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSEventSubscription', 
         'Get-RSHsmClientCertificate', 
         'Get-RSHsmConfiguration', 
+        'Get-RSInboundIntegration', 
         'Get-RSLoggingStatus', 
         'Get-RSNodeConfigurationOption', 
         'Get-RSOrderableClusterOption', 
@@ -151,6 +152,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSReservedNodeExchangeStatus', 
         'Get-RSReservedNodeOffering', 
         'Get-RSResize', 
+        'Get-RSResourcePolicy', 
         'Get-RSResourceTag', 
         'Get-RSScheduledAction', 
         'Get-RSSnapshotCopyGrant', 
@@ -188,6 +190,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-RSHsmClientCertificate', 
         'Remove-RSHsmConfiguration', 
         'Remove-RSPartner', 
+        'Remove-RSResourcePolicy', 
         'Remove-RSResourceTag', 
         'Remove-RSScheduledAction', 
         'Remove-RSSnapshotCopyGrant', 
@@ -208,7 +211,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-RSResize', 
         'Switch-RSEncryptionKey', 
         'Switch-RSReservedNode', 
-        'Update-RSPartnerStatus')
+        'Update-RSPartnerStatus', 
+        'Write-RSResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

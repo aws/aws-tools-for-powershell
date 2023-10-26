@@ -21519,6 +21519,7 @@ $EC2_SelectMap = @{
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
+               "Get-EC2SecurityGroupsForVpc",
                "Get-EC2SerialConsoleAccessStatus",
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
@@ -44197,6 +44198,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.IPAddressType
+        {
+            ($_ -eq "New-OSDomain/IPAddressType") -Or
+            ($_ -eq "Update-OSDomainConfig/IPAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.OpenSearchService.MaintenanceStatus
         "Get-OSDomainMaintenanceList/Status"
         {
@@ -44311,6 +44322,7 @@ $OS_map = @{
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
+    "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Status"=@("Get-OSDomainMaintenanceList")
@@ -49984,6 +49996,7 @@ $RS_SelectMap = @{
                "Remove-RSHsmClientCertificate",
                "Remove-RSHsmConfiguration",
                "Remove-RSPartner",
+               "Remove-RSResourcePolicy",
                "Remove-RSScheduledAction",
                "Remove-RSSnapshotCopyGrant",
                "Remove-RSSnapshotSchedule",
@@ -50012,6 +50025,7 @@ $RS_SelectMap = @{
                "Get-RSEventSubscription",
                "Get-RSHsmClientCertificate",
                "Get-RSHsmConfiguration",
+               "Get-RSInboundIntegration",
                "Get-RSLoggingStatus",
                "Get-RSNodeConfigurationOption",
                "Get-RSOrderableClusterOption",
@@ -50036,6 +50050,7 @@ $RS_SelectMap = @{
                "Get-RSClusterCredentialsWithIAM",
                "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
+               "Get-RSResourcePolicy",
                "Edit-RSAquaConfiguration",
                "Edit-RSAuthenticationProfile",
                "Edit-RSCluster",
@@ -50055,6 +50070,7 @@ $RS_SelectMap = @{
                "Edit-RSUsageLimit",
                "Stop-RSCluster",
                "Request-RSReservedNodeOffering",
+               "Write-RSResourcePolicy",
                "Restart-RSCluster",
                "Deny-RSDataShare",
                "Reset-RSClusterParameterGroup",
@@ -59210,7 +59226,7 @@ $SMSAP_Completers = {
         # Amazon.SsmSap.ApplicationType
         "Register-SMSAPApplication/ApplicationType"
         {
-            $v = "HANA"
+            $v = "HANA","SAP_ABAP"
             break
         }
 

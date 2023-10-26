@@ -118,6 +118,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.IPAddressType
+        {
+            ($_ -eq "New-OSDomain/IPAddressType") -Or
+            ($_ -eq "Update-OSDomainConfig/IPAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.OpenSearchService.MaintenanceStatus
         "Get-OSDomainMaintenanceList/Status"
         {
@@ -232,6 +242,7 @@ $OS_map = @{
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
+    "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Status"=@("Get-OSDomainMaintenanceList")

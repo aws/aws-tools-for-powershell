@@ -1735,6 +1735,7 @@ $EC2_SelectMap = @{
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
+               "Get-EC2SecurityGroupsForVpc",
                "Get-EC2SerialConsoleAccessStatus",
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",

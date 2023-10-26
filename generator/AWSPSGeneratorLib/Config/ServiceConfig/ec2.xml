@@ -1933,6 +1933,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityGroupsForVpc" OutputProperty="SecurityGroupForVpcs" Verb="Get" Noun="SecurityGroupsForVpc" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

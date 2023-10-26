@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Get the status of the maintenance action.
+    /// The status of the maintenance action.
     /// </summary>
     [Cmdlet("Get", "OSDomainMaintenanceStatus")]
     [OutputType("Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaintenanceId
         /// <summary>
         /// <para>
-        /// <para>The request id of the maintenance action.</para>
+        /// <para>The request ID of the maintenance action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -75,6 +75,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String FleetName { get; set; }
         #endregion
         
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the instance hosting the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -193,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 WriteWarning("You are passing $null as a value for parameter FleetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InstanceId = this.InstanceId;
             context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             context.StackName = this.StackName;
@@ -230,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.FleetName != null)
             {
                 request.FleetName = cmdletContext.FleetName;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             if (cmdletContext.Limit != null)
             {
@@ -330,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             public Amazon.AppStream.AuthenticationType AuthenticationType { get; set; }
             public System.String FleetName { get; set; }
+            public System.String InstanceId { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.String StackName { get; set; }

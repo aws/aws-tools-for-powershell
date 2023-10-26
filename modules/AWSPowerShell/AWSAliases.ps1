@@ -8844,6 +8844,7 @@ Set-Alias -Name Get-EC2NetworkInsightsAccessScopeAnalysisFindings -Value Get-EC2
 Set-Alias -Name EC2-GetNetworkInsightsAccessScopeAnalysisFindings -Value Get-EC2NetworkInsightsAccessScopeAnalysisFinding
 Set-Alias -Name EC2-GetNetworkInsightsAccessScopeContent -Value Get-EC2NetworkInsightsAccessScopeContent
 Set-Alias -Name EC2-GetReservedInstancesExchangeQuote -Value Get-EC2ReservedInstancesExchangeQuote
+Set-Alias -Name EC2-GetSecurityGroupsForVpc -Value Get-EC2SecurityGroupsForVpc
 Set-Alias -Name EC2-GetSerialConsoleAccessStatus -Value Get-EC2SerialConsoleAccessStatus
 Set-Alias -Name Get-EC2SpotPlacementScores -Value Get-EC2SpotPlacementScore
 Set-Alias -Name EC2-GetSpotPlacementScores -Value Get-EC2SpotPlacementScore
@@ -21151,6 +21152,8 @@ Set-Alias -Name Delete-RSHsmConfiguration -Value Remove-RSHsmConfiguration
 Set-Alias -Name RS-DeleteHsmConfiguration -Value Remove-RSHsmConfiguration
 Set-Alias -Name Delete-RSPartner -Value Remove-RSPartner
 Set-Alias -Name RS-DeletePartner -Value Remove-RSPartner
+Set-Alias -Name Delete-RSResourcePolicy -Value Remove-RSResourcePolicy
+Set-Alias -Name RS-DeleteResourcePolicy -Value Remove-RSResourcePolicy
 Set-Alias -Name Delete-RSScheduledAction -Value Remove-RSScheduledAction
 Set-Alias -Name RS-DeleteScheduledAction -Value Remove-RSScheduledAction
 Set-Alias -Name Delete-RSSnapshotCopyGrant -Value Remove-RSSnapshotCopyGrant
@@ -21227,6 +21230,9 @@ Set-Alias -Name RS-DescribeHsmClientCertificates -Value Get-RSHsmClientCertifica
 Set-Alias -Name Describe-RSHsmConfigurations -Value Get-RSHsmConfiguration
 Set-Alias -Name Describe-RSHsmConfiguration -Value Get-RSHsmConfiguration
 Set-Alias -Name RS-DescribeHsmConfigurations -Value Get-RSHsmConfiguration
+Set-Alias -Name Describe-RSInboundIntegrations -Value Get-RSInboundIntegration
+Set-Alias -Name Describe-RSInboundIntegration -Value Get-RSInboundIntegration
+Set-Alias -Name RS-DescribeInboundIntegrations -Value Get-RSInboundIntegration
 Set-Alias -Name Describe-RSLoggingStatus -Value Get-RSLoggingStatus
 Set-Alias -Name RS-DescribeLoggingStatus -Value Get-RSLoggingStatus
 Set-Alias -Name Describe-RSNodeConfigurationOptions -Value Get-RSNodeConfigurationOption
@@ -21280,6 +21286,7 @@ Set-Alias -Name Get-RSReservedNodeExchangeConfigurationOptions -Value Get-RSRese
 Set-Alias -Name RS-GetReservedNodeExchangeConfigurationOptions -Value Get-RSReservedNodeExchangeConfigurationOption
 Set-Alias -Name Get-RSReservedNodeExchangeOfferings -Value Get-RSReservedNodeExchangeOffering
 Set-Alias -Name RS-GetReservedNodeExchangeOfferings -Value Get-RSReservedNodeExchangeOffering
+Set-Alias -Name RS-GetResourcePolicy -Value Get-RSResourcePolicy
 Set-Alias -Name Modify-RSAquaConfiguration -Value Edit-RSAquaConfiguration
 Set-Alias -Name RS-ModifyAquaConfiguration -Value Edit-RSAquaConfiguration
 Set-Alias -Name Modify-RSAuthenticationProfile -Value Edit-RSAuthenticationProfile
@@ -21319,6 +21326,8 @@ Set-Alias -Name Pause-RSCluster -Value Stop-RSCluster
 Set-Alias -Name RS-PauseCluster -Value Stop-RSCluster
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-RSReservedNodeOffering
 Set-Alias -Name RS-PurchaseReservedNodeOffering -Value Request-RSReservedNodeOffering
+Set-Alias -Name Put-RSResourcePolicy -Value Write-RSResourcePolicy
+Set-Alias -Name RS-PutResourcePolicy -Value Write-RSResourcePolicy
 Set-Alias -Name Reboot-RSCluster -Value Restart-RSCluster
 Set-Alias -Name RS-RebootCluster -Value Restart-RSCluster
 Set-Alias -Name Reject-RSDataShare -Value Deny-RSDataShare

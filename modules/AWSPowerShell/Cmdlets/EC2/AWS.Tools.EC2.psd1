@@ -342,6 +342,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2SecurityGroup', 
         'Get-EC2SecurityGroupReference', 
         'Get-EC2SecurityGroupRule', 
+        'Get-EC2SecurityGroupsForVpc', 
         'Get-EC2SerialConsoleAccessStatus', 
         'Get-EC2Snapshot', 
         'Get-EC2SnapshotAttribute', 

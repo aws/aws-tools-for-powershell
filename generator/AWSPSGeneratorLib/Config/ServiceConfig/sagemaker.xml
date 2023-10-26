@@ -70,6 +70,9 @@
                 <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" NewName="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond" Alias="TimeSeries_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" />
                 <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidates" NewName="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate" Alias="TimeSeries_CompletionCriteria_MaxCandidates" />
                 <Param Name="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond" Alias="TimeSeries_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" />
+                <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" NewName="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond" Alias="TextGeneration_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" />
+                <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidates" NewName="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate" Alias="TextGeneration_CompletionCriteria_MaxCandidates" />
+                <Param Name="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond" Alias="TextGeneration_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

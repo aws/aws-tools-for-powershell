@@ -22,49 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OpenSearchService;
-using Amazon.OpenSearchService.Model;
+using Amazon.Redshift;
+using Amazon.Redshift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OS
+namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Starts the node maintenance process on the data node. These processes can include
-    /// a node reboot, an Opensearch or Elasticsearch process restart, or a Dashboard or Kibana
-    /// restart.
+    /// Updates the resource policy for a specified resource.
     /// </summary>
-    [Cmdlet("Start", "OSDomainMaintenance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon OpenSearch Service StartDomainMaintenance API operation.", Operation = new[] {"StartDomainMaintenance"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "RSResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Redshift.Model.ResourcePolicy")]
+    [AWSCmdlet("Calls the Amazon Redshift PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.Redshift.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.Redshift.Model.ResourcePolicy or Amazon.Redshift.Model.PutResourcePolicyResponse",
+        "This cmdlet returns an Amazon.Redshift.Model.ResourcePolicy object.",
+        "The service call response (type Amazon.Redshift.Model.PutResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartOSDomainMaintenanceCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
+    public partial class WriteRSResourcePolicyCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Action
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The name of the action.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.OpenSearchService.MaintenanceType")]
-        public Amazon.OpenSearchService.MaintenanceType Action { get; set; }
-        #endregion
-        
-        #region Parameter DomainName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the domain.</para>
+        /// <para>The content of the resource policy being updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,28 +56,45 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String Policy { get; set; }
         #endregion
         
-        #region Parameter NodeId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the data node.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource of which its resource policy is updated.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NodeId { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MaintenanceId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourcePolicy'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.Redshift.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MaintenanceId";
+        public string Select { get; set; } = "ResourcePolicy";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -114,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-OSDomainMaintenance (StartDomainMaintenance)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-RSResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -125,26 +123,35 @@ namespace Amazon.PowerShell.Cmdlets.OS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse, StartOSDomainMaintenanceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.PutResourcePolicyResponse, WriteRSResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.Action = this.Action;
-            #if MODULAR
-            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.ResourceArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Policy = this.Policy;
+            #if MODULAR
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DomainName = this.DomainName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NodeId = this.NodeId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,19 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpenSearchService.Model.StartDomainMaintenanceRequest();
+            var request = new Amazon.Redshift.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.Action != null)
+            if (cmdletContext.Policy != null)
             {
-                request.Action = cmdletContext.Action;
+                request.Policy = cmdletContext.Policy;
             }
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.DomainName = cmdletContext.DomainName;
-            }
-            if (cmdletContext.NodeId != null)
-            {
-                request.NodeId = cmdletContext.NodeId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -206,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.StartDomainMaintenanceRequest request)
+        private Amazon.Redshift.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "StartDomainMaintenance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.StartDomainMaintenance(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.StartDomainMaintenanceAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,11 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.OpenSearchService.MaintenanceType Action { get; set; }
-            public System.String DomainName { get; set; }
-            public System.String NodeId { get; set; }
-            public System.Func<Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse, StartOSDomainMaintenanceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MaintenanceId;
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.Redshift.Model.PutResourcePolicyResponse, WriteRSResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourcePolicy;
         }
         
     }

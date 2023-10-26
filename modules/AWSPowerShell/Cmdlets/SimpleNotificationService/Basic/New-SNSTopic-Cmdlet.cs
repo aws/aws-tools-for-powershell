@@ -64,7 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
         /// Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
         /// in the <i>Key Management Service API Reference</i>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO
-        /// topics</a>:</para><ul><li><para><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</para></li><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication for
+        /// topics</a>:</para><ul><li><para><code>ArchivePolicy</code> – Adds or updates an inline policy document to archive
+        /// messages stored in the specified Amazon SNS topic.</para></li><li><para><code>BeginningArchiveTime</code> – The earliest starting point at which a message
+        /// in the topic’s archive can be replayed from. This point in time is based on the configured
+        /// message retention period set by the topic’s message archiving policy.</para></li><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication for
         /// FIFO topics.</para><ul><li><para>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If
         /// you create a FIFO topic and this attribute is <code>false</code>, you must specify
         /// a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>

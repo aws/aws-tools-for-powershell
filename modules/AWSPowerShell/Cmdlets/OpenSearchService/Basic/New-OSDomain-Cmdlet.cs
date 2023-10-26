@@ -408,6 +408,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Int32? EBSOptions_Iops { get; set; }
         #endregion
         
+        #region Parameter IPAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The type of IP addresses supported by the endpoint for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.IPAddressType")]
+        public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }
+        #endregion
+        
         #region Parameter EncryptionAtRestOptions_KmsKeyId
         /// <summary>
         /// <para>
@@ -832,6 +843,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.EncryptionAtRestOptions_Enabled = this.EncryptionAtRestOptions_Enabled;
             context.EncryptionAtRestOptions_KmsKeyId = this.EncryptionAtRestOptions_KmsKeyId;
             context.EngineVersion = this.EngineVersion;
+            context.IPAddressType = this.IPAddressType;
             if (this.LogPublishingOption != null)
             {
                 context.LogPublishingOption = new Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption>(StringComparer.Ordinal);
@@ -1478,6 +1490,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.IPAddressType != null)
+            {
+                request.IPAddressType = cmdletContext.IPAddressType;
+            }
             if (cmdletContext.LogPublishingOption != null)
             {
                 request.LogPublishingOptions = cmdletContext.LogPublishingOption;
@@ -1751,6 +1767,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Boolean? EncryptionAtRestOptions_Enabled { get; set; }
             public System.String EncryptionAtRestOptions_KmsKeyId { get; set; }
             public System.String EngineVersion { get; set; }
+            public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }
             public Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption> LogPublishingOption { get; set; }
             public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
             public System.Boolean? OffPeakWindowOptions_Enabled { get; set; }

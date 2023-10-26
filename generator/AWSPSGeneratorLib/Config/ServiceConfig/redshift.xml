@@ -195,6 +195,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -317,6 +321,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInboundIntegrations" OutputProperty="InboundIntegrations" Verb="Get" Noun="InboundIntegration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLoggingStatus" OutputProperty="*" Verb="Get" Noun="LoggingStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -413,6 +421,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyAquaConfiguration" OutputProperty="AquaConfiguration" Verb="Edit" Noun="AquaConfiguration" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -490,6 +502,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedNodeOffering" OutputProperty="ReservedNode" Verb="Request" Noun="ReservedNodeOffering" ShouldProcessTarget="ReservedNodeOfferingId" PositionalParameters="NodeCount" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

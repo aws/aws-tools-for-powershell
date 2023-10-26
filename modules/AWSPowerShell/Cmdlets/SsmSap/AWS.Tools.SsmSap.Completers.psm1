@@ -83,7 +83,7 @@ $SMSAP_Completers = {
         # Amazon.SsmSap.ApplicationType
         "Register-SMSAPApplication/ApplicationType"
         {
-            $v = "HANA"
+            $v = "HANA","SAP_ABAP"
             break
         }
 

@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// which offer backward compatibility.
     /// </para><para><code>CreateAutoMLJobV2</code> can manage tabular problem types identical to those
     /// of its previous version <code>CreateAutoMLJob</code>, as well as time-series forecasting,
-    /// and non-tabular problem types such as image or text classification.
+    /// non-tabular problem types such as image or text classification, and text generation
+    /// (LLMs fine-tuning).
     /// </para><para>
     /// Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
     /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
@@ -112,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of channel objects describing the input data and their location. Each channel
         /// is a named input source. Similar to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
         /// attribute in the <code>CreateAutoMLJob</code> input parameters. The supported formats
-        /// depend on the problem type:</para><ul><li><para>For tabular problem types: <code>S3Prefix</code>, <code>ManifestFile</code>.</para></li><li><para>For image classification: <code>S3Prefix</code>, <code>ManifestFile</code>, <code>AugmentedManifestFile</code>.</para></li><li><para>For text classification: <code>S3Prefix</code>.</para></li><li><para>For time-series forecasting: <code>S3Prefix</code>.</para></li></ul>
+        /// depend on the problem type:</para><ul><li><para>For tabular problem types: <code>S3Prefix</code>, <code>ManifestFile</code>.</para></li><li><para>For image classification: <code>S3Prefix</code>, <code>ManifestFile</code>, <code>AugmentedManifestFile</code>.</para></li><li><para>For text classification: <code>S3Prefix</code>.</para></li><li><para>For time-series forecasting: <code>S3Prefix</code>.</para></li><li><para>For text generation (LLMs fine-tuning): <code>S3Prefix</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,6 +142,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AutoMLJobName { get; set; }
+        #endregion
+        
+        #region Parameter TextGenerationJobConfig_BaseModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety
+        /// of large language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/llms-finetuning-models.html#llms-finetuning-supported-llms">Text
+        /// generation models supporting fine-tuning in Autopilot</a>. If no <code>BaseModelName</code>
+        /// is provided, the default model used is Falcon-7B-Instruct. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TextGenerationJobConfig_BaseModelName")]
+        public System.String TextGenerationJobConfig_BaseModelName { get; set; }
         #endregion
         
         #region Parameter TextClassificationJobConfig_ContentColumn
@@ -379,6 +394,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
         #endregion
         
+        #region Parameter AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum runtime, in seconds, an AutoML job has to complete.</para><para>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and
+        /// its processing is ended gracefully. The AutoML job identifies the best model whose
+        /// training was completed and marks it as the best-performing model. Any unfinished steps
+        /// of the job, such as automatic one-click Autopilot model deployment, are not completed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds","TextGeneration_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds")]
+        public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
+        #endregion
+        
         #region Parameter AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond
         /// <summary>
         /// <para>
@@ -396,8 +425,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, as well as time-series forecasting problem types,
-        /// the supported value is 1. For tabular problem types, the maximum value is 750.</para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, time-series forecasting, as well as text generation
+        /// (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types,
+        /// the maximum value is 750.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,8 +438,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, as well as time-series forecasting problem types,
-        /// the supported value is 1. For tabular problem types, the maximum value is 750.</para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, time-series forecasting, as well as text generation
+        /// (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types,
+        /// the maximum value is 750.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,8 +451,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, as well as time-series forecasting problem types,
-        /// the supported value is 1. For tabular problem types, the maximum value is 750.</para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, time-series forecasting, as well as text generation
+        /// (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types,
+        /// the maximum value is 750.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,11 +461,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidate { get; set; }
         #endregion
         
+        #region Parameter AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, time-series forecasting, as well as text generation
+        /// (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types,
+        /// the maximum value is 750.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidates","TextGeneration_CompletionCriteria_MaxCandidates")]
+        public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate { get; set; }
+        #endregion
+        
         #region Parameter AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, as well as time-series forecasting problem types,
-        /// the supported value is 1. For tabular problem types, the maximum value is 750.</para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For text and image classification, time-series forecasting, as well as text generation
+        /// (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types,
+        /// the maximum value is 750.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -489,6 +535,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
         #endregion
         
+        #region Parameter AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
+        /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
+        /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+        /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
+        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// the runtime of the job candidate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds","TextGeneration_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds")]
+        public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
+        #endregion
+        
         #region Parameter AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond
         /// <summary>
         /// <para>
@@ -511,9 +573,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The name of the objective metric used to measure the predictive quality of a machine
         /// learning system. During training, the model's parameters are updated iteratively to
         /// optimize its performance based on the feedback provided by the objective metric when
-        /// evaluating the model on the validation dataset.</para><para>For the list of all available metrics supported by Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
-        /// metrics</a>.</para><para>If you do not specify a metric explicitly, the default behavior is to automatically
-        /// use:</para><ul><li><para>For tabular problem types:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li><li><para>For image or text classification problem types: <code>Accuracy</code></para></li><li><para>For time-series forecasting problem types: <code>AverageWeightedQuantileLoss</code></para></li></ul>
+        /// evaluating the model on the validation dataset.</para><para>The list of available metrics supported by Autopilot and the default metric applied
+        /// when you do not specify a metric name explicitly depend on the problem type.</para><ul><li><para>For tabular problem types:</para><ul><li><para>List of available metrics: </para><ul><li><para> Regression: <code>InferenceLatency</code>, <code>MAE</code>, <code>MSE</code>, <code>R2</code>,
+        /// <code>RMSE</code></para></li><li><para> Binary classification: <code>Accuracy</code>, <code>AUC</code>, <code>BalancedAccuracy</code>,
+        /// <code>F1</code>, <code>InferenceLatency</code>, <code>LogLoss</code>, <code>Precision</code>,
+        /// <code>Recall</code></para></li><li><para> Multiclass classification: <code>Accuracy</code>, <code>BalancedAccuracy</code>,
+        /// <code>F1macro</code>, <code>InferenceLatency</code>, <code>LogLoss</code>, <code>PrecisionMacro</code>,
+        /// <code>RecallMacro</code></para></li></ul><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
+        /// metrics for classification and regression</a>.</para></li><li><para>Default objective metrics:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li></ul></li><li><para>For image or text classification problem types:</para><ul><li><para>List of available metrics: <code>Accuracy</code></para><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/text-classification-data-format-and-metric.html">Autopilot
+        /// metrics for text and image classification</a>.</para></li><li><para>Default objective metrics: <code>Accuracy</code></para></li></ul></li><li><para>For time-series forecasting problem types:</para><ul><li><para>List of available metrics: <code>RMSE</code>, <code>wQL</code>, <code>Average wQL</code>,
+        /// <code>MASE</code>, <code>MAPE</code>, <code>WAPE</code></para><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-objective-metric.html">Autopilot
+        /// metrics for time-series forecasting</a>.</para></li><li><para>Default objective metrics: <code>AverageWeightedQuantileLoss</code></para></li></ul></li><li><para>For text generation problem types (LLMs fine-tuning): Fine-tuning language models
+        /// in Autopilot does not require setting the <code>AutoMLJobObjective</code> field. Autopilot
+        /// fine-tunes LLMs without requiring multiple candidates to be trained and evaluated.
+        /// Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance
+        /// a default objective metric, the cross-entropy loss. After fine-tuning a language model,
+        /// you can evaluate the quality of its generated text using different metrics. For a
+        /// list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/llms-finetuning-models.html">Metrics
+        /// for fine-tuning LLMs in Autopilot</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -825,6 +902,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
             context.TextClassificationJobConfig_ContentColumn = this.TextClassificationJobConfig_ContentColumn;
             context.TextClassificationJobConfig_TargetLabelColumn = this.TextClassificationJobConfig_TargetLabelColumn;
+            context.TextGenerationJobConfig_BaseModelName = this.TextGenerationJobConfig_BaseModelName;
+            context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
+            context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate;
+            context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate;
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
@@ -999,6 +1080,76 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_ImageClassificationJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.ImageClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_ImageClassificationJobConfig;
+                requestAutoMLProblemTypeConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.TextGenerationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
+            
+             // populate TextGenerationJobConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = new Amazon.SageMaker.Model.TextGenerationJobConfig();
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName = null;
+            if (cmdletContext.TextGenerationJobConfig_BaseModelName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName = cmdletContext.TextGenerationJobConfig_BaseModelName;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.BaseModelName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
+            
+             // populate CompletionCriteria
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = new Amazon.SageMaker.Model.AutoMLJobCompletionCriteria();
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxAutoMLJobRuntimeInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxCandidates = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxRuntimePerTrainingJobInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.CompletionCriteria = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig != null)
+            {
+                request.AutoMLProblemTypeConfig.TextGenerationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig;
                 requestAutoMLProblemTypeConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TextClassificationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig = null;
@@ -1662,6 +1813,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
             public System.String TextClassificationJobConfig_ContentColumn { get; set; }
             public System.String TextClassificationJobConfig_TargetLabelColumn { get; set; }
+            public System.String TextGenerationJobConfig_BaseModelName { get; set; }
+            public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
+            public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate { get; set; }
+            public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }

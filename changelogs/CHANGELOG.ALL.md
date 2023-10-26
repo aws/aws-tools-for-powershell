@@ -1,4 +1,27 @@
-﻿### 4.1.438 (2023-10-25 23:19Z)
+﻿### 4.1.439 (2023-10-26 22:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.671.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Modified cmdlet Get-APSSessionList: added parameter InstanceId.
+    * Modified cmdlet New-APSFleet: added parameters ComputeCapacity_DesiredSession and MaxSessionsPerInstance.
+    * Modified cmdlet Update-APSFleet: added parameters ComputeCapacity_DesiredSession and MaxSessionsPerInstance.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2SecurityGroupsForVpc leveraging the GetSecurityGroupsForVpc service API.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter IPAddressType.
+    * Modified cmdlet Update-OSDomainConfig: added parameter IPAddressType.
+  * Amazon Redshift
+    * Added cmdlet Get-RSInboundIntegration leveraging the DescribeInboundIntegrations service API.
+    * Added cmdlet Get-RSResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-RSResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-RSResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJobV2: added parameters AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond, AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate, AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond and TextGenerationJobConfig_BaseModelName.
+  * Amazon Systems Manager for SAP
+    * Modified cmdlet Get-SMSAPApplicationList: added parameter Filter.
+    * Modified cmdlet Register-SMSAPApplication: added parameter DatabaseArn.
+    * Modified cmdlet Update-SMSAPApplicationSetting: added parameter DatabaseArn.
+
+### 4.1.438 (2023-10-25 23:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.670.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Ground Station
     * Modified cmdlet New-GSMissionProfile: added parameter StreamsKmsKey_KmsAliasName.

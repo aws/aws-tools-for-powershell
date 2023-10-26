@@ -96,15 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         /// <para>The credentials of the SAP application.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.SsmSap.Model.ApplicationCredential[] ApplicationCredentials { get; set; }
+        #endregion
+        
+        #region Parameter DatabaseArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name of the SAP HANA database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatabaseArn { get; set; }
         #endregion
         
         #region Parameter Instance
@@ -216,12 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             {
                 context.ApplicationCredentials = new List<Amazon.SsmSap.Model.ApplicationCredential>(this.ApplicationCredentials);
             }
-            #if MODULAR
-            if (this.ApplicationCredentials == null && ParameterWasBound(nameof(this.ApplicationCredentials)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ApplicationCredentials which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.DatabaseArn = this.DatabaseArn;
             if (this.Instance != null)
             {
                 context.Instance = new List<System.String>(this.Instance);
@@ -269,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.ApplicationCredentials != null)
             {
                 request.Credentials = cmdletContext.ApplicationCredentials;
+            }
+            if (cmdletContext.DatabaseArn != null)
+            {
+                request.DatabaseArn = cmdletContext.DatabaseArn;
             }
             if (cmdletContext.Instance != null)
             {
@@ -350,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             public System.String ApplicationId { get; set; }
             public Amazon.SsmSap.ApplicationType ApplicationType { get; set; }
             public List<Amazon.SsmSap.Model.ApplicationCredential> ApplicationCredentials { get; set; }
+            public System.String DatabaseArn { get; set; }
             public List<System.String> Instance { get; set; }
             public System.String SapInstanceNumber { get; set; }
             public System.String Sid { get; set; }
