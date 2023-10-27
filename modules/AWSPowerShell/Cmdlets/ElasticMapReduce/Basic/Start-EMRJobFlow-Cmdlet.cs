@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// For long-running clusters, we recommend that you periodically store your results.
     /// </para><note><para>
     /// The instance fleets configuration is available only in Amazon EMR releases 4.8.0 and
-    /// later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
+    /// higher, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
     /// parameters or InstanceGroups parameters, but not both.
     /// </para></note>
     /// </summary>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and
-        /// later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.</para>
+        /// higher, <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
+        /// <para>Applies to Amazon EMR releases 4.0 and higher. A case-insensitive list of applications
         /// for Amazon EMR to install and configure when launching the cluster. For a list of
         /// applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon
         /// EMRRelease Guide</a>.</para>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// instances in the optimal Availability Zone. <code>AvailabilityZones</code> is used
         /// for instance fleets, while <code>AvailabilityZone</code> (singular) is used for uniform
         /// instance groups.</para><note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
-        /// later, excluding 5.0.x versions.</para></note>
+        /// higher, excluding 5.0.x versions.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the
+        /// <para>For Amazon EMR releases 4.0 and higher. The list of configurations supplied for the
         /// Amazon EMR cluster that you are creating.</para>
         /// </para>
         /// </summary>
@@ -220,9 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter CustomAmiId
         /// <summary>
         /// <para>
-        /// <para>Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed
-        /// Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon
-        /// EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using
+        /// <para>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon
+        /// EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster
+        /// Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using
         /// a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster
         /// uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
         /// releases 2.x and 3.x, use <code>AmiVersion</code> instead.</para><para>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
@@ -235,15 +235,37 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String CustomAmiId { get; set; }
         #endregion
         
+        #region Parameter EbsRootVolumeIops
+        /// <summary>
+        /// <para>
+        /// <para>The IOPS for the Amazon EBS root device volume for the Linux AMI that each Amazon
+        /// EC2 instance uses. Available in Amazon EMR releases 6.15.0 and higher.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EbsRootVolumeIops { get; set; }
+        #endregion
+        
         #region Parameter EbsRootVolumeSize
         /// <summary>
         /// <para>
-        /// <para>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used
-        /// for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and later.</para>
+        /// <para>The size, in GiB, of the Amazon EBS root device volume for the Linux AMI that each
+        /// Amazon EC2 instance uses. Available in Amazon EMR releases 4.x and higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? EbsRootVolumeSize { get; set; }
+        #endregion
+        
+        #region Parameter EbsRootVolumeThroughput
+        /// <summary>
+        /// <para>
+        /// <para>The throughput, in MiB/s, of the Amazon EBS root device volume for the Linux AMI that
+        /// each Amazon EC2 instance uses. Available in Amazon EMR releases 6.15.0 and higher.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EbsRootVolumeThroughput { get; set; }
         #endregion
         
         #region Parameter Instances_Ec2KeyName
@@ -276,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>Applies to clusters that use the instance fleet configuration. When multiple Amazon
         /// EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in
         /// the optimal subnet.</para><note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
-        /// later, excluding 5.0.x versions.</para></note>
+        /// higher, excluding 5.0.x versions.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
-        /// later, excluding 5.0.x versions.</para></note><para>Describes the Amazon EC2 instances and instance configurations for clusters that use
+        /// higher, excluding 5.0.x versions.</para></note><para>Describes the Amazon EC2 instances and instance configurations for clusters that use
         /// the instance fleet configuration.</para>
         /// </para>
         /// </summary>
@@ -409,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The KMS key used for encrypting log files. If a value is not provided, the logs remain
         /// encrypted by AES-256. This attribute is only available with Amazon EMR releases 5.30.0
-        /// and later, excluding Amazon EMR 6.0.0.</para>
+        /// and higher, excluding Amazon EMR 6.0.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -513,7 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter NewSupportedProduct
         /// <summary>
         /// <para>
-        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
         /// accepts a user argument list. Amazon EMR accepts and forwards the argument list to
         /// the corresponding installation script as bootstrap action arguments. For more information,
         /// see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
@@ -568,7 +590,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// where x.x.x is an Amazon EMR release version such as <code>emr-5.14.0</code>. For
         /// more information about Amazon EMR release versions and included application versions
         /// and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-        /// The release label applies only to Amazon EMR releases version 4.0 and later. Earlier
+        /// The release label applies only to Amazon EMR releases version 4.0 and higher. Earlier
         /// versions use <code>AmiVersion</code>.</para>
         /// </para>
         /// </summary>
@@ -598,13 +620,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// scale-in activity occurs or an instance group is resized. <code>TERMINATE_AT_INSTANCE_HOUR</code>
         /// indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless
         /// of when the request to terminate the instance was submitted. This option is only available
-        /// with Amazon EMR 5.1.0 and later and is the default for clusters created using that
+        /// with Amazon EMR 5.1.0 and higher and is the default for clusters created using that
         /// version. <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds
         /// nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2
         /// instances, regardless of the instance-hour boundary. With either behavior, Amazon
         /// EMR removes the least active nodes first and blocks instance termination if it could
         /// lead to HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only
-        /// in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon
+        /// in Amazon EMR releases 4.1.0 and higher, and is the default for releases of Amazon
         /// EMR earlier than 5.1.0.</para>
         /// </para>
         /// </summary>
@@ -681,7 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SupportedProduct
         /// <summary>
         /// <para>
-        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
         /// see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
         /// EMR Developer Guide</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
         /// </para>
@@ -825,7 +847,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Configuration = new List<Amazon.ElasticMapReduce.Model.Configuration>(this.Configuration);
             }
             context.CustomAmiId = this.CustomAmiId;
+            context.EbsRootVolumeIops = this.EbsRootVolumeIops;
             context.EbsRootVolumeSize = this.EbsRootVolumeSize;
+            context.EbsRootVolumeThroughput = this.EbsRootVolumeThroughput;
             if (this.Instances_AdditionalMasterSecurityGroup != null)
             {
                 context.Instances_AdditionalMasterSecurityGroup = new List<System.String>(this.Instances_AdditionalMasterSecurityGroup);
@@ -973,9 +997,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.CustomAmiId = cmdletContext.CustomAmiId;
             }
+            if (cmdletContext.EbsRootVolumeIops != null)
+            {
+                request.EbsRootVolumeIops = cmdletContext.EbsRootVolumeIops.Value;
+            }
             if (cmdletContext.EbsRootVolumeSize != null)
             {
                 request.EbsRootVolumeSize = cmdletContext.EbsRootVolumeSize.Value;
+            }
+            if (cmdletContext.EbsRootVolumeThroughput != null)
+            {
+                request.EbsRootVolumeThroughput = cmdletContext.EbsRootVolumeThroughput.Value;
             }
             
              // populate Instances
@@ -1451,7 +1483,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig> BootstrapAction { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Configuration> Configuration { get; set; }
             public System.String CustomAmiId { get; set; }
+            public System.Int32? EbsRootVolumeIops { get; set; }
             public System.Int32? EbsRootVolumeSize { get; set; }
+            public System.Int32? EbsRootVolumeThroughput { get; set; }
             public List<System.String> Instances_AdditionalMasterSecurityGroup { get; set; }
             public List<System.String> Instances_AdditionalSlaveSecurityGroup { get; set; }
             public System.String Instances_Ec2KeyName { get; set; }

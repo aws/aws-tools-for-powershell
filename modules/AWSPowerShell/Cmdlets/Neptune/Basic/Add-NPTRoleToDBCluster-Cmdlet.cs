@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The name of the feature for the Neptune DB cluster that the IAM role is to be associated
-        /// with. For the list of supported feature names, see <a href="neptune/latest/userguide/api-other-apis.html#DBEngineVersion">DBEngineVersion</a>.</para>
+        /// with. For the list of supported feature names, see <a>DBEngineVersion</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

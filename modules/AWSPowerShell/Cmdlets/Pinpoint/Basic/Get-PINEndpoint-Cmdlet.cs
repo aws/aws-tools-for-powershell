@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the endpoint.</para>
+        /// <para>The case insensitive unique identifier for the endpoint. The identifier can't contain
+        /// <code>$</code>, <code>{</code> or <code>}</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

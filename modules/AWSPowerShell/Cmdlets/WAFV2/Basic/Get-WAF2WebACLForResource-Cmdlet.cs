@@ -28,7 +28,23 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Retrieves the <a>WebACL</a> for the specified resource.
+    /// Retrieves the <a>WebACL</a> for the specified resource. 
+    /// 
+    ///  
+    /// <para>
+    /// This call uses <code>GetWebACL</code>, to verify that your account has permission
+    /// to access the retrieved web ACL. If you get an error that indicates that your account
+    /// isn't authorized to perform <code>wafv2:GetWebACL</code> on the resource, that error
+    /// won't be included in your CloudTrail event history. 
+    /// </para><para>
+    /// For Amazon CloudFront, don't use this call. Instead, call the CloudFront action <code>GetDistributionConfig</code>.
+    /// For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html">GetDistributionConfig</a>
+    /// in the <i>Amazon CloudFront API Reference</i>. 
+    /// </para><para><b>Required permissions for customer-managed IAM policies</b></para><para>
+    /// This call requires permissions that are specific to the protected resource type. For
+    /// details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-GetWebACLForResource">Permissions
+    /// for GetWebACLForResource</a> in the <i>WAF Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "WAF2WebACLForResource")]
     [OutputType("Amazon.WAFV2.Model.WebACL")]

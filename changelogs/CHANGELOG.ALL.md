@@ -1,4 +1,13 @@
-﻿### 4.1.439 (2023-10-26 22:17Z)
+﻿### 4.1.440 (2023-10-27 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.672.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Start-EMRJobFlow: added parameters EbsRootVolumeIops and EbsRootVolumeThroughput.
+  * Amazon Redshift
+    * Modified cmdlet Edit-RSCluster: added parameter IpAddressType.
+    * Modified cmdlet New-RSCluster: added parameter IpAddressType.
+    * Modified cmdlet Restore-RSFromClusterSnapshot: added parameter IpAddressType.
+
+### 4.1.439 (2023-10-26 22:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.671.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Modified cmdlet Get-APSSessionList: added parameter InstanceId.

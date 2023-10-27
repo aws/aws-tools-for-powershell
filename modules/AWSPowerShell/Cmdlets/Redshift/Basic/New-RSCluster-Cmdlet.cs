@@ -303,6 +303,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String[] IamRole { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address types that the cluster supports. Possible values are <code>ipv4</code>
+        /// and <code>dualstack</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -603,6 +614,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 context.IamRole = new List<System.String>(this.IamRole);
             }
+            context.IpAddressType = this.IpAddressType;
             context.KmsKeyId = this.KmsKeyId;
             context.LoadSampleData = this.LoadSampleData;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
@@ -732,6 +744,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.IamRole != null)
             {
                 request.IamRoles = cmdletContext.IamRole;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -878,6 +894,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
             public List<System.String> IamRole { get; set; }
+            public System.String IpAddressType { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String LoadSampleData { get; set; }
             public System.String MaintenanceTrackName { get; set; }

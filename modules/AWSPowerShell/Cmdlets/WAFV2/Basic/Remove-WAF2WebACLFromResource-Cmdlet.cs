@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// configuration. To disassociate a web ACL, provide an empty web ACL ID in the CloudFront
     /// call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
     /// in the <i>Amazon CloudFront API Reference</i>. 
+    /// </para><para><b>Required permissions for customer-managed IAM policies</b></para><para>
+    /// This call requires permissions that are specific to the protected resource type. For
+    /// details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-DisassociateWebACL">Permissions
+    /// for DisassociateWebACL</a> in the <i>WAF Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "WAF2WebACLFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
