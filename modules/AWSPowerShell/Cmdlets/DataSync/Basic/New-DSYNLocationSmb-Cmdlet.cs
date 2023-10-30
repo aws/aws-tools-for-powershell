@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specifies the Windows domain name that your SMB file server belongs to. </para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
+        /// <para>Specifies the Windows domain name that your SMB file server belongs to. </para><para>If you have multiple domains in your environment, configuring this parameter makes
+        /// sure that DataSync connects to the right file server.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
         /// permissions</a> for SMB locations.</para>
         /// </para>
         /// </summary>

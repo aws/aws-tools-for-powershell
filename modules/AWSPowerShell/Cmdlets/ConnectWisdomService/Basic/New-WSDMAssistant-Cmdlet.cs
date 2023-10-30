@@ -55,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
+        /// <para>The customer managed key used for encryption. For more information about setting up
+        /// a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable
+        /// Amazon Connect Wisdom for your instance</a>. For information about valid ID values,
+        /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
         /// identifiers (KeyId)</a>.</para>
         /// </para>
         /// </summary>

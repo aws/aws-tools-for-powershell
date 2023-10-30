@@ -6289,6 +6289,7 @@ Set-Alias -Name DTEX-ListRevisionAssets -Value Get-DTEXRevisionAssetList
 Set-Alias -Name DTEX-ListTagsForResource -Value Get-DTEXResourceTag
 Set-Alias -Name DTEX-RevokeRevision -Value Revoke-DTEXRevision
 Set-Alias -Name DTEX-SendApiAsset -Value Send-DTEXApiAsset
+Set-Alias -Name DTEX-SendDataSetNotification -Value Send-DTEXDataSetNotification
 Set-Alias -Name DTEX-StartJob -Value Start-DTEXJob
 Set-Alias -Name DTEX-TagResource -Value Add-DTEXResourceTag
 Set-Alias -Name DTEX-UntagResource -Value Remove-DTEXResourceTag
@@ -10766,6 +10767,7 @@ Set-Alias -Name FINSP-ListTagsForResource -Value Get-FINSPResourceTag
 Set-Alias -Name FINSP-TagResource -Value Add-FINSPResourceTag
 Set-Alias -Name FINSP-UntagResource -Value Remove-FINSPResourceTag
 Set-Alias -Name FINSP-UpdateEnvironment -Value Update-FINSPEnvironment
+Set-Alias -Name FINSP-UpdateKxClusterCodeConfiguration -Value Update-FINSPKxClusterCodeConfiguration
 Set-Alias -Name Update-FINSPKxClusterDatabases -Value Update-FINSPKxClusterDatabasis
 Set-Alias -Name FINSP-UpdateKxClusterDatabases -Value Update-FINSPKxClusterDatabasis
 Set-Alias -Name FINSP-UpdateKxDatabase -Value Update-FINSPKxDatabase
@@ -20800,6 +20802,8 @@ Set-Alias -Name Create-RDSEventSubscription -Value New-RDSEventSubscription
 Set-Alias -Name RDS-CreateEventSubscription -Value New-RDSEventSubscription
 Set-Alias -Name Create-RDSGlobalCluster -Value New-RDSGlobalCluster
 Set-Alias -Name RDS-CreateGlobalCluster -Value New-RDSGlobalCluster
+Set-Alias -Name Create-RDSIntegration -Value New-RDSIntegration
+Set-Alias -Name RDS-CreateIntegration -Value New-RDSIntegration
 Set-Alias -Name Create-RDSOptionGroup -Value New-RDSOptionGroup
 Set-Alias -Name RDS-CreateOptionGroup -Value New-RDSOptionGroup
 Set-Alias -Name Delete-RDSBlueGreenDeployment -Value Remove-RDSBlueGreenDeployment
@@ -20836,6 +20840,8 @@ Set-Alias -Name Delete-RDSEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name RDS-DeleteEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name Delete-RDSGlobalCluster -Value Remove-RDSGlobalCluster
 Set-Alias -Name RDS-DeleteGlobalCluster -Value Remove-RDSGlobalCluster
+Set-Alias -Name Delete-RDSIntegration -Value Remove-RDSIntegration
+Set-Alias -Name RDS-DeleteIntegration -Value Remove-RDSIntegration
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name Deregister-RDSDBProxyTargets -Value Unregister-RDSDBProxyTarget
@@ -20937,6 +20943,9 @@ Set-Alias -Name RDS-DescribeExportTasks -Value Get-RDSExportTask
 Set-Alias -Name Describe-RDSGlobalClusters -Value Get-RDSGlobalCluster
 Set-Alias -Name Describe-RDSGlobalCluster -Value Get-RDSGlobalCluster
 Set-Alias -Name RDS-DescribeGlobalClusters -Value Get-RDSGlobalCluster
+Set-Alias -Name Describe-RDSIntegrations -Value Get-RDSIntegration
+Set-Alias -Name Describe-RDSIntegration -Value Get-RDSIntegration
+Set-Alias -Name RDS-DescribeIntegrations -Value Get-RDSIntegration
 Set-Alias -Name Describe-RDSOptionGroupOptions -Value Get-RDSOptionGroupOption
 Set-Alias -Name Describe-RDSOptionGroupOption -Value Get-RDSOptionGroupOption
 Set-Alias -Name RDS-DescribeOptionGroupOptions -Value Get-RDSOptionGroupOption
@@ -21372,6 +21381,8 @@ Set-Alias -Name List-RSDTables -Value Get-RSDTableList
 Set-Alias -Name List-RSDTableList -Value Get-RSDTableList
 Set-Alias -Name RSD-ListTables -Value Get-RSDTableList
 Set-Alias -Name RSS-ConvertRecoveryPointToSnapshot -Value Convert-RSSRecoveryPointToSnapshot
+Set-Alias -Name Create-RSSCustomDomainAssociation -Value New-RSSCustomDomainAssociation
+Set-Alias -Name RSS-CreateCustomDomainAssociation -Value New-RSSCustomDomainAssociation
 Set-Alias -Name Create-RSSEndpointAccess -Value New-RSSEndpointAccess
 Set-Alias -Name RSS-CreateEndpointAccess -Value New-RSSEndpointAccess
 Set-Alias -Name Create-RSSNamespace -Value New-RSSNamespace
@@ -21382,6 +21393,8 @@ Set-Alias -Name Create-RSSUsageLimit -Value New-RSSUsageLimit
 Set-Alias -Name RSS-CreateUsageLimit -Value New-RSSUsageLimit
 Set-Alias -Name Create-RSSWorkgroup -Value New-RSSWorkgroup
 Set-Alias -Name RSS-CreateWorkgroup -Value New-RSSWorkgroup
+Set-Alias -Name Delete-RSSCustomDomainAssociation -Value Remove-RSSCustomDomainAssociation
+Set-Alias -Name RSS-DeleteCustomDomainAssociation -Value Remove-RSSCustomDomainAssociation
 Set-Alias -Name Delete-RSSEndpointAccess -Value Remove-RSSEndpointAccess
 Set-Alias -Name RSS-DeleteEndpointAccess -Value Remove-RSSEndpointAccess
 Set-Alias -Name Delete-RSSNamespace -Value Remove-RSSNamespace
@@ -21396,6 +21409,7 @@ Set-Alias -Name Delete-RSSWorkgroup -Value Remove-RSSWorkgroup
 Set-Alias -Name RSS-DeleteWorkgroup -Value Remove-RSSWorkgroup
 Set-Alias -Name Get-RSSCredentials -Value Get-RSSCredential
 Set-Alias -Name RSS-GetCredentials -Value Get-RSSCredential
+Set-Alias -Name RSS-GetCustomDomainAssociation -Value Get-RSSCustomDomainAssociation
 Set-Alias -Name RSS-GetEndpointAccess -Value Get-RSSEndpointAccess
 Set-Alias -Name RSS-GetNamespace -Value Get-RSSNamespace
 Set-Alias -Name RSS-GetRecoveryPoint -Value Get-RSSRecoveryPoint
@@ -21404,6 +21418,9 @@ Set-Alias -Name RSS-GetSnapshot -Value Get-RSSSnapshot
 Set-Alias -Name RSS-GetTableRestoreStatus -Value Get-RSSTableRestoreStatus
 Set-Alias -Name RSS-GetUsageLimit -Value Get-RSSUsageLimit
 Set-Alias -Name RSS-GetWorkgroup -Value Get-RSSWorkgroup
+Set-Alias -Name List-RSSCustomDomainAssociations -Value Get-RSSCustomDomainAssociationList
+Set-Alias -Name List-RSSCustomDomainAssociationList -Value Get-RSSCustomDomainAssociationList
+Set-Alias -Name RSS-ListCustomDomainAssociations -Value Get-RSSCustomDomainAssociationList
 Set-Alias -Name List-RSSEndpointAccess -Value Get-RSSEndpointAccessList
 Set-Alias -Name List-RSSEndpointAccessList -Value Get-RSSEndpointAccessList
 Set-Alias -Name RSS-ListEndpointAccess -Value Get-RSSEndpointAccessList
@@ -21433,6 +21450,7 @@ Set-Alias -Name RSS-RestoreFromSnapshot -Value Restore-RSSFromSnapshot
 Set-Alias -Name RSS-RestoreTableFromSnapshot -Value Restore-RSSTableFromSnapshot
 Set-Alias -Name RSS-TagResource -Value Add-RSSResourceTag
 Set-Alias -Name RSS-UntagResource -Value Remove-RSSResourceTag
+Set-Alias -Name RSS-UpdateCustomDomainAssociation -Value Update-RSSCustomDomainAssociation
 Set-Alias -Name RSS-UpdateEndpointAccess -Value Update-RSSEndpointAccess
 Set-Alias -Name RSS-UpdateNamespace -Value Update-RSSNamespace
 Set-Alias -Name RSS-UpdateSnapshot -Value Update-RSSSnapshot

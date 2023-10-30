@@ -22,71 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataSync;
-using Amazon.DataSync.Model;
+using Amazon.RedshiftServerless;
+using Amazon.RedshiftServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DSYN
+namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Updates the name of an DataSync agent.
+    /// Deletes a custom domain association for Amazon Redshift Serverless.
     /// </summary>
-    [Cmdlet("Update", "DSYNAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "RSSCustomDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS DataSync UpdateAgent API operation.", Operation = new[] {"UpdateAgent"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateAgentResponse))]
-    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateAgentResponse",
+    [AWSCmdlet("Calls the Redshift Serverless DeleteCustomDomainAssociation API operation.", Operation = new[] {"DeleteCustomDomainAssociation"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse))]
+    [AWSCmdletOutput("None or Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateAgentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateDSYNAgentCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class RemoveRSSCustomDomainAssociationCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AgentArn
+        #region Parameter CustomDomainName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the agent to update.</para>
+        /// <para>The custom domain name associated with the workgroup.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgentArn { get; set; }
+        public System.String CustomDomainName { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter WorkgroupName
         /// <summary>
         /// <para>
-        /// <para>The name that you want to use to configure the agent.</para>
+        /// <para>The name of the workgroup associated with the database.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkgroupName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateAgentResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AgentArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AgentArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgentArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -104,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AgentArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNAgent (UpdateAgent)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkgroupName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RSSCustomDomainAssociation (DeleteCustomDomainAssociation)"))
             {
                 return;
             }
@@ -115,29 +112,25 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateAgentResponse, UpdateDSYNAgentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse, RemoveRSSCustomDomainAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AgentArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AgentArn = this.AgentArn;
+            context.CustomDomainName = this.CustomDomainName;
             #if MODULAR
-            if (this.AgentArn == null && ParameterWasBound(nameof(this.AgentArn)))
+            if (this.CustomDomainName == null && ParameterWasBound(nameof(this.CustomDomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter AgentArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CustomDomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            context.WorkgroupName = this.WorkgroupName;
+            #if MODULAR
+            if (this.WorkgroupName == null && ParameterWasBound(nameof(this.WorkgroupName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkgroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,15 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.UpdateAgentRequest();
+            var request = new Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationRequest();
             
-            if (cmdletContext.AgentArn != null)
+            if (cmdletContext.CustomDomainName != null)
             {
-                request.AgentArn = cmdletContext.AgentArn;
+                request.CustomDomainName = cmdletContext.CustomDomainName;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.WorkgroupName != null)
             {
-                request.Name = cmdletContext.Name;
+                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -195,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.UpdateAgentResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateAgentRequest request)
+        private Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateAgent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "DeleteCustomDomainAssociation");
             try
             {
                 #if DESKTOP
-                return client.UpdateAgent(request);
+                return client.DeleteCustomDomainAssociation(request);
                 #elif CORECLR
-                return client.UpdateAgentAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCustomDomainAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgentArn { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.DataSync.Model.UpdateAgentResponse, UpdateDSYNAgentCmdlet, object> Select { get; set; } =
+            public System.String CustomDomainName { get; set; }
+            public System.String WorkgroupName { get; set; }
+            public System.Func<Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse, RemoveRSSCustomDomainAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

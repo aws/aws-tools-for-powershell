@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CustomDomainName
+        /// <summary>
+        /// <para>
+        /// <para>The custom domain name associated with the workgroup. The custom domain name or the
+        /// workgroup name must be included in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDomainName { get; set; }
+        #endregion
+        
         #region Parameter DbName
         /// <summary>
         /// <para>
@@ -84,14 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <para>The name of the workgroup associated with the database.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String WorkgroupName { get; set; }
         #endregion
         
@@ -141,15 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.Select = (response, cmdlet) => this.WorkgroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CustomDomainName = this.CustomDomainName;
             context.DbName = this.DbName;
             context.DurationSecond = this.DurationSecond;
             context.WorkgroupName = this.WorkgroupName;
-            #if MODULAR
-            if (this.WorkgroupName == null && ParameterWasBound(nameof(this.WorkgroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkgroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             // create request
             var request = new Amazon.RedshiftServerless.Model.GetCredentialsRequest();
             
+            if (cmdletContext.CustomDomainName != null)
+            {
+                request.CustomDomainName = cmdletContext.CustomDomainName;
+            }
             if (cmdletContext.DbName != null)
             {
                 request.DbName = cmdletContext.DbName;
@@ -239,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CustomDomainName { get; set; }
             public System.String DbName { get; set; }
             public System.Int32? DurationSecond { get; set; }
             public System.String WorkgroupName { get; set; }

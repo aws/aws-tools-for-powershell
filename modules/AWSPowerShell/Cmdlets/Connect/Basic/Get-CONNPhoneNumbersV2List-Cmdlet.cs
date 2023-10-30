@@ -58,6 +58,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+        /// can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code>
+        /// and <code>InstanceId</code> are not provided, this API lists numbers claimed to all
+        /// the Amazon Connect instances belonging to your account in the same AWS Region as the
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
         #region Parameter PhoneNumberCountryCode
         /// <summary>
         /// <para>
@@ -95,9 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
-        /// groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided,
-        /// this API lists numbers claimed to all the Amazon Connect instances belonging to your
-        /// account in the same Amazon Web Services Region as the request.</para>
+        /// groups that phone number inbound traffic is routed through. If both <code>TargetArn</code>
+        /// and <code>InstanceId</code> input are not provided, this API lists numbers claimed
+        /// to all the Amazon Connect instances belonging to your account in the same Amazon Web
+        /// Services Region as the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListPhoneNumbersV2Response, GetCONNPhoneNumbersV2ListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.InstanceId = this.InstanceId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.PhoneNumberCountryCode != null)
@@ -196,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request and set iteration invariants
             var request = new Amazon.Connect.Model.ListPhoneNumbersV2Request();
             
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -301,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> PhoneNumberCountryCode { get; set; }

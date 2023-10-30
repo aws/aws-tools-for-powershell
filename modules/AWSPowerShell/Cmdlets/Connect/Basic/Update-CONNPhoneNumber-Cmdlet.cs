@@ -54,6 +54,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+        /// can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter
+        /// <code>InstanceId</code> or <code>TargetArn</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>
@@ -75,17 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
-        /// groups that phone numbers are claimed to.</para>
+        /// groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code>
+        /// or <code>TargetArn</code>. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetArn { get; set; }
         #endregion
         
@@ -165,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.InstanceId = this.InstanceId;
             context.PhoneNumberId = this.PhoneNumberId;
             #if MODULAR
             if (this.PhoneNumberId == null && ParameterWasBound(nameof(this.PhoneNumberId)))
@@ -173,12 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.TargetArn = this.TargetArn;
-            #if MODULAR
-            if (this.TargetArn == null && ParameterWasBound(nameof(this.TargetArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             if (cmdletContext.PhoneNumberId != null)
             {
@@ -269,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String InstanceId { get; set; }
             public System.String PhoneNumberId { get; set; }
             public System.String TargetArn { get; set; }
             public System.Func<Amazon.Connect.Model.UpdatePhoneNumberResponse, UpdateCONNPhoneNumberCmdlet, object> Select { get; set; } =

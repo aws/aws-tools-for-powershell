@@ -111,6 +111,13 @@ $FINSP_Completers = {
             break
         }
 
+        # Amazon.Finspace.KxClusterCodeDeploymentStrategy
+        "Update-FINSPKxClusterCodeConfiguration/DeploymentConfiguration_DeploymentStrategy"
+        {
+            $v = "FORCE","ROLLING"
+            break
+        }
+
         # Amazon.Finspace.KxClusterType
         {
             ($_ -eq "Get-FINSPKxClusterList/ClusterType") -Or
@@ -147,7 +154,7 @@ $FINSP_map = @{
     "AutoScalingConfiguration_AutoScalingMetric"=@("New-FINSPKxCluster")
     "AzMode"=@("New-FINSPKxCluster")
     "ClusterType"=@("Get-FINSPKxClusterList","New-FINSPKxCluster")
-    "DeploymentConfiguration_DeploymentStrategy"=@("Update-FINSPKxClusterDatabasis")
+    "DeploymentConfiguration_DeploymentStrategy"=@("Update-FINSPKxClusterCodeConfiguration","Update-FINSPKxClusterDatabasis")
     "FederationMode"=@("New-FINSPEnvironment","Update-FINSPEnvironment")
     "SavedownStorageConfiguration_Type"=@("New-FINSPKxCluster")
     "VpcConfiguration_IpAddressType"=@("New-FINSPKxCluster")
@@ -232,6 +239,7 @@ $FINSP_SelectMap = @{
                "Add-FINSPResourceTag",
                "Remove-FINSPResourceTag",
                "Update-FINSPEnvironment",
+               "Update-FINSPKxClusterCodeConfiguration",
                "Update-FINSPKxClusterDatabasis",
                "Update-FINSPKxDatabase",
                "Update-FINSPKxEnvironment",

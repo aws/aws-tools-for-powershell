@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomDomainAssociation" OutputProperty="*" Verb="New" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpointAccess" OutputProperty="Endpoint" Verb="New" Noun="EndpointAccess" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -39,6 +43,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkgroup" OutputProperty="Workgroup" Verb="New" Noun="Workgroup" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomDomainAssociation" Verb="Remove" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCredentials" OutputProperty="*" Verb="Get" Noun="Credential" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomDomainAssociation" OutputProperty="*" Verb="Get" Noun="CustomDomainAssociation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +111,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetWorkgroup" OutputProperty="Workgroup" Verb="Get" Noun="Workgroup" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomDomainAssociations" OutputProperty="Associations" Verb="Get" Noun="CustomDomainAssociationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +171,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomDomainAssociation" OutputProperty="*" Verb="Update" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

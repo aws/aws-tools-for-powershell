@@ -29,8 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
     /// Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can
-    /// access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating
-    /// a location for FSx for ONTAP</a>.
+    /// use for a data transfer.
+    /// 
+    ///  
+    /// <para>
+    /// Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">accesses
+    /// an FSx for ONTAP file system</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationFsxOntap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

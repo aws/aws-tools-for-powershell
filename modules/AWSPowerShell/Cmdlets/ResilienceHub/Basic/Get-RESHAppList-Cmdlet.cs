@@ -55,11 +55,23 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
         /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
+        /// guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter FromLastAssessmentTime
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the lower limit of the range that is used to filter applications based on
+        /// their last assessment times.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? FromLastAssessmentTime { get; set; }
         #endregion
         
         #region Parameter Name
@@ -70,6 +82,29 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ReverseOrder
+        /// <summary>
+        /// <para>
+        /// <para>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code>
+        /// field. By default, application list is sorted in ascending order. To sort the appliation
+        /// list in descending order, set this field to <code>True</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ReverseOrder { get; set; }
+        #endregion
+        
+        #region Parameter ToLastAssessmentTime
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the upper limit of the range that is used to filter the applications based
+        /// on their last assessment times.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ToLastAssessmentTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -136,9 +171,12 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AppArn = this.AppArn;
+            context.FromLastAssessmentTime = this.FromLastAssessmentTime;
             context.MaxResult = this.MaxResult;
             context.Name = this.Name;
             context.NextToken = this.NextToken;
+            context.ReverseOrder = this.ReverseOrder;
+            context.ToLastAssessmentTime = this.ToLastAssessmentTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             {
                 request.AppArn = cmdletContext.AppArn;
             }
+            if (cmdletContext.FromLastAssessmentTime != null)
+            {
+                request.FromLastAssessmentTime = cmdletContext.FromLastAssessmentTime.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -168,6 +210,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ReverseOrder != null)
+            {
+                request.ReverseOrder = cmdletContext.ReverseOrder.Value;
+            }
+            if (cmdletContext.ToLastAssessmentTime != null)
+            {
+                request.ToLastAssessmentTime = cmdletContext.ToLastAssessmentTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -255,9 +305,12 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public System.DateTime? FromLastAssessmentTime { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? ReverseOrder { get; set; }
+            public System.DateTime? ToLastAssessmentTime { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.ListAppsResponse, GetRESHAppListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AppSummaries;
         }

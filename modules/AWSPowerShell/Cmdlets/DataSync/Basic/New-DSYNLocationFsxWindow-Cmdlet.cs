@@ -28,7 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon FSx for Windows File Server file system.
+    /// Creates an endpoint for an Amazon FSx for Windows File Server file system that DataSync
+    /// can use for a data transfer.
+    /// 
+    ///  
+    /// <para>
+    /// Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access">accesses
+    /// an FSx for Windows File Server</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationFsxWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the Windows domain that the FSx for Windows File Server belongs
-        /// to.</para>
+        /// to.</para><para>If you have multiple domains in your environment, configuring this parameter makes
+        /// sure that DataSync connects to the right file server.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required
+        /// permissions</a> for FSx for Windows File Server locations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the password of the user who has the permissions to access files and folders
-        /// in the file system.</para>
+        /// in the file system.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required
+        /// permissions</a> for FSx for Windows File Server locations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the user who has the permissions to access files, folders, and metadata
-        /// in your file system.</para><para>For information about choosing a user with sufficient permissions, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">Required
-        /// permissions</a>.</para>
+        /// in your file system.</para><para>For information about choosing a user with the right level of access for your transfer,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required
+        /// permissions</a> for FSx for Windows File Server locations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

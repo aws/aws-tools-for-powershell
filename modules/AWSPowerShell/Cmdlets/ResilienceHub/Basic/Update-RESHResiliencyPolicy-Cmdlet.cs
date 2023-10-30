@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
     /// Updates a resiliency policy.
+    /// 
+    ///  <note><para>
+    /// Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and
+    /// <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
+    /// the lowest possible assessment result is near zero. Hence, if you provide value zero
+    /// for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO
+    /// and estimated workload RPO result will be near zero and the <b>Compliance status</b>
+    /// for your application will be set to <b>Policy breached</b>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "RESHResiliencyPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.ResiliencyPolicy")]
@@ -72,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
+        /// guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

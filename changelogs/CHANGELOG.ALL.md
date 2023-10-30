@@ -1,4 +1,29 @@
-﻿### 4.1.440 (2023-10-27 21:13Z)
+﻿### 4.1.441 (2023-10-30 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.673.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNPhoneNumbersV2List: added parameter InstanceId.
+    * Modified cmdlet Request-CONNPhoneNumber: added parameter InstanceId.
+    * Modified cmdlet Search-CONNAvailablePhoneNumber: added parameter InstanceId.
+    * Modified cmdlet Update-CONNPhoneNumber: added parameter InstanceId.
+  * Amazon Data Exchange
+    * Added cmdlet Send-DTEXDataSetNotification leveraging the SendDataSetNotification service API.
+  * Amazon FinSpace User Environment Management Service
+    * Added cmdlet Update-FINSPKxClusterCodeConfiguration leveraging the UpdateKxClusterCodeConfiguration service API.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSCustomDomainAssociation leveraging the GetCustomDomainAssociation service API.
+    * Added cmdlet Get-RSSCustomDomainAssociationList leveraging the ListCustomDomainAssociations service API.
+    * Added cmdlet New-RSSCustomDomainAssociation leveraging the CreateCustomDomainAssociation service API.
+    * Added cmdlet Remove-RSSCustomDomainAssociation leveraging the DeleteCustomDomainAssociation service API.
+    * Added cmdlet Update-RSSCustomDomainAssociation leveraging the UpdateCustomDomainAssociation service API.
+    * Modified cmdlet Get-RSSCredential: added parameter CustomDomainName.
+  * Amazon Relational Database Service
+    * Added cmdlet Get-RDSIntegration leveraging the DescribeIntegrations service API.
+    * Added cmdlet New-RDSIntegration leveraging the CreateIntegration service API.
+    * Added cmdlet Remove-RDSIntegration leveraging the DeleteIntegration service API.
+  * Amazon Resilience Hub
+    * Modified cmdlet Get-RESHAppList: added parameters FromLastAssessmentTime, ReverseOrder and ToLastAssessmentTime.
+
+### 4.1.440 (2023-10-27 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.672.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Modified cmdlet Start-EMRJobFlow: added parameters EbsRootVolumeIops and EbsRootVolumeThroughput.

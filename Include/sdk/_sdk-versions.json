@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.672.0",
+    "ProductVersion" : "3.7.673.0",
     "CoreVersion"    : "3.7.204.10",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.211.6",
+            "Version" : "3.7.212.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.208.4",
+            "Version" : "3.7.209.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -1250,7 +1250,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.203.35",
+            "Version" : "3.7.204.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -1586,7 +1586,7 @@
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "3.7.200.63",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -1866,7 +1866,7 @@
             "InPreview"               : false
         },
         "S3Outposts"                      : {
-            "Version" : "3.7.200.63",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2122,7 +2122,7 @@
             "InPreview"               : false
         },
         "Finspace"                        : {
-            "Version" : "3.7.201.41",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2242,7 +2242,7 @@
             "InPreview"               : false
         },
         "ConnectWisdomService"            : {
-            "Version" : "3.7.202.6",
+            "Version" : "3.7.202.7",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2298,7 +2298,7 @@
             "InPreview"               : false
         },
         "ResilienceHub"                   : {
-            "Version" : "3.7.201.54",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2466,7 +2466,7 @@
             "InPreview"               : false
         },
         "RedshiftServerless"                  : {
-            "Version" : "3.7.202.3",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2754,7 +2754,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "3.7.201.8",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"

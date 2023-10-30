@@ -28,24 +28,19 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Updates the databases mounted on a kdb cluster, which includes the <code>changesetId</code>
-    /// and all the dbPaths to be cached. This API does not allow you to change a database
-    /// name or add a database if you created a cluster without one. 
-    /// 
-    ///  
-    /// <para>
-    /// Using this API you can point a cluster to a different changeset and modify a list
-    /// of partitions being cached.
-    /// </para>
+    /// Allows you to update code configuration on a running cluster. By using this API you
+    /// can update the code, the initialization script path, and the command line arguments
+    /// for a specific cluster. The configuration that you want to update will override any
+    /// existing configurations on the cluster.
     /// </summary>
-    [Cmdlet("Update", "FINSPKxClusterDatabasis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "FINSPKxClusterCodeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the FinSpace User Environment Management Service UpdateKxClusterDatabases API operation.", Operation = new[] {"UpdateKxClusterDatabases"}, SelectReturnType = typeof(Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse))]
-    [AWSCmdletOutput("None or Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse",
+    [AWSCmdlet("Calls the FinSpace User Environment Management Service UpdateKxClusterCodeConfiguration API operation.", Operation = new[] {"UpdateKxClusterCodeConfiguration"}, SelectReturnType = typeof(Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateFINSPKxClusterDatabasisCmdlet : AmazonFinspaceClientCmdlet, IExecutor
+    public partial class UpdateFINSPKxClusterCodeConfigurationCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -53,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>A unique name for the cluster that you want to modify.</para>
+        /// <para>The name of the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,42 +62,34 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter Databases
+        #region Parameter CommandLineArgument
         /// <summary>
         /// <para>
-        /// <para> The structure of databases mounted on the cluster.</para>
+        /// <para>Specifies the key-value pairs to make them available inside the cluster.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Finspace.Model.KxDatabaseConfiguration[] Databases { get; set; }
+        [Alias("CommandLineArguments")]
+        public Amazon.Finspace.Model.KxCommandLineArgument[] CommandLineArgument { get; set; }
         #endregion
         
         #region Parameter DeploymentConfiguration_DeploymentStrategy
         /// <summary>
         /// <para>
         /// <para> The type of deployment that you want on a cluster. </para><ul><li><para>ROLLING – This options updates the cluster by stopping the exiting q process and starting
-        /// a new q process with updated configuration.</para></li><li><para>NO_RESTART – This option updates the cluster without stopping the running q process.
-        /// It is only available for <code>HDB</code> type cluster. This option is quicker as
-        /// it reduces the turn around time to update configuration on a cluster. </para><para>With this deployment mode, you cannot update the <code>initializationScript</code>
-        /// and <code>commandLineArguments</code> parameters.</para></li></ul>
+        /// a new q process with updated configuration.</para></li><li><para>FORCE – This option updates the cluster by immediately stopping all the running processes
+        /// before starting up new ones with the updated configuration. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Finspace.KxDeploymentStrategy")]
-        public Amazon.Finspace.KxDeploymentStrategy DeploymentConfiguration_DeploymentStrategy { get; set; }
+        [AWSConstantClassSource("Amazon.Finspace.KxClusterCodeDeploymentStrategy")]
+        public Amazon.Finspace.KxClusterCodeDeploymentStrategy DeploymentConfiguration_DeploymentStrategy { get; set; }
         #endregion
         
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of a kdb environment.</para>
+        /// <para> A unique identifier of the kdb environment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,6 +101,49 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentId { get; set; }
+        #endregion
+        
+        #region Parameter InitializationScript
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a Q program that will be run at launch of a cluster. It is a relative path
+        /// within <i>.zip</i> file that contains the custom code, which will be loaded on the
+        /// cluster. It must include the file name itself. For example, <code>somedir/init.q</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InitializationScript { get; set; }
+        #endregion
+        
+        #region Parameter Code_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>A unique name for the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter Code_S3Key
+        /// <summary>
+        /// <para>
+        /// <para>The full S3 path (excluding bucket) to the .zip file. This file contains the code
+        /// that is loaded onto the cluster when it's started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_S3Key { get; set; }
+        #endregion
+        
+        #region Parameter Code_S3ObjectVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of an S3 object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_S3ObjectVersion { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -129,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FINSPKxClusterDatabasis (UpdateKxClusterDatabases)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FINSPKxClusterCodeConfiguration (UpdateKxClusterCodeConfiguration)"))
             {
                 return;
             }
@@ -175,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse, UpdateFINSPKxClusterDatabasisCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse, UpdateFINSPKxClusterCodeConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -195,16 +225,13 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Databases != null)
+            context.Code_S3Bucket = this.Code_S3Bucket;
+            context.Code_S3Key = this.Code_S3Key;
+            context.Code_S3ObjectVersion = this.Code_S3ObjectVersion;
+            if (this.CommandLineArgument != null)
             {
-                context.Databases = new List<Amazon.Finspace.Model.KxDatabaseConfiguration>(this.Databases);
+                context.CommandLineArgument = new List<Amazon.Finspace.Model.KxCommandLineArgument>(this.CommandLineArgument);
             }
-            #if MODULAR
-            if (this.Databases == null && ParameterWasBound(nameof(this.Databases)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Databases which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DeploymentConfiguration_DeploymentStrategy = this.DeploymentConfiguration_DeploymentStrategy;
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
@@ -213,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InitializationScript = this.InitializationScript;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Finspace.Model.UpdateKxClusterDatabasesRequest();
+            var request = new Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -237,15 +265,54 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.Databases != null)
+            
+             // populate Code
+            var requestCodeIsNull = true;
+            request.Code = new Amazon.Finspace.Model.CodeConfiguration();
+            System.String requestCode_code_S3Bucket = null;
+            if (cmdletContext.Code_S3Bucket != null)
             {
-                request.Databases = cmdletContext.Databases;
+                requestCode_code_S3Bucket = cmdletContext.Code_S3Bucket;
+            }
+            if (requestCode_code_S3Bucket != null)
+            {
+                request.Code.S3Bucket = requestCode_code_S3Bucket;
+                requestCodeIsNull = false;
+            }
+            System.String requestCode_code_S3Key = null;
+            if (cmdletContext.Code_S3Key != null)
+            {
+                requestCode_code_S3Key = cmdletContext.Code_S3Key;
+            }
+            if (requestCode_code_S3Key != null)
+            {
+                request.Code.S3Key = requestCode_code_S3Key;
+                requestCodeIsNull = false;
+            }
+            System.String requestCode_code_S3ObjectVersion = null;
+            if (cmdletContext.Code_S3ObjectVersion != null)
+            {
+                requestCode_code_S3ObjectVersion = cmdletContext.Code_S3ObjectVersion;
+            }
+            if (requestCode_code_S3ObjectVersion != null)
+            {
+                request.Code.S3ObjectVersion = requestCode_code_S3ObjectVersion;
+                requestCodeIsNull = false;
+            }
+             // determine if request.Code should be set to null
+            if (requestCodeIsNull)
+            {
+                request.Code = null;
+            }
+            if (cmdletContext.CommandLineArgument != null)
+            {
+                request.CommandLineArguments = cmdletContext.CommandLineArgument;
             }
             
              // populate DeploymentConfiguration
             var requestDeploymentConfigurationIsNull = true;
-            request.DeploymentConfiguration = new Amazon.Finspace.Model.KxDeploymentConfiguration();
-            Amazon.Finspace.KxDeploymentStrategy requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy = null;
+            request.DeploymentConfiguration = new Amazon.Finspace.Model.KxClusterCodeDeploymentConfiguration();
+            Amazon.Finspace.KxClusterCodeDeploymentStrategy requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy = null;
             if (cmdletContext.DeploymentConfiguration_DeploymentStrategy != null)
             {
                 requestDeploymentConfiguration_deploymentConfiguration_DeploymentStrategy = cmdletContext.DeploymentConfiguration_DeploymentStrategy;
@@ -263,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
+            }
+            if (cmdletContext.InitializationScript != null)
+            {
+                request.InitializationScript = cmdletContext.InitializationScript;
             }
             
             CmdletOutput output;
@@ -297,15 +368,15 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region AWS Service Operation Call
         
-        private Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.UpdateKxClusterDatabasesRequest request)
+        private Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "UpdateKxClusterDatabases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "UpdateKxClusterCodeConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UpdateKxClusterDatabases(request);
+                return client.UpdateKxClusterCodeConfiguration(request);
                 #elif CORECLR
-                return client.UpdateKxClusterDatabasesAsync(request).GetAwaiter().GetResult();
+                return client.UpdateKxClusterCodeConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -327,10 +398,14 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         {
             public System.String ClientToken { get; set; }
             public System.String ClusterName { get; set; }
-            public List<Amazon.Finspace.Model.KxDatabaseConfiguration> Databases { get; set; }
-            public Amazon.Finspace.KxDeploymentStrategy DeploymentConfiguration_DeploymentStrategy { get; set; }
+            public System.String Code_S3Bucket { get; set; }
+            public System.String Code_S3Key { get; set; }
+            public System.String Code_S3ObjectVersion { get; set; }
+            public List<Amazon.Finspace.Model.KxCommandLineArgument> CommandLineArgument { get; set; }
+            public Amazon.Finspace.KxClusterCodeDeploymentStrategy DeploymentConfiguration_DeploymentStrategy { get; set; }
             public System.String EnvironmentId { get; set; }
-            public System.Func<Amazon.Finspace.Model.UpdateKxClusterDatabasesResponse, UpdateFINSPKxClusterDatabasisCmdlet, object> Select { get; set; } =
+            public System.String InitializationScript { get; set; }
+            public System.Func<Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse, UpdateFINSPKxClusterCodeConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

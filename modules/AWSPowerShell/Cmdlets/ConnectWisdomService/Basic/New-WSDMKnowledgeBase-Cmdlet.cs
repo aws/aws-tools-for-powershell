@@ -78,10 +78,14 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// Zendesk</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
         /// if <code>objectFields</code> is not provided, including at least <code>id</code>,
         /// <code>title</code>, <code>updated_at</code>, and <code>draft</code> as source fields.
-        /// </para></li><li><para> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">
-        /// SharePoint</a>, your AppIntegrations DataIntegration must have a FileConfiguration,
-        /// including only file extensions that are among <code>docx</code>, <code>pdf</code>,
-        /// <code>html</code>, <code>htm</code>, and <code>txt</code>. </para></li></ul>
+        /// </para></li><li><para> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">SharePoint</a>,
+        /// your AppIntegrations DataIntegration must have a FileConfiguration, including only
+        /// file extensions that are among <code>docx</code>, <code>pdf</code>, <code>html</code>,
+        /// <code>htm</code>, and <code>txt</code>. </para></li><li><para> For <a href="https://aws.amazon.com/s3/">Amazon S3</a>, the ObjectConfiguration and
+        /// FileConfiguration of your AppIntegrations DataIntegration must be null. The <code>SourceURI</code>
+        /// of your DataIntegration must use the following format: <code>s3://your_s3_bucket_name</code>.</para><important><para>The bucket policy of the corresponding S3 bucket must allow the Amazon Web Services
+        /// principal <code>app-integrations.amazonaws.com</code> to perform <code>s3:ListBucket</code>,
+        /// <code>s3:GetObject</code>, and <code>s3:GetBucketLocation</code> against the bucket.</para></important></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
+        /// <para>The customer managed key used for encryption. For more information about setting up
+        /// a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable
+        /// Amazon Connect Wisdom for your instance</a>. For information about valid ID values,
+        /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
         /// identifiers (KeyId)</a>.</para>
         /// </para>
         /// </summary>

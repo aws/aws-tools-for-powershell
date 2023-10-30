@@ -87,6 +87,13 @@ $DTEX_Completers = {
             break
         }
 
+        # Amazon.DataExchange.NotificationType
+        "Send-DTEXDataSetNotification/Type"
+        {
+            $v = "DATA_DELAY","DATA_UPDATE","DEPRECATION","SCHEMA_CHANGE"
+            break
+        }
+
         # Amazon.DataExchange.ProtocolType
         "New-DTEXJob/Details_ImportAssetFromApiGatewayApi_ProtocolType"
         {
@@ -127,7 +134,7 @@ $DTEX_map = @{
     "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ImportAssetFromApiGatewayApi_ProtocolType"=@("New-DTEXJob")
-    "Type"=@("New-DTEXJob")
+    "Type"=@("New-DTEXJob","Send-DTEXDataSetNotification")
 }
 
 _awsArgumentCompleterRegistration $DTEX_Completers $DTEX_map
@@ -202,6 +209,7 @@ $DTEX_SelectMap = @{
                "Get-DTEXResourceTag",
                "Revoke-DTEXRevision",
                "Send-DTEXApiAsset",
+               "Send-DTEXDataSetNotification",
                "Start-DTEXJob",
                "Add-DTEXResourceTag",
                "Remove-DTEXResourceTag",

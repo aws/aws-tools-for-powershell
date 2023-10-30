@@ -22,50 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResilienceHub;
-using Amazon.ResilienceHub.Model;
+using Amazon.RedshiftServerless;
+using Amazon.RedshiftServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RESH
+namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Describes the Resilience Hub application version.
+    /// Gets information about a specific custom domain association.
     /// </summary>
-    [Cmdlet("Get", "RESHAppVersion")]
-    [OutputType("Amazon.ResilienceHub.Model.DescribeAppVersionResponse")]
-    [AWSCmdlet("Calls the AWS Resilience Hub DescribeAppVersion API operation.", Operation = new[] {"DescribeAppVersion"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DescribeAppVersionResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.DescribeAppVersionResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.DescribeAppVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RSSCustomDomainAssociation")]
+    [OutputType("Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse")]
+    [AWSCmdlet("Calls the Redshift Serverless GetCustomDomainAssociation API operation.", Operation = new[] {"GetCustomDomainAssociation"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse))]
+    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse",
+        "This cmdlet returns an Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRESHAppVersionCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class GetRSSCustomDomainAssociationCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppArn
+        #region Parameter CustomDomainName
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
-        /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
-        /// guide.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppArn { get; set; }
-        #endregion
-        
-        #region Parameter AppVersion
-        /// <summary>
-        /// <para>
-        /// <para>Resilience Hub application version.</para>
+        /// <para>The custom domain name associated with the workgroup.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,28 +55,35 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppVersion { get; set; }
+        public System.String CustomDomainName { get; set; }
+        #endregion
+        
+        #region Parameter WorkgroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workgroup associated with the database.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkgroupName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.DescribeAppVersionResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.DescribeAppVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse).
+        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -110,33 +96,23 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.DescribeAppVersionResponse, GetRESHAppVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse, GetRSSCustomDomainAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AppArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppArn = this.AppArn;
+            context.CustomDomainName = this.CustomDomainName;
             #if MODULAR
-            if (this.AppArn == null && ParameterWasBound(nameof(this.AppArn)))
+            if (this.CustomDomainName == null && ParameterWasBound(nameof(this.CustomDomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CustomDomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AppVersion = this.AppVersion;
+            context.WorkgroupName = this.WorkgroupName;
             #if MODULAR
-            if (this.AppVersion == null && ParameterWasBound(nameof(this.AppVersion)))
+            if (this.WorkgroupName == null && ParameterWasBound(nameof(this.WorkgroupName)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkgroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,15 +129,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResilienceHub.Model.DescribeAppVersionRequest();
+            var request = new Amazon.RedshiftServerless.Model.GetCustomDomainAssociationRequest();
             
-            if (cmdletContext.AppArn != null)
+            if (cmdletContext.CustomDomainName != null)
             {
-                request.AppArn = cmdletContext.AppArn;
+                request.CustomDomainName = cmdletContext.CustomDomainName;
             }
-            if (cmdletContext.AppVersion != null)
+            if (cmdletContext.WorkgroupName != null)
             {
-                request.AppVersion = cmdletContext.AppVersion;
+                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -196,15 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.DescribeAppVersionResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.DescribeAppVersionRequest request)
+        private Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.GetCustomDomainAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "DescribeAppVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "GetCustomDomainAssociation");
             try
             {
                 #if DESKTOP
-                return client.DescribeAppVersion(request);
+                return client.GetCustomDomainAssociation(request);
                 #elif CORECLR
-                return client.DescribeAppVersionAsync(request).GetAwaiter().GetResult();
+                return client.GetCustomDomainAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppArn { get; set; }
-            public System.String AppVersion { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.DescribeAppVersionResponse, GetRESHAppVersionCmdlet, object> Select { get; set; } =
+            public System.String CustomDomainName { get; set; }
+            public System.String WorkgroupName { get; set; }
+            public System.Func<Amazon.RedshiftServerless.Model.GetCustomDomainAssociationResponse, GetRSSCustomDomainAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

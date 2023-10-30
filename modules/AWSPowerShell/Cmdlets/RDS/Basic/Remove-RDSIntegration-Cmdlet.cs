@@ -22,33 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResilienceHub;
-using Amazon.ResilienceHub.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RESH
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Resolves the resources for an application version.
+    /// Deletes a zero-ETL integration with Amazon Redshift. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.deleting.html">Deleting
+    /// Amazon Aurora zero-ETL integrations with Amazon Redshift</a> in the <i>Amazon Aurora
+    /// User Guide</i>
     /// </summary>
-    [Cmdlet("Resolve", "RESHAppVersionResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse")]
-    [AWSCmdlet("Calls the AWS Resilience Hub ResolveAppVersionResources API operation.", Operation = new[] {"ResolveAppVersionResources"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "RDSIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.RDS.Model.DeleteIntegrationResponse")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteIntegration API operation.", Operation = new[] {"DeleteIntegration"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteIntegrationResponse))]
+    [AWSCmdletOutput("Amazon.RDS.Model.DeleteIntegrationResponse",
+        "This cmdlet returns an Amazon.RDS.Model.DeleteIntegrationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ResolveRESHAppVersionResourceCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class RemoveRDSIntegrationCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppArn
+        #region Parameter IntegrationIdentifier
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
-        /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
-        /// guide.</para>
+        /// <para>The unique identifier of the integration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,31 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppArn { get; set; }
-        #endregion
-        
-        #region Parameter AppVersion
-        /// <summary>
-        /// <para>
-        /// <para>The version of the application.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppVersion { get; set; }
+        public System.String IntegrationIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DeleteIntegrationResponse).
+        /// Specifying the name of a property of type Amazon.RDS.Model.DeleteIntegrationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IntegrationIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IntegrationIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IntegrationIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Resolve-RESHAppVersionResource (ResolveAppVersionResources)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IntegrationIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSIntegration (DeleteIntegration)"))
             {
                 return;
             }
@@ -129,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse, ResolveRESHAppVersionResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DeleteIntegrationResponse, RemoveRDSIntegrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,21 +119,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AppArn;
+                context.Select = (response, cmdlet) => this.IntegrationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppArn = this.AppArn;
+            context.IntegrationIdentifier = this.IntegrationIdentifier;
             #if MODULAR
-            if (this.AppArn == null && ParameterWasBound(nameof(this.AppArn)))
+            if (this.IntegrationIdentifier == null && ParameterWasBound(nameof(this.IntegrationIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.AppVersion = this.AppVersion;
-            #if MODULAR
-            if (this.AppVersion == null && ParameterWasBound(nameof(this.AppVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AppVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IntegrationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -169,15 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResilienceHub.Model.ResolveAppVersionResourcesRequest();
+            var request = new Amazon.RDS.Model.DeleteIntegrationRequest();
             
-            if (cmdletContext.AppArn != null)
+            if (cmdletContext.IntegrationIdentifier != null)
             {
-                request.AppArn = cmdletContext.AppArn;
-            }
-            if (cmdletContext.AppVersion != null)
-            {
-                request.AppVersion = cmdletContext.AppVersion;
+                request.IntegrationIdentifier = cmdletContext.IntegrationIdentifier;
             }
             
             CmdletOutput output;
@@ -212,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ResolveAppVersionResourcesRequest request)
+        private Amazon.RDS.Model.DeleteIntegrationResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteIntegrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ResolveAppVersionResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteIntegration");
             try
             {
                 #if DESKTOP
-                return client.ResolveAppVersionResources(request);
+                return client.DeleteIntegration(request);
                 #elif CORECLR
-                return client.ResolveAppVersionResourcesAsync(request).GetAwaiter().GetResult();
+                return client.DeleteIntegrationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,9 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppArn { get; set; }
-            public System.String AppVersion { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.ResolveAppVersionResourcesResponse, ResolveRESHAppVersionResourceCmdlet, object> Select { get; set; } =
+            public System.String IntegrationIdentifier { get; set; }
+            public System.Func<Amazon.RDS.Model.DeleteIntegrationResponse, RemoveRDSIntegrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

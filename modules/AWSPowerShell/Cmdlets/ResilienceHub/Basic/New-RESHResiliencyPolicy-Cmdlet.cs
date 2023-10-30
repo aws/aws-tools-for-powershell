@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
     /// Creates a resiliency policy for an application.
+    /// 
+    ///  <note><para>
+    /// Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and
+    /// <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
+    /// the lowest possible assessment result is near zero. Hence, if you provide value zero
+    /// for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO
+    /// and estimated workload RPO result will be near zero and the <b>Compliance status</b>
+    /// for your application will be set to <b>Policy breached</b>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "RESHResiliencyPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.ResiliencyPolicy")]

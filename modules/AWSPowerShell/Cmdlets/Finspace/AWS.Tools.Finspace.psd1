@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-FINSPKxUser', 
         'Remove-FINSPResourceTag', 
         'Update-FINSPEnvironment', 
+        'Update-FINSPKxClusterCodeConfiguration', 
         'Update-FINSPKxClusterDatabasis', 
         'Update-FINSPKxDatabase', 
         'Update-FINSPKxEnvironment', 

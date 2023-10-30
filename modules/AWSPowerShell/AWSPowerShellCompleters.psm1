@@ -15950,6 +15950,13 @@ $DTEX_Completers = {
             break
         }
 
+        # Amazon.DataExchange.NotificationType
+        "Send-DTEXDataSetNotification/Type"
+        {
+            $v = "DATA_DELAY","DATA_UPDATE","DEPRECATION","SCHEMA_CHANGE"
+            break
+        }
+
         # Amazon.DataExchange.ProtocolType
         "New-DTEXJob/Details_ImportAssetFromApiGatewayApi_ProtocolType"
         {
@@ -15990,7 +15997,7 @@ $DTEX_map = @{
     "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ImportAssetFromApiGatewayApi_ProtocolType"=@("New-DTEXJob")
-    "Type"=@("New-DTEXJob")
+    "Type"=@("New-DTEXJob","Send-DTEXDataSetNotification")
 }
 
 _awsArgumentCompleterRegistration $DTEX_Completers $DTEX_map
@@ -16065,6 +16072,7 @@ $DTEX_SelectMap = @{
                "Get-DTEXResourceTag",
                "Revoke-DTEXRevision",
                "Send-DTEXApiAsset",
+               "Send-DTEXDataSetNotification",
                "Start-DTEXJob",
                "Add-DTEXResourceTag",
                "Remove-DTEXResourceTag",
@@ -25080,6 +25088,13 @@ $FINSP_Completers = {
             break
         }
 
+        # Amazon.Finspace.KxClusterCodeDeploymentStrategy
+        "Update-FINSPKxClusterCodeConfiguration/DeploymentConfiguration_DeploymentStrategy"
+        {
+            $v = "FORCE","ROLLING"
+            break
+        }
+
         # Amazon.Finspace.KxClusterType
         {
             ($_ -eq "Get-FINSPKxClusterList/ClusterType") -Or
@@ -25116,7 +25131,7 @@ $FINSP_map = @{
     "AutoScalingConfiguration_AutoScalingMetric"=@("New-FINSPKxCluster")
     "AzMode"=@("New-FINSPKxCluster")
     "ClusterType"=@("Get-FINSPKxClusterList","New-FINSPKxCluster")
-    "DeploymentConfiguration_DeploymentStrategy"=@("Update-FINSPKxClusterDatabasis")
+    "DeploymentConfiguration_DeploymentStrategy"=@("Update-FINSPKxClusterCodeConfiguration","Update-FINSPKxClusterDatabasis")
     "FederationMode"=@("New-FINSPEnvironment","Update-FINSPEnvironment")
     "SavedownStorageConfiguration_Type"=@("New-FINSPKxCluster")
     "VpcConfiguration_IpAddressType"=@("New-FINSPKxCluster")
@@ -25201,6 +25216,7 @@ $FINSP_SelectMap = @{
                "Add-FINSPResourceTag",
                "Remove-FINSPResourceTag",
                "Update-FINSPEnvironment",
+               "Update-FINSPKxClusterCodeConfiguration",
                "Update-FINSPKxClusterDatabasis",
                "Update-FINSPKxDatabase",
                "Update-FINSPKxEnvironment",
@@ -49556,6 +49572,7 @@ $RDS_SelectMap = @{
                "New-RDSDBSubnetGroup",
                "New-RDSEventSubscription",
                "New-RDSGlobalCluster",
+               "New-RDSIntegration",
                "New-RDSOptionGroup",
                "Remove-RDSBlueGreenDeployment",
                "Remove-RDSCustomDBEngineVersion",
@@ -49574,6 +49591,7 @@ $RDS_SelectMap = @{
                "Remove-RDSDBSubnetGroup",
                "Remove-RDSEventSubscription",
                "Remove-RDSGlobalCluster",
+               "Remove-RDSIntegration",
                "Remove-RDSOptionGroup",
                "Unregister-RDSDBProxyTarget",
                "Get-RDSAccountAttribute",
@@ -49608,6 +49626,7 @@ $RDS_SelectMap = @{
                "Get-RDSEventSubscription",
                "Get-RDSExportTask",
                "Get-RDSGlobalCluster",
+               "Get-RDSIntegration",
                "Get-RDSOptionGroupOption",
                "Get-RDSOptionGroup",
                "Get-RDSOrderableDBInstanceOption",
@@ -50276,11 +50295,13 @@ $RSS_SelectCompleters = {
 
 $RSS_SelectMap = @{
     "Select"=@("Convert-RSSRecoveryPointToSnapshot",
+               "New-RSSCustomDomainAssociation",
                "New-RSSEndpointAccess",
                "New-RSSNamespace",
                "New-RSSSnapshot",
                "New-RSSUsageLimit",
                "New-RSSWorkgroup",
+               "Remove-RSSCustomDomainAssociation",
                "Remove-RSSEndpointAccess",
                "Remove-RSSNamespace",
                "Remove-RSSResourcePolicy",
@@ -50288,6 +50309,7 @@ $RSS_SelectMap = @{
                "Remove-RSSUsageLimit",
                "Remove-RSSWorkgroup",
                "Get-RSSCredential",
+               "Get-RSSCustomDomainAssociation",
                "Get-RSSEndpointAccess",
                "Get-RSSNamespace",
                "Get-RSSRecoveryPoint",
@@ -50296,6 +50318,7 @@ $RSS_SelectMap = @{
                "Get-RSSTableRestoreStatus",
                "Get-RSSUsageLimit",
                "Get-RSSWorkgroup",
+               "Get-RSSCustomDomainAssociationList",
                "Get-RSSEndpointAccessList",
                "Get-RSSNamespaceList",
                "Get-RSSRecoveryPointList",
@@ -50310,6 +50333,7 @@ $RSS_SelectMap = @{
                "Restore-RSSTableFromSnapshot",
                "Add-RSSResourceTag",
                "Remove-RSSResourceTag",
+               "Update-RSSCustomDomainAssociation",
                "Update-RSSEndpointAccess",
                "Update-RSSNamespace",
                "Update-RSSSnapshot",
