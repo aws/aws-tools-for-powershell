@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter WebhookId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for a webhook. </para>
+        /// <para>The unique ID for a webhook. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

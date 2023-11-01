@@ -22,47 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Amplify;
-using Amazon.Amplify.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AMP
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a new webhook on an Amplify app.
+    /// Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure
+    /// GPU capacity is available for machine learning (ML) workloads. You must specify the
+    /// ID of the Capacity Block offering you are purchasing.
     /// </summary>
-    [Cmdlet("New", "AMPWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Amplify.Model.Webhook")]
-    [AWSCmdlet("Calls the AWS Amplify CreateWebhook API operation.", Operation = new[] {"CreateWebhook"}, SelectReturnType = typeof(Amazon.Amplify.Model.CreateWebhookResponse))]
-    [AWSCmdletOutput("Amazon.Amplify.Model.Webhook or Amazon.Amplify.Model.CreateWebhookResponse",
-        "This cmdlet returns an Amazon.Amplify.Model.Webhook object.",
-        "The service call response (type Amazon.Amplify.Model.CreateWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EC2EC2CapacityBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.CapacityReservation")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseCapacityBlock API operation.", Operation = new[] {"PurchaseCapacityBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseCapacityBlockResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservation or Amazon.EC2.Model.PurchaseCapacityBlockResponse",
+        "This cmdlet returns an Amazon.EC2.Model.CapacityReservation object.",
+        "The service call response (type Amazon.EC2.Model.PurchaseCapacityBlockResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewAMPWebhookCmdlet : AmazonAmplifyClientCmdlet, IExecutor
+    public partial class NewEC2EC2CapacityBlockCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppId
+        #region Parameter CapacityBlockOfferingId
         /// <summary>
         /// <para>
-        /// <para>The unique ID for an Amplify app. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppId { get; set; }
-        #endregion
-        
-        #region Parameter BranchName
-        /// <summary>
-        /// <para>
-        /// <para>The name for a branch that is part of an Amplify app. </para>
+        /// <para>The ID of the Capacity Block offering.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,38 +58,46 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BranchName { get; set; }
+        public System.String CapacityBlockOfferingId { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter InstancePlatform
         /// <summary>
         /// <para>
-        /// <para>The description for a webhook. </para>
+        /// <para>The type of operating system for which to reserve capacity.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.EC2.CapacityReservationInstancePlatform")]
+        public Amazon.EC2.CapacityReservationInstancePlatform InstancePlatform { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the Capacity Block during launch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Webhook'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Amplify.Model.CreateWebhookResponse).
-        /// Specifying the name of a property of type Amazon.Amplify.Model.CreateWebhookResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityReservation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.PurchaseCapacityBlockResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.PurchaseCapacityBlockResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Webhook";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "CapacityReservation";
         #endregion
         
         #region Parameter Force
@@ -122,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AMPWebhook (CreateWebhook)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CapacityBlockOfferingId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2EC2CapacityBlock (PurchaseCapacityBlock)"))
             {
                 return;
             }
@@ -133,36 +126,29 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Amplify.Model.CreateWebhookResponse, NewAMPWebhookCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.PurchaseCapacityBlockResponse, NewEC2EC2CapacityBlockCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AppId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppId = this.AppId;
+            context.CapacityBlockOfferingId = this.CapacityBlockOfferingId;
             #if MODULAR
-            if (this.AppId == null && ParameterWasBound(nameof(this.AppId)))
+            if (this.CapacityBlockOfferingId == null && ParameterWasBound(nameof(this.CapacityBlockOfferingId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CapacityBlockOfferingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.BranchName = this.BranchName;
+            context.InstancePlatform = this.InstancePlatform;
             #if MODULAR
-            if (this.BranchName == null && ParameterWasBound(nameof(this.BranchName)))
+            if (this.InstancePlatform == null && ParameterWasBound(nameof(this.InstancePlatform)))
             {
-                WriteWarning("You are passing $null as a value for parameter BranchName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstancePlatform which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,19 +163,19 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Amplify.Model.CreateWebhookRequest();
+            var request = new Amazon.EC2.Model.PurchaseCapacityBlockRequest();
             
-            if (cmdletContext.AppId != null)
+            if (cmdletContext.CapacityBlockOfferingId != null)
             {
-                request.AppId = cmdletContext.AppId;
+                request.CapacityBlockOfferingId = cmdletContext.CapacityBlockOfferingId;
             }
-            if (cmdletContext.BranchName != null)
+            if (cmdletContext.InstancePlatform != null)
             {
-                request.BranchName = cmdletContext.BranchName;
+                request.InstancePlatform = cmdletContext.InstancePlatform;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.TagSpecification != null)
             {
-                request.Description = cmdletContext.Description;
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -224,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         
         #region AWS Service Operation Call
         
-        private Amazon.Amplify.Model.CreateWebhookResponse CallAWSServiceOperation(IAmazonAmplify client, Amazon.Amplify.Model.CreateWebhookRequest request)
+        private Amazon.EC2.Model.PurchaseCapacityBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseCapacityBlockRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Amplify", "CreateWebhook");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "PurchaseCapacityBlock");
             try
             {
                 #if DESKTOP
-                return client.CreateWebhook(request);
+                return client.PurchaseCapacityBlock(request);
                 #elif CORECLR
-                return client.CreateWebhookAsync(request).GetAwaiter().GetResult();
+                return client.PurchaseCapacityBlockAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppId { get; set; }
-            public System.String BranchName { get; set; }
-            public System.String Description { get; set; }
-            public System.Func<Amazon.Amplify.Model.CreateWebhookResponse, NewAMPWebhookCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Webhook;
+            public System.String CapacityBlockOfferingId { get; set; }
+            public Amazon.EC2.CapacityReservationInstancePlatform InstancePlatform { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.Func<Amazon.EC2.Model.PurchaseCapacityBlockResponse, NewEC2EC2CapacityBlockCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CapacityReservation;
         }
         
     }

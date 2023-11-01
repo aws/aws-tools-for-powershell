@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
     /// Translates the input document from the source language to the target language. This
-    /// synchronous operation supports plain text or HTML for the input document. <code>TranslateDocument</code>
-    /// supports translations from English to any supported language, and from any supported
-    /// language to English. Therefore, specify either the source language code or the target
-    /// language code as “en” (English). 
+    /// synchronous operation supports text, HTML, or Word documents as the input document.
+    /// <code>TranslateDocument</code> supports translations from English to any supported
+    /// language, and from any supported language to English. Therefore, specify either the
+    /// source language code or the target language code as “en” (English). 
     /// 
     ///  
-    /// <para><code>TranslateDocument</code> does not support language auto-detection. 
-    /// </para><para>
+    /// <para>
     ///  If you set the <code>Formality</code> parameter, the request will fail if the target
     /// language does not support formality. For a list of target languages that support formality,
     /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting
@@ -57,6 +56,21 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Settings_Brevity
+        /// <summary>
+        /// <para>
+        /// <para>When you turn on brevity, Amazon Translate reduces the length of the translation output
+        /// for most translations (when compared with the same translation with brevity turned
+        /// off). By default, brevity is turned off.</para><para>If you turn on brevity for a translation request with an unsupported language pair,
+        /// the translation proceeds with the brevity setting turned off.</para><para>For the language pairs that brevity supports, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-brevity">Using
+        /// brevity</a> in the Amazon Translate Developer Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Translate.Brevity")]
+        public Amazon.Translate.Brevity Settings_Brevity { get; set; }
+        #endregion
         
         #region Parameter Document_Content
         /// <summary>
@@ -102,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Formality
         /// <summary>
         /// <para>
-        /// <para>You can optionally specify the desired level of formality for translations to supported
-        /// target languages. The formality setting controls the level of formal language usage
-        /// (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
+        /// <para>You can specify the desired level of formality for translations to supported target
+        /// languages. The formality setting controls the level of formal language usage (also
+        /// known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
         /// in the translation output. You can set the value to informal or formal. If you don't
         /// specify a value for formality, or if the target language doesn't support formality,
         /// the translation will ignore the formality setting.</para><para> If you specify multiple target languages for the job, translate ignores the formality
@@ -120,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Profanity
         /// <summary>
         /// <para>
-        /// <para>Enable the profanity setting if you want Amazon Translate to mask profane words and
-        /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
+        /// <para>You can enable the profanity setting if you want to mask profane words and phrases
+        /// in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
         /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
         /// regardless of the length or number of words.</para><para>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
         /// that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported
@@ -138,10 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter SourceLanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code for the language of the source text. Do not use <code>auto</code>,
-        /// because <code>TranslateDocument</code> does not support language auto-detection. For
-        /// a list of supported language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
-        /// languages</a>.</para>
+        /// <para>The language code for the language of the source text. For a list of supported language
+        /// codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
+        /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
+        /// Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+        /// Comprehend</a> to determine the source language.</para><note><para>If you specify <code>auto</code>, you must send the <code>TranslateDocument</code>
+        /// request in a region that supports Amazon Comprehend. Otherwise, the request returns
+        /// an error indicating that autodetect is not supported. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -245,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 WriteWarning("You are passing $null as a value for parameter Document_ContentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Settings_Brevity = this.Settings_Brevity;
             context.Settings_Formality = this.Settings_Formality;
             context.Settings_Profanity = this.Settings_Profanity;
             context.SourceLanguageCode = this.SourceLanguageCode;
@@ -319,6 +338,16 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                  // populate Settings
                 var requestSettingsIsNull = true;
                 request.Settings = new Amazon.Translate.Model.TranslationSettings();
+                Amazon.Translate.Brevity requestSettings_settings_Brevity = null;
+                if (cmdletContext.Settings_Brevity != null)
+                {
+                    requestSettings_settings_Brevity = cmdletContext.Settings_Brevity;
+                }
+                if (requestSettings_settings_Brevity != null)
+                {
+                    request.Settings.Brevity = requestSettings_settings_Brevity;
+                    requestSettingsIsNull = false;
+                }
                 Amazon.Translate.Formality requestSettings_settings_Formality = null;
                 if (cmdletContext.Settings_Formality != null)
                 {
@@ -427,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         {
             public byte[] Document_Content { get; set; }
             public System.String Document_ContentType { get; set; }
+            public Amazon.Translate.Brevity Settings_Brevity { get; set; }
             public Amazon.Translate.Formality Settings_Formality { get; set; }
             public Amazon.Translate.Profanity Settings_Profanity { get; set; }
             public System.String SourceLanguageCode { get; set; }

@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Returns an existing Amplify app by appID.
+    /// Returns an existing Amplify app specified by an app ID.
     /// </summary>
     [Cmdlet("Get", "AMPApp")]
     [OutputType("Amazon.Amplify.Model.App")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ArtifactId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an artifact. </para>
+        /// <para>The unique ID for an artifact. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

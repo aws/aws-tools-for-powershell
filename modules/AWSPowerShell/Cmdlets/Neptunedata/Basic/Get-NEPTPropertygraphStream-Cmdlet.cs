@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// </para><para>
     /// Note that you can restrict property-graph queries using the following IAM context
     /// keys:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a></para></li><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a></para></li></ul><para>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a></para></li><li><para><a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a></para></li></ul><para>
     /// See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
     /// keys available in Neptune IAM data-access policy statements</a>).
     /// </para>

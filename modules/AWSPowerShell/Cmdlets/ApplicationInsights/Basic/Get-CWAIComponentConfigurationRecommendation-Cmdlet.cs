@@ -104,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public Amazon.ApplicationInsights.Tier Tier { get; set; }
         #endregion
         
+        #region Parameter WorkloadName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkloadName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ComponentConfiguration'.
@@ -172,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter Tier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WorkloadName = this.WorkloadName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -203,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.Tier != null)
             {
                 request.Tier = cmdletContext.Tier;
+            }
+            if (cmdletContext.WorkloadName != null)
+            {
+                request.WorkloadName = cmdletContext.WorkloadName;
             }
             
             CmdletOutput output;
@@ -269,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public Amazon.ApplicationInsights.RecommendationType RecommendationType { get; set; }
             public System.String ResourceGroupName { get; set; }
             public Amazon.ApplicationInsights.Tier Tier { get; set; }
+            public System.String WorkloadName { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse, GetCWAIComponentConfigurationRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ComponentConfiguration;
         }

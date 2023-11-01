@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// a repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</para><para>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
         /// update an app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
         /// with CI/CD. However, we strongly recommend that you migrate these apps to use the
-        /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
+        /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
         /// an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i>
         /// .</para>
         /// </para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationPattern
         /// <summary>
         /// <para>
-        /// <para> Describes the automated branch creation glob patterns for an Amplify app. </para>
+        /// <para>Describes the automated branch creation glob patterns for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_BasicAuthCredential
         /// <summary>
         /// <para>
-        /// <para> The basic authorization credentials for the autocreated branch. You must base64-encode
+        /// <para>The basic authorization credentials for the autocreated branch. You must base64-encode
         /// the authorization credentials and provide them in the format <code>user:password</code>.</para>
         /// </para>
         /// </summary>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BasicAuthCredential
         /// <summary>
         /// <para>
-        /// <para> The basic authorization credentials for an Amplify app. You must base64-encode the
+        /// <para>The basic authorization credentials for an Amplify app. You must base64-encode the
         /// authorization credentials and provide them in the format <code>user:password</code>.</para>
         /// </para>
         /// </summary>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_BuildSpec
         /// <summary>
         /// <para>
-        /// <para> The build specification (build spec) for the autocreated branch. </para>
+        /// <para>The build specification (build spec) for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BuildSpec
         /// <summary>
         /// <para>
-        /// <para> The build specification (build spec) for an Amplify app. </para>
+        /// <para>The build specification (build spec) for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter CustomRule
         /// <summary>
         /// <para>
-        /// <para> The custom redirect and rewrite rules for an Amplify app. </para>
+        /// <para>The custom redirect and rewrite rules for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description for an Amplify app. </para>
+        /// <para>The description for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableAutoBranchCreation
         /// <summary>
         /// <para>
-        /// <para> Enables automated branch creation for an Amplify app. </para>
+        /// <para>Enables automated branch creation for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_EnableAutoBuild
         /// <summary>
         /// <para>
-        /// <para> Enables auto building for the autocreated branch. </para>
+        /// <para>Enables auto building for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_EnableBasicAuth
         /// <summary>
         /// <para>
-        /// <para> Enables basic authorization for the autocreated branch. </para>
+        /// <para>Enables basic authorization for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableBasicAuth
         /// <summary>
         /// <para>
-        /// <para> Enables basic authorization for an Amplify app. </para>
+        /// <para>Enables basic authorization for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableBranchAutoBuild
         /// <summary>
         /// <para>
-        /// <para> Enables branch auto-building for an Amplify app. </para>
+        /// <para>Enables branch auto-building for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableBranchAutoDeletion
         /// <summary>
         /// <para>
-        /// <para> Automatically disconnects a branch in the Amplify Console when you delete a branch
+        /// <para>Automatically disconnects a branch in the Amplify console when you delete a branch
         /// from your Git repository. </para>
         /// </para>
         /// </summary>
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_EnablePullRequestPreview
         /// <summary>
         /// <para>
-        /// <para> Enables pull request previews for the autocreated branch. </para>
+        /// <para>Enables pull request previews for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_EnvironmentVariable
         /// <summary>
         /// <para>
-        /// <para> The environment variables for the autocreated branch. </para>
+        /// <para>The environment variables for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnvironmentVariable
         /// <summary>
         /// <para>
-        /// <para> The environment variables for an Amplify app. </para>
+        /// <para>The environment variables for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_Framework
         /// <summary>
         /// <para>
-        /// <para> The framework for the autocreated branch. </para>
+        /// <para>The framework for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter IamServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para> The AWS Identity and Access Management (IAM) service role for an Amplify app. </para>
+        /// <para>The AWS Identity and Access Management (IAM) service role for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name for an Amplify app. </para>
+        /// <para>The name for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// or CodeCommit.</para><para>To authorize access to GitHub as your repository provider, use <code>accessToken</code>.</para><para>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
         /// update an app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
         /// with CI/CD. However, we strongly recommend that you migrate these apps to use the
-        /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
+        /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
         /// an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i>
         /// .</para>
         /// </para>
@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para> The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
+        /// <para>The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
         /// For a dynamic server-side rendered (SSR) app, set the platform type to <code>WEB_COMPUTE</code>.
         /// For an app requiring Amplify Hosting's original SSR support only, set the platform
         /// type to <code>WEB_DYNAMIC</code>.</para>
@@ -338,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_PullRequestEnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The Amplify environment name for the pull request. </para>
+        /// <para>The Amplify environment name for the pull request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Repository
         /// <summary>
         /// <para>
-        /// <para> The name of the repository for an Amplify app </para>
+        /// <para>The name of the Git repository for an Amplify app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,7 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_Stage
         /// <summary>
         /// <para>
-        /// <para> Describes the current stage for the autocreated branch. </para>
+        /// <para>Describes the current stage for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

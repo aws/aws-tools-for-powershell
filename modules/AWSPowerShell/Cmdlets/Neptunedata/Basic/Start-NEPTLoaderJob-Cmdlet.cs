@@ -199,7 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <para>This is an optional flag parameter that indicates whether the load request can be
         /// queued up or not. </para><para>You don't have to wait for one load job to complete before issuing the next one, because
         /// Neptune can queue up as many as 64 jobs at a time, provided that their <code>queueRequest</code>
-        /// parameters are all set to <code>"TRUE"</code>.</para><para>If the <code>queueRequest</code> parameter is omitted or set to <code>"FALSE"</code>,
+        /// parameters are all set to <code>"TRUE"</code>. The queue order of the jobs will be
+        /// first-in-first-out (FIFO).</para><para>If the <code>queueRequest</code> parameter is omitted or set to <code>"FALSE"</code>,
         /// the load request will fail if another load job is already running.</para><para><i>Allowed values</i>: <code>"TRUE"</code>, <code>"FALSE"</code>.</para><para><i>Default value</i>: <code>"FALSE"</code>.</para>
         /// </para>
         /// </summary>

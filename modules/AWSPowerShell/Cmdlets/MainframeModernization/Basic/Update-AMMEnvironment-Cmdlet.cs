@@ -94,6 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String EnvironmentId { get; set; }
         #endregion
         
+        #region Parameter ForceUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Forces the updates on the environment. This option is needed if the applications in
+        /// the environment are not stopped or if there are ongoing application-related activities
+        /// in the environment.</para><para>If you use this option, be aware that it could lead to data corruption in the applications,
+        /// and that you might need to perform repair and recovery procedures for the applications.</para><para>This option is not needed if the attribute being updated is <code>preferredMaintenanceWindow</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceUpdate { get; set; }
+        #endregion
+        
         #region Parameter InstanceType
         /// <summary>
         /// <para>
@@ -107,8 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Configures the maintenance window you want for the runtime environment. If you do
-        /// not provide a value, a random system-generated value will be assigned.</para>
+        /// <para>Configures the maintenance window that you want for the runtime environment. The maintenance
+        /// window must have the format <code>ddd:hh24:mi-ddd:hh24:mi</code> and must be less
+        /// than 24 hours. The following two examples are valid maintenance windows: <code>sun:23:45-mon:00:15</code>
+        /// or <code>sat:01:00-sat:03:00</code>. </para><para>If you do not provide a value, a random system-generated value will be assigned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceUpdate = this.ForceUpdate;
             context.InstanceType = this.InstanceType;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             
@@ -220,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
+            }
+            if (cmdletContext.ForceUpdate != null)
+            {
+                request.ForceUpdate = cmdletContext.ForceUpdate.Value;
             }
             if (cmdletContext.InstanceType != null)
             {
@@ -294,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public System.Int32? DesiredCapacity { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String EnvironmentId { get; set; }
+            public System.Boolean? ForceUpdate { get; set; }
             public System.String InstanceType { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.UpdateEnvironmentResponse, UpdateAMMEnvironmentCmdlet, object> Select { get; set; } =

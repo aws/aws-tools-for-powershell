@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BackendEnvironmentArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
+        /// <para>The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
         /// app. </para>
         /// </para>
         /// </summary>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The name for the branch. </para>
+        /// <para>The name of the branch. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -216,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String PullRequestEnvironmentName { get; set; }
         #endregion
         
+        #region Parameter Backend_StackArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the CloudFormation stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Backend_StackArn { get; set; }
+        #endregion
+        
         #region Parameter Stage
         /// <summary>
         /// <para>
@@ -306,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Backend_StackArn = this.Backend_StackArn;
             context.BackendEnvironmentArn = this.BackendEnvironmentArn;
             context.BasicAuthCredential = this.BasicAuthCredential;
             context.BranchName = this.BranchName;
@@ -354,6 +365,25 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
+            }
+            
+             // populate Backend
+            var requestBackendIsNull = true;
+            request.Backend = new Amazon.Amplify.Model.Backend();
+            System.String requestBackend_backend_StackArn = null;
+            if (cmdletContext.Backend_StackArn != null)
+            {
+                requestBackend_backend_StackArn = cmdletContext.Backend_StackArn;
+            }
+            if (requestBackend_backend_StackArn != null)
+            {
+                request.Backend.StackArn = requestBackend_backend_StackArn;
+                requestBackendIsNull = false;
+            }
+             // determine if request.Backend should be set to null
+            if (requestBackendIsNull)
+            {
+                request.Backend = null;
             }
             if (cmdletContext.BackendEnvironmentArn != null)
             {
@@ -481,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
+            public System.String Backend_StackArn { get; set; }
             public System.String BackendEnvironmentArn { get; set; }
             public System.String BasicAuthCredential { get; set; }
             public System.String BranchName { get; set; }

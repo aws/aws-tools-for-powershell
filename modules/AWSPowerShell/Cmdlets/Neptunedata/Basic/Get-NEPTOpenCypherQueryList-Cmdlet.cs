@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     /// <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus">neptune-db:GetQueryStatus</a>
     /// IAM action in that cluster.
     /// </para><para>
-    /// Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a>
+    /// Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a>
     /// IAM condition key can be used in the policy document to restrict the use of openCypher
     /// queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
     /// keys available in Neptune IAM data-access policy statements</a>).

@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AttachMissingPermission
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, the managed policies for SSM and CW will be attached to the instance
+        /// roles if they are missing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AttachMissingPermission { get; set; }
+        #endregion
+        
         #region Parameter AutoConfigEnabled
         /// <summary>
         /// <para>
@@ -196,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ResourceGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AttachMissingPermission = this.AttachMissingPermission;
             context.AutoConfigEnabled = this.AutoConfigEnabled;
             context.AutoCreate = this.AutoCreate;
             context.CWEMonitorEnabled = this.CWEMonitorEnabled;
@@ -223,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.CreateApplicationRequest();
             
+            if (cmdletContext.AttachMissingPermission != null)
+            {
+                request.AttachMissingPermission = cmdletContext.AttachMissingPermission.Value;
+            }
             if (cmdletContext.AutoConfigEnabled != null)
             {
                 request.AutoConfigEnabled = cmdletContext.AutoConfigEnabled.Value;
@@ -316,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AttachMissingPermission { get; set; }
             public System.Boolean? AutoConfigEnabled { get; set; }
             public System.Boolean? AutoCreate { get; set; }
             public System.Boolean? CWEMonitorEnabled { get; set; }

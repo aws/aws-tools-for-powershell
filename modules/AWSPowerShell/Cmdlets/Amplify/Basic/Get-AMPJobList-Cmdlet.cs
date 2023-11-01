@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The name for a branch. </para>
+        /// <para>The name of the branch to use for the request. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to list in a single response. </para>
+        /// <para>The maximum number of records to list in a single response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token. Set to null to start listing steps from the start. If a non-null
+        /// <para>A pagination token. Set to null to start listing steps from the start. If a non-null
         /// pagination token is returned in a result, pass its value in here to list more steps.
         /// </para>
         /// </para>

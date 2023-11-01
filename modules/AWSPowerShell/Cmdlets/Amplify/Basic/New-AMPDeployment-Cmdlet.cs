@@ -28,8 +28,15 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Creates a deployment for a manually deployed Amplify app. Manually deployed apps
-    /// are not connected to a repository.
+    /// Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
+    /// not connected to a repository. 
+    /// 
+    ///  
+    /// <para>
+    /// The maximum duration between the <code>CreateDeployment</code> call and the <code>StartDeployment</code>
+    /// call cannot exceed 8 hours. If the duration exceeds 8 hours, the <code>StartDeployment</code>
+    /// call and the associated <code>Job</code> will fail.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "AMPDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.CreateDeploymentResponse")]
@@ -62,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The name for the branch, for the job. </para>
+        /// <para> The name of the branch to use for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

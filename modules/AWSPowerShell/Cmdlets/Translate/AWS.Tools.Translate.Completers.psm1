@@ -80,6 +80,17 @@ $TRN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Translate.Brevity
+        {
+            ($_ -eq "ConvertTo-TRNDocument/Settings_Brevity") -Or
+            ($_ -eq "ConvertTo-TRNTargetLanguage/Settings_Brevity") -Or
+            ($_ -eq "Start-TRNTextTranslationJob/Settings_Brevity")
+        }
+        {
+            $v = "ON"
+            break
+        }
+
         # Amazon.Translate.Directionality
         "Import-TRNTerminology/TerminologyData_Directionality"
         {
@@ -176,6 +187,7 @@ $TRN_map = @{
     "MergeStrategy"=@("Import-TRNTerminology")
     "OutputDataConfig_EncryptionKey_Type"=@("Start-TRNTextTranslationJob")
     "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
+    "Settings_Brevity"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "Settings_Formality"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "Settings_Profanity"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "TerminologyData_Directionality"=@("Import-TRNTerminology")

@@ -58,13 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <para>The format of the parallel data input file.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Translate.ParallelDataFormat")]
         public Amazon.Translate.ParallelDataFormat ParallelDataConfig_Format { get; set; }
         #endregion
@@ -93,14 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// must be in the same Region as the API endpoint you are calling.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ParallelDataConfig_S3Uri { get; set; }
         #endregion
         
@@ -187,19 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             }
             #endif
             context.ParallelDataConfig_Format = this.ParallelDataConfig_Format;
-            #if MODULAR
-            if (this.ParallelDataConfig_Format == null && ParameterWasBound(nameof(this.ParallelDataConfig_Format)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ParallelDataConfig_Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ParallelDataConfig_S3Uri = this.ParallelDataConfig_S3Uri;
-            #if MODULAR
-            if (this.ParallelDataConfig_S3Uri == null && ParameterWasBound(nameof(this.ParallelDataConfig_S3Uri)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ParallelDataConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

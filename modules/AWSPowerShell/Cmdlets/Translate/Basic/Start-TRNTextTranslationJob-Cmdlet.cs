@@ -54,6 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Settings_Brevity
+        /// <summary>
+        /// <para>
+        /// <para>When you turn on brevity, Amazon Translate reduces the length of the translation output
+        /// for most translations (when compared with the same translation with brevity turned
+        /// off). By default, brevity is turned off.</para><para>If you turn on brevity for a translation request with an unsupported language pair,
+        /// the translation proceeds with the brevity setting turned off.</para><para>For the language pairs that brevity supports, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-brevity">Using
+        /// brevity</a> in the Amazon Translate Developer Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Translate.Brevity")]
+        public Amazon.Translate.Brevity Settings_Brevity { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_ContentType
         /// <summary>
         /// <para>
@@ -106,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Formality
         /// <summary>
         /// <para>
-        /// <para>You can optionally specify the desired level of formality for translations to supported
-        /// target languages. The formality setting controls the level of formal language usage
-        /// (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
+        /// <para>You can specify the desired level of formality for translations to supported target
+        /// languages. The formality setting controls the level of formal language usage (also
+        /// known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
         /// in the translation output. You can set the value to informal or formal. If you don't
         /// specify a value for formality, or if the target language doesn't support formality,
         /// the translation will ignore the formality setting.</para><para> If you specify multiple target languages for the job, translate ignores the formality
@@ -163,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Profanity
         /// <summary>
         /// <para>
-        /// <para>Enable the profanity setting if you want Amazon Translate to mask profane words and
-        /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
+        /// <para>You can enable the profanity setting if you want to mask profane words and phrases
+        /// in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
         /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
         /// regardless of the length or number of words.</para><para>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
         /// that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported
@@ -374,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 context.ParallelDataName = new List<System.String>(this.ParallelDataName);
             }
+            context.Settings_Brevity = this.Settings_Brevity;
             context.Settings_Formality = this.Settings_Formality;
             context.Settings_Profanity = this.Settings_Profanity;
             context.SourceLanguageCode = this.SourceLanguageCode;
@@ -516,6 +532,16 @@ namespace Amazon.PowerShell.Cmdlets.TRN
              // populate Settings
             var requestSettingsIsNull = true;
             request.Settings = new Amazon.Translate.Model.TranslationSettings();
+            Amazon.Translate.Brevity requestSettings_settings_Brevity = null;
+            if (cmdletContext.Settings_Brevity != null)
+            {
+                requestSettings_settings_Brevity = cmdletContext.Settings_Brevity;
+            }
+            if (requestSettings_settings_Brevity != null)
+            {
+                request.Settings.Brevity = requestSettings_settings_Brevity;
+                requestSettingsIsNull = false;
+            }
             Amazon.Translate.Formality requestSettings_settings_Formality = null;
             if (cmdletContext.Settings_Formality != null)
             {
@@ -623,6 +649,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<System.String> ParallelDataName { get; set; }
+            public Amazon.Translate.Brevity Settings_Brevity { get; set; }
             public Amazon.Translate.Formality Settings_Formality { get; set; }
             public Amazon.Translate.Profanity Settings_Profanity { get; set; }
             public System.String SourceLanguageCode { get; set; }

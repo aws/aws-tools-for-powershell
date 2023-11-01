@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID of an Amplify app. </para>
+        /// <para>The unique ID of an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of a backend environment of an Amplify app. </para>
+        /// <para>The name of a backend environment of an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

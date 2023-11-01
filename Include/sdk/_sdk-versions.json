@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.673.0",
+    "ProductVersion" : "3.7.674.1",
     "CoreVersion"    : "3.7.204.10",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.223.1",
+            "Version" : "3.7.224.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.205.19",
+            "Version" : "3.7.205.21",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -954,7 +954,7 @@
             "InPreview"               : false
         },
         "Translate"                       : {
-            "Version" : "3.7.200.63",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -1234,7 +1234,7 @@
             "InPreview"               : false
         },
         "Amplify"                         : {
-            "Version" : "3.7.200.63",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -1466,7 +1466,7 @@
             "InPreview"               : false
         },
         "ApplicationInsights"             : {
-            "Version" : "3.7.201.57",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2450,7 +2450,7 @@
             "InPreview"               : false
         },
         "MainframeModernization"              : {
-            "Version" : "3.7.201.62",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"
@@ -2834,7 +2834,7 @@
             "InPreview"               : false
         },
         "Neptunedata"                         : {
-            "Version" : "3.7.201.28",
+            "Version" : "3.7.202.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.10"

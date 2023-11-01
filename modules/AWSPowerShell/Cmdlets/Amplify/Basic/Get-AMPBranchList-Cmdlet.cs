@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token. Set to null to start listing branches from the start. If a non-null
+        /// <para>A pagination token. Set to null to start listing branches from the start. If a non-null
         /// pagination token is returned in a result, pass its value in here to list more branches.
         /// </para>
         /// </para>

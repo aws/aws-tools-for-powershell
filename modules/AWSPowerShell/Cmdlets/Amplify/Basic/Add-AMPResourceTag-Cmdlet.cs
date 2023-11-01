@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags used to tag the resource. </para>
+        /// <para>The tags used to tag the resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

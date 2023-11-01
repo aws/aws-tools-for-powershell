@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The name for the branch. </para>
+        /// <para>The name of the branch. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -8344,6 +8344,9 @@ Set-Alias -Name EC2-DescribeBundleTasks -Value Get-EC2BundleTask
 Set-Alias -Name Describe-EC2ByoipCidrs -Value Get-EC2ByoipCidr
 Set-Alias -Name Describe-EC2ByoipCidr -Value Get-EC2ByoipCidr
 Set-Alias -Name EC2-DescribeByoipCidrs -Value Get-EC2ByoipCidr
+Set-Alias -Name Describe-EC2CapacityBlockOfferings -Value Get-EC2CapacityBlockOffering
+Set-Alias -Name Describe-EC2CapacityBlockOffering -Value Get-EC2CapacityBlockOffering
+Set-Alias -Name EC2-DescribeCapacityBlockOfferings -Value Get-EC2CapacityBlockOffering
 Set-Alias -Name Describe-EC2CapacityReservationFleets -Value Get-EC2CapacityReservationFleet
 Set-Alias -Name Describe-EC2CapacityReservationFleet -Value Get-EC2CapacityReservationFleet
 Set-Alias -Name EC2-DescribeCapacityReservationFleets -Value Get-EC2CapacityReservationFleet
@@ -9032,6 +9035,9 @@ Set-Alias -Name Provision-EC2IpamPoolCidr -Value Register-EC2IpamPoolCidr
 Set-Alias -Name EC2-ProvisionIpamPoolCidr -Value Register-EC2IpamPoolCidr
 Set-Alias -Name Provision-EC2PublicIpv4PoolCidr -Value Register-EC2PublicIpv4PoolCidr
 Set-Alias -Name EC2-ProvisionPublicIpv4PoolCidr -Value Register-EC2PublicIpv4PoolCidr
+Set-Alias -Name Purchase-EC2CapacityBlock -Value New-EC2EC2CapacityBlock
+Set-Alias -Name Purchase-EC2EC2CapacityBlock -Value New-EC2EC2CapacityBlock
+Set-Alias -Name EC2-PurchaseCapacityBlock -Value New-EC2EC2CapacityBlock
 Set-Alias -Name Purchase-EC2HostReservation -Value New-EC2HostReservation
 Set-Alias -Name EC2-PurchaseHostReservation -Value New-EC2HostReservation
 Set-Alias -Name Purchase-EC2ReservedInstancesOffering -Value New-EC2ReservedInstance

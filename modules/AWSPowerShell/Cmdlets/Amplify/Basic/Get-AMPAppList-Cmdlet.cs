@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to list in a single response. </para>
+        /// <para>The maximum number of records to list in a single response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token. If non-null, the pagination token is returned in a result. Pass
+        /// <para>A pagination token. If non-null, the pagination token is returned in a result. Pass
         /// its value in another request to retrieve more entries. </para>
         /// </para>
         /// <para>

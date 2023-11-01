@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) to use to untag a resource. </para>
+        /// <para>The Amazon Resource Name (ARN) to use to untag a resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> The tag keys to use to untag a resource. </para>
+        /// <para>The tag keys to use to untag a resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

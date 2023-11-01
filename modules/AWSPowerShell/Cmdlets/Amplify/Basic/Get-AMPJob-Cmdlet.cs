@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The branch name for the job. </para>
+        /// <para>The name of the branch to use for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for the job. </para>
+        /// <para>The unique ID for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

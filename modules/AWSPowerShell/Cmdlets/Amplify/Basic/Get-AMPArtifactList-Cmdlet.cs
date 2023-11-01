@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The name of a branch that is part of an Amplify app. </para>
+        /// <para>The name of a branch that is part of an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for a job. </para>
+        /// <para>The unique ID for a job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to list in a single response. </para>
+        /// <para>The maximum number of records to list in a single response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token. Set to null to start listing artifacts from start. If a non-null
+        /// <para>A pagination token. Set to null to start listing artifacts from start. If a non-null
         /// pagination token is returned in a result, pass its value in here to list more artifacts.
         /// </para>
         /// </para>

@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter NameFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter dataset name matching the specified pattern. Can use * and % as wild cards.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NameFilter { get; set; }
+        #endregion
+        
         #region Parameter Prefix
         /// <summary>
         /// <para>
@@ -149,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             #endif
             context.MaxResult = this.MaxResult;
+            context.NameFilter = this.NameFilter;
             context.NextToken = this.NextToken;
             context.Prefix = this.Prefix;
             
@@ -174,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NameFilter != null)
+            {
+                request.NameFilter = cmdletContext.NameFilter;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -246,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         {
             public System.String ApplicationId { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String NameFilter { get; set; }
             public System.String NextToken { get; set; }
             public System.String Prefix { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.ListDataSetsResponse, GetAMMDataSetListCmdlet, object> Select { get; set; } =

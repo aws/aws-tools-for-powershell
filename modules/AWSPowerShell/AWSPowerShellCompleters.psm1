@@ -19978,7 +19978,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.CapacityReservationInstancePlatform
-        "Add-EC2CapacityReservation/InstancePlatform"
+        {
+            ($_ -eq "Add-EC2CapacityReservation/InstancePlatform") -Or
+            ($_ -eq "New-EC2EC2CapacityBlock/InstancePlatform")
+        }
         {
             $v = "Linux with SQL Server Enterprise","Linux with SQL Server Standard","Linux with SQL Server Web","Linux/UNIX","Red Hat Enterprise Linux","RHEL with HA","RHEL with HA and SQL Server Enterprise","RHEL with HA and SQL Server Standard","RHEL with SQL Server Enterprise","RHEL with SQL Server Standard","RHEL with SQL Server Web","SUSE Linux","Ubuntu Pro","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
             break
@@ -20058,7 +20061,7 @@ $EC2_Completers = {
             ($_ -eq "New-EC2Fleet/TargetCapacitySpecification_DefaultTargetCapacityType")
         }
         {
-            $v = "on-demand","spot"
+            $v = "capacity-block","on-demand","spot"
             break
         }
 
@@ -20944,7 +20947,7 @@ $EC2_map = @{
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
     "InstanceMatchCriteria"=@("Add-EC2CapacityReservation","New-EC2CapacityReservationFleet")
     "InstanceMetadataTags"=@("Edit-EC2InstanceMetadataOption")
-    "InstancePlatform"=@("Add-EC2CapacityReservation")
+    "InstancePlatform"=@("Add-EC2CapacityReservation","New-EC2EC2CapacityBlock")
     "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement")
     "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement")
     "InstanceRequirements_LocalStorage"=@("Get-EC2InstanceTypesFromInstanceRequirement")
@@ -21310,6 +21313,7 @@ $EC2_SelectMap = @{
                "Get-EC2AwsNetworkPerformanceMetricSubscription",
                "Get-EC2BundleTask",
                "Get-EC2ByoipCidr",
+               "Get-EC2CapacityBlockOffering",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
                "Get-EC2CarrierGateway",
@@ -21619,6 +21623,7 @@ $EC2_SelectMap = @{
                "Register-EC2ByoipCidr",
                "Register-EC2IpamPoolCidr",
                "Register-EC2PublicIpv4PoolCidr",
+               "New-EC2EC2CapacityBlock",
                "New-EC2HostReservation",
                "New-EC2ReservedInstance",
                "New-EC2ScheduledInstancePurchase",
@@ -61523,6 +61528,17 @@ $TRN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Translate.Brevity
+        {
+            ($_ -eq "ConvertTo-TRNDocument/Settings_Brevity") -Or
+            ($_ -eq "ConvertTo-TRNTargetLanguage/Settings_Brevity") -Or
+            ($_ -eq "Start-TRNTextTranslationJob/Settings_Brevity")
+        }
+        {
+            $v = "ON"
+            break
+        }
+
         # Amazon.Translate.Directionality
         "Import-TRNTerminology/TerminologyData_Directionality"
         {
@@ -61619,6 +61635,7 @@ $TRN_map = @{
     "MergeStrategy"=@("Import-TRNTerminology")
     "OutputDataConfig_EncryptionKey_Type"=@("Start-TRNTextTranslationJob")
     "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
+    "Settings_Brevity"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "Settings_Formality"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "Settings_Profanity"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "TerminologyData_Directionality"=@("Import-TRNTerminology")

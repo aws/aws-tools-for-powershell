@@ -1012,6 +1012,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2330,6 +2334,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvisionPublicIpv4PoolCidr" OutputProperty="*" Verb="Register" Noun="PublicIpv4PoolCidr" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseCapacityBlock" OutputProperty="CapacityReservation" Verb="New" Noun="EC2CapacityBlock" ShouldProcessTarget="CapacityBlockOfferingId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

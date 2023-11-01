@@ -1,4 +1,25 @@
-﻿### 4.1.441 (2023-10-30 21:14Z)
+﻿### 4.1.442 (2023-11-01 03:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.674.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPBranch: added parameter Backend_StackArn.
+    * Modified cmdlet Update-AMPBranch: added parameter Backend_StackArn.
+  * Amazon CloudWatch Application Insights
+    * Modified cmdlet Get-CWAIComponentConfigurationRecommendation: added parameter WorkloadName.
+    * Modified cmdlet New-CWAIApplication: added parameter AttachMissingPermission.
+    * Modified cmdlet Update-CWAIApplication: added parameter AttachMissingPermission.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2CapacityBlockOffering leveraging the DescribeCapacityBlockOfferings service API.
+    * Added cmdlet New-EC2EC2CapacityBlock leveraging the PurchaseCapacityBlock service API.
+  * Amazon M2
+    * Modified cmdlet Get-AMMDataSetList: added parameter NameFilter.
+    * Modified cmdlet Start-AMMBatchJob: added parameters Identifier_FileName, Identifier_ScriptName, S3BatchJobIdentifier_Bucket and S3BatchJobIdentifier_KeyPrefix.
+    * Modified cmdlet Update-AMMEnvironment: added parameter ForceUpdate.
+  * Amazon Translate
+    * Modified cmdlet ConvertTo-TRNDocument: added parameter Settings_Brevity.
+    * Modified cmdlet ConvertTo-TRNTargetLanguage: added parameter Settings_Brevity.
+    * Modified cmdlet Start-TRNTextTranslationJob: added parameter Settings_Brevity.
+
+### 4.1.441 (2023-10-30 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.673.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Get-CONNPhoneNumbersV2List: added parameter InstanceId.

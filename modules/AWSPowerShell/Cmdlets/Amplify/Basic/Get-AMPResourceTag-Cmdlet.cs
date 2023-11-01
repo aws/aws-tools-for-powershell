@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) to use to list tags. </para>
+        /// <para>The Amazon Resource Name (ARN) to use to list tags. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

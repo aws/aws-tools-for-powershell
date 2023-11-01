@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> The branch name for the job. </para>
+        /// <para>The name of the branch to use for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an existing job. This is required if the value of <code>jobType</code>
+        /// <para>The unique ID for an existing job. This is required if the value of <code>jobType</code>
         /// is <code>RETRY</code>. </para>
         /// </para>
         /// </summary>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobReason
         /// <summary>
         /// <para>
-        /// <para> A descriptive reason for starting this job. </para>
+        /// <para>A descriptive reason for starting the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,11 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para> Describes the type for the job. The job type <code>RELEASE</code> starts a new job
+        /// <para>Describes the type for the job. The job type <code>RELEASE</code> starts a new job
         /// with the latest change from the specified branch. This value is available only for
-        /// apps that are connected to a repository. The job type <code>RETRY</code> retries an
-        /// existing job. If the job type value is <code>RETRY</code>, the <code>jobId</code>
-        /// is also required. </para>
+        /// apps that are connected to a repository. </para><para>The job type <code>RETRY</code> retries an existing job. If the job type value is
+        /// <code>RETRY</code>, the <code>jobId</code> is also required. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

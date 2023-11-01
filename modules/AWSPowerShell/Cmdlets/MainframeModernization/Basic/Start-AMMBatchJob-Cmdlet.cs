@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter S3BatchJobIdentifier_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket that contains the batch job definitions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BatchJobIdentifier_S3BatchJobIdentifier_Bucket")]
+        public System.String S3BatchJobIdentifier_Bucket { get; set; }
+        #endregion
+        
         #region Parameter FileBatchJobIdentifier_FileName
         /// <summary>
         /// <para>
@@ -69,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("BatchJobIdentifier_FileBatchJobIdentifier_FileName")]
         public System.String FileBatchJobIdentifier_FileName { get; set; }
+        #endregion
+        
+        #region Parameter Identifier_FileName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the file that contains the batch job definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BatchJobIdentifier_S3BatchJobIdentifier_Identifier_FileName")]
+        public System.String Identifier_FileName { get; set; }
         #endregion
         
         #region Parameter FileBatchJobIdentifier_FolderPath
@@ -93,6 +115,29 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobParams")]
         public System.Collections.Hashtable JobParam { get; set; }
+        #endregion
+        
+        #region Parameter S3BatchJobIdentifier_KeyPrefix
+        /// <summary>
+        /// <para>
+        /// <para>The key prefix that specifies the path to the folder in the S3 bucket that has the
+        /// batch job definitions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BatchJobIdentifier_S3BatchJobIdentifier_KeyPrefix")]
+        public System.String S3BatchJobIdentifier_KeyPrefix { get; set; }
+        #endregion
+        
+        #region Parameter Identifier_ScriptName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the script that contains the batch job definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BatchJobIdentifier_S3BatchJobIdentifier_Identifier_ScriptName")]
+        public System.String Identifier_ScriptName { get; set; }
         #endregion
         
         #region Parameter ScriptBatchJobIdentifier_ScriptName
@@ -177,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             #endif
             context.FileBatchJobIdentifier_FileName = this.FileBatchJobIdentifier_FileName;
             context.FileBatchJobIdentifier_FolderPath = this.FileBatchJobIdentifier_FolderPath;
+            context.S3BatchJobIdentifier_Bucket = this.S3BatchJobIdentifier_Bucket;
+            context.Identifier_FileName = this.Identifier_FileName;
+            context.Identifier_ScriptName = this.Identifier_ScriptName;
+            context.S3BatchJobIdentifier_KeyPrefix = this.S3BatchJobIdentifier_KeyPrefix;
             context.ScriptBatchJobIdentifier_ScriptName = this.ScriptBatchJobIdentifier_ScriptName;
             if (this.JobParam != null)
             {
@@ -270,6 +319,76 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 request.BatchJobIdentifier.FileBatchJobIdentifier = requestBatchJobIdentifier_batchJobIdentifier_FileBatchJobIdentifier;
                 requestBatchJobIdentifierIsNull = false;
             }
+            Amazon.MainframeModernization.Model.S3BatchJobIdentifier requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier = null;
+            
+             // populate S3BatchJobIdentifier
+            var requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifierIsNull = true;
+            requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier = new Amazon.MainframeModernization.Model.S3BatchJobIdentifier();
+            System.String requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_Bucket = null;
+            if (cmdletContext.S3BatchJobIdentifier_Bucket != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_Bucket = cmdletContext.S3BatchJobIdentifier_Bucket;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_Bucket != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier.Bucket = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_Bucket;
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifierIsNull = false;
+            }
+            System.String requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_KeyPrefix = null;
+            if (cmdletContext.S3BatchJobIdentifier_KeyPrefix != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_KeyPrefix = cmdletContext.S3BatchJobIdentifier_KeyPrefix;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_KeyPrefix != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier.KeyPrefix = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_s3BatchJobIdentifier_KeyPrefix;
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifierIsNull = false;
+            }
+            Amazon.MainframeModernization.Model.JobIdentifier requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier = null;
+            
+             // populate Identifier
+            var requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull = true;
+            requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier = new Amazon.MainframeModernization.Model.JobIdentifier();
+            System.String requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName = null;
+            if (cmdletContext.Identifier_FileName != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName = cmdletContext.Identifier_FileName;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier.FileName = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName;
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull = false;
+            }
+            System.String requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName = null;
+            if (cmdletContext.Identifier_ScriptName != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName = cmdletContext.Identifier_ScriptName;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier.ScriptName = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName;
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull = false;
+            }
+             // determine if requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier should be set to null
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier = null;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier.Identifier = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier;
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifierIsNull = false;
+            }
+             // determine if requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier should be set to null
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifierIsNull)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier = null;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier != null)
+            {
+                request.BatchJobIdentifier.S3BatchJobIdentifier = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier;
+                requestBatchJobIdentifierIsNull = false;
+            }
              // determine if request.BatchJobIdentifier should be set to null
             if (requestBatchJobIdentifierIsNull)
             {
@@ -343,6 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public System.String ApplicationId { get; set; }
             public System.String FileBatchJobIdentifier_FileName { get; set; }
             public System.String FileBatchJobIdentifier_FolderPath { get; set; }
+            public System.String S3BatchJobIdentifier_Bucket { get; set; }
+            public System.String Identifier_FileName { get; set; }
+            public System.String Identifier_ScriptName { get; set; }
+            public System.String S3BatchJobIdentifier_KeyPrefix { get; set; }
             public System.String ScriptBatchJobIdentifier_ScriptName { get; set; }
             public Dictionary<System.String, System.String> JobParam { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.StartBatchJobResponse, StartAMMBatchJobCmdlet, object> Select { get; set; } =

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> The unique ID for an Amplify app. </para>
+        /// <para>The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> The name of the domain. </para>
+        /// <para>The name of the domain. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para> The time at which the logs should end. The time range specified is inclusive of the
+        /// <para>The time at which the logs should end. The time range specified is inclusive of the
         /// end time. </para>
         /// </para>
         /// </summary>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para> The time at which the logs should start. The time range specified is inclusive of
+        /// <para>The time at which the logs should start. The time range specified is inclusive of
         /// the start time. </para>
         /// </para>
         /// </summary>
