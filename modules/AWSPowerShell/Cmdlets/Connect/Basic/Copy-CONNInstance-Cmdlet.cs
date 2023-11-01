@@ -28,7 +28,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Replicates an Amazon Connect instance in the specified Amazon Web Services Region.
+    /// Replicates an Amazon Connect instance in the specified Amazon Web Services Region
+    /// and copies configuration information for Amazon Connect resources across Amazon Web
+    /// Services Regions. 
     /// 
     ///  
     /// <para>

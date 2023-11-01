@@ -329,6 +329,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MasterUserPassword { get; set; }
         #endregion
         
+        #region Parameter MultiAZ
+        /// <summary>
+        /// <para>
+        /// <para>If true and the cluster is currently only deployed in a single Availability Zone,
+        /// the cluster will be modified to be deployed in two Availability Zones.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAZ { get; set; }
+        #endregion
+        
         #region Parameter NewClusterIdentifier
         /// <summary>
         /// <para>
@@ -503,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.MasterPasswordSecretKmsKeyId = this.MasterPasswordSecretKmsKeyId;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MultiAZ = this.MultiAZ;
             context.NewClusterIdentifier = this.NewClusterIdentifier;
             context.NodeType = this.NodeType;
             context.NumberOfNodes = this.NumberOfNodes;
@@ -612,6 +624,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MultiAZ != null)
+            {
+                request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
             if (cmdletContext.NewClusterIdentifier != null)
             {
@@ -723,6 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String MasterPasswordSecretKmsKeyId { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
             public System.String NewClusterIdentifier { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNodes { get; set; }

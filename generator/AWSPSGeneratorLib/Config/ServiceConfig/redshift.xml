@@ -405,6 +405,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="FailoverPrimaryCompute" OutputProperty="Cluster" Verb="Start" Noun="FailoverPrimaryCompute" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetClusterCredentials" OutputProperty="*" Verb="Get" Noun="ClusterCredential" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

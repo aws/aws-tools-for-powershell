@@ -28,28 +28,19 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates a prompt.
+    /// Retrieve the flow associations for the given resources.
     /// </summary>
-    [Cmdlet("Update", "CONNPrompt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Connect.Model.UpdatePromptResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Service UpdatePrompt API operation.", Operation = new[] {"UpdatePrompt"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdatePromptResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.UpdatePromptResponse",
-        "This cmdlet returns an Amazon.Connect.Model.UpdatePromptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CONNFlowAssociationBatch")]
+    [OutputType("Amazon.Connect.Model.FlowAssociationSummary")]
+    [AWSCmdlet("Calls the Amazon Connect Service BatchGetFlowAssociation API operation.", Operation = new[] {"BatchGetFlowAssociation"}, SelectReturnType = typeof(Amazon.Connect.Model.BatchGetFlowAssociationResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.FlowAssociationSummary or Amazon.Connect.Model.BatchGetFlowAssociationResponse",
+        "This cmdlet returns a collection of Amazon.Connect.Model.FlowAssociationSummary objects.",
+        "The service call response (type Amazon.Connect.Model.BatchGetFlowAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCONNPromptCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCONNFlowAssociationBatchCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>A description of the prompt.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -69,54 +60,44 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The name of the prompt.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter PromptId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the prompt.</para>
+        /// <para>A list of resource identifiers to retrieve flow associations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PromptId { get; set; }
+        [Alias("ResourceIds")]
+        public System.String[] ResourceId { get; set; }
         #endregion
         
-        #region Parameter S3Uri
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed
-        /// URLs returned by the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html">GetPromptFile</a>
-        /// API instead of providing S3 URIs.</para>
+        /// <para>The type of resource association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String S3Uri { get; set; }
+        [AWSConstantClassSource("Amazon.Connect.ListFlowAssociationResourceType")]
+        public Amazon.Connect.ListFlowAssociationResourceType ResourceType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdatePromptResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.UpdatePromptResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'FlowAssociationSummaryList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.BatchGetFlowAssociationResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.BatchGetFlowAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "FlowAssociationSummaryList";
         #endregion
         
         #region Parameter PassThru
@@ -129,26 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNPrompt (UpdatePrompt)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -158,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdatePromptResponse, UpdateCONNPromptCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.BatchGetFlowAssociationResponse, GetCONNFlowAssociationBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -170,7 +135,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -178,15 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            context.PromptId = this.PromptId;
-            #if MODULAR
-            if (this.PromptId == null && ParameterWasBound(nameof(this.PromptId)))
+            if (this.ResourceId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter PromptId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ResourceId = new List<System.String>(this.ResourceId);
+            }
+            #if MODULAR
+            if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.S3Uri = this.S3Uri;
+            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -201,27 +167,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UpdatePromptRequest();
+            var request = new Amazon.Connect.Model.BatchGetFlowAssociationRequest();
             
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ResourceId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ResourceIds = cmdletContext.ResourceId;
             }
-            if (cmdletContext.PromptId != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.PromptId = cmdletContext.PromptId;
-            }
-            if (cmdletContext.S3Uri != null)
-            {
-                request.S3Uri = cmdletContext.S3Uri;
+                request.ResourceType = cmdletContext.ResourceType;
             }
             
             CmdletOutput output;
@@ -256,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UpdatePromptResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdatePromptRequest request)
+        private Amazon.Connect.Model.BatchGetFlowAssociationResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.BatchGetFlowAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdatePrompt");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "BatchGetFlowAssociation");
             try
             {
                 #if DESKTOP
-                return client.UpdatePrompt(request);
+                return client.BatchGetFlowAssociation(request);
                 #elif CORECLR
-                return client.UpdatePromptAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetFlowAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -284,13 +242,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
-            public System.String PromptId { get; set; }
-            public System.String S3Uri { get; set; }
-            public System.Func<Amazon.Connect.Model.UpdatePromptResponse, UpdateCONNPromptCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<System.String> ResourceId { get; set; }
+            public Amazon.Connect.ListFlowAssociationResourceType ResourceType { get; set; }
+            public System.Func<Amazon.Connect.Model.BatchGetFlowAssociationResponse, GetCONNFlowAssociationBatchCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.FlowAssociationSummaryList;
         }
         
     }

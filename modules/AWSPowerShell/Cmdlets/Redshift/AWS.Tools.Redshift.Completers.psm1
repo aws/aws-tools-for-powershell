@@ -342,6 +342,7 @@ $RS_SelectMap = @{
                "Remove-RSDataShareConsumer",
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
+               "Start-RSFailoverPrimaryCompute",
                "Get-RSClusterCredential",
                "Get-RSClusterCredentialsWithIAM",
                "Get-RSReservedNodeExchangeConfigurationOption",

@@ -1,4 +1,26 @@
-﻿### 4.1.442 (2023-11-01 03:42Z)
+﻿### 4.1.443 (2023-11-01 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.675.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNFlowAssociationBatch leveraging the BatchGetFlowAssociation service API.
+  * Amazon Global Accelerator
+    * Added cmdlet Get-GACLCrossAccountAttachment leveraging the DescribeCrossAccountAttachment service API.
+    * Added cmdlet Get-GACLCrossAccountAttachmentList leveraging the ListCrossAccountAttachments service API.
+    * Added cmdlet Get-GACLCrossAccountResourceAccountList leveraging the ListCrossAccountResourceAccounts service API.
+    * Added cmdlet Get-GACLCrossAccountResourceList leveraging the ListCrossAccountResources service API.
+    * Added cmdlet New-GACLCrossAccountAttachment leveraging the CreateCrossAccountAttachment service API.
+    * Added cmdlet Remove-GACLCrossAccountAttachment leveraging the DeleteCrossAccountAttachment service API.
+    * Added cmdlet Update-GACLCrossAccountAttachment leveraging the UpdateCrossAccountAttachment service API.
+  * Amazon Redshift
+    * Added cmdlet Start-RSFailoverPrimaryCompute leveraging the FailoverPrimaryCompute service API.
+    * Modified cmdlet Edit-RSCluster: added parameter MultiAZ.
+    * Modified cmdlet New-RSCluster: added parameter MultiAZ.
+    * Modified cmdlet Restore-RSFromClusterSnapshot: added parameter MultiAZ.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameters RdsCustomClusterConfiguration_InterconnectSubnetId and RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameters RdsCustomClusterConfiguration_InterconnectSubnetId and RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameters RdsCustomClusterConfiguration_InterconnectSubnetId and RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId.
+
+### 4.1.442 (2023-11-01 03:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.674.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPBranch: added parameter Backend_StackArn.

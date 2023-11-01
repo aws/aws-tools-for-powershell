@@ -280,6 +280,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter RdsCustomClusterConfiguration_InterconnectSubnetId
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RdsCustomClusterConfiguration_InterconnectSubnetId { get; set; }
+        #endregion
+        
         #region Parameter Iops
         /// <summary>
         /// <para>
@@ -497,6 +507,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String ScalingConfiguration_TimeoutAction { get; set; }
         #endregion
         
+        #region Parameter RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -610,6 +630,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.RdsCustomClusterConfiguration_InterconnectSubnetId = this.RdsCustomClusterConfiguration_InterconnectSubnetId;
+            context.RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId = this.RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId;
             context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
             context.ScalingConfiguration_MinCapacity = this.ScalingConfiguration_MinCapacity;
@@ -737,6 +759,35 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
+            }
+            
+             // populate RdsCustomClusterConfiguration
+            var requestRdsCustomClusterConfigurationIsNull = true;
+            request.RdsCustomClusterConfiguration = new Amazon.RDS.Model.RdsCustomClusterConfiguration();
+            System.String requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_InterconnectSubnetId = null;
+            if (cmdletContext.RdsCustomClusterConfiguration_InterconnectSubnetId != null)
+            {
+                requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_InterconnectSubnetId = cmdletContext.RdsCustomClusterConfiguration_InterconnectSubnetId;
+            }
+            if (requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_InterconnectSubnetId != null)
+            {
+                request.RdsCustomClusterConfiguration.InterconnectSubnetId = requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_InterconnectSubnetId;
+                requestRdsCustomClusterConfigurationIsNull = false;
+            }
+            System.String requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_TransitGatewayMulticastDomainId = null;
+            if (cmdletContext.RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId != null)
+            {
+                requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_TransitGatewayMulticastDomainId = cmdletContext.RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId;
+            }
+            if (requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_TransitGatewayMulticastDomainId != null)
+            {
+                request.RdsCustomClusterConfiguration.TransitGatewayMulticastDomainId = requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_TransitGatewayMulticastDomainId;
+                requestRdsCustomClusterConfigurationIsNull = false;
+            }
+             // determine if request.RdsCustomClusterConfiguration should be set to null
+            if (requestRdsCustomClusterConfigurationIsNull)
+            {
+                request.RdsCustomClusterConfiguration = null;
             }
             
              // populate ScalingConfiguration
@@ -935,6 +986,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String RdsCustomClusterConfiguration_InterconnectSubnetId { get; set; }
+            public System.String RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId { get; set; }
             public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public System.Int32? ScalingConfiguration_MinCapacity { get; set; }

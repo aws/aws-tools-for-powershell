@@ -337,6 +337,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MasterPasswordSecretKmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MultiAZ
+        /// <summary>
+        /// <para>
+        /// <para>If true, the snapshot will be restored to a cluster deployed in two Availability Zones.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAZ { get; set; }
+        #endregion
+        
         #region Parameter NodeType
         /// <summary>
         /// <para>
@@ -585,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ManageMasterPassword = this.ManageMasterPassword;
             context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.MasterPasswordSecretKmsKeyId = this.MasterPasswordSecretKmsKeyId;
+            context.MultiAZ = this.MultiAZ;
             context.NodeType = this.NodeType;
             context.NumberOfNode = this.NumberOfNode;
             context.OwnerAccount = this.OwnerAccount;
@@ -708,6 +719,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.MasterPasswordSecretKmsKeyId != null)
             {
                 request.MasterPasswordSecretKmsKeyId = cmdletContext.MasterPasswordSecretKmsKeyId;
+            }
+            if (cmdletContext.MultiAZ != null)
+            {
+                request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
             if (cmdletContext.NodeType != null)
             {
@@ -845,6 +860,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? ManageMasterPassword { get; set; }
             public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String MasterPasswordSecretKmsKeyId { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNode { get; set; }
             public System.String OwnerAccount { get; set; }

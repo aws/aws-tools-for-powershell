@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCrossAccountAttachment" OutputProperty="CrossAccountAttachment" Verb="New" Noun="CrossAccountAttachment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomRoutingAccelerator" OutputProperty="Accelerator" Verb="New" Noun="CustomRoutingAccelerator" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccelerator" Verb="Remove" Noun="Accelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCrossAccountAttachment" Verb="Remove" Noun="CrossAccountAttachment" ShouldProcessTarget="AttachmentArn" PipelineParameter="AttachmentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCrossAccountAttachment" OutputProperty="CrossAccountAttachment" Verb="Get" Noun="CrossAccountAttachment" PipelineParameter="AttachmentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCustomRoutingAccelerator" OutputProperty="Accelerator" Verb="Get" Noun="CustomRoutingAccelerator" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +140,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidrList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCrossAccountAttachments" OutputProperty="CrossAccountAttachments" Verb="Get" Noun="CrossAccountAttachmentList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCrossAccountResourceAccounts" OutputProperty="ResourceOwnerAwsAccountIds" Verb="Get" Noun="CrossAccountResourceAccountList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCrossAccountResources" OutputProperty="CrossAccountResources" Verb="Get" Noun="CrossAccountResourceList" PipelineParameter="ResourceOwnerAwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAcceleratorAttributes" OutputProperty="AcceleratorAttributes" Verb="Update" Noun="AcceleratorAttribute" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCrossAccountAttachment" OutputProperty="CrossAccountAttachment" Verb="Update" Noun="CrossAccountAttachment" ShouldProcessTarget="AttachmentArn" PipelineParameter="AttachmentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

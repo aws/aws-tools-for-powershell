@@ -5576,6 +5576,9 @@ Set-Alias -Name Associate-CONNSecurityKey -Value Add-CONNSecurityKey
 Set-Alias -Name CONN-AssociateSecurityKey -Value Add-CONNSecurityKey
 Set-Alias -Name Associate-CONNTrafficDistributionGroupUser -Value Add-CONNTrafficDistributionGroupUser
 Set-Alias -Name CONN-AssociateTrafficDistributionGroupUser -Value Add-CONNTrafficDistributionGroupUser
+Set-Alias -Name Batch-CONNGetFlowAssociation -Value Get-CONNFlowAssociationBatch
+Set-Alias -Name Batch-CONNFlowAssociationBatch -Value Get-CONNFlowAssociationBatch
+Set-Alias -Name CONN-BatchGetFlowAssociation -Value Get-CONNFlowAssociationBatch
 Set-Alias -Name Claim-CONNPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name CONN-ClaimPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name Create-CONNAgentStatus -Value New-CONNAgentStatus
@@ -11603,6 +11606,8 @@ Set-Alias -Name Allow-GACLCustomRoutingTraffic -Value Enable-GACLCustomRoutingTr
 Set-Alias -Name GACL-AllowCustomRoutingTraffic -Value Enable-GACLCustomRoutingTraffic
 Set-Alias -Name Create-GACLAccelerator -Value New-GACLAccelerator
 Set-Alias -Name GACL-CreateAccelerator -Value New-GACLAccelerator
+Set-Alias -Name Create-GACLCrossAccountAttachment -Value New-GACLCrossAccountAttachment
+Set-Alias -Name GACL-CreateCrossAccountAttachment -Value New-GACLCrossAccountAttachment
 Set-Alias -Name Create-GACLCustomRoutingAccelerator -Value New-GACLCustomRoutingAccelerator
 Set-Alias -Name GACL-CreateCustomRoutingAccelerator -Value New-GACLCustomRoutingAccelerator
 Set-Alias -Name Create-GACLCustomRoutingEndpointGroup -Value New-GACLCustomRoutingEndpointGroup
@@ -11615,6 +11620,8 @@ Set-Alias -Name Create-GACLListener -Value New-GACLListener
 Set-Alias -Name GACL-CreateListener -Value New-GACLListener
 Set-Alias -Name Delete-GACLAccelerator -Value Remove-GACLAccelerator
 Set-Alias -Name GACL-DeleteAccelerator -Value Remove-GACLAccelerator
+Set-Alias -Name Delete-GACLCrossAccountAttachment -Value Remove-GACLCrossAccountAttachment
+Set-Alias -Name GACL-DeleteCrossAccountAttachment -Value Remove-GACLCrossAccountAttachment
 Set-Alias -Name Delete-GACLCustomRoutingAccelerator -Value Remove-GACLCustomRoutingAccelerator
 Set-Alias -Name GACL-DeleteCustomRoutingAccelerator -Value Remove-GACLCustomRoutingAccelerator
 Set-Alias -Name Delete-GACLCustomRoutingEndpointGroup -Value Remove-GACLCustomRoutingEndpointGroup
@@ -11635,6 +11642,8 @@ Set-Alias -Name GACL-DescribeAccelerator -Value Get-GACLAccelerator
 Set-Alias -Name Describe-GACLAcceleratorAttributes -Value Get-GACLAcceleratorAttribute
 Set-Alias -Name Describe-GACLAcceleratorAttribute -Value Get-GACLAcceleratorAttribute
 Set-Alias -Name GACL-DescribeAcceleratorAttributes -Value Get-GACLAcceleratorAttribute
+Set-Alias -Name Describe-GACLCrossAccountAttachment -Value Get-GACLCrossAccountAttachment
+Set-Alias -Name GACL-DescribeCrossAccountAttachment -Value Get-GACLCrossAccountAttachment
 Set-Alias -Name Describe-GACLCustomRoutingAccelerator -Value Get-GACLCustomRoutingAccelerator
 Set-Alias -Name GACL-DescribeCustomRoutingAccelerator -Value Get-GACLCustomRoutingAccelerator
 Set-Alias -Name Describe-GACLCustomRoutingAcceleratorAttributes -Value Get-GACLCustomRoutingAcceleratorAttribute
@@ -11654,6 +11663,15 @@ Set-Alias -Name GACL-ListAccelerators -Value Get-GACLAcceleratorList
 Set-Alias -Name List-GACLByoipCidrs -Value Get-GACLByoipCidrList
 Set-Alias -Name List-GACLByoipCidrList -Value Get-GACLByoipCidrList
 Set-Alias -Name GACL-ListByoipCidrs -Value Get-GACLByoipCidrList
+Set-Alias -Name List-GACLCrossAccountAttachments -Value Get-GACLCrossAccountAttachmentList
+Set-Alias -Name List-GACLCrossAccountAttachmentList -Value Get-GACLCrossAccountAttachmentList
+Set-Alias -Name GACL-ListCrossAccountAttachments -Value Get-GACLCrossAccountAttachmentList
+Set-Alias -Name List-GACLCrossAccountResourceAccounts -Value Get-GACLCrossAccountResourceAccountList
+Set-Alias -Name List-GACLCrossAccountResourceAccountList -Value Get-GACLCrossAccountResourceAccountList
+Set-Alias -Name GACL-ListCrossAccountResourceAccounts -Value Get-GACLCrossAccountResourceAccountList
+Set-Alias -Name List-GACLCrossAccountResources -Value Get-GACLCrossAccountResourceList
+Set-Alias -Name List-GACLCrossAccountResourceList -Value Get-GACLCrossAccountResourceList
+Set-Alias -Name GACL-ListCrossAccountResources -Value Get-GACLCrossAccountResourceList
 Set-Alias -Name List-GACLCustomRoutingAccelerators -Value Get-GACLCustomRoutingAcceleratorList
 Set-Alias -Name List-GACLCustomRoutingAcceleratorList -Value Get-GACLCustomRoutingAcceleratorList
 Set-Alias -Name GACL-ListCustomRoutingAccelerators -Value Get-GACLCustomRoutingAcceleratorList
@@ -11688,6 +11706,7 @@ Set-Alias -Name GACL-UntagResource -Value Remove-GACLResourceTag
 Set-Alias -Name GACL-UpdateAccelerator -Value Update-GACLAccelerator
 Set-Alias -Name Update-GACLAcceleratorAttributes -Value Update-GACLAcceleratorAttribute
 Set-Alias -Name GACL-UpdateAcceleratorAttributes -Value Update-GACLAcceleratorAttribute
+Set-Alias -Name GACL-UpdateCrossAccountAttachment -Value Update-GACLCrossAccountAttachment
 Set-Alias -Name GACL-UpdateCustomRoutingAccelerator -Value Update-GACLCustomRoutingAccelerator
 Set-Alias -Name Update-GACLCustomRoutingAcceleratorAttributes -Value Update-GACLCustomRoutingAcceleratorAttribute
 Set-Alias -Name GACL-UpdateCustomRoutingAcceleratorAttributes -Value Update-GACLCustomRoutingAcceleratorAttribute
@@ -21294,6 +21313,9 @@ Set-Alias -Name Disassociate-RSDataShareConsumer -Value Remove-RSDataShareConsum
 Set-Alias -Name RS-DisassociateDataShareConsumer -Value Remove-RSDataShareConsumer
 Set-Alias -Name RS-EnableLogging -Value Enable-RSLogging
 Set-Alias -Name RS-EnableSnapshotCopy -Value Enable-RSSnapshotCopy
+Set-Alias -Name Failover-RSPrimaryCompute -Value Start-RSFailoverPrimaryCompute
+Set-Alias -Name Failover-RSFailoverPrimaryCompute -Value Start-RSFailoverPrimaryCompute
+Set-Alias -Name RS-FailoverPrimaryCompute -Value Start-RSFailoverPrimaryCompute
 Set-Alias -Name Get-RSClusterCredentials -Value Get-RSClusterCredential
 Set-Alias -Name RS-GetClusterCredentials -Value Get-RSClusterCredential
 Set-Alias -Name RS-GetClusterCredentialsWithIAM -Value Get-RSClusterCredentialsWithIAM

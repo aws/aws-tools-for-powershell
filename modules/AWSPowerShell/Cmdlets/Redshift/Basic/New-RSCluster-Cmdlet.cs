@@ -417,6 +417,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MasterUserPassword { get; set; }
         #endregion
         
+        #region Parameter MultiAZ
+        /// <summary>
+        /// <para>
+        /// <para>If true, Amazon Redshift will deploy the cluster in two Availability Zones (AZ).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAZ { get; set; }
+        #endregion
+        
         #region Parameter NodeType
         /// <summary>
         /// <para>
@@ -629,6 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #endif
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MultiAZ = this.MultiAZ;
             context.NodeType = this.NodeType;
             #if MODULAR
             if (this.NodeType == null && ParameterWasBound(nameof(this.NodeType)))
@@ -781,6 +792,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
             }
+            if (cmdletContext.MultiAZ != null)
+            {
+                request.MultiAZ = cmdletContext.MultiAZ.Value;
+            }
             if (cmdletContext.NodeType != null)
             {
                 request.NodeType = cmdletContext.NodeType;
@@ -903,6 +918,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String MasterPasswordSecretKmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNodes { get; set; }
             public System.Int32? Port { get; set; }

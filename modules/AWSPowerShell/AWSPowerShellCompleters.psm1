@@ -14383,6 +14383,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ListFlowAssociationResourceType
+        "Get-CONNFlowAssociationBatch/ResourceType"
+        {
+            $v = "SMS_PHONE_NUMBER","VOICE_PHONE_NUMBER"
+            break
+        }
+
         # Amazon.Connect.ParticipantRole
         "New-CONNParticipant/ParticipantDetails_ParticipantRole"
         {
@@ -14573,7 +14580,7 @@ $CONN_map = @{
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
-    "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNFlowAssociationBatch","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -14656,6 +14663,7 @@ $CONN_SelectMap = @{
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
                "Add-CONNTrafficDistributionGroupUser",
+               "Get-CONNFlowAssociationBatch",
                "Request-CONNPhoneNumber",
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
@@ -27278,12 +27286,14 @@ $GACL_SelectMap = @{
                "Start-GACLAdvertisingByoipCidr",
                "Enable-GACLCustomRoutingTraffic",
                "New-GACLAccelerator",
+               "New-GACLCrossAccountAttachment",
                "New-GACLCustomRoutingAccelerator",
                "New-GACLCustomRoutingEndpointGroup",
                "New-GACLCustomRoutingListener",
                "New-GACLEndpointGroup",
                "New-GACLListener",
                "Remove-GACLAccelerator",
+               "Remove-GACLCrossAccountAttachment",
                "Remove-GACLCustomRoutingAccelerator",
                "Remove-GACLCustomRoutingEndpointGroup",
                "Remove-GACLCustomRoutingListener",
@@ -27293,6 +27303,7 @@ $GACL_SelectMap = @{
                "Remove-GACLByoipCidrProvision",
                "Get-GACLAccelerator",
                "Get-GACLAcceleratorAttribute",
+               "Get-GACLCrossAccountAttachment",
                "Get-GACLCustomRoutingAccelerator",
                "Get-GACLCustomRoutingAcceleratorAttribute",
                "Get-GACLCustomRoutingEndpointGroup",
@@ -27301,6 +27312,9 @@ $GACL_SelectMap = @{
                "Get-GACLListener",
                "Get-GACLAcceleratorList",
                "Get-GACLByoipCidrList",
+               "Get-GACLCrossAccountAttachmentList",
+               "Get-GACLCrossAccountResourceAccountList",
+               "Get-GACLCrossAccountResourceList",
                "Get-GACLCustomRoutingAcceleratorList",
                "Get-GACLCustomRoutingEndpointGroupList",
                "Get-GACLCustomRoutingListenerList",
@@ -27316,6 +27330,7 @@ $GACL_SelectMap = @{
                "Remove-GACLResourceTag",
                "Update-GACLAccelerator",
                "Update-GACLAcceleratorAttribute",
+               "Update-GACLCrossAccountAttachment",
                "Update-GACLCustomRoutingAccelerator",
                "Update-GACLCustomRoutingAcceleratorAttribute",
                "Update-GACLCustomRoutingListener",
@@ -50070,6 +50085,7 @@ $RS_SelectMap = @{
                "Remove-RSDataShareConsumer",
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
+               "Start-RSFailoverPrimaryCompute",
                "Get-RSClusterCredential",
                "Get-RSClusterCredentialsWithIAM",
                "Get-RSReservedNodeExchangeConfigurationOption",

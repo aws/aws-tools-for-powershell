@@ -22,42 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.GlobalAccelerator;
+using Amazon.GlobalAccelerator.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Creates a prompt. For more information about prompts, such as supported file types
-    /// and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create
-    /// prompts</a> in the <i>Amazon Connect Administrator's Guide</i>.
+    /// Create a cross-account attachment in Global Accelerator. You create a cross-account
+    /// attachment to specify the <i>principals</i> who have permission to add to accelerators
+    /// in their own account the resources in your account that you also list in the attachment.
+    /// 
+    ///  
+    /// <para>
+    /// A principal can be an Amazon Web Services account number or the Amazon Resource Name
+    /// (ARN) for an accelerator. For account numbers that are listed as principals, to add
+    /// a resource listed in the attachment to an accelerator, you must sign in to an account
+    /// specified as a principal. Then you can add the resources that are listed to any of
+    /// your accelerators. If an accelerator ARN is listed in the cross-account attachment
+    /// as a principal, anyone with permission to make updates to the accelerator can add
+    /// as endpoints resources that are listed in the attachment. 
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "CONNPrompt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Connect.Model.CreatePromptResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Service CreatePrompt API operation.", Operation = new[] {"CreatePrompt"}, SelectReturnType = typeof(Amazon.Connect.Model.CreatePromptResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.CreatePromptResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreatePromptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "GACLCrossAccountAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GlobalAccelerator.Model.Attachment")]
+    [AWSCmdlet("Calls the AWS Global Accelerator CreateCrossAccountAttachment API operation.", Operation = new[] {"CreateCrossAccountAttachment"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse))]
+    [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.Attachment or Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse",
+        "This cmdlet returns an Amazon.GlobalAccelerator.Model.Attachment object.",
+        "The service call response (type Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCONNPromptCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class NewGACLCrossAccountAttachmentCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Description
+        #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>The description of the prompt.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency—that
+        /// is, the uniqueness—of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        public System.String IdempotencyToken { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The name of the cross-account attachment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,74 +80,64 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the prompt.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter S3Uri
+        #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed
-        /// URLs returned by the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html">GetPromptFile</a>
-        /// API instead of providing S3 URIs.</para>
+        /// <para>The principals to list in the cross-account attachment. A principal can be an Amazon
+        /// Web Services account number or the Amazon Resource Name (ARN) for an accelerator.
+        /// </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String S3Uri { get; set; }
+        [Alias("Principals")]
+        public System.String[] Principal { get; set; }
+        #endregion
+        
+        #region Parameter Resource
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) for the resources to list in the cross-account attachment.
+        /// A resource can be any supported Amazon Web Services resource type for Global Accelerator.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resources")]
+        public Amazon.GlobalAccelerator.Model.Resource[] Resource { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// <para>Create tags for cross-account attachment.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+        /// in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public Amazon.GlobalAccelerator.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.CreatePromptResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.CreatePromptResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CrossAccountAttachment'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse).
+        /// Specifying the name of a property of type Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "CrossAccountAttachment";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -155,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CONNPrompt (CreatePrompt)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GACLCrossAccountAttachment (CreateCrossAccountAttachment)"))
             {
                 return;
             }
@@ -169,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.CreatePromptResponse, NewCONNPromptCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse, NewGACLCrossAccountAttachmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -178,17 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.IdempotencyToken = this.IdempotencyToken;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -196,20 +191,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.S3Uri = this.S3Uri;
-            #if MODULAR
-            if (this.S3Uri == null && ParameterWasBound(nameof(this.S3Uri)))
+            if (this.Principal != null)
             {
-                WriteWarning("You are passing $null as a value for parameter S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Principal = new List<System.String>(this.Principal);
             }
-            #endif
+            if (this.Resource != null)
+            {
+                context.Resource = new List<Amazon.GlobalAccelerator.Model.Resource>(this.Resource);
+            }
             if (this.Tag != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                context.Tag = new List<Amazon.GlobalAccelerator.Model.Tag>(this.Tag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -225,23 +217,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.CreatePromptRequest();
+            var request = new Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.IdempotencyToken != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.S3Uri != null)
+            if (cmdletContext.Principal != null)
             {
-                request.S3Uri = cmdletContext.S3Uri;
+                request.Principals = cmdletContext.Principal;
+            }
+            if (cmdletContext.Resource != null)
+            {
+                request.Resources = cmdletContext.Resource;
             }
             if (cmdletContext.Tag != null)
             {
@@ -280,15 +272,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.CreatePromptResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.CreatePromptRequest request)
+        private Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse CallAWSServiceOperation(IAmazonGlobalAccelerator client, Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "CreatePrompt");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Global Accelerator", "CreateCrossAccountAttachment");
             try
             {
                 #if DESKTOP
-                return client.CreatePrompt(request);
+                return client.CreateCrossAccountAttachment(request);
                 #elif CORECLR
-                return client.CreatePromptAsync(request).GetAwaiter().GetResult();
+                return client.CreateCrossAccountAttachmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -308,13 +300,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String InstanceId { get; set; }
+            public System.String IdempotencyToken { get; set; }
             public System.String Name { get; set; }
-            public System.String S3Uri { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Connect.Model.CreatePromptResponse, NewCONNPromptCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<System.String> Principal { get; set; }
+            public List<Amazon.GlobalAccelerator.Model.Resource> Resource { get; set; }
+            public List<Amazon.GlobalAccelerator.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse, NewGACLCrossAccountAttachmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CrossAccountAttachment;
         }
         
     }
