@@ -1,4 +1,23 @@
-﻿### 4.1.443 (2023-11-01 21:43Z)
+﻿### 4.1.444 (2023-11-02 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.676.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon App Runner
+    * Modified cmdlet New-AARService: added parameter NetworkConfiguration_IpAddressType.
+    * Modified cmdlet Update-AARService: added parameter NetworkConfiguration_IpAddressType.
+  * Amazon GameLift Service
+    * Modified cmdlet New-GMLFleet: added parameter InstanceRoleCredentialsProvider.
+  * Amazon Network Firewall
+    * Modified cmdlet Get-NWFWRuleGroup: added parameter AnalyzeRuleGroup.
+    * Modified cmdlet New-NWFWRuleGroup: added parameter AnalyzeRuleGroup.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameter AnalyzeRuleGroup.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSAnalysis: added parameters Options_Timezone and Options_WeekStart.
+    * Modified cmdlet New-QSDashboard: added parameters Options_Timezone and Options_WeekStart.
+    * Modified cmdlet New-QSTemplate: added parameters Options_Timezone and Options_WeekStart.
+    * Modified cmdlet Update-QSAnalysis: added parameters Options_Timezone and Options_WeekStart.
+    * Modified cmdlet Update-QSDashboard: added parameters Options_Timezone and Options_WeekStart.
+    * Modified cmdlet Update-QSTemplate: added parameters Options_Timezone and Options_WeekStart.
+
+### 4.1.443 (2023-11-01 21:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.675.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNFlowAssociationBatch leveraging the BatchGetFlowAssociation service API.

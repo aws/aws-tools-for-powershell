@@ -193,6 +193,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.InstanceRoleCredentialsProvider
+        "New-GMLFleet/InstanceRoleCredentialsProvider"
+        {
+            $v = "SHARED_CREDENTIAL_FILE"
+            break
+        }
+
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
@@ -285,6 +292,7 @@ $GML_map = @{
     "FlexMatchMode"=@("New-GMLMatchmakingConfiguration","Update-GMLMatchmakingConfiguration")
     "GameServerProtectionPolicy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
     "HealthCheck"=@("Update-GMLGameServer")
+    "InstanceRoleCredentialsProvider"=@("New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild")

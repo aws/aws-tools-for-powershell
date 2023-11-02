@@ -217,6 +217,24 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public System.Int32? HealthCheckConfiguration_Interval { get; set; }
         #endregion
         
+        #region Parameter NetworkConfiguration_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>App Runner provides you with the option to choose between <i>Internet Protocol version
+        /// 4 (IPv4)</i> and <i>dual-stack</i> (IPv4 and IPv6) for your incoming public network
+        /// configuration. This is an optional parameter. If you do not specify an <code>IpAddressType</code>,
+        /// it defaults to select IPv4.</para><note><para> Currently, App Runner supports dual-stack for only Public endpoint. Only IPv4 is
+        /// supported for Private endpoint. If you update a service that's using dual-stack Public
+        /// endpoint to a Private endpoint, your App Runner service will default to support only
+        /// IPv4 for Private endpoint and fail to receive traffic originating from IPv6 endpoint.
+        /// </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppRunner.IpAddressType")]
+        public Amazon.AppRunner.IpAddressType NetworkConfiguration_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter IngressConfiguration_IsPubliclyAccessible
         /// <summary>
         /// <para>
@@ -576,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.EgressConfiguration_EgressType = this.EgressConfiguration_EgressType;
             context.EgressConfiguration_VpcConnectorArn = this.EgressConfiguration_VpcConnectorArn;
             context.IngressConfiguration_IsPubliclyAccessible = this.IngressConfiguration_IsPubliclyAccessible;
+            context.NetworkConfiguration_IpAddressType = this.NetworkConfiguration_IpAddressType;
             context.ObservabilityConfiguration_ObservabilityConfigurationArn = this.ObservabilityConfiguration_ObservabilityConfigurationArn;
             context.ObservabilityConfiguration_ObservabilityEnabled = this.ObservabilityConfiguration_ObservabilityEnabled;
             context.ServiceArn = this.ServiceArn;
@@ -765,6 +784,16 @@ namespace Amazon.PowerShell.Cmdlets.AAR
              // populate NetworkConfiguration
             var requestNetworkConfigurationIsNull = true;
             request.NetworkConfiguration = new Amazon.AppRunner.Model.NetworkConfiguration();
+            Amazon.AppRunner.IpAddressType requestNetworkConfiguration_networkConfiguration_IpAddressType = null;
+            if (cmdletContext.NetworkConfiguration_IpAddressType != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_IpAddressType = cmdletContext.NetworkConfiguration_IpAddressType;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_IpAddressType != null)
+            {
+                request.NetworkConfiguration.IpAddressType = requestNetworkConfiguration_networkConfiguration_IpAddressType;
+                requestNetworkConfigurationIsNull = false;
+            }
             Amazon.AppRunner.Model.IngressConfiguration requestNetworkConfiguration_networkConfiguration_IngressConfiguration = null;
             
              // populate IngressConfiguration
@@ -1251,6 +1280,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public Amazon.AppRunner.EgressType EgressConfiguration_EgressType { get; set; }
             public System.String EgressConfiguration_VpcConnectorArn { get; set; }
             public System.Boolean? IngressConfiguration_IsPubliclyAccessible { get; set; }
+            public Amazon.AppRunner.IpAddressType NetworkConfiguration_IpAddressType { get; set; }
             public System.String ObservabilityConfiguration_ObservabilityConfigurationArn { get; set; }
             public System.Boolean? ObservabilityConfiguration_ObservabilityEnabled { get; set; }
             public System.String ServiceArn { get; set; }

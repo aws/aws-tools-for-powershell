@@ -74,6 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class StartGMLMatchBackfillCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ConfigurationName

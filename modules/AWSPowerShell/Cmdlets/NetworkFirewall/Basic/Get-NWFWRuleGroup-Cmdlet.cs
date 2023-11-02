@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AnalyzeRuleGroup
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether you want Network Firewall to analyze the stateless rules in the
+        /// rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>,
+        /// Network Firewall runs the analysis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AnalyzeRuleGroup { get; set; }
+        #endregion
+        
         #region Parameter RuleGroupArn
         /// <summary>
         /// <para>
@@ -120,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = (response, cmdlet) => this.RuleGroupArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnalyzeRuleGroup = this.AnalyzeRuleGroup;
             context.RuleGroupArn = this.RuleGroupArn;
             context.RuleGroupName = this.RuleGroupName;
             context.Type = this.Type;
@@ -139,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request
             var request = new Amazon.NetworkFirewall.Model.DescribeRuleGroupRequest();
             
+            if (cmdletContext.AnalyzeRuleGroup != null)
+            {
+                request.AnalyzeRuleGroup = cmdletContext.AnalyzeRuleGroup.Value;
+            }
             if (cmdletContext.RuleGroupArn != null)
             {
                 request.RuleGroupArn = cmdletContext.RuleGroupArn;
@@ -212,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AnalyzeRuleGroup { get; set; }
             public System.String RuleGroupArn { get; set; }
             public System.String RuleGroupName { get; set; }
             public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }

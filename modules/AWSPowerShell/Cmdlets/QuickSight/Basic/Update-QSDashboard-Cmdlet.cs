@@ -490,6 +490,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String ThemeArn { get; set; }
         #endregion
         
+        #region Parameter Options_Timezone
+        /// <summary>
+        /// <para>
+        /// <para>Determines the timezone for the analysis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_Timezone")]
+        public System.String Options_Timezone { get; set; }
+        #endregion
+        
         #region Parameter PaperMargin_Top
         /// <summary>
         /// <para>
@@ -521,6 +532,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("DashboardPublishOptions_SheetControlsOption_VisibilityState")]
         [AWSConstantClassSource("Amazon.QuickSight.DashboardUIState")]
         public Amazon.QuickSight.DashboardUIState SheetControlsOption_VisibilityState { get; set; }
+        #endregion
+        
+        #region Parameter Options_WeekStart
+        /// <summary>
+        /// <para>
+        /// <para>Determines the week start day for an analysis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_WeekStart")]
+        [AWSConstantClassSource("Amazon.QuickSight.DayOfTheWeek")]
+        public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
         #endregion
         
         #region Parameter Select
@@ -636,6 +659,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Definition_FilterGroup = new List<Amazon.QuickSight.Model.FilterGroup>(this.Definition_FilterGroup);
             }
+            context.Options_Timezone = this.Options_Timezone;
+            context.Options_WeekStart = this.Options_WeekStart;
             if (this.Definition_ParameterDeclaration != null)
             {
                 context.Definition_ParameterDeclaration = new List<Amazon.QuickSight.Model.ParameterDeclaration>(this.Definition_ParameterDeclaration);
@@ -1374,6 +1399,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Definition.AnalysisDefaults = requestDefinition_definition_AnalysisDefaults;
                 requestDefinitionIsNull = false;
             }
+            Amazon.QuickSight.Model.AssetOptions requestDefinition_definition_Options = null;
+            
+             // populate Options
+            var requestDefinition_definition_OptionsIsNull = true;
+            requestDefinition_definition_Options = new Amazon.QuickSight.Model.AssetOptions();
+            System.String requestDefinition_definition_Options_options_Timezone = null;
+            if (cmdletContext.Options_Timezone != null)
+            {
+                requestDefinition_definition_Options_options_Timezone = cmdletContext.Options_Timezone;
+            }
+            if (requestDefinition_definition_Options_options_Timezone != null)
+            {
+                requestDefinition_definition_Options.Timezone = requestDefinition_definition_Options_options_Timezone;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
+            Amazon.QuickSight.DayOfTheWeek requestDefinition_definition_Options_options_WeekStart = null;
+            if (cmdletContext.Options_WeekStart != null)
+            {
+                requestDefinition_definition_Options_options_WeekStart = cmdletContext.Options_WeekStart;
+            }
+            if (requestDefinition_definition_Options_options_WeekStart != null)
+            {
+                requestDefinition_definition_Options.WeekStart = requestDefinition_definition_Options_options_WeekStart;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_Options should be set to null
+            if (requestDefinition_definition_OptionsIsNull)
+            {
+                requestDefinition_definition_Options = null;
+            }
+            if (requestDefinition_definition_Options != null)
+            {
+                request.Definition.Options = requestDefinition_definition_Options;
+                requestDefinitionIsNull = false;
+            }
              // determine if request.Definition should be set to null
             if (requestDefinitionIsNull)
             {
@@ -1591,6 +1651,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnConfiguration> Definition_ColumnConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.DataSetIdentifierDeclaration> Definition_DataSetIdentifierDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.FilterGroup> Definition_FilterGroup { get; set; }
+            public System.String Options_Timezone { get; set; }
+            public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public System.String Name { get; set; }

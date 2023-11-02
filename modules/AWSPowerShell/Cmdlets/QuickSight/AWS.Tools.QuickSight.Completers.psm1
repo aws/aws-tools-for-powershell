@@ -167,6 +167,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.DayOfTheWeek
+        {
+            ($_ -eq "New-QSAnalysis/Definition_Options_WeekStart") -Or
+            ($_ -eq "New-QSDashboard/Definition_Options_WeekStart") -Or
+            ($_ -eq "New-QSTemplate/Definition_Options_WeekStart") -Or
+            ($_ -eq "Update-QSAnalysis/Definition_Options_WeekStart") -Or
+            ($_ -eq "Update-QSDashboard/Definition_Options_WeekStart") -Or
+            ($_ -eq "Update-QSTemplate/Definition_Options_WeekStart")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.QuickSight.DayOfWeek
         {
             ($_ -eq "New-QSRefreshSchedule/Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek") -Or
@@ -424,6 +438,7 @@ $QS_map = @{
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "Definition_Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
     "ExportFormat"=@("Start-QSAssetBundleExportJob")
     "FailureAction"=@("Start-QSAssetBundleImportJob")

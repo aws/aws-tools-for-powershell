@@ -58,7 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If successful, this operation creates a new Fleet resource and places it in <code>NEW</code>
     /// status, which prompts Amazon GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet
-    /// creation workflow</a>.
+    /// creation workflow</a>. You can track fleet creation by checking fleet status using
+    /// <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by
+    /// monitoring fleet creation events using <a>DescribeFleetEvents</a>. 
+    /// </para><para>
+    /// When the fleet status changes to <code>ACTIVE</code>, you can enable automatic scaling
+    /// with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>.
+    /// When the status of each remote location reaches <code>ACTIVE</code>, you can set capacity
+    /// by location using <a>UpdateFleetCapacity</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug
     /// fleet creation issues</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location
@@ -74,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class NewGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter BuildId
@@ -81,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The unique identifier for a custom game server build to be deployed on fleet instances.
         /// You can use either the build ID or ARN. The build must be uploaded to Amazon GameLift
-        /// and in <code>READY</code> status. This fleet property cannot be changed later.</para>
+        /// and in <code>READY</code> status. This fleet property can't be changed after the fleet
+        /// is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -169,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
         /// property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot">
-        /// On-Demand versus Spot Instances</a>. This property cannot be changed after the fleet
-        /// is created.</para>
+        /// On-Demand versus Spot Instances</a>. This fleet property can't be changed after the
+        /// fleet is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,19 +205,33 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceRoleArn
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for an IAM role that manages access to your Amazon Web Services
-        /// services. With an instance role ARN set, any application that runs on an instance
-        /// in this fleet can assume the role, including install scripts, server processes, and
-        /// daemons (background processes). Create a role or look up a role's ARN by using the
-        /// <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the Amazon Web
-        /// Services Management Console. Learn more about using on-box credentials for your game
-        /// servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-        /// Access external resources from a game server</a>. This property cannot be changed
-        /// after the fleet is created.</para>
+        /// <para>A unique identifier for an IAM role with access permissions to other Amazon Web Services
+        /// services. Any application that runs on an instance in the fleet--including install
+        /// scripts, server processes, and other processes--can use these permissions to interact
+        /// with Amazon Web Services resources that you own or have access to. For more information
+        /// about using the role with your game server builds, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Communicate with other Amazon Web Services resources from your fleets</a>. This fleet
+        /// property can't be changed after the fleet is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InstanceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter InstanceRoleCredentialsProvider
+        /// <summary>
+        /// <para>
+        /// <para>Prompts Amazon GameLift to generate a shared credentials file for the IAM role defined
+        /// in <code>InstanceRoleArn</code>. The shared credentials file is stored on each fleet
+        /// instance and refreshed as needed. Use shared credentials for applications that are
+        /// deployed along with the game server executable, if the game server is integrated with
+        /// server SDK version 5.x. For more information about using shared credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Communicate with other Amazon Web Services resources from your fleets</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.InstanceRoleCredentialsProvider")]
+        public Amazon.GameLift.InstanceRoleCredentialsProvider InstanceRoleCredentialsProvider { get; set; }
         #endregion
         
         #region Parameter Location
@@ -359,7 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The unique identifier for a Realtime configuration script to be deployed on fleet
         /// instances. You can use either the script ID or ARN. Scripts must be uploaded to Amazon
-        /// GameLift prior to creating the fleet. This fleet property cannot be changed later.</para>
+        /// GameLift prior to creating the fleet. This fleet property can't be changed after the
+        /// fleet is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -490,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.EC2InstanceType = this.EC2InstanceType;
             context.FleetType = this.FleetType;
             context.InstanceRoleArn = this.InstanceRoleArn;
+            context.InstanceRoleCredentialsProvider = this.InstanceRoleCredentialsProvider;
             if (this.Location != null)
             {
                 context.Location = new List<Amazon.GameLift.Model.LocationConfiguration>(this.Location);
@@ -608,6 +634,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.InstanceRoleArn != null)
             {
                 request.InstanceRoleArn = cmdletContext.InstanceRoleArn;
+            }
+            if (cmdletContext.InstanceRoleCredentialsProvider != null)
+            {
+                request.InstanceRoleCredentialsProvider = cmdletContext.InstanceRoleCredentialsProvider;
             }
             if (cmdletContext.Location != null)
             {
@@ -791,6 +821,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
             public Amazon.GameLift.FleetType FleetType { get; set; }
             public System.String InstanceRoleArn { get; set; }
+            public Amazon.GameLift.InstanceRoleCredentialsProvider InstanceRoleCredentialsProvider { get; set; }
             public List<Amazon.GameLift.Model.LocationConfiguration> Location { get; set; }
             public List<System.String> LogPath { get; set; }
             public List<System.String> MetricGroup { get; set; }

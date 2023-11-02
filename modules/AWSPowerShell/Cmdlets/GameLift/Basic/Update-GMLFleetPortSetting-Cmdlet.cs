@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class UpdateGMLFleetPortSettingCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FleetId

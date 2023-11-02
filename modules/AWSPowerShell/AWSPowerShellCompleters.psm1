@@ -3386,6 +3386,16 @@ $AAR_Completers = {
             break
         }
 
+        # Amazon.AppRunner.IpAddressType
+        {
+            ($_ -eq "New-AARService/NetworkConfiguration_IpAddressType") -Or
+            ($_ -eq "Update-AARService/NetworkConfiguration_IpAddressType")
+        }
+        {
+            $v = "DUAL_STACK","IPV4"
+            break
+        }
+
         # Amazon.AppRunner.ProviderType
         "New-AARConnection/ProviderType"
         {
@@ -3431,6 +3441,7 @@ $AAR_Completers = {
 $AAR_map = @{
     "HealthCheckConfiguration_Protocol"=@("New-AARService","Update-AARService")
     "NetworkConfiguration_EgressConfiguration_EgressType"=@("New-AARService","Update-AARService")
+    "NetworkConfiguration_IpAddressType"=@("New-AARService","Update-AARService")
     "ProviderType"=@("New-AARConnection")
     "SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime"=@("New-AARService","Update-AARService")
     "SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")
@@ -26820,6 +26831,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.InstanceRoleCredentialsProvider
+        "New-GMLFleet/InstanceRoleCredentialsProvider"
+        {
+            $v = "SHARED_CREDENTIAL_FILE"
+            break
+        }
+
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
@@ -26912,6 +26930,7 @@ $GML_map = @{
     "FlexMatchMode"=@("New-GMLMatchmakingConfiguration","Update-GMLMatchmakingConfiguration")
     "GameServerProtectionPolicy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
     "HealthCheck"=@("Update-GMLGameServer")
+    "InstanceRoleCredentialsProvider"=@("New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild")
@@ -48620,6 +48639,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.DayOfTheWeek
+        {
+            ($_ -eq "New-QSAnalysis/Definition_Options_WeekStart") -Or
+            ($_ -eq "New-QSDashboard/Definition_Options_WeekStart") -Or
+            ($_ -eq "New-QSTemplate/Definition_Options_WeekStart") -Or
+            ($_ -eq "Update-QSAnalysis/Definition_Options_WeekStart") -Or
+            ($_ -eq "Update-QSDashboard/Definition_Options_WeekStart") -Or
+            ($_ -eq "Update-QSTemplate/Definition_Options_WeekStart")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.QuickSight.DayOfWeek
         {
             ($_ -eq "New-QSRefreshSchedule/Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek") -Or
@@ -48877,6 +48910,7 @@ $QS_map = @{
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "Definition_Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
     "ExportFormat"=@("Start-QSAssetBundleExportJob")
     "FailureAction"=@("Start-QSAssetBundleImportJob")

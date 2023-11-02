@@ -120,6 +120,16 @@ $AAR_Completers = {
             break
         }
 
+        # Amazon.AppRunner.IpAddressType
+        {
+            ($_ -eq "New-AARService/NetworkConfiguration_IpAddressType") -Or
+            ($_ -eq "Update-AARService/NetworkConfiguration_IpAddressType")
+        }
+        {
+            $v = "DUAL_STACK","IPV4"
+            break
+        }
+
         # Amazon.AppRunner.ProviderType
         "New-AARConnection/ProviderType"
         {
@@ -165,6 +175,7 @@ $AAR_Completers = {
 $AAR_map = @{
     "HealthCheckConfiguration_Protocol"=@("New-AARService","Update-AARService")
     "NetworkConfiguration_EgressConfiguration_EgressType"=@("New-AARService","Update-AARService")
+    "NetworkConfiguration_IpAddressType"=@("New-AARService","Update-AARService")
     "ProviderType"=@("New-AARConnection")
     "SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime"=@("New-AARService","Update-AARService")
     "SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")

@@ -48,6 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AnalyzeRuleGroup
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether you want Network Firewall to analyze the stateless rules in the
+        /// rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>,
+        /// Network Firewall runs the analysis and then creates the rule group for you. To run
+        /// the stateless rule group analyzer without creating the rule group, set <code>DryRun</code>
+        /// to <code>TRUE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AnalyzeRuleGroup { get; set; }
+        #endregion
+        
         #region Parameter Capacity
         /// <summary>
         /// <para>
@@ -232,10 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSource_RulesString
         /// <summary>
         /// <para>
-        /// <para>Stateful inspection criteria, provided in Suricata compatible intrusion prevention
-        /// system (IPS) rules. Suricata is an open-source network IPS that includes a standard
-        /// rule-based language for network traffic inspection.</para><para>These rules contain the inspection criteria and the action to take for traffic that
-        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para>
+        /// <para>Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an
+        /// open-source threat detection framework that includes a standard rule-based language
+        /// for network traffic inspection.</para><para>These rules contain the inspection criteria and the action to take for traffic that
+        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para><note><para>You can't use the <code>priority</code> keyword if the <code>RuleOrder</code> option
+        /// in <a>StatefulRuleOptions</a> is set to <code>STRICT_ORDER</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = (response, cmdlet) => this.RuleGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnalyzeRuleGroup = this.AnalyzeRuleGroup;
             context.Capacity = this.Capacity;
             #if MODULAR
             if (this.Capacity == null && ParameterWasBound(nameof(this.Capacity)))
@@ -519,6 +535,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request
             var request = new Amazon.NetworkFirewall.Model.CreateRuleGroupRequest();
             
+            if (cmdletContext.AnalyzeRuleGroup != null)
+            {
+                request.AnalyzeRuleGroup = cmdletContext.AnalyzeRuleGroup.Value;
+            }
             if (cmdletContext.Capacity != null)
             {
                 request.Capacity = cmdletContext.Capacity.Value;
@@ -875,6 +895,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AnalyzeRuleGroup { get; set; }
             public System.Int32? Capacity { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DryRun { get; set; }

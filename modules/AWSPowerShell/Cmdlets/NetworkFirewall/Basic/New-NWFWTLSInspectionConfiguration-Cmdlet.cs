@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
     /// Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration
-    /// contains the Certificate Manager certificate associations that Network Firewall uses
-    /// to decrypt and re-encrypt traffic traveling through your firewall.
+    /// contains Certificate Manager certificate associations between and the scope configurations
+    /// that Network Firewall uses to decrypt and re-encrypt traffic traveling through your
+    /// firewall.
     /// 
     ///  
     /// <para>
