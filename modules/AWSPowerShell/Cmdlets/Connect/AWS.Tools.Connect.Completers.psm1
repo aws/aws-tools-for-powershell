@@ -273,7 +273,10 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.RehydrationType
-        "Start-CONNChatContact/PersistentChat_RehydrationType"
+        {
+            ($_ -eq "Start-CONNChatContact/PersistentChat_RehydrationType") -Or
+            ($_ -eq "New-CONNPersistentContactAssociation/RehydrationType")
+        }
         {
             $v = "ENTIRE_PAST_SESSION","FROM_SEGMENT"
             break
@@ -424,6 +427,7 @@ $CONN_map = @{
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
+    "RehydrationType"=@("New-CONNPersistentContactAssociation")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNFlowAssociationBatch","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
@@ -517,6 +521,7 @@ $CONN_SelectMap = @{
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
                "New-CONNParticipant",
+               "New-CONNPersistentContactAssociation",
                "New-CONNPrompt",
                "New-CONNQueue",
                "New-CONNQuickConnect",

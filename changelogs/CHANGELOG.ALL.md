@@ -1,4 +1,12 @@
-﻿### 4.1.444 (2023-11-02 21:23Z)
+﻿### 4.1.445 (2023-11-03 21:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.677.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet New-CONNPersistentContactAssociation leveraging the CreatePersistentContactAssociation service API.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWWirelessDevice: added parameter x_JoinEui.
+  * Amazon Launch Wizard. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LWIZ and can be listed using the command 'Get-AWSCmdletName -Service LWIZ'.
+
+### 4.1.444 (2023-11-02 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.676.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon App Runner
     * Modified cmdlet New-AARService: added parameter NetworkConfiguration_IpAddressType.

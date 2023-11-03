@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_MaxDutyCycle
         /// <summary>
         /// <para>
-        /// <para>The MaxDutyCycle value.</para>
+        /// <para>The MaxDutyCycle value. It ranges from 0 to 15.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

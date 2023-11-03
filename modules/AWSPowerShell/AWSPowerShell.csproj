@@ -634,6 +634,9 @@
     <Reference Include="AWSSDK.Lambda">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lambda.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.LaunchWizard">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LaunchWizard.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lex">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lex.dll</HintPath>
     </Reference>
@@ -1685,6 +1688,9 @@
     </Reference>
     <Reference Include="AWSSDK.Lambda">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Lambda.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LaunchWizard">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LaunchWizard.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lex">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Lex.dll</HintPath>

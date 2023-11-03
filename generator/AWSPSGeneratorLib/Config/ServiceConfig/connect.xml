@@ -112,6 +112,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePersistentContactAssociation" OutputProperty="ContinuedFromContactId" Verb="New" Noun="PersistentContactAssociation" ShouldProcessTarget="InitialContactId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePrompt" OutputProperty="*" Verb="New" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

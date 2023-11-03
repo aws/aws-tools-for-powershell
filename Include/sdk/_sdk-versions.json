@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.676.0",
+    "ProductVersion" : "3.7.677.0",
     "CoreVersion"    : "3.7.204.12",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -70,7 +70,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "3.7.202.10",
+            "Version" : "3.7.203.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.12"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.211.0",
+            "Version" : "3.7.212.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.12"
@@ -2018,7 +2018,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.200.64",
+            "Version" : "3.7.201.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.12"
@@ -2859,6 +2859,14 @@
         },
         "DataZone"                            : {
             "Version" : "3.7.200.13",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.204.12"
+            },
+            "InPreview"               : false
+        },
+        "LaunchWizard"                        : {
+            "Version" : "3.7.200.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.204.12"

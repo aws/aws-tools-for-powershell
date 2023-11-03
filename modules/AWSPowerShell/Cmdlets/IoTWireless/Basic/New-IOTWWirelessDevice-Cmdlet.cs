@@ -277,6 +277,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Int32? Positioning_Gnss { get; set; }
         #endregion
         
+        #region Parameter x_JoinEui
+        /// <summary>
+        /// <para>
+        /// <para>The JoinEUI value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_OtaaV1_0_x_JoinEui")]
+        public System.String x_JoinEui { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_OtaaV1_1_JoinEui
         /// <summary>
         /// <para>
@@ -505,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_OtaaV1_0_x_AppEui = this.LoRaWAN_OtaaV1_0_x_AppEui;
             context.LoRaWAN_OtaaV1_0_x_AppKey = this.LoRaWAN_OtaaV1_0_x_AppKey;
             context.x_GenAppKey = this.x_GenAppKey;
+            context.x_JoinEui = this.x_JoinEui;
             context.LoRaWAN_OtaaV1_1_AppKey = this.LoRaWAN_OtaaV1_1_AppKey;
             context.LoRaWAN_OtaaV1_1_JoinEui = this.LoRaWAN_OtaaV1_1_JoinEui;
             context.LoRaWAN_OtaaV1_1_NwkKey = this.LoRaWAN_OtaaV1_1_NwkKey;
@@ -745,51 +757,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.LoRaWAN.AbpV1_1 = requestLoRaWAN_loRaWAN_AbpV1_1;
                 requestLoRaWANIsNull = false;
             }
-            Amazon.IoTWireless.Model.OtaaV1_0_x requestLoRaWAN_loRaWAN_OtaaV1_0_x = null;
-            
-             // populate OtaaV1_0_x
-            var requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = true;
-            requestLoRaWAN_loRaWAN_OtaaV1_0_x = new Amazon.IoTWireless.Model.OtaaV1_0_x();
-            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui = null;
-            if (cmdletContext.LoRaWAN_OtaaV1_0_x_AppEui != null)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui = cmdletContext.LoRaWAN_OtaaV1_0_x_AppEui;
-            }
-            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui != null)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x.AppEui = requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui;
-                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
-            }
-            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey = null;
-            if (cmdletContext.LoRaWAN_OtaaV1_0_x_AppKey != null)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey = cmdletContext.LoRaWAN_OtaaV1_0_x_AppKey;
-            }
-            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey != null)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x.AppKey = requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey;
-                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
-            }
-            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey = null;
-            if (cmdletContext.x_GenAppKey != null)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey = cmdletContext.x_GenAppKey;
-            }
-            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey != null)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x.GenAppKey = requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey;
-                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
-            }
-             // determine if requestLoRaWAN_loRaWAN_OtaaV1_0_x should be set to null
-            if (requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull)
-            {
-                requestLoRaWAN_loRaWAN_OtaaV1_0_x = null;
-            }
-            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x != null)
-            {
-                request.LoRaWAN.OtaaV1_0_x = requestLoRaWAN_loRaWAN_OtaaV1_0_x;
-                requestLoRaWANIsNull = false;
-            }
             Amazon.IoTWireless.Model.OtaaV1_1 requestLoRaWAN_loRaWAN_OtaaV1_1 = null;
             
              // populate OtaaV1_1
@@ -833,6 +800,61 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_OtaaV1_1 != null)
             {
                 request.LoRaWAN.OtaaV1_1 = requestLoRaWAN_loRaWAN_OtaaV1_1;
+                requestLoRaWANIsNull = false;
+            }
+            Amazon.IoTWireless.Model.OtaaV1_0_x requestLoRaWAN_loRaWAN_OtaaV1_0_x = null;
+            
+             // populate OtaaV1_0_x
+            var requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = true;
+            requestLoRaWAN_loRaWAN_OtaaV1_0_x = new Amazon.IoTWireless.Model.OtaaV1_0_x();
+            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui = null;
+            if (cmdletContext.LoRaWAN_OtaaV1_0_x_AppEui != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui = cmdletContext.LoRaWAN_OtaaV1_0_x_AppEui;
+            }
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x.AppEui = requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppEui;
+                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
+            }
+            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey = null;
+            if (cmdletContext.LoRaWAN_OtaaV1_0_x_AppKey != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey = cmdletContext.LoRaWAN_OtaaV1_0_x_AppKey;
+            }
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x.AppKey = requestLoRaWAN_loRaWAN_OtaaV1_0_x_loRaWAN_OtaaV1_0_x_AppKey;
+                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
+            }
+            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey = null;
+            if (cmdletContext.x_GenAppKey != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey = cmdletContext.x_GenAppKey;
+            }
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x.GenAppKey = requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_GenAppKey;
+                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
+            }
+            System.String requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_JoinEui = null;
+            if (cmdletContext.x_JoinEui != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_JoinEui = cmdletContext.x_JoinEui;
+            }
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_JoinEui != null)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x.JoinEui = requestLoRaWAN_loRaWAN_OtaaV1_0_x_x_JoinEui;
+                requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_OtaaV1_0_x should be set to null
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_xIsNull)
+            {
+                requestLoRaWAN_loRaWAN_OtaaV1_0_x = null;
+            }
+            if (requestLoRaWAN_loRaWAN_OtaaV1_0_x != null)
+            {
+                request.LoRaWAN.OtaaV1_0_x = requestLoRaWAN_loRaWAN_OtaaV1_0_x;
                 requestLoRaWANIsNull = false;
             }
             Amazon.IoTWireless.Model.FPorts requestLoRaWAN_loRaWAN_FPorts = null;
@@ -1061,6 +1083,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_OtaaV1_0_x_AppEui { get; set; }
             public System.String LoRaWAN_OtaaV1_0_x_AppKey { get; set; }
             public System.String x_GenAppKey { get; set; }
+            public System.String x_JoinEui { get; set; }
             public System.String LoRaWAN_OtaaV1_1_AppKey { get; set; }
             public System.String LoRaWAN_OtaaV1_1_JoinEui { get; set; }
             public System.String LoRaWAN_OtaaV1_1_NwkKey { get; set; }

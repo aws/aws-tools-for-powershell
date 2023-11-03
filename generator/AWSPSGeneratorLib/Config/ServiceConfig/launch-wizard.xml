@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>launch-wizard</C2jFilename>
+    <AssemblyName>LaunchWizard</AssemblyName>
+    <ServiceNounPrefix>LWIZ</ServiceNounPrefix>
+    <ServiceName>AWS Launch Wizard</ServiceName>
+    <ServiceClientInterface>IAmazonLaunchWizard</ServiceClientInterface>
+    <ServiceClient>AmazonLaunchWizardClient</ServiceClient>
+    <ServiceModuleGuid>5e7a7c95-c4ae-4a61-9bcb-a9c29789a07c</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="DeploymentId" Verb="New" Noun="Deployment" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeployment" OutputProperty="*" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="Deployment" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentEvents" OutputProperty="DeploymentEvents" Verb="Get" Noun="DeploymentEventList" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkloadDeploymentPatterns" OutputProperty="WorkloadDeploymentPatterns" Verb="Get" Noun="WorkloadDeploymentPatternList" PipelineParameter="WorkloadName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkloads" OutputProperty="Workloads" Verb="Get" Noun="WorkloadList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

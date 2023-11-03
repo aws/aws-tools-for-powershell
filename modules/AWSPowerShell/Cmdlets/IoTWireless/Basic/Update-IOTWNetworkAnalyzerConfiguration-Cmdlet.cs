@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Multicast group resources to remove from the network analyzer configuration. Provide
-        /// the <code>MulticastGroupId</code> of the resource to remove in the input array.</para>
+        /// the <code>MulticastGroupId</code> of the resources to remove in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
