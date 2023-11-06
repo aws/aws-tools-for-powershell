@@ -76,6 +76,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutContact" OutputProperty="*" Verb="Set" Noun="BatchPutContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ClaimPhoneNumber" OutputProperty="*" Verb="Request" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

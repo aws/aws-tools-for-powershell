@@ -5579,6 +5579,9 @@ Set-Alias -Name CONN-AssociateTrafficDistributionGroupUser -Value Add-CONNTraffi
 Set-Alias -Name Batch-CONNGetFlowAssociation -Value Get-CONNFlowAssociationBatch
 Set-Alias -Name Batch-CONNFlowAssociationBatch -Value Get-CONNFlowAssociationBatch
 Set-Alias -Name CONN-BatchGetFlowAssociation -Value Get-CONNFlowAssociationBatch
+Set-Alias -Name Batch-CONNPutContact -Value Set-CONNBatchPutContact
+Set-Alias -Name Batch-CONNBatchPutContact -Value Set-CONNBatchPutContact
+Set-Alias -Name CONN-BatchPutContact -Value Set-CONNBatchPutContact
 Set-Alias -Name Claim-CONNPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name CONN-ClaimPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name Create-CONNAgentStatus -Value New-CONNAgentStatus

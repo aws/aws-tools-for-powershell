@@ -28,7 +28,7 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.
+    /// <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Publish", "MWAAMetric", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.MWAA.Model.PublishMetricsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is for internal use and not meant for public use, and is no longer available.")]
     public partial class PublishMWAAMetricCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         

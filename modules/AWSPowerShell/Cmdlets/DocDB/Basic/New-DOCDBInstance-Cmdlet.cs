@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter CACertificateIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The CA certificate identifier to use for the DB instance's server certificate.</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating
+        /// Your Amazon DocumentDB TLS Certificates</a> and <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+        /// Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CACertificateIdentifier { get; set; }
+        #endregion
+        
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -269,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
@@ -329,6 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.CACertificateIdentifier != null)
+            {
+                request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
             }
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
@@ -433,6 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         {
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.String CACertificateIdentifier { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }

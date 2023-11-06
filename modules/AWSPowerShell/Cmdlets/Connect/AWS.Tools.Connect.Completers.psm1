@@ -512,6 +512,7 @@ $CONN_SelectMap = @{
                "Add-CONNSecurityKey",
                "Add-CONNTrafficDistributionGroupUser",
                "Get-CONNFlowAssociationBatch",
+               "Set-CONNBatchPutContact",
                "Request-CONNPhoneNumber",
                "New-CONNAgentStatus",
                "New-CONNContactFlow",

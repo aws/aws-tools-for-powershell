@@ -1,4 +1,13 @@
-﻿### 4.1.445 (2023-11-03 21:53Z)
+﻿### 4.1.446 (2023-11-06 22:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.678.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Set-CONNBatchPutContact leveraging the BatchPutContact service API.
+    * Modified cmdlet Stop-CONNContact: added parameter DisconnectReason_Code.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBInstance: added parameter CertificateRotationRestart.
+    * Modified cmdlet New-DOCDBInstance: added parameter CACertificateIdentifier.
+
+### 4.1.445 (2023-11-03 21:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.677.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet New-CONNPersistentContactAssociation leveraging the CreatePersistentContactAssociation service API.

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// other resources used in your workflows are compatible with the new Apache Airflow
         /// version. For more information about updating your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading
         /// an Amazon MWAA environment</a>.</para><para>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>,
-        /// and <code>2.5.1</code>.</para>
+        /// <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

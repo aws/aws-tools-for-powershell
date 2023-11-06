@@ -78,6 +78,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String CACertificateIdentifier { get; set; }
         #endregion
         
+        #region Parameter CertificateRotationRestart
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.</para><para>By default, the DB instance is restarted when you rotate your SSL/TLS certificate.
+        /// The certificate is not updated until the DB instance is restarted.</para><important><para>Set this parameter only if you are <i>not</i> using SSL/TLS to connect to the DB instance.</para></important><para>If you are using SSL/TLS to connect to the DB instance, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating
+        /// Your Amazon DocumentDB TLS Certificates</a> and <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+        /// Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CertificateRotationRestart { get; set; }
+        #endregion
+        
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -253,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.ApplyImmediately = this.ApplyImmediately;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
+            context.CertificateRotationRestart = this.CertificateRotationRestart;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
@@ -294,6 +308,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.CACertificateIdentifier != null)
             {
                 request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
+            }
+            if (cmdletContext.CertificateRotationRestart != null)
+            {
+                request.CertificateRotationRestart = cmdletContext.CertificateRotationRestart.Value;
             }
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
@@ -391,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String CACertificateIdentifier { get; set; }
+            public System.Boolean? CertificateRotationRestart { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }

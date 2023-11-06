@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The Apache Airflow version for your environment. If no value is specified, it defaults
-        /// to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
-        /// <code>2.4.3</code>, and <code>2.5.1</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
-        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</para>
+        /// to the latest version. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
+        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</para><para>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>,
+        /// <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// You must be careful about what information is output to the build logs. Some best
     /// practice are:
     /// </para><ul><li><para>
-    /// Do not store sensitive values, especially Amazon Web Services access key IDs and secret
-    /// access keys, in environment variables. We recommend that you use an Amazon EC2 Systems
-    /// Manager Parameter Store or Secrets Manager to store sensitive values.
+    /// Do not store sensitive values in environment variables. We recommend that you use
+    /// an Amazon EC2 Systems Manager Parameter Store or Secrets Manager to store sensitive
+    /// values.
     /// </para></li><li><para>
     /// Follow <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices">Best
     /// practices for using webhooks</a> in the <i>CodeBuild User Guide</i> to limit which

@@ -170,7 +170,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
         {
-            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
+            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
             break
         }
 
@@ -194,7 +194,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "ARM_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
+            $v = "ARM_CONTAINER","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
             break
         }
 

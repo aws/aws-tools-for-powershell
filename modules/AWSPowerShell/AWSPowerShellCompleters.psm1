@@ -10840,7 +10840,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
         {
-            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
+            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
             break
         }
 
@@ -10864,7 +10864,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "ARM_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
+            $v = "ARM_CONTAINER","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
             break
         }
 
@@ -14679,6 +14679,7 @@ $CONN_SelectMap = @{
                "Add-CONNSecurityKey",
                "Add-CONNTrafficDistributionGroupUser",
                "Get-CONNFlowAssociationBatch",
+               "Set-CONNBatchPutContact",
                "Request-CONNPhoneNumber",
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
@@ -47795,7 +47796,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
             break
         }
 

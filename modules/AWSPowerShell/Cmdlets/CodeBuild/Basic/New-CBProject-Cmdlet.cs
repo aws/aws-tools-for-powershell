@@ -145,7 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>Information about the compute resources the build project uses. Available values include:</para><ul><li><para><code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for builds,
         /// depending on your environment type.</para></li><li><para><code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and 824 GB
-        /// of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li></ul><para> If you use <code>BUILD_GENERAL1_LARGE</code>: </para><ul><li><para> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB memory
+        /// of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li><li><para><code>BUILD_LAMBDA_1GB</code>: Use up to 1 GB memory for builds. Only available for
+        /// environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</para></li><li><para><code>BUILD_LAMBDA_2GB</code>: Use up to 2 GB memory for builds. Only available for
+        /// environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</para></li><li><para><code>BUILD_LAMBDA_4GB</code>: Use up to 4 GB memory for builds. Only available for
+        /// environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</para></li><li><para><code>BUILD_LAMBDA_8GB</code>: Use up to 8 GB memory for builds. Only available for
+        /// environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</para></li><li><para><code>BUILD_LAMBDA_10GB</code>: Use up to 10 GB memory for builds. Only available
+        /// for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</para></li></ul><para> If you use <code>BUILD_GENERAL1_SMALL</code>: </para><ul><li><para> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB memory
+        /// and 2 vCPUs for builds. </para></li><li><para> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16 GB memory,
+        /// 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</para></li><li><para> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB memory and
+        /// 2 vCPUs on ARM-based processors for builds.</para></li></ul><para> If you use <code>BUILD_GENERAL1_LARGE</code>: </para><ul><li><para> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB memory
         /// and 8 vCPUs for builds. </para></li><li><para> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255 GB memory,
         /// 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</para></li><li><para> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB memory and
         /// 8 vCPUs on ARM-based processors for builds.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
@@ -900,7 +908,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// and China (Ningxia).</para></li><li><para>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in regions
         /// US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), EU (Ireland),
         /// EU (London), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific
-        /// (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul><ul><li><para>The environment types <code>WINDOWS_CONTAINER</code> and <code>WINDOWS_SERVER_2019_CONTAINER</code>
+        /// (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul><ul><li><para>The environment types <code>ARM_LAMBDA_CONTAINER</code> and <code>LINUX_LAMBDA_CONTAINER</code>
+        /// are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
+        /// Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific
+        /// (Tokyo), EU (Frankfurt), EU (Ireland), and South America (São Paulo).</para></li></ul><ul><li><para>The environment types <code>WINDOWS_CONTAINER</code> and <code>WINDOWS_SERVER_2019_CONTAINER</code>
         /// are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
         /// and EU (Ireland).</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// environment compute types</a> in the <i>CodeBuild user guide</i>.</para>
