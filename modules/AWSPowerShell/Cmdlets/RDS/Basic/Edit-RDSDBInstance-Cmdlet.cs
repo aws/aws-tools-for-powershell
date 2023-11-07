@@ -199,8 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// in your request. </para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>If you are modifying the DB instance class and upgrading the engine version at the
         /// same time, the currently running engine version must be supported on the specified
         /// DB instance class. Otherwise, the operation returns an error. In this case, first
-        /// run the operation to modify the DB instance class, and then run it again to upgrade
-        /// the engine version.</para></li></ul>
+        /// run the operation to upgrade the engine version, and then run it again to modify the
+        /// DB instance class.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -475,8 +475,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// are in the <code>PATCH_DB_FAILURE</code> lifecycle.</para><para>Constraints:</para><ul><li><para>If you are upgrading the engine version and modifying the DB instance class at the
         /// same time, the currently running engine version must be supported on the specified
         /// DB instance class. Otherwise, the operation returns an error. In this case, first
-        /// run the operation to modify the DB instance class, and then run it again to upgrade
-        /// the engine version.</para></li></ul>
+        /// run the operation to upgrade the engine version, and then run it again to modify the
+        /// DB instance class.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -628,6 +628,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? MultiAZ { get; set; }
+        #endregion
+        
+        #region Parameter MultiTenant
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the to convert your DB instance from the single-tenant conﬁguration
+        /// to the multi-tenant conﬁguration. This parameter is supported only for RDS for Oracle
+        /// CDB instances.</para><para>During the conversion, RDS creates an initial tenant database and associates the DB
+        /// name, master user name, character set, and national character set metadata with this
+        /// database. The tags associated with the instance also propagate to the initial tenant
+        /// database. You can add more tenant databases to your DB instance by using the <code>CreateTenantDatabase</code>
+        /// operation.</para><important><para>The conversion to the multi-tenant configuration is permanent and irreversible, so
+        /// you can't later convert back to the single-tenant configuration. When you specify
+        /// this parameter, you must also specify <code>ApplyImmediately</code>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiTenant { get; set; }
         #endregion
         
         #region Parameter NetworkType
@@ -1019,6 +1037,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
+            context.MultiTenant = this.MultiTenant;
             context.NetworkType = this.NetworkType;
             context.NewDBInstanceIdentifier = this.NewDBInstanceIdentifier;
             context.OptionGroupName = this.OptionGroupName;
@@ -1245,6 +1264,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
+            if (cmdletContext.MultiTenant != null)
+            {
+                request.MultiTenant = cmdletContext.MultiTenant.Value;
+            }
             if (cmdletContext.NetworkType != null)
             {
                 request.NetworkType = cmdletContext.NetworkType;
@@ -1423,6 +1446,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
+            public System.Boolean? MultiTenant { get; set; }
             public System.String NetworkType { get; set; }
             public System.String NewDBInstanceIdentifier { get; set; }
             public System.String OptionGroupName { get; set; }

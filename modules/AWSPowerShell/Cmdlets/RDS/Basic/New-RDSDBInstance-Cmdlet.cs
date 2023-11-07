@@ -636,6 +636,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? MultiAZ { get; set; }
         #endregion
         
+        #region Parameter MultiTenant
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use the multi-tenant configuration or the single-tenant configuration
+        /// (default). This parameter only applies to RDS for Oracle container database (CDB)
+        /// engines.</para><para>Note the following restrictions: </para><ul><li><para>The DB engine that you specify in the request must support the multi-tenant configuration.
+        /// If you attempt to enable the multi-tenant configuration on a DB engine that doesn't
+        /// support it, the request fails.</para></li><li><para>If you specify the multi-tenant configuration when you create your DB instance, you
+        /// can't later modify this DB instance to use the single-tenant configuration.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiTenant { get; set; }
+        #endregion
+        
         #region Parameter NcharCharacterSetName
         /// <summary>
         /// <para>
@@ -1007,6 +1022,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
+            context.MultiTenant = this.MultiTenant;
             context.NcharCharacterSetName = this.NcharCharacterSetName;
             context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
@@ -1219,6 +1235,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
+            if (cmdletContext.MultiTenant != null)
+            {
+                request.MultiTenant = cmdletContext.MultiTenant.Value;
+            }
             if (cmdletContext.NcharCharacterSetName != null)
             {
                 request.NcharCharacterSetName = cmdletContext.NcharCharacterSetName;
@@ -1398,6 +1418,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
+            public System.Boolean? MultiTenant { get; set; }
             public System.String NcharCharacterSetName { get; set; }
             public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }

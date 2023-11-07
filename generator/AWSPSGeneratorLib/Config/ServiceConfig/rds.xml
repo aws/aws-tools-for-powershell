@@ -176,6 +176,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTenantDatabase" OutputProperty="TenantDatabase" Verb="New" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Remove" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -249,6 +253,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOptionGroup" Verb="Remove" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTenantDatabase" OutputProperty="TenantDatabase" Verb="Remove" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -354,6 +362,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBSnapshotTenantDatabases" OutputProperty="DBSnapshotTenantDatabases" Verb="Get" Noun="DBSnapshotTenantDatabasis" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDBSubnetGroups" OutputProperty="DBSubnetGroups" Verb="Get" Noun="DBSubnetGroup" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -420,6 +432,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSourceRegions" OutputProperty="SourceRegions" Verb="Get" Noun="SourceRegion" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTenantDatabases" OutputProperty="TenantDatabases" Verb="Get" Noun="TenantDatabasis" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -518,6 +534,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyOptionGroup" OutputProperty="OptionGroup" Verb="Edit" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="ApplyImmediately" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTenantDatabase" OutputProperty="TenantDatabase" Verb="Edit" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

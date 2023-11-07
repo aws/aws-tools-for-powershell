@@ -1,4 +1,15 @@
-﻿### 4.1.446 (2023-11-06 22:24Z)
+﻿### 4.1.447 (2023-11-07 22:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.679.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSTenantDatabase leveraging the ModifyTenantDatabase service API.
+    * Added cmdlet Get-RDSDBSnapshotTenantDatabasis leveraging the DescribeDBSnapshotTenantDatabases service API.
+    * Added cmdlet Get-RDSTenantDatabasis leveraging the DescribeTenantDatabases service API.
+    * Added cmdlet New-RDSTenantDatabase leveraging the CreateTenantDatabase service API.
+    * Added cmdlet Remove-RDSTenantDatabase leveraging the DeleteTenantDatabase service API.
+    * Modified cmdlet Edit-RDSDBInstance: added parameter MultiTenant.
+    * Modified cmdlet New-RDSDBInstance: added parameter MultiTenant.
+
+### 4.1.446 (2023-11-06 22:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.678.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Set-CONNBatchPutContact leveraging the BatchPutContact service API.

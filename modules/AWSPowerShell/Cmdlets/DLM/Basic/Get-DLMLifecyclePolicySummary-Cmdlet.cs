@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     /// 
     ///  
     /// <para>
-    /// To get complete information about a policy, use <a>GetLifecyclePolicy</a>.
+    /// To get complete information about a policy, use <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html">GetLifecyclePolicy</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DLMLifecyclePolicySummary")]

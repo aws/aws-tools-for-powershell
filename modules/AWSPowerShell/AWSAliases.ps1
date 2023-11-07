@@ -20854,6 +20854,8 @@ Set-Alias -Name Create-RDSIntegration -Value New-RDSIntegration
 Set-Alias -Name RDS-CreateIntegration -Value New-RDSIntegration
 Set-Alias -Name Create-RDSOptionGroup -Value New-RDSOptionGroup
 Set-Alias -Name RDS-CreateOptionGroup -Value New-RDSOptionGroup
+Set-Alias -Name Create-RDSTenantDatabase -Value New-RDSTenantDatabase
+Set-Alias -Name RDS-CreateTenantDatabase -Value New-RDSTenantDatabase
 Set-Alias -Name Delete-RDSBlueGreenDeployment -Value Remove-RDSBlueGreenDeployment
 Set-Alias -Name RDS-DeleteBlueGreenDeployment -Value Remove-RDSBlueGreenDeployment
 Set-Alias -Name Delete-RDSCustomDBEngineVersion -Value Remove-RDSCustomDBEngineVersion
@@ -20892,6 +20894,8 @@ Set-Alias -Name Delete-RDSIntegration -Value Remove-RDSIntegration
 Set-Alias -Name RDS-DeleteIntegration -Value Remove-RDSIntegration
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
+Set-Alias -Name Delete-RDSTenantDatabase -Value Remove-RDSTenantDatabase
+Set-Alias -Name RDS-DeleteTenantDatabase -Value Remove-RDSTenantDatabase
 Set-Alias -Name Deregister-RDSDBProxyTargets -Value Unregister-RDSDBProxyTarget
 Set-Alias -Name Deregister-RDSDBProxyTarget -Value Unregister-RDSDBProxyTarget
 Set-Alias -Name RDS-DeregisterDBProxyTargets -Value Unregister-RDSDBProxyTarget
@@ -20967,6 +20971,9 @@ Set-Alias -Name RDS-DescribeDBSnapshotAttributes -Value Get-RDSDBSnapshotAttribu
 Set-Alias -Name Describe-RDSDBSnapshots -Value Get-RDSDBSnapshot
 Set-Alias -Name Describe-RDSDBSnapshot -Value Get-RDSDBSnapshot
 Set-Alias -Name RDS-DescribeDBSnapshots -Value Get-RDSDBSnapshot
+Set-Alias -Name Describe-RDSDBSnapshotTenantDatabases -Value Get-RDSDBSnapshotTenantDatabasis
+Set-Alias -Name Describe-RDSDBSnapshotTenantDatabasis -Value Get-RDSDBSnapshotTenantDatabasis
+Set-Alias -Name RDS-DescribeDBSnapshotTenantDatabases -Value Get-RDSDBSnapshotTenantDatabasis
 Set-Alias -Name Describe-RDSDBSubnetGroups -Value Get-RDSDBSubnetGroup
 Set-Alias -Name Describe-RDSDBSubnetGroup -Value Get-RDSDBSubnetGroup
 Set-Alias -Name RDS-DescribeDBSubnetGroups -Value Get-RDSDBSubnetGroup
@@ -21015,6 +21022,9 @@ Set-Alias -Name RDS-DescribeReservedDBInstancesOfferings -Value Get-RDSReservedD
 Set-Alias -Name Describe-RDSSourceRegions -Value Get-RDSSourceRegion
 Set-Alias -Name Describe-RDSSourceRegion -Value Get-RDSSourceRegion
 Set-Alias -Name RDS-DescribeSourceRegions -Value Get-RDSSourceRegion
+Set-Alias -Name Describe-RDSTenantDatabases -Value Get-RDSTenantDatabasis
+Set-Alias -Name Describe-RDSTenantDatabasis -Value Get-RDSTenantDatabasis
+Set-Alias -Name RDS-DescribeTenantDatabases -Value Get-RDSTenantDatabasis
 Set-Alias -Name Describe-RDSValidDBInstanceModifications -Value Get-RDSValidDBInstanceModification
 Set-Alias -Name Describe-RDSValidDBInstanceModification -Value Get-RDSValidDBInstanceModification
 Set-Alias -Name RDS-DescribeValidDBInstanceModifications -Value Get-RDSValidDBInstanceModification
@@ -21067,6 +21077,8 @@ Set-Alias -Name Modify-RDSGlobalCluster -Value Edit-RDSGlobalCluster
 Set-Alias -Name RDS-ModifyGlobalCluster -Value Edit-RDSGlobalCluster
 Set-Alias -Name Modify-RDSOptionGroup -Value Edit-RDSOptionGroup
 Set-Alias -Name RDS-ModifyOptionGroup -Value Edit-RDSOptionGroup
+Set-Alias -Name Modify-RDSTenantDatabase -Value Edit-RDSTenantDatabase
+Set-Alias -Name RDS-ModifyTenantDatabase -Value Edit-RDSTenantDatabase
 Set-Alias -Name Promote-RDSReadReplica -Value Convert-RDSReadReplicaToStandalone
 Set-Alias -Name Promote-RDSReadReplicaToStandalone -Value Convert-RDSReadReplicaToStandalone
 Set-Alias -Name RDS-PromoteReadReplica -Value Convert-RDSReadReplicaToStandalone
