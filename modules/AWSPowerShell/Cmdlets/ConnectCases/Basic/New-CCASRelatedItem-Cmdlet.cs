@@ -28,14 +28,7 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Creates a related item (comments, tasks, and contacts) and associates it with a case.
-    /// 
-    ///  <note><para>
-    /// A Related Item is a resource that is associated with a case. It may or may not have
-    /// an external identifier linking it to an external resource (for example, a <code>contactArn</code>).
-    /// All Related Items have their own internal identifier, the <code>relatedItemArn</code>.
-    /// Examples of related items include <code>comments</code> and <code>contacts</code>.
-    /// </para></note>
+    /// Amazon.ConnectCases.IAmazonConnectCases.CreateRelatedItem
     /// </summary>
     [Cmdlet("New", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectCases.Model.CreateRelatedItemResponse")]
@@ -133,6 +126,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public Amazon.ConnectCases.RelatedItemType Type { get; set; }
         #endregion
         
+        #region Parameter PerformedBy_UserArn
+        /// <summary>
+        /// <para>
+        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformedBy_UserArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -212,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformedBy_UserArn = this.PerformedBy_UserArn;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -312,6 +316,25 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 request.DomainId = cmdletContext.DomainId;
             }
+            
+             // populate PerformedBy
+            var requestPerformedByIsNull = true;
+            request.PerformedBy = new Amazon.ConnectCases.Model.UserUnion();
+            System.String requestPerformedBy_performedBy_UserArn = null;
+            if (cmdletContext.PerformedBy_UserArn != null)
+            {
+                requestPerformedBy_performedBy_UserArn = cmdletContext.PerformedBy_UserArn;
+            }
+            if (requestPerformedBy_performedBy_UserArn != null)
+            {
+                request.PerformedBy.UserArn = requestPerformedBy_performedBy_UserArn;
+                requestPerformedByIsNull = false;
+            }
+             // determine if request.PerformedBy should be set to null
+            if (requestPerformedByIsNull)
+            {
+                request.PerformedBy = null;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -382,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public Amazon.ConnectCases.CommentBodyTextType Comment_ContentType { get; set; }
             public System.String Contact_ContactArn { get; set; }
             public System.String DomainId { get; set; }
+            public System.String PerformedBy_UserArn { get; set; }
             public Amazon.ConnectCases.RelatedItemType Type { get; set; }
             public System.Func<Amazon.ConnectCases.Model.CreateRelatedItemResponse, NewCCASRelatedItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.Boolean? EnhancedVpcRouting { get; set; }
         #endregion
         
+        #region Parameter MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries.
+        /// The max capacity is specified in RPUs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxCapacity { get; set; }
+        #endregion
+        
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
@@ -236,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.ConfigParameter = new List<Amazon.RedshiftServerless.Model.ConfigParameter>(this.ConfigParameter);
             }
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
+            context.MaxCapacity = this.MaxCapacity;
             context.NamespaceName = this.NamespaceName;
             #if MODULAR
             if (this.NamespaceName == null && ParameterWasBound(nameof(this.NamespaceName)))
@@ -291,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.EnhancedVpcRouting != null)
             {
                 request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
+            }
+            if (cmdletContext.MaxCapacity != null)
+            {
+                request.MaxCapacity = cmdletContext.MaxCapacity.Value;
             }
             if (cmdletContext.NamespaceName != null)
             {
@@ -384,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.Int32? BaseCapacity { get; set; }
             public List<Amazon.RedshiftServerless.Model.ConfigParameter> ConfigParameter { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
+            public System.Int32? MaxCapacity { get; set; }
             public System.String NamespaceName { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }

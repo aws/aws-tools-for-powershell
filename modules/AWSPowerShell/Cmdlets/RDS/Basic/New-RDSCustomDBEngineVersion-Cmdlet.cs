@@ -159,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceCustomDbEngineVersionIdentifier
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The ARN of a CEV to use as a source for creating a new CEV. You can specify a different
+        /// Amazon Machine Imagine (AMI) by using either <code>Source</code> or <code>UseAwsProvidedLatestImage</code>.
+        /// You can't specify a different JSON manifest when you specify <code>SourceCustomDbEngineVersionIdentifier</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UseAwsProvidedLatestImage
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for
+        /// the CEV. If you specify <code>UseAwsProvidedLatestImage</code>, you can't also specify
+        /// <code>ImageId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

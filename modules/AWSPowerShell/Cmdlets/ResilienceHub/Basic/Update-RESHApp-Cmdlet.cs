@@ -130,8 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>
         /// <para>Existing Amazon Web Services IAM role name in the primary Amazon Web Services account
         /// that will be assumed by Resilience Hub Service Principle to obtain a read-only access
-        /// to your application resources while running an assessment.</para><note><para>You must have <code>iam:passRole</code> permission for this role while creating or
-        /// updating the application.</para></note>
+        /// to your application resources while running an assessment.</para><note><ul><li><para>You must have <code>iam:passRole</code> permission for this role while creating or
+        /// updating the application.</para></li><li><para>Currently, <code>invokerRoleName</code> accepts only <code>[A-Za-z0-9_+=,.@-]</code>
+        /// characters.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

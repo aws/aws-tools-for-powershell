@@ -1,4 +1,12 @@
-﻿### 4.1.447 (2023-11-07 22:38Z)
+﻿### 4.1.448 (2023-11-08 22:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.680.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASRelatedItem: added parameter PerformedBy_UserArn.
+  * Amazon Redshift Serverless
+    * Modified cmdlet New-RSSWorkgroup: added parameter MaxCapacity.
+    * Modified cmdlet Update-RSSWorkgroup: added parameter MaxCapacity.
+
+### 4.1.447 (2023-11-07 22:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.679.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Relational Database Service
     * Added cmdlet Edit-RDSTenantDatabase leveraging the ModifyTenantDatabase service API.
