@@ -1,3 +1,0 @@
-﻿# Macie
-
-Export-ModuleMember -Alias *

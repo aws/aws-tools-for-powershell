@@ -706,9 +706,6 @@
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Macie">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Macie.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Macie2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Macie2.dll</HintPath>
     </Reference>
@@ -1811,9 +1808,6 @@
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MachineLearning.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Macie">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Macie.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Macie2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Macie2.dll</HintPath>

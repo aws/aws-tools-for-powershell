@@ -1146,14 +1146,6 @@
             },
             "InPreview"               : false
         },
-        "Macie"                           : {
-            "Version" : "3.7.300.12",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.300.12"
-            },
-            "InPreview"               : false
-        },
         "DLM"                             : {
             "Version" : "3.7.301.8",
             "AssemblyVersionOverride" : "3.3",
