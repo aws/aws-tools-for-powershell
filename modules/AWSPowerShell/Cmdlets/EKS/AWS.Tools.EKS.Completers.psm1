@@ -101,6 +101,20 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.EksAnywhereSubscriptionLicenseType
+        "New-EKSEksAnywhereSubscription/LicenseType"
+        {
+            $v = "Cluster"
+            break
+        }
+
+        # Amazon.EKS.EksAnywhereSubscriptionTermUnit
+        "New-EKSEksAnywhereSubscription/Term_Unit"
+        {
+            $v = "MONTHS"
+            break
+        }
+
         # Amazon.EKS.IpFamily
         "New-EKSCluster/KubernetesNetworkConfig_IpFamily"
         {
@@ -131,7 +145,9 @@ $EKS_map = @{
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster")
+    "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
+    "Term_Unit"=@("New-EKSEksAnywhereSubscription")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map
@@ -188,10 +204,12 @@ $EKS_SelectMap = @{
                "Add-EKSIdentityProviderConfig",
                "New-EKSAddon",
                "New-EKSCluster",
+               "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
                "New-EKSNodegroup",
                "Remove-EKSAddon",
                "Remove-EKSCluster",
+               "Remove-EKSEksAnywhereSubscription",
                "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
                "Unregister-EKSCluster",
@@ -199,6 +217,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
+               "Get-EKSEksAnywhereSubscription",
                "Get-EKSFargateProfile",
                "Get-EKSIdentityProviderConfig",
                "Get-EKSNodegroup",
@@ -206,6 +225,7 @@ $EKS_SelectMap = @{
                "Remove-EKSIdentityProviderConfig",
                "Get-EKSAddonList",
                "Get-EKSClusterList",
+               "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
                "Get-EKSIdentityProviderConfigList",
                "Get-EKSNodegroupList",
@@ -217,6 +237,7 @@ $EKS_SelectMap = @{
                "Update-EKSAddon",
                "Update-EKSClusterConfig",
                "Update-EKSClusterVersion",
+               "Update-EKSEksAnywhereSubscription",
                "Update-EKSNodegroupConfig",
                "Update-EKSNodegroupVersion")
 }

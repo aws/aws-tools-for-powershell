@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The type of input documents for training the model. Provide plain-text documents to
         /// create a plain-text model, and provide semi-structured documents to create a native
-        /// model.</para>
+        /// document model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,8 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig_TestS3Uri
         /// <summary>
         /// <para>
-        /// <para>This specifies the Amazon S3 location where the test annotations for an entity recognizer
-        /// are located. The URI must be in the same Amazon Web Services Region as the API endpoint
+        /// <para>This specifies the Amazon S3 location that contains the test annotations for the document
+        /// classifier. The URI must be in the same Amazon Web Services Region as the API endpoint
         /// that you are calling. </para>
         /// </para>
         /// </summary>

@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     ///  
     /// <para>
     /// For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code> includes
-    /// or excludes management and data events in your event data store. For more information
-    /// about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.
+    /// or excludes management, data, or Insights events in your event data store. For more
+    /// information about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.
     /// </para><para>
     ///  For event data stores for Config configuration items, Audit Manager evidence, or
     /// non-Amazon Web Services events, <code>AdvancedEventSelectors</code> includes events
@@ -129,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies whether an event data store collects events logged for an organization in
-        /// Organizations.</para>
+        /// Organizations.</para><note><para>Only the management account for the organization can convert an organization event
+        /// data store to a non-organization event data store, or convert a non-organization event
+        /// data store to an organization event data store.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

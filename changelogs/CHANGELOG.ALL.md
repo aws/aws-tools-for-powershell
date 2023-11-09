@@ -1,4 +1,40 @@
-﻿### 4.1.449 (2023-11-09 04:10Z)
+﻿### 4.1.450 (2023-11-09 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.682.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudTrail
+    * Modified cmdlet Get-CTInsightSelector: added parameter EventDataStore.
+    * Modified cmdlet Write-CTInsightSelector: added parameters EventDataStore and InsightsDestination.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Find-CWLDelivery leveraging the DescribeDeliveries service API.
+    * Added cmdlet Find-CWLDeliveryDestination leveraging the DescribeDeliveryDestinations service API.
+    * Added cmdlet Find-CWLDeliverySource leveraging the DescribeDeliverySources service API.
+    * Added cmdlet Get-CWLDelivery leveraging the GetDelivery service API.
+    * Added cmdlet Get-CWLDeliveryDestination leveraging the GetDeliveryDestination service API.
+    * Added cmdlet Get-CWLDeliveryDestinationPolicy leveraging the GetDeliveryDestinationPolicy service API.
+    * Added cmdlet Get-CWLDeliverySource leveraging the GetDeliverySource service API.
+    * Added cmdlet New-CWLDelivery leveraging the CreateDelivery service API.
+    * Added cmdlet Remove-CWLDelivery leveraging the DeleteDelivery service API.
+    * Added cmdlet Remove-CWLDeliveryDestination leveraging the DeleteDeliveryDestination service API.
+    * Added cmdlet Remove-CWLDeliveryDestinationPolicy leveraging the DeleteDeliveryDestinationPolicy service API.
+    * Added cmdlet Remove-CWLDeliverySource leveraging the DeleteDeliverySource service API.
+    * Added cmdlet Write-CWLDeliveryDestination leveraging the PutDeliveryDestination service API.
+    * Added cmdlet Write-CWLDeliveryDestinationPolicy leveraging the PutDeliveryDestinationPolicy service API.
+    * Added cmdlet Write-CWLDeliverySource leveraging the PutDeliverySource service API.
+  * Amazon Comprehend
+    * Added cmdlet Find-COMPToxicContent leveraging the DetectToxicContent service API.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNIntegrationAssociationList: added parameter IntegrationArn.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2SnapshotBlockPublicAccess leveraging the DisableSnapshotBlockPublicAccess service API.
+    * Added cmdlet Enable-EC2SnapshotBlockPublicAccess leveraging the EnableSnapshotBlockPublicAccess service API.
+    * Added cmdlet Get-EC2SnapshotBlockPublicAccessState leveraging the GetSnapshotBlockPublicAccessState service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSEksAnywhereSubscription leveraging the DescribeEksAnywhereSubscription service API.
+    * Added cmdlet Get-EKSEksAnywhereSubscriptionList leveraging the ListEksAnywhereSubscriptions service API.
+    * Added cmdlet New-EKSEksAnywhereSubscription leveraging the CreateEksAnywhereSubscription service API.
+    * Added cmdlet Remove-EKSEksAnywhereSubscription leveraging the DeleteEksAnywhereSubscription service API.
+    * Added cmdlet Update-EKSEksAnywhereSubscription leveraging the UpdateEksAnywhereSubscription service API.
+
+### 4.1.449 (2023-11-09 04:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.681.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.448 (2023-11-08 22:23Z)

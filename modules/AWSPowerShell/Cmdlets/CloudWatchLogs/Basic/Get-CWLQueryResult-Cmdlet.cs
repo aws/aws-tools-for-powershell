@@ -38,6 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// operation to get the full log record.
     /// </para><para><code>GetQueryResults</code> does not start running a query. To run a query, use
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.
+    /// For more information about how long results of previous queries are available, see
+    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html">CloudWatch
+    /// Logs quotas</a>.
     /// </para><para>
     /// If the value of the <code>Status</code> field in the output is <code>Running</code>,
     /// this operation returns only partial results. If you see a value of <code>Scheduled</code>

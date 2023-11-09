@@ -183,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DetectToxicContent" OutputProperty="ResultList" Verb="Find" Noun="ToxicContent" PipelineParameter="LanguageCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportModel" OutputProperty="ModelArn" Verb="Import" Noun="Model" ShouldProcessTarget="SourceModelArn" PipelineParameter="SourceModelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

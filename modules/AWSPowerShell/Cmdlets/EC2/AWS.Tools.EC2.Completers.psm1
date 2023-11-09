@@ -881,6 +881,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SnapshotBlockPublicAccessState
+        "Enable-EC2SnapshotBlockPublicAccess/State"
+        {
+            $v = "block-all-sharing","block-new-sharing","unblocked"
+            break
+        }
+
         # Amazon.EC2.SpotAllocationStrategy
         "New-EC2Fleet/SpotOptions_AllocationStrategy"
         {
@@ -1226,6 +1233,7 @@ $EC2_map = @{
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
     "SpreadLevel"=@("New-EC2PlacementGroup")
+    "State"=@("Enable-EC2SnapshotBlockPublicAccess")
     "Statistic"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Status"=@("Send-EC2InstanceStatus")
     "StorageTier"=@("Edit-EC2SnapshotTier")
@@ -1673,6 +1681,7 @@ $EC2_SelectMap = @{
                "Disable-EC2ImageDeprecation",
                "Disable-EC2IpamOrganizationAdminAccount",
                "Disable-EC2SerialConsoleAccess",
+               "Disable-EC2SnapshotBlockPublicAccess",
                "Disable-EC2TransitGatewayRouteTablePropagation",
                "Disable-EC2VgwRoutePropagation",
                "Disable-EC2VpcClassicLink",
@@ -1702,6 +1711,7 @@ $EC2_SelectMap = @{
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2SerialConsoleAccess",
+               "Enable-EC2SnapshotBlockPublicAccess",
                "Enable-EC2TransitGatewayRouteTablePropagation",
                "Enable-EC2VgwRoutePropagation",
                "Enable-EC2VolumeIO",
@@ -1741,6 +1751,7 @@ $EC2_SelectMap = @{
                "Get-EC2ReservedInstancesExchangeQuote",
                "Get-EC2SecurityGroupsForVpc",
                "Get-EC2SerialConsoleAccessStatus",
+               "Get-EC2SnapshotBlockPublicAccessState",
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
                "Get-EC2TransitGatewayAttachmentPropagation",

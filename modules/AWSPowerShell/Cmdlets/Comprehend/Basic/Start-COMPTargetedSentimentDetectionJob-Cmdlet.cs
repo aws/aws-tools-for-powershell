@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read
-        /// access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based
+        /// access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions">Role-based
         /// permissions</a>.</para>
         /// </para>
         /// </summary>

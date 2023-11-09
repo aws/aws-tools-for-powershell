@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     ///  
     /// <para>
     /// For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted
-    /// sentiment</a>.
+    /// sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Find", "COMPTargetedSentiment")]

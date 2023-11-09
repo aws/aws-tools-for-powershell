@@ -209,7 +209,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
             break
         }
 

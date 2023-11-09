@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking
         /// the extension.</para><para>For CloudFormation to assume the specified execution role, the role must contain a
-        /// trust relationship with the CloudFormation service principle (<code>resources.cloudformation.amazonaws.com</code>).
+        /// trust relationship with the CloudFormation service principal (<code>resources.cloudformation.amazonaws.com</code>).
         /// For more information about adding trust relationships, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
         /// a role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</para><para>If your extension calls Amazon Web Services APIs in any of its handlers, you must
         /// create an <i><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM

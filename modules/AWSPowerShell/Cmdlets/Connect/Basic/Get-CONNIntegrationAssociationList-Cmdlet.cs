@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter IntegrationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationArn { get; set; }
+        #endregion
+        
         #region Parameter IntegrationType
         /// <summary>
         /// <para>
@@ -161,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IntegrationArn = this.IntegrationArn;
             context.IntegrationType = this.IntegrationType;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -187,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.IntegrationArn != null)
+            {
+                request.IntegrationArn = cmdletContext.IntegrationArn;
             }
             if (cmdletContext.IntegrationType != null)
             {
@@ -282,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
+            public System.String IntegrationArn { get; set; }
             public Amazon.Connect.IntegrationType IntegrationType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

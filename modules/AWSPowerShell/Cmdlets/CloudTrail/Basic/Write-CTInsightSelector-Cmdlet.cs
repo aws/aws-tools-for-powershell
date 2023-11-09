@@ -29,17 +29,32 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Lets you enable Insights event logging by specifying the Insights selectors that you
-    /// want to enable on an existing trail. You also use <code>PutInsightSelectors</code>
-    /// to turn off Insights event logging, by passing an empty list of insight types. The
-    /// valid Insights event types in this release are <code>ApiErrorRateInsight</code> and
-    /// <code>ApiCallRateInsight</code>.
+    /// want to enable on an existing trail or event data store. You also use <code>PutInsightSelectors</code>
+    /// to turn off Insights event logging, by passing an empty list of Insights types. The
+    /// valid Insights event types are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.
     /// 
     ///  
     /// <para>
-    /// To log CloudTrail Insights events on API call volume, the trail must log <code>write</code>
-    /// management events. To log CloudTrail Insights events on API error rate, the trail
-    /// must log <code>read</code> or <code>write</code> management events. You can call <code>GetEventSelectors</code>
-    /// on a trail to check whether the trail logs management events.
+    /// To enable Insights on an event data store, you must specify the ARNs (or ID suffix
+    /// of the ARNs) for the source event data store (<code>EventDataStore</code>) and the
+    /// destination event data store (<code>InsightsDestination</code>). The source event
+    /// data store logs management events and enables Insights. The destination event data
+    /// store logs Insights events based upon the management event activity of the source
+    /// event data store. The source and destination event data stores must belong to the
+    /// same Amazon Web Services account.
+    /// </para><para>
+    /// To log Insights events for a trail, you must specify the name (<code>TrailName</code>)
+    /// of the CloudTrail trail for which you want to change or add Insights selectors.
+    /// </para><para>
+    /// To log CloudTrail Insights events on API call volume, the trail or event data store
+    /// must log <code>write</code> management events. To log CloudTrail Insights events on
+    /// API error rate, the trail or event data store must log <code>read</code> or <code>write</code>
+    /// management events. You can call <code>GetEventSelectors</code> on a trail to check
+    /// whether the trail logs management events. You can call <code>GetEventDataStore</code>
+    /// on an event data store to check whether the event data store logs management events.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging
+    /// CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CTInsightSelector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,11 +68,37 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EventDataStore
+        /// <summary>
+        /// <para>
+        /// <para>The ARN (or ID suffix of the ARN) of the source event data store for which you want
+        /// to change or add Insights selectors. To enable Insights on an event data store, you
+        /// must provide both the <code>EventDataStore</code> and <code>InsightsDestination</code>
+        /// parameters.</para><para>You cannot use this parameter with the <code>TrailName</code> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventDataStore { get; set; }
+        #endregion
+        
+        #region Parameter InsightsDestination
+        /// <summary>
+        /// <para>
+        /// <para> The ARN (or ID suffix of the ARN) of the destination event data store that logs Insights
+        /// events. To enable Insights on an event data store, you must provide both the <code>EventDataStore</code>
+        /// and <code>InsightsDestination</code> parameters. </para><para>You cannot use this parameter with the <code>TrailName</code> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InsightsDestination { get; set; }
+        #endregion
+        
         #region Parameter InsightSelector
         /// <summary>
         /// <para>
-        /// <para>A JSON string that contains the insight types you want to log on a trail. <code>ApiCallRateInsight</code>
-        /// and <code>ApiErrorRateInsight</code> are valid Insight types.</para><para>The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API
+        /// <para>A JSON string that contains the Insights types you want to log on a trail or event
+        /// data store. <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are
+        /// valid Insight types.</para><para>The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API
         /// calls that are aggregated per minute against a baseline API call volume.</para><para>The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that
         /// result in error codes. The error is shown if the API call is unsuccessful.</para>
         /// </para>
@@ -77,17 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter TrailName
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudTrail trail for which you want to change or add Insights selectors.</para>
+        /// <para>The name of the CloudTrail trail for which you want to change or add Insights selectors.</para><para>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code>
+        /// parameters.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrailName { get; set; }
         #endregion
         
@@ -153,6 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = (response, cmdlet) => this.TrailName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EventDataStore = this.EventDataStore;
+            context.InsightsDestination = this.InsightsDestination;
             if (this.InsightSelector != null)
             {
                 context.InsightSelector = new List<Amazon.CloudTrail.Model.InsightSelector>(this.InsightSelector);
@@ -164,12 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             #endif
             context.TrailName = this.TrailName;
-            #if MODULAR
-            if (this.TrailName == null && ParameterWasBound(nameof(this.TrailName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TrailName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,6 +217,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.PutInsightSelectorsRequest();
             
+            if (cmdletContext.EventDataStore != null)
+            {
+                request.EventDataStore = cmdletContext.EventDataStore;
+            }
+            if (cmdletContext.InsightsDestination != null)
+            {
+                request.InsightsDestination = cmdletContext.InsightsDestination;
+            }
             if (cmdletContext.InsightSelector != null)
             {
                 request.InsightSelectors = cmdletContext.InsightSelector;
@@ -255,6 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EventDataStore { get; set; }
+            public System.String InsightsDestination { get; set; }
             public List<Amazon.CloudTrail.Model.InsightSelector> InsightSelector { get; set; }
             public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.PutInsightSelectorsResponse, WriteCTInsightSelectorCmdlet, object> Select { get; set; } =

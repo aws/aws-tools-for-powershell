@@ -5186,6 +5186,8 @@ Set-Alias -Name Detect-COMPSyntax -Value Find-COMPSyntax
 Set-Alias -Name COMP-DetectSyntax -Value Find-COMPSyntax
 Set-Alias -Name Detect-COMPTargetedSentiment -Value Find-COMPTargetedSentiment
 Set-Alias -Name COMP-DetectTargetedSentiment -Value Find-COMPTargetedSentiment
+Set-Alias -Name Detect-COMPToxicContent -Value Find-COMPToxicContent
+Set-Alias -Name COMP-DetectToxicContent -Value Find-COMPToxicContent
 Set-Alias -Name COMP-ImportModel -Value Import-COMPModel
 Set-Alias -Name List-COMPDatasets -Value Get-COMPDatasetList
 Set-Alias -Name List-COMPDatasetList -Value Get-COMPDatasetList
@@ -8763,6 +8765,7 @@ Set-Alias -Name EC2-DisableImageBlockPublicAccess -Value Disable-EC2ImageBlockPu
 Set-Alias -Name EC2-DisableImageDeprecation -Value Disable-EC2ImageDeprecation
 Set-Alias -Name EC2-DisableIpamOrganizationAdminAccount -Value Disable-EC2IpamOrganizationAdminAccount
 Set-Alias -Name EC2-DisableSerialConsoleAccess -Value Disable-EC2SerialConsoleAccess
+Set-Alias -Name EC2-DisableSnapshotBlockPublicAccess -Value Disable-EC2SnapshotBlockPublicAccess
 Set-Alias -Name EC2-DisableTransitGatewayRouteTablePropagation -Value Disable-EC2TransitGatewayRouteTablePropagation
 Set-Alias -Name EC2-DisableVgwRoutePropagation -Value Disable-EC2VgwRoutePropagation
 Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
@@ -8807,6 +8810,7 @@ Set-Alias -Name EC2-EnableImageDeprecation -Value Enable-EC2ImageDeprecation
 Set-Alias -Name EC2-EnableIpamOrganizationAdminAccount -Value Enable-EC2IpamOrganizationAdminAccount
 Set-Alias -Name EC2-EnableReachabilityAnalyzerOrganizationSharing -Value Enable-EC2ReachabilityAnalyzerOrganizationSharing
 Set-Alias -Name EC2-EnableSerialConsoleAccess -Value Enable-EC2SerialConsoleAccess
+Set-Alias -Name EC2-EnableSnapshotBlockPublicAccess -Value Enable-EC2SnapshotBlockPublicAccess
 Set-Alias -Name EC2-EnableTransitGatewayRouteTablePropagation -Value Enable-EC2TransitGatewayRouteTablePropagation
 Set-Alias -Name EC2-EnableVgwRoutePropagation -Value Enable-EC2VgwRoutePropagation
 Set-Alias -Name EC2-EnableVolumeIO -Value Enable-EC2VolumeIO
@@ -8858,6 +8862,7 @@ Set-Alias -Name EC2-GetNetworkInsightsAccessScopeContent -Value Get-EC2NetworkIn
 Set-Alias -Name EC2-GetReservedInstancesExchangeQuote -Value Get-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name EC2-GetSecurityGroupsForVpc -Value Get-EC2SecurityGroupsForVpc
 Set-Alias -Name EC2-GetSerialConsoleAccessStatus -Value Get-EC2SerialConsoleAccessStatus
+Set-Alias -Name EC2-GetSnapshotBlockPublicAccessState -Value Get-EC2SnapshotBlockPublicAccessState
 Set-Alias -Name Get-EC2SpotPlacementScores -Value Get-EC2SpotPlacementScore
 Set-Alias -Name EC2-GetSpotPlacementScores -Value Get-EC2SpotPlacementScore
 Set-Alias -Name Get-EC2SubnetCidrReservations -Value Get-EC2SubnetCidrReservation
@@ -9401,6 +9406,8 @@ Set-Alias -Name Create-EKSAddon -Value New-EKSAddon
 Set-Alias -Name EKS-CreateAddon -Value New-EKSAddon
 Set-Alias -Name Create-EKSCluster -Value New-EKSCluster
 Set-Alias -Name EKS-CreateCluster -Value New-EKSCluster
+Set-Alias -Name Create-EKSEksAnywhereSubscription -Value New-EKSEksAnywhereSubscription
+Set-Alias -Name EKS-CreateEksAnywhereSubscription -Value New-EKSEksAnywhereSubscription
 Set-Alias -Name Create-EKSFargateProfile -Value New-EKSFargateProfile
 Set-Alias -Name EKS-CreateFargateProfile -Value New-EKSFargateProfile
 Set-Alias -Name Create-EKSNodegroup -Value New-EKSNodegroup
@@ -9409,6 +9416,8 @@ Set-Alias -Name Delete-EKSAddon -Value Remove-EKSAddon
 Set-Alias -Name EKS-DeleteAddon -Value Remove-EKSAddon
 Set-Alias -Name Delete-EKSCluster -Value Remove-EKSCluster
 Set-Alias -Name EKS-DeleteCluster -Value Remove-EKSCluster
+Set-Alias -Name Delete-EKSEksAnywhereSubscription -Value Remove-EKSEksAnywhereSubscription
+Set-Alias -Name EKS-DeleteEksAnywhereSubscription -Value Remove-EKSEksAnywhereSubscription
 Set-Alias -Name Delete-EKSFargateProfile -Value Remove-EKSFargateProfile
 Set-Alias -Name EKS-DeleteFargateProfile -Value Remove-EKSFargateProfile
 Set-Alias -Name Delete-EKSNodegroup -Value Remove-EKSNodegroup
@@ -9424,6 +9433,8 @@ Set-Alias -Name Describe-EKSAddonVersion -Value Get-EKSAddonVersion
 Set-Alias -Name EKS-DescribeAddonVersions -Value Get-EKSAddonVersion
 Set-Alias -Name Describe-EKSCluster -Value Get-EKSCluster
 Set-Alias -Name EKS-DescribeCluster -Value Get-EKSCluster
+Set-Alias -Name Describe-EKSEksAnywhereSubscription -Value Get-EKSEksAnywhereSubscription
+Set-Alias -Name EKS-DescribeEksAnywhereSubscription -Value Get-EKSEksAnywhereSubscription
 Set-Alias -Name Describe-EKSFargateProfile -Value Get-EKSFargateProfile
 Set-Alias -Name EKS-DescribeFargateProfile -Value Get-EKSFargateProfile
 Set-Alias -Name Describe-EKSIdentityProviderConfig -Value Get-EKSIdentityProviderConfig
@@ -9440,6 +9451,9 @@ Set-Alias -Name EKS-ListAddons -Value Get-EKSAddonList
 Set-Alias -Name List-EKSClusters -Value Get-EKSClusterList
 Set-Alias -Name List-EKSClusterList -Value Get-EKSClusterList
 Set-Alias -Name EKS-ListClusters -Value Get-EKSClusterList
+Set-Alias -Name List-EKSEksAnywhereSubscriptions -Value Get-EKSEksAnywhereSubscriptionList
+Set-Alias -Name List-EKSEksAnywhereSubscriptionList -Value Get-EKSEksAnywhereSubscriptionList
+Set-Alias -Name EKS-ListEksAnywhereSubscriptions -Value Get-EKSEksAnywhereSubscriptionList
 Set-Alias -Name List-EKSFargateProfiles -Value Get-EKSFargateProfileList
 Set-Alias -Name List-EKSFargateProfileList -Value Get-EKSFargateProfileList
 Set-Alias -Name EKS-ListFargateProfiles -Value Get-EKSFargateProfileList
@@ -9459,6 +9473,7 @@ Set-Alias -Name EKS-UntagResource -Value Remove-EKSResourceTag
 Set-Alias -Name EKS-UpdateAddon -Value Update-EKSAddon
 Set-Alias -Name EKS-UpdateClusterConfig -Value Update-EKSClusterConfig
 Set-Alias -Name EKS-UpdateClusterVersion -Value Update-EKSClusterVersion
+Set-Alias -Name EKS-UpdateEksAnywhereSubscription -Value Update-EKSEksAnywhereSubscription
 Set-Alias -Name EKS-UpdateNodegroupConfig -Value Update-EKSNodegroupConfig
 Set-Alias -Name EKS-UpdateNodegroupVersion -Value Update-EKSNodegroupVersion
 Set-Alias -Name Add-ECTagsToResource -Value Add-ECTag
@@ -16048,6 +16063,8 @@ Set-Alias -Name Associate-CWLKmsKey -Value Register-CWLKmsKey
 Set-Alias -Name CWL-AssociateKmsKey -Value Register-CWLKmsKey
 Set-Alias -Name Cancel-CWLExportTask -Value Stop-CWLExportTask
 Set-Alias -Name CWL-CancelExportTask -Value Stop-CWLExportTask
+Set-Alias -Name Create-CWLDelivery -Value New-CWLDelivery
+Set-Alias -Name CWL-CreateDelivery -Value New-CWLDelivery
 Set-Alias -Name Create-CWLExportTask -Value New-CWLExportTask
 Set-Alias -Name CWL-CreateExportTask -Value New-CWLExportTask
 Set-Alias -Name Create-CWLLogGroup -Value New-CWLLogGroup
@@ -16058,6 +16075,14 @@ Set-Alias -Name Delete-CWLAccountPolicy -Value Remove-CWLAccountPolicy
 Set-Alias -Name CWL-DeleteAccountPolicy -Value Remove-CWLAccountPolicy
 Set-Alias -Name Delete-CWLDataProtectionPolicy -Value Remove-CWLDataProtectionPolicy
 Set-Alias -Name CWL-DeleteDataProtectionPolicy -Value Remove-CWLDataProtectionPolicy
+Set-Alias -Name Delete-CWLDelivery -Value Remove-CWLDelivery
+Set-Alias -Name CWL-DeleteDelivery -Value Remove-CWLDelivery
+Set-Alias -Name Delete-CWLDeliveryDestination -Value Remove-CWLDeliveryDestination
+Set-Alias -Name CWL-DeleteDeliveryDestination -Value Remove-CWLDeliveryDestination
+Set-Alias -Name Delete-CWLDeliveryDestinationPolicy -Value Remove-CWLDeliveryDestinationPolicy
+Set-Alias -Name CWL-DeleteDeliveryDestinationPolicy -Value Remove-CWLDeliveryDestinationPolicy
+Set-Alias -Name Delete-CWLDeliverySource -Value Remove-CWLDeliverySource
+Set-Alias -Name CWL-DeleteDeliverySource -Value Remove-CWLDeliverySource
 Set-Alias -Name Delete-CWLDestination -Value Remove-CWLDestination
 Set-Alias -Name CWL-DeleteDestination -Value Remove-CWLDestination
 Set-Alias -Name Delete-CWLLogGroup -Value Remove-CWLLogGroup
@@ -16077,6 +16102,15 @@ Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name Describe-CWLAccountPolicies -Value Get-CWLAccountPolicy
 Set-Alias -Name Describe-CWLAccountPolicy -Value Get-CWLAccountPolicy
 Set-Alias -Name CWL-DescribeAccountPolicies -Value Get-CWLAccountPolicy
+Set-Alias -Name Describe-CWLDeliveries -Value Find-CWLDelivery
+Set-Alias -Name Describe-CWLDelivery -Value Find-CWLDelivery
+Set-Alias -Name CWL-DescribeDeliveries -Value Find-CWLDelivery
+Set-Alias -Name Describe-CWLDeliveryDestinations -Value Find-CWLDeliveryDestination
+Set-Alias -Name Describe-CWLDeliveryDestination -Value Find-CWLDeliveryDestination
+Set-Alias -Name CWL-DescribeDeliveryDestinations -Value Find-CWLDeliveryDestination
+Set-Alias -Name Describe-CWLDeliverySources -Value Find-CWLDeliverySource
+Set-Alias -Name Describe-CWLDeliverySource -Value Find-CWLDeliverySource
+Set-Alias -Name CWL-DescribeDeliverySources -Value Find-CWLDeliverySource
 Set-Alias -Name Describe-CWLDestinations -Value Get-CWLDestination
 Set-Alias -Name Describe-CWLDestination -Value Get-CWLDestination
 Set-Alias -Name CWL-DescribeDestinations -Value Get-CWLDestination
@@ -16110,6 +16144,10 @@ Set-Alias -Name Filter-CWLLogEvents -Value Get-CWLFilteredLogEvent
 Set-Alias -Name Filter-CWLFilteredLogEvent -Value Get-CWLFilteredLogEvent
 Set-Alias -Name CWL-FilterLogEvents -Value Get-CWLFilteredLogEvent
 Set-Alias -Name CWL-GetDataProtectionPolicy -Value Get-CWLDataProtectionPolicy
+Set-Alias -Name CWL-GetDelivery -Value Get-CWLDelivery
+Set-Alias -Name CWL-GetDeliveryDestination -Value Get-CWLDeliveryDestination
+Set-Alias -Name CWL-GetDeliveryDestinationPolicy -Value Get-CWLDeliveryDestinationPolicy
+Set-Alias -Name CWL-GetDeliverySource -Value Get-CWLDeliverySource
 Set-Alias -Name Get-CWLLogEvents -Value Get-CWLLogEvent
 Set-Alias -Name CWL-GetLogEvents -Value Get-CWLLogEvent
 Set-Alias -Name Get-CWLLogGroupFields -Value Get-CWLLogGroupField
@@ -16125,6 +16163,12 @@ Set-Alias -Name Put-CWLAccountPolicy -Value Write-CWLAccountPolicy
 Set-Alias -Name CWL-PutAccountPolicy -Value Write-CWLAccountPolicy
 Set-Alias -Name Put-CWLDataProtectionPolicy -Value Write-CWLDataProtectionPolicy
 Set-Alias -Name CWL-PutDataProtectionPolicy -Value Write-CWLDataProtectionPolicy
+Set-Alias -Name Put-CWLDeliveryDestination -Value Write-CWLDeliveryDestination
+Set-Alias -Name CWL-PutDeliveryDestination -Value Write-CWLDeliveryDestination
+Set-Alias -Name Put-CWLDeliveryDestinationPolicy -Value Write-CWLDeliveryDestinationPolicy
+Set-Alias -Name CWL-PutDeliveryDestinationPolicy -Value Write-CWLDeliveryDestinationPolicy
+Set-Alias -Name Put-CWLDeliverySource -Value Write-CWLDeliverySource
+Set-Alias -Name CWL-PutDeliverySource -Value Write-CWLDeliverySource
 Set-Alias -Name Put-CWLDestination -Value Write-CWLDestination
 Set-Alias -Name CWL-PutDestination -Value Write-CWLDestination
 Set-Alias -Name Put-CWLDestinationPolicy -Value Write-CWLDestinationPolicy

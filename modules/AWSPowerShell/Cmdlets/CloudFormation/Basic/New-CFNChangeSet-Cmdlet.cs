@@ -97,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// change sets has no effect.</para><para>If you want to create a stack from a stack template that contains macros <i>and</i>
         /// nested stacks, you must create or update the stack directly from the template using
         /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information about macros, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
-        /// CloudFormation macros to perform custom processing on templates</a>.</para></li></ul>
+        /// CloudFormation macros to perform custom processing on templates</a>.</para></li></ul><note><para>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters
+        /// can be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// the stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. Identity and Access Management (IAM) uses this parameter for condition keys
         /// in IAM policies for CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
-        /// access with Identity and Access Management</a> in the CloudFormation User Guide.</para>
+        /// access with Identity and Access Management</a> in the CloudFormation User Guide.</para><note><para>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters
+        /// can be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

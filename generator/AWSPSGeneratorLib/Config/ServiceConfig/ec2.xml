@@ -1669,6 +1669,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Disable" Noun="SnapshotBlockPublicAccess" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableTransitGatewayRouteTablePropagation" OutputProperty="Propagation" Verb="Disable" Noun="TransitGatewayRouteTablePropagation" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1782,6 +1786,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Enable" Noun="SnapshotBlockPublicAccess" ShouldProcessTarget="State" PipelineParameter="State" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1942,6 +1950,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSnapshotBlockPublicAccessState" OutputProperty="State" Verb="Get" Noun="SnapshotBlockPublicAccessState" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

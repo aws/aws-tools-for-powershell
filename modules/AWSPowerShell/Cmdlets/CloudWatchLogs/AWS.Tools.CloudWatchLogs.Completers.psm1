@@ -101,6 +101,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.OutputFormat
+        "Write-CWLDeliveryDestination/OutputFormat"
+        {
+            $v = "json","parquet","plain","raw","w3c"
+            break
+        }
+
         # Amazon.CloudWatchLogs.PolicyType
         {
             ($_ -eq "Get-CWLAccountPolicy/PolicyType") -Or
@@ -137,6 +144,7 @@ $CWL_Completers = {
 $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "OrderBy"=@("Get-CWLLogStream")
+    "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "Scope"=@("Write-CWLAccountPolicy")
     "Status"=@("Get-CWLQuery")
@@ -195,11 +203,16 @@ $CWL_SelectCompleters = {
 $CWL_SelectMap = @{
     "Select"=@("Register-CWLKmsKey",
                "Stop-CWLExportTask",
+               "New-CWLDelivery",
                "New-CWLExportTask",
                "New-CWLLogGroup",
                "New-CWLLogStream",
                "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
+               "Remove-CWLDelivery",
+               "Remove-CWLDeliveryDestination",
+               "Remove-CWLDeliveryDestinationPolicy",
+               "Remove-CWLDeliverySource",
                "Remove-CWLDestination",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
@@ -209,6 +222,9 @@ $CWL_SelectMap = @{
                "Remove-CWLRetentionPolicy",
                "Remove-CWLSubscriptionFilter",
                "Get-CWLAccountPolicy",
+               "Find-CWLDelivery",
+               "Find-CWLDeliveryDestination",
+               "Find-CWLDeliverySource",
                "Get-CWLDestination",
                "Get-CWLExportTask",
                "Get-CWLLogGroup",
@@ -221,6 +237,10 @@ $CWL_SelectMap = @{
                "Unregister-CWLKmsKey",
                "Get-CWLFilteredLogEvent",
                "Get-CWLDataProtectionPolicy",
+               "Get-CWLDelivery",
+               "Get-CWLDeliveryDestination",
+               "Get-CWLDeliveryDestinationPolicy",
+               "Get-CWLDeliverySource",
                "Get-CWLLogEvent",
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
@@ -229,6 +249,9 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
                "Write-CWLDataProtectionPolicy",
+               "Write-CWLDeliveryDestination",
+               "Write-CWLDeliveryDestinationPolicy",
+               "Write-CWLDeliverySource",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
                "Write-CWLLogEvent",

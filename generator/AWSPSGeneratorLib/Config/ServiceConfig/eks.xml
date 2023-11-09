@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEksAnywhereSubscription" OutputProperty="Subscription" Verb="New" Noun="EksAnywhereSubscription" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFargateProfile" OutputProperty="FargateProfile" Verb="New" Noun="FargateProfile" ShouldProcessTarget="FargateProfileName" PipelineParameter="FargateProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEksAnywhereSubscription" OutputProperty="Subscription" Verb="Remove" Noun="EksAnywhereSubscription" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEksAnywhereSubscription" OutputProperty="Subscription" Verb="Get" Noun="EksAnywhereSubscription" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFargateProfile" OutputProperty="FargateProfile" Verb="Get" Noun="FargateProfile" PipelineParameter="FargateProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEksAnywhereSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="EksAnywhereSubscriptionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -148,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterVersion" OutputProperty="Update" Verb="Update" Noun="ClusterVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEksAnywhereSubscription" OutputProperty="Subscription" Verb="Update" Noun="EksAnywhereSubscription" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

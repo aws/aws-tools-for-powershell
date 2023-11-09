@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier
         /// that represents the log group to which CloudTrail logs will be delivered. You must
-        /// use a log group that exists in your account.</para><para>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</para>
+        /// use a log group that exists in your account.</para><para>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</para><note><para>Only the management account can configure a CloudWatch Logs log group for an organization
+        /// trail. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

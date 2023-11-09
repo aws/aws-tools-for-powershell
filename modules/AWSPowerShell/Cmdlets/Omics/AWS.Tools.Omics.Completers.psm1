@@ -119,7 +119,7 @@ $OMICS_Completers = {
         # Amazon.Omics.FileType
         "New-OMICSMultipartReadSetUpload/SourceFileType"
         {
-            $v = "BAM","CRAM","FASTQ"
+            $v = "BAM","CRAM","FASTQ","UBAM"
             break
         }
 

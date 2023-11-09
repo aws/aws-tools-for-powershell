@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>To associate an existing model with the flywheel, specify the Amazon Resource Number
-        /// (ARN) of the model version.</para>
+        /// (ARN) of the model version. Do not set <code>TaskConfig</code> or <code>ModelType</code>
+        /// if you specify an <code>ActiveModelArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter ModelType
         /// <summary>
         /// <para>
-        /// <para>The model type.</para>
+        /// <para>The model type. You need to set <code>ModelType</code> if you are creating a flywheel
+        /// for a new model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

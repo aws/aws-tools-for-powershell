@@ -29,12 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Describes the settings for the Insights event selectors that you configured for your
-    /// trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
-    /// is enabled on the trail, and if it is, which insight types are enabled. If you run
-    /// <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
-    /// the operation throws the exception <code>InsightNotEnabledException</code><para>
+    /// trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights
+    /// event logging is enabled on the trail or event data store, and if it is, which Insights
+    /// types are enabled. If you run <code>GetInsightSelectors</code> on a trail or event
+    /// data store that does not have Insights events enabled, the operation throws the exception
+    /// <code>InsightNotEnabledException</code><para>
+    /// Specify either the <code>EventDataStore</code> parameter to get Insights event selectors
+    /// for an event data store, or the <code>TrailName</code> parameter to the get Insights
+    /// event selectors for a trail. You cannot specify these parameters together.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging
-    /// CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.
+    /// CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CTInsightSelector")]
@@ -48,23 +53,27 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EventDataStore
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the ARN (or ID suffix of the ARN) of the event data store for which you
+        /// want to get Insights selectors. </para><para>You cannot use this parameter with the <code>TrailName</code> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventDataStore { get; set; }
+        #endregion
+        
         #region Parameter TrailName
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
         /// must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
         /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para><para>You cannot use this parameter with the <code>EventDataStore</code> parameter.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrailName { get; set; }
         #endregion
         
@@ -114,13 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = (response, cmdlet) => this.TrailName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EventDataStore = this.EventDataStore;
             context.TrailName = this.TrailName;
-            #if MODULAR
-            if (this.TrailName == null && ParameterWasBound(nameof(this.TrailName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TrailName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -137,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.GetInsightSelectorsRequest();
             
+            if (cmdletContext.EventDataStore != null)
+            {
+                request.EventDataStore = cmdletContext.EventDataStore;
+            }
             if (cmdletContext.TrailName != null)
             {
                 request.TrailName = cmdletContext.TrailName;
@@ -202,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EventDataStore { get; set; }
             public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.GetInsightSelectorsResponse, GetCTInsightSelectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

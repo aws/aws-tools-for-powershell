@@ -204,6 +204,7 @@ $COMP_Completers = {
             ($_ -eq "Find-COMPSentimentBatch/LanguageCode") -Or
             ($_ -eq "Find-COMPTargetedSentiment/LanguageCode") -Or
             ($_ -eq "Find-COMPTargetedSentimentBatch/LanguageCode") -Or
+            ($_ -eq "Find-COMPToxicContent/LanguageCode") -Or
             ($_ -eq "New-COMPDocumentClassifier/LanguageCode") -Or
             ($_ -eq "New-COMPEntityRecognizer/LanguageCode") -Or
             ($_ -eq "Start-COMPEntitiesDetectionJob/LanguageCode") -Or
@@ -281,7 +282,7 @@ $COMP_map = @{
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
     "InputDataConfig_DocumentType"=@("New-COMPDocumentClassifier")
     "InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat"=@("New-COMPDataset")
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","Find-COMPToxicContent","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "ModelType"=@("New-COMPFlywheel")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
@@ -380,6 +381,7 @@ $COMP_SelectMap = @{
                "Find-COMPSentiment",
                "Find-COMPSyntax",
                "Find-COMPTargetedSentiment",
+               "Find-COMPToxicContent",
                "Import-COMPModel",
                "Get-COMPDatasetList",
                "Get-COMPDocumentClassificationJobList",

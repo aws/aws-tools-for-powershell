@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// </para><para>
     /// When you create a Fargate profile, you must specify a pod execution role to use with
     /// the pods that are scheduled with the profile. This role is added to the cluster's
-    /// Kubernetes <a href="https://kubernetes.io/docs/admin/authorization/rbac/">Role Based
-    /// Access Control</a> (RBAC) for authorization so that the <code>kubelet</code> that
-    /// is running on the Fargate infrastructure can register with your Amazon EKS cluster
+    /// Kubernetes <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Role
+    /// Based Access Control</a> (RBAC) for authorization so that the <code>kubelet</code>
+    /// that is running on the Fargate infrastructure can register with your Amazon EKS cluster
     /// so that it can appear in your cluster as a node. The pod execution role also provides
     /// IAM permissions to the Fargate infrastructure to allow read access to Amazon ECR image
     /// repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod

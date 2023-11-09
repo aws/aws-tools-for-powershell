@@ -13384,6 +13384,7 @@ $COMP_Completers = {
             ($_ -eq "Find-COMPSentimentBatch/LanguageCode") -Or
             ($_ -eq "Find-COMPTargetedSentiment/LanguageCode") -Or
             ($_ -eq "Find-COMPTargetedSentimentBatch/LanguageCode") -Or
+            ($_ -eq "Find-COMPToxicContent/LanguageCode") -Or
             ($_ -eq "New-COMPDocumentClassifier/LanguageCode") -Or
             ($_ -eq "New-COMPEntityRecognizer/LanguageCode") -Or
             ($_ -eq "Start-COMPEntitiesDetectionJob/LanguageCode") -Or
@@ -13461,7 +13462,7 @@ $COMP_map = @{
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
     "InputDataConfig_DocumentType"=@("New-COMPDocumentClassifier")
     "InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat"=@("New-COMPDataset")
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","Find-COMPToxicContent","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "ModelType"=@("New-COMPFlywheel")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
@@ -13560,6 +13561,7 @@ $COMP_SelectMap = @{
                "Find-COMPSentiment",
                "Find-COMPSyntax",
                "Find-COMPTargetedSentiment",
+               "Find-COMPToxicContent",
                "Import-COMPModel",
                "Get-COMPDatasetList",
                "Get-COMPDocumentClassificationJobList",
@@ -14376,7 +14378,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
             break
         }
 
@@ -20698,6 +20700,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SnapshotBlockPublicAccessState
+        "Enable-EC2SnapshotBlockPublicAccess/State"
+        {
+            $v = "block-all-sharing","block-new-sharing","unblocked"
+            break
+        }
+
         # Amazon.EC2.SpotAllocationStrategy
         "New-EC2Fleet/SpotOptions_AllocationStrategy"
         {
@@ -21043,6 +21052,7 @@ $EC2_map = @{
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
     "SpreadLevel"=@("New-EC2PlacementGroup")
+    "State"=@("Enable-EC2SnapshotBlockPublicAccess")
     "Statistic"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Status"=@("Send-EC2InstanceStatus")
     "StorageTier"=@("Edit-EC2SnapshotTier")
@@ -21490,6 +21500,7 @@ $EC2_SelectMap = @{
                "Disable-EC2ImageDeprecation",
                "Disable-EC2IpamOrganizationAdminAccount",
                "Disable-EC2SerialConsoleAccess",
+               "Disable-EC2SnapshotBlockPublicAccess",
                "Disable-EC2TransitGatewayRouteTablePropagation",
                "Disable-EC2VgwRoutePropagation",
                "Disable-EC2VpcClassicLink",
@@ -21519,6 +21530,7 @@ $EC2_SelectMap = @{
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2SerialConsoleAccess",
+               "Enable-EC2SnapshotBlockPublicAccess",
                "Enable-EC2TransitGatewayRouteTablePropagation",
                "Enable-EC2VgwRoutePropagation",
                "Enable-EC2VolumeIO",
@@ -21558,6 +21570,7 @@ $EC2_SelectMap = @{
                "Get-EC2ReservedInstancesExchangeQuote",
                "Get-EC2SecurityGroupsForVpc",
                "Get-EC2SerialConsoleAccessStatus",
+               "Get-EC2SnapshotBlockPublicAccessState",
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
                "Get-EC2TransitGatewayAttachmentPropagation",
@@ -22380,6 +22393,20 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.EksAnywhereSubscriptionLicenseType
+        "New-EKSEksAnywhereSubscription/LicenseType"
+        {
+            $v = "Cluster"
+            break
+        }
+
+        # Amazon.EKS.EksAnywhereSubscriptionTermUnit
+        "New-EKSEksAnywhereSubscription/Term_Unit"
+        {
+            $v = "MONTHS"
+            break
+        }
+
         # Amazon.EKS.IpFamily
         "New-EKSCluster/KubernetesNetworkConfig_IpFamily"
         {
@@ -22410,7 +22437,9 @@ $EKS_map = @{
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster")
+    "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
+    "Term_Unit"=@("New-EKSEksAnywhereSubscription")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map
@@ -22467,10 +22496,12 @@ $EKS_SelectMap = @{
                "Add-EKSIdentityProviderConfig",
                "New-EKSAddon",
                "New-EKSCluster",
+               "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
                "New-EKSNodegroup",
                "Remove-EKSAddon",
                "Remove-EKSCluster",
+               "Remove-EKSEksAnywhereSubscription",
                "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
                "Unregister-EKSCluster",
@@ -22478,6 +22509,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
+               "Get-EKSEksAnywhereSubscription",
                "Get-EKSFargateProfile",
                "Get-EKSIdentityProviderConfig",
                "Get-EKSNodegroup",
@@ -22485,6 +22517,7 @@ $EKS_SelectMap = @{
                "Remove-EKSIdentityProviderConfig",
                "Get-EKSAddonList",
                "Get-EKSClusterList",
+               "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
                "Get-EKSIdentityProviderConfigList",
                "Get-EKSNodegroupList",
@@ -22496,6 +22529,7 @@ $EKS_SelectMap = @{
                "Update-EKSAddon",
                "Update-EKSClusterConfig",
                "Update-EKSClusterVersion",
+               "Update-EKSEksAnywhereSubscription",
                "Update-EKSNodegroupConfig",
                "Update-EKSNodegroupVersion")
 }
@@ -35550,7 +35584,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.11","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
             break
         }
 
@@ -37130,6 +37164,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.OutputFormat
+        "Write-CWLDeliveryDestination/OutputFormat"
+        {
+            $v = "json","parquet","plain","raw","w3c"
+            break
+        }
+
         # Amazon.CloudWatchLogs.PolicyType
         {
             ($_ -eq "Get-CWLAccountPolicy/PolicyType") -Or
@@ -37166,6 +37207,7 @@ $CWL_Completers = {
 $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "OrderBy"=@("Get-CWLLogStream")
+    "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "Scope"=@("Write-CWLAccountPolicy")
     "Status"=@("Get-CWLQuery")
@@ -37224,11 +37266,16 @@ $CWL_SelectCompleters = {
 $CWL_SelectMap = @{
     "Select"=@("Register-CWLKmsKey",
                "Stop-CWLExportTask",
+               "New-CWLDelivery",
                "New-CWLExportTask",
                "New-CWLLogGroup",
                "New-CWLLogStream",
                "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
+               "Remove-CWLDelivery",
+               "Remove-CWLDeliveryDestination",
+               "Remove-CWLDeliveryDestinationPolicy",
+               "Remove-CWLDeliverySource",
                "Remove-CWLDestination",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
@@ -37238,6 +37285,9 @@ $CWL_SelectMap = @{
                "Remove-CWLRetentionPolicy",
                "Remove-CWLSubscriptionFilter",
                "Get-CWLAccountPolicy",
+               "Find-CWLDelivery",
+               "Find-CWLDeliveryDestination",
+               "Find-CWLDeliverySource",
                "Get-CWLDestination",
                "Get-CWLExportTask",
                "Get-CWLLogGroup",
@@ -37250,6 +37300,10 @@ $CWL_SelectMap = @{
                "Unregister-CWLKmsKey",
                "Get-CWLFilteredLogEvent",
                "Get-CWLDataProtectionPolicy",
+               "Get-CWLDelivery",
+               "Get-CWLDeliveryDestination",
+               "Get-CWLDeliveryDestinationPolicy",
+               "Get-CWLDeliverySource",
                "Get-CWLLogEvent",
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
@@ -37258,6 +37312,9 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
                "Write-CWLDataProtectionPolicy",
+               "Write-CWLDeliveryDestination",
+               "Write-CWLDeliveryDestinationPolicy",
+               "Write-CWLDeliverySource",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
                "Write-CWLLogEvent",
@@ -43962,7 +44019,7 @@ $OMICS_Completers = {
         # Amazon.Omics.FileType
         "New-OMICSMultipartReadSetUpload/SourceFileType"
         {
-            $v = "BAM","CRAM","FASTQ"
+            $v = "BAM","CRAM","FASTQ","UBAM"
             break
         }
 

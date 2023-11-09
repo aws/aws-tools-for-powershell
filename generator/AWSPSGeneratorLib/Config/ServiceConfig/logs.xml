@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDelivery" OutputProperty="Delivery" Verb="New" Noun="Delivery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateExportTask" OutputProperty="TaskId" Verb="New" Noun="ExportTask" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -46,6 +50,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataProtectionPolicy" Verb="Remove" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDelivery" Verb="Remove" Noun="Delivery" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliveryDestination" Verb="Remove" Noun="DeliveryDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliveryDestinationPolicy" Verb="Remove" Noun="DeliveryDestinationPolicy" ShouldProcessTarget="DeliveryDestinationName" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliverySource" Verb="Remove" Noun="DeliverySource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -82,6 +102,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountPolicies" OutputProperty="AccountPolicies" Verb="Get" Noun="AccountPolicy" PipelineParameter="PolicyType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveries" OutputProperty="Deliveries" Verb="Find" Noun="Delivery" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryDestinations" OutputProperty="DeliveryDestinations" Verb="Find" Noun="DeliveryDestination" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliverySources" OutputProperty="DeliverySources" Verb="Find" Noun="DeliverySource" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -133,6 +165,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDelivery" OutputProperty="Delivery" Verb="Get" Noun="Delivery" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeliveryDestination" OutputProperty="DeliveryDestination" Verb="Get" Noun="DeliveryDestination" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeliveryDestinationPolicy" OutputProperty="Policy" Verb="Get" Noun="DeliveryDestinationPolicy" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeliverySource" OutputProperty="DeliverySource" Verb="Get" Noun="DeliverySource" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
@@ -162,6 +210,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataProtectionPolicy" OutputProperty="*" Verb="Write" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeliveryDestination" OutputProperty="DeliveryDestination" Verb="Write" Noun="DeliveryDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeliveryDestinationPolicy" OutputProperty="Policy" Verb="Write" Noun="DeliveryDestinationPolicy" ShouldProcessTarget="DeliveryDestinationName" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeliverySource" OutputProperty="DeliverySource" Verb="Write" Noun="DeliverySource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

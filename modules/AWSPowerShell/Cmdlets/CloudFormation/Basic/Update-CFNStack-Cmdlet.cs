@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// if you know what processing the macro performs.</para><para>Each macro relies on an underlying Lambda service function for processing stack templates.
         /// Be aware that the Lambda function owner can update the function operation without
         /// CloudFormation being notified.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
-        /// CloudFormation Macros to Perform Custom Processing on Templates</a>.</para></li></ul>
+        /// CloudFormation Macros to Perform Custom Processing on Templates</a>.</para></li></ul><note><para>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters
+        /// can be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. Identity and Access Management (IAM) uses this parameter for CloudFormation-specific
         /// condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
-        /// Access with Identity and Access Management</a>.</para>
+        /// Access with Identity and Access Management</a>.</para><note><para>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters
+        /// can be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

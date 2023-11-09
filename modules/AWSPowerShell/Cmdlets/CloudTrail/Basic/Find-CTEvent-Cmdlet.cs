@@ -31,10 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management
     /// events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail
     /// Insights events</a> that are captured by CloudTrail. You can look up events that occurred
-    /// in a Region within the last 90 days. Lookup supports the following attributes for
-    /// management events:
+    /// in a Region within the last 90 days.
     /// 
-    ///  <ul><li><para>
+    ///  <note><para><code>LookupEvents</code> returns recent Insights events for trails that enable Insights.
+    /// To view Insights events for an event data store, you can run queries on your Insights
+    /// event data store, and you can also view the Lake dashboard for Insights.
+    /// </para></note><para>
+    /// Lookup supports the following attributes for management events:
+    /// </para><ul><li><para>
     /// Amazon Web Services access key
     /// </para></li><li><para>
     /// Event ID
