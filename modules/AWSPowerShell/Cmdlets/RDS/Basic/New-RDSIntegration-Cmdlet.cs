@@ -28,9 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a zero-ETL integration with Amazon Redshift. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.html">Working
-    /// with Amazon Aurora zero-ETL integrations with Amazon Redshift</a> in the <i>Amazon
-    /// Aurora User Guide</i>.
+    /// Creates a zero-ETL integration with Amazon Redshift.
     /// </summary>
     [Cmdlet("New", "RDSIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.CreateIntegrationResponse")]
@@ -77,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier
         /// for the key to use to encrypt the integration. If you don't specify an encryption
-        /// key, Aurora uses a default Amazon Web Services owned key. </para>
+        /// key, RDS uses a default Amazon Web Services owned key. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.</para>
+        /// <para>The Amazon Resource Name (ARN) of the database to use as the source for replication.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

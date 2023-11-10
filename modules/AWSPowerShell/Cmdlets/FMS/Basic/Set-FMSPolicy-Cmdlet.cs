@@ -32,32 +32,36 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     /// 
     ///  
     /// <para>
-    /// Firewall Manager provides the following types of policies: 
-    /// </para><ul><li><para>
-    /// An WAF policy (type WAFV2), which defines rule groups to run first in the corresponding
-    /// WAF web ACL and rule groups to run last in the web ACL.
-    /// </para></li><li><para>
-    /// An WAF Classic policy (type WAF), which defines a rule group. 
-    /// </para></li><li><para>
-    /// A Shield Advanced policy, which applies Shield Advanced protection to specified accounts
-    /// and resources.
-    /// </para></li><li><para>
-    /// A security group policy, which manages VPC security groups across your Amazon Web
-    /// Services organization. 
-    /// </para></li><li><para>
-    /// An Network Firewall policy, which provides firewall rules to filter network traffic
-    /// in specified Amazon VPCs.
-    /// </para></li><li><para>
-    /// A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter
-    /// DNS queries for specified VPCs.
-    /// </para></li></ul><para>
-    /// Each policy is specific to one of the types. If you want to enforce more than one
-    /// policy type across accounts, create multiple policies. You can create multiple policies
-    /// for each type.
+    /// A Firewall Manager policy is specific to the individual policy type. If you want to
+    /// enforce multiple policy types across accounts, you can create multiple policies. You
+    /// can create more than one policy for each type. 
     /// </para><para>
-    /// You must be subscribed to Shield Advanced to create a Shield Advanced policy. For
-    /// more information about subscribing to Shield Advanced, see <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.
-    /// </para>
+    /// If you add a new account to an organization that you created with Organizations, Firewall
+    /// Manager automatically applies the policy to the resources in that account that are
+    /// within scope of the policy. 
+    /// </para><para>
+    /// Firewall Manager provides the following types of policies: 
+    /// </para><ul><li><para><b>Shield Advanced policy</b> - This policy applies Shield Advanced protection to
+    /// specified accounts and resources. 
+    /// </para></li><li><para><b>Security Groups policy</b> - This type of policy gives you control over security
+    /// groups that are in use throughout your organization in Organizations and lets you
+    /// enforce a baseline set of rules across your organization. 
+    /// </para></li><li><para><b>Network Firewall policy</b> - This policy applies Network Firewall protection
+    /// to your organization's VPCs. 
+    /// </para></li><li><para><b>DNS Firewall policy</b> - This policy applies Amazon Route 53 Resolver DNS Firewall
+    /// protections to your organization's VPCs. 
+    /// </para></li><li><para><b>Third-party firewall policy</b> - This policy applies third-party firewall protections.
+    /// Third-party firewalls are available by subscription through the Amazon Web Services
+    /// Marketplace console at <a href="https://aws.amazon.com/marketplace">Amazon Web Services
+    /// Marketplace</a>.
+    /// </para><ul><li><para><b>Palo Alto Networks Cloud NGFW policy</b> - This policy applies Palo Alto Networks
+    /// Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW
+    /// rulestacks to your organization's VPCs.
+    /// </para></li><li><para><b>Fortigate CNF policy</b> - This policy applies Fortigate Cloud Native Firewall
+    /// (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day
+    /// threats and secures cloud infrastructures with industry-leading advanced threat prevention,
+    /// smart web application firewalls (WAF), and API protection.
+    /// </para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("Set", "FMSPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FMS.Model.PutPolicyResponse")]

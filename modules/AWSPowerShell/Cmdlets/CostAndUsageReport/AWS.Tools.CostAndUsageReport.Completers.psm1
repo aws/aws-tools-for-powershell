@@ -100,6 +100,16 @@ $CUR_Completers = {
             break
         }
 
+        # Amazon.CostAndUsageReport.LastStatus
+        {
+            ($_ -eq "Edit-CURReportDefinition/ReportDefinition_ReportStatus_LastStatus") -Or
+            ($_ -eq "Write-CURReportDefinition/ReportDefinition_ReportStatus_LastStatus")
+        }
+        {
+            $v = "ERROR_NO_BUCKET","ERROR_PERMISSIONS","SUCCESS"
+            break
+        }
+
         # Amazon.CostAndUsageReport.ReportFormat
         {
             ($_ -eq "Edit-CURReportDefinition/ReportDefinition_Format") -Or
@@ -141,6 +151,7 @@ $CUR_Completers = {
 $CUR_map = @{
     "ReportDefinition_Compression"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_Format"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
+    "ReportDefinition_ReportStatus_LastStatus"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_ReportVersioning"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_S3Region"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_TimeUnit"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
@@ -198,8 +209,11 @@ $CUR_SelectCompleters = {
 $CUR_SelectMap = @{
     "Select"=@("Remove-CURReportDefinition",
                "Get-CURReportDefinition",
+               "Get-CURResourceTag",
                "Edit-CURReportDefinition",
-               "Write-CURReportDefinition")
+               "Write-CURReportDefinition",
+               "Add-CURResourceTag",
+               "Remove-CURResourceTag")
 }
 
 _awsArgumentCompleterRegistration $CUR_SelectCompleters $CUR_SelectMap

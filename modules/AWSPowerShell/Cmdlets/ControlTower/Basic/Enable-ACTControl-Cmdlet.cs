@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     /// This API call activates a control. It starts an asynchronous operation that creates
     /// AWS resources on the specified organizational unit and the accounts it contains. The
     /// resources created will vary according to the control that you specify. For usage examples,
-    /// see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>
+    /// see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
     /// </summary>
     [Cmdlet("Enable", "ACTControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ControlIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to be applied to the <code>EnabledControl</code> resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter TargetIdentifier
@@ -153,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 WriteWarning("You are passing $null as a value for parameter ControlIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.TargetIdentifier = this.TargetIdentifier;
             #if MODULAR
             if (this.TargetIdentifier == null && ParameterWasBound(nameof(this.TargetIdentifier)))
@@ -179,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (cmdletContext.ControlIdentifier != null)
             {
                 request.ControlIdentifier = cmdletContext.ControlIdentifier;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TargetIdentifier != null)
             {
@@ -246,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ControlIdentifier { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TargetIdentifier { get; set; }
             public System.Func<Amazon.ControlTower.Model.EnableControlResponse, EnableACTControlCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OperationIdentifier;

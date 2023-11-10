@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EnaSrdUdpSpecification_EnaSrdUdpEnabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must
-        /// first enable ENA Express.</para>
+        /// <para>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify
+        /// this setting, you must first enable ENA Express.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

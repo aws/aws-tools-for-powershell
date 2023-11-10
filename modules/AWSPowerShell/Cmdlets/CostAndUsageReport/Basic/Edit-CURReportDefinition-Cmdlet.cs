@@ -28,7 +28,7 @@ using Amazon.CostAndUsageReport.Model;
 namespace Amazon.PowerShell.Cmdlets.CUR
 {
     /// <summary>
-    /// Allows you to programatically update your report preferences.
+    /// Allows you to programmatically update your report preferences.
     /// </summary>
     [Cmdlet("Edit", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -75,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_BillingViewArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon resource name of the billing view. You can get this value by using the
-        /// billing view service public APIs. </para>
+        /// <para> The Amazon resource name of the billing view. The <code>BillingViewArn</code> is
+        /// needed to create Amazon Web Services Cost and Usage Report for each billing group
+        /// maintained in the Amazon Web Services Billing Conductor service. The <code>BillingViewArn</code>
+        /// for a billing group can be constructed as: <code>arn:aws:billing::payer-account-id:billingview/billing-group-primary-account-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,6 +117,29 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CostAndUsageReport.ReportFormat")]
         public Amazon.CostAndUsageReport.ReportFormat ReportDefinition_Format { get; set; }
+        #endregion
+        
+        #region Parameter ReportStatus_LastDelivery
+        /// <summary>
+        /// <para>
+        /// <para>A timestamp that gives the date of a report delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportDefinition_ReportStatus_LastDelivery")]
+        public System.String ReportStatus_LastDelivery { get; set; }
+        #endregion
+        
+        #region Parameter ReportStatus_LastStatus
+        /// <summary>
+        /// <para>
+        /// <para>An enum that gives the status of a report delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportDefinition_ReportStatus_LastStatus")]
+        [AWSConstantClassSource("Amazon.CostAndUsageReport.LastStatus")]
+        public Amazon.CostAndUsageReport.LastStatus ReportStatus_LastStatus { get; set; }
         #endregion
         
         #region Parameter ReportDefinition_RefreshClosedReport
@@ -342,6 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                 WriteWarning("You are passing $null as a value for parameter ReportDefinition_ReportName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ReportStatus_LastDelivery = this.ReportStatus_LastDelivery;
+            context.ReportStatus_LastStatus = this.ReportStatus_LastStatus;
             context.ReportDefinition_ReportVersioning = this.ReportDefinition_ReportVersioning;
             context.ReportDefinition_S3Bucket = this.ReportDefinition_S3Bucket;
             #if MODULAR
@@ -518,6 +545,41 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                 request.ReportDefinition.TimeUnit = requestReportDefinition_reportDefinition_TimeUnit;
                 requestReportDefinitionIsNull = false;
             }
+            Amazon.CostAndUsageReport.Model.ReportStatus requestReportDefinition_reportDefinition_ReportStatus = null;
+            
+             // populate ReportStatus
+            var requestReportDefinition_reportDefinition_ReportStatusIsNull = true;
+            requestReportDefinition_reportDefinition_ReportStatus = new Amazon.CostAndUsageReport.Model.ReportStatus();
+            System.String requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastDelivery = null;
+            if (cmdletContext.ReportStatus_LastDelivery != null)
+            {
+                requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastDelivery = cmdletContext.ReportStatus_LastDelivery;
+            }
+            if (requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastDelivery != null)
+            {
+                requestReportDefinition_reportDefinition_ReportStatus.LastDelivery = requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastDelivery;
+                requestReportDefinition_reportDefinition_ReportStatusIsNull = false;
+            }
+            Amazon.CostAndUsageReport.LastStatus requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastStatus = null;
+            if (cmdletContext.ReportStatus_LastStatus != null)
+            {
+                requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastStatus = cmdletContext.ReportStatus_LastStatus;
+            }
+            if (requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastStatus != null)
+            {
+                requestReportDefinition_reportDefinition_ReportStatus.LastStatus = requestReportDefinition_reportDefinition_ReportStatus_reportStatus_LastStatus;
+                requestReportDefinition_reportDefinition_ReportStatusIsNull = false;
+            }
+             // determine if requestReportDefinition_reportDefinition_ReportStatus should be set to null
+            if (requestReportDefinition_reportDefinition_ReportStatusIsNull)
+            {
+                requestReportDefinition_reportDefinition_ReportStatus = null;
+            }
+            if (requestReportDefinition_reportDefinition_ReportStatus != null)
+            {
+                request.ReportDefinition.ReportStatus = requestReportDefinition_reportDefinition_ReportStatus;
+                requestReportDefinitionIsNull = false;
+            }
              // determine if request.ReportDefinition should be set to null
             if (requestReportDefinitionIsNull)
             {
@@ -595,6 +657,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             public Amazon.CostAndUsageReport.ReportFormat ReportDefinition_Format { get; set; }
             public System.Boolean? ReportDefinition_RefreshClosedReport { get; set; }
             public System.String ReportDefinition_ReportName { get; set; }
+            public System.String ReportStatus_LastDelivery { get; set; }
+            public Amazon.CostAndUsageReport.LastStatus ReportStatus_LastStatus { get; set; }
             public Amazon.CostAndUsageReport.ReportVersioning ReportDefinition_ReportVersioning { get; set; }
             public System.String ReportDefinition_S3Bucket { get; set; }
             public System.String ReportDefinition_S3Prefix { get; set; }

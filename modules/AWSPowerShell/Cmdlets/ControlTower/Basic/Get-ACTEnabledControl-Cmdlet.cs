@@ -28,17 +28,7 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Provides details about the enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
-    /// 
-    ///  
-    /// <para><b>Returned values</b></para><ul><li><para>
-    /// TargetRegions: Shows target AWS Regions where the enabled control is available to
-    /// be deployed.
-    /// </para></li><li><para>
-    /// StatusSummary: Provides a detailed summary of the deployment status.
-    /// </para></li><li><para>
-    /// DriftSummary: Provides a detailed summary of the drifted status.
-    /// </para></li></ul>
+    /// Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
     /// </summary>
     [Cmdlet("Get", "ACTEnabledControl")]
     [OutputType("Amazon.ControlTower.Model.EnabledControlDetails")]
@@ -55,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter EnabledControlIdentifier
         /// <summary>
         /// <para>
-        /// <para> The ARN of the enabled control. </para>
+        /// <para>The <code>controlIdentifier</code> of the enabled control.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

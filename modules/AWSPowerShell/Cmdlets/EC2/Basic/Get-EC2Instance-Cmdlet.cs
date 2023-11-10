@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</para></li><li><para><code>iam-instance-profile.arn</code> - The instance profile associated with the
         /// instance. Specified as an ARN.</para></li><li><para><code>iam-instance-profile.id</code> - The instance profile associated with the instance.
         /// Specified as an ID.</para></li><li><para><code>iam-instance-profile.name</code> - The instance profile associated with the
-        /// instance. Specified as an name.</para></li><li><para><code>image-id</code> - The ID of the image used to launch the instance.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a
-        /// Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</para></li><li><para><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned
+        /// instance. Specified as an name.</para></li><li><para><code>image-id</code> - The ID of the image used to launch the instance.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance, a Scheduled
+        /// Instance, or a Capacity Block (<code>spot</code> | <code>scheduled</code> | <code>capacity-block</code>).</para></li><li><para><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned
         /// integer. The high byte is used for internal purposes and should be ignored. The low
         /// byte is set based on the state represented. The valid values are: 0 (pending), 16
         /// (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</para></li><li><para><code>instance-state-name</code> - The state of the instance (<code>pending</code>

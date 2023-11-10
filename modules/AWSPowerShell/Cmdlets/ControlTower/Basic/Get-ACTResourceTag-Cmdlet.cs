@@ -22,31 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CostAndUsageReport;
-using Amazon.CostAndUsageReport.Model;
+using Amazon.ControlTower;
+using Amazon.ControlTower.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CUR
+namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Deletes the specified report. Any tags associated with the report are also deleted.
+    /// Returns a list of tags associated with the resource. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
     /// </summary>
-    [Cmdlet("Remove", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Get", "ACTResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Cost and Usage Report DeleteReportDefinition API operation.", Operation = new[] {"DeleteReportDefinition"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdlet("Calls the AWS Control Tower ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ControlTower.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ControlTower.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.ControlTower.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCURReportDefinitionCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
+    public partial class GetACTResourceTagCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ReportName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the report that you want to delete. The name must be unique, is case sensitive,
-        /// and can't include spaces.</para>
+        /// <para> The ARN of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,50 +56,34 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ReportName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResponseMessage'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse).
-        /// Specifying the name of a property of type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.ControlTower.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResponseMessage";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ReportName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ReportName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReportName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReportName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CURReportDefinition (DeleteReportDefinition)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -110,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse, RemoveCURReportDefinitionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.ListTagsForResourceResponse, GetACTResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ReportName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ReportName = this.ReportName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ReportName == null && ParameterWasBound(nameof(this.ReportName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ReportName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -143,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostAndUsageReport.Model.DeleteReportDefinitionRequest();
+            var request = new Amazon.ControlTower.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.ReportName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ReportName = cmdletContext.ReportName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -182,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #region AWS Service Operation Call
         
-        private Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.DeleteReportDefinitionRequest request)
+        private Amazon.ControlTower.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "DeleteReportDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteReportDefinition(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.DeleteReportDefinitionAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -210,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ReportName { get; set; }
-            public System.Func<Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse, RemoveCURReportDefinitionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResponseMessage;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.ControlTower.Model.ListTagsForResourceResponse, GetACTResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

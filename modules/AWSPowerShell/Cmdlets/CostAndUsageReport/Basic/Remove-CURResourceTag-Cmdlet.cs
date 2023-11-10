@@ -22,52 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FMS;
-using Amazon.FMS.Model;
+using Amazon.CostAndUsageReport;
+using Amazon.CostAndUsageReport.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FMS
+namespace Amazon.PowerShell.Cmdlets.CUR
 {
     /// <summary>
-    /// Permanently deletes an Firewall Manager policy.
+    /// Disassociates a set of tags from a report definition.
     /// </summary>
-    [Cmdlet("Remove", "FMSPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CURResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Firewall Management Service DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.FMS.Model.DeletePolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.FMS.Model.DeletePolicyResponse",
+    [AWSCmdlet("Calls the AWS Cost and Usage Report UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.CostAndUsageReport.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CostAndUsageReport.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFMSPolicyCmdlet : AmazonFMSClientCmdlet, IExecutor
+    public partial class RemoveCURResourceTagCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DeleteAllPolicyResource
+        #region Parameter ReportName
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, the request performs cleanup according to the policy type. </para><para>For WAF and Shield Advanced policies, the cleanup does the following:</para><ul><li><para>Deletes rule groups created by Firewall Manager</para></li><li><para>Removes web ACLs from in-scope resources</para></li><li><para>Deletes web ACLs that contain no rules or rule groups</para></li></ul><para>For security group policies, the cleanup does the following for each security group
-        /// in the policy:</para><ul><li><para>Disassociates the security group from in-scope resources </para></li><li><para>Deletes the security group if it was created through Firewall Manager and if it's
-        /// no longer associated with any resources through another policy</para></li></ul><note><para>For security group common policies, even if set to <code>False</code>, Firewall Manager
-        /// deletes all security groups created by Firewall Manager that aren't associated with
-        /// any other resources through another policy.</para></note><para>After the cleanup, in-scope resources are no longer protected by web ACLs in this
-        /// policy. Protection of out-of-scope resources remains unchanged. Scope is determined
-        /// by tags that you create and accounts that you associate with the policy. When creating
-        /// the policy, if you specify that only resources in specific accounts or with specific
-        /// tags are in scope of the policy, those accounts and resources are handled by the policy.
-        /// All others are out of scope. If you don't specify tags or accounts, all resources
-        /// are in scope. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DeleteAllPolicyResources")]
-        public System.Boolean? DeleteAllPolicyResource { get; set; }
-        #endregion
-        
-        #region Parameter PolicyId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the policy that you want to delete. You can retrieve this ID from <code>PutPolicy</code>
-        /// and <code>ListPolicies</code>.</para>
+        /// <para>The report name of the report definition that tags are to be disassociated from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,13 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyId { get; set; }
+        public System.String ReportName { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be disassociated from the report definition resource.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FMS.Model.DeletePolicyResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostAndUsageReport.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PolicyId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PolicyId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ReportName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReportName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PolicyId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReportName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FMSPolicy (DeletePolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReportName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CURResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -130,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FMS.Model.DeletePolicyResponse, RemoveFMSPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CostAndUsageReport.Model.UntagResourceResponse, RemoveCURResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,15 +135,24 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PolicyId;
+                context.Select = (response, cmdlet) => this.ReportName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DeleteAllPolicyResource = this.DeleteAllPolicyResource;
-            context.PolicyId = this.PolicyId;
+            context.ReportName = this.ReportName;
             #if MODULAR
-            if (this.PolicyId == null && ParameterWasBound(nameof(this.PolicyId)))
+            if (this.ReportName == null && ParameterWasBound(nameof(this.ReportName)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ReportName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.TagKey != null)
+            {
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FMS.Model.DeletePolicyRequest();
+            var request = new Amazon.CostAndUsageReport.Model.UntagResourceRequest();
             
-            if (cmdletContext.DeleteAllPolicyResource != null)
+            if (cmdletContext.ReportName != null)
             {
-                request.DeleteAllPolicyResources = cmdletContext.DeleteAllPolicyResource.Value;
+                request.ReportName = cmdletContext.ReportName;
             }
-            if (cmdletContext.PolicyId != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.PolicyId = cmdletContext.PolicyId;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -207,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         #region AWS Service Operation Call
         
-        private Amazon.FMS.Model.DeletePolicyResponse CallAWSServiceOperation(IAmazonFMS client, Amazon.FMS.Model.DeletePolicyRequest request)
+        private Amazon.CostAndUsageReport.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "DeletePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.DeletePolicy(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.DeletePolicyAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,9 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DeleteAllPolicyResource { get; set; }
-            public System.String PolicyId { get; set; }
-            public System.Func<Amazon.FMS.Model.DeletePolicyResponse, RemoveFMSPolicyCmdlet, object> Select { get; set; } =
+            public System.String ReportName { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.CostAndUsageReport.Model.UntagResourceResponse, RemoveCURResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

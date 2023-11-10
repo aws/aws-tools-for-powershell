@@ -28,16 +28,16 @@ using Amazon.CostAndUsageReport.Model;
 namespace Amazon.PowerShell.Cmdlets.CUR
 {
     /// <summary>
-    /// Deletes the specified report. Any tags associated with the report are also deleted.
+    /// Lists the tags associated with the specified report definition.
     /// </summary>
-    [Cmdlet("Remove", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Cost and Usage Report DeleteReportDefinition API operation.", Operation = new[] {"DeleteReportDefinition"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CURResourceTag")]
+    [OutputType("Amazon.CostAndUsageReport.Model.Tag")]
+    [AWSCmdlet("Calls the AWS Cost and Usage Report ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("Amazon.CostAndUsageReport.Model.Tag or Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of Amazon.CostAndUsageReport.Model.Tag objects.",
+        "The service call response (type Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCURReportDefinitionCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
+    public partial class GetCURResourceTagCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportName
         /// <summary>
         /// <para>
-        /// <para>The name of the report that you want to delete. The name must be unique, is case sensitive,
-        /// and can't include spaces.</para>
+        /// <para>The report name of the report definition that tags are to be returned for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResponseMessage'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse).
-        /// Specifying the name of a property of type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResponseMessage";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
@@ -81,26 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReportName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CURReportDefinition (DeleteReportDefinition)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -110,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse, RemoveCURReportDefinitionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse, GetCURResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostAndUsageReport.Model.DeleteReportDefinitionRequest();
+            var request = new Amazon.CostAndUsageReport.Model.ListTagsForResourceRequest();
             
             if (cmdletContext.ReportName != null)
             {
@@ -182,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #region AWS Service Operation Call
         
-        private Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.DeleteReportDefinitionRequest request)
+        private Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "DeleteReportDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteReportDefinition(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.DeleteReportDefinitionAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -211,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ReportName { get; set; }
-            public System.Func<Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse, RemoveCURReportDefinitionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResponseMessage;
+            public System.Func<Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse, GetCURResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

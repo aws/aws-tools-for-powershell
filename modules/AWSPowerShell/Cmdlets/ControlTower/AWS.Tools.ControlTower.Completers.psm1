@@ -127,7 +127,10 @@ $ACT_SelectMap = @{
                "Enable-ACTControl",
                "Get-ACTControlOperation",
                "Get-ACTEnabledControl",
-               "Get-ACTEnabledControlList")
+               "Get-ACTEnabledControlList",
+               "Get-ACTResourceTag",
+               "Add-ACTResourceTag",
+               "Remove-ACTResourceTag")
 }
 
 _awsArgumentCompleterRegistration $ACT_SelectCompleters $ACT_SelectMap

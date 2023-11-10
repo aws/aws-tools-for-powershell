@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter PolicyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Firewall Manager policy that you want the details for. This currently
-        /// only supports security group content audit policies.</para>
+        /// <para>The ID of the Firewall Manager policy that you want the details for. You can get violation
+        /// details for the following policy types:</para><ul><li><para>DNS Firewall</para></li><li><para>Imported Network Firewall</para></li><li><para>Network Firewall</para></li><li><para>Security group content audit</para></li><li><para>Third-party firewall</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

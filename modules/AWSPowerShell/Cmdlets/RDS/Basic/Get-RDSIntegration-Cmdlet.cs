@@ -28,10 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Describe one or more zero-ETL integration with Amazon Redshift. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.describingmonitoring.html">Viewing
-    /// and monitoring Amazon Aurora zero-ETL integrations with Amazon Redshift</a> in the
-    /// <i>Amazon Aurora User Guide</i><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describe one or more zero-ETL integrations with Amazon Redshift.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSIntegration")]
     [OutputType("Amazon.RDS.Model.Integration")]

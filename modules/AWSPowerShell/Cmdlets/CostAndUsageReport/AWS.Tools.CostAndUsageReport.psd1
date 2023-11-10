@@ -86,9 +86,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CURResourceTag', 
         'Edit-CURReportDefinition', 
         'Get-CURReportDefinition', 
+        'Get-CURResourceTag', 
         'Remove-CURReportDefinition', 
+        'Remove-CURResourceTag', 
         'Write-CURReportDefinition')
 
     # Variables to export from this module

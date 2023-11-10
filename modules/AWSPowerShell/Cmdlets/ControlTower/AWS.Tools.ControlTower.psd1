@@ -86,11 +86,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-ACTResourceTag', 
         'Disable-ACTControl', 
         'Enable-ACTControl', 
         'Get-ACTControlOperation', 
         'Get-ACTEnabledControl', 
-        'Get-ACTEnabledControlList')
+        'Get-ACTEnabledControlList', 
+        'Get-ACTResourceTag', 
+        'Remove-ACTResourceTag')
 
     # Variables to export from this module
     VariablesToExport = '*'

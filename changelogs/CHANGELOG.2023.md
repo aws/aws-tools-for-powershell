@@ -1,4 +1,18 @@
-﻿### 4.1.450 (2023-11-09 22:18Z)
+﻿### 4.1.451 (2023-11-10 22:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.684.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Tower
+    * Added cmdlet Add-ACTResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-ACTResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-ACTResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Enable-ACTControl: added parameter Tag.
+  * Amazon Cost and Usage Report
+    * Added cmdlet Add-CURResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CURResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CURResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Edit-CURReportDefinition: added parameters ReportStatus_LastDelivery and ReportStatus_LastStatus.
+    * Modified cmdlet Write-CURReportDefinition: added parameters ReportStatus_LastDelivery, ReportStatus_LastStatus and Tag.
+
+### 4.1.450 (2023-11-09 22:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.682.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudTrail
     * Modified cmdlet Get-CTInsightSelector: added parameter EventDataStore.
