@@ -1,0 +1,28 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 2 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet  restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in C:\git\ps-perf\tests\Performance\bin\Release\net6.0\04600c68-5406-405d-a7b9-c8b51db30fcf
+// command took 1.16 sec and exited with 0
+// start dotnet  build -c Release --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in C:\git\ps-perf\tests\Performance\bin\Release\net6.0\04600c68-5406-405d-a7b9-c8b51db30fcf
+// command took 2.42 sec and exited with 0
+// ***** Done, took 00:00:03 (3.76 sec)   *****
+// Found 2 benchmarks:
+//   STSBenchmarks.AssumeRole: MediumRun(IterationCount=5, LaunchCount=1, MaxIterationCount=5, MinIterationCount=3, WarmupCount=5)
+//   STSBenchmarks.GetCallerIdentity: MediumRun(IterationCount=5, LaunchCount=1, MaxIterationCount=5, MinIterationCount=3, WarmupCount=5)
+
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: STSBenchmarks.AssumeRole: MediumRun(IterationCount=5, LaunchCount=1, MaxIterationCount=5, MinIterationCount=3, WarmupCount=5)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet 04600c68-5406-405d-a7b9-c8b51db30fcf.dll --anonymousPipes 1512 1532 --benchmarkName Performance.Benchmarks.STSBenchmarks.AssumeRole --job MediumRun --benchmarkId 0 in C:\git\ps-perf\tests\Performance\bin\Release\net6.0\04600c68-5406-405d-a7b9-c8b51db30fcf\bin\Release\net6.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.13.9+228a464e8be6c580ad9408e98f18813f6407fb5a
+// Runtime=.NET 6.0.23 (6.0.2323.48002), X64 RyuJIT AVX2
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT,AvxVnni VectorSize=256
+// Job: MediumRun(IterationCount=5, LaunchCount=1, MaxIterationCount=5, MinIterationCount=3, WarmupCount=5)
+

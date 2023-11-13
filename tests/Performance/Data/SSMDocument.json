@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "2.2",
+  "description": "",
+  "parameters": {},
+  "mainSteps": [
+    {
+      "action": "aws:runPowerShellScript",
+      "name": "example",
+      "inputs": { "runCommand": [ "Write-Output Message" ] }
+    }
+  ]
+}
