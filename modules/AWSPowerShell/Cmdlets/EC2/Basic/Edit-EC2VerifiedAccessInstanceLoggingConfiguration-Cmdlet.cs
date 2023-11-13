@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AccessLogs_IncludeTrustContext
         /// <summary>
         /// <para>
-        /// <para> Include trust data sent by trust providers into the logs. </para>
+        /// <para>Indicates whether to include trust data sent by trust providers in the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AccessLogs_LogVersion
         /// <summary>
         /// <para>
-        /// <para> The logging version to use. </para><para>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code></para>
+        /// <para>The logging version.</para><para>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

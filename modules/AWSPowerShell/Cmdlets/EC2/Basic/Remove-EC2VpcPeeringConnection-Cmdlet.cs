@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code>
     /// state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code>
     /// state. You cannot delete a VPC peering connection that's in the <code>failed</code>
-    /// state.
+    /// or <code>rejected</code> state.
     /// </summary>
     [Cmdlet("Remove", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

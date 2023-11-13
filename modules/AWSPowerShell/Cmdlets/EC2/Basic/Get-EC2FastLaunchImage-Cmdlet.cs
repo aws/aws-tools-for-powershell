@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describe details for Windows AMIs that are configured for faster launching.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describe details for Windows AMIs that are configured for Windows fast launch.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2FastLaunchImage")]
     [OutputType("Amazon.EC2.Model.DescribeFastLaunchImagesSuccessItem")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Use the following filters to streamline results.</para><ul><li><para><code>resource-type</code> - The resource type for pre-provisioning.</para></li><li><para><code>launch-template</code> - The launch template that is associated with the pre-provisioned
-        /// Windows AMI.</para></li><li><para><code>owner-id</code> - The owner ID for the pre-provisioning resource.</para></li><li><para><code>state</code> - The current state of fast launching for the Windows AMI.</para></li></ul>
+        /// <para>Use the following filters to streamline results.</para><ul><li><para><code>resource-type</code> - The resource type for pre-provisioning.</para></li><li><para><code>owner-id</code> - The owner ID for the pre-provisioning resource.</para></li><li><para><code>state</code> - The current state of fast launching for the Windows AMI.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>Details for one or more Windows AMI image IDs.</para>
+        /// <para>Specify one or more Windows AMI image IDs for the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

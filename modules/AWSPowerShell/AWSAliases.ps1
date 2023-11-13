@@ -8479,6 +8479,8 @@ Set-Alias -Name Describe-EC2Instance -Value Get-EC2Instance
 Set-Alias -Name EC2-DescribeInstances -Value Get-EC2Instance
 Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
 Set-Alias -Name EC2-DescribeInstanceStatus -Value Get-EC2InstanceStatus
+Set-Alias -Name Describe-EC2InstanceTopology -Value Get-EC2InstanceTopology
+Set-Alias -Name EC2-DescribeInstanceTopology -Value Get-EC2InstanceTopology
 Set-Alias -Name Describe-EC2InstanceTypeOfferings -Value Get-EC2InstanceTypeOffering
 Set-Alias -Name Describe-EC2InstanceTypeOffering -Value Get-EC2InstanceTypeOffering
 Set-Alias -Name EC2-DescribeInstanceTypeOfferings -Value Get-EC2InstanceTypeOffering

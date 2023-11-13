@@ -1,4 +1,18 @@
-﻿### 4.1.451 (2023-11-10 22:11Z)
+﻿### 4.1.452 (2023-11-13 22:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.685.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters IBMDb2Settings_KeepCsvFile, IBMDb2Settings_LoadTimeout, IBMDb2Settings_MaxFileSize, IBMDb2Settings_WriteBufferSize and MySQLSettings_ExecuteTimeout.
+    * Modified cmdlet New-DMSEndpoint: added parameters IBMDb2Settings_KeepCsvFile, IBMDb2Settings_LoadTimeout, IBMDb2Settings_MaxFileSize, IBMDb2Settings_WriteBufferSize and MySQLSettings_ExecuteTimeout.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSTask: added parameter ClientToken.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2InstanceTopology leveraging the DescribeInstanceTopology service API.
+    * Modified cmdlet Get-EC2CoipPoolUsage: added parameter NoAutoIteration.
+  * Amazon Service Catalog App Registry
+    * Modified cmdlet Get-SCARAssociatedResource: added parameters MaxResult, NextToken and ResourceTagStatus.
+    * Modified cmdlet Register-SCARResource: added parameter Option.
+
+### 4.1.451 (2023-11-10 22:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.684.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Tower
     * Added cmdlet Add-ACTResourceTag leveraging the TagResource service API.

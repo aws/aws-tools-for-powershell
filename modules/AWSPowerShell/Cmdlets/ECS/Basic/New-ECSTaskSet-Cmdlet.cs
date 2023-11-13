@@ -269,8 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The identifier that you provide to ensure the idempotency of the request. It's case
-        /// sensitive and must be unique. It can be up to 32 ASCII characters are allowed.</para>
+        /// <para>An identifier that you provide to ensure the idempotency of the request. It must be
+        /// unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive)
+        /// are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

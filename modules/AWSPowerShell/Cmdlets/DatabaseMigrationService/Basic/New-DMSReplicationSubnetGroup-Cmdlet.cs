@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>One or more subnet IDs to be assigned to the subnet group.</para>
+        /// <para>Two or more subnet IDs to be assigned to the subnet group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// trigger a task to run a batch process job, you could apply a unique identifier for
         /// that job to your task with the <code>startedBy</code> parameter. You can then identify
         /// which tasks belong to that job by filtering the results of a <a>ListTasks</a> call
-        /// with the <code>startedBy</code> value. Up to 36 letters (uppercase and lowercase),
+        /// with the <code>startedBy</code> value. Up to 128 letters (uppercase and lowercase),
         /// numbers, hyphens (-), and underscores (_) are allowed.</para><para>If a task is started by an Amazon ECS service, then the <code>startedBy</code> parameter
         /// contains the deployment ID of the service that starts it.</para>
         /// </para>
@@ -414,6 +414,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Overrides_TaskRoleArn { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>An identifier that you provide to ensure the idempotency of the request. It must be
+        /// unique and is case sensitive. Up to 64 characters are allowed. The valid characters
+        /// are characters in the range of 33-126, inclusive. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -480,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
             }
+            context.ClientToken = this.ClientToken;
             context.Cluster = this.Cluster;
             context.Count = this.Count;
             context.EnableECSManagedTag = this.EnableECSManagedTag;
@@ -550,6 +564,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.CapacityProviderStrategy != null)
             {
                 request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Cluster != null)
             {
@@ -817,6 +835,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }

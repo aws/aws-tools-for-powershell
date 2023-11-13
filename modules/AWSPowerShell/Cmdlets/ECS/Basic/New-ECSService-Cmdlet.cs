@@ -714,7 +714,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>An identifier that you provide to ensure the idempotency of the request. It must be
-        /// unique and is case sensitive. Up to 32 ASCII characters are allowed.</para>
+        /// unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive)
+        /// are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

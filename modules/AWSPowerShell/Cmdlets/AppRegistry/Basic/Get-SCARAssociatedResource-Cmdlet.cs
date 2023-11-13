@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         public System.String Resource { get; set; }
         #endregion
         
+        #region Parameter ResourceTagStatus
+        /// <summary>
+        /// <para>
+        /// <para> States whether an application tag is applied, not applied, in the process of being
+        /// applied, or skipped. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ResourceTagStatus { get; set; }
+        #endregion
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
@@ -91,6 +102,29 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AppRegistry.ResourceType")]
         public Amazon.AppRegistry.ResourceType ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of results to return. If the parameter is omitted, it defaults
+        /// to 25. The value is optional. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para> A unique pagination token for each page of results. Make the call again with the
+        /// returned token to retrieve the next page of results. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -126,6 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
                 WriteWarning("You are passing $null as a value for parameter Application which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.Resource = this.Resource;
             #if MODULAR
             if (this.Resource == null && ParameterWasBound(nameof(this.Resource)))
@@ -133,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
                 WriteWarning("You are passing $null as a value for parameter Resource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ResourceTagStatus != null)
+            {
+                context.ResourceTagStatus = new List<System.String>(this.ResourceTagStatus);
+            }
             context.ResourceType = this.ResourceType;
             #if MODULAR
             if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
@@ -160,9 +200,21 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             {
                 request.Application = cmdletContext.Application;
             }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             if (cmdletContext.Resource != null)
             {
                 request.Resource = cmdletContext.Resource;
+            }
+            if (cmdletContext.ResourceTagStatus != null)
+            {
+                request.ResourceTagStatus = cmdletContext.ResourceTagStatus;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -230,7 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Application { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.String Resource { get; set; }
+            public List<System.String> ResourceTagStatus { get; set; }
             public Amazon.AppRegistry.ResourceType ResourceType { get; set; }
             public System.Func<Amazon.AppRegistry.Model.GetAssociatedResourceResponse, GetSCARAssociatedResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Resource;

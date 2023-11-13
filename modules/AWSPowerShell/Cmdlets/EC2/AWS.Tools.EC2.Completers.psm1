@@ -1571,6 +1571,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceEventWindow",
                "Get-EC2Instance",
                "Get-EC2InstanceStatus",
+               "Get-EC2InstanceTopology",
                "Get-EC2InstanceTypeOffering",
                "Get-EC2InstanceType",
                "Get-EC2InternetGateway",

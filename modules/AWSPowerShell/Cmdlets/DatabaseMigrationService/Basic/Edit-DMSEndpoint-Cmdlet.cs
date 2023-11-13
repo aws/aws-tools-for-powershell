@@ -1295,6 +1295,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? ExactSetting { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_ExecuteTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Sets the client statement timeout (in seconds) for a MySQL source endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MySQLSettings_ExecuteTimeout { get; set; }
+        #endregion
+        
         #region Parameter PostgreSQLSettings_ExecuteTimeout
         /// <summary>
         /// <para>
@@ -1685,6 +1695,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? KinesisSettings_IncludeTransactionDetail { get; set; }
         #endregion
         
+        #region Parameter IBMDb2Settings_KeepCsvFile
+        /// <summary>
+        /// <para>
+        /// <para>If true, DMS saves any .csv files to the Db2 LUW target that were used to replicate
+        /// data. DMS uses these files for analysis and troubleshooting.</para><para>The default value is false. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IBMDb2Settings_KeepCsvFiles")]
+        public System.Boolean? IBMDb2Settings_KeepCsvFile { get; set; }
+        #endregion
+        
         #region Parameter DocDbSettings_KmsKeyId
         /// <summary>
         /// <para>
@@ -1711,6 +1733,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MongoDbSettings_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_LoadTimeout
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time (in milliseconds) before DMS times out operations performed by
+        /// DMS on the Db2 target. The default value is 1200 (20 minutes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? IBMDb2Settings_LoadTimeout { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_LoadTimeout
@@ -1792,6 +1825,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? GcpMySQLSettings_MaxFileSize { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_MaxFileSize
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? IBMDb2Settings_MaxFileSize { get; set; }
         #endregion
         
         #region Parameter MySQLSettings_MaxFileSize
@@ -3855,6 +3898,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? MongoDbSettings_UseUpdateLookUp { get; set; }
         #endregion
         
+        #region Parameter IBMDb2Settings_WriteBufferSize
+        /// <summary>
+        /// <para>
+        /// <para>The size (in KB) of the in-memory file write buffer used when generating .csv files
+        /// on the local disk on the DMS replication instance. The default value is 1024 (1 MB).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? IBMDb2Settings_WriteBufferSize { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_WriteBufferSize
         /// <summary>
         /// <para>
@@ -3981,6 +4035,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.GcpMySQLSettings_Username = this.GcpMySQLSettings_Username;
             context.IBMDb2Settings_CurrentLsn = this.IBMDb2Settings_CurrentLsn;
             context.IBMDb2Settings_DatabaseName = this.IBMDb2Settings_DatabaseName;
+            context.IBMDb2Settings_KeepCsvFile = this.IBMDb2Settings_KeepCsvFile;
+            context.IBMDb2Settings_LoadTimeout = this.IBMDb2Settings_LoadTimeout;
+            context.IBMDb2Settings_MaxFileSize = this.IBMDb2Settings_MaxFileSize;
             context.IBMDb2Settings_MaxKBytesPerRead = this.IBMDb2Settings_MaxKBytesPerRead;
             context.IBMDb2Settings_Password = this.IBMDb2Settings_Password;
             context.IBMDb2Settings_Port = this.IBMDb2Settings_Port;
@@ -3989,6 +4046,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.IBMDb2Settings_ServerName = this.IBMDb2Settings_ServerName;
             context.IBMDb2Settings_SetDataCaptureChange = this.IBMDb2Settings_SetDataCaptureChange;
             context.IBMDb2Settings_Username = this.IBMDb2Settings_Username;
+            context.IBMDb2Settings_WriteBufferSize = this.IBMDb2Settings_WriteBufferSize;
             context.KafkaSettings_Broker = this.KafkaSettings_Broker;
             context.KafkaSettings_IncludeControlDetail = this.KafkaSettings_IncludeControlDetail;
             context.KafkaSettings_IncludeNullAndEmpty = this.KafkaSettings_IncludeNullAndEmpty;
@@ -4056,6 +4114,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MySQLSettings_CleanSourceMetadataOnMismatch = this.MySQLSettings_CleanSourceMetadataOnMismatch;
             context.MySQLSettings_DatabaseName = this.MySQLSettings_DatabaseName;
             context.MySQLSettings_EventsPollInterval = this.MySQLSettings_EventsPollInterval;
+            context.MySQLSettings_ExecuteTimeout = this.MySQLSettings_ExecuteTimeout;
             context.MySQLSettings_MaxFileSize = this.MySQLSettings_MaxFileSize;
             context.MySQLSettings_ParallelLoadThread = this.MySQLSettings_ParallelLoadThread;
             context.MySQLSettings_Password = this.MySQLSettings_Password;
@@ -4711,6 +4770,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.IBMDb2Settings.DatabaseName = requestIBMDb2Settings_iBMDb2Settings_DatabaseName;
                 requestIBMDb2SettingsIsNull = false;
             }
+            System.Boolean? requestIBMDb2Settings_iBMDb2Settings_KeepCsvFile = null;
+            if (cmdletContext.IBMDb2Settings_KeepCsvFile != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_KeepCsvFile = cmdletContext.IBMDb2Settings_KeepCsvFile.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_KeepCsvFile != null)
+            {
+                request.IBMDb2Settings.KeepCsvFiles = requestIBMDb2Settings_iBMDb2Settings_KeepCsvFile.Value;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.Int32? requestIBMDb2Settings_iBMDb2Settings_LoadTimeout = null;
+            if (cmdletContext.IBMDb2Settings_LoadTimeout != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_LoadTimeout = cmdletContext.IBMDb2Settings_LoadTimeout.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_LoadTimeout != null)
+            {
+                request.IBMDb2Settings.LoadTimeout = requestIBMDb2Settings_iBMDb2Settings_LoadTimeout.Value;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.Int32? requestIBMDb2Settings_iBMDb2Settings_MaxFileSize = null;
+            if (cmdletContext.IBMDb2Settings_MaxFileSize != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_MaxFileSize = cmdletContext.IBMDb2Settings_MaxFileSize.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_MaxFileSize != null)
+            {
+                request.IBMDb2Settings.MaxFileSize = requestIBMDb2Settings_iBMDb2Settings_MaxFileSize.Value;
+                requestIBMDb2SettingsIsNull = false;
+            }
             System.Int32? requestIBMDb2Settings_iBMDb2Settings_MaxKBytesPerRead = null;
             if (cmdletContext.IBMDb2Settings_MaxKBytesPerRead != null)
             {
@@ -4789,6 +4878,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestIBMDb2Settings_iBMDb2Settings_Username != null)
             {
                 request.IBMDb2Settings.Username = requestIBMDb2Settings_iBMDb2Settings_Username;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.Int32? requestIBMDb2Settings_iBMDb2Settings_WriteBufferSize = null;
+            if (cmdletContext.IBMDb2Settings_WriteBufferSize != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_WriteBufferSize = cmdletContext.IBMDb2Settings_WriteBufferSize.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_WriteBufferSize != null)
+            {
+                request.IBMDb2Settings.WriteBufferSize = requestIBMDb2Settings_iBMDb2Settings_WriteBufferSize.Value;
                 requestIBMDb2SettingsIsNull = false;
             }
              // determine if request.IBMDb2Settings should be set to null
@@ -5504,6 +5603,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMySQLSettings_mySQLSettings_EventsPollInterval != null)
             {
                 request.MySQLSettings.EventsPollInterval = requestMySQLSettings_mySQLSettings_EventsPollInterval.Value;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestMySQLSettings_mySQLSettings_ExecuteTimeout = null;
+            if (cmdletContext.MySQLSettings_ExecuteTimeout != null)
+            {
+                requestMySQLSettings_mySQLSettings_ExecuteTimeout = cmdletContext.MySQLSettings_ExecuteTimeout.Value;
+            }
+            if (requestMySQLSettings_mySQLSettings_ExecuteTimeout != null)
+            {
+                request.MySQLSettings.ExecuteTimeout = requestMySQLSettings_mySQLSettings_ExecuteTimeout.Value;
                 requestMySQLSettingsIsNull = false;
             }
             System.Int32? requestMySQLSettings_mySQLSettings_MaxFileSize = null;
@@ -7464,6 +7573,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String GcpMySQLSettings_Username { get; set; }
             public System.String IBMDb2Settings_CurrentLsn { get; set; }
             public System.String IBMDb2Settings_DatabaseName { get; set; }
+            public System.Boolean? IBMDb2Settings_KeepCsvFile { get; set; }
+            public System.Int32? IBMDb2Settings_LoadTimeout { get; set; }
+            public System.Int32? IBMDb2Settings_MaxFileSize { get; set; }
             public System.Int32? IBMDb2Settings_MaxKBytesPerRead { get; set; }
             public System.String IBMDb2Settings_Password { get; set; }
             public System.Int32? IBMDb2Settings_Port { get; set; }
@@ -7472,6 +7584,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String IBMDb2Settings_ServerName { get; set; }
             public System.Boolean? IBMDb2Settings_SetDataCaptureChange { get; set; }
             public System.String IBMDb2Settings_Username { get; set; }
+            public System.Int32? IBMDb2Settings_WriteBufferSize { get; set; }
             public System.String KafkaSettings_Broker { get; set; }
             public System.Boolean? KafkaSettings_IncludeControlDetail { get; set; }
             public System.Boolean? KafkaSettings_IncludeNullAndEmpty { get; set; }
@@ -7539,6 +7652,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? MySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
             public System.String MySQLSettings_DatabaseName { get; set; }
             public System.Int32? MySQLSettings_EventsPollInterval { get; set; }
+            public System.Int32? MySQLSettings_ExecuteTimeout { get; set; }
             public System.Int32? MySQLSettings_MaxFileSize { get; set; }
             public System.Int32? MySQLSettings_ParallelLoadThread { get; set; }
             public System.String MySQLSettings_Password { get; set; }

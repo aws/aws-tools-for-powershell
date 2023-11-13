@@ -57,9 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>The block device mappings. This parameter cannot be used to modify the encryption
-        /// status of existing volumes or snapshots. To create an AMI with encrypted snapshots,
-        /// use the <a>CopyImage</a> action.</para>
+        /// <para>The block device mappings.</para><para>When using the CreateImage action:</para><ul><li><para>You can't change the volume size using the VolumeSize parameter. If you want a different
+        /// volume size, you must first change the volume size of the source instance.</para></li><li><para>You can't modify the encryption status of existing volumes or snapshots. To create
+        /// an AMI with volumes or snapshots that have a different encryption status (for example,
+        /// where the source volume and snapshots are unencrypted, and you want to create an AMI
+        /// with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <code>DeleteOnTermination</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

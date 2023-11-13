@@ -72,14 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <code>arn:partition:service:region:account:resource</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
@@ -137,12 +130,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             #endif
             context.ExecutionRoleArn = this.ExecutionRoleArn;
-            #if MODULAR
-            if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

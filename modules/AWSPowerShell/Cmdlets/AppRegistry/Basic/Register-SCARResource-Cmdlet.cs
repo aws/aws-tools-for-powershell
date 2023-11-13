@@ -29,7 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
     /// Associates a resource with an application. The resource can be specified by its ARN
-    /// or name. The application can be specified by ARN, ID, or name.
+    /// or name. The application can be specified by ARN, ID, or name. 
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    ///  You must have the following permissions to associate a resource using the <code>OPTIONS</code>
+    /// parameter set to <code>APPLY_APPLICATION_TAG</code>. 
+    /// </para><ul><li><para><code>tag:GetResources</code></para></li><li><para><code>tag:TagResources</code></para></li></ul><para>
+    ///  You must also have these additional permissions if you don't use the <code>AWSServiceCatalogAppRegistryFullAccess</code>
+    /// policy. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html">AWSServiceCatalogAppRegistryFullAccess</a>
+    /// in the AppRegistry Administrator Guide. 
+    /// </para><ul><li><para><code>resource-groups:DisassociateResource</code></para></li><li><para><code>cloudformation:UpdateStack</code></para></li><li><para><code>cloudformation:DescribeStacks</code></para></li></ul><note><para>
+    ///  In addition, you must have the tagging permission defined by the Amazon Web Services
+    /// service that creates the resource. For more information, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html">TagResources</a>
+    /// in the <i>Resource Groups Tagging API Reference</i>. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Register", "SCARResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppRegistry.Model.AssociateResourceResponse")]
@@ -57,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Application { get; set; }
+        #endregion
+        
+        #region Parameter Option
+        /// <summary>
+        /// <para>
+        /// <para> Determines whether an application tag is applied or skipped. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Options")]
+        public System.String[] Option { get; set; }
         #endregion
         
         #region Parameter Resource
@@ -142,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
                 WriteWarning("You are passing $null as a value for parameter Application which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Option != null)
+            {
+                context.Option = new List<System.String>(this.Option);
+            }
             context.Resource = this.Resource;
             #if MODULAR
             if (this.Resource == null && ParameterWasBound(nameof(this.Resource)))
@@ -175,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             if (cmdletContext.Application != null)
             {
                 request.Application = cmdletContext.Application;
+            }
+            if (cmdletContext.Option != null)
+            {
+                request.Options = cmdletContext.Option;
             }
             if (cmdletContext.Resource != null)
             {
@@ -246,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Application { get; set; }
+            public List<System.String> Option { get; set; }
             public System.String Resource { get; set; }
             public Amazon.AppRegistry.ResourceType ResourceType { get; set; }
             public System.Func<Amazon.AppRegistry.Model.AssociateResourceResponse, RegisterSCARResourceCmdlet, object> Select { get; set; } =

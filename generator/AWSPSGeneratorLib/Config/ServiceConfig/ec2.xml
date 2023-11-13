@@ -1189,6 +1189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceTopology" OutputProperty="Instances" Verb="Get" Noun="InstanceTopology" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceTypeOfferings" OutputProperty="InstanceTypeOfferings" Verb="Get" Noun="InstanceTypeOffering" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

@@ -28,15 +28,36 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the allocations from the specified customer-owned address pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes a tree-based hierarchy that represents the physical host placement of your
+    /// EC2 instances within an Availability Zone or Local Zone. You can use this information
+    /// to determine the relative proximity of your EC2 instances within the Amazon Web Services
+    /// network to support your tightly coupled workloads.
+    /// 
+    ///  
+    /// <para><b>Limitations</b></para><ul><li><para>
+    /// Supported zones
+    /// </para><ul><li><para>
+    /// Availability Zone
+    /// </para></li><li><para>
+    /// Local Zone
+    /// </para></li></ul></li><li><para>
+    /// Supported instance types
+    /// </para><ul><li><para><code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> | <code>hpc7a.12xlarge</code>
+    /// | <code>hpc7a.24xlarge</code> | <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code>
+    /// | <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> | <code>hpc7g.16xlarge</code></para></li><li><para><code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> | <code>p4de.24xlarge</code>
+    /// | <code>p5.48xlarge</code></para></li><li><para><code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> | <code>trn1n.32xlarge</code></para></li></ul></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
+    /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2CoipPoolUsage")]
-    [OutputType("Amazon.EC2.Model.GetCoipPoolUsageResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetCoipPoolUsage API operation.", Operation = new[] {"GetCoipPoolUsage"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCoipPoolUsageResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetCoipPoolUsageResponse",
-        "This cmdlet returns an Amazon.EC2.Model.GetCoipPoolUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2InstanceTopology")]
+    [OutputType("Amazon.EC2.Model.InstanceTopology")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceTopology API operation.", Operation = new[] {"DescribeInstanceTopology"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceTopologyResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.InstanceTopology or Amazon.EC2.Model.DescribeInstanceTopologyResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTopology objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceTopologyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2CoipPoolUsageCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2InstanceTopologyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -44,9 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</para></li><li><para><code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services
-        /// account that is using the customer-owned IP address.</para></li><li><para><code>coip-address-usage.aws-service</code> - The Amazon Web Services service that
-        /// is using the customer-owned IP address.</para></li><li><para><code>coip-address-usage.co-ip</code> - The customer-owned IP address.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The name of the Availability Zone (for example,
+        /// <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>)
+        /// that the instance is in.</para></li><li><para><code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>)
+        /// or instance family (for example, <code>p4d*</code>). You can use the <code>*</code>
+        /// wildcard to match zero or more characters, or the <code>?</code> wildcard to match
+        /// zero or one character.</para></li><li><para><code>zone-id</code> - The ID of the Availability Zone (for example, <code>usw2-az2</code>)
+        /// or Local Zone (for example, <code>usw2-lax1-az1</code>) that the instance is in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,28 +79,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter PoolId
+        #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The ID of the address pool.</para>
+        /// <para>The name of the placement group that each instance is in.</para><para>Constraints: Maximum 100 explicitly specified placement group names.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PoolId { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GroupNames")]
+        public System.String[] GroupName { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceIds")]
+        public object[] InstanceId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the instance IDs parameter in the same request.</para><para>Default: <code>20</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -99,23 +131,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetCoipPoolUsageResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.GetCoipPoolUsageResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Instances'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeInstanceTopologyResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeInstanceTopologyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PoolId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PoolId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PoolId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "Instances";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -138,34 +160,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetCoipPoolUsageResponse, GetEC2CoipPoolUsageCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeInstanceTopologyResponse, GetEC2InstanceTopologyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.PoolId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            if (this.GroupName != null)
+            {
+                context.GroupName = new List<System.String>(this.GroupName);
+            }
+            if (this.InstanceId != null)
+            {
+                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
+            }
+            
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.PoolId = this.PoolId;
-            #if MODULAR
-            if (this.PoolId == null && ParameterWasBound(nameof(this.PoolId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,24 +193,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.GetCoipPoolUsageRequest();
+            var request = new Amazon.EC2.Model.DescribeInstanceTopologyRequest();
             
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
             }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupNames = cmdletContext.GroupName;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceIds = cmdletContext.InstanceId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.PoolId != null)
-            {
-                request.PoolId = cmdletContext.PoolId;
             }
             
             // Initialize loop variant and commence piping
@@ -255,15 +271,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.GetCoipPoolUsageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetCoipPoolUsageRequest request)
+        private Amazon.EC2.Model.DescribeInstanceTopologyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceTopologyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetCoipPoolUsage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeInstanceTopology");
             try
             {
                 #if DESKTOP
-                return client.GetCoipPoolUsage(request);
+                return client.DescribeInstanceTopology(request);
                 #elif CORECLR
-                return client.GetCoipPoolUsageAsync(request).GetAwaiter().GetResult();
+                return client.DescribeInstanceTopologyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -284,11 +300,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public List<System.String> GroupName { get; set; }
+            public List<System.String> InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String PoolId { get; set; }
-            public System.Func<Amazon.EC2.Model.GetCoipPoolUsageResponse, GetEC2CoipPoolUsageCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.EC2.Model.DescribeInstanceTopologyResponse, GetEC2InstanceTopologyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Instances;
         }
         
     }

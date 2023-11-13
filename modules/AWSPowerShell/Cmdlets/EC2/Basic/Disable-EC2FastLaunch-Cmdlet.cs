@@ -28,13 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned
-    /// snapshots. When you disable faster launching, the AMI uses the standard launch process
-    /// for each instance. All pre-provisioned snapshots must be removed before you can enable
-    /// faster launching again.
+    /// Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned
+    /// snapshots. After you disable Windows fast launch, the AMI uses the standard launch
+    /// process for each new instance. Amazon EC2 must remove all pre-provisioned snapshots
+    /// before you can enable Windows fast launch again.
     /// 
     ///  <note><para>
-    /// To change these settings, you must own the AMI.
+    /// You can only change these settings for Windows AMIs that you own or that have been
+    /// shared with you.
     /// </para></note>
     /// </summary>
     [Cmdlet("Disable", "EC2FastLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ForceStop
         /// <summary>
         /// <para>
-        /// <para>Forces the image settings to turn off faster launching for your Windows AMI. This
+        /// <para>Forces the image settings to turn off Windows fast launch for your Windows AMI. This
         /// parameter overrides any errors that are encountered while cleaning up resources in
         /// your account.</para>
         /// </para>
@@ -63,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>The ID of the image for which you’re turning off faster launching, and removing pre-provisioned
-        /// snapshots.</para>
+        /// <para>Specify the ID of the image for which to disable Windows fast launch.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

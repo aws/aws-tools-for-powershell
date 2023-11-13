@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_DPDTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>The number of seconds after which a DPD timeout occurs.</para><para>Constraints: A value greater than or equal to 30.</para><para>Default: <code>30</code></para>
+        /// <para>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds
+        /// means that the VPN endpoint will consider the peer dead 30 seconds after the first
+        /// failed keep-alive.</para><para>Constraints: A value greater than or equal to 30.</para><para>Default: <code>40</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SkipTunnelReplacement
         /// <summary>
         /// <para>
-        /// <para>Choose whether or not to trigger immediate tunnel replacement.</para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// <para>Choose whether or not to trigger immediate tunnel replacement. This is only applicable
+        /// when turning on or off <code>EnableTunnelLifecycleControl</code>.</para><para>Valid values: <code>True</code> | <code>False</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,15 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// When you enable faster launching for a Windows AMI, images are pre-provisioned, using
-    /// snapshots to launch instances up to 65% faster. To create the optimized Windows image,
-    /// Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
-    /// Then it creates a set of reserved snapshots that are used for subsequent launches.
-    /// The reserved snapshots are automatically replenished as they are used, depending on
-    /// your settings for launch frequency.
+    /// When you enable Windows fast launch for a Windows AMI, images are pre-provisioned,
+    /// using snapshots to launch instances up to 65% faster. To create the optimized Windows
+    /// image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as
+    /// required. Then it creates a set of reserved snapshots that are used for subsequent
+    /// launches. The reserved snapshots are automatically replenished as they are used, depending
+    /// on your settings for launch frequency.
     /// 
     ///  <note><para>
-    /// To change these settings, you must own the AMI.
+    /// You can only change these settings for Windows AMIs that you own or that have been
+    /// shared with you.
     /// </para></note>
     /// </summary>
     [Cmdlet("Enable", "EC2FastLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>The ID of the image for which you’re enabling faster launching.</para>
+        /// <para>Specify the ID of the image for which to enable Windows fast launch.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplate_LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template to use for faster launching for a Windows AMI.</para>
+        /// <para>Specify the ID of the launch template that the AMI should use for Windows fast launch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplate_LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template to use for faster launching for a Windows AMI.</para>
+        /// <para>Specify the name of the launch template that the AMI should use for Windows fast launch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of instances that Amazon EC2 can launch at the same time to create
-        /// pre-provisioned snapshots for Windows faster launching. Value must be <code>6</code>
-        /// or greater.</para>
+        /// pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
+        /// greater.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource to use for pre-provisioning the Windows AMI for faster launching.
+        /// <para>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
         /// Supported values include: <code>snapshot</code>, which is the default value.</para>
         /// </para>
         /// </summary>
@@ -114,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SnapshotConfiguration_TargetResourceCount
         /// <summary>
         /// <para>
-        /// <para>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled
-        /// Windows AMI.</para>
+        /// <para>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch
+        /// enabled AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version of the launch template to use for faster launching for a Windows AMI.</para>
+        /// <para>Specify the version of the launch template that the AMI should use for Windows fast
+        /// launch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

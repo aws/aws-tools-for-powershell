@@ -236,7 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups to associate with the Verified Access endpoint.</para>
+        /// <para>The IDs of the security groups to associate with the Verified Access endpoint. Required
+        /// if <code>AttachmentType</code> is set to <code>vpc</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
