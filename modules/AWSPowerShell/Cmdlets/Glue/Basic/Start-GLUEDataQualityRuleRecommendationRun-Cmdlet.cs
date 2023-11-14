@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// rules to write. Glue Data Quality analyzes the data and comes up with recommendations
     /// for a potential ruleset. You can then triage the ruleset and modify the generated
     /// ruleset to your liking.
+    /// 
+    ///  
+    /// <para>
+    /// Recommendation runs are automatically deleted after 90 days.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "GLUEDataQualityRuleRecommendationRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

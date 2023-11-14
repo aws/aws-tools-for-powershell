@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <summary>
     /// Lists all executions of a state machine or a Map Run. You can list all executions
     /// related to a state machine by specifying a state machine Amazon Resource Name (ARN),
-    /// or those related to a Map Run by specifying a Map Run ARN.
+    /// or those related to a Map Run by specifying a Map Run ARN. Using this API action,
+    /// you can also list all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html">redriven</a>
+    /// executions.
     /// 
     ///  
     /// <para>
@@ -76,6 +78,20 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MapRunArn { get; set; }
+        #endregion
+        
+        #region Parameter RedriveFilter
+        /// <summary>
+        /// <para>
+        /// <para>Sets a filter to list executions based on whether or not they have been redriven.</para><para>For a Distributed Map, <code>redriveFilter</code> sets a filter to list child workflow
+        /// executions based on whether or not they have been redriven.</para><para>If you do not provide a <code>redriveFilter</code>, Step Functions returns a list
+        /// of both redriven and non-redriven executions.</para><para>If you provide a state machine ARN in <code>redriveFilter</code>, the API returns
+        /// a validation exception.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.ExecutionRedriveFilter")]
+        public Amazon.StepFunctions.ExecutionRedriveFilter RedriveFilter { get; set; }
         #endregion
         
         #region Parameter StateMachineArn
@@ -208,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             }
             #endif
             context.NextToken = this.NextToken;
+            context.RedriveFilter = this.RedriveFilter;
             context.StateMachineArn = this.StateMachineArn;
             context.StatusFilter = this.StatusFilter;
             
@@ -238,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.RedriveFilter != null)
+            {
+                request.RedriveFilter = cmdletContext.RedriveFilter;
             }
             if (cmdletContext.StateMachineArn != null)
             {
@@ -305,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.MapRunArn != null)
             {
                 request.MapRunArn = cmdletContext.MapRunArn;
+            }
+            if (cmdletContext.RedriveFilter != null)
+            {
+                request.RedriveFilter = cmdletContext.RedriveFilter;
             }
             if (cmdletContext.StateMachineArn != null)
             {
@@ -436,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public System.String MapRunArn { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.StepFunctions.ExecutionRedriveFilter RedriveFilter { get; set; }
             public System.String StateMachineArn { get; set; }
             public Amazon.StepFunctions.ExecutionStatus StatusFilter { get; set; }
             public System.Func<Amazon.StepFunctions.Model.ListExecutionsResponse, GetSFNExecutionListCmdlet, object> Select { get; set; } =

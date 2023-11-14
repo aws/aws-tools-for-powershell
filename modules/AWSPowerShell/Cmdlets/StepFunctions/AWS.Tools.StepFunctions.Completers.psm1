@@ -80,10 +80,17 @@ $SFN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.StepFunctions.ExecutionRedriveFilter
+        "Get-SFNExecutionList/RedriveFilter"
+        {
+            $v = "NOT_REDRIVEN","REDRIVEN"
+            break
+        }
+
         # Amazon.StepFunctions.ExecutionStatus
         "Get-SFNExecutionList/StatusFilter"
         {
-            $v = "ABORTED","FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            $v = "ABORTED","FAILED","PENDING_REDRIVE","RUNNING","SUCCEEDED","TIMED_OUT"
             break
         }
 
@@ -114,6 +121,7 @@ $SFN_Completers = {
 
 $SFN_map = @{
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
+    "RedriveFilter"=@("Get-SFNExecutionList")
     "StatusFilter"=@("Get-SFNExecutionList")
     "Type"=@("New-SFNStateMachine")
 }
@@ -191,6 +199,7 @@ $SFN_SelectMap = @{
                "Get-SFNStateMachineVersionList",
                "Get-SFNResourceTag",
                "Publish-SFNStateMachineVersion",
+               "Restart-SFNExecution",
                "Send-SFNTaskFailure",
                "Send-SFNTaskHeartbeat",
                "Send-SFNTaskSuccess",

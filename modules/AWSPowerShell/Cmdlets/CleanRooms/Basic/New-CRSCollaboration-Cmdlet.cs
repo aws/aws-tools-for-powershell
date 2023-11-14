@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter DataEncryptionMetadata_AllowCleartext
         /// <summary>
         /// <para>
-        /// <para>Indicates whether encrypted tables can contain cleartext data (true) or are to cryptographically
-        /// process every column (false).</para>
+        /// <para>Indicates whether encrypted tables can contain cleartext data (<code>TRUE</code>)
+        /// or are to cryptographically process every column (<code>FALSE</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter DataEncryptionMetadata_AllowDuplicate
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Fingerprint columns can contain duplicate entries (true) or are
-        /// to contain only non-repeated values (false).</para>
+        /// <para>Indicates whether Fingerprint columns can contain duplicate entries (<code>TRUE</code>)
+        /// or are to contain only non-repeated values (<code>FALSE</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Indicates whether Fingerprint columns can be joined on any other Fingerprint column
-        /// with a different name (true) or can only be joined on Fingerprint columns of the same
-        /// name (false).</para>
+        /// with a different name (<code>TRUE</code>) or can only be joined on Fingerprint columns
+        /// of the same name (<code>FALSE</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,6 +130,24 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter QueryCompute_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration creator has configured the collaboration member
+        /// to pay for query compute costs (<code>TRUE</code>) or has not configured the collaboration
+        /// member to pay for query compute costs (<code>FALSE</code>).</para><para>Exactly one member can be configured to pay for query compute costs. An error is returned
+        /// if the collaboration creator sets a <code>TRUE</code> value for more than one member
+        /// in the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for query
+        /// compute costs, then the member who can query is the default payer. An error is returned
+        /// if the collaboration creator sets a <code>FALSE</code> value for the member who can
+        /// query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CreatorPaymentConfiguration_QueryCompute_IsResponsible")]
+        public System.Boolean? QueryCompute_IsResponsible { get; set; }
+        #endregion
+        
         #region Parameter Member
         /// <summary>
         /// <para>
@@ -168,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter DataEncryptionMetadata_PreserveNull
         /// <summary>
         /// <para>
-        /// <para>Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-        /// or cryptographically processed (false).</para>
+        /// <para>Indicates whether NULL values are to be copied as NULL to encrypted tables (<code>TRUE</code>)
+        /// or cryptographically processed (<code>FALSE</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter CreatorMemberAbility which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryCompute_IsResponsible = this.QueryCompute_IsResponsible;
             context.DataEncryptionMetadata_AllowCleartext = this.DataEncryptionMetadata_AllowCleartext;
             context.DataEncryptionMetadata_AllowDuplicate = this.DataEncryptionMetadata_AllowDuplicate;
             context.DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName = this.DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName;
@@ -332,6 +351,40 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.CreatorMemberAbility != null)
             {
                 request.CreatorMemberAbilities = cmdletContext.CreatorMemberAbility;
+            }
+            
+             // populate CreatorPaymentConfiguration
+            var requestCreatorPaymentConfigurationIsNull = true;
+            request.CreatorPaymentConfiguration = new Amazon.CleanRooms.Model.PaymentConfiguration();
+            Amazon.CleanRooms.Model.QueryComputePaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute = null;
+            
+             // populate QueryCompute
+            var requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryComputeIsNull = true;
+            requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute = new Amazon.CleanRooms.Model.QueryComputePaymentConfig();
+            System.Boolean? requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute_queryCompute_IsResponsible = null;
+            if (cmdletContext.QueryCompute_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute_queryCompute_IsResponsible = cmdletContext.QueryCompute_IsResponsible.Value;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute_queryCompute_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute.IsResponsible = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute_queryCompute_IsResponsible.Value;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryComputeIsNull = false;
+            }
+             // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute should be set to null
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryComputeIsNull)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute = null;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute != null)
+            {
+                request.CreatorPaymentConfiguration.QueryCompute = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute;
+                requestCreatorPaymentConfigurationIsNull = false;
+            }
+             // determine if request.CreatorPaymentConfiguration should be set to null
+            if (requestCreatorPaymentConfigurationIsNull)
+            {
+                request.CreatorPaymentConfiguration = null;
             }
             
              // populate DataEncryptionMetadata
@@ -465,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             public System.String CreatorDisplayName { get; set; }
             public List<System.String> CreatorMemberAbility { get; set; }
+            public System.Boolean? QueryCompute_IsResponsible { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowCleartext { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowDuplicate { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName { get; set; }

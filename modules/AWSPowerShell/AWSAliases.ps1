@@ -2071,6 +2071,9 @@ Set-Alias -Name BAK-GetSupportedResourceTypes -Value Get-BAKSupportedResourceTyp
 Set-Alias -Name List-BAKBackupJobs -Value Get-BAKBackupJobList
 Set-Alias -Name List-BAKBackupJobList -Value Get-BAKBackupJobList
 Set-Alias -Name BAK-ListBackupJobs -Value Get-BAKBackupJobList
+Set-Alias -Name List-BAKBackupJobSummaries -Value Get-BAKBackupJobSummaryList
+Set-Alias -Name List-BAKBackupJobSummaryList -Value Get-BAKBackupJobSummaryList
+Set-Alias -Name BAK-ListBackupJobSummaries -Value Get-BAKBackupJobSummaryList
 Set-Alias -Name List-BAKBackupPlans -Value Get-BAKBackupPlanList
 Set-Alias -Name List-BAKBackupPlanList -Value Get-BAKBackupPlanList
 Set-Alias -Name BAK-ListBackupPlans -Value Get-BAKBackupPlanList
@@ -2089,6 +2092,9 @@ Set-Alias -Name BAK-ListBackupVaults -Value Get-BAKBackupVaultList
 Set-Alias -Name List-BAKCopyJobs -Value Get-BAKCopyJobList
 Set-Alias -Name List-BAKCopyJobList -Value Get-BAKCopyJobList
 Set-Alias -Name BAK-ListCopyJobs -Value Get-BAKCopyJobList
+Set-Alias -Name List-BAKCopyJobSummaries -Value Get-BAKCopyJobSummaryList
+Set-Alias -Name List-BAKCopyJobSummaryList -Value Get-BAKCopyJobSummaryList
+Set-Alias -Name BAK-ListCopyJobSummaries -Value Get-BAKCopyJobSummaryList
 Set-Alias -Name List-BAKFrameworks -Value Get-BAKFrameworkList
 Set-Alias -Name List-BAKFrameworkList -Value Get-BAKFrameworkList
 Set-Alias -Name BAK-ListFrameworks -Value Get-BAKFrameworkList
@@ -2119,6 +2125,9 @@ Set-Alias -Name BAK-ListReportPlans -Value Get-BAKReportPlanList
 Set-Alias -Name List-BAKRestoreJobs -Value Get-BAKRestoreJobList
 Set-Alias -Name List-BAKRestoreJobList -Value Get-BAKRestoreJobList
 Set-Alias -Name BAK-ListRestoreJobs -Value Get-BAKRestoreJobList
+Set-Alias -Name List-BAKRestoreJobSummaries -Value Get-BAKRestoreJobSummaryList
+Set-Alias -Name List-BAKRestoreJobSummaryList -Value Get-BAKRestoreJobSummaryList
+Set-Alias -Name BAK-ListRestoreJobSummaries -Value Get-BAKRestoreJobSummaryList
 Set-Alias -Name Get-BAKTag -Value Get-BAKResourceTag
 Set-Alias -Name BAK-ListTags -Value Get-BAKResourceTag
 Set-Alias -Name Put-BAKBackupVaultAccessPolicy -Value Write-BAKBackupVaultAccessPolicy
@@ -11780,6 +11789,9 @@ Set-Alias -Name GLUE-BatchGetJobs -Value Get-GLUEJobBatch
 Set-Alias -Name Batch-GLUEGetPartition -Value Get-GLUEPartitionBatch
 Set-Alias -Name Batch-GLUEPartitionBatch -Value Get-GLUEPartitionBatch
 Set-Alias -Name GLUE-BatchGetPartition -Value Get-GLUEPartitionBatch
+Set-Alias -Name Batch-GLUEGetTableOptimizer -Value Get-GLUETableOptimizerBatch
+Set-Alias -Name Batch-GLUETableOptimizerBatch -Value Get-GLUETableOptimizerBatch
+Set-Alias -Name GLUE-BatchGetTableOptimizer -Value Get-GLUETableOptimizerBatch
 Set-Alias -Name Batch-GLUEGetTriggers -Value Get-GLUETriggerBatch
 Set-Alias -Name Batch-GLUETriggerBatch -Value Get-GLUETriggerBatch
 Set-Alias -Name GLUE-BatchGetTriggers -Value Get-GLUETriggerBatch
@@ -11838,6 +11850,8 @@ Set-Alias -Name Create-GLUESession -Value New-GLUESession
 Set-Alias -Name GLUE-CreateSession -Value New-GLUESession
 Set-Alias -Name Create-GLUETable -Value New-GLUETable
 Set-Alias -Name GLUE-CreateTable -Value New-GLUETable
+Set-Alias -Name Create-GLUETableOptimizer -Value New-GLUETableOptimizer
+Set-Alias -Name GLUE-CreateTableOptimizer -Value New-GLUETableOptimizer
 Set-Alias -Name Create-GLUETrigger -Value New-GLUETrigger
 Set-Alias -Name GLUE-CreateTrigger -Value New-GLUETrigger
 Set-Alias -Name Create-GLUEUserDefinedFunction -Value New-GLUEUserDefinedFunction
@@ -11887,6 +11901,8 @@ Set-Alias -Name Delete-GLUESession -Value Remove-GLUESession
 Set-Alias -Name GLUE-DeleteSession -Value Remove-GLUESession
 Set-Alias -Name Delete-GLUETable -Value Remove-GLUETable
 Set-Alias -Name GLUE-DeleteTable -Value Remove-GLUETable
+Set-Alias -Name Delete-GLUETableOptimizer -Value Remove-GLUETableOptimizer
+Set-Alias -Name GLUE-DeleteTableOptimizer -Value Remove-GLUETableOptimizer
 Set-Alias -Name Delete-GLUETableVersion -Value Remove-GLUETableVersion
 Set-Alias -Name GLUE-DeleteTableVersion -Value Remove-GLUETableVersion
 Set-Alias -Name Delete-GLUETrigger -Value Remove-GLUETrigger
@@ -11961,6 +11977,7 @@ Set-Alias -Name GLUE-GetSecurityConfigurations -Value Get-GLUESecurityConfigurat
 Set-Alias -Name GLUE-GetSession -Value Get-GLUESession
 Set-Alias -Name GLUE-GetStatement -Value Get-GLUEStatement
 Set-Alias -Name GLUE-GetTable -Value Get-GLUETable
+Set-Alias -Name GLUE-GetTableOptimizer -Value Get-GLUETableOptimizer
 Set-Alias -Name Get-GLUETables -Value Get-GLUETableList
 Set-Alias -Name GLUE-GetTables -Value Get-GLUETableList
 Set-Alias -Name GLUE-GetTableVersion -Value Get-GLUETableVersion
@@ -12033,6 +12050,9 @@ Set-Alias -Name GLUE-ListSessions -Value Get-GLUESessionList
 Set-Alias -Name List-GLUEStatements -Value Get-GLUEStatementList
 Set-Alias -Name List-GLUEStatementList -Value Get-GLUEStatementList
 Set-Alias -Name GLUE-ListStatements -Value Get-GLUEStatementList
+Set-Alias -Name List-GLUETableOptimizerRuns -Value Get-GLUETableOptimizerRunList
+Set-Alias -Name List-GLUETableOptimizerRunList -Value Get-GLUETableOptimizerRunList
+Set-Alias -Name GLUE-ListTableOptimizerRuns -Value Get-GLUETableOptimizerRunList
 Set-Alias -Name List-GLUETriggers -Value Get-GLUETriggerNameList
 Set-Alias -Name List-GLUETriggerNameList -Value Get-GLUETriggerNameList
 Set-Alias -Name GLUE-ListTriggers -Value Get-GLUETriggerNameList
@@ -12097,6 +12117,7 @@ Set-Alias -Name GLUE-UpdateRegistry -Value Update-GLUERegistry
 Set-Alias -Name GLUE-UpdateSchema -Value Update-GLUESchema
 Set-Alias -Name GLUE-UpdateSourceControlFromJob -Value Update-GLUESourceControlFromJob
 Set-Alias -Name GLUE-UpdateTable -Value Update-GLUETable
+Set-Alias -Name GLUE-UpdateTableOptimizer -Value Update-GLUETableOptimizer
 Set-Alias -Name GLUE-UpdateTrigger -Value Update-GLUETrigger
 Set-Alias -Name GLUE-UpdateUserDefinedFunction -Value Update-GLUEUserDefinedFunction
 Set-Alias -Name GLUE-UpdateWorkflow -Value Update-GLUEWorkflow
@@ -21840,12 +21861,16 @@ Set-Alias -Name Delete-AREXView -Value Remove-AREXView
 Set-Alias -Name AREX-DeleteView -Value Remove-AREXView
 Set-Alias -Name Disassociate-AREXDefaultView -Value Unregister-AREXDefaultView
 Set-Alias -Name AREX-DisassociateDefaultView -Value Unregister-AREXDefaultView
+Set-Alias -Name AREX-GetAccountLevelServiceConfiguration -Value Get-AREXAccountLevelServiceConfiguration
 Set-Alias -Name AREX-GetDefaultView -Value Get-AREXDefaultView
 Set-Alias -Name AREX-GetIndex -Value Get-AREXIndex
 Set-Alias -Name AREX-GetView -Value Get-AREXView
 Set-Alias -Name List-AREXIndexes -Value Get-AREXIndexList
 Set-Alias -Name List-AREXIndexList -Value Get-AREXIndexList
 Set-Alias -Name AREX-ListIndexes -Value Get-AREXIndexList
+Set-Alias -Name List-AREXIndexesForMembers -Value Get-AREXIndexesForMemberList
+Set-Alias -Name List-AREXIndexesForMemberList -Value Get-AREXIndexesForMemberList
+Set-Alias -Name AREX-ListIndexesForMembers -Value Get-AREXIndexesForMemberList
 Set-Alias -Name List-AREXSupportedResourceTypes -Value Get-AREXSupportedResourceTypeList
 Set-Alias -Name List-AREXSupportedResourceTypeList -Value Get-AREXSupportedResourceTypeList
 Set-Alias -Name AREX-ListSupportedResourceTypes -Value Get-AREXSupportedResourceTypeList
@@ -25240,6 +25265,8 @@ Set-Alias -Name List-SFNStateMachineVersionList -Value Get-SFNStateMachineVersio
 Set-Alias -Name SFN-ListStateMachineVersions -Value Get-SFNStateMachineVersionList
 Set-Alias -Name SFN-ListTagsForResource -Value Get-SFNResourceTag
 Set-Alias -Name SFN-PublishStateMachineVersion -Value Publish-SFNStateMachineVersion
+Set-Alias -Name Redrive-SFNExecution -Value Restart-SFNExecution
+Set-Alias -Name SFN-RedriveExecution -Value Restart-SFNExecution
 Set-Alias -Name SFN-SendTaskFailure -Value Send-SFNTaskFailure
 Set-Alias -Name SFN-SendTaskHeartbeat -Value Send-SFNTaskHeartbeat
 Set-Alias -Name SFN-SendTaskSuccess -Value Send-SFNTaskSuccess

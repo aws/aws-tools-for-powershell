@@ -114,6 +114,16 @@ $PIPES_Completers = {
             break
         }
 
+        # Amazon.Pipes.LogLevel
+        {
+            ($_ -eq "New-PIPESPipe/LogConfiguration_Level") -Or
+            ($_ -eq "Update-PIPESPipe/LogConfiguration_Level")
+        }
+        {
+            $v = "ERROR","INFO","OFF","TRACE"
+            break
+        }
+
         # Amazon.Pipes.MSKStartPosition
         "New-PIPESPipe/SourceParameters_ManagedStreamingKafkaParameters_StartingPosition"
         {
@@ -136,7 +146,7 @@ $PIPES_Completers = {
         # Amazon.Pipes.PipeState
         "Get-PIPESPipeList/CurrentState"
         {
-            $v = "CREATE_FAILED","CREATING","DELETING","RUNNING","STARTING","START_FAILED","STOPPED","STOPPING","STOP_FAILED","UPDATE_FAILED","UPDATING"
+            $v = "CREATE_FAILED","CREATE_ROLLBACK_FAILED","CREATING","DELETE_FAILED","DELETE_ROLLBACK_FAILED","DELETING","RUNNING","STARTING","START_FAILED","STOPPED","STOPPING","STOP_FAILED","UPDATE_FAILED","UPDATE_ROLLBACK_FAILED","UPDATING"
             break
         }
 
@@ -173,6 +183,16 @@ $PIPES_Completers = {
             break
         }
 
+        # Amazon.Pipes.S3OutputFormat
+        {
+            ($_ -eq "New-PIPESPipe/LogConfiguration_S3LogDestination_OutputFormat") -Or
+            ($_ -eq "Update-PIPESPipe/LogConfiguration_S3LogDestination_OutputFormat")
+        }
+        {
+            $v = "json","plain","w3c"
+            break
+        }
+
         # Amazon.Pipes.SelfManagedKafkaStartPosition
         "New-PIPESPipe/SourceParameters_SelfManagedKafkaParameters_StartingPosition"
         {
@@ -191,6 +211,8 @@ $PIPES_Completers = {
 $PIPES_map = @{
     "CurrentState"=@("Get-PIPESPipeList")
     "DesiredState"=@("Get-PIPESPipeList","New-PIPESPipe","Update-PIPESPipe")
+    "LogConfiguration_Level"=@("New-PIPESPipe","Update-PIPESPipe")
+    "LogConfiguration_S3LogDestination_OutputFormat"=@("New-PIPESPipe","Update-PIPESPipe")
     "SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
     "SourceParameters_DynamoDBStreamParameters_StartingPosition"=@("New-PIPESPipe")
     "SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")

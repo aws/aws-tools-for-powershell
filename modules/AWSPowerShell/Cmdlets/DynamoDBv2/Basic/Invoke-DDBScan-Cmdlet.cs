@@ -185,6 +185,48 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String IndexName { get; set; }
         #endregion
         
+        #region Parameter IsLimitSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.DynamoDBv2.Model.ScanRequest.Limit" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsLimitSet { get; set; }
+        #endregion
+        
+        #region Parameter IsSegmentSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.DynamoDBv2.Model.ScanRequest.Segment" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsSegmentSet { get; set; }
+        #endregion
+        
+        #region Parameter IsTotalSegmentsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.DynamoDBv2.Model.ScanRequest.TotalSegments" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsTotalSegmentsSet { get; set; }
+        #endregion
+        
         #region Parameter ProjectionExpression
         /// <summary>
         /// <para>
@@ -453,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             context.FilterExpression = this.FilterExpression;
             context.IndexName = this.IndexName;
             context.Limit = this.Limit;
+            context.IsLimitSet = this.IsLimitSet;
             context.ProjectionExpression = this.ProjectionExpression;
             context.ReturnConsumedCapacity = this.ReturnConsumedCapacity;
             if (this.ScanFilter != null)
@@ -464,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 }
             }
             context.Segment = this.Segment;
+            context.IsSegmentSet = this.IsSegmentSet;
             context.SelectItem = this.SelectItem;
             context.TableName = this.TableName;
             #if MODULAR
@@ -473,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             #endif
             context.TotalSegment = this.TotalSegment;
+            context.IsTotalSegmentsSet = this.IsTotalSegmentsSet;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -525,6 +570,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.Limit = cmdletContext.Limit.Value;
             }
+            if (cmdletContext.IsLimitSet != null)
+            {
+                request.IsLimitSet = cmdletContext.IsLimitSet.Value;
+            }
             if (cmdletContext.ProjectionExpression != null)
             {
                 request.ProjectionExpression = cmdletContext.ProjectionExpression;
@@ -541,6 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.Segment = cmdletContext.Segment.Value;
             }
+            if (cmdletContext.IsSegmentSet != null)
+            {
+                request.IsSegmentSet = cmdletContext.IsSegmentSet.Value;
+            }
             if (cmdletContext.SelectItem != null)
             {
                 request.Select = cmdletContext.SelectItem;
@@ -552,6 +605,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.TotalSegment != null)
             {
                 request.TotalSegments = cmdletContext.TotalSegment.Value;
+            }
+            if (cmdletContext.IsTotalSegmentsSet != null)
+            {
+                request.IsTotalSegmentsSet = cmdletContext.IsTotalSegmentsSet.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -647,13 +704,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.String FilterExpression { get; set; }
             public System.String IndexName { get; set; }
             public System.Int32? Limit { get; set; }
+            public System.Boolean? IsLimitSet { get; set; }
             public System.String ProjectionExpression { get; set; }
             public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }
             public Dictionary<System.String, Amazon.DynamoDBv2.Model.Condition> ScanFilter { get; set; }
             public System.Int32? Segment { get; set; }
+            public System.Boolean? IsSegmentSet { get; set; }
             public Amazon.DynamoDBv2.Select SelectItem { get; set; }
             public System.String TableName { get; set; }
             public System.Int32? TotalSegment { get; set; }
+            public System.Boolean? IsTotalSegmentsSet { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.ScanResponse, InvokeDDBScanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

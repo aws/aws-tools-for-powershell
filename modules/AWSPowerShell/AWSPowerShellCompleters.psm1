@@ -5152,6 +5152,17 @@ $BAK_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Backup.AggregationPeriod
+        {
+            ($_ -eq "Get-BAKBackupJobSummaryList/AggregationPeriod") -Or
+            ($_ -eq "Get-BAKCopyJobSummaryList/AggregationPeriod") -Or
+            ($_ -eq "Get-BAKRestoreJobSummaryList/AggregationPeriod")
+        }
+        {
+            $v = "FOURTEEN_DAYS","ONE_DAY","SEVEN_DAYS"
+            break
+        }
+
         # Amazon.Backup.BackupJobState
         "Get-BAKBackupJobList/ByState"
         {
@@ -5159,10 +5170,31 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.BackupJobStatus
+        "Get-BAKBackupJobSummaryList/State"
+        {
+            $v = "ABORTED","ABORTING","AGGREGATE_ALL","ANY","COMPLETED","CREATED","EXPIRED","FAILED","PARTIAL","PENDING","RUNNING"
+            break
+        }
+
         # Amazon.Backup.CopyJobState
         "Get-BAKCopyJobList/ByState"
         {
             $v = "COMPLETED","CREATED","FAILED","PARTIAL","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.CopyJobStatus
+        "Get-BAKCopyJobSummaryList/State"
+        {
+            $v = "ABORTED","ABORTING","AGGREGATE_ALL","ANY","COMPLETED","COMPLETING","CREATED","FAILED","FAILING","PARTIAL","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.RestoreJobState
+        "Get-BAKRestoreJobSummaryList/State"
+        {
+            $v = "ABORTED","AGGREGATE_ALL","ANY","COMPLETED","CREATED","FAILED","PENDING","RUNNING"
             break
         }
 
@@ -5189,9 +5221,11 @@ $BAK_Completers = {
 }
 
 $BAK_map = @{
+    "AggregationPeriod"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
+    "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -5285,12 +5319,14 @@ $BAK_SelectMap = @{
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKSupportedResourceType",
                "Get-BAKBackupJobList",
+               "Get-BAKBackupJobSummaryList",
                "Get-BAKBackupPlanList",
                "Get-BAKBackupPlanTemplateList",
                "Get-BAKBackupPlanVersionList",
                "Get-BAKBackupSelectionList",
                "Get-BAKBackupVaultList",
                "Get-BAKCopyJobList",
+               "Get-BAKCopyJobSummaryList",
                "Get-BAKFrameworkList",
                "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
@@ -5301,6 +5337,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
                "Get-BAKRestoreJobList",
+               "Get-BAKRestoreJobSummaryList",
                "Get-BAKResourceTag",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultLockConfiguration",
@@ -27604,6 +27641,19 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.TableOptimizerType
+        {
+            ($_ -eq "Get-GLUETableOptimizer/Type") -Or
+            ($_ -eq "Get-GLUETableOptimizerRunList/Type") -Or
+            ($_ -eq "New-GLUETableOptimizer/Type") -Or
+            ($_ -eq "Remove-GLUETableOptimizer/Type") -Or
+            ($_ -eq "Update-GLUETableOptimizer/Type")
+        }
+        {
+            $v = "compaction"
+            break
+        }
+
         # Amazon.Glue.TaskRunSortColumnType
         "Get-GLUEMLTaskRunList/Sort_Column"
         {
@@ -27714,7 +27764,7 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
-    "Type"=@("New-GLUETrigger")
+    "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
 
@@ -27780,6 +27830,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEJobBatch",
                "Get-GLUEPartitionBatch",
+               "Get-GLUETableOptimizerBatch",
                "Get-GLUETriggerBatch",
                "Get-GLUEWorkflowBatch",
                "Stop-GLUEJobRunBatch",
@@ -27807,6 +27858,7 @@ $GLUE_SelectMap = @{
                "New-GLUESecurityConfiguration",
                "New-GLUESession",
                "New-GLUETable",
+               "New-GLUETableOptimizer",
                "New-GLUETrigger",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
@@ -27831,6 +27883,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUESecurityConfiguration",
                "Remove-GLUESession",
                "Remove-GLUETable",
+               "Remove-GLUETableOptimizer",
                "Remove-GLUETableVersion",
                "Remove-GLUETrigger",
                "Remove-GLUEUserDefinedFunction",
@@ -27885,6 +27938,7 @@ $GLUE_SelectMap = @{
                "Get-GLUESession",
                "Get-GLUEStatement",
                "Get-GLUETable",
+               "Get-GLUETableOptimizer",
                "Get-GLUETableList",
                "Get-GLUETableVersion",
                "Get-GLUETableVersionList",
@@ -27917,6 +27971,7 @@ $GLUE_SelectMap = @{
                "Get-GLUESchemaVersionList",
                "Get-GLUESessionList",
                "Get-GLUEStatementList",
+               "Get-GLUETableOptimizerRunList",
                "Get-GLUETriggerNameList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",
@@ -27967,6 +28022,7 @@ $GLUE_SelectMap = @{
                "Update-GLUESchema",
                "Update-GLUESourceControlFromJob",
                "Update-GLUETable",
+               "Update-GLUETableOptimizer",
                "Update-GLUETrigger",
                "Update-GLUEUserDefinedFunction",
                "Update-GLUEWorkflow")
@@ -35602,7 +35658,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2"
             break
         }
 
@@ -47655,6 +47711,16 @@ $PIPES_Completers = {
             break
         }
 
+        # Amazon.Pipes.LogLevel
+        {
+            ($_ -eq "New-PIPESPipe/LogConfiguration_Level") -Or
+            ($_ -eq "Update-PIPESPipe/LogConfiguration_Level")
+        }
+        {
+            $v = "ERROR","INFO","OFF","TRACE"
+            break
+        }
+
         # Amazon.Pipes.MSKStartPosition
         "New-PIPESPipe/SourceParameters_ManagedStreamingKafkaParameters_StartingPosition"
         {
@@ -47677,7 +47743,7 @@ $PIPES_Completers = {
         # Amazon.Pipes.PipeState
         "Get-PIPESPipeList/CurrentState"
         {
-            $v = "CREATE_FAILED","CREATING","DELETING","RUNNING","STARTING","START_FAILED","STOPPED","STOPPING","STOP_FAILED","UPDATE_FAILED","UPDATING"
+            $v = "CREATE_FAILED","CREATE_ROLLBACK_FAILED","CREATING","DELETE_FAILED","DELETE_ROLLBACK_FAILED","DELETING","RUNNING","STARTING","START_FAILED","STOPPED","STOPPING","STOP_FAILED","UPDATE_FAILED","UPDATE_ROLLBACK_FAILED","UPDATING"
             break
         }
 
@@ -47714,6 +47780,16 @@ $PIPES_Completers = {
             break
         }
 
+        # Amazon.Pipes.S3OutputFormat
+        {
+            ($_ -eq "New-PIPESPipe/LogConfiguration_S3LogDestination_OutputFormat") -Or
+            ($_ -eq "Update-PIPESPipe/LogConfiguration_S3LogDestination_OutputFormat")
+        }
+        {
+            $v = "json","plain","w3c"
+            break
+        }
+
         # Amazon.Pipes.SelfManagedKafkaStartPosition
         "New-PIPESPipe/SourceParameters_SelfManagedKafkaParameters_StartingPosition"
         {
@@ -47732,6 +47808,8 @@ $PIPES_Completers = {
 $PIPES_map = @{
     "CurrentState"=@("Get-PIPESPipeList")
     "DesiredState"=@("Get-PIPESPipeList","New-PIPESPipe","Update-PIPESPipe")
+    "LogConfiguration_Level"=@("New-PIPESPipe","Update-PIPESPipe")
+    "LogConfiguration_S3LogDestination_OutputFormat"=@("New-PIPESPipe","Update-PIPESPipe")
     "SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
     "SourceParameters_DynamoDBStreamParameters_StartingPosition"=@("New-PIPESPipe")
     "SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
@@ -51077,10 +51155,12 @@ $AREX_SelectMap = @{
                "Remove-AREXIndex",
                "Remove-AREXView",
                "Unregister-AREXDefaultView",
+               "Get-AREXAccountLevelServiceConfiguration",
                "Get-AREXDefaultView",
                "Get-AREXIndex",
                "Get-AREXView",
                "Get-AREXIndexList",
+               "Get-AREXIndexesForMemberList",
                "Get-AREXSupportedResourceTypeList",
                "Get-AREXResourceTag",
                "Get-AREXViewArnList",
@@ -59844,10 +59924,17 @@ $SFN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.StepFunctions.ExecutionRedriveFilter
+        "Get-SFNExecutionList/RedriveFilter"
+        {
+            $v = "NOT_REDRIVEN","REDRIVEN"
+            break
+        }
+
         # Amazon.StepFunctions.ExecutionStatus
         "Get-SFNExecutionList/StatusFilter"
         {
-            $v = "ABORTED","FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            $v = "ABORTED","FAILED","PENDING_REDRIVE","RUNNING","SUCCEEDED","TIMED_OUT"
             break
         }
 
@@ -59878,6 +59965,7 @@ $SFN_Completers = {
 
 $SFN_map = @{
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
+    "RedriveFilter"=@("Get-SFNExecutionList")
     "StatusFilter"=@("Get-SFNExecutionList")
     "Type"=@("New-SFNStateMachine")
 }
@@ -59955,6 +60043,7 @@ $SFN_SelectMap = @{
                "Get-SFNStateMachineVersionList",
                "Get-SFNResourceTag",
                "Publish-SFNStateMachineVersion",
+               "Restart-SFNExecution",
                "Send-SFNTaskFailure",
                "Send-SFNTaskHeartbeat",
                "Send-SFNTaskSuccess",

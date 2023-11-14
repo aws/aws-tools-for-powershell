@@ -69,6 +69,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetTriggers" OutputProperty="*" Verb="Get" Noun="TriggerBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -179,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTableOptimizer" Verb="New" Noun="TableOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTrigger" OutputProperty="Name" Verb="New" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -272,6 +280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTableOptimizer" Verb="Remove" Noun="TableOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -491,6 +503,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizer" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTables" OutputProperty="TableList" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -616,6 +632,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListStatements" OutputProperty="Statements" Verb="Get" Noun="StatementList" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTableOptimizerRuns" OutputProperty="*" Verb="Get" Noun="TableOptimizerRunList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -816,6 +836,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTable" Verb="Update" Noun="Table" ShouldProcessTarget="DatabaseName" PipelineParameter="TableInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTableOptimizer" Verb="Update" Noun="TableOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

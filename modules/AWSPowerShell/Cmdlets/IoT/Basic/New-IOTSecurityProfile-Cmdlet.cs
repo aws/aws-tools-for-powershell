@@ -82,6 +82,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.Behavior[] Behavior { get; set; }
         #endregion
         
+        #region Parameter MetricsExportConfig_MqttTopic
+        /// <summary>
+        /// <para>
+        /// <para>The MQTT topic that Device Defender Detect should publish messages to for metrics
+        /// export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetricsExportConfig_MqttTopic { get; set; }
+        #endregion
+        
+        #region Parameter MetricsExportConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>This role ARN has permission to publish MQTT messages, after which Device Defender
+        /// Detect can assume the role and publish messages on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetricsExportConfig_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SecurityProfileDescription
         /// <summary>
         /// <para>
@@ -198,6 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.Behavior = new List<Amazon.IoT.Model.Behavior>(this.Behavior);
             }
+            context.MetricsExportConfig_MqttTopic = this.MetricsExportConfig_MqttTopic;
+            context.MetricsExportConfig_RoleArn = this.MetricsExportConfig_RoleArn;
             context.SecurityProfileDescription = this.SecurityProfileDescription;
             context.SecurityProfileName = this.SecurityProfileName;
             #if MODULAR
@@ -243,6 +267,35 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Behavior != null)
             {
                 request.Behaviors = cmdletContext.Behavior;
+            }
+            
+             // populate MetricsExportConfig
+            var requestMetricsExportConfigIsNull = true;
+            request.MetricsExportConfig = new Amazon.IoT.Model.MetricsExportConfig();
+            System.String requestMetricsExportConfig_metricsExportConfig_MqttTopic = null;
+            if (cmdletContext.MetricsExportConfig_MqttTopic != null)
+            {
+                requestMetricsExportConfig_metricsExportConfig_MqttTopic = cmdletContext.MetricsExportConfig_MqttTopic;
+            }
+            if (requestMetricsExportConfig_metricsExportConfig_MqttTopic != null)
+            {
+                request.MetricsExportConfig.MqttTopic = requestMetricsExportConfig_metricsExportConfig_MqttTopic;
+                requestMetricsExportConfigIsNull = false;
+            }
+            System.String requestMetricsExportConfig_metricsExportConfig_RoleArn = null;
+            if (cmdletContext.MetricsExportConfig_RoleArn != null)
+            {
+                requestMetricsExportConfig_metricsExportConfig_RoleArn = cmdletContext.MetricsExportConfig_RoleArn;
+            }
+            if (requestMetricsExportConfig_metricsExportConfig_RoleArn != null)
+            {
+                request.MetricsExportConfig.RoleArn = requestMetricsExportConfig_metricsExportConfig_RoleArn;
+                requestMetricsExportConfigIsNull = false;
+            }
+             // determine if request.MetricsExportConfig should be set to null
+            if (requestMetricsExportConfigIsNull)
+            {
+                request.MetricsExportConfig = null;
             }
             if (cmdletContext.SecurityProfileDescription != null)
             {
@@ -322,6 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.MetricToRetain> AdditionalMetricsToRetainV2 { get; set; }
             public Dictionary<System.String, Amazon.IoT.Model.AlertTarget> AlertTarget { get; set; }
             public List<Amazon.IoT.Model.Behavior> Behavior { get; set; }
+            public System.String MetricsExportConfig_MqttTopic { get; set; }
+            public System.String MetricsExportConfig_RoleArn { get; set; }
             public System.String SecurityProfileDescription { get; set; }
             public System.String SecurityProfileName { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }

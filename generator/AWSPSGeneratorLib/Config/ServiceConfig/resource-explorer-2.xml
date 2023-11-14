@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountLevelServiceConfiguration" OutputProperty="OrgConfiguration" Verb="Get" Noun="AccountLevelServiceConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDefaultView" OutputProperty="ViewArn" Verb="Get" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -62,6 +66,10 @@
             <Params>
                 <Param Name="Regions" NewName="RegionList" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndexesForMembers" OutputProperty="Indexes" Verb="Get" Noun="IndexesForMemberList" PipelineParameter="AccountIdList" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceTypeList" PipelineParameter="" NoPipelineParameter="false">

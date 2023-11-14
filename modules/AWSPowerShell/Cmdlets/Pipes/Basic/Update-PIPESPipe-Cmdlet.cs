@@ -28,13 +28,15 @@ using Amazon.Pipes.Model;
 namespace Amazon.PowerShell.Cmdlets.PIPES
 {
     /// <summary>
-    /// Update an existing pipe. When you call <code>UpdatePipe</code>, only the fields that
-    /// are included in the request are changed, the rest are unchanged. The exception to
-    /// this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>,
-    /// <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. The fields
-    /// in these objects are updated atomically as one and override existing values. This
-    /// is by design and means that if you don't specify an optional field in one of these
-    /// Parameters objects, that field will be set to its system-default value after the update.
+    /// Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the
+    /// updates fields you have specified in the request; the rest remain unchanged. The exception
+    /// to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>,
+    /// <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. For example,
+    /// <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
+    /// EventBridge updates the fields in these objects atomically as one and overrides existing
+    /// values. This is by design, and means that if you don't specify an optional field in
+    /// one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default
+    /// value during the update.
     /// 
     ///  
     /// <para>
@@ -58,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter SourceParameters_DynamoDBStreamParameters_DeadLetterConfig_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.</para>
+        /// <para>The ARN of the specified target for the dead-letter queue. </para><para>For Amazon Kinesis stream and Amazon DynamoDB stream sources, specify either an Amazon
+        /// SNS topic or Amazon SQS queue ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter SourceParameters_KinesisStreamParameters_DeadLetterConfig_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.</para>
+        /// <para>The ARN of the specified target for the dead-letter queue. </para><para>For Amazon Kinesis stream and Amazon DynamoDB stream sources, specify either an Amazon
+        /// SNS topic or Amazon SQS queue ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,6 +218,30 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public System.Int32? SqsQueueParameters_BatchSize { get; set; }
         #endregion
         
+        #region Parameter S3LogDestination_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the Amazon S3 bucket to which EventBridge delivers the log records
+        /// for the pipe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_S3LogDestination_BucketName")]
+        public System.String S3LogDestination_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter S3LogDestination_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Web Services account that owns the Amazon S3 bucket to which
+        /// EventBridge delivers the log records for the pipe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_S3LogDestination_BucketOwner")]
+        public System.String S3LogDestination_BucketOwner { get; set; }
+        #endregion
+        
         #region Parameter EcsTaskParameters_CapacityProviderStrategy
         /// <summary>
         /// <para>
@@ -306,6 +334,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public System.String RedshiftDataParameters_DbUser { get; set; }
         #endregion
         
+        #region Parameter FirehoseLogDestination_DeliveryStreamArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream
+        /// to which EventBridge delivers the pipe log records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_FirehoseLogDestination_DeliveryStreamArn")]
+        public System.String FirehoseLogDestination_DeliveryStreamArn { get; set; }
+        #endregion
+        
         #region Parameter BatchJobParameters_DependsOn
         /// <summary>
         /// <para>
@@ -386,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com,
-        /// then the EndpointId is <code>abcde.veo</code>.</para><important><para>When using Java, you must include <code>auth-crt</code> on the class path.</para></important>
+        /// then the EndpointId is <code>abcde.veo</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,6 +518,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public System.Collections.Hashtable TargetParameters_HttpParameters_HeaderParameters { get; set; }
         #endregion
         
+        #region Parameter LogConfiguration_IncludeExecutionData
+        /// <summary>
+        /// <para>
+        /// <para>Specify <code>ON</code> to include the execution data (specifically, the <code>payload</code>
+        /// and <code>awsRequest</code> fields) in the log messages for this pipe.</para><para>This applies to all log destinations for the pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data">Including
+        /// execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</para><para>The default is <code>OFF</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] LogConfiguration_IncludeExecutionData { get; set; }
+        #endregion
+        
         #region Parameter Overrides_InferenceAcceleratorOverride
         /// <summary>
         /// <para>
@@ -494,7 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Valid JSON text passed to the enrichment. In this case, nothing from the event itself
         /// is passed to the enrichment. For more information, see <a href="http://www.rfc-editor.org/rfc/rfc7159.txt">The
-        /// JavaScript Object Notation (JSON) Data Interchange Format</a>.</para>
+        /// JavaScript Object Notation (JSON) Data Interchange Format</a>.</para><para>To remove an input template, specify an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Valid JSON text passed to the target. In this case, nothing from the event itself
         /// is passed to the target. For more information, see <a href="http://www.rfc-editor.org/rfc/rfc7159.txt">The
-        /// JavaScript Object Notation (JSON) Data Interchange Format</a>.</para>
+        /// JavaScript Object Notation (JSON) Data Interchange Format</a>.</para><para>To remove an input template, specify an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -528,12 +580,13 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter LambdaFunctionParameters_InvocationType
         /// <summary>
         /// <para>
-        /// <para>Choose from the following options.</para><ul><li><para><code>RequestResponse</code> (default) - Invoke the function synchronously. Keep
-        /// the connection open until the function returns a response or times out. The API response
-        /// includes the function response and additional data.</para></li><li><para><code>Event</code> - Invoke the function asynchronously. Send events that fail multiple
-        /// times to the function's dead-letter queue (if it's configured). The API response only
-        /// includes a status code.</para></li><li><para><code>DryRun</code> - Validate parameter values and verify that the user or role
-        /// has permission to invoke the function.</para></li></ul>
+        /// <para>Specify whether to invoke the function synchronously or asynchronously.</para><ul><li><para><code>REQUEST_RESPONSE</code> (default) - Invoke synchronously. This corresponds
+        /// to the <code>RequestResponse</code> option in the <code>InvocationType</code> parameter
+        /// for the Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax">Invoke</a>
+        /// API.</para></li><li><para><code>FIRE_AND_FORGET</code> - Invoke asynchronously. This corresponds to the <code>Event</code>
+        /// option in the <code>InvocationType</code> parameter for the Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax">Invoke</a>
+        /// API.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation">Invocation
+        /// types</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -545,7 +598,12 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter StepFunctionStateMachineParameters_InvocationType
         /// <summary>
         /// <para>
-        /// <para>Specify whether to wait for the state machine to finish or not.</para>
+        /// <para>Specify whether to invoke the Step Functions state machine synchronously or asynchronously.</para><ul><li><para><code>REQUEST_RESPONSE</code> (default) - Invoke synchronously. For more information,
+        /// see <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartSyncExecution.html">StartSyncExecution</a>
+        /// in the <i>Step Functions API Reference</i>.</para><note><para><code>REQUEST_RESPONSE</code> is not supported for <code>STANDARD</code> state machine
+        /// workflows.</para></note></li><li><para><code>FIRE_AND_FORGET</code> - Invoke asynchronously. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html">StartExecution</a>
+        /// in the <i>Step Functions API Reference</i>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation">Invocation
+        /// types</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -594,6 +652,31 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         [Alias("TargetParameters_EcsTaskParameters_LaunchType")]
         [AWSConstantClassSource("Amazon.Pipes.LaunchType")]
         public Amazon.Pipes.LaunchType EcsTaskParameters_LaunchType { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_Level
+        /// <summary>
+        /// <para>
+        /// <para>The level of logging detail to include. This applies to all log destinations for the
+        /// pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-level">Specifying
+        /// EventBridge Pipes log level</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Pipes.LogLevel")]
+        public Amazon.Pipes.LogLevel LogConfiguration_Level { get; set; }
+        #endregion
+        
+        #region Parameter CloudwatchLogsLogDestination_LogGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which
+        /// EventBridge sends the log records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_CloudwatchLogsLogDestination_LogGroupArn")]
+        public System.String CloudwatchLogsLogDestination_LogGroupArn { get; set; }
         #endregion
         
         #region Parameter CloudWatchLogsParameters_LogStreamName
@@ -816,6 +899,19 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public Amazon.Pipes.OnPartialBatchItemFailureStreams KinesisStreamParameters_OnPartialBatchItemFailure { get; set; }
         #endregion
         
+        #region Parameter S3LogDestination_OutputFormat
+        /// <summary>
+        /// <para>
+        /// <para>How EventBridge should format the log records.</para><ul><li><para><code>json</code>: JSON </para></li><li><para><code>plain</code>: Plain text</para></li><li><para><code>w3c</code>: <a href="https://www.w3.org/TR/WD-logfile">W3C extended logging
+        /// file format</a></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_S3LogDestination_OutputFormat")]
+        [AWSConstantClassSource("Amazon.Pipes.S3OutputFormat")]
+        public Amazon.Pipes.S3OutputFormat S3LogDestination_OutputFormat { get; set; }
+        #endregion
+        
         #region Parameter DynamoDBStreamParameters_ParallelizationFactor
         /// <summary>
         /// <para>
@@ -943,6 +1039,21 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetParameters_EcsTaskParameters_PlatformVersion")]
         public System.String EcsTaskParameters_PlatformVersion { get; set; }
+        #endregion
+        
+        #region Parameter S3LogDestination_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>Specifies any prefix text with which to begin Amazon S3 log object names.</para><para>You can use prefixes to organize the data that you store in Amazon S3 buckets. A prefix
+        /// is a string of characters at the beginning of the object key name. A prefix can be
+        /// any length, subject to the maximum length of the object key name (1,024 bytes). For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing
+        /// objects using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_S3LogDestination_Prefix")]
+        public System.String S3LogDestination_Prefix { get; set; }
         #endregion
         
         #region Parameter EcsTaskParameters_PropagateTag
@@ -1074,7 +1185,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the secret that enables access to the database. Required when authenticating
-        /// using SageMaker.</para>
+        /// using Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1383,6 +1494,17 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 }
             }
             context.EnrichmentParameters_InputTemplate = this.EnrichmentParameters_InputTemplate;
+            context.CloudwatchLogsLogDestination_LogGroupArn = this.CloudwatchLogsLogDestination_LogGroupArn;
+            context.FirehoseLogDestination_DeliveryStreamArn = this.FirehoseLogDestination_DeliveryStreamArn;
+            if (this.LogConfiguration_IncludeExecutionData != null)
+            {
+                context.LogConfiguration_IncludeExecutionData = new List<System.String>(this.LogConfiguration_IncludeExecutionData);
+            }
+            context.LogConfiguration_Level = this.LogConfiguration_Level;
+            context.S3LogDestination_BucketName = this.S3LogDestination_BucketName;
+            context.S3LogDestination_BucketOwner = this.S3LogDestination_BucketOwner;
+            context.S3LogDestination_OutputFormat = this.S3LogDestination_OutputFormat;
+            context.S3LogDestination_Prefix = this.S3LogDestination_Prefix;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -1659,6 +1781,140 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             if (requestEnrichmentParametersIsNull)
             {
                 request.EnrichmentParameters = null;
+            }
+            
+             // populate LogConfiguration
+            var requestLogConfigurationIsNull = true;
+            request.LogConfiguration = new Amazon.Pipes.Model.PipeLogConfigurationParameters();
+            List<System.String> requestLogConfiguration_logConfiguration_IncludeExecutionData = null;
+            if (cmdletContext.LogConfiguration_IncludeExecutionData != null)
+            {
+                requestLogConfiguration_logConfiguration_IncludeExecutionData = cmdletContext.LogConfiguration_IncludeExecutionData;
+            }
+            if (requestLogConfiguration_logConfiguration_IncludeExecutionData != null)
+            {
+                request.LogConfiguration.IncludeExecutionData = requestLogConfiguration_logConfiguration_IncludeExecutionData;
+                requestLogConfigurationIsNull = false;
+            }
+            Amazon.Pipes.LogLevel requestLogConfiguration_logConfiguration_Level = null;
+            if (cmdletContext.LogConfiguration_Level != null)
+            {
+                requestLogConfiguration_logConfiguration_Level = cmdletContext.LogConfiguration_Level;
+            }
+            if (requestLogConfiguration_logConfiguration_Level != null)
+            {
+                request.LogConfiguration.Level = requestLogConfiguration_logConfiguration_Level;
+                requestLogConfigurationIsNull = false;
+            }
+            Amazon.Pipes.Model.CloudwatchLogsLogDestinationParameters requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination = null;
+            
+             // populate CloudwatchLogsLogDestination
+            var requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestinationIsNull = true;
+            requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination = new Amazon.Pipes.Model.CloudwatchLogsLogDestinationParameters();
+            System.String requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination_cloudwatchLogsLogDestination_LogGroupArn = null;
+            if (cmdletContext.CloudwatchLogsLogDestination_LogGroupArn != null)
+            {
+                requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination_cloudwatchLogsLogDestination_LogGroupArn = cmdletContext.CloudwatchLogsLogDestination_LogGroupArn;
+            }
+            if (requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination_cloudwatchLogsLogDestination_LogGroupArn != null)
+            {
+                requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination.LogGroupArn = requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination_cloudwatchLogsLogDestination_LogGroupArn;
+                requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestinationIsNull = false;
+            }
+             // determine if requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination should be set to null
+            if (requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestinationIsNull)
+            {
+                requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination = null;
+            }
+            if (requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination != null)
+            {
+                request.LogConfiguration.CloudwatchLogsLogDestination = requestLogConfiguration_logConfiguration_CloudwatchLogsLogDestination;
+                requestLogConfigurationIsNull = false;
+            }
+            Amazon.Pipes.Model.FirehoseLogDestinationParameters requestLogConfiguration_logConfiguration_FirehoseLogDestination = null;
+            
+             // populate FirehoseLogDestination
+            var requestLogConfiguration_logConfiguration_FirehoseLogDestinationIsNull = true;
+            requestLogConfiguration_logConfiguration_FirehoseLogDestination = new Amazon.Pipes.Model.FirehoseLogDestinationParameters();
+            System.String requestLogConfiguration_logConfiguration_FirehoseLogDestination_firehoseLogDestination_DeliveryStreamArn = null;
+            if (cmdletContext.FirehoseLogDestination_DeliveryStreamArn != null)
+            {
+                requestLogConfiguration_logConfiguration_FirehoseLogDestination_firehoseLogDestination_DeliveryStreamArn = cmdletContext.FirehoseLogDestination_DeliveryStreamArn;
+            }
+            if (requestLogConfiguration_logConfiguration_FirehoseLogDestination_firehoseLogDestination_DeliveryStreamArn != null)
+            {
+                requestLogConfiguration_logConfiguration_FirehoseLogDestination.DeliveryStreamArn = requestLogConfiguration_logConfiguration_FirehoseLogDestination_firehoseLogDestination_DeliveryStreamArn;
+                requestLogConfiguration_logConfiguration_FirehoseLogDestinationIsNull = false;
+            }
+             // determine if requestLogConfiguration_logConfiguration_FirehoseLogDestination should be set to null
+            if (requestLogConfiguration_logConfiguration_FirehoseLogDestinationIsNull)
+            {
+                requestLogConfiguration_logConfiguration_FirehoseLogDestination = null;
+            }
+            if (requestLogConfiguration_logConfiguration_FirehoseLogDestination != null)
+            {
+                request.LogConfiguration.FirehoseLogDestination = requestLogConfiguration_logConfiguration_FirehoseLogDestination;
+                requestLogConfigurationIsNull = false;
+            }
+            Amazon.Pipes.Model.S3LogDestinationParameters requestLogConfiguration_logConfiguration_S3LogDestination = null;
+            
+             // populate S3LogDestination
+            var requestLogConfiguration_logConfiguration_S3LogDestinationIsNull = true;
+            requestLogConfiguration_logConfiguration_S3LogDestination = new Amazon.Pipes.Model.S3LogDestinationParameters();
+            System.String requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketName = null;
+            if (cmdletContext.S3LogDestination_BucketName != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketName = cmdletContext.S3LogDestination_BucketName;
+            }
+            if (requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketName != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination.BucketName = requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketName;
+                requestLogConfiguration_logConfiguration_S3LogDestinationIsNull = false;
+            }
+            System.String requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketOwner = null;
+            if (cmdletContext.S3LogDestination_BucketOwner != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketOwner = cmdletContext.S3LogDestination_BucketOwner;
+            }
+            if (requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketOwner != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination.BucketOwner = requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_BucketOwner;
+                requestLogConfiguration_logConfiguration_S3LogDestinationIsNull = false;
+            }
+            Amazon.Pipes.S3OutputFormat requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_OutputFormat = null;
+            if (cmdletContext.S3LogDestination_OutputFormat != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_OutputFormat = cmdletContext.S3LogDestination_OutputFormat;
+            }
+            if (requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_OutputFormat != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination.OutputFormat = requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_OutputFormat;
+                requestLogConfiguration_logConfiguration_S3LogDestinationIsNull = false;
+            }
+            System.String requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_Prefix = null;
+            if (cmdletContext.S3LogDestination_Prefix != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_Prefix = cmdletContext.S3LogDestination_Prefix;
+            }
+            if (requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_Prefix != null)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination.Prefix = requestLogConfiguration_logConfiguration_S3LogDestination_s3LogDestination_Prefix;
+                requestLogConfiguration_logConfiguration_S3LogDestinationIsNull = false;
+            }
+             // determine if requestLogConfiguration_logConfiguration_S3LogDestination should be set to null
+            if (requestLogConfiguration_logConfiguration_S3LogDestinationIsNull)
+            {
+                requestLogConfiguration_logConfiguration_S3LogDestination = null;
+            }
+            if (requestLogConfiguration_logConfiguration_S3LogDestination != null)
+            {
+                request.LogConfiguration.S3LogDestination = requestLogConfiguration_logConfiguration_S3LogDestination;
+                requestLogConfigurationIsNull = false;
+            }
+             // determine if request.LogConfiguration should be set to null
+            if (requestLogConfigurationIsNull)
+            {
+                request.LogConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -3173,6 +3429,14 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             public List<System.String> EnrichmentParameters_HttpParameters_PathParameterValues { get; set; }
             public Dictionary<System.String, System.String> EnrichmentParameters_HttpParameters_QueryStringParameters { get; set; }
             public System.String EnrichmentParameters_InputTemplate { get; set; }
+            public System.String CloudwatchLogsLogDestination_LogGroupArn { get; set; }
+            public System.String FirehoseLogDestination_DeliveryStreamArn { get; set; }
+            public List<System.String> LogConfiguration_IncludeExecutionData { get; set; }
+            public Amazon.Pipes.LogLevel LogConfiguration_Level { get; set; }
+            public System.String S3LogDestination_BucketName { get; set; }
+            public System.String S3LogDestination_BucketOwner { get; set; }
+            public Amazon.Pipes.S3OutputFormat S3LogDestination_OutputFormat { get; set; }
+            public System.String S3LogDestination_Prefix { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? ActiveMQBrokerParameters_BatchSize { get; set; }

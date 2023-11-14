@@ -118,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? DeleteBehavior { get; set; }
         #endregion
         
+        #region Parameter DeleteMetricsExportConfig
+        /// <summary>
+        /// <para>
+        /// <para>Set the value as true to delete metrics export related configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteMetricsExportConfig { get; set; }
+        #endregion
+        
         #region Parameter ExpectedVersion
         /// <summary>
         /// <para>
@@ -128,6 +138,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? ExpectedVersion { get; set; }
+        #endregion
+        
+        #region Parameter MetricsExportConfig_MqttTopic
+        /// <summary>
+        /// <para>
+        /// <para>The MQTT topic that Device Defender Detect should publish messages to for metrics
+        /// export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetricsExportConfig_MqttTopic { get; set; }
+        #endregion
+        
+        #region Parameter MetricsExportConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>This role ARN has permission to publish MQTT messages, after which Device Defender
+        /// Detect can assume the role and publish messages on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetricsExportConfig_RoleArn { get; set; }
         #endregion
         
         #region Parameter SecurityProfileDescription
@@ -258,7 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.DeleteAdditionalMetricsToRetain = this.DeleteAdditionalMetricsToRetain;
             context.DeleteAlertTarget = this.DeleteAlertTarget;
             context.DeleteBehavior = this.DeleteBehavior;
+            context.DeleteMetricsExportConfig = this.DeleteMetricsExportConfig;
             context.ExpectedVersion = this.ExpectedVersion;
+            context.MetricsExportConfig_MqttTopic = this.MetricsExportConfig_MqttTopic;
+            context.MetricsExportConfig_RoleArn = this.MetricsExportConfig_RoleArn;
             context.SecurityProfileDescription = this.SecurityProfileDescription;
             context.SecurityProfileName = this.SecurityProfileName;
             #if MODULAR
@@ -313,9 +348,42 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.DeleteBehaviors = cmdletContext.DeleteBehavior.Value;
             }
+            if (cmdletContext.DeleteMetricsExportConfig != null)
+            {
+                request.DeleteMetricsExportConfig = cmdletContext.DeleteMetricsExportConfig.Value;
+            }
             if (cmdletContext.ExpectedVersion != null)
             {
                 request.ExpectedVersion = cmdletContext.ExpectedVersion.Value;
+            }
+            
+             // populate MetricsExportConfig
+            var requestMetricsExportConfigIsNull = true;
+            request.MetricsExportConfig = new Amazon.IoT.Model.MetricsExportConfig();
+            System.String requestMetricsExportConfig_metricsExportConfig_MqttTopic = null;
+            if (cmdletContext.MetricsExportConfig_MqttTopic != null)
+            {
+                requestMetricsExportConfig_metricsExportConfig_MqttTopic = cmdletContext.MetricsExportConfig_MqttTopic;
+            }
+            if (requestMetricsExportConfig_metricsExportConfig_MqttTopic != null)
+            {
+                request.MetricsExportConfig.MqttTopic = requestMetricsExportConfig_metricsExportConfig_MqttTopic;
+                requestMetricsExportConfigIsNull = false;
+            }
+            System.String requestMetricsExportConfig_metricsExportConfig_RoleArn = null;
+            if (cmdletContext.MetricsExportConfig_RoleArn != null)
+            {
+                requestMetricsExportConfig_metricsExportConfig_RoleArn = cmdletContext.MetricsExportConfig_RoleArn;
+            }
+            if (requestMetricsExportConfig_metricsExportConfig_RoleArn != null)
+            {
+                request.MetricsExportConfig.RoleArn = requestMetricsExportConfig_metricsExportConfig_RoleArn;
+                requestMetricsExportConfigIsNull = false;
+            }
+             // determine if request.MetricsExportConfig should be set to null
+            if (requestMetricsExportConfigIsNull)
+            {
+                request.MetricsExportConfig = null;
             }
             if (cmdletContext.SecurityProfileDescription != null)
             {
@@ -394,7 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.Boolean? DeleteAdditionalMetricsToRetain { get; set; }
             public System.Boolean? DeleteAlertTarget { get; set; }
             public System.Boolean? DeleteBehavior { get; set; }
+            public System.Boolean? DeleteMetricsExportConfig { get; set; }
             public System.Int64? ExpectedVersion { get; set; }
+            public System.String MetricsExportConfig_MqttTopic { get; set; }
+            public System.String MetricsExportConfig_RoleArn { get; set; }
             public System.String SecurityProfileDescription { get; set; }
             public System.String SecurityProfileName { get; set; }
             public System.Func<Amazon.IoT.Model.UpdateSecurityProfileResponse, UpdateIOTSecurityProfileCmdlet, object> Select { get; set; } =

@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety
-        /// of large language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/llms-finetuning-models.html#llms-finetuning-supported-llms">Text
+        /// of large language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-models.html#autopilot-llms-finetuning-supported-llms">Text
         /// generation models supporting fine-tuning in Autopilot</a>. If no <code>BaseModelName</code>
         /// is provided, the default model used is Falcon-7B-Instruct. </para>
         /// </para>
@@ -589,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance
         /// a default objective metric, the cross-entropy loss. After fine-tuning a language model,
         /// you can evaluate the quality of its generated text using different metrics. For a
-        /// list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/llms-finetuning-models.html">Metrics
+        /// list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-metrics.html">Metrics
         /// for fine-tuning LLMs in Autopilot</a>.</para></li></ul>
         /// </para>
         /// </summary>

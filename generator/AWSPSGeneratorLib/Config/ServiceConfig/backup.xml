@@ -185,6 +185,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupJobSummaries" OutputProperty="*" Verb="Get" Noun="BackupJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -206,6 +210,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCopyJobs" OutputProperty="CopyJobs" Verb="Get" Noun="CopyJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCopyJobSummaries" OutputProperty="*" Verb="Get" Noun="CopyJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -246,6 +254,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRestoreJobSummaries" OutputProperty="*" Verb="Get" Noun="RestoreJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -82,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         public Amazon.ResourceExplorer2.Model.IncludedProperty[] IncludedProperty { get; set; }
         #endregion
         
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>The root ARN of the account, an organizational unit (OU), or an organization ARN.
+        /// If left empty, the default is account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Scope { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -192,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             {
                 context.IncludedProperty = new List<Amazon.ResourceExplorer2.Model.IncludedProperty>(this.IncludedProperty);
             }
+            context.Scope = this.Scope;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -249,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             if (cmdletContext.IncludedProperty != null)
             {
                 request.IncludedProperties = cmdletContext.IncludedProperty;
+            }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
             }
             if (cmdletContext.Tag != null)
             {
@@ -322,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             public System.String ClientToken { get; set; }
             public System.String Filters_FilterString { get; set; }
             public List<Amazon.ResourceExplorer2.Model.IncludedProperty> IncludedProperty { get; set; }
+            public System.String Scope { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String ViewName { get; set; }
             public System.Func<Amazon.ResourceExplorer2.Model.CreateViewResponse, NewAREXViewCmdlet, object> Select { get; set; } =

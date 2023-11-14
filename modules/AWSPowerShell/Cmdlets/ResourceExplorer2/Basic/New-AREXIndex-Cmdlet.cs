@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     public partial class NewAREXIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Tag
@@ -95,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         /// <para>
         /// <para>This value helps ensure idempotency. Resource Explorer uses this value to prevent
         /// the accidental creation of duplicate versions. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type value</a>
-        /// to ensure the uniqueness of your views.</para>
+        /// to ensure the uniqueness of your index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

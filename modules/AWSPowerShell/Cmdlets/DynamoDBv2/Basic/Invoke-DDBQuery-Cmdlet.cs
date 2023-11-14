@@ -191,6 +191,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String IndexName { get; set; }
         #endregion
         
+        #region Parameter IsLimitSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.DynamoDBv2.Model.QueryRequest.Limit" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsLimitSet { get; set; }
+        #endregion
+        
         #region Parameter KeyConditionExpression
         /// <summary>
         /// <para>
@@ -497,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 }
             }
             context.Limit = this.Limit;
+            context.IsLimitSet = this.IsLimitSet;
             context.ProjectionExpression = this.ProjectionExpression;
             if (this.QueryFilter != null)
             {
@@ -575,6 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.IsLimitSet != null)
+            {
+                request.IsLimitSet = cmdletContext.IsLimitSet.Value;
             }
             if (cmdletContext.ProjectionExpression != null)
             {
@@ -696,6 +715,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.String KeyConditionExpression { get; set; }
             public Dictionary<System.String, Amazon.DynamoDBv2.Model.Condition> KeyCondition { get; set; }
             public System.Int32? Limit { get; set; }
+            public System.Boolean? IsLimitSet { get; set; }
             public System.String ProjectionExpression { get; set; }
             public Dictionary<System.String, Amazon.DynamoDBv2.Model.Condition> QueryFilter { get; set; }
             public Amazon.DynamoDBv2.ReturnConsumedCapacity ReturnConsumedCapacity { get; set; }

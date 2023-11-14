@@ -111,6 +111,18 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.DateTime? ByCreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ByMessageCategory
+        /// <summary>
+        /// <para>
+        /// <para>This returns a list of backup jobs for the specified message category.</para><para>Example strings may include <code>AccessDenied</code>, <code>Success</code>, and <code>InvalidParameters</code>.
+        /// See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+        /// for a list of MessageCategory strings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByMessageCategory { get; set; }
+        #endregion
+        
         #region Parameter ByParentJobId
         /// <summary>
         /// <para>
@@ -227,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCompleteBefore = this.ByCompleteBefore;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByMessageCategory = this.ByMessageCategory;
             context.ByParentJobId = this.ByParentJobId;
             context.ByResourceArn = this.ByResourceArn;
             context.ByResourceType = this.ByResourceType;
@@ -284,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByMessageCategory != null)
+            {
+                request.ByMessageCategory = cmdletContext.ByMessageCategory;
             }
             if (cmdletContext.ByParentJobId != null)
             {
@@ -383,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByMessageCategory != null)
+            {
+                request.ByMessageCategory = cmdletContext.ByMessageCategory;
             }
             if (cmdletContext.ByParentJobId != null)
             {
@@ -525,6 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCompleteBefore { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
+            public System.String ByMessageCategory { get; set; }
             public System.String ByParentJobId { get; set; }
             public System.String ByResourceArn { get; set; }
             public System.String ByResourceType { get; set; }

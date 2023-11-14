@@ -22,33 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResourceExplorer2;
-using Amazon.ResourceExplorer2.Model;
+using Amazon.Glue;
+using Amazon.Glue.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AREX
+namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon
-    /// Web Services Region in which you invoked the operation.
+    /// Returns the configuration for the specified table optimizers.
     /// </summary>
-    [Cmdlet("Get", "AREXIndex")]
-    [OutputType("Amazon.ResourceExplorer2.Model.GetIndexResponse")]
-    [AWSCmdlet("Calls the AWS Resource Explorer GetIndex API operation.", Operation = new[] {"GetIndex"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.GetIndexResponse))]
-    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.GetIndexResponse",
-        "This cmdlet returns an Amazon.ResourceExplorer2.Model.GetIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GLUETableOptimizerBatch")]
+    [OutputType("Amazon.Glue.Model.BatchGetTableOptimizerResponse")]
+    [AWSCmdlet("Calls the AWS Glue BatchGetTableOptimizer API operation.", Operation = new[] {"BatchGetTableOptimizer"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchGetTableOptimizerResponse))]
+    [AWSCmdletOutput("Amazon.Glue.Model.BatchGetTableOptimizerResponse",
+        "This cmdlet returns an Amazon.Glue.Model.BatchGetTableOptimizerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAREXIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
+    public partial class GetGLUETableOptimizerBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Entry
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>BatchGetTableOptimizerEntry</code> objects specifying the table optimizers
+        /// to retrieve.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Entries")]
+        public Amazon.Glue.Model.BatchGetTableOptimizerEntry[] Entry { get; set; }
+        #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.GetIndexResponse).
-        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.GetIndexResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.BatchGetTableOptimizerResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.BatchGetTableOptimizerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,9 +83,19 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.GetIndexResponse, GetAREXIndexCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.BatchGetTableOptimizerResponse, GetGLUETableOptimizerBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Entry != null)
+            {
+                context.Entry = new List<Amazon.Glue.Model.BatchGetTableOptimizerEntry>(this.Entry);
+            }
+            #if MODULAR
+            if (this.Entry == null && ParameterWasBound(nameof(this.Entry)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Entry which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -84,8 +110,12 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceExplorer2.Model.GetIndexRequest();
+            var request = new Amazon.Glue.Model.BatchGetTableOptimizerRequest();
             
+            if (cmdletContext.Entry != null)
+            {
+                request.Entries = cmdletContext.Entry;
+            }
             
             CmdletOutput output;
             
@@ -119,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceExplorer2.Model.GetIndexResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.GetIndexRequest request)
+        private Amazon.Glue.Model.BatchGetTableOptimizerResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.BatchGetTableOptimizerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "GetIndex");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "BatchGetTableOptimizer");
             try
             {
                 #if DESKTOP
-                return client.GetIndex(request);
+                return client.BatchGetTableOptimizer(request);
                 #elif CORECLR
-                return client.GetIndexAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetTableOptimizerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -147,7 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.ResourceExplorer2.Model.GetIndexResponse, GetAREXIndexCmdlet, object> Select { get; set; } =
+            public List<Amazon.Glue.Model.BatchGetTableOptimizerEntry> Entry { get; set; }
+            public System.Func<Amazon.Glue.Model.BatchGetTableOptimizerResponse, GetGLUETableOptimizerBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

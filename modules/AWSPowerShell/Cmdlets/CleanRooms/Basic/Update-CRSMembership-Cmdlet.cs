@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter QueryLogStatus
         /// <summary>
         /// <para>
-        /// <para>An indicator as to whether query logging has been enabled or disabled for the collaboration.</para>
+        /// <para>An indicator as to whether query logging has been enabled or disabled for the membership.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

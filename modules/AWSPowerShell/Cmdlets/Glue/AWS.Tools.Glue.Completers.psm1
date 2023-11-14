@@ -259,6 +259,19 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.TableOptimizerType
+        {
+            ($_ -eq "Get-GLUETableOptimizer/Type") -Or
+            ($_ -eq "Get-GLUETableOptimizerRunList/Type") -Or
+            ($_ -eq "New-GLUETableOptimizer/Type") -Or
+            ($_ -eq "Remove-GLUETableOptimizer/Type") -Or
+            ($_ -eq "Update-GLUETableOptimizer/Type")
+        }
+        {
+            $v = "compaction"
+            break
+        }
+
         # Amazon.Glue.TaskRunSortColumnType
         "Get-GLUEMLTaskRunList/Sort_Column"
         {
@@ -369,7 +382,7 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
-    "Type"=@("New-GLUETrigger")
+    "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
 
@@ -435,6 +448,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEJobBatch",
                "Get-GLUEPartitionBatch",
+               "Get-GLUETableOptimizerBatch",
                "Get-GLUETriggerBatch",
                "Get-GLUEWorkflowBatch",
                "Stop-GLUEJobRunBatch",
@@ -462,6 +476,7 @@ $GLUE_SelectMap = @{
                "New-GLUESecurityConfiguration",
                "New-GLUESession",
                "New-GLUETable",
+               "New-GLUETableOptimizer",
                "New-GLUETrigger",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
@@ -486,6 +501,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUESecurityConfiguration",
                "Remove-GLUESession",
                "Remove-GLUETable",
+               "Remove-GLUETableOptimizer",
                "Remove-GLUETableVersion",
                "Remove-GLUETrigger",
                "Remove-GLUEUserDefinedFunction",
@@ -540,6 +556,7 @@ $GLUE_SelectMap = @{
                "Get-GLUESession",
                "Get-GLUEStatement",
                "Get-GLUETable",
+               "Get-GLUETableOptimizer",
                "Get-GLUETableList",
                "Get-GLUETableVersion",
                "Get-GLUETableVersionList",
@@ -572,6 +589,7 @@ $GLUE_SelectMap = @{
                "Get-GLUESchemaVersionList",
                "Get-GLUESessionList",
                "Get-GLUEStatementList",
+               "Get-GLUETableOptimizerRunList",
                "Get-GLUETriggerNameList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",
@@ -622,6 +640,7 @@ $GLUE_SelectMap = @{
                "Update-GLUESchema",
                "Update-GLUESourceControlFromJob",
                "Update-GLUETable",
+               "Update-GLUETableOptimizer",
                "Update-GLUETrigger",
                "Update-GLUEUserDefinedFunction",
                "Update-GLUEWorkflow")

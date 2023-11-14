@@ -28,8 +28,10 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Provides information about a Map Run's configuration, progress, and results. For more
-    /// information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining
+    /// Provides information about a Map Run's configuration, progress, and results. If you've
+    /// <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html">redriven</a>
+    /// a Map Run, this API action also returns information about the redrives of that Map
+    /// Run. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining
     /// Map Run</a> in the <i>Step Functions Developer Guide</i>.
     /// </summary>
     [Cmdlet("Get", "SFNMapRun")]

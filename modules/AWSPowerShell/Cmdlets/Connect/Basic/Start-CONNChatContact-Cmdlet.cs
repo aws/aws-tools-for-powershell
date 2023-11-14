@@ -201,6 +201,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String RelatedContactId { get; set; }
         #endregion
         
+        #region Parameter SegmentAttribute
+        /// <summary>
+        /// <para>
+        /// <para>A set of system defined key-value pairs stored on individual contact segments using
+        /// an attribute map. The attributes are standard Amazon Connect attributes. They can
+        /// be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</para><note><para>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and <code>application/vnd.amazonaws.connect.message.interactive.response</code>
+        /// must be present in the SupportedMessagingContentTypes field of this API in order to
+        /// set <code>SegmentAttributes</code> as {<code> "connect:Subtype": {"valueString" :
+        /// "connect:Guide" }}</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentAttributes")]
+        public System.Collections.Hashtable SegmentAttribute { get; set; }
+        #endregion
+        
         #region Parameter PersistentChat_SourceContactId
         /// <summary>
         /// <para>
@@ -341,6 +357,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             context.PersistentChat_RehydrationType = this.PersistentChat_RehydrationType;
             context.PersistentChat_SourceContactId = this.PersistentChat_SourceContactId;
             context.RelatedContactId = this.RelatedContactId;
+            if (this.SegmentAttribute != null)
+            {
+                context.SegmentAttribute = new Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SegmentAttribute.Keys)
+                {
+                    context.SegmentAttribute.Add((String)hashKey, (SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
+                }
+            }
             if (this.SupportedMessagingContentType != null)
             {
                 context.SupportedMessagingContentType = new List<System.String>(this.SupportedMessagingContentType);
@@ -462,6 +486,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.RelatedContactId = cmdletContext.RelatedContactId;
             }
+            if (cmdletContext.SegmentAttribute != null)
+            {
+                request.SegmentAttributes = cmdletContext.SegmentAttribute;
+            }
             if (cmdletContext.SupportedMessagingContentType != null)
             {
                 request.SupportedMessagingContentTypes = cmdletContext.SupportedMessagingContentType;
@@ -538,6 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Amazon.Connect.RehydrationType PersistentChat_RehydrationType { get; set; }
             public System.String PersistentChat_SourceContactId { get; set; }
             public System.String RelatedContactId { get; set; }
+            public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }
             public List<System.String> SupportedMessagingContentType { get; set; }
             public System.Func<Amazon.Connect.Model.StartChatContactResponse, StartCONNChatContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

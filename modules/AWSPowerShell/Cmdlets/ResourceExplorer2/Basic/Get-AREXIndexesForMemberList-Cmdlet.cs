@@ -28,20 +28,39 @@ using Amazon.ResourceExplorer2.Model;
 namespace Amazon.PowerShell.Cmdlets.AREX
 {
     /// <summary>
-    /// Retrieves a list of all resource types currently supported by Amazon Web Services
-    /// Resource Explorer.
+    /// Retrieves a list of a member's indexes in all Amazon Web Services Regions that are
+    /// currently collecting resource information for Amazon Web Services Resource Explorer.
+    /// Only the management account or a delegated administrator with service access enabled
+    /// can invoke this API call.
     /// </summary>
-    [Cmdlet("Get", "AREXSupportedResourceTypeList")]
-    [OutputType("Amazon.ResourceExplorer2.Model.SupportedResourceType")]
-    [AWSCmdlet("Calls the AWS Resource Explorer ListSupportedResourceTypes API operation.", Operation = new[] {"ListSupportedResourceTypes"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse))]
-    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.SupportedResourceType or Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse",
-        "This cmdlet returns a collection of Amazon.ResourceExplorer2.Model.SupportedResourceType objects.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AREXIndexesForMemberList")]
+    [OutputType("Amazon.ResourceExplorer2.Model.MemberIndex")]
+    [AWSCmdlet("Calls the AWS Resource Explorer ListIndexesForMembers API operation.", Operation = new[] {"ListIndexesForMembers"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse))]
+    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.MemberIndex or Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse",
+        "This cmdlet returns a collection of Amazon.ResourceExplorer2.Model.MemberIndex objects.",
+        "The service call response (type Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAREXSupportedResourceTypeListCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
+    public partial class GetAREXIndexesForMemberListCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AccountIdList
+        /// <summary>
+        /// <para>
+        /// <para>The account IDs will limit the output to only indexes from these accounts.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String[] AccountIdList { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -77,13 +96,23 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceTypes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse).
-        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Indexes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse).
+        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResourceTypes";
+        public string Select { get; set; } = "Indexes";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AccountIdList parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AccountIdList' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountIdList' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -96,11 +125,31 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse, GetAREXSupportedResourceTypeListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse, GetAREXIndexesForMemberListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.AccountIdList;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AccountIdList != null)
+            {
+                context.AccountIdList = new List<System.String>(this.AccountIdList);
+            }
+            #if MODULAR
+            if (this.AccountIdList == null && ParameterWasBound(nameof(this.AccountIdList)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountIdList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -117,8 +166,12 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesRequest();
+            var request = new Amazon.ResourceExplorer2.Model.ListIndexesForMembersRequest();
             
+            if (cmdletContext.AccountIdList != null)
+            {
+                request.AccountIdList = cmdletContext.AccountIdList;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -160,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesRequest request)
+        private Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.ListIndexesForMembersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "ListSupportedResourceTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "ListIndexesForMembers");
             try
             {
                 #if DESKTOP
-                return client.ListSupportedResourceTypes(request);
+                return client.ListIndexesForMembers(request);
                 #elif CORECLR
-                return client.ListSupportedResourceTypesAsync(request).GetAwaiter().GetResult();
+                return client.ListIndexesForMembersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -188,10 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AccountIdList { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse, GetAREXSupportedResourceTypeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResourceTypes;
+            public System.Func<Amazon.ResourceExplorer2.Model.ListIndexesForMembersResponse, GetAREXIndexesForMemberListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Indexes;
         }
         
     }

@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para>
+        /// <para>The maximum number of results to return at one time. The response might contain fewer
+        /// results but will never contain more.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

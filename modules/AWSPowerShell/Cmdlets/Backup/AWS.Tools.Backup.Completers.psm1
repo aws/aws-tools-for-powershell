@@ -80,6 +80,17 @@ $BAK_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Backup.AggregationPeriod
+        {
+            ($_ -eq "Get-BAKBackupJobSummaryList/AggregationPeriod") -Or
+            ($_ -eq "Get-BAKCopyJobSummaryList/AggregationPeriod") -Or
+            ($_ -eq "Get-BAKRestoreJobSummaryList/AggregationPeriod")
+        }
+        {
+            $v = "FOURTEEN_DAYS","ONE_DAY","SEVEN_DAYS"
+            break
+        }
+
         # Amazon.Backup.BackupJobState
         "Get-BAKBackupJobList/ByState"
         {
@@ -87,10 +98,31 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.BackupJobStatus
+        "Get-BAKBackupJobSummaryList/State"
+        {
+            $v = "ABORTED","ABORTING","AGGREGATE_ALL","ANY","COMPLETED","CREATED","EXPIRED","FAILED","PARTIAL","PENDING","RUNNING"
+            break
+        }
+
         # Amazon.Backup.CopyJobState
         "Get-BAKCopyJobList/ByState"
         {
             $v = "COMPLETED","CREATED","FAILED","PARTIAL","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.CopyJobStatus
+        "Get-BAKCopyJobSummaryList/State"
+        {
+            $v = "ABORTED","ABORTING","AGGREGATE_ALL","ANY","COMPLETED","COMPLETING","CREATED","FAILED","FAILING","PARTIAL","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.RestoreJobState
+        "Get-BAKRestoreJobSummaryList/State"
+        {
+            $v = "ABORTED","AGGREGATE_ALL","ANY","COMPLETED","CREATED","FAILED","PENDING","RUNNING"
             break
         }
 
@@ -117,9 +149,11 @@ $BAK_Completers = {
 }
 
 $BAK_map = @{
+    "AggregationPeriod"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
+    "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -213,12 +247,14 @@ $BAK_SelectMap = @{
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKSupportedResourceType",
                "Get-BAKBackupJobList",
+               "Get-BAKBackupJobSummaryList",
                "Get-BAKBackupPlanList",
                "Get-BAKBackupPlanTemplateList",
                "Get-BAKBackupPlanVersionList",
                "Get-BAKBackupSelectionList",
                "Get-BAKBackupVaultList",
                "Get-BAKCopyJobList",
+               "Get-BAKCopyJobSummaryList",
                "Get-BAKFrameworkList",
                "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
@@ -229,6 +265,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
                "Get-BAKRestoreJobList",
+               "Get-BAKRestoreJobSummaryList",
                "Get-BAKResourceTag",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultLockConfiguration",

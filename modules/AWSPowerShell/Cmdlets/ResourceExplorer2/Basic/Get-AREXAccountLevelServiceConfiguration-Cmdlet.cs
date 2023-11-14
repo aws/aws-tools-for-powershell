@@ -28,31 +28,32 @@ using Amazon.ResourceExplorer2.Model;
 namespace Amazon.PowerShell.Cmdlets.AREX
 {
     /// <summary>
-    /// Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon
-    /// Web Services Region in which you invoked the operation.
+    /// Retrieves the status of your account's Amazon Web Services service access, and validates
+    /// the service linked role required to access the multi-account search feature. Only
+    /// the management account or a delegated administrator with service access enabled can
+    /// invoke this API call.
     /// </summary>
-    [Cmdlet("Get", "AREXIndex")]
-    [OutputType("Amazon.ResourceExplorer2.Model.GetIndexResponse")]
-    [AWSCmdlet("Calls the AWS Resource Explorer GetIndex API operation.", Operation = new[] {"GetIndex"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.GetIndexResponse))]
-    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.GetIndexResponse",
-        "This cmdlet returns an Amazon.ResourceExplorer2.Model.GetIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AREXAccountLevelServiceConfiguration")]
+    [OutputType("Amazon.ResourceExplorer2.Model.OrgConfiguration")]
+    [AWSCmdlet("Calls the AWS Resource Explorer GetAccountLevelServiceConfiguration API operation.", Operation = new[] {"GetAccountLevelServiceConfiguration"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.OrgConfiguration or Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse",
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.OrgConfiguration object.",
+        "The service call response (type Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAREXIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
+    public partial class GetAREXAccountLevelServiceConfigurationCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.GetIndexResponse).
-        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.GetIndexResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OrgConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "OrgConfiguration";
         #endregion
         
         protected override void ProcessRecord()
@@ -67,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.GetIndexResponse, GetAREXIndexCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse, GetAREXAccountLevelServiceConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceExplorer2.Model.GetIndexRequest();
+            var request = new Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationRequest();
             
             
             CmdletOutput output;
@@ -119,15 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceExplorer2.Model.GetIndexResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.GetIndexRequest request)
+        private Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "GetIndex");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "GetAccountLevelServiceConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetIndex(request);
+                return client.GetAccountLevelServiceConfiguration(request);
                 #elif CORECLR
-                return client.GetIndexAsync(request).GetAwaiter().GetResult();
+                return client.GetAccountLevelServiceConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -147,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.ResourceExplorer2.Model.GetIndexResponse, GetAREXIndexCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse, GetAREXAccountLevelServiceConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OrgConfiguration;
         }
         
     }

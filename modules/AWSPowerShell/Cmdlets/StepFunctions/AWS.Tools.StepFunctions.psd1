@@ -111,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SFNStateMachine', 
         'Remove-SFNStateMachineAlias', 
         'Remove-SFNStateMachineVersion', 
+        'Restart-SFNExecution', 
         'Send-SFNTaskFailure', 
         'Send-SFNTaskHeartbeat', 
         'Send-SFNTaskSuccess', 

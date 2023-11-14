@@ -107,6 +107,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String ByDestinationVaultArn { get; set; }
         #endregion
         
+        #region Parameter ByMessageCategory
+        /// <summary>
+        /// <para>
+        /// <para>This parameter returns the job count for the specified message category.</para><para>Example accepted strings include <code>AccessDenied</code>, <code>Success</code>,
+        /// and <code>InvalidParameters</code>. See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+        /// for a list of accepted MessageCategory strings.</para><para>The the value ANY returns count of all message categories.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns
+        /// the sum.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByMessageCategory { get; set; }
+        #endregion
+        
         #region Parameter ByParentJobId
         /// <summary>
         /// <para>
@@ -218,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
             context.ByDestinationVaultArn = this.ByDestinationVaultArn;
+            context.ByMessageCategory = this.ByMessageCategory;
             context.ByParentJobId = this.ByParentJobId;
             context.ByResourceArn = this.ByResourceArn;
             context.ByResourceType = this.ByResourceType;
@@ -265,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByDestinationVaultArn != null)
             {
                 request.ByDestinationVaultArn = cmdletContext.ByDestinationVaultArn;
+            }
+            if (cmdletContext.ByMessageCategory != null)
+            {
+                request.ByMessageCategory = cmdletContext.ByMessageCategory;
             }
             if (cmdletContext.ByParentJobId != null)
             {
@@ -377,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
             public System.String ByDestinationVaultArn { get; set; }
+            public System.String ByMessageCategory { get; set; }
             public System.String ByParentJobId { get; set; }
             public System.String ByResourceArn { get; set; }
             public System.String ByResourceType { get; set; }

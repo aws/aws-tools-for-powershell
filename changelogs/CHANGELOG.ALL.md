@@ -1,4 +1,41 @@
-﻿### 4.1.452 (2023-11-13 22:46Z)
+﻿### 4.1.453 (2023-11-14 22:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.686.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Added cmdlet Get-BAKBackupJobSummaryList leveraging the ListBackupJobSummaries service API.
+    * Added cmdlet Get-BAKCopyJobSummaryList leveraging the ListCopyJobSummaries service API.
+    * Added cmdlet Get-BAKRestoreJobSummaryList leveraging the ListRestoreJobSummaries service API.
+    * Modified cmdlet Get-BAKBackupJobList: added parameter ByMessageCategory.
+    * Modified cmdlet Get-BAKCopyJobList: added parameter ByMessageCategory.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSCollaboration: added parameter QueryCompute_IsResponsible.
+    * Modified cmdlet New-CRSMembership: added parameter QueryCompute_IsResponsible.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameter SegmentAttribute.
+  * Amazon DynamoDB
+    * Modified cmdlet Invoke-DDBQuery: added parameter IsLimitSet.
+    * Modified cmdlet Invoke-DDBScan: added parameters IsLimitSet, IsSegmentSet and IsTotalSegmentsSet.
+  * Amazon EventBridge Pipes
+    * Modified cmdlet New-PIPESPipe: added parameters CloudwatchLogsLogDestination_LogGroupArn, FirehoseLogDestination_DeliveryStreamArn, LogConfiguration_IncludeExecutionData, LogConfiguration_Level, S3LogDestination_BucketName, S3LogDestination_BucketOwner, S3LogDestination_OutputFormat and S3LogDestination_Prefix.
+    * Modified cmdlet Update-PIPESPipe: added parameters CloudwatchLogsLogDestination_LogGroupArn, FirehoseLogDestination_DeliveryStreamArn, LogConfiguration_IncludeExecutionData, LogConfiguration_Level, S3LogDestination_BucketName, S3LogDestination_BucketOwner, S3LogDestination_OutputFormat and S3LogDestination_Prefix.
+  * Amazon Glue
+    * Added cmdlet Get-GLUETableOptimizer leveraging the GetTableOptimizer service API.
+    * Added cmdlet Get-GLUETableOptimizerBatch leveraging the BatchGetTableOptimizer service API.
+    * Added cmdlet Get-GLUETableOptimizerRunList leveraging the ListTableOptimizerRuns service API.
+    * Added cmdlet New-GLUETableOptimizer leveraging the CreateTableOptimizer service API.
+    * Added cmdlet Remove-GLUETableOptimizer leveraging the DeleteTableOptimizer service API.
+    * Added cmdlet Update-GLUETableOptimizer leveraging the UpdateTableOptimizer service API.
+  * Amazon IoT
+    * Modified cmdlet New-IOTSecurityProfile: added parameters MetricsExportConfig_MqttTopic and MetricsExportConfig_RoleArn.
+    * Modified cmdlet Update-IOTSecurityProfile: added parameters DeleteMetricsExportConfig, MetricsExportConfig_MqttTopic and MetricsExportConfig_RoleArn.
+  * Amazon Resource Explorer
+    * Added cmdlet Get-AREXAccountLevelServiceConfiguration leveraging the GetAccountLevelServiceConfiguration service API.
+    * Added cmdlet Get-AREXIndexesForMemberList leveraging the ListIndexesForMembers service API.
+    * Modified cmdlet New-AREXView: added parameter Scope.
+  * Amazon Step Functions
+    * Added cmdlet Restart-SFNExecution leveraging the RedriveExecution service API.
+    * Modified cmdlet Get-SFNExecutionList: added parameter RedriveFilter.
+
+### 4.1.452 (2023-11-13 22:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.685.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Modified cmdlet Edit-DMSEndpoint: added parameters IBMDb2Settings_KeepCsvFile, IBMDb2Settings_LoadTimeout, IBMDb2Settings_MaxFileSize, IBMDb2Settings_WriteBufferSize and MySQLSettings_ExecuteTimeout.

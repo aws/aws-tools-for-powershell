@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>Contains fields that are indexed and whose types are already known by the Fleet Indexing
         /// service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed
-        /// fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</para>
+        /// fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</para><note><para>You can't modify managed fields by updating fleet indexing configuration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-        /// service.</para>
+        /// service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed
+        /// fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</para><note><para>You can't modify managed fields by updating fleet indexing configuration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

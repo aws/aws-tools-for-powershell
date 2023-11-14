@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RedriveExecution" OutputProperty="RedriveDate" Verb="Restart" Noun="Execution" ShouldProcessTarget="ExecutionArn" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendTaskFailure" Verb="Send" Noun="TaskFailure" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

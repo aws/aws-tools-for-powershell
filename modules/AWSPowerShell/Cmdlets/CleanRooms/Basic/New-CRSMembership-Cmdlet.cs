@@ -70,6 +70,21 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String CollaborationIdentifier { get; set; }
         #endregion
         
+        #region Parameter QueryCompute_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for query compute costs
+        /// (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</para><para>If the collaboration creator has not specified anyone to pay for query compute costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <code>FALSE</code> but you are responsible to pay for query
+        /// compute costs. </para></li><li><para>If you set the value to <code>TRUE</code> but you are not responsible to pay for query
+        /// compute costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PaymentConfiguration_QueryCompute_IsResponsible")]
+        public System.Boolean? QueryCompute_IsResponsible { get; set; }
+        #endregion
+        
         #region Parameter S3_KeyPrefix
         /// <summary>
         /// <para>
@@ -84,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter QueryLogStatus
         /// <summary>
         /// <para>
-        /// <para>An indicator as to whether query logging has been enabled or disabled for the collaboration.</para>
+        /// <para>An indicator as to whether query logging has been enabled or disabled for the membership.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -207,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.S3_KeyPrefix = this.S3_KeyPrefix;
             context.S3_ResultFormat = this.S3_ResultFormat;
             context.DefaultResultConfiguration_RoleArn = this.DefaultResultConfiguration_RoleArn;
+            context.QueryCompute_IsResponsible = this.QueryCompute_IsResponsible;
             context.QueryLogStatus = this.QueryLogStatus;
             #if MODULAR
             if (this.QueryLogStatus == null && ParameterWasBound(nameof(this.QueryLogStatus)))
@@ -321,6 +337,40 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.DefaultResultConfiguration = null;
             }
+            
+             // populate PaymentConfiguration
+            var requestPaymentConfigurationIsNull = true;
+            request.PaymentConfiguration = new Amazon.CleanRooms.Model.MembershipPaymentConfiguration();
+            Amazon.CleanRooms.Model.MembershipQueryComputePaymentConfig requestPaymentConfiguration_paymentConfiguration_QueryCompute = null;
+            
+             // populate QueryCompute
+            var requestPaymentConfiguration_paymentConfiguration_QueryComputeIsNull = true;
+            requestPaymentConfiguration_paymentConfiguration_QueryCompute = new Amazon.CleanRooms.Model.MembershipQueryComputePaymentConfig();
+            System.Boolean? requestPaymentConfiguration_paymentConfiguration_QueryCompute_queryCompute_IsResponsible = null;
+            if (cmdletContext.QueryCompute_IsResponsible != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_QueryCompute_queryCompute_IsResponsible = cmdletContext.QueryCompute_IsResponsible.Value;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_QueryCompute_queryCompute_IsResponsible != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_QueryCompute.IsResponsible = requestPaymentConfiguration_paymentConfiguration_QueryCompute_queryCompute_IsResponsible.Value;
+                requestPaymentConfiguration_paymentConfiguration_QueryComputeIsNull = false;
+            }
+             // determine if requestPaymentConfiguration_paymentConfiguration_QueryCompute should be set to null
+            if (requestPaymentConfiguration_paymentConfiguration_QueryComputeIsNull)
+            {
+                requestPaymentConfiguration_paymentConfiguration_QueryCompute = null;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_QueryCompute != null)
+            {
+                request.PaymentConfiguration.QueryCompute = requestPaymentConfiguration_paymentConfiguration_QueryCompute;
+                requestPaymentConfigurationIsNull = false;
+            }
+             // determine if request.PaymentConfiguration should be set to null
+            if (requestPaymentConfigurationIsNull)
+            {
+                request.PaymentConfiguration = null;
+            }
             if (cmdletContext.QueryLogStatus != null)
             {
                 request.QueryLogStatus = cmdletContext.QueryLogStatus;
@@ -395,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String S3_KeyPrefix { get; set; }
             public Amazon.CleanRooms.ResultFormat S3_ResultFormat { get; set; }
             public System.String DefaultResultConfiguration_RoleArn { get; set; }
+            public System.Boolean? QueryCompute_IsResponsible { get; set; }
             public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CleanRooms.Model.CreateMembershipResponse, NewCRSMembershipCmdlet, object> Select { get; set; } =
