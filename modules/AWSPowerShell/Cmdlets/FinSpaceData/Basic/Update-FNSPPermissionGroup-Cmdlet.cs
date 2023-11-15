@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.
+    /// Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "FNSPPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.UpdatePermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class UpdateFNSPPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

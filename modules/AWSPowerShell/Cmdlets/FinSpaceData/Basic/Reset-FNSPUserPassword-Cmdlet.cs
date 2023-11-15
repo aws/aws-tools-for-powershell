@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     /// <summary>
     /// Resets the password for a specified user ID and generates a temporary one. Only a
     /// superuser can reset password for other users. Resetting the password immediately invalidates
-    /// the previous password associated with the user.
+    /// the previous password associated with the user.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Reset", "FNSPUserPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FinSpaceData.Model.ResetUserPasswordResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.ResetUserPasswordResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.ResetUserPasswordResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class ResetFNSPUserPasswordCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

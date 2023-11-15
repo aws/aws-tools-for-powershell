@@ -261,6 +261,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String LaunchTemplate_LaunchTemplateName { get; set; }
         #endregion
         
+        #region Parameter InstanceMaintenancePolicy_MaxHealthyPercentage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the upper threshold as a percentage of the desired capacity of the Auto
+        /// Scaling group. It represents the maximum percentage of the group that can be in service
+        /// and healthy, or pending, to support your workload when replacing instances. Value
+        /// range is 100 to 200. After it's set, a value of <code>-1</code> will clear the previously
+        /// set value. </para><para>Both <code>MinHealthyPercentage</code> and <code>MaxHealthyPercentage</code> must
+        /// be specified, and the difference between them cannot be greater than 100. A large
+        /// range increases the number of instances that can be replaced at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InstanceMaintenancePolicy_MaxHealthyPercentage { get; set; }
+        #endregion
+        
         #region Parameter MaxInstanceLifetime
         /// <summary>
         /// <para>
@@ -288,6 +304,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.Int32? MaxSize { get; set; }
+        #endregion
+        
+        #region Parameter InstanceMaintenancePolicy_MinHealthyPercentage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the lower threshold as a percentage of the desired capacity of the Auto
+        /// Scaling group. It represents the minimum percentage of the group to keep in service,
+        /// healthy, and ready to use to support your workload when replacing instances. Value
+        /// range is 0 to 100. After it's set, a value of <code>-1</code> will clear the previously
+        /// set value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InstanceMaintenancePolicy_MinHealthyPercentage { get; set; }
         #endregion
         
         #region Parameter MinSize
@@ -476,6 +506,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.DesiredCapacityType = this.DesiredCapacityType;
             context.HealthCheckGracePeriod = this.HealthCheckGracePeriod;
             context.HealthCheckType = this.HealthCheckType;
+            context.InstanceMaintenancePolicy_MaxHealthyPercentage = this.InstanceMaintenancePolicy_MaxHealthyPercentage;
+            context.InstanceMaintenancePolicy_MinHealthyPercentage = this.InstanceMaintenancePolicy_MinHealthyPercentage;
             context.LaunchConfigurationName = this.LaunchConfigurationName;
             context.LaunchTemplate_LaunchTemplateId = this.LaunchTemplate_LaunchTemplateId;
             context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
@@ -547,6 +579,35 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.HealthCheckType != null)
             {
                 request.HealthCheckType = cmdletContext.HealthCheckType;
+            }
+            
+             // populate InstanceMaintenancePolicy
+            var requestInstanceMaintenancePolicyIsNull = true;
+            request.InstanceMaintenancePolicy = new Amazon.AutoScaling.Model.InstanceMaintenancePolicy();
+            System.Int32? requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MaxHealthyPercentage = null;
+            if (cmdletContext.InstanceMaintenancePolicy_MaxHealthyPercentage != null)
+            {
+                requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MaxHealthyPercentage = cmdletContext.InstanceMaintenancePolicy_MaxHealthyPercentage.Value;
+            }
+            if (requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MaxHealthyPercentage != null)
+            {
+                request.InstanceMaintenancePolicy.MaxHealthyPercentage = requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MaxHealthyPercentage.Value;
+                requestInstanceMaintenancePolicyIsNull = false;
+            }
+            System.Int32? requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MinHealthyPercentage = null;
+            if (cmdletContext.InstanceMaintenancePolicy_MinHealthyPercentage != null)
+            {
+                requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MinHealthyPercentage = cmdletContext.InstanceMaintenancePolicy_MinHealthyPercentage.Value;
+            }
+            if (requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MinHealthyPercentage != null)
+            {
+                request.InstanceMaintenancePolicy.MinHealthyPercentage = requestInstanceMaintenancePolicy_instanceMaintenancePolicy_MinHealthyPercentage.Value;
+                requestInstanceMaintenancePolicyIsNull = false;
+            }
+             // determine if request.InstanceMaintenancePolicy should be set to null
+            if (requestInstanceMaintenancePolicyIsNull)
+            {
+                request.InstanceMaintenancePolicy = null;
             }
             if (cmdletContext.LaunchConfigurationName != null)
             {
@@ -698,6 +759,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String DesiredCapacityType { get; set; }
             public System.Int32? HealthCheckGracePeriod { get; set; }
             public System.String HealthCheckType { get; set; }
+            public System.Int32? InstanceMaintenancePolicy_MaxHealthyPercentage { get; set; }
+            public System.Int32? InstanceMaintenancePolicy_MinHealthyPercentage { get; set; }
             public System.String LaunchConfigurationName { get; set; }
             public System.String LaunchTemplate_LaunchTemplateId { get; set; }
             public System.String LaunchTemplate_LaunchTemplateName { get; set; }

@@ -28,7 +28,7 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Update your FinSpace environment.
+    /// Update your FinSpace environment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "FINSPEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Finspace.Model.Environment")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         "This cmdlet returns an Amazon.Finspace.Model.Environment object.",
         "The service call response (type Amazon.Finspace.Model.UpdateEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class UpdateFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         

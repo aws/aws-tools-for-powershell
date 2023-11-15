@@ -4311,6 +4311,8 @@ Set-Alias -Name CCAT-GetSpace -Value Get-CCATSpace
 Set-Alias -Name CCAT-GetSubscription -Value Get-CCATSubscription
 Set-Alias -Name Get-CCATUserDetails -Value Get-CCATUserDetail
 Set-Alias -Name CCAT-GetUserDetails -Value Get-CCATUserDetail
+Set-Alias -Name CCAT-GetWorkflow -Value Get-CCATWorkflow
+Set-Alias -Name CCAT-GetWorkflowRun -Value Get-CCATWorkflowRun
 Set-Alias -Name List-CCATAccessTokens -Value Get-CCATAccessTokenList
 Set-Alias -Name List-CCATAccessTokenList -Value Get-CCATAccessTokenList
 Set-Alias -Name CCAT-ListAccessTokens -Value Get-CCATAccessTokenList
@@ -4335,8 +4337,15 @@ Set-Alias -Name CCAT-ListSourceRepositoryBranches -Value Get-CCATSourceRepositor
 Set-Alias -Name List-CCATSpaces -Value Get-CCATSpaceList
 Set-Alias -Name List-CCATSpaceList -Value Get-CCATSpaceList
 Set-Alias -Name CCAT-ListSpaces -Value Get-CCATSpaceList
+Set-Alias -Name List-CCATWorkflowRuns -Value Get-CCATWorkflowRunList
+Set-Alias -Name List-CCATWorkflowRunList -Value Get-CCATWorkflowRunList
+Set-Alias -Name CCAT-ListWorkflowRuns -Value Get-CCATWorkflowRunList
+Set-Alias -Name List-CCATWorkflows -Value Get-CCATWorkflowList
+Set-Alias -Name List-CCATWorkflowList -Value Get-CCATWorkflowList
+Set-Alias -Name CCAT-ListWorkflows -Value Get-CCATWorkflowList
 Set-Alias -Name CCAT-StartDevEnvironment -Value Start-CCATDevEnvironment
 Set-Alias -Name CCAT-StartDevEnvironmentSession -Value Start-CCATDevEnvironmentSession
+Set-Alias -Name CCAT-StartWorkflowRun -Value Start-CCATWorkflowRun
 Set-Alias -Name CCAT-StopDevEnvironment -Value Stop-CCATDevEnvironment
 Set-Alias -Name CCAT-StopDevEnvironmentSession -Value Stop-CCATDevEnvironmentSession
 Set-Alias -Name CCAT-UpdateDevEnvironment -Value Update-CCATDevEnvironment
@@ -8544,6 +8553,9 @@ Set-Alias -Name EC2-DescribeLocalGatewayVirtualInterfaceGroups -Value Get-EC2Loc
 Set-Alias -Name Describe-EC2LocalGatewayVirtualInterfaces -Value Get-EC2LocalGatewayVirtualInterface
 Set-Alias -Name Describe-EC2LocalGatewayVirtualInterface -Value Get-EC2LocalGatewayVirtualInterface
 Set-Alias -Name EC2-DescribeLocalGatewayVirtualInterfaces -Value Get-EC2LocalGatewayVirtualInterface
+Set-Alias -Name Describe-EC2LockedSnapshots -Value Get-EC2LockedSnapshot
+Set-Alias -Name Describe-EC2LockedSnapshot -Value Get-EC2LockedSnapshot
+Set-Alias -Name EC2-DescribeLockedSnapshots -Value Get-EC2LockedSnapshot
 Set-Alias -Name Describe-EC2ManagedPrefixLists -Value Get-EC2ManagedPrefixList
 Set-Alias -Name Describe-EC2ManagedPrefixList -Value Get-EC2ManagedPrefixList
 Set-Alias -Name EC2-DescribeManagedPrefixLists -Value Get-EC2ManagedPrefixList
@@ -8914,6 +8926,7 @@ Set-Alias -Name EC2-ListImagesInRecycleBin -Value Get-EC2ImagesInRecycleBinList
 Set-Alias -Name List-EC2SnapshotsInRecycleBin -Value Get-EC2SnapshotsInRecycleBinList
 Set-Alias -Name List-EC2SnapshotsInRecycleBinList -Value Get-EC2SnapshotsInRecycleBinList
 Set-Alias -Name EC2-ListSnapshotsInRecycleBin -Value Get-EC2SnapshotsInRecycleBinList
+Set-Alias -Name EC2-LockSnapshot -Value Lock-EC2Snapshot
 Set-Alias -Name Modify-EC2AddressAttribute -Value Edit-EC2AddressAttribute
 Set-Alias -Name EC2-ModifyAddressAttribute -Value Edit-EC2AddressAttribute
 Set-Alias -Name Modify-EC2AvailabilityZoneGroup -Value Edit-EC2AvailabilityZoneGroup
@@ -9174,6 +9187,7 @@ Set-Alias -Name Unassign-EC2PrivateIpAddress -Value Unregister-EC2PrivateIpAddre
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name Unassign-EC2PrivateNatGatewayAddress -Value Unregister-EC2PrivateNatGatewayAddress
 Set-Alias -Name EC2-UnassignPrivateNatGatewayAddress -Value Unregister-EC2PrivateNatGatewayAddress
+Set-Alias -Name EC2-UnlockSnapshot -Value Unlock-EC2Snapshot
 Set-Alias -Name Unmonitor-EC2Instances -Value Stop-EC2InstanceMonitoring
 Set-Alias -Name Unmonitor-EC2InstanceMonitoring -Value Stop-EC2InstanceMonitoring
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
@@ -22679,6 +22693,8 @@ Set-Alias -Name Create-S3CJob -Value New-S3CJob
 Set-Alias -Name S3C-CreateJob -Value New-S3CJob
 Set-Alias -Name Create-S3CMultiRegionAccessPoint -Value New-S3CMultiRegionAccessPoint
 Set-Alias -Name S3C-CreateMultiRegionAccessPoint -Value New-S3CMultiRegionAccessPoint
+Set-Alias -Name Create-S3CStorageLensGroup -Value New-S3CStorageLensGroup
+Set-Alias -Name S3C-CreateStorageLensGroup -Value New-S3CStorageLensGroup
 Set-Alias -Name Delete-S3CAccessPoint -Value Remove-S3CAccessPoint
 Set-Alias -Name S3C-DeleteAccessPoint -Value Remove-S3CAccessPoint
 Set-Alias -Name Delete-S3CAccessPointForObjectLambda -Value Remove-S3CAccessPointForObjectLambda
@@ -22707,6 +22723,8 @@ Set-Alias -Name Delete-S3CStorageLensConfiguration -Value Remove-S3CStorageLensC
 Set-Alias -Name S3C-DeleteStorageLensConfiguration -Value Remove-S3CStorageLensConfiguration
 Set-Alias -Name Delete-S3CStorageLensConfigurationTagging -Value Remove-S3CStorageLensConfigurationTagging
 Set-Alias -Name S3C-DeleteStorageLensConfigurationTagging -Value Remove-S3CStorageLensConfigurationTagging
+Set-Alias -Name Delete-S3CStorageLensGroup -Value Remove-S3CStorageLensGroup
+Set-Alias -Name S3C-DeleteStorageLensGroup -Value Remove-S3CStorageLensGroup
 Set-Alias -Name Describe-S3CJob -Value Get-S3CJob
 Set-Alias -Name S3C-DescribeJob -Value Get-S3CJob
 Set-Alias -Name Describe-S3CMultiRegionAccessPointOperation -Value Get-S3CMultiRegionAccessPointOperation
@@ -22733,6 +22751,7 @@ Set-Alias -Name S3C-GetMultiRegionAccessPointRoutes -Value Get-S3CMultiRegionAcc
 Set-Alias -Name S3C-GetPublicAccessBlock -Value Get-S3CPublicAccessBlock
 Set-Alias -Name S3C-GetStorageLensConfiguration -Value Get-S3CStorageLensConfiguration
 Set-Alias -Name S3C-GetStorageLensConfigurationTagging -Value Get-S3CStorageLensConfigurationTagging
+Set-Alias -Name S3C-GetStorageLensGroup -Value Get-S3CStorageLensGroup
 Set-Alias -Name List-S3CAccessPoints -Value Get-S3CAccessPointList
 Set-Alias -Name List-S3CAccessPointList -Value Get-S3CAccessPointList
 Set-Alias -Name S3C-ListAccessPoints -Value Get-S3CAccessPointList
@@ -22751,6 +22770,10 @@ Set-Alias -Name S3C-ListRegionalBuckets -Value Get-S3CRegionalBucketList
 Set-Alias -Name List-S3CStorageLensConfigurations -Value Get-S3CStorageLensConfigurationList
 Set-Alias -Name List-S3CStorageLensConfigurationList -Value Get-S3CStorageLensConfigurationList
 Set-Alias -Name S3C-ListStorageLensConfigurations -Value Get-S3CStorageLensConfigurationList
+Set-Alias -Name List-S3CStorageLensGroups -Value Get-S3CStorageLensGroupList
+Set-Alias -Name List-S3CStorageLensGroupList -Value Get-S3CStorageLensGroupList
+Set-Alias -Name S3C-ListStorageLensGroups -Value Get-S3CStorageLensGroupList
+Set-Alias -Name S3C-ListTagsForResource -Value Get-S3CResourceTag
 Set-Alias -Name Put-S3CAccessPointConfigurationForObjectLambda -Value Write-S3CAccessPointConfigurationForObjectLambda
 Set-Alias -Name S3C-PutAccessPointConfigurationForObjectLambda -Value Write-S3CAccessPointConfigurationForObjectLambda
 Set-Alias -Name Put-S3CAccessPointPolicy -Value Write-S3CAccessPointPolicy
@@ -22779,8 +22802,11 @@ Set-Alias -Name Put-S3CStorageLensConfigurationTagging -Value Write-S3CStorageLe
 Set-Alias -Name S3C-PutStorageLensConfigurationTagging -Value Write-S3CStorageLensConfigurationTagging
 Set-Alias -Name Submit-S3CMultiRegionAccessPointRoutes -Value Submit-S3CMultiRegionAccessPointRoute
 Set-Alias -Name S3C-SubmitMultiRegionAccessPointRoutes -Value Submit-S3CMultiRegionAccessPointRoute
+Set-Alias -Name S3C-TagResource -Value Add-S3CResourceTag
+Set-Alias -Name S3C-UntagResource -Value Remove-S3CResourceTag
 Set-Alias -Name S3C-UpdateJobPriority -Value Update-S3CJobPriority
 Set-Alias -Name S3C-UpdateJobStatus -Value Update-S3CJobStatus
+Set-Alias -Name S3C-UpdateStorageLensGroup -Value Update-S3CStorageLensGroup
 Set-Alias -Name Create-S3OEndpoint -Value New-S3OEndpoint
 Set-Alias -Name S3O-CreateEndpoint -Value New-S3OEndpoint
 Set-Alias -Name Delete-S3OEndpoint -Value Remove-S3OEndpoint

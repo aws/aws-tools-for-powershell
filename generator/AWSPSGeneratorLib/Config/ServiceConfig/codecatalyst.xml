@@ -86,6 +86,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflow" OutputProperty="*" Verb="Get" Noun="Workflow" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowRun" OutputProperty="*" Verb="Get" Noun="WorkflowRun" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessTokens" OutputProperty="Items" Verb="Get" Noun="AccessTokenList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -118,11 +126,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowRuns" OutputProperty="Items" Verb="Get" Noun="WorkflowRunList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Items" Verb="Get" Noun="WorkflowList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDevEnvironment" OutputProperty="*" Verb="Start" Noun="DevEnvironment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDevEnvironmentSession" OutputProperty="*" Verb="Start" Noun="DevEnvironmentSession" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartWorkflowRun" OutputProperty="*" Verb="Start" Noun="WorkflowRun" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

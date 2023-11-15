@@ -28,7 +28,7 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Delete an FinSpace environment.
+    /// Delete an FinSpace environment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "FINSPEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Finspace.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class RemoveFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         

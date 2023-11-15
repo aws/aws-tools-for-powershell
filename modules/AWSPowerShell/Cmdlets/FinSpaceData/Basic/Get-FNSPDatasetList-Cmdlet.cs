@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Lists all of the active Datasets that a user has access to.
+    /// Lists all of the active Datasets that a user has access to.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPDatasetList")]
     [OutputType("Amazon.FinSpaceData.Model.Dataset")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a collection of Amazon.FinSpaceData.Model.Dataset objects.",
         "The service call response (type Amazon.FinSpaceData.Model.ListDatasetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPDatasetListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

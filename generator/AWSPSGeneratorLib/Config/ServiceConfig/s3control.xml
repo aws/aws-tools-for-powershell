@@ -39,6 +39,32 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStorageLensGroup" Verb="New" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StorageLensGroup_Filter_And_MatchAnyPrefix" NewName="StorageLensGroup_Filter_And_MatchAnyPrefix" />
+                <Param Name="StorageLensGroup_Filter_And_MatchAnySuffix" NewName="StorageLensGroup_Filter_And_MatchAnySuffix" />
+                <Param Name="StorageLensGroup_Filter_And_MatchAnyTag" NewName="StorageLensGroup_Filter_And_MatchAnyTag" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectAge_DaysGreaterThan" NewName="StorageLensGroup_Filter_And_MatchObjectAge_DaysGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectAge_DaysLessThan" NewName="StorageLensGroup_Filter_And_MatchObjectAge_DaysLessThan" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectSize_BytesLessThan" NewName="StorageLensGroup_Filter_And_MatchObjectSize_BytesLessThan" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectSize_BytesGreaterThan" NewName="StorageLensGroup_Filter_And_MatchObjectSize_BytesGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_MatchAnyPrefix" NewName="StorageLensGroup_Filter_MatchAnyPrefix" />
+                <Param Name="StorageLensGroup_Filter_MatchAnySuffix" NewName="StorageLensGroup_Filter_MatchAnySuffix" />
+                <Param Name="StorageLensGroup_Filter_MatchAnyTag" NewName="StorageLensGroup_Filter_MatchAnyTag" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectAge_DaysGreaterThan" NewName="StorageLensGroup_Filter_MatchObjectAge_DaysGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectAge_DaysLessThan" NewName="StorageLensGroup_Filter_MatchObjectAge_DaysLessThan" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectSize_BytesGreaterThan" NewName="StorageLensGroup_Filter_MatchObjectSize_BytesGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectSize_BytesLessThan" NewName="StorageLensGroup_Filter_MatchObjectSize_BytesLessThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectAge_DaysLessThan" NewName="StorageLensGroup_Filter_Or_MatchObjectAge_DaysLessThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectAge_DaysGreaterThan" NewName="StorageLensGroup_Filter_Or_MatchObjectAge_DaysGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectSize_BytesLessThan" NewName="StorageLensGroup_Filter_Or_MatchObjectSize_BytesLessThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectSize_BytesGreaterThan" NewName="StorageLensGroup_Filter_Or_MatchObjectSize_BytesGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchAnyPrefix" NewName="StorageLensGroup_Filter_Or_MatchAnyPrefix" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchAnySuffix" NewName="StorageLensGroup_Filter_Or_MatchAnySuffix" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchAnyTag" NewName="StorageLensGroup_Filter_Or_MatchAnyTag" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +118,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStorageLensConfigurationTagging" Verb="Remove" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStorageLensGroup" Verb="Remove" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +217,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStorageLensGroup" OutputProperty="StorageLensGroup" Verb="Get" Noun="StorageLensGroup" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessPoints" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -208,6 +242,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListStorageLensConfigurations" OutputProperty="StorageLensConfigurationList" Verb="Get" Noun="StorageLensConfigurationList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStorageLensGroups" OutputProperty="StorageLensGroupList" Verb="Get" Noun="StorageLensGroupList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,12 +318,46 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateJobPriority" OutputProperty="*" Verb="Update" Noun="JobPriority" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateJobStatus" OutputProperty="*" Verb="Update" Noun="JobStatus" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStorageLensGroup" Verb="Update" Noun="StorageLensGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StorageLensGroup_Filter_And_MatchAnyPrefix" NewName="StorageLensGroup_Filter_And_MatchAnyPrefix" />
+                <Param Name="StorageLensGroup_Filter_And_MatchAnySuffix" NewName="StorageLensGroup_Filter_And_MatchAnySuffix" />
+                <Param Name="StorageLensGroup_Filter_And_MatchAnyTag" NewName="StorageLensGroup_Filter_And_MatchAnyTag" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectAge_DaysGreaterThan" NewName="StorageLensGroup_Filter_And_MatchObjectAge_DaysGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectAge_DaysLessThan" NewName="StorageLensGroup_Filter_And_MatchObjectAge_DaysLessThan" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectSize_BytesLessThan" NewName="StorageLensGroup_Filter_And_MatchObjectSize_BytesLessThan" />
+                <Param Name="StorageLensGroup_Filter_And_MatchObjectSize_BytesGreaterThan" NewName="StorageLensGroup_Filter_And_MatchObjectSize_BytesGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_MatchAnyPrefix" NewName="StorageLensGroup_Filter_MatchAnyPrefix" />
+                <Param Name="StorageLensGroup_Filter_MatchAnySuffix" NewName="StorageLensGroup_Filter_MatchAnySuffix" />
+                <Param Name="StorageLensGroup_Filter_MatchAnyTag" NewName="StorageLensGroup_Filter_MatchAnyTag" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectAge_DaysGreaterThan" NewName="StorageLensGroup_Filter_MatchObjectAge_DaysGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectAge_DaysLessThan" NewName="StorageLensGroup_Filter_MatchObjectAge_DaysLessThan" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectSize_BytesGreaterThan" NewName="StorageLensGroup_Filter_MatchObjectSize_BytesGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_MatchObjectSize_BytesLessThan" NewName="StorageLensGroup_Filter_MatchObjectSize_BytesLessThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectAge_DaysLessThan" NewName="StorageLensGroup_Filter_Or_MatchObjectAge_DaysLessThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectAge_DaysGreaterThan" NewName="StorageLensGroup_Filter_Or_MatchObjectAge_DaysGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectSize_BytesLessThan" NewName="StorageLensGroup_Filter_Or_MatchObjectSize_BytesLessThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchObjectSize_BytesGreaterThan" NewName="StorageLensGroup_Filter_Or_MatchObjectSize_BytesGreaterThan" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchAnyPrefix" NewName="StorageLensGroup_Filter_Or_MatchAnyPrefix" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchAnySuffix" NewName="StorageLensGroup_Filter_Or_MatchAnySuffix" />
+                <Param Name="StorageLensGroup_Filter_Or_MatchAnyTag" NewName="StorageLensGroup_Filter_Or_MatchAnyTag" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

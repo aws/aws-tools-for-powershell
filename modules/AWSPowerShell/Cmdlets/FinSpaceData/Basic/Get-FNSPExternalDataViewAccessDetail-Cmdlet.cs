@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     /// </para></li><li><para>
     /// You must be a member of a FinSpace user group, where the dataset that you want to
     /// access has <code>Read Dataset Data</code> permissions.
-    /// </para></li></ul>
+    /// </para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPExternalDataViewAccessDetail")]
     [OutputType("Amazon.FinSpaceData.Model.GetExternalDataViewAccessDetailsResponse")]
@@ -44,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetExternalDataViewAccessDetailsResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.GetExternalDataViewAccessDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPExternalDataViewAccessDetailCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

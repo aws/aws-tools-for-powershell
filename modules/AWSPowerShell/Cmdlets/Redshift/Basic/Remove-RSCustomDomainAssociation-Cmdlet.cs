@@ -59,6 +59,23 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter CustomDomainName
+        /// <summary>
+        /// <para>
+        /// <para>The custom domain name for the custom domain association.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CustomDomainName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -127,6 +144,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomDomainName = this.CustomDomainName;
+            #if MODULAR
+            if (this.CustomDomainName == null && ParameterWasBound(nameof(this.CustomDomainName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomDomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.CustomDomainName != null)
+            {
+                request.CustomDomainName = cmdletContext.CustomDomainName;
             }
             
             CmdletOutput output;
@@ -209,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterIdentifier { get; set; }
+            public System.String CustomDomainName { get; set; }
             public System.Func<Amazon.Redshift.Model.DeleteCustomDomainAssociationResponse, RemoveRSCustomDomainAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

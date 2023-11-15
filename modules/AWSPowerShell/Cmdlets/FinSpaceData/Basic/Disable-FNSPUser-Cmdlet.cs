@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Denies access to the FinSpace web application and API for the specified user.
+    /// Denies access to the FinSpace web application and API for the specified user.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Disable", "FNSPUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.DisableUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class DisableFNSPUserCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

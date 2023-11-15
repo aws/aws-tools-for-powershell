@@ -60,6 +60,25 @@ namespace Amazon.PowerShell.Cmdlets.CT
         public Amazon.CloudTrail.Model.AdvancedEventSelector[] AdvancedEventSelector { get; set; }
         #endregion
         
+        #region Parameter BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>The billing mode for the event data store determines the cost for ingesting events
+        /// and the default and maximum retention period for the event data store.</para><para>The following are the possible values:</para><ul><li><para><code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended
+        /// if you want a flexible retention period of up to 3653 days (about 10 years). The default
+        /// retention period for this billing mode is 366 days.</para></li><li><para><code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect
+        /// to ingest more than 25 TB of event data per month and need a retention period of up
+        /// to 2557 days (about 7 years). The default retention period for this billing mode is
+        /// 2557 days.</para></li></ul><para>The default value is <code>EXTENDABLE_RETENTION_PRICING</code>.</para><para>For more information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail
+        /// Pricing</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing
+        /// CloudTrail Lake costs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudTrail.BillingMode")]
+        public Amazon.CloudTrail.BillingMode BillingMode { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -121,11 +140,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The retention period of the event data store, in days. You can set a retention period
-        /// of up to 2557 days, the equivalent of seven years. CloudTrail Lake determines whether
-        /// to retain an event by checking if the <code>eventTime</code> of the event is within
-        /// the specified retention period. For example, if you set a retention period of 90 days,
-        /// CloudTrail will remove events when the <code>eventTime</code> is older than 90 days.</para><note><para>If you plan to copy trail events to this event data store, we recommend that you consider
+        /// <para>The retention period of the event data store, in days. If <code>BillingMode</code>
+        /// is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period
+        /// of up to 3653 days, the equivalent of 10 years. If <code>BillingMode</code> is set
+        /// to <code>FIXED_RETENTION_PRICING</code>, you can set a retention period of up to 2557
+        /// days, the equivalent of seven years.</para><para>CloudTrail Lake determines whether to retain an event by checking if the <code>eventTime</code>
+        /// of the event is within the specified retention period. For example, if you set a retention
+        /// period of 90 days, CloudTrail will remove events when the <code>eventTime</code> is
+        /// older than 90 days.</para><note><para>If you plan to copy trail events to this event data store, we recommend that you consider
         /// both the age of the events that you want to copy as well as how long you want to keep
         /// the copied events in your event data store. For example, if you copy trail events
         /// that are 5 years old and specify a retention period of 7 years, the event data store
@@ -235,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             {
                 context.AdvancedEventSelector = new List<Amazon.CloudTrail.Model.AdvancedEventSelector>(this.AdvancedEventSelector);
             }
+            context.BillingMode = this.BillingMode;
             context.KmsKeyId = this.KmsKeyId;
             context.MultiRegionEnabled = this.MultiRegionEnabled;
             context.Name = this.Name;
@@ -271,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.AdvancedEventSelector != null)
             {
                 request.AdvancedEventSelectors = cmdletContext.AdvancedEventSelector;
+            }
+            if (cmdletContext.BillingMode != null)
+            {
+                request.BillingMode = cmdletContext.BillingMode;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -366,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudTrail.Model.AdvancedEventSelector> AdvancedEventSelector { get; set; }
+            public Amazon.CloudTrail.BillingMode BillingMode { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Boolean? MultiRegionEnabled { get; set; }
             public System.String Name { get; set; }

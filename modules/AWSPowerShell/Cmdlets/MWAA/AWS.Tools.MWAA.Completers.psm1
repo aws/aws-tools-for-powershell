@@ -80,6 +80,13 @@ $MWAA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MWAA.EndpointManagement
+        "New-MWAAEnvironment/EndpointManagement"
+        {
+            $v = "CUSTOMER","SERVICE"
+            break
+        }
+
         # Amazon.MWAA.LoggingLevel
         {
             ($_ -eq "New-MWAAEnvironment/LoggingConfiguration_DagProcessingLogs_LogLevel") -Or
@@ -117,6 +124,7 @@ $MWAA_Completers = {
 }
 
 $MWAA_map = @{
+    "EndpointManagement"=@("New-MWAAEnvironment")
     "LoggingConfiguration_DagProcessingLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "LoggingConfiguration_SchedulerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "LoggingConfiguration_TaskLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")

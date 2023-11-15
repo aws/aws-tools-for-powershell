@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
     /// A temporary Amazon S3 location, where you can copy your files from a source location
-    /// to stage or use as a scratch space in FinSpace notebook.
+    /// to stage or use as a scratch space in FinSpace notebook.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPWorkingLocation")]
     [OutputType("Amazon.FinSpaceData.Model.GetWorkingLocationResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetWorkingLocationResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.GetWorkingLocationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPWorkingLocationCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

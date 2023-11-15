@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Creates a Dataview for a Dataset.
+    /// Creates a Dataview for a Dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "FNSPDataView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FinSpaceData.Model.CreateDataViewResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.CreateDataViewResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.CreateDataViewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFNSPDataViewCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

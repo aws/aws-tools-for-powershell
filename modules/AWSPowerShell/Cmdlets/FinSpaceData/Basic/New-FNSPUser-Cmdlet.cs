@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Creates a new user in FinSpace.
+    /// Creates a new user in FinSpace.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "FNSPUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.CreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFNSPUserCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

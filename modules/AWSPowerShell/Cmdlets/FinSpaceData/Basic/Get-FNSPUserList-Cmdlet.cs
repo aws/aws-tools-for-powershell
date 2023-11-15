@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Lists all available users in FinSpace.
+    /// Lists all available users in FinSpace.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPUserList")]
     [OutputType("Amazon.FinSpaceData.Model.User")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a collection of Amazon.FinSpaceData.Model.User objects.",
         "The service call response (type Amazon.FinSpaceData.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPUserListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Lists all available Dataviews for a Dataset.
+    /// Lists all available Dataviews for a Dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPDataViewList")]
     [OutputType("Amazon.FinSpaceData.Model.DataViewSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a collection of Amazon.FinSpaceData.Model.DataViewSummary objects.",
         "The service call response (type Amazon.FinSpaceData.Model.ListDataViewsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPDataViewListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

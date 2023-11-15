@@ -59,14 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         /// <para>The name of the project in the space.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProjectName { get; set; }
         #endregion
         
@@ -165,12 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ProjectName = this.ProjectName;
-            #if MODULAR
-            if (this.ProjectName == null && ParameterWasBound(nameof(this.ProjectName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SpaceName = this.SpaceName;
             #if MODULAR
             if (this.SpaceName == null && ParameterWasBound(nameof(this.SpaceName)))

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
     /// Modifies the details of the specified user. You cannot update the <code>userId</code>
-    /// for a user.
+    /// for a user.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "FNSPUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.UpdateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class UpdateFNSPUserCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

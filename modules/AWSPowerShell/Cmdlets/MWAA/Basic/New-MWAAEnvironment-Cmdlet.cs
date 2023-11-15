@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>The Apache Airflow version for your environment. If no value is specified, it defaults
         /// to the latest version. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
         /// Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</para><para>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, <code>2.4.3</code>,
-        /// <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>.</para>
+        /// <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,6 +142,25 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LoggingConfiguration_WorkerLogs_Enabled")]
         public System.Boolean? WorkerLogs_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter EndpointManagement
+        /// <summary>
+        /// <para>
+        /// <para>Defines whether the VPC endpoints configured for the environment are created, and
+        /// managed, by the customer or by Amazon MWAA. If set to <code>SERVICE</code>, Amazon
+        /// MWAA will create and manage the required VPC endpoints in your VPC. If set to <code>CUSTOMER</code>,
+        /// you must create, and manage, the VPC endpoints for your VPC. If you choose to create
+        /// an environment in a shared VPC, you must set this value to <code>CUSTOMER</code>.
+        /// In a shared VPC deployment, the environment will remain in <code>PENDING</code> status
+        /// until you create the VPC endpoints. If you do not take action to create the endpoints
+        /// within 72 hours, the status will change to <code>CREATE_FAILED</code>. You can delete
+        /// the failed environment and create a new one.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MWAA.EndpointManagement")]
+        public Amazon.MWAA.EndpointManagement EndpointManagement { get; set; }
         #endregion
         
         #region Parameter EnvironmentClass
@@ -453,7 +472,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverAccessMode
         /// <summary>
         /// <para>
-        /// <para>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
+        /// <para>Defines the access mode for the Apache Airflow <i>web server</i>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
         /// Airflow access modes</a>.</para>
         /// </para>
         /// </summary>
@@ -533,6 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
                 WriteWarning("You are passing $null as a value for parameter DagS3Path which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EndpointManagement = this.EndpointManagement;
             context.EnvironmentClass = this.EnvironmentClass;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
@@ -620,6 +641,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             if (cmdletContext.DagS3Path != null)
             {
                 request.DagS3Path = cmdletContext.DagS3Path;
+            }
+            if (cmdletContext.EndpointManagement != null)
+            {
+                request.EndpointManagement = cmdletContext.EndpointManagement;
             }
             if (cmdletContext.EnvironmentClass != null)
             {
@@ -966,6 +991,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public Dictionary<System.String, System.String> AirflowConfigurationOption { get; set; }
             public System.String AirflowVersion { get; set; }
             public System.String DagS3Path { get; set; }
+            public Amazon.MWAA.EndpointManagement EndpointManagement { get; set; }
             public System.String EnvironmentClass { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String KmsKey { get; set; }

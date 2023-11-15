@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Lists all available permission groups in FinSpace.
+    /// Lists all available permission groups in FinSpace.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPPermissionGroupList")]
     [OutputType("Amazon.FinSpaceData.Model.PermissionGroup")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a collection of Amazon.FinSpaceData.Model.PermissionGroup objects.",
         "The service call response (type Amazon.FinSpaceData.Model.ListPermissionGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPPermissionGroupListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

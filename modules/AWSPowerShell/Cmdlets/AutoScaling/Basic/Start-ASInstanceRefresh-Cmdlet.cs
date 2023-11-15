@@ -28,10 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs
-    /// a rolling update of instances in an Auto Scaling group. Instances are terminated first
-    /// and then replaced, which temporarily reduces the capacity available within your Auto
-    /// Scaling group.
+    /// Starts an instance refresh.
     /// 
     ///  
     /// <para>
@@ -188,15 +185,30 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String LaunchTemplate_LaunchTemplateName { get; set; }
         #endregion
         
+        #region Parameter Preferences_MaxHealthyPercentage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum percentage of the group that can be in service and healthy,
+        /// or pending, to support your workload when replacing instances. The value is expressed
+        /// as a percentage of the desired capacity of the Auto Scaling group. Value range is
+        /// 100 to 200.</para><para>If you specify <code>MaxHealthyPercentage</code>, you must also specify <code>MinHealthyPercentage</code>,
+        /// and the difference between them cannot be greater than 100. A larger range increases
+        /// the number of instances that can be replaced at the same time.</para><para>If you do not specify this property, the default is 100 percent, or the percentage
+        /// set in the instance maintenance policy for the Auto Scaling group, if defined.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Preferences_MaxHealthyPercentage { get; set; }
+        #endregion
+        
         #region Parameter Preferences_MinHealthyPercentage
         /// <summary>
         /// <para>
-        /// <para>The amount of capacity in the Auto Scaling group that must pass your group's health
-        /// checks to allow the operation to continue. The value is expressed as a percentage
-        /// of the desired capacity of the Auto Scaling group (rounded up to the nearest integer).
-        /// The default is <code>90</code>.</para><para>Setting the minimum healthy percentage to 100 percent limits the rate of replacement
-        /// to one instance at a time. In contrast, setting it to 0 percent has the effect of
-        /// replacing all instances at the same time. </para>
+        /// <para>Specifies the minimum percentage of the group to keep in service, healthy, and ready
+        /// to use to support your workload to allow the operation to continue. The value is expressed
+        /// as a percentage of the desired capacity of the Auto Scaling group. Value range is
+        /// 0 to 100.</para><para>If you do not specify this property, the default is 90 percent, or the percentage
+        /// set in the instance maintenance policy for the Auto Scaling group, if defined.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.Preferences_CheckpointPercentage = new List<System.Int32>(this.Preferences_CheckpointPercentage);
             }
             context.Preferences_InstanceWarmup = this.Preferences_InstanceWarmup;
+            context.Preferences_MaxHealthyPercentage = this.Preferences_MaxHealthyPercentage;
             context.Preferences_MinHealthyPercentage = this.Preferences_MinHealthyPercentage;
             context.Preferences_ScaleInProtectedInstance = this.Preferences_ScaleInProtectedInstance;
             context.Preferences_SkipMatching = this.Preferences_SkipMatching;
@@ -506,6 +519,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestPreferences_preferences_InstanceWarmup != null)
             {
                 request.Preferences.InstanceWarmup = requestPreferences_preferences_InstanceWarmup.Value;
+                requestPreferencesIsNull = false;
+            }
+            System.Int32? requestPreferences_preferences_MaxHealthyPercentage = null;
+            if (cmdletContext.Preferences_MaxHealthyPercentage != null)
+            {
+                requestPreferences_preferences_MaxHealthyPercentage = cmdletContext.Preferences_MaxHealthyPercentage.Value;
+            }
+            if (requestPreferences_preferences_MaxHealthyPercentage != null)
+            {
+                request.Preferences.MaxHealthyPercentage = requestPreferences_preferences_MaxHealthyPercentage.Value;
                 requestPreferencesIsNull = false;
             }
             System.Int32? requestPreferences_preferences_MinHealthyPercentage = null;
@@ -653,6 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Int32? Preferences_CheckpointDelay { get; set; }
             public List<System.Int32> Preferences_CheckpointPercentage { get; set; }
             public System.Int32? Preferences_InstanceWarmup { get; set; }
+            public System.Int32? Preferences_MaxHealthyPercentage { get; set; }
             public System.Int32? Preferences_MinHealthyPercentage { get; set; }
             public Amazon.AutoScaling.ScaleInProtectedInstances Preferences_ScaleInProtectedInstance { get; set; }
             public System.Boolean? Preferences_SkipMatching { get; set; }

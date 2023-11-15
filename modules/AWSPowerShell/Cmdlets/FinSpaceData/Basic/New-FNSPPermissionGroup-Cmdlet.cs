@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Creates a group of permissions for various actions that a user can perform in FinSpace.
+    /// Creates a group of permissions for various actions that a user can perform in FinSpace.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "FNSPPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.CreatePermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFNSPPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

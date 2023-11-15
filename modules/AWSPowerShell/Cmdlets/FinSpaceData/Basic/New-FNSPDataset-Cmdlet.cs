@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Creates a new FinSpace Dataset.
+    /// Creates a new FinSpace Dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "FNSPDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.CreateDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

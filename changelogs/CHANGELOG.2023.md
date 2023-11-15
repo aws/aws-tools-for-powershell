@@ -1,4 +1,38 @@
-﻿### 4.1.453 (2023-11-14 22:12Z)
+﻿### 4.1.454 (2023-11-15 22:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.687.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonMWAA
+    * Modified cmdlet New-MWAAEnvironment: added parameter EndpointManagement.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameters InstanceMaintenancePolicy_MaxHealthyPercentage and InstanceMaintenancePolicy_MinHealthyPercentage.
+    * Modified cmdlet Start-ASInstanceRefresh: added parameter Preferences_MaxHealthyPercentage.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameters InstanceMaintenancePolicy_MaxHealthyPercentage and InstanceMaintenancePolicy_MinHealthyPercentage.
+  * Amazon CloudTrail
+    * Modified cmdlet New-CTEventDataStore: added parameter BillingMode.
+    * Modified cmdlet Update-CTEventDataStore: added parameter BillingMode.
+  * Amazon CodeCatalyst
+    * Added cmdlet Get-CCATWorkflow leveraging the GetWorkflow service API.
+    * Added cmdlet Get-CCATWorkflowList leveraging the ListWorkflows service API.
+    * Added cmdlet Get-CCATWorkflowRun leveraging the GetWorkflowRun service API.
+    * Added cmdlet Get-CCATWorkflowRunList leveraging the ListWorkflowRuns service API.
+    * Added cmdlet Start-CCATWorkflowRun leveraging the StartWorkflowRun service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2LockedSnapshot leveraging the DescribeLockedSnapshots service API.
+    * Added cmdlet Lock-EC2Snapshot leveraging the LockSnapshot service API.
+    * Added cmdlet Unlock-EC2Snapshot leveraging the UnlockSnapshot service API.
+  * Amazon Redshift
+    * Modified cmdlet Remove-RSCustomDomainAssociation: added parameter CustomDomainName.
+  * Amazon S3 Control
+    * Added cmdlet Add-S3CResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-S3CResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-S3CStorageLensGroup leveraging the GetStorageLensGroup service API.
+    * Added cmdlet Get-S3CStorageLensGroupList leveraging the ListStorageLensGroups service API.
+    * Added cmdlet New-S3CStorageLensGroup leveraging the CreateStorageLensGroup service API.
+    * Added cmdlet Remove-S3CResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-S3CStorageLensGroup leveraging the DeleteStorageLensGroup service API.
+    * Added cmdlet Update-S3CStorageLensGroup leveraging the UpdateStorageLensGroup service API.
+    * Modified cmdlet Write-S3CStorageLensConfiguration: added parameters SelectionCriteria_Exclude and SelectionCriteria_Include.
+
+### 4.1.453 (2023-11-14 22:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.686.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Added cmdlet Get-BAKBackupJobSummaryList leveraging the ListBackupJobSummaries service API.

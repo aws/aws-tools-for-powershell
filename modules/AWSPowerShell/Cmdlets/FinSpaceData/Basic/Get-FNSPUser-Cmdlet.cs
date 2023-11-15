@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Retrieves details for a specific user.
+    /// Retrieves details for a specific user.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPUser")]
     [OutputType("Amazon.FinSpaceData.Model.GetUserResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetUserResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.GetUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPUserCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

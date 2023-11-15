@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Updates a FinSpace Changeset.
+    /// Updates a FinSpace Changeset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "FNSPChangeset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FinSpaceData.Model.UpdateChangesetResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.UpdateChangesetResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.UpdateChangesetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class UpdateFNSPChangesetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

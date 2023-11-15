@@ -314,6 +314,7 @@ $S3C_SelectMap = @{
                "New-S3CBucket",
                "New-S3CJob",
                "New-S3CMultiRegionAccessPoint",
+               "New-S3CStorageLensGroup",
                "Remove-S3CAccessPoint",
                "Remove-S3CAccessPointForObjectLambda",
                "Remove-S3CAccessPointPolicy",
@@ -328,6 +329,7 @@ $S3C_SelectMap = @{
                "Remove-S3CPublicAccessBlock",
                "Remove-S3CStorageLensConfiguration",
                "Remove-S3CStorageLensConfigurationTagging",
+               "Remove-S3CStorageLensGroup",
                "Get-S3CJob",
                "Get-S3CMultiRegionAccessPointOperation",
                "Get-S3CAccessPoint",
@@ -351,12 +353,15 @@ $S3C_SelectMap = @{
                "Get-S3CPublicAccessBlock",
                "Get-S3CStorageLensConfiguration",
                "Get-S3CStorageLensConfigurationTagging",
+               "Get-S3CStorageLensGroup",
                "Get-S3CAccessPointList",
                "Get-S3CAccessPointsForObjectLambdaList",
                "Get-S3CJobList",
                "Get-S3CMultiRegionAccessPointList",
                "Get-S3CRegionalBucketList",
                "Get-S3CStorageLensConfigurationList",
+               "Get-S3CStorageLensGroupList",
+               "Get-S3CResourceTag",
                "Write-S3CAccessPointConfigurationForObjectLambda",
                "Write-S3CAccessPointPolicy",
                "Write-S3CAccessPointPolicyForObjectLambda",
@@ -371,8 +376,11 @@ $S3C_SelectMap = @{
                "Write-S3CStorageLensConfiguration",
                "Write-S3CStorageLensConfigurationTagging",
                "Submit-S3CMultiRegionAccessPointRoute",
+               "Add-S3CResourceTag",
+               "Remove-S3CResourceTag",
                "Update-S3CJobPriority",
-               "Update-S3CJobStatus")
+               "Update-S3CJobStatus",
+               "Update-S3CStorageLensGroup")
 }
 
 _awsArgumentCompleterRegistration $S3C_SelectCompleters $S3C_SelectMap

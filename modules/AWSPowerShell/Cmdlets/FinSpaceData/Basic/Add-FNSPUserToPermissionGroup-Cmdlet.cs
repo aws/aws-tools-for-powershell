@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
     /// Adds a user to a permission group to grant permissions for actions a user can perform
-    /// in FinSpace.
+    /// in FinSpace.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "FNSPUserToPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Int32")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.Int32 object.",
         "The service call response (type Amazon.FinSpaceData.Model.AssociateUserToPermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class AddFNSPUserToPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

@@ -64,7 +64,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The certificate Amazon Resource Name (ARN) for the changed custom domain association.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomDomainCertificateArn { get; set; }
         #endregion
         
@@ -74,7 +81,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The custom domain name for a changed custom domain association.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomDomainName { get; set; }
         #endregion
         
@@ -148,7 +162,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #endif
             context.CustomDomainCertificateArn = this.CustomDomainCertificateArn;
+            #if MODULAR
+            if (this.CustomDomainCertificateArn == null && ParameterWasBound(nameof(this.CustomDomainCertificateArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomDomainCertificateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.CustomDomainName = this.CustomDomainName;
+            #if MODULAR
+            if (this.CustomDomainName == null && ParameterWasBound(nameof(this.CustomDomainName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomDomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     /// <summary>
     /// Request programmatic credentials to use with FinSpace SDK. For more information, see
     /// <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials">Step
-    /// 2. Access credentials programmatically using IAM access key id and secret access key</a>.
+    /// 2. Access credentials programmatically using IAM access key id and secret access key</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPProgrammaticAccessCredential")]
     [OutputType("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPProgrammaticAccessCredentialCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

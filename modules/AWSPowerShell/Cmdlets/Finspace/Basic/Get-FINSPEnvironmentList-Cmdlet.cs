@@ -28,7 +28,7 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// A list of all of your FinSpace environments.
+    /// A list of all of your FinSpace environments.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FINSPEnvironmentList")]
     [OutputType("Amazon.Finspace.Model.Environment")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         "This cmdlet returns a collection of Amazon.Finspace.Model.Environment objects.",
         "The service call response (type Amazon.Finspace.Model.ListEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFINSPEnvironmentListCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         

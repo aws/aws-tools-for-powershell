@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Deletes a FinSpace Dataset.
+    /// Deletes a FinSpace Dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "FNSPDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.FinSpaceData.Model.DeleteDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class RemoveFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Removes a user from a permission group.
+    /// Removes a user from a permission group.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "FNSPUserFromPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Int32")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a System.Int32 object.",
         "The service call response (type Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class RemoveFNSPUserFromPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

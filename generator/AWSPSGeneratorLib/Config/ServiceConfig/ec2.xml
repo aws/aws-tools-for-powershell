@@ -1265,6 +1265,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLockedSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="LockedSnapshot" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2063,6 +2067,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="LockSnapshot" OutputProperty="*" Verb="Lock" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyAddressAttribute" OutputProperty="Address" Verb="Edit" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2628,6 +2636,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UnassignPrivateNatGatewayAddress" OutputProperty="*" Verb="Unregister" Noun="PrivateNatGatewayAddress" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnlockSnapshot" OutputProperty="SnapshotId" Verb="Unlock" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

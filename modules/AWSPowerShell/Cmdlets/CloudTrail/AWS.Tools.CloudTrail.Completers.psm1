@@ -80,6 +80,16 @@ $CT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudTrail.BillingMode
+        {
+            ($_ -eq "New-CTEventDataStore/BillingMode") -Or
+            ($_ -eq "Update-CTEventDataStore/BillingMode")
+        }
+        {
+            $v = "EXTENDABLE_RETENTION_PRICING","FIXED_RETENTION_PRICING"
+            break
+        }
+
         # Amazon.CloudTrail.EventCategory
         "Find-CTEvent/EventCategory"
         {
@@ -110,6 +120,7 @@ $CT_Completers = {
 }
 
 $CT_map = @{
+    "BillingMode"=@("New-CTEventDataStore","Update-CTEventDataStore")
     "EventCategory"=@("Find-CTEvent")
     "ImportStatus"=@("Get-CTImportList")
     "QueryStatus"=@("Get-CTQuerySummary")

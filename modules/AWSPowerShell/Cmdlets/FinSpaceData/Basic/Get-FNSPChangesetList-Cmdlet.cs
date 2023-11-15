@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Lists the FinSpace Changesets for a Dataset.
+    /// Lists the FinSpace Changesets for a Dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPChangesetList")]
     [OutputType("Amazon.FinSpaceData.Model.ChangesetSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         "This cmdlet returns a collection of Amazon.FinSpaceData.Model.ChangesetSummary objects.",
         "The service call response (type Amazon.FinSpaceData.Model.ListChangesetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPChangesetListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         

@@ -28,7 +28,7 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Create a new FinSpace environment.
+    /// Create a new FinSpace environment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "FINSPEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Finspace.Model.CreateEnvironmentResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdletOutput("Amazon.Finspace.Model.CreateEnvironmentResponse",
         "This cmdlet returns an Amazon.Finspace.Model.CreateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         

@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Returns information about a Dataset.
+    /// Returns information about a Dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPDataset")]
     [OutputType("Amazon.FinSpaceData.Model.GetDatasetResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetDatasetResponse",
         "This cmdlet returns an Amazon.FinSpaceData.Model.GetDatasetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
