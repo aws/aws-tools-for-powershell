@@ -104,6 +104,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter LoggingConfig_ApplicationLogLevel
+        /// <summary>
+        /// <para>
+        /// <para>Set this property to filter the application logs for your function that Lambda sends
+        /// to CloudWatch. Lambda only sends application logs at the selected level and lower.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.ApplicationLogLevel")]
+        public Amazon.Lambda.ApplicationLogLevel LoggingConfig_ApplicationLogLevel { get; set; }
+        #endregion
+        
         #region Parameter SnapStart_ApplyOn
         /// <summary>
         /// <para>
@@ -331,6 +343,31 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String[] Layer { get; set; }
         #endregion
         
+        #region Parameter LoggingConfig_LogFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format in which Lambda sends your function's application and system logs to CloudWatch.
+        /// Select between plain text and structured JSON.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.LogFormat")]
+        public Amazon.Lambda.LogFormat LoggingConfig_LogFormat { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfig_LogGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon CloudWatch log group the function sends logs to. By default,
+        /// Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function
+        /// name&gt;</code>. To use a different log group, enter an existing log group or enter
+        /// a new log group name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingConfig_LogGroup { get; set; }
+        #endregion
+        
         #region Parameter MemorySize
         /// <summary>
         /// <para>
@@ -464,6 +501,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfig_SystemLogLevel
+        /// <summary>
+        /// <para>
+        /// <para>Set this property to filter the system logs for your function that Lambda sends to
+        /// CloudWatch. Lambda only sends system logs at the selected level and lower.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.SystemLogLevel")]
+        public Amazon.Lambda.SystemLogLevel LoggingConfig_SystemLogLevel { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -661,6 +710,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.Layer = new List<System.String>(this.Layer);
             }
+            context.LoggingConfig_ApplicationLogLevel = this.LoggingConfig_ApplicationLogLevel;
+            context.LoggingConfig_LogFormat = this.LoggingConfig_LogFormat;
+            context.LoggingConfig_LogGroup = this.LoggingConfig_LogGroup;
+            context.LoggingConfig_SystemLogLevel = this.LoggingConfig_SystemLogLevel;
             context.MemorySize = this.MemorySize;
             context.PackageType = this.PackageType;
             context.PublishVersion = this.PublishVersion;
@@ -940,6 +993,55 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 {
                     request.Layers = cmdletContext.Layer;
                 }
+                
+                 // populate LoggingConfig
+                var requestLoggingConfigIsNull = true;
+                request.LoggingConfig = new Amazon.Lambda.Model.LoggingConfig();
+                Amazon.Lambda.ApplicationLogLevel requestLoggingConfig_loggingConfig_ApplicationLogLevel = null;
+                if (cmdletContext.LoggingConfig_ApplicationLogLevel != null)
+                {
+                    requestLoggingConfig_loggingConfig_ApplicationLogLevel = cmdletContext.LoggingConfig_ApplicationLogLevel;
+                }
+                if (requestLoggingConfig_loggingConfig_ApplicationLogLevel != null)
+                {
+                    request.LoggingConfig.ApplicationLogLevel = requestLoggingConfig_loggingConfig_ApplicationLogLevel;
+                    requestLoggingConfigIsNull = false;
+                }
+                Amazon.Lambda.LogFormat requestLoggingConfig_loggingConfig_LogFormat = null;
+                if (cmdletContext.LoggingConfig_LogFormat != null)
+                {
+                    requestLoggingConfig_loggingConfig_LogFormat = cmdletContext.LoggingConfig_LogFormat;
+                }
+                if (requestLoggingConfig_loggingConfig_LogFormat != null)
+                {
+                    request.LoggingConfig.LogFormat = requestLoggingConfig_loggingConfig_LogFormat;
+                    requestLoggingConfigIsNull = false;
+                }
+                System.String requestLoggingConfig_loggingConfig_LogGroup = null;
+                if (cmdletContext.LoggingConfig_LogGroup != null)
+                {
+                    requestLoggingConfig_loggingConfig_LogGroup = cmdletContext.LoggingConfig_LogGroup;
+                }
+                if (requestLoggingConfig_loggingConfig_LogGroup != null)
+                {
+                    request.LoggingConfig.LogGroup = requestLoggingConfig_loggingConfig_LogGroup;
+                    requestLoggingConfigIsNull = false;
+                }
+                Amazon.Lambda.SystemLogLevel requestLoggingConfig_loggingConfig_SystemLogLevel = null;
+                if (cmdletContext.LoggingConfig_SystemLogLevel != null)
+                {
+                    requestLoggingConfig_loggingConfig_SystemLogLevel = cmdletContext.LoggingConfig_SystemLogLevel;
+                }
+                if (requestLoggingConfig_loggingConfig_SystemLogLevel != null)
+                {
+                    request.LoggingConfig.SystemLogLevel = requestLoggingConfig_loggingConfig_SystemLogLevel;
+                    requestLoggingConfigIsNull = false;
+                }
+                 // determine if request.LoggingConfig should be set to null
+                if (requestLoggingConfigIsNull)
+                {
+                    request.LoggingConfig = null;
+                }
                 if (cmdletContext.MemorySize != null)
                 {
                     request.MemorySize = cmdletContext.MemorySize.Value;
@@ -1156,6 +1258,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String ImageConfig_WorkingDirectory { get; set; }
             public System.String KMSKeyArn { get; set; }
             public List<System.String> Layer { get; set; }
+            public Amazon.Lambda.ApplicationLogLevel LoggingConfig_ApplicationLogLevel { get; set; }
+            public Amazon.Lambda.LogFormat LoggingConfig_LogFormat { get; set; }
+            public System.String LoggingConfig_LogGroup { get; set; }
+            public Amazon.Lambda.SystemLogLevel LoggingConfig_SystemLogLevel { get; set; }
             public System.Int32? MemorySize { get; set; }
             public Amazon.Lambda.PackageType PackageType { get; set; }
             public System.Boolean? PublishVersion { get; set; }

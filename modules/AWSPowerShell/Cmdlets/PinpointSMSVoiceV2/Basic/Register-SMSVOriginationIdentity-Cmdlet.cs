@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     ///  
     /// <para>
     /// If the origination identity is a phone number and is already associated with another
-    /// pool, an Error is returned. A sender ID can be associated with multiple pools.
+    /// pool, an error is returned. A sender ID can be associated with multiple pools.
     /// </para><para>
     /// If the origination identity configuration doesn't match the pool's configuration,
-    /// an Error is returned.
+    /// an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "SMSVOriginationIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

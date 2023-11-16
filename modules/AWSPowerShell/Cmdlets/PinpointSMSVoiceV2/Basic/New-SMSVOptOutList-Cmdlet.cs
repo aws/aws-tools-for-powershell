@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// 
     ///  
     /// <para>
-    /// If the opt-out list name already exists, an Error is returned.
+    /// If the opt-out list name already exists, an error is returned.
     /// </para><para>
     /// An opt-out list is a list of phone numbers that are opted out, meaning you can't send
     /// SMS or voice messages to them. If end user replies with the keyword "STOP," an entry

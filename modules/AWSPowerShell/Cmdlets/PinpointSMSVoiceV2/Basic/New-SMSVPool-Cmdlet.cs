@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// and defaults to false.
     /// </para><para>
     /// If the origination identity is a phone number and is already associated with another
-    /// pool, an Error is returned. A sender ID can be associated with multiple pools.
+    /// pool, an error is returned. A sender ID can be associated with multiple pools.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMSVPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

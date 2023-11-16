@@ -84,6 +84,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.DeviceDefenderIndexingMode ThingIndexingConfiguration_DeviceDefenderIndexingMode { get; set; }
         #endregion
         
+        #region Parameter Filter_GeoLocation
+        /// <summary>
+        /// <para>
+        /// <para>The list of geolocation targets that you select to index. The default maximum number
+        /// of geolocation targets for indexing is <code>1</code>. To increase the limit, see
+        /// <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon
+        /// Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General
+        /// Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingIndexingConfiguration_Filter_GeoLocations")]
+        public Amazon.IoT.Model.GeoLocationTarget[] Filter_GeoLocation { get; set; }
+        #endregion
+        
         #region Parameter ThingGroupIndexingConfiguration_ManagedField
         /// <summary>
         /// <para>
@@ -246,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.ThingIndexingConfiguration_CustomField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_CustomField);
             }
             context.ThingIndexingConfiguration_DeviceDefenderIndexingMode = this.ThingIndexingConfiguration_DeviceDefenderIndexingMode;
+            if (this.Filter_GeoLocation != null)
+            {
+                context.Filter_GeoLocation = new List<Amazon.IoT.Model.GeoLocationTarget>(this.Filter_GeoLocation);
+            }
             if (this.Filter_NamedShadowName != null)
             {
                 context.Filter_NamedShadowName = new List<System.String>(this.Filter_NamedShadowName);
@@ -381,6 +400,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate Filter
             var requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull = true;
             requestThingIndexingConfiguration_thingIndexingConfiguration_Filter = new Amazon.IoT.Model.IndexingFilter();
+            List<Amazon.IoT.Model.GeoLocationTarget> requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_GeoLocation = null;
+            if (cmdletContext.Filter_GeoLocation != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_GeoLocation = cmdletContext.Filter_GeoLocation;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_GeoLocation != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_Filter.GeoLocations = requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_GeoLocation;
+                requestThingIndexingConfiguration_thingIndexingConfiguration_FilterIsNull = false;
+            }
             List<System.String> requestThingIndexingConfiguration_thingIndexingConfiguration_Filter_filter_NamedShadowName = null;
             if (cmdletContext.Filter_NamedShadowName != null)
             {
@@ -472,6 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_CustomField { get; set; }
             public Amazon.IoT.DeviceDefenderIndexingMode ThingIndexingConfiguration_DeviceDefenderIndexingMode { get; set; }
+            public List<Amazon.IoT.Model.GeoLocationTarget> Filter_GeoLocation { get; set; }
             public List<System.String> Filter_NamedShadowName { get; set; }
             public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_ManagedField { get; set; }
             public Amazon.IoT.NamedShadowIndexingMode ThingIndexingConfiguration_NamedShadowIndexingMode { get; set; }

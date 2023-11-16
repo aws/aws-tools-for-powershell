@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Filters the timeline events based on the provided conditional values. You can filter
-        /// timeline events with the following keys:</para><ul><li><para><code>eventTime</code></para></li><li><para><code>eventType</code></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all timeline events.</para></li><li><para>If you specify more than one filter in a single request, the response returns timeline
+        /// timeline events with the following keys:</para><ul><li><para><code>eventReference</code></para></li><li><para><code>eventTime</code></para></li><li><para><code>eventType</code></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all timeline events.</para></li><li><para>If you specify more than one filter in a single request, the response returns timeline
         /// events that match all filters.</para></li><li><para>If you specify a filter with more than one value, the response returns timeline events
         /// that match any of the values provided.</para></li></ul>
         /// </para>
@@ -110,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token to continue to the next page of results.</para>
+        /// <para>The pagination token for the next set of items to return. (You received this token
+        /// from a previous call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

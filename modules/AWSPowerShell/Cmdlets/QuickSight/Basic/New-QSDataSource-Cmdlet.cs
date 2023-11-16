@@ -323,6 +323,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsIotAnalyticsParameters_DataSetName { get; set; }
         #endregion
         
+        #region Parameter BigQueryParameters_DataSetRegion
+        /// <summary>
+        /// <para>
+        /// <para>The storage location where you create a Google BigQuery data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_BigQueryParameters_DataSetRegion")]
+        public System.String BigQueryParameters_DataSetRegion { get; set; }
+        #endregion
+        
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
@@ -809,6 +820,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.StarburstProductType StarburstParameters_ProductType { get; set; }
         #endregion
         
+        #region Parameter BigQueryParameters_ProjectId
+        /// <summary>
+        /// <para>
+        /// <para>The Google Cloud Platform project ID where your datasource was created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_BigQueryParameters_ProjectId")]
+        public System.String BigQueryParameters_ProjectId { get; set; }
+        #endregion
+        
         #region Parameter TwitterParameters_Query
         /// <summary>
         /// <para>
@@ -1077,6 +1099,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.AuroraPostgreSqlParameters_Host = this.AuroraPostgreSqlParameters_Host;
             context.AuroraPostgreSqlParameters_Port = this.AuroraPostgreSqlParameters_Port;
             context.AwsIotAnalyticsParameters_DataSetName = this.AwsIotAnalyticsParameters_DataSetName;
+            context.BigQueryParameters_DataSetRegion = this.BigQueryParameters_DataSetRegion;
+            context.BigQueryParameters_ProjectId = this.BigQueryParameters_ProjectId;
             context.DatabricksParameters_Host = this.DatabricksParameters_Host;
             context.DatabricksParameters_Port = this.DatabricksParameters_Port;
             context.DatabricksParameters_SqlEndpointPath = this.DatabricksParameters_SqlEndpointPath;
@@ -1423,6 +1447,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_AthenaParameters != null)
             {
                 request.DataSourceParameters.AthenaParameters = requestDataSourceParameters_dataSourceParameters_AthenaParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.BigQueryParameters requestDataSourceParameters_dataSourceParameters_BigQueryParameters = null;
+            
+             // populate BigQueryParameters
+            var requestDataSourceParameters_dataSourceParameters_BigQueryParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_BigQueryParameters = new Amazon.QuickSight.Model.BigQueryParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_DataSetRegion = null;
+            if (cmdletContext.BigQueryParameters_DataSetRegion != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_DataSetRegion = cmdletContext.BigQueryParameters_DataSetRegion;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_DataSetRegion != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_BigQueryParameters.DataSetRegion = requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_DataSetRegion;
+                requestDataSourceParameters_dataSourceParameters_BigQueryParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_ProjectId = null;
+            if (cmdletContext.BigQueryParameters_ProjectId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_ProjectId = cmdletContext.BigQueryParameters_ProjectId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_ProjectId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_BigQueryParameters.ProjectId = requestDataSourceParameters_dataSourceParameters_BigQueryParameters_bigQueryParameters_ProjectId;
+                requestDataSourceParameters_dataSourceParameters_BigQueryParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_BigQueryParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_BigQueryParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_BigQueryParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_BigQueryParameters != null)
+            {
+                request.DataSourceParameters.BigQueryParameters = requestDataSourceParameters_dataSourceParameters_BigQueryParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.ExasolParameters requestDataSourceParameters_dataSourceParameters_ExasolParameters = null;
@@ -2472,6 +2531,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AuroraPostgreSqlParameters_Host { get; set; }
             public System.Int32? AuroraPostgreSqlParameters_Port { get; set; }
             public System.String AwsIotAnalyticsParameters_DataSetName { get; set; }
+            public System.String BigQueryParameters_DataSetRegion { get; set; }
+            public System.String BigQueryParameters_ProjectId { get; set; }
             public System.String DatabricksParameters_Host { get; set; }
             public System.Int32? DatabricksParameters_Port { get; set; }
             public System.String DatabricksParameters_SqlEndpointPath { get; set; }

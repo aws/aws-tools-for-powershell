@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>An array of event types that determine which events to log. If "ALL" is used, then
-        /// Amazon Pinpoint logs every event type.</para>
+        /// Amazon Pinpoint logs every event type.</para><note><para>The <code>TEXT_SENT</code> event type is not supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

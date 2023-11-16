@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// receives a message that begins with a keyword, Amazon Pinpoint responds with a customizable
     /// message.
     /// </para><para>
-    /// If you specify a keyword that isn't valid, an Error is returned.
+    /// If you specify a keyword that isn't valid, an error is returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVKeyword")]

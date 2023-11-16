@@ -1,4 +1,141 @@
-﻿### 4.1.454 (2023-11-15 22:32Z)
+﻿### 4.1.455 (2023-11-16 22:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.688.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeCatalyst
+    * Modified cmdlet New-CCATDevEnvironment: added parameter VpcConnectionName.
+  * Amazon Data Lifecycle Manager
+    * Modified cmdlet Get-DLMLifecyclePolicySummary: added parameter DefaultPolicyType.
+    * Modified cmdlet New-DLMLifecyclePolicy: added parameters CopyTag, CreateInterval, CrossRegionCopyTarget, DefaultPolicy, Exclusions_ExcludeBootVolume, Exclusions_ExcludeTag, Exclusions_ExcludeVolumeType, ExtendDeletion, PolicyDetails_CopyTag, PolicyDetails_CreateInterval, PolicyDetails_CrossRegionCopyTarget, PolicyDetails_Exclusions_ExcludeBootVolumes, PolicyDetails_Exclusions_ExcludeTags, PolicyDetails_Exclusions_ExcludeVolumeTypes, PolicyDetails_ExtendDeletion, PolicyDetails_PolicyLanguage, PolicyDetails_RetainInterval, PolicyDetails_SimplifiedResourceType and RetainInterval.
+    * Modified cmdlet Update-DLMLifecyclePolicy: added parameters CopyTag, CreateInterval, CrossRegionCopyTarget, Exclusions_ExcludeBootVolume, Exclusions_ExcludeTag, Exclusions_ExcludeVolumeType, ExtendDeletion, PolicyDetails_CopyTag, PolicyDetails_CreateInterval, PolicyDetails_CrossRegionCopyTarget, PolicyDetails_Exclusions_ExcludeBootVolumes, PolicyDetails_Exclusions_ExcludeTags, PolicyDetails_Exclusions_ExcludeVolumeTypes, PolicyDetails_ExtendDeletion, PolicyDetails_PolicyLanguage, PolicyDetails_RetainInterval, PolicyDetails_SimplifiedResourceType and RetainInterval.
+  * Amazon EC2 Image Builder
+    * Added cmdlet Get-EC2IBLifecycleExecution leveraging the GetLifecycleExecution service API.
+    * Added cmdlet Get-EC2IBLifecycleExecutionList leveraging the ListLifecycleExecutions service API.
+    * Added cmdlet Get-EC2IBLifecycleExecutionResourceList leveraging the ListLifecycleExecutionResources service API.
+    * Added cmdlet Get-EC2IBLifecyclePolicy leveraging the GetLifecyclePolicy service API.
+    * Added cmdlet Get-EC2IBLifecyclePolicyList leveraging the ListLifecyclePolicies service API.
+    * Added cmdlet New-EC2IBLifecyclePolicy leveraging the CreateLifecyclePolicy service API.
+    * Added cmdlet Remove-EC2IBLifecyclePolicy leveraging the DeleteLifecyclePolicy service API.
+    * Added cmdlet Start-EC2IBResourceStateUpdate leveraging the StartResourceStateUpdate service API.
+    * Added cmdlet Stop-EC2IBLifecycleExecution leveraging the CancelLifecycleExecution service API.
+    * Added cmdlet Update-EC2IBLifecyclePolicy leveraging the UpdateLifecyclePolicy service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VerifiedAccessTrustProvider: added parameter DeviceOptions_PublicSigningKeyUrl.
+    * Modified cmdlet New-EC2VerifiedAccessTrustProvider: added parameter DeviceOptions_PublicSigningKeyUrl.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEColumnStatisticsTaskList leveraging the GetColumnStatisticsTaskRuns service API.
+    * Added cmdlet Get-GLUEColumnStatisticsTaskRun leveraging the GetColumnStatisticsTaskRun service API.
+    * Added cmdlet Get-GLUEColumnStatisticsTaskRunList leveraging the ListColumnStatisticsTaskRuns service API.
+    * Added cmdlet Start-GLUEColumnStatisticsTaskRun leveraging the StartColumnStatisticsTaskRun service API.
+    * Added cmdlet Stop-GLUEColumnStatisticsTaskRun leveraging the StopColumnStatisticsTaskRun service API.
+  * Amazon Interactive Video Service RealTime
+    * Added cmdlet Get-IVSRTComposition leveraging the GetComposition service API.
+    * Added cmdlet Get-IVSRTCompositionList leveraging the ListCompositions service API.
+    * Added cmdlet Get-IVSRTEncoderConfiguration leveraging the GetEncoderConfiguration service API.
+    * Added cmdlet Get-IVSRTEncoderConfigurationList leveraging the ListEncoderConfigurations service API.
+    * Added cmdlet Get-IVSRTStorageConfiguration leveraging the GetStorageConfiguration service API.
+    * Added cmdlet Get-IVSRTStorageConfigurationList leveraging the ListStorageConfigurations service API.
+    * Added cmdlet New-IVSRTEncoderConfiguration leveraging the CreateEncoderConfiguration service API.
+    * Added cmdlet New-IVSRTStorageConfiguration leveraging the CreateStorageConfiguration service API.
+    * Added cmdlet Remove-IVSRTEncoderConfiguration leveraging the DeleteEncoderConfiguration service API.
+    * Added cmdlet Remove-IVSRTStorageConfiguration leveraging the DeleteStorageConfiguration service API.
+    * Added cmdlet Start-IVSRTComposition leveraging the StartComposition service API.
+    * Added cmdlet Stop-IVSRTComposition leveraging the StopComposition service API.
+  * Amazon IoT
+    * Modified cmdlet Update-IOTIndexingConfiguration: added parameter Filter_GeoLocation.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameters LoggingConfig_ApplicationLogLevel, LoggingConfig_LogFormat, LoggingConfig_LogGroup and LoggingConfig_SystemLogLevel.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameters LoggingConfig_ApplicationLogLevel, LoggingConfig_LogFormat, LoggingConfig_LogGroup and LoggingConfig_SystemLogLevel.
+  * Amazon Macie 2
+    * Modified cmdlet Update-MAC2RevealConfiguration: added parameters RetrievalConfiguration_RetrievalMode and RetrievalConfiguration_RoleName.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Close-SMSVRegistrationVersion leveraging the DiscardRegistrationVersion service API.
+    * Added cmdlet Confirm-SMSVDestinationNumber leveraging the VerifyDestinationNumber service API.
+    * Added cmdlet Get-SMSVRegistration leveraging the DescribeRegistrations service API.
+    * Added cmdlet Get-SMSVRegistrationAssociationList leveraging the ListRegistrationAssociations service API.
+    * Added cmdlet Get-SMSVRegistrationAttachment leveraging the DescribeRegistrationAttachments service API.
+    * Added cmdlet Get-SMSVRegistrationFieldDefinition leveraging the DescribeRegistrationFieldDefinitions service API.
+    * Added cmdlet Get-SMSVRegistrationFieldValue leveraging the DescribeRegistrationFieldValues service API.
+    * Added cmdlet Get-SMSVRegistrationSectionDefinition leveraging the DescribeRegistrationSectionDefinitions service API.
+    * Added cmdlet Get-SMSVRegistrationTypeDefinition leveraging the DescribeRegistrationTypeDefinitions service API.
+    * Added cmdlet Get-SMSVRegistrationVersion leveraging the DescribeRegistrationVersions service API.
+    * Added cmdlet Get-SMSVVerifiedDestinationNumber leveraging the DescribeVerifiedDestinationNumbers service API.
+    * Added cmdlet New-SMSVRegistration leveraging the CreateRegistration service API.
+    * Added cmdlet New-SMSVRegistrationAssociation leveraging the CreateRegistrationAssociation service API.
+    * Added cmdlet New-SMSVRegistrationAttachment leveraging the CreateRegistrationAttachment service API.
+    * Added cmdlet New-SMSVRegistrationVersion leveraging the CreateRegistrationVersion service API.
+    * Added cmdlet New-SMSVVerifiedDestinationNumber leveraging the CreateVerifiedDestinationNumber service API.
+    * Added cmdlet Remove-SMSVRegistration leveraging the DeleteRegistration service API.
+    * Added cmdlet Remove-SMSVRegistrationAttachment leveraging the DeleteRegistrationAttachment service API.
+    * Added cmdlet Remove-SMSVRegistrationFieldValue leveraging the DeleteRegistrationFieldValue service API.
+    * Added cmdlet Remove-SMSVSenderId leveraging the ReleaseSenderId service API.
+    * Added cmdlet Remove-SMSVVerifiedDestinationNumber leveraging the DeleteVerifiedDestinationNumber service API.
+    * Added cmdlet Request-SMSVSenderId leveraging the RequestSenderId service API.
+    * Added cmdlet Send-SMSVDestinationNumberVerificationCode leveraging the SendDestinationNumberVerificationCode service API.
+    * Added cmdlet Set-SMSVRegistrationFieldValue leveraging the PutRegistrationFieldValue service API.
+    * Added cmdlet Submit-SMSVRegistrationVersion leveraging the SubmitRegistrationVersion service API.
+    * Added cmdlet Update-SMSVSenderId leveraging the UpdateSenderId service API.
+    * Modified cmdlet Update-SMSVPhoneNumber: added parameter TwoWayChannelRole.
+    * Modified cmdlet Update-SMSVPool: added parameter TwoWayChannelRole.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSRoleCustomPermission leveraging the DescribeRoleCustomPermission service API.
+    * Added cmdlet Get-QSRoleMembershipList leveraging the ListRoleMemberships service API.
+    * Added cmdlet New-QSRoleMembership leveraging the CreateRoleMembership service API.
+    * Added cmdlet Remove-QSRoleCustomPermission leveraging the DeleteRoleCustomPermission service API.
+    * Added cmdlet Remove-QSRoleMembership leveraging the DeleteRoleMembership service API.
+    * Added cmdlet Update-QSRoleCustomPermission leveraging the UpdateRoleCustomPermission service API.
+    * Modified cmdlet New-QSDashboard: added parameter LinkSharingConfiguration_Permission.
+    * Modified cmdlet New-QSDataSource: added parameters BigQueryParameters_DataSetRegion and BigQueryParameters_ProjectId.
+    * Modified cmdlet Start-QSAssetBundleExportJob: added parameters IncludePermission, IncludeTag and ValidationStrategy_StrictModeForAllResource.
+    * Modified cmdlet Start-QSAssetBundleImportJob: added parameters OverridePermissions_Analyses, OverridePermissions_Dashboard, OverridePermissions_DataSet, OverridePermissions_DataSource, OverridePermissions_Theme, OverrideTags_Analyses, OverrideTags_Dashboard, OverrideTags_DataSet, OverrideTags_DataSource, OverrideTags_Theme, OverrideTags_VPCConnection and OverrideValidationStrategy_StrictModeForAllResource.
+    * Modified cmdlet Update-QSDataSource: added parameters BigQueryParameters_DataSetRegion and BigQueryParameters_ProjectId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCompilationJob: added parameter StoppingCondition_MaxPendingTimeInSecond.
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameter StoppingCondition_MaxPendingTimeInSecond.
+    * Modified cmdlet New-SMTrainingJob: added parameter StoppingCondition_MaxPendingTimeInSecond.
+  * Amazon Single Sign-On Admin
+    * Added cmdlet Get-SSOADMNAccountAssignmentsForPrincipalList leveraging the ListAccountAssignmentsForPrincipal service API.
+    * Added cmdlet Get-SSOADMNApplication leveraging the DescribeApplication service API.
+    * Added cmdlet Get-SSOADMNApplicationAccessScope leveraging the GetApplicationAccessScope service API.
+    * Added cmdlet Get-SSOADMNApplicationAccessScopeList leveraging the ListApplicationAccessScopes service API.
+    * Added cmdlet Get-SSOADMNApplicationAssignment leveraging the DescribeApplicationAssignment service API.
+    * Added cmdlet Get-SSOADMNApplicationAssignmentConfiguration leveraging the GetApplicationAssignmentConfiguration service API.
+    * Added cmdlet Get-SSOADMNApplicationAssignmentList leveraging the ListApplicationAssignments service API.
+    * Added cmdlet Get-SSOADMNApplicationAssignmentsForPrincipalList leveraging the ListApplicationAssignmentsForPrincipal service API.
+    * Added cmdlet Get-SSOADMNApplicationAuthenticationMethod leveraging the GetApplicationAuthenticationMethod service API.
+    * Added cmdlet Get-SSOADMNApplicationAuthenticationMethodList leveraging the ListApplicationAuthenticationMethods service API.
+    * Added cmdlet Get-SSOADMNApplicationGrant leveraging the GetApplicationGrant service API.
+    * Added cmdlet Get-SSOADMNApplicationGrantList leveraging the ListApplicationGrants service API.
+    * Added cmdlet Get-SSOADMNApplicationList leveraging the ListApplications service API.
+    * Added cmdlet Get-SSOADMNApplicationProvider leveraging the DescribeApplicationProvider service API.
+    * Added cmdlet Get-SSOADMNApplicationProviderList leveraging the ListApplicationProviders service API.
+    * Added cmdlet Get-SSOADMNInstance leveraging the DescribeInstance service API.
+    * Added cmdlet Get-SSOADMNTrustedTokenIssuer leveraging the DescribeTrustedTokenIssuer service API.
+    * Added cmdlet Get-SSOADMNTrustedTokenIssuerList leveraging the ListTrustedTokenIssuers service API.
+    * Added cmdlet New-SSOADMNApplication leveraging the CreateApplication service API.
+    * Added cmdlet New-SSOADMNApplicationAssignment leveraging the CreateApplicationAssignment service API.
+    * Added cmdlet New-SSOADMNInstance leveraging the CreateInstance service API.
+    * Added cmdlet New-SSOADMNTrustedTokenIssuer leveraging the CreateTrustedTokenIssuer service API.
+    * Added cmdlet Remove-SSOADMNApplication leveraging the DeleteApplication service API.
+    * Added cmdlet Remove-SSOADMNApplicationAccessScope leveraging the DeleteApplicationAccessScope service API.
+    * Added cmdlet Remove-SSOADMNApplicationAssignment leveraging the DeleteApplicationAssignment service API.
+    * Added cmdlet Remove-SSOADMNApplicationAuthenticationMethod leveraging the DeleteApplicationAuthenticationMethod service API.
+    * Added cmdlet Remove-SSOADMNApplicationGrant leveraging the DeleteApplicationGrant service API.
+    * Added cmdlet Remove-SSOADMNInstance leveraging the DeleteInstance service API.
+    * Added cmdlet Remove-SSOADMNTrustedTokenIssuer leveraging the DeleteTrustedTokenIssuer service API.
+    * Added cmdlet Update-SSOADMNApplication leveraging the UpdateApplication service API.
+    * Added cmdlet Update-SSOADMNInstance leveraging the UpdateInstance service API.
+    * Added cmdlet Update-SSOADMNTrustedTokenIssuer leveraging the UpdateTrustedTokenIssuer service API.
+    * Added cmdlet Write-SSOADMNApplicationAccessScope leveraging the PutApplicationAccessScope service API.
+    * Added cmdlet Write-SSOADMNApplicationAssignmentConfiguration leveraging the PutApplicationAssignmentConfiguration service API.
+    * Added cmdlet Write-SSOADMNApplicationAuthenticationMethod leveraging the PutApplicationAuthenticationMethod service API.
+    * Added cmdlet Write-SSOADMNApplicationGrant leveraging the PutApplicationGrant service API.
+  * Amazon Systems Manager Incident Manager
+    * Added cmdlet Get-SSMIBatchIncidentFinding leveraging the BatchGetIncidentFindings service API.
+    * Added cmdlet Get-SSMIIncidentFindingList leveraging the ListIncidentFindings service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter S3StorageOptions_DirectoryListingOptimization.
+    * Modified cmdlet Update-TFRServer: added parameter S3StorageOptions_DirectoryListingOptimization.
+
+### 4.1.454 (2023-11-15 22:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.687.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAA
     * Modified cmdlet New-MWAAEnvironment: added parameter EndpointManagement.

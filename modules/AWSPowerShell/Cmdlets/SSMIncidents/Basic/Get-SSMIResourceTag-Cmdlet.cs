@@ -28,7 +28,7 @@ using Amazon.SSMIncidents.Model;
 namespace Amazon.PowerShell.Cmdlets.SSMI
 {
     /// <summary>
-    /// Lists the tags that are attached to the specified response plan.
+    /// Lists the tags that are attached to the specified response plan or incident.
     /// </summary>
     [Cmdlet("Get", "SSMIResourceTag")]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the response plan.</para>
+        /// <para>The Amazon Resource Name (ARN) of the response plan or incident.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

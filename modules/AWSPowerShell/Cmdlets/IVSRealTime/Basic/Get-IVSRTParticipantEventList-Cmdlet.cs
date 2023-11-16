@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// <para>The first participant event to retrieve. This is used for pagination; see the <code>nextToken</code>
         /// response field.</para>
         /// </para>
         /// </summary>

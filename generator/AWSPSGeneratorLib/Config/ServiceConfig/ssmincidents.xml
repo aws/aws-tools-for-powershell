@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetIncidentFindings" OutputProperty="*" Verb="Get" Noun="BatchIncidentFinding" PipelineParameter="IncidentRecordArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationSet" OutputProperty="Arn" Verb="New" Noun="ReplicationSet" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="ReplicationSetRegions" AutoApplyAlias="false" />
@@ -69,6 +73,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTimelineEvent" OutputProperty="Event" Verb="Get" Noun="TimelineEvent" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIncidentFindings" OutputProperty="Findings" Verb="Get" Noun="IncidentFindingList" PipelineParameter="IncidentRecordArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

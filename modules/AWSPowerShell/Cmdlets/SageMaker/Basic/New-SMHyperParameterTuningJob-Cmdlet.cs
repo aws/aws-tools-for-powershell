@@ -405,6 +405,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ResourceLimits_MaxParallelTrainingJob { get; set; }
         #endregion
         
+        #region Parameter StoppingCondition_MaxPendingTimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum pending time in seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_StoppingCondition_MaxPendingTimeInSeconds")]
+        public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
+        #endregion
+        
         #region Parameter HyperbandStrategyConfig_MaxResource
         /// <summary>
         /// <para>
@@ -1013,6 +1024,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.TrainingJobDefinition_StaticHyperParameter.Add((String)hashKey, (String)(this.TrainingJobDefinition_StaticHyperParameter[hashKey]));
                 }
             }
+            context.StoppingCondition_MaxPendingTimeInSecond = this.StoppingCondition_MaxPendingTimeInSecond;
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
             context.StoppingCondition_MaxWaitTimeInSecond = this.StoppingCondition_MaxWaitTimeInSecond;
             context.TuningObjective_MetricName = this.TuningObjective_MetricName;
@@ -1540,41 +1552,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.TrainingJobDefinition.CheckpointConfig = requestTrainingJobDefinition_trainingJobDefinition_CheckpointConfig;
                 requestTrainingJobDefinitionIsNull = false;
             }
-            Amazon.SageMaker.Model.StoppingCondition requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = null;
-            
-             // populate StoppingCondition
-            var requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = true;
-            requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = new Amazon.SageMaker.Model.StoppingCondition();
-            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond = null;
-            if (cmdletContext.StoppingCondition_MaxRuntimeInSecond != null)
-            {
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond = cmdletContext.StoppingCondition_MaxRuntimeInSecond.Value;
-            }
-            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond != null)
-            {
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxRuntimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond.Value;
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
-            }
-            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond = null;
-            if (cmdletContext.StoppingCondition_MaxWaitTimeInSecond != null)
-            {
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond = cmdletContext.StoppingCondition_MaxWaitTimeInSecond.Value;
-            }
-            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond != null)
-            {
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxWaitTimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond.Value;
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
-            }
-             // determine if requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition should be set to null
-            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull)
-            {
-                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = null;
-            }
-            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition != null)
-            {
-                request.TrainingJobDefinition.StoppingCondition = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition;
-                requestTrainingJobDefinitionIsNull = false;
-            }
             Amazon.SageMaker.Model.HyperParameterTuningJobObjective requestTrainingJobDefinition_trainingJobDefinition_TuningObjective = null;
             
              // populate TuningObjective
@@ -1643,6 +1620,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_VpcConfig != null)
             {
                 request.TrainingJobDefinition.VpcConfig = requestTrainingJobDefinition_trainingJobDefinition_VpcConfig;
+                requestTrainingJobDefinitionIsNull = false;
+            }
+            Amazon.SageMaker.Model.StoppingCondition requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = null;
+            
+             // populate StoppingCondition
+            var requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = true;
+            requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = new Amazon.SageMaker.Model.StoppingCondition();
+            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond = null;
+            if (cmdletContext.StoppingCondition_MaxPendingTimeInSecond != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond = cmdletContext.StoppingCondition_MaxPendingTimeInSecond.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxPendingTimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
+            }
+            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond = null;
+            if (cmdletContext.StoppingCondition_MaxRuntimeInSecond != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond = cmdletContext.StoppingCondition_MaxRuntimeInSecond.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxRuntimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
+            }
+            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond = null;
+            if (cmdletContext.StoppingCondition_MaxWaitTimeInSecond != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond = cmdletContext.StoppingCondition_MaxWaitTimeInSecond.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxWaitTimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
+            }
+             // determine if requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition should be set to null
+            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = null;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition != null)
+            {
+                request.TrainingJobDefinition.StoppingCondition = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition;
                 requestTrainingJobDefinitionIsNull = false;
             }
             Amazon.SageMaker.Model.HyperParameterAlgorithmSpecification requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification = null;
@@ -1976,6 +1998,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
             public System.String TrainingJobDefinition_RoleArn { get; set; }
             public Dictionary<System.String, System.String> TrainingJobDefinition_StaticHyperParameter { get; set; }
+            public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
             public System.String TuningObjective_MetricName { get; set; }

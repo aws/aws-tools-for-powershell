@@ -189,6 +189,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.RetrievalMode
+        "Update-MAC2RevealConfiguration/RetrievalConfiguration_RetrievalMode"
+        {
+            $v = "ASSUME_ROLE","CALLER_CREDENTIALS"
+            break
+        }
+
         # Amazon.Macie2.RevealStatus
         "Update-MAC2RevealConfiguration/Configuration_Status"
         {
@@ -233,6 +240,7 @@ $MAC2_map = @{
     "JobStatus"=@("Update-MAC2ClassificationJob")
     "JobType"=@("New-MAC2ClassificationJob")
     "ManagedDataIdentifierSelector"=@("New-MAC2ClassificationJob")
+    "RetrievalConfiguration_RetrievalMode"=@("Update-MAC2RevealConfiguration")
     "S3_Excludes_Operation"=@("Update-MAC2ClassificationScope")
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")

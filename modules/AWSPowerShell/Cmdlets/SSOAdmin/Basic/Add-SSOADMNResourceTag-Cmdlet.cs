@@ -51,14 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceArn { get; set; }
         #endregion
         
@@ -159,12 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.InstanceArn = this.InstanceArn;
-            #if MODULAR
-            if (this.InstanceArn == null && ParameterWasBound(nameof(this.InstanceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
             if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))

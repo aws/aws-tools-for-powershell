@@ -18008,6 +18008,20 @@ $DLM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DLM.DefaultPoliciesTypeValues
+        "Get-DLMLifecyclePolicySummary/DefaultPolicyType"
+        {
+            $v = "ALL","INSTANCE","VOLUME"
+            break
+        }
+
+        # Amazon.DLM.DefaultPolicyTypeValues
+        "New-DLMLifecyclePolicy/DefaultPolicy"
+        {
+            $v = "INSTANCE","VOLUME"
+            break
+        }
+
         # Amazon.DLM.EventSourceValues
         {
             ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_EventSource_Type") -Or
@@ -18035,6 +18049,16 @@ $DLM_Completers = {
             break
         }
 
+        # Amazon.DLM.PolicyLanguageValues
+        {
+            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_PolicyLanguage") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_PolicyLanguage")
+        }
+        {
+            $v = "SIMPLIFIED","STANDARD"
+            break
+        }
+
         # Amazon.DLM.PolicyTypeValues
         {
             ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_PolicyType") -Or
@@ -18042,6 +18066,16 @@ $DLM_Completers = {
         }
         {
             $v = "EBS_SNAPSHOT_MANAGEMENT","EVENT_BASED_POLICY","IMAGE_MANAGEMENT"
+            break
+        }
+
+        # Amazon.DLM.ResourceTypeValues
+        {
+            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_ResourceType") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_ResourceType")
+        }
+        {
+            $v = "INSTANCE","VOLUME"
             break
         }
 
@@ -18064,9 +18098,13 @@ $DLM_Completers = {
 }
 
 $DLM_map = @{
+    "DefaultPolicy"=@("New-DLMLifecyclePolicy")
+    "DefaultPolicyType"=@("Get-DLMLifecyclePolicySummary")
     "PolicyDetails_EventSource_Parameters_EventType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "PolicyDetails_EventSource_Type"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+    "PolicyDetails_PolicyLanguage"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "PolicyDetails_PolicyType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+    "PolicyDetails_ResourceType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "State"=@("Get-DLMLifecyclePolicySummary","New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
 }
 
@@ -20172,7 +20210,7 @@ $EC2_Completers = {
         # Amazon.EC2.DeviceTrustProviderType
         "New-EC2VerifiedAccessTrustProvider/DeviceTrustProviderType"
         {
-            $v = "crowdstrike","jamf"
+            $v = "crowdstrike","jamf","jumpcloud"
             break
         }
 
@@ -27923,6 +27961,8 @@ $GLUE_SelectMap = @{
                "Get-GLUEClassifierList",
                "Get-GLUEColumnStatisticsForPartition",
                "Get-GLUEColumnStatisticsForTable",
+               "Get-GLUEColumnStatisticsTaskRun",
+               "Get-GLUEColumnStatisticsTaskList",
                "Get-GLUEConnection",
                "Get-GLUEConnectionList",
                "Get-GLUECrawler",
@@ -27983,6 +28023,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEWorkflowRunList",
                "Import-GLUECatalog",
                "Get-GLUEBlueprintList",
+               "Get-GLUEColumnStatisticsTaskRunList",
                "Get-GLUECrawlerNameList",
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
@@ -28013,6 +28054,7 @@ $GLUE_SelectMap = @{
                "Invoke-GLUEStatement",
                "Find-GLUETable",
                "Start-GLUEBlueprintRun",
+               "Start-GLUEColumnStatisticsTaskRun",
                "Start-GLUECrawler",
                "Start-GLUECrawlerSchedule",
                "Start-GLUEDataQualityRuleRecommendationRun",
@@ -28024,6 +28066,7 @@ $GLUE_SelectMap = @{
                "Start-GLUEMLLabelingSetGenerationTaskRun",
                "Start-GLUETrigger",
                "Start-GLUEWorkflowRun",
+               "Stop-GLUEColumnStatisticsTaskRun",
                "Stop-GLUECrawler",
                "Stop-GLUECrawlerSchedule",
                "Stop-GLUESession",
@@ -29696,6 +29739,33 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.LifecyclePolicyResourceType
+        {
+            ($_ -eq "New-EC2IBLifecyclePolicy/ResourceType") -Or
+            ($_ -eq "Update-EC2IBLifecyclePolicy/ResourceType")
+        }
+        {
+            $v = "AMI_IMAGE","CONTAINER_IMAGE"
+            break
+        }
+
+        # Amazon.Imagebuilder.LifecyclePolicyStatus
+        {
+            ($_ -eq "New-EC2IBLifecyclePolicy/Status") -Or
+            ($_ -eq "Update-EC2IBLifecyclePolicy/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Imagebuilder.LifecyclePolicyTimeUnit
+        "Start-EC2IBResourceStateUpdate/ExclusionRules_Amis_LastLaunched_Unit"
+        {
+            $v = "DAYS","MONTHS","WEEKS","YEARS"
+            break
+        }
+
         # Amazon.Imagebuilder.Ownership
         {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
@@ -29740,6 +29810,13 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.ResourceStatus
+        "Start-EC2IBResourceStateUpdate/State_Status"
+        {
+            $v = "AVAILABLE","DELETED","DEPRECATED","DISABLED"
+            break
+        }
+
 
     }
 
@@ -29750,12 +29827,15 @@ $EC2IB_Completers = {
 
 $EC2IB_map = @{
     "ContainerType"=@("New-EC2IBContainerRecipe")
+    "ExclusionRules_Amis_LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Format"=@("Import-EC2IBComponent")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
+    "ResourceType"=@("New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")
     "Schedule_PipelineExecutionStartCondition"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
-    "Status"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
+    "State_Status"=@("Start-EC2IBResourceStateUpdate")
+    "Status"=@("New-EC2IBImagePipeline","New-EC2IBLifecyclePolicy","Update-EC2IBImagePipeline","Update-EC2IBLifecyclePolicy")
     "TargetRepository_Service"=@("New-EC2IBContainerRecipe")
     "Type"=@("Import-EC2IBComponent")
 }
@@ -29811,6 +29891,7 @@ $EC2IB_SelectCompleters = {
 
 $EC2IB_SelectMap = @{
     "Select"=@("Stop-EC2IBImageCreation",
+               "Stop-EC2IBLifecycleExecution",
                "New-EC2IBComponent",
                "New-EC2IBContainerRecipe",
                "New-EC2IBDistributionConfiguration",
@@ -29818,6 +29899,7 @@ $EC2IB_SelectMap = @{
                "New-EC2IBImagePipeline",
                "New-EC2IBImageRecipe",
                "New-EC2IBInfrastructureConfiguration",
+               "New-EC2IBLifecyclePolicy",
                "Remove-EC2IBComponent",
                "Remove-EC2IBContainerRecipe",
                "Remove-EC2IBDistributionConfiguration",
@@ -29825,6 +29907,7 @@ $EC2IB_SelectMap = @{
                "Remove-EC2IBImagePipeline",
                "Remove-EC2IBImageRecipe",
                "Remove-EC2IBInfrastructureConfiguration",
+               "Remove-EC2IBLifecyclePolicy",
                "Get-EC2IBComponent",
                "Get-EC2IBComponentPolicy",
                "Get-EC2IBContainerRecipe",
@@ -29836,6 +29919,8 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImageRecipe",
                "Get-EC2IBImageRecipePolicy",
                "Get-EC2IBInfrastructureConfiguration",
+               "Get-EC2IBLifecycleExecution",
+               "Get-EC2IBLifecyclePolicy",
                "Get-EC2IBWorkflowExecution",
                "Get-EC2IBWorkflowStepExecution",
                "Import-EC2IBComponent",
@@ -29853,6 +29938,9 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImageScanFindingAggregationList",
                "Get-EC2IBImageScanFindingList",
                "Get-EC2IBInfrastructureConfigurationList",
+               "Get-EC2IBLifecycleExecutionResourceList",
+               "Get-EC2IBLifecycleExecutionList",
+               "Get-EC2IBLifecyclePolicyList",
                "Get-EC2IBResourceTag",
                "Get-EC2IBWorkflowExecutionList",
                "Get-EC2IBWorkflowStepExecutionList",
@@ -29861,11 +29949,13 @@ $EC2IB_SelectMap = @{
                "Write-EC2IBImagePolicy",
                "Write-EC2IBImageRecipePolicy",
                "Start-EC2IBImagePipelineExecution",
+               "Start-EC2IBResourceStateUpdate",
                "Add-EC2IBResourceTag",
                "Remove-EC2IBResourceTag",
                "Update-EC2IBDistributionConfiguration",
                "Update-EC2IBImagePipeline",
-               "Update-EC2IBInfrastructureConfiguration")
+               "Update-EC2IBInfrastructureConfiguration",
+               "Update-EC2IBLifecyclePolicy")
 }
 
 _awsArgumentCompleterRegistration $EC2IB_SelectCompleters $EC2IB_SelectMap
@@ -33561,18 +33651,30 @@ $IVSRT_SelectCompleters = {
 }
 
 $IVSRT_SelectMap = @{
-    "Select"=@("New-IVSRTParticipantToken",
+    "Select"=@("New-IVSRTEncoderConfiguration",
+               "New-IVSRTParticipantToken",
                "New-IVSRTStage",
+               "New-IVSRTStorageConfiguration",
+               "Remove-IVSRTEncoderConfiguration",
                "Remove-IVSRTStage",
+               "Remove-IVSRTStorageConfiguration",
                "Disconnect-IVSRTParticipant",
+               "Get-IVSRTComposition",
+               "Get-IVSRTEncoderConfiguration",
                "Get-IVSRTParticipant",
                "Get-IVSRTStage",
                "Get-IVSRTStageSession",
+               "Get-IVSRTStorageConfiguration",
+               "Get-IVSRTCompositionList",
+               "Get-IVSRTEncoderConfigurationList",
                "Get-IVSRTParticipantEventList",
                "Get-IVSRTParticipantList",
                "Get-IVSRTStageList",
                "Get-IVSRTStageSessionList",
+               "Get-IVSRTStorageConfigurationList",
                "Get-IVSRTResourceTag",
+               "Start-IVSRTComposition",
+               "Stop-IVSRTComposition",
                "Add-IVSRTResourceTag",
                "Remove-IVSRTResourceTag",
                "Update-IVSRTStage")
@@ -35581,6 +35683,16 @@ $LM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Lambda.ApplicationLogLevel
+        {
+            ($_ -eq "Publish-LMFunction/LoggingConfig_ApplicationLogLevel") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_ApplicationLogLevel")
+        }
+        {
+            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
+            break
+        }
+
         # Amazon.Lambda.Architecture
         {
             ($_ -eq "Get-LMLayerList/CompatibleArchitecture") -Or
@@ -35653,6 +35765,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.LogFormat
+        {
+            ($_ -eq "Publish-LMFunction/LoggingConfig_LogFormat") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_LogFormat")
+        }
+        {
+            $v = "JSON","Text"
+            break
+        }
+
         # Amazon.Lambda.LogType
         {
             ($_ -eq "Invoke-LMFunction/LogType") -Or
@@ -35699,6 +35821,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.SystemLogLevel
+        {
+            ($_ -eq "Publish-LMFunction/LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_SystemLogLevel")
+        }
+        {
+            $v = "DEBUG","INFO","WARN"
+            break
+        }
+
         # Amazon.Lambda.TracingMode
         {
             ($_ -eq "Publish-LMFunction/TracingConfig_Mode") -Or
@@ -35734,6 +35866,9 @@ $LM_map = @{
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "InvokeMode"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
+    "LoggingConfig_ApplicationLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "LoggingConfig_LogFormat"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
@@ -38405,6 +38540,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.RetrievalMode
+        "Update-MAC2RevealConfiguration/RetrievalConfiguration_RetrievalMode"
+        {
+            $v = "ASSUME_ROLE","CALLER_CREDENTIALS"
+            break
+        }
+
         # Amazon.Macie2.RevealStatus
         "Update-MAC2RevealConfiguration/Configuration_Status"
         {
@@ -38449,6 +38591,7 @@ $MAC2_map = @{
     "JobStatus"=@("Update-MAC2ClassificationJob")
     "JobType"=@("New-MAC2ClassificationJob")
     "ManagedDataIdentifierSelector"=@("New-MAC2ClassificationJob")
+    "RetrievalConfiguration_RetrievalMode"=@("Update-MAC2RevealConfiguration")
     "S3_Excludes_Operation"=@("Update-MAC2ClassificationScope")
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")
@@ -47559,6 +47702,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.LanguageCode
+        "Send-SMSVDestinationNumberVerificationCode/LanguageCode"
+        {
+            $v = "DE_DE","EN_GB","EN_US","ES_419","ES_ES","FR_CA","FR_FR","IT_IT","JA_JP","KO_KR","PT_BR","ZH_CN","ZH_TW"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.MessageType
         {
             ($_ -eq "New-SMSVPhoneNumber/MessageType") -Or
@@ -47574,7 +47724,14 @@ $SMSV_Completers = {
         # Amazon.PinpointSMSVoiceV2.RequestableNumberType
         "New-SMSVPhoneNumber/NumberType"
         {
-            $v = "LONG_CODE","TEN_DLC","TOLL_FREE"
+            $v = "LONG_CODE","SIMULATOR","TEN_DLC","TOLL_FREE"
+            break
+        }
+
+        # Amazon.PinpointSMSVoiceV2.VerificationChannel
+        "Send-SMSVDestinationNumberVerificationCode/VerificationChannel"
+        {
+            $v = "TEXT","VOICE"
             break
         }
 
@@ -47602,9 +47759,11 @@ $SMSV_Completers = {
 
 $SMSV_map = @{
     "KeywordAction"=@("Set-SMSVKeyword")
+    "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberType"=@("New-SMSVPhoneNumber")
+    "VerificationChannel"=@("Send-SMSVDestinationNumberVerificationCode")
     "VoiceId"=@("Send-SMSVVoiceMessage")
 }
 
@@ -47663,6 +47822,11 @@ $SMSV_SelectMap = @{
                "New-SMSVEventDestination",
                "New-SMSVOptOutList",
                "New-SMSVPool",
+               "New-SMSVRegistration",
+               "New-SMSVRegistrationAssociation",
+               "New-SMSVRegistrationAttachment",
+               "New-SMSVRegistrationVersion",
+               "New-SMSVVerifiedDestinationNumber",
                "Remove-SMSVConfigurationSet",
                "Remove-SMSVDefaultMessageType",
                "Remove-SMSVDefaultSenderId",
@@ -47671,7 +47835,11 @@ $SMSV_SelectMap = @{
                "Remove-SMSVOptedOutNumber",
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
+               "Remove-SMSVRegistration",
+               "Remove-SMSVRegistrationAttachment",
+               "Remove-SMSVRegistrationFieldValue",
                "Remove-SMSVTextMessageSpendLimitOverride",
+               "Remove-SMSVVerifiedDestinationNumber",
                "Remove-SMSVVoiceMessageSpendLimitOverride",
                "Get-SMSVAccountAttribute",
                "Get-SMSVAccountLimit",
@@ -47681,26 +47849,43 @@ $SMSV_SelectMap = @{
                "Get-SMSVOptOutList",
                "Get-SMSVPhoneNumber",
                "Get-SMSVPool",
+               "Get-SMSVRegistrationAttachment",
+               "Get-SMSVRegistrationFieldDefinition",
+               "Get-SMSVRegistrationFieldValue",
+               "Get-SMSVRegistration",
+               "Get-SMSVRegistrationSectionDefinition",
+               "Get-SMSVRegistrationTypeDefinition",
+               "Get-SMSVRegistrationVersion",
                "Get-SMSVSenderId",
                "Get-SMSVSpendLimit",
+               "Get-SMSVVerifiedDestinationNumber",
                "Unregister-SMSVOriginationIdentity",
+               "Close-SMSVRegistrationVersion",
                "Get-SMSVPoolOriginationIdentityList",
+               "Get-SMSVRegistrationAssociationList",
                "Get-SMSVResourceTagList",
                "Set-SMSVKeyword",
                "Set-SMSVOptedOutNumber",
+               "Set-SMSVRegistrationFieldValue",
                "Remove-SMSVPhoneNumber",
+               "Remove-SMSVSenderId",
                "New-SMSVPhoneNumber",
+               "Request-SMSVSenderId",
+               "Send-SMSVDestinationNumberVerificationCode",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
+               "Submit-SMSVRegistrationVersion",
                "Add-SMSVResourceTag",
                "Remove-SMSVResourceTag",
                "Update-SMSVEventDestination",
                "Update-SMSVPhoneNumber",
-               "Update-SMSVPool")
+               "Update-SMSVPool",
+               "Update-SMSVSenderId",
+               "Confirm-SMSVDestinationNumber")
 }
 
 _awsArgumentCompleterRegistration $SMSV_SelectCompleters $SMSV_SelectMap
@@ -47936,7 +48121,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/Engine")
         }
         {
-            $v = "neural","standard"
+            $v = "long-form","neural","standard"
             break
         }
 
@@ -48891,7 +49076,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER"
             break
         }
 
@@ -49031,6 +49216,20 @@ $QS_Completers = {
         }
         {
             $v = "FIXED","RESPONSIVE"
+            break
+        }
+
+        # Amazon.QuickSight.Role
+        {
+            ($_ -eq "Get-QSRoleCustomPermission/Role") -Or
+            ($_ -eq "Get-QSRoleMembershipList/Role") -Or
+            ($_ -eq "New-QSRoleMembership/Role") -Or
+            ($_ -eq "Remove-QSRoleCustomPermission/Role") -Or
+            ($_ -eq "Remove-QSRoleMembership/Role") -Or
+            ($_ -eq "Update-QSRoleCustomPermission/Role")
+        }
+        {
+            $v = "ADMIN","AUTHOR","READER"
             break
         }
 
@@ -49177,7 +49376,7 @@ $QS_map = @{
     "IngestionType"=@("New-QSIngestion")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
-    "Role"=@("Update-QSUser")
+    "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
@@ -49256,6 +49455,7 @@ $QS_SelectMap = @{
                "New-QSIngestion",
                "New-QSNamespace",
                "New-QSRefreshSchedule",
+               "New-QSRoleMembership",
                "New-QSTemplate",
                "New-QSTemplateAlias",
                "New-QSTheme",
@@ -49277,6 +49477,8 @@ $QS_SelectMap = @{
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSNamespace",
                "Remove-QSRefreshSchedule",
+               "Remove-QSRoleCustomPermission",
+               "Remove-QSRoleMembership",
                "Remove-QSTemplate",
                "Remove-QSTemplateAlias",
                "Remove-QSTheme",
@@ -49314,6 +49516,7 @@ $QS_SelectMap = @{
                "Get-QSIpRestriction",
                "Get-QSNamespace",
                "Get-QSRefreshSchedule",
+               "Get-QSRoleCustomPermission",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplateDefinition",
@@ -49347,6 +49550,7 @@ $QS_SelectMap = @{
                "Get-QSIngestionList",
                "Get-QSNamespaceList",
                "Get-QSRefreshScheduleList",
+               "Get-QSRoleMembershipList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
@@ -49391,6 +49595,7 @@ $QS_SelectMap = @{
                "Update-QSIpRestriction",
                "Update-QSPublicSharingSetting",
                "Update-QSRefreshSchedule",
+               "Update-QSRoleCustomPermission",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",
@@ -53811,7 +54016,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
             break
         }
 
@@ -59533,7 +59738,8 @@ $SSMI_SelectCompleters = {
 }
 
 $SSMI_SelectMap = @{
-    "Select"=@("New-SSMIReplicationSet",
+    "Select"=@("Get-SSMIBatchIncidentFinding",
+               "New-SSMIReplicationSet",
                "New-SSMIResponsePlan",
                "New-SSMITimelineEvent",
                "Remove-SSMIIncidentRecord",
@@ -59546,6 +59752,7 @@ $SSMI_SelectMap = @{
                "Get-SSMIResourcePolicy",
                "Get-SSMIResponsePlan",
                "Get-SSMITimelineEvent",
+               "Get-SSMIIncidentFindingList",
                "Get-SSMIIncidentRecordList",
                "Get-SSMIRelatedItemList",
                "Get-SSMIReplicationSetList",
@@ -59749,10 +59956,64 @@ $SSOADMN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SSOAdmin.ApplicationStatus
+        {
+            ($_ -eq "New-SSOADMNApplication/Status") -Or
+            ($_ -eq "Update-SSOADMNApplication/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SSOAdmin.ApplicationVisibility
+        "New-SSOADMNApplication/PortalOptions_Visibility"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SSOAdmin.AuthenticationMethodType
+        {
+            ($_ -eq "Get-SSOADMNApplicationAuthenticationMethod/AuthenticationMethodType") -Or
+            ($_ -eq "Remove-SSOADMNApplicationAuthenticationMethod/AuthenticationMethodType") -Or
+            ($_ -eq "Write-SSOADMNApplicationAuthenticationMethod/AuthenticationMethodType")
+        }
+        {
+            $v = "IAM"
+            break
+        }
+
+        # Amazon.SSOAdmin.GrantType
+        {
+            ($_ -eq "Get-SSOADMNApplicationGrant/GrantType") -Or
+            ($_ -eq "Remove-SSOADMNApplicationGrant/GrantType") -Or
+            ($_ -eq "Write-SSOADMNApplicationGrant/GrantType")
+        }
+        {
+            $v = "authorization_code","refresh_token","urn:ietf:params:oauth:grant-type:jwt-bearer","urn:ietf:params:oauth:grant-type:token-exchange"
+            break
+        }
+
+        # Amazon.SSOAdmin.JwksRetrievalOption
+        {
+            ($_ -eq "New-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption") -Or
+            ($_ -eq "Update-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption")
+        }
+        {
+            $v = "OPEN_ID_DISCOVERY"
+            break
+        }
+
         # Amazon.SSOAdmin.PrincipalType
         {
+            ($_ -eq "Get-SSOADMNAccountAssignmentsForPrincipalList/PrincipalType") -Or
+            ($_ -eq "Get-SSOADMNApplicationAssignment/PrincipalType") -Or
+            ($_ -eq "Get-SSOADMNApplicationAssignmentsForPrincipalList/PrincipalType") -Or
             ($_ -eq "New-SSOADMNAccountAssignment/PrincipalType") -Or
-            ($_ -eq "Remove-SSOADMNAccountAssignment/PrincipalType")
+            ($_ -eq "New-SSOADMNApplicationAssignment/PrincipalType") -Or
+            ($_ -eq "Remove-SSOADMNAccountAssignment/PrincipalType") -Or
+            ($_ -eq "Remove-SSOADMNApplicationAssignment/PrincipalType")
         }
         {
             $v = "GROUP","USER"
@@ -59773,6 +60034,16 @@ $SSOADMN_Completers = {
         "Add-SSOADMNPermissionSetProvision/TargetType"
         {
             $v = "ALL_PROVISIONED_ACCOUNTS","AWS_ACCOUNT"
+            break
+        }
+
+        # Amazon.SSOAdmin.SignInOrigin
+        {
+            ($_ -eq "New-SSOADMNApplication/PortalOptions_SignInOptions_Origin") -Or
+            ($_ -eq "Update-SSOADMNApplication/PortalOptions_SignInOptions_Origin")
+        }
+        {
+            $v = "APPLICATION","IDENTITY_CENTER"
             break
         }
 
@@ -59797,6 +60068,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.TrustedTokenIssuerType
+        "New-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerType"
+        {
+            $v = "OIDC_JWT"
+            break
+        }
+
 
     }
 
@@ -59806,10 +60084,17 @@ $SSOADMN_Completers = {
 }
 
 $SSOADMN_map = @{
+    "AuthenticationMethodType"=@("Get-SSOADMNApplicationAuthenticationMethod","Remove-SSOADMNApplicationAuthenticationMethod","Write-SSOADMNApplicationAuthenticationMethod")
     "Filter_Status"=@("Get-SSOADMNAccountAssignmentCreationStatusList","Get-SSOADMNAccountAssignmentDeletionStatusList","Get-SSOADMNPermissionSetProvisioningStatusList")
-    "PrincipalType"=@("New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
+    "GrantType"=@("Get-SSOADMNApplicationGrant","Remove-SSOADMNApplicationGrant","Write-SSOADMNApplicationGrant")
+    "PortalOptions_SignInOptions_Origin"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
+    "PortalOptions_Visibility"=@("New-SSOADMNApplication")
+    "PrincipalType"=@("Get-SSOADMNAccountAssignmentsForPrincipalList","Get-SSOADMNApplicationAssignment","Get-SSOADMNApplicationAssignmentsForPrincipalList","New-SSOADMNAccountAssignment","New-SSOADMNApplicationAssignment","Remove-SSOADMNAccountAssignment","Remove-SSOADMNApplicationAssignment")
     "ProvisioningStatus"=@("Get-SSOADMNAccountsForProvisionedPermissionSetList","Get-SSOADMNPermissionSetsProvisionedToAccountList")
+    "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
+    "TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption"=@("New-SSOADMNTrustedTokenIssuer","Update-SSOADMNTrustedTokenIssuer")
+    "TrustedTokenIssuerType"=@("New-SSOADMNTrustedTokenIssuer")
 }
 
 _awsArgumentCompleterRegistration $SSOADMN_Completers $SSOADMN_map
@@ -59865,26 +60150,54 @@ $SSOADMN_SelectMap = @{
     "Select"=@("Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet",
                "Mount-SSOADMNManagedPolicyToPermissionSet",
                "New-SSOADMNAccountAssignment",
+               "New-SSOADMNApplication",
+               "New-SSOADMNApplicationAssignment",
+               "New-SSOADMNInstance",
                "New-SSOADMNInstanceAccessControlAttributeConfiguration",
                "New-SSOADMNPermissionSet",
+               "New-SSOADMNTrustedTokenIssuer",
                "Remove-SSOADMNAccountAssignment",
+               "Remove-SSOADMNApplication",
+               "Remove-SSOADMNApplicationAccessScope",
+               "Remove-SSOADMNApplicationAssignment",
+               "Remove-SSOADMNApplicationAuthenticationMethod",
+               "Remove-SSOADMNApplicationGrant",
                "Remove-SSOADMNInlinePolicyFromPermissionSet",
+               "Remove-SSOADMNInstance",
                "Remove-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Remove-SSOADMNPermissionsBoundaryFromPermissionSet",
                "Remove-SSOADMNPermissionSet",
+               "Remove-SSOADMNTrustedTokenIssuer",
                "Get-SSOADMNAccountAssignmentCreationStatus",
                "Get-SSOADMNAccountAssignmentDeletionStatus",
+               "Get-SSOADMNApplication",
+               "Get-SSOADMNApplicationAssignment",
+               "Get-SSOADMNApplicationProvider",
+               "Get-SSOADMNInstance",
                "Get-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Get-SSOADMNPermissionSet",
                "Get-SSOADMNPermissionSetProvisioningStatus",
+               "Get-SSOADMNTrustedTokenIssuer",
                "Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet",
                "Dismount-SSOADMNManagedPolicyFromPermissionSet",
+               "Get-SSOADMNApplicationAccessScope",
+               "Get-SSOADMNApplicationAssignmentConfiguration",
+               "Get-SSOADMNApplicationAuthenticationMethod",
+               "Get-SSOADMNApplicationGrant",
                "Get-SSOADMNInlinePolicyForPermissionSet",
                "Get-SSOADMNPermissionsBoundaryForPermissionSet",
                "Get-SSOADMNAccountAssignmentCreationStatusList",
                "Get-SSOADMNAccountAssignmentDeletionStatusList",
                "Get-SSOADMNAccountAssignmentList",
+               "Get-SSOADMNAccountAssignmentsForPrincipalList",
                "Get-SSOADMNAccountsForProvisionedPermissionSetList",
+               "Get-SSOADMNApplicationAccessScopeList",
+               "Get-SSOADMNApplicationAssignmentList",
+               "Get-SSOADMNApplicationAssignmentsForPrincipalList",
+               "Get-SSOADMNApplicationAuthenticationMethodList",
+               "Get-SSOADMNApplicationGrantList",
+               "Get-SSOADMNApplicationProviderList",
+               "Get-SSOADMNApplicationList",
                "Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList",
                "Get-SSOADMNInstanceList",
                "Get-SSOADMNManagedPoliciesInPermissionSetList",
@@ -59892,13 +60205,21 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNPermissionSetList",
                "Get-SSOADMNPermissionSetsProvisionedToAccountList",
                "Get-SSOADMNResourceTag",
+               "Get-SSOADMNTrustedTokenIssuerList",
                "Add-SSOADMNPermissionSetProvision",
+               "Write-SSOADMNApplicationAccessScope",
+               "Write-SSOADMNApplicationAssignmentConfiguration",
+               "Write-SSOADMNApplicationAuthenticationMethod",
+               "Write-SSOADMNApplicationGrant",
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Write-SSOADMNPermissionsBoundaryToPermissionSet",
                "Add-SSOADMNResourceTag",
                "Remove-SSOADMNResourceTag",
+               "Update-SSOADMNApplication",
+               "Update-SSOADMNInstance",
                "Update-SSOADMNInstanceAccessControlAttributeConfiguration",
-               "Update-SSOADMNPermissionSet")
+               "Update-SSOADMNPermissionSet",
+               "Update-SSOADMNTrustedTokenIssuer")
 }
 
 _awsArgumentCompleterRegistration $SSOADMN_SelectCompleters $SSOADMN_SelectMap
@@ -61588,6 +61909,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.DirectoryListingOptimization
+        {
+            ($_ -eq "New-TFRServer/S3StorageOptions_DirectoryListingOptimization") -Or
+            ($_ -eq "Update-TFRServer/S3StorageOptions_DirectoryListingOptimization")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Transfer.Domain
         "New-TFRServer/Domain"
         {
@@ -61733,6 +62064,7 @@ $TFR_map = @{
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
+    "S3StorageOptions_DirectoryListingOptimization"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("New-TFRAgreement","Send-TFRWorkflowStepState","Update-TFRAgreement")
     "Usage"=@("Import-TFRCertificate")

@@ -114,6 +114,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.DirectoryListingOptimization
+        {
+            ($_ -eq "New-TFRServer/S3StorageOptions_DirectoryListingOptimization") -Or
+            ($_ -eq "Update-TFRServer/S3StorageOptions_DirectoryListingOptimization")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Transfer.Domain
         "New-TFRServer/Domain"
         {
@@ -259,6 +269,7 @@ $TFR_map = @{
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
+    "S3StorageOptions_DirectoryListingOptimization"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("New-TFRAgreement","Send-TFRWorkflowStepState","Update-TFRAgreement")
     "Usage"=@("Import-TFRCertificate")

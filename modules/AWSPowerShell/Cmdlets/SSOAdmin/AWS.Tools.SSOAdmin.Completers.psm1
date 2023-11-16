@@ -80,10 +80,64 @@ $SSOADMN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SSOAdmin.ApplicationStatus
+        {
+            ($_ -eq "New-SSOADMNApplication/Status") -Or
+            ($_ -eq "Update-SSOADMNApplication/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SSOAdmin.ApplicationVisibility
+        "New-SSOADMNApplication/PortalOptions_Visibility"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SSOAdmin.AuthenticationMethodType
+        {
+            ($_ -eq "Get-SSOADMNApplicationAuthenticationMethod/AuthenticationMethodType") -Or
+            ($_ -eq "Remove-SSOADMNApplicationAuthenticationMethod/AuthenticationMethodType") -Or
+            ($_ -eq "Write-SSOADMNApplicationAuthenticationMethod/AuthenticationMethodType")
+        }
+        {
+            $v = "IAM"
+            break
+        }
+
+        # Amazon.SSOAdmin.GrantType
+        {
+            ($_ -eq "Get-SSOADMNApplicationGrant/GrantType") -Or
+            ($_ -eq "Remove-SSOADMNApplicationGrant/GrantType") -Or
+            ($_ -eq "Write-SSOADMNApplicationGrant/GrantType")
+        }
+        {
+            $v = "authorization_code","refresh_token","urn:ietf:params:oauth:grant-type:jwt-bearer","urn:ietf:params:oauth:grant-type:token-exchange"
+            break
+        }
+
+        # Amazon.SSOAdmin.JwksRetrievalOption
+        {
+            ($_ -eq "New-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption") -Or
+            ($_ -eq "Update-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption")
+        }
+        {
+            $v = "OPEN_ID_DISCOVERY"
+            break
+        }
+
         # Amazon.SSOAdmin.PrincipalType
         {
+            ($_ -eq "Get-SSOADMNAccountAssignmentsForPrincipalList/PrincipalType") -Or
+            ($_ -eq "Get-SSOADMNApplicationAssignment/PrincipalType") -Or
+            ($_ -eq "Get-SSOADMNApplicationAssignmentsForPrincipalList/PrincipalType") -Or
             ($_ -eq "New-SSOADMNAccountAssignment/PrincipalType") -Or
-            ($_ -eq "Remove-SSOADMNAccountAssignment/PrincipalType")
+            ($_ -eq "New-SSOADMNApplicationAssignment/PrincipalType") -Or
+            ($_ -eq "Remove-SSOADMNAccountAssignment/PrincipalType") -Or
+            ($_ -eq "Remove-SSOADMNApplicationAssignment/PrincipalType")
         }
         {
             $v = "GROUP","USER"
@@ -104,6 +158,16 @@ $SSOADMN_Completers = {
         "Add-SSOADMNPermissionSetProvision/TargetType"
         {
             $v = "ALL_PROVISIONED_ACCOUNTS","AWS_ACCOUNT"
+            break
+        }
+
+        # Amazon.SSOAdmin.SignInOrigin
+        {
+            ($_ -eq "New-SSOADMNApplication/PortalOptions_SignInOptions_Origin") -Or
+            ($_ -eq "Update-SSOADMNApplication/PortalOptions_SignInOptions_Origin")
+        }
+        {
+            $v = "APPLICATION","IDENTITY_CENTER"
             break
         }
 
@@ -128,6 +192,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.TrustedTokenIssuerType
+        "New-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerType"
+        {
+            $v = "OIDC_JWT"
+            break
+        }
+
 
     }
 
@@ -137,10 +208,17 @@ $SSOADMN_Completers = {
 }
 
 $SSOADMN_map = @{
+    "AuthenticationMethodType"=@("Get-SSOADMNApplicationAuthenticationMethod","Remove-SSOADMNApplicationAuthenticationMethod","Write-SSOADMNApplicationAuthenticationMethod")
     "Filter_Status"=@("Get-SSOADMNAccountAssignmentCreationStatusList","Get-SSOADMNAccountAssignmentDeletionStatusList","Get-SSOADMNPermissionSetProvisioningStatusList")
-    "PrincipalType"=@("New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
+    "GrantType"=@("Get-SSOADMNApplicationGrant","Remove-SSOADMNApplicationGrant","Write-SSOADMNApplicationGrant")
+    "PortalOptions_SignInOptions_Origin"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
+    "PortalOptions_Visibility"=@("New-SSOADMNApplication")
+    "PrincipalType"=@("Get-SSOADMNAccountAssignmentsForPrincipalList","Get-SSOADMNApplicationAssignment","Get-SSOADMNApplicationAssignmentsForPrincipalList","New-SSOADMNAccountAssignment","New-SSOADMNApplicationAssignment","Remove-SSOADMNAccountAssignment","Remove-SSOADMNApplicationAssignment")
     "ProvisioningStatus"=@("Get-SSOADMNAccountsForProvisionedPermissionSetList","Get-SSOADMNPermissionSetsProvisionedToAccountList")
+    "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
+    "TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption"=@("New-SSOADMNTrustedTokenIssuer","Update-SSOADMNTrustedTokenIssuer")
+    "TrustedTokenIssuerType"=@("New-SSOADMNTrustedTokenIssuer")
 }
 
 _awsArgumentCompleterRegistration $SSOADMN_Completers $SSOADMN_map
@@ -196,26 +274,54 @@ $SSOADMN_SelectMap = @{
     "Select"=@("Mount-SSOADMNCustomerManagedPolicyReferenceToPermissionSet",
                "Mount-SSOADMNManagedPolicyToPermissionSet",
                "New-SSOADMNAccountAssignment",
+               "New-SSOADMNApplication",
+               "New-SSOADMNApplicationAssignment",
+               "New-SSOADMNInstance",
                "New-SSOADMNInstanceAccessControlAttributeConfiguration",
                "New-SSOADMNPermissionSet",
+               "New-SSOADMNTrustedTokenIssuer",
                "Remove-SSOADMNAccountAssignment",
+               "Remove-SSOADMNApplication",
+               "Remove-SSOADMNApplicationAccessScope",
+               "Remove-SSOADMNApplicationAssignment",
+               "Remove-SSOADMNApplicationAuthenticationMethod",
+               "Remove-SSOADMNApplicationGrant",
                "Remove-SSOADMNInlinePolicyFromPermissionSet",
+               "Remove-SSOADMNInstance",
                "Remove-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Remove-SSOADMNPermissionsBoundaryFromPermissionSet",
                "Remove-SSOADMNPermissionSet",
+               "Remove-SSOADMNTrustedTokenIssuer",
                "Get-SSOADMNAccountAssignmentCreationStatus",
                "Get-SSOADMNAccountAssignmentDeletionStatus",
+               "Get-SSOADMNApplication",
+               "Get-SSOADMNApplicationAssignment",
+               "Get-SSOADMNApplicationProvider",
+               "Get-SSOADMNInstance",
                "Get-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Get-SSOADMNPermissionSet",
                "Get-SSOADMNPermissionSetProvisioningStatus",
+               "Get-SSOADMNTrustedTokenIssuer",
                "Dismount-SSOADMNCustomerManagedPolicyReferenceFromPermissionSet",
                "Dismount-SSOADMNManagedPolicyFromPermissionSet",
+               "Get-SSOADMNApplicationAccessScope",
+               "Get-SSOADMNApplicationAssignmentConfiguration",
+               "Get-SSOADMNApplicationAuthenticationMethod",
+               "Get-SSOADMNApplicationGrant",
                "Get-SSOADMNInlinePolicyForPermissionSet",
                "Get-SSOADMNPermissionsBoundaryForPermissionSet",
                "Get-SSOADMNAccountAssignmentCreationStatusList",
                "Get-SSOADMNAccountAssignmentDeletionStatusList",
                "Get-SSOADMNAccountAssignmentList",
+               "Get-SSOADMNAccountAssignmentsForPrincipalList",
                "Get-SSOADMNAccountsForProvisionedPermissionSetList",
+               "Get-SSOADMNApplicationAccessScopeList",
+               "Get-SSOADMNApplicationAssignmentList",
+               "Get-SSOADMNApplicationAssignmentsForPrincipalList",
+               "Get-SSOADMNApplicationAuthenticationMethodList",
+               "Get-SSOADMNApplicationGrantList",
+               "Get-SSOADMNApplicationProviderList",
+               "Get-SSOADMNApplicationList",
                "Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList",
                "Get-SSOADMNInstanceList",
                "Get-SSOADMNManagedPoliciesInPermissionSetList",
@@ -223,13 +329,21 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNPermissionSetList",
                "Get-SSOADMNPermissionSetsProvisionedToAccountList",
                "Get-SSOADMNResourceTag",
+               "Get-SSOADMNTrustedTokenIssuerList",
                "Add-SSOADMNPermissionSetProvision",
+               "Write-SSOADMNApplicationAccessScope",
+               "Write-SSOADMNApplicationAssignmentConfiguration",
+               "Write-SSOADMNApplicationAuthenticationMethod",
+               "Write-SSOADMNApplicationGrant",
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Write-SSOADMNPermissionsBoundaryToPermissionSet",
                "Add-SSOADMNResourceTag",
                "Remove-SSOADMNResourceTag",
+               "Update-SSOADMNApplication",
+               "Update-SSOADMNInstance",
                "Update-SSOADMNInstanceAccessControlAttributeConfiguration",
-               "Update-SSOADMNPermissionSet")
+               "Update-SSOADMNPermissionSet",
+               "Update-SSOADMNTrustedTokenIssuer")
 }
 
 _awsArgumentCompleterRegistration $SSOADMN_SelectCompleters $SSOADMN_SelectMap

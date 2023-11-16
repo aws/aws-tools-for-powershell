@@ -346,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ValidationStrategy_Mode
         /// <summary>
         /// <para>
-        /// <para>The mode of validation for the asset to be creaed or updated. When you set this value
+        /// <para>The mode of validation for the asset to be created or updated. When you set this value
         /// to <code>STRICT</code>, strict validation for every error is enforced. When you set
         /// this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</para>
         /// </para>
@@ -430,6 +430,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Definition_ParameterDeclarations")]
         public Amazon.QuickSight.Model.ParameterDeclaration[] Definition_ParameterDeclaration { get; set; }
+        #endregion
+        
+        #region Parameter LinkSharingConfiguration_Permission
+        /// <summary>
+        /// <para>
+        /// <para>A structure that contains the permissions of a shareable link.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LinkSharingConfiguration_Permissions")]
+        public Amazon.QuickSight.Model.ResourcePermission[] LinkSharingConfiguration_Permission { get; set; }
         #endregion
         
         #region Parameter Permission
@@ -711,6 +722,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.FolderArn != null)
             {
                 context.FolderArn = new List<System.String>(this.FolderArn);
+            }
+            if (this.LinkSharingConfiguration_Permission != null)
+            {
+                context.LinkSharingConfiguration_Permission = new List<Amazon.QuickSight.Model.ResourcePermission>(this.LinkSharingConfiguration_Permission);
             }
             context.Name = this.Name;
             #if MODULAR
@@ -1494,6 +1509,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.FolderArns = cmdletContext.FolderArn;
             }
+            
+             // populate LinkSharingConfiguration
+            var requestLinkSharingConfigurationIsNull = true;
+            request.LinkSharingConfiguration = new Amazon.QuickSight.Model.LinkSharingConfiguration();
+            List<Amazon.QuickSight.Model.ResourcePermission> requestLinkSharingConfiguration_linkSharingConfiguration_Permission = null;
+            if (cmdletContext.LinkSharingConfiguration_Permission != null)
+            {
+                requestLinkSharingConfiguration_linkSharingConfiguration_Permission = cmdletContext.LinkSharingConfiguration_Permission;
+            }
+            if (requestLinkSharingConfiguration_linkSharingConfiguration_Permission != null)
+            {
+                request.LinkSharingConfiguration.Permissions = requestLinkSharingConfiguration_linkSharingConfiguration_Permission;
+                requestLinkSharingConfigurationIsNull = false;
+            }
+             // determine if request.LinkSharingConfiguration should be set to null
+            if (requestLinkSharingConfigurationIsNull)
+            {
+                request.LinkSharingConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -1719,6 +1753,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public List<System.String> FolderArn { get; set; }
+            public List<Amazon.QuickSight.Model.ResourcePermission> LinkSharingConfiguration_Permission { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.DateTimeParameter> Parameters_DateTimeParameter { get; set; }
             public List<Amazon.QuickSight.Model.DecimalParameter> Parameters_DecimalParameter { get; set; }

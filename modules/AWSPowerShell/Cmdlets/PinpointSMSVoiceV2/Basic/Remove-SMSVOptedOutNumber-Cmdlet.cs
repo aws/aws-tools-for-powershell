@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// Each destination phone number can only be deleted once every 30 days.
     /// </para><para>
     /// If the specified destination phone number doesn't exist or if the opt-out list doesn't
-    /// exist, an Error is returned.
+    /// exist, an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMSVOptedOutNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

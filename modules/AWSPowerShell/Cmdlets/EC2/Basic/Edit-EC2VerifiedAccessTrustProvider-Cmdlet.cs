@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SseSpecification_KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter DeviceOptions_PublicSigningKeyUrl
+        /// <summary>
+        /// <para>
+        /// <para> The URL Amazon Web Services Verified Access will use to verify the authenticity of
+        /// the device tokens. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeviceOptions_PublicSigningKeyUrl { get; set; }
+        #endregion
+        
         #region Parameter OidcOptions_Scope
         /// <summary>
         /// <para>
@@ -242,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.DeviceOptions_PublicSigningKeyUrl = this.DeviceOptions_PublicSigningKeyUrl;
             context.OidcOptions_AuthorizationEndpoint = this.OidcOptions_AuthorizationEndpoint;
             context.OidcOptions_ClientId = this.OidcOptions_ClientId;
             context.OidcOptions_ClientSecret = this.OidcOptions_ClientSecret;
@@ -281,6 +293,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DeviceOptions
+            var requestDeviceOptionsIsNull = true;
+            request.DeviceOptions = new Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderDeviceOptions();
+            System.String requestDeviceOptions_deviceOptions_PublicSigningKeyUrl = null;
+            if (cmdletContext.DeviceOptions_PublicSigningKeyUrl != null)
+            {
+                requestDeviceOptions_deviceOptions_PublicSigningKeyUrl = cmdletContext.DeviceOptions_PublicSigningKeyUrl;
+            }
+            if (requestDeviceOptions_deviceOptions_PublicSigningKeyUrl != null)
+            {
+                request.DeviceOptions.PublicSigningKeyUrl = requestDeviceOptions_deviceOptions_PublicSigningKeyUrl;
+                requestDeviceOptionsIsNull = false;
+            }
+             // determine if request.DeviceOptions should be set to null
+            if (requestDeviceOptionsIsNull)
+            {
+                request.DeviceOptions = null;
             }
             
              // populate OidcOptions
@@ -457,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String DeviceOptions_PublicSigningKeyUrl { get; set; }
             public System.String OidcOptions_AuthorizationEndpoint { get; set; }
             public System.String OidcOptions_ClientId { get; set; }
             public System.String OidcOptions_ClientSecret { get; set; }

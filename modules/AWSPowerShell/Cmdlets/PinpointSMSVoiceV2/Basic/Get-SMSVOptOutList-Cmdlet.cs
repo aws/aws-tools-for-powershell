@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// you don't specify opt-out list names or filters, the output includes information for
     /// all opt-out lists.
     /// </para><para>
-    /// If you specify an opt-out list name that isn't valid, an Error is returned.
+    /// If you specify an opt-out list name that isn't valid, an error is returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVOptOutList")]

@@ -39,6 +39,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistration" OutputProperty="*" Verb="New" Noun="Registration" ShouldProcessTarget="RegistrationType" PipelineParameter="RegistrationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistrationAssociation" OutputProperty="*" Verb="New" Noun="RegistrationAssociation" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistrationAttachment" OutputProperty="*" Verb="New" Noun="RegistrationAttachment" ShouldProcessTarget="AttachmentBody" PipelineParameter="AttachmentBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistrationVersion" OutputProperty="*" Verb="New" Noun="RegistrationVersion" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVerifiedDestinationNumber" OutputProperty="*" Verb="New" Noun="VerifiedDestinationNumber" ShouldProcessTarget="DestinationPhoneNumber" PipelineParameter="DestinationPhoneNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConfigurationSet" OutputProperty="*" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,7 +91,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistration" OutputProperty="*" Verb="Remove" Noun="Registration" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistrationAttachment" OutputProperty="*" Verb="Remove" Noun="RegistrationAttachment" ShouldProcessTarget="RegistrationAttachmentId" PipelineParameter="RegistrationAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistrationFieldValue" OutputProperty="*" Verb="Remove" Noun="RegistrationFieldValue" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTextMessageSpendLimitOverride" OutputProperty="*" Verb="Remove" Noun="TextMessageSpendLimitOverride" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVerifiedDestinationNumber" OutputProperty="*" Verb="Remove" Noun="VerifiedDestinationNumber" ShouldProcessTarget="VerifiedDestinationNumberId" PipelineParameter="VerifiedDestinationNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,6 +147,34 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrationAttachments" OutputProperty="*" Verb="Get" Noun="RegistrationAttachment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrationFieldDefinitions" OutputProperty="*" Verb="Get" Noun="RegistrationFieldDefinition" PipelineParameter="RegistrationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrationFieldValues" OutputProperty="*" Verb="Get" Noun="RegistrationFieldValue" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrations" OutputProperty="*" Verb="Get" Noun="Registration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrationSectionDefinitions" OutputProperty="*" Verb="Get" Noun="RegistrationSectionDefinition" PipelineParameter="RegistrationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrationTypeDefinitions" OutputProperty="*" Verb="Get" Noun="RegistrationTypeDefinition" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistrationVersions" OutputProperty="*" Verb="Get" Noun="RegistrationVersion" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSenderIds" OutputProperty="*" Verb="Get" Noun="SenderId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -119,11 +183,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVerifiedDestinationNumbers" OutputProperty="*" Verb="Get" Noun="VerifiedDestinationNumber" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateOriginationIdentity" OutputProperty="*" Verb="Unregister" Noun="OriginationIdentity" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DiscardRegistrationVersion" OutputProperty="*" Verb="Close" Noun="RegistrationVersion" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPoolOriginationIdentities" OutputProperty="*" Verb="Get" Noun="PoolOriginationIdentityList" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistrationAssociations" OutputProperty="*" Verb="Get" Noun="RegistrationAssociationList" PipelineParameter="RegistrationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,11 +215,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutRegistrationFieldValue" OutputProperty="*" Verb="Set" Noun="RegistrationFieldValue" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ReleasePhoneNumber" OutputProperty="*" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseSenderId" OutputProperty="*" Verb="Remove" Noun="SenderId" ShouldProcessTarget="SenderId" PipelineParameter="SenderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RequestPhoneNumber" OutputProperty="*" Verb="New" Noun="PhoneNumber" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestSenderId" OutputProperty="*" Verb="Request" Noun="SenderId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDestinationNumberVerificationCode" OutputProperty="*" Verb="Send" Noun="DestinationNumberVerificationCode" ShouldProcessTarget="VerifiedDestinationNumberId" PipelineParameter="VerifiedDestinationNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -171,6 +263,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SubmitRegistrationVersion" OutputProperty="*" Verb="Submit" Noun="RegistrationVersion" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -188,6 +284,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePool" OutputProperty="*" Verb="Update" Noun="Pool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSenderId" OutputProperty="*" Verb="Update" Noun="SenderId" ShouldProcessTarget="SenderId" PipelineParameter="SenderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyDestinationNumber" OutputProperty="*" Verb="Confirm" Noun="DestinationNumber" ShouldProcessTarget="VerifiedDestinationNumberId" PipelineParameter="VerifiedDestinationNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

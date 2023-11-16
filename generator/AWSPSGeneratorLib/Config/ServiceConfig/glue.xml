@@ -69,7 +69,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -335,6 +335,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetColumnStatisticsTaskRun" OutputProperty="ColumnStatisticsTaskRun" Verb="Get" Noun="ColumnStatisticsTaskRun" PipelineParameter="ColumnStatisticsTaskRunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetColumnStatisticsTaskRuns" OutputProperty="ColumnStatisticsTaskRuns" Verb="Get" Noun="ColumnStatisticsTaskList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConnection" OutputProperty="Connection" Verb="Get" Noun="Connection" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -575,6 +583,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListColumnStatisticsTaskRuns" OutputProperty="ColumnStatisticsTaskRunIds" Verb="Get" Noun="ColumnStatisticsTaskRunList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -695,6 +707,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartColumnStatisticsTaskRun" OutputProperty="ColumnStatisticsTaskRunId" Verb="Start" Noun="ColumnStatisticsTaskRun" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartCrawler" Verb="Start" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -736,6 +752,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartWorkflowRun" OutputProperty="RunId" Verb="Start" Noun="WorkflowRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopColumnStatisticsTaskRun" Verb="Stop" Noun="ColumnStatisticsTaskRun" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

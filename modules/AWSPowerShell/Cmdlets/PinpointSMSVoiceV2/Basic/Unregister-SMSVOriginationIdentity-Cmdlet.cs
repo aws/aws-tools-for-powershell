@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// 
     ///  
     /// <para>
-    /// If the origination identity isn't associated with the specified pool, an Error is
+    /// If the origination identity isn't associated with the specified pool, an error is
     /// returned.
     /// </para>
     /// </summary>

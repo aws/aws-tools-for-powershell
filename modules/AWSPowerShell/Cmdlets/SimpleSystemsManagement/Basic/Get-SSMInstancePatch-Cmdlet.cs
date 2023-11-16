@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <code>DescribeInstancePatches</code>include the following:</para><ul><li><para><b><code>Classification</code></b></para><para>Sample values: <code>Security</code> | <code>SecurityUpdates</code></para></li><li><para><b><code>KBId</code></b></para><para>Sample values: <code>KB4480056</code> | <code>java-1.7.0-openjdk.x86_64</code></para></li><li><para><b><code>Severity</code></b></para><para>Sample values: <code>Important</code> | <code>Medium</code> | <code>Low</code></para></li><li><para><b><code>State</code></b></para><para>Sample values: <code>Installed</code> | <code>InstalledOther</code> | <code>InstalledPendingReboot</code></para></li></ul>
+        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <code>DescribeInstancePatches</code>include the following:</para><ul><li><para><b><code>Classification</code></b></para><para>Sample values: <code>Security</code> | <code>SecurityUpdates</code></para></li><li><para><b><code>KBId</code></b></para><para>Sample values: <code>KB4480056</code> | <code>java-1.7.0-openjdk.x86_64</code></para></li><li><para><b><code>Severity</code></b></para><para>Sample values: <code>Important</code> | <code>Medium</code> | <code>Low</code></para></li><li><para><b><code>State</code></b></para><para>Sample values: <code>Installed</code> | <code>InstalledOther</code> | <code>InstalledPendingReboot</code></para><para>For lists of all <code>State</code> values, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html">Understanding
+        /// patch compliance state values</a> in the <i>Amazon Web Services Systems Manager User
+        /// Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

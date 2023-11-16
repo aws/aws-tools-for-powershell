@@ -177,7 +177,8 @@ $SSMI_SelectCompleters = {
 }
 
 $SSMI_SelectMap = @{
-    "Select"=@("New-SSMIReplicationSet",
+    "Select"=@("Get-SSMIBatchIncidentFinding",
+               "New-SSMIReplicationSet",
                "New-SSMIResponsePlan",
                "New-SSMITimelineEvent",
                "Remove-SSMIIncidentRecord",
@@ -190,6 +191,7 @@ $SSMI_SelectMap = @{
                "Get-SSMIResourcePolicy",
                "Get-SSMIResponsePlan",
                "Get-SSMITimelineEvent",
+               "Get-SSMIIncidentFindingList",
                "Get-SSMIIncidentRecordList",
                "Get-SSMIRelatedItemList",
                "Get-SSMIReplicationSetList",

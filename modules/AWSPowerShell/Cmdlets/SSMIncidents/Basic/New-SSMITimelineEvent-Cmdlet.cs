@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventTime
         /// <summary>
         /// <para>
-        /// <para>The time that the event occurred.</para>
+        /// <para>The timestamp for when the event occurred.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventType
         /// <summary>
         /// <para>
-        /// <para>The type of event. You can create timeline events of type <code>Custom Event</code>.</para>
+        /// <para>The type of event. You can create timeline events of type <code>Custom Event</code>
+        /// and <code>Note</code>.</para><para>To make a Note-type event appear on the <i>Incident notes</i> panel in the console,
+        /// specify <code>eventType</code> as <code>Note</code>and enter the Amazon Resource Name
+        /// (ARN) of the incident as the value for <code>eventReference</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

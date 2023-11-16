@@ -283,7 +283,7 @@ $EC2_Completers = {
         # Amazon.EC2.DeviceTrustProviderType
         "New-EC2VerifiedAccessTrustProvider/DeviceTrustProviderType"
         {
-            $v = "crowdstrike","jamf"
+            $v = "crowdstrike","jamf","jumpcloud"
             break
         }
 

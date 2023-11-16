@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token to continue to the next page of results.</para>
+        /// <para>The pagination token for the next set of items to return. (You received this token
+        /// from a previous call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

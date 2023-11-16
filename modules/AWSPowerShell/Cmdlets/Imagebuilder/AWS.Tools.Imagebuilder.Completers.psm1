@@ -108,6 +108,33 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.LifecyclePolicyResourceType
+        {
+            ($_ -eq "New-EC2IBLifecyclePolicy/ResourceType") -Or
+            ($_ -eq "Update-EC2IBLifecyclePolicy/ResourceType")
+        }
+        {
+            $v = "AMI_IMAGE","CONTAINER_IMAGE"
+            break
+        }
+
+        # Amazon.Imagebuilder.LifecyclePolicyStatus
+        {
+            ($_ -eq "New-EC2IBLifecyclePolicy/Status") -Or
+            ($_ -eq "Update-EC2IBLifecyclePolicy/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Imagebuilder.LifecyclePolicyTimeUnit
+        "Start-EC2IBResourceStateUpdate/ExclusionRules_Amis_LastLaunched_Unit"
+        {
+            $v = "DAYS","MONTHS","WEEKS","YEARS"
+            break
+        }
+
         # Amazon.Imagebuilder.Ownership
         {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
@@ -152,6 +179,13 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.ResourceStatus
+        "Start-EC2IBResourceStateUpdate/State_Status"
+        {
+            $v = "AVAILABLE","DELETED","DEPRECATED","DISABLED"
+            break
+        }
+
 
     }
 
@@ -162,12 +196,15 @@ $EC2IB_Completers = {
 
 $EC2IB_map = @{
     "ContainerType"=@("New-EC2IBContainerRecipe")
+    "ExclusionRules_Amis_LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Format"=@("Import-EC2IBComponent")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
+    "ResourceType"=@("New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")
     "Schedule_PipelineExecutionStartCondition"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
-    "Status"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
+    "State_Status"=@("Start-EC2IBResourceStateUpdate")
+    "Status"=@("New-EC2IBImagePipeline","New-EC2IBLifecyclePolicy","Update-EC2IBImagePipeline","Update-EC2IBLifecyclePolicy")
     "TargetRepository_Service"=@("New-EC2IBContainerRecipe")
     "Type"=@("Import-EC2IBComponent")
 }
@@ -223,6 +260,7 @@ $EC2IB_SelectCompleters = {
 
 $EC2IB_SelectMap = @{
     "Select"=@("Stop-EC2IBImageCreation",
+               "Stop-EC2IBLifecycleExecution",
                "New-EC2IBComponent",
                "New-EC2IBContainerRecipe",
                "New-EC2IBDistributionConfiguration",
@@ -230,6 +268,7 @@ $EC2IB_SelectMap = @{
                "New-EC2IBImagePipeline",
                "New-EC2IBImageRecipe",
                "New-EC2IBInfrastructureConfiguration",
+               "New-EC2IBLifecyclePolicy",
                "Remove-EC2IBComponent",
                "Remove-EC2IBContainerRecipe",
                "Remove-EC2IBDistributionConfiguration",
@@ -237,6 +276,7 @@ $EC2IB_SelectMap = @{
                "Remove-EC2IBImagePipeline",
                "Remove-EC2IBImageRecipe",
                "Remove-EC2IBInfrastructureConfiguration",
+               "Remove-EC2IBLifecyclePolicy",
                "Get-EC2IBComponent",
                "Get-EC2IBComponentPolicy",
                "Get-EC2IBContainerRecipe",
@@ -248,6 +288,8 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImageRecipe",
                "Get-EC2IBImageRecipePolicy",
                "Get-EC2IBInfrastructureConfiguration",
+               "Get-EC2IBLifecycleExecution",
+               "Get-EC2IBLifecyclePolicy",
                "Get-EC2IBWorkflowExecution",
                "Get-EC2IBWorkflowStepExecution",
                "Import-EC2IBComponent",
@@ -265,6 +307,9 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImageScanFindingAggregationList",
                "Get-EC2IBImageScanFindingList",
                "Get-EC2IBInfrastructureConfigurationList",
+               "Get-EC2IBLifecycleExecutionResourceList",
+               "Get-EC2IBLifecycleExecutionList",
+               "Get-EC2IBLifecyclePolicyList",
                "Get-EC2IBResourceTag",
                "Get-EC2IBWorkflowExecutionList",
                "Get-EC2IBWorkflowStepExecutionList",
@@ -273,11 +318,13 @@ $EC2IB_SelectMap = @{
                "Write-EC2IBImagePolicy",
                "Write-EC2IBImageRecipePolicy",
                "Start-EC2IBImagePipelineExecution",
+               "Start-EC2IBResourceStateUpdate",
                "Add-EC2IBResourceTag",
                "Remove-EC2IBResourceTag",
                "Update-EC2IBDistributionConfiguration",
                "Update-EC2IBImagePipeline",
-               "Update-EC2IBInfrastructureConfiguration")
+               "Update-EC2IBInfrastructureConfiguration",
+               "Update-EC2IBLifecyclePolicy")
 }
 
 _awsArgumentCompleterRegistration $EC2IB_SelectCompleters $EC2IB_SelectMap

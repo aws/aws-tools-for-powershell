@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     ///  
     /// <para>
     /// If the destination phone number isn't valid or if the specified opt-out list doesn't
-    /// exist, an Error is returned.
+    /// exist, an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "SMSVOptedOutNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

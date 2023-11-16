@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// 
     ///  
     /// <para>
-    /// If the pool status isn't active or if deletion protection is enabled, an Error is
+    /// If the pool status isn't active or if deletion protection is enabled, an error is
     /// returned.
     /// </para><para>
     /// A pool is a collection of phone numbers and SenderIds. A pool can include one or more

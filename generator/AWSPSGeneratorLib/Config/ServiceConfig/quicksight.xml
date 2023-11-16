@@ -88,6 +88,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoleMembership" OutputProperty="*" Verb="New" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
@@ -172,6 +176,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="RefreshSchedule" ShouldProcessTarget="ScheduleId" PipelineParameter="ScheduleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoleCustomPermission" OutputProperty="*" Verb="Remove" Noun="RoleCustomPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoleMembership" OutputProperty="*" Verb="Remove" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -323,6 +335,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRoleCustomPermission" OutputProperty="CustomPermissionsName" Verb="Get" Noun="RoleCustomPermission" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -457,6 +473,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRefreshSchedules" OutputProperty="RefreshSchedules" Verb="Get" Noun="RefreshScheduleList" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoleMemberships" OutputProperty="MembersList" Verb="Get" Noun="RoleMembershipList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -642,6 +662,10 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoleCustomPermission" OutputProperty="*" Verb="Update" Noun="RoleCustomPermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

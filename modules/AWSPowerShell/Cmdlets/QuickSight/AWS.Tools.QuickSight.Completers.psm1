@@ -163,7 +163,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER"
             break
         }
 
@@ -303,6 +303,20 @@ $QS_Completers = {
         }
         {
             $v = "FIXED","RESPONSIVE"
+            break
+        }
+
+        # Amazon.QuickSight.Role
+        {
+            ($_ -eq "Get-QSRoleCustomPermission/Role") -Or
+            ($_ -eq "Get-QSRoleMembershipList/Role") -Or
+            ($_ -eq "New-QSRoleMembership/Role") -Or
+            ($_ -eq "Remove-QSRoleCustomPermission/Role") -Or
+            ($_ -eq "Remove-QSRoleMembership/Role") -Or
+            ($_ -eq "Update-QSRoleCustomPermission/Role")
+        }
+        {
+            $v = "ADMIN","AUTHOR","READER"
             break
         }
 
@@ -449,7 +463,7 @@ $QS_map = @{
     "IngestionType"=@("New-QSIngestion")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
-    "Role"=@("Update-QSUser")
+    "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
@@ -528,6 +542,7 @@ $QS_SelectMap = @{
                "New-QSIngestion",
                "New-QSNamespace",
                "New-QSRefreshSchedule",
+               "New-QSRoleMembership",
                "New-QSTemplate",
                "New-QSTemplateAlias",
                "New-QSTheme",
@@ -549,6 +564,8 @@ $QS_SelectMap = @{
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSNamespace",
                "Remove-QSRefreshSchedule",
+               "Remove-QSRoleCustomPermission",
+               "Remove-QSRoleMembership",
                "Remove-QSTemplate",
                "Remove-QSTemplateAlias",
                "Remove-QSTheme",
@@ -586,6 +603,7 @@ $QS_SelectMap = @{
                "Get-QSIpRestriction",
                "Get-QSNamespace",
                "Get-QSRefreshSchedule",
+               "Get-QSRoleCustomPermission",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplateDefinition",
@@ -619,6 +637,7 @@ $QS_SelectMap = @{
                "Get-QSIngestionList",
                "Get-QSNamespaceList",
                "Get-QSRefreshScheduleList",
+               "Get-QSRoleMembershipList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
@@ -663,6 +682,7 @@ $QS_SelectMap = @{
                "Update-QSIpRestriction",
                "Update-QSPublicSharingSetting",
                "Update-QSRefreshSchedule",
+               "Update-QSRoleCustomPermission",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",

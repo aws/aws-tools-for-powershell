@@ -100,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String IdentityProviderDetails_DirectoryId { get; set; }
         #endregion
         
+        #region Parameter S3StorageOptions_DirectoryListingOptimization
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not performance for your Amazon S3 directories is optimized.
+        /// This is disabled by default.</para><para>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>.
+        /// If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code><code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.DirectoryListingOptimization")]
+        public Amazon.Transfer.DirectoryListingOptimization S3StorageOptions_DirectoryListingOptimization { get; set; }
+        #endregion
+        
         #region Parameter EndpointType
         /// <summary>
         /// <para>
@@ -534,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 context.Protocol = new List<System.String>(this.Protocol);
             }
+            context.S3StorageOptions_DirectoryListingOptimization = this.S3StorageOptions_DirectoryListingOptimization;
             context.SecurityPolicyName = this.SecurityPolicyName;
             context.ServerId = this.ServerId;
             #if MODULAR
@@ -765,6 +779,25 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.Protocols = cmdletContext.Protocol;
             }
+            
+             // populate S3StorageOptions
+            var requestS3StorageOptionsIsNull = true;
+            request.S3StorageOptions = new Amazon.Transfer.Model.S3StorageOptions();
+            Amazon.Transfer.DirectoryListingOptimization requestS3StorageOptions_s3StorageOptions_DirectoryListingOptimization = null;
+            if (cmdletContext.S3StorageOptions_DirectoryListingOptimization != null)
+            {
+                requestS3StorageOptions_s3StorageOptions_DirectoryListingOptimization = cmdletContext.S3StorageOptions_DirectoryListingOptimization;
+            }
+            if (requestS3StorageOptions_s3StorageOptions_DirectoryListingOptimization != null)
+            {
+                request.S3StorageOptions.DirectoryListingOptimization = requestS3StorageOptions_s3StorageOptions_DirectoryListingOptimization;
+                requestS3StorageOptionsIsNull = false;
+            }
+             // determine if request.S3StorageOptions should be set to null
+            if (requestS3StorageOptionsIsNull)
+            {
+                request.S3StorageOptions = null;
+            }
             if (cmdletContext.SecurityPolicyName != null)
             {
                 request.SecurityPolicyName = cmdletContext.SecurityPolicyName;
@@ -888,6 +921,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.SetStatOption ProtocolDetails_SetStatOption { get; set; }
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }
+            public Amazon.Transfer.DirectoryListingOptimization S3StorageOptions_DirectoryListingOptimization { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }
             public List<System.String> StructuredLogDestination { get; set; }

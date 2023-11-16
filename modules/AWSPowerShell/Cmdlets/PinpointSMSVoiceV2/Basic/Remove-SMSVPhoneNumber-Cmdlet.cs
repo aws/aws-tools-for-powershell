@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     ///  
     /// <para>
     /// If the origination phone number has deletion protection enabled or is associated with
-    /// a pool, an Error is returned.
+    /// a pool, an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMSVPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

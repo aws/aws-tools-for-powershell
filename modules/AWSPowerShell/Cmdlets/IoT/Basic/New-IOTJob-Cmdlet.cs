@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The package version Amazon Resource Names (ARNs) that are installed on the device
-        /// when the job successfully completes. </para><para><b>Note:</b>The following Length Constraints relates to a single string. Up to five
-        /// strings are allowed.</para>
+        /// when the job successfully completes. </para><para><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package
+        /// version ARNs are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

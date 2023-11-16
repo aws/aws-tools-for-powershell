@@ -84,11 +84,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The new value to specify for the service setting. The following list specifies the
-        /// available values for each setting.</para><ul><li><para><code>/ssm/managed-instance/default-ec2-instance-management-role: The name of an
-        /// IAM role</code></para></li><li><para><code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code>: The name of an Amazon
-        /// CloudWatch Logs log group</para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code>: <code>Enable</code>
-        /// or <code>Disable</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code>: <code>standard</code> or <code>advanced</code></para></li><li><para><code>/ssm/opsinsights/opscenter</code>: <code>Enabled</code> or <code>Disabled</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
-        /// <code>Advanced</code>, <code>Intelligent-Tiering</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or <code>false</code></para></li></ul>
+        /// available values for each setting.</para><ul><li><para>For <code>/ssm/managed-instance/default-ec2-instance-management-role</code>, enter
+        /// the name of an IAM role. </para></li><li><para>For <code>/ssm/automation/customer-script-log-destination</code>, enter <code>CloudWatch</code>.</para></li><li><para>For <code>/ssm/automation/customer-script-log-group-name</code>, enter the name of
+        /// an Amazon CloudWatch Logs log group.</para></li><li><para>For <code>/ssm/documents/console/public-sharing-permission</code>, enter <code>Enable</code>
+        /// or <code>Disable</code>.</para></li><li><para>For <code>/ssm/managed-instance/activation-tier</code>, enter <code>standard</code>
+        /// or <code>advanced</code>.</para></li><li><para> For <code>/ssm/opsinsights/opscenter</code>, enter <code>Enabled</code> or <code>Disabled</code>.
+        /// </para></li><li><para>For <code>/ssm/parameter-store/default-parameter-tier</code>, enter <code>Standard</code>,
+        /// <code>Advanced</code>, or <code>Intelligent-Tiering</code></para></li><li><para>For <code>/ssm/parameter-store/high-throughput-enabled</code>, enter <code>true</code>
+        /// or <code>false</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

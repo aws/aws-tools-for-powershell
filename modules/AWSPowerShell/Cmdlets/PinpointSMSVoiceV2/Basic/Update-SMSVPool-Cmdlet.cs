@@ -117,6 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String TwoWayChannelArn { get; set; }
         #endregion
         
+        #region Parameter TwoWayChannelRole
+        /// <summary>
+        /// <para>
+        /// <para>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TwoWayChannelRole { get; set; }
+        #endregion
+        
         #region Parameter TwoWayEnabled
         /// <summary>
         /// <para>
@@ -202,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             context.SelfManagedOptOutsEnabled = this.SelfManagedOptOutsEnabled;
             context.SharedRoutesEnabled = this.SharedRoutesEnabled;
             context.TwoWayChannelArn = this.TwoWayChannelArn;
+            context.TwoWayChannelRole = this.TwoWayChannelRole;
             context.TwoWayEnabled = this.TwoWayEnabled;
             
             // allow further manipulation of loaded context prior to processing
@@ -242,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.TwoWayChannelArn != null)
             {
                 request.TwoWayChannelArn = cmdletContext.TwoWayChannelArn;
+            }
+            if (cmdletContext.TwoWayChannelRole != null)
+            {
+                request.TwoWayChannelRole = cmdletContext.TwoWayChannelRole;
             }
             if (cmdletContext.TwoWayEnabled != null)
             {
@@ -314,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.Boolean? SelfManagedOptOutsEnabled { get; set; }
             public System.Boolean? SharedRoutesEnabled { get; set; }
             public System.String TwoWayChannelArn { get; set; }
+            public System.String TwoWayChannelRole { get; set; }
             public System.Boolean? TwoWayEnabled { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.UpdatePoolResponse, UpdateSMSVPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

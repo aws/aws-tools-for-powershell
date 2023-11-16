@@ -165,6 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         public System.String SpaceName { get; set; }
         #endregion
         
+        #region Parameter VpcConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the connection to use connect to a Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcConnectionName { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -280,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
                 WriteWarning("You are passing $null as a value for parameter SpaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VpcConnectionName = this.VpcConnectionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -346,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
             if (cmdletContext.SpaceName != null)
             {
                 request.SpaceName = cmdletContext.SpaceName;
+            }
+            if (cmdletContext.VpcConnectionName != null)
+            {
+                request.VpcConnectionName = cmdletContext.VpcConnectionName;
             }
             
             CmdletOutput output;
@@ -417,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
             public System.String ProjectName { get; set; }
             public List<Amazon.CodeCatalyst.Model.RepositoryInput> Repository { get; set; }
             public System.String SpaceName { get; set; }
+            public System.String VpcConnectionName { get; set; }
             public System.Func<Amazon.CodeCatalyst.Model.CreateDevEnvironmentResponse, NewCCATDevEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

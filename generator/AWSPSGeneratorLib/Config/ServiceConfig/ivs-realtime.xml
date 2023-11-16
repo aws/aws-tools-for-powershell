@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="New" Noun="EncoderConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateParticipantToken" OutputProperty="ParticipantToken" Verb="New" Noun="ParticipantToken" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -27,11 +31,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStorageConfiguration" OutputProperty="StorageConfiguration" Verb="New" Noun="StorageConfiguration" ShouldProcessTarget="S3_BucketName" PipelineParameter="S3_BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEncoderConfiguration" Verb="Remove" Noun="EncoderConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStorageConfiguration" Verb="Remove" Noun="StorageConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="ParticipantId" PipelineParameter="ParticipantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComposition" OutputProperty="Composition" Verb="Get" Noun="Composition" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="Get" Noun="EncoderConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -44,6 +68,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetStageSession" OutputProperty="StageSession" Verb="Get" Noun="StageSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStorageConfiguration" OutputProperty="StorageConfiguration" Verb="Get" Noun="StorageConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCompositions" OutputProperty="Compositions" Verb="Get" Noun="CompositionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEncoderConfigurations" OutputProperty="EncoderConfigurations" Verb="Get" Noun="EncoderConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,7 +99,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStorageConfigurations" OutputProperty="StorageConfigurations" Verb="Get" Noun="StorageConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartComposition" OutputProperty="Composition" Verb="Start" Noun="Composition" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopComposition" Verb="Stop" Noun="Composition" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

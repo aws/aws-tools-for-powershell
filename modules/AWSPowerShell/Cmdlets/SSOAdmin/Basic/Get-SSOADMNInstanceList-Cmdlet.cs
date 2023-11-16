@@ -28,7 +28,8 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Lists the IAM Identity Center instances that the caller has access to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the details of the organization and account instances of IAM Identity Center
+    /// that were created in or visible to the account calling this API.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNInstanceList")]
     [OutputType("Amazon.SSOAdmin.Model.InstanceMetadata")]

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// receives a message that begins with a keyword, Amazon Pinpoint responds with a customizable
     /// message.
     /// </para><para>
-    /// If you specify a keyword that isn't valid, an Error is returned.
+    /// If you specify a keyword that isn't valid, an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "SMSVKeyword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter KeywordAction
         /// <summary>
         /// <para>
-        /// <para>The action to perform for the new keyword when it is received.</para>
+        /// <para>The action to perform for the new keyword when it is received.</para><ul><li><para>AUTOMATIC_RESPONSE: A message is sent to the recipient.</para></li><li><para>OPT_OUT: Keeps the recipient from receiving future messages.</para></li><li><para>OPT_IN: The recipient wants to receive future messages.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter KeywordMessage
         /// <summary>
         /// <para>
-        /// <para>The message associated with the keyword.</para><ul><li><para>AUTOMATIC_RESPONSE: A message is sent to the recipient.</para></li><li><para>OPT_OUT: Keeps the recipient from receiving future messages.</para></li><li><para>OPT_IN: The recipient wants to receive future messages.</para></li></ul>
+        /// <para>The message associated with the keyword.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

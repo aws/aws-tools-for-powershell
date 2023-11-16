@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     ///  
     /// <para>
     /// If the specified opt-out list name doesn't exist or is in-use by an origination phone
-    /// number or pool, an Error is returned.
+    /// number or pool, an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMSVOptOutList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

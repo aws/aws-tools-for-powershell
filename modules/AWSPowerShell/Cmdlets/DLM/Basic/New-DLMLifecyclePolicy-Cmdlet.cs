@@ -28,8 +28,26 @@ using Amazon.DLM.Model;
 namespace Amazon.PowerShell.Cmdlets.DLM
 {
     /// <summary>
-    /// Creates a policy to manage the lifecycle of the specified Amazon Web Services resources.
-    /// You can create up to 100 lifecycle policies.
+    /// Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager
+    /// supports the following policy types:
+    /// 
+    ///  <ul><li><para>
+    /// Custom EBS snapshot policy
+    /// </para></li><li><para>
+    /// Custom EBS-backed AMI policy
+    /// </para></li><li><para>
+    /// Cross-account copy event policy
+    /// </para></li><li><para>
+    /// Default policy for EBS snapshots
+    /// </para></li><li><para>
+    /// Default policy for EBS-backed AMIs
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html">
+    /// Default policies vs custom policies</a>.
+    /// </para><important><para>
+    /// If you create a default policy, you can specify the request parameters either in the
+    /// request body, or in the PolicyDetails request structure, but not both.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "DLMLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -53,6 +71,95 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyDetails_Actions")]
         public Amazon.DLM.Model.Action[] PolicyDetails_Action { get; set; }
+        #endregion
+        
+        #region Parameter CopyTag
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Indicates whether the policy should copy tags from
+        /// the source resource to the snapshot or AMI. If you do not specify a value, the default
+        /// is <code>false</code>.</para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CopyTags")]
+        public System.Boolean? CopyTag { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_CopyTag
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Indicates whether the policy should copy tags from
+        /// the source resource to the snapshot or AMI. If you do not specify a value, the default
+        /// is <code>false</code>.</para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_CopyTags")]
+        public System.Boolean? PolicyDetails_CopyTag { get; set; }
+        #endregion
+        
+        #region Parameter CreateInterval
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies how often the policy should run and create
+        /// snapshots or AMIs. The creation frequency can range from 1 to 7 days. If you do not
+        /// specify a value, the default is 1.</para><para>Default: 1</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CreateInterval { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_CreateInterval
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies how often the policy should run and create
+        /// snapshots or AMIs. The creation frequency can range from 1 to 7 days. If you do not
+        /// specify a value, the default is 1.</para><para>Default: 1</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PolicyDetails_CreateInterval { get; set; }
+        #endregion
+        
+        #region Parameter CrossRegionCopyTarget
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies destination Regions for snapshot or AMI
+        /// copies. You can specify up to 3 destination Regions. If you do not want to create
+        /// cross-Region copies, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CrossRegionCopyTargets")]
+        public Amazon.DLM.Model.CrossRegionCopyTarget[] CrossRegionCopyTarget { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_CrossRegionCopyTarget
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies destination Regions for snapshot or AMI
+        /// copies. You can specify up to 3 destination Regions. If you do not want to create
+        /// cross-Region copies, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_CrossRegionCopyTargets")]
+        public Amazon.DLM.Model.CrossRegionCopyTarget[] PolicyDetails_CrossRegionCopyTarget { get; set; }
+        #endregion
+        
+        #region Parameter DefaultPolicy
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specify the type of default policy to create.</para><ul><li><para>To create a default policy for EBS snapshots, that creates snapshots of all volumes
+        /// in the Region that do not have recent backups, specify <code>VOLUME</code>.</para></li><li><para>To create a default policy for EBS-backed AMIs, that creates EBS-backed AMIs from
+        /// all instances in the Region that do not have recent backups, specify <code>INSTANCE</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DLM.DefaultPolicyTypeValues")]
+        public Amazon.DLM.DefaultPolicyTypeValues DefaultPolicy { get; set; }
         #endregion
         
         #region Parameter Description
@@ -102,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter Parameters_ExcludeBootVolume
         /// <summary>
         /// <para>
-        /// <para><b>[Snapshot policies that target instances only]</b> Indicates whether to exclude
-        /// the root volume from multi-volume snapshot sets. The default is <code>false</code>.
+        /// <para><b>[Custom snapshot policies that target instances only]</b> Indicates whether to
+        /// exclude the root volume from multi-volume snapshot sets. The default is <code>false</code>.
         /// If you specify <code>true</code>, then the root volumes attached to targeted instances
         /// will be excluded from the multi-volume snapshot sets created by the policy.</para>
         /// </para>
@@ -113,11 +220,38 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
         #endregion
         
+        #region Parameter Exclusions_ExcludeBootVolume
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies for EBS snapshots only]</b> Indicates whether to exclude volumes
+        /// that are attached to instances as the boot volume. If you exclude boot volumes, only
+        /// volumes attached as data (non-boot) volumes will be backed up by the policy. To exclude
+        /// boot volumes, specify <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Exclusions_ExcludeBootVolumes")]
+        public System.Boolean? Exclusions_ExcludeBootVolume { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_Exclusions_ExcludeBootVolumes
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies for EBS snapshots only]</b> Indicates whether to exclude volumes
+        /// that are attached to instances as the boot volume. If you exclude boot volumes, only
+        /// volumes attached as data (non-boot) volumes will be backed up by the policy. To exclude
+        /// boot volumes, specify <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PolicyDetails_Exclusions_ExcludeBootVolumes { get; set; }
+        #endregion
+        
         #region Parameter Parameters_ExcludeDataVolumeTag
         /// <summary>
         /// <para>
-        /// <para><b>[Snapshot policies that target instances only]</b> The tags used to identify data
-        /// (non-root) volumes to exclude from multi-volume snapshot sets.</para><para>If you create a snapshot lifecycle policy that targets instances and you specify tags
+        /// <para><b>[Custom snapshot policies that target instances only]</b> The tags used to identify
+        /// data (non-root) volumes to exclude from multi-volume snapshot sets.</para><para>If you create a snapshot lifecycle policy that targets instances and you specify tags
         /// for this parameter, then data volumes with the specified tags that are attached to
         /// targeted instances will be excluded from the multi-volume snapshot sets created by
         /// the policy.</para>
@@ -126,6 +260,52 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyDetails_Parameters_ExcludeDataVolumeTags")]
         public Amazon.DLM.Model.Tag[] Parameters_ExcludeDataVolumeTag { get; set; }
+        #endregion
+        
+        #region Parameter Exclusions_ExcludeTag
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies for EBS-backed AMIs only]</b> Specifies whether to exclude volumes
+        /// that have specific tags. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Exclusions_ExcludeTags")]
+        public Amazon.DLM.Model.Tag[] Exclusions_ExcludeTag { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_Exclusions_ExcludeTags
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies for EBS-backed AMIs only]</b> Specifies whether to exclude volumes
+        /// that have specific tags. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DLM.Model.Tag[] PolicyDetails_Exclusions_ExcludeTags { get; set; }
+        #endregion
+        
+        #region Parameter Exclusions_ExcludeVolumeType
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies for EBS snapshots only]</b> Specifies the volume types to exclude.
+        /// Volumes of the specified types will not be targeted by the policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Exclusions_ExcludeVolumeTypes")]
+        public System.String[] Exclusions_ExcludeVolumeType { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_Exclusions_ExcludeVolumeTypes
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies for EBS snapshots only]</b> Specifies the volume types to exclude.
+        /// Volumes of the specified types will not be targeted by the policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PolicyDetails_Exclusions_ExcludeVolumeTypes { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -146,12 +326,50 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter ExtendDeletion
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Defines the snapshot or AMI retention behavior for
+        /// the policy if the source volume or instance is deleted, or if the policy enters the
+        /// error, disabled, or deleted state.</para><para>By default (<b>ExtendDeletion=false</b>):</para><ul><li><para>If a source resource is deleted, Amazon Data Lifecycle Manager will continue to delete
+        /// previously created snapshots or AMIs, up to but not including the last one, based
+        /// on the specified retention period. If you want Amazon Data Lifecycle Manager to delete
+        /// all snapshots or AMIs, including the last one, specify <code>true</code>.</para></li><li><para>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager
+        /// stops deleting snapshots and AMIs. If you want Amazon Data Lifecycle Manager to continue
+        /// deleting snapshots or AMIs, including the last one, if the policy enters one of these
+        /// states, specify <code>true</code>.</para></li></ul><para>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default
+        /// behaviors simultaneously.</para><para>If you do not specify a value, the default is <code>false</code>.</para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExtendDeletion { get; set; }
+        #endregion
+        
+        #region Parameter PolicyDetails_ExtendDeletion
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Defines the snapshot or AMI retention behavior for
+        /// the policy if the source volume or instance is deleted, or if the policy enters the
+        /// error, disabled, or deleted state.</para><para>By default (<b>ExtendDeletion=false</b>):</para><ul><li><para>If a source resource is deleted, Amazon Data Lifecycle Manager will continue to delete
+        /// previously created snapshots or AMIs, up to but not including the last one, based
+        /// on the specified retention period. If you want Amazon Data Lifecycle Manager to delete
+        /// all snapshots or AMIs, including the last one, specify <code>true</code>.</para></li><li><para>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager
+        /// stops deleting snapshots and AMIs. If you want Amazon Data Lifecycle Manager to continue
+        /// deleting snapshots or AMIs, including the last one, if the policy enters one of these
+        /// states, specify <code>true</code>.</para></li></ul><para>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default
+        /// behaviors simultaneously.</para><para>If you do not specify a value, the default is <code>false</code>.</para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PolicyDetails_ExtendDeletion { get; set; }
+        #endregion
+        
         #region Parameter Parameters_NoReboot
         /// <summary>
         /// <para>
-        /// <para><b>[AMI policies only]</b> Indicates whether targeted instances are rebooted when
-        /// the lifecycle policy runs. <code>true</code> indicates that targeted instances are
-        /// not rebooted when the policy runs. <code>false</code> indicates that target instances
+        /// <para><b>[Custom AMI policies only]</b> Indicates whether targeted instances are rebooted
+        /// when the lifecycle policy runs. <code>true</code> indicates that targeted instances
+        /// are not rebooted when the policy runs. <code>false</code> indicates that target instances
         /// are rebooted when the policy runs. The default is <code>true</code> (instances are
         /// not rebooted).</para>
         /// </para>
@@ -161,11 +379,22 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public System.Boolean? Parameters_NoReboot { get; set; }
         #endregion
         
+        #region Parameter PolicyDetails_PolicyLanguage
+        /// <summary>
+        /// <para>
+        /// <para>The type of policy to create. Specify one of the following:</para><ul><li><para><code>SIMPLIFIED</code> To create a default policy.</para></li><li><para><code>STANDARD</code> To create a custom policy.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DLM.PolicyLanguageValues")]
+        public Amazon.DLM.PolicyLanguageValues PolicyDetails_PolicyLanguage { get; set; }
+        #endregion
+        
         #region Parameter PolicyDetails_PolicyType
         /// <summary>
         /// <para>
-        /// <para><b>[All policy types]</b> The valid target resource types and actions a policy can
-        /// manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy
+        /// <para><b>[Custom policies only]</b> The valid target resource types and actions a policy
+        /// can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy
         /// that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
         /// to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify
         /// <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific
@@ -180,7 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_ResourceLocation
         /// <summary>
         /// <para>
-        /// <para><b>[Snapshot and AMI policies only]</b> The location of the resources to backup.
+        /// <para><b>[Custom snapshot and AMI policies only]</b> The location of the resources to backup.
         /// If the source resources are located in an Amazon Web Services Region, specify <code>CLOUD</code>.
         /// If the source resources are located on an Outpost in your account, specify <code>OUTPOST</code>.</para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
         /// of the specified type with matching target tags across all of the Outposts in your
@@ -192,12 +421,26 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public System.String[] PolicyDetails_ResourceLocation { get; set; }
         #endregion
         
+        #region Parameter PolicyDetails_SimplifiedResourceType
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specify the type of default policy to create.</para><ul><li><para>To create a default policy for EBS snapshots, that creates snapshots of all volumes
+        /// in the Region that do not have recent backups, specify <code>VOLUME</code>.</para></li><li><para>To create a default policy for EBS-backed AMIs, that creates EBS-backed AMIs from
+        /// all instances in the Region that do not have recent backups, specify <code>INSTANCE</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DLM.ResourceTypeValues")]
+        public Amazon.DLM.ResourceTypeValues PolicyDetails_SimplifiedResourceType { get; set; }
+        #endregion
+        
         #region Parameter PolicyDetails_ResourceType
         /// <summary>
         /// <para>
-        /// <para><b>[Snapshot policies only]</b> The target resource type for snapshot and AMI lifecycle
-        /// policies. Use <code>VOLUME </code>to create snapshots of individual volumes or use
-        /// <code>INSTANCE</code> to create multi-volume snapshots from the volumes for an instance.</para>
+        /// <para><b>[Custom snapshot policies only]</b> The target resource type for snapshot and
+        /// AMI lifecycle policies. Use <code>VOLUME </code>to create snapshots of individual
+        /// volumes or use <code>INSTANCE</code> to create multi-volume snapshots from the volumes
+        /// for an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,12 +448,40 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public System.String[] PolicyDetails_ResourceType { get; set; }
         #endregion
         
+        #region Parameter PolicyDetails_RetainInterval
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies how long the policy should retain snapshots
+        /// or AMIs before deleting them. The retention period can range from 2 to 14 days, but
+        /// it must be greater than the creation frequency to ensure that the policy retains at
+        /// least 1 snapshot or AMI at any given time. If you do not specify a value, the default
+        /// is 7.</para><para>Default: 7</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PolicyDetails_RetainInterval { get; set; }
+        #endregion
+        
+        #region Parameter RetainInterval
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies how long the policy should retain snapshots
+        /// or AMIs before deleting them. The retention period can range from 2 to 14 days, but
+        /// it must be greater than the creation frequency to ensure that the policy retains at
+        /// least 1 snapshot or AMI at any given time. If you do not specify a value, the default
+        /// is 7.</para><para>Default: 7</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RetainInterval { get; set; }
+        #endregion
+        
         #region Parameter PolicyDetails_Schedule
         /// <summary>
         /// <para>
-        /// <para><b>[Snapshot and AMI policies only]</b> The schedules of policy-defined actions for
-        /// snapshot and AMI lifecycle policies. A policy can have up to four schedules—one mandatory
-        /// schedule and up to three optional schedules.</para>
+        /// <para><b>[Custom snapshot and AMI policies only]</b> The schedules of policy-defined actions
+        /// for snapshot and AMI lifecycle policies. A policy can have up to four schedules—one
+        /// mandatory schedule and up to three optional schedules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The desired activation state of the lifecycle policy after creation.</para>
+        /// <para>The activation state of the lifecycle policy after creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -262,8 +533,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_TargetTag
         /// <summary>
         /// <para>
-        /// <para><b>[Snapshot and AMI policies only]</b> The single tag that identifies targeted resources
-        /// for this policy.</para>
+        /// <para><b>[Custom snapshot and AMI policies only]</b> The single tag that identifies targeted
+        /// resources for this policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,6 +616,13 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 context.Select = (response, cmdlet) => this.ExecutionRoleArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CopyTag = this.CopyTag;
+            context.CreateInterval = this.CreateInterval;
+            if (this.CrossRegionCopyTarget != null)
+            {
+                context.CrossRegionCopyTarget = new List<Amazon.DLM.Model.CrossRegionCopyTarget>(this.CrossRegionCopyTarget);
+            }
+            context.DefaultPolicy = this.DefaultPolicy;
             context.Description = this.Description;
             #if MODULAR
             if (this.Description == null && ParameterWasBound(nameof(this.Description)))
@@ -352,6 +630,15 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Exclusions_ExcludeBootVolume = this.Exclusions_ExcludeBootVolume;
+            if (this.Exclusions_ExcludeTag != null)
+            {
+                context.Exclusions_ExcludeTag = new List<Amazon.DLM.Model.Tag>(this.Exclusions_ExcludeTag);
+            }
+            if (this.Exclusions_ExcludeVolumeType != null)
+            {
+                context.Exclusions_ExcludeVolumeType = new List<System.String>(this.Exclusions_ExcludeVolumeType);
+            }
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
             if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
@@ -359,9 +646,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExtendDeletion = this.ExtendDeletion;
             if (this.PolicyDetails_Action != null)
             {
                 context.PolicyDetails_Action = new List<Amazon.DLM.Model.Action>(this.PolicyDetails_Action);
+            }
+            context.PolicyDetails_CopyTag = this.PolicyDetails_CopyTag;
+            context.PolicyDetails_CreateInterval = this.PolicyDetails_CreateInterval;
+            if (this.PolicyDetails_CrossRegionCopyTarget != null)
+            {
+                context.PolicyDetails_CrossRegionCopyTarget = new List<Amazon.DLM.Model.CrossRegionCopyTarget>(this.PolicyDetails_CrossRegionCopyTarget);
             }
             context.Parameters_DescriptionRegex = this.Parameters_DescriptionRegex;
             context.Parameters_EventType = this.Parameters_EventType;
@@ -370,21 +664,34 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 context.Parameters_SnapshotOwner = new List<System.String>(this.Parameters_SnapshotOwner);
             }
             context.EventSource_Type = this.EventSource_Type;
+            context.PolicyDetails_Exclusions_ExcludeBootVolumes = this.PolicyDetails_Exclusions_ExcludeBootVolumes;
+            if (this.PolicyDetails_Exclusions_ExcludeTags != null)
+            {
+                context.PolicyDetails_Exclusions_ExcludeTags = new List<Amazon.DLM.Model.Tag>(this.PolicyDetails_Exclusions_ExcludeTags);
+            }
+            if (this.PolicyDetails_Exclusions_ExcludeVolumeTypes != null)
+            {
+                context.PolicyDetails_Exclusions_ExcludeVolumeTypes = new List<System.String>(this.PolicyDetails_Exclusions_ExcludeVolumeTypes);
+            }
+            context.PolicyDetails_ExtendDeletion = this.PolicyDetails_ExtendDeletion;
             context.Parameters_ExcludeBootVolume = this.Parameters_ExcludeBootVolume;
             if (this.Parameters_ExcludeDataVolumeTag != null)
             {
                 context.Parameters_ExcludeDataVolumeTag = new List<Amazon.DLM.Model.Tag>(this.Parameters_ExcludeDataVolumeTag);
             }
             context.Parameters_NoReboot = this.Parameters_NoReboot;
+            context.PolicyDetails_PolicyLanguage = this.PolicyDetails_PolicyLanguage;
             context.PolicyDetails_PolicyType = this.PolicyDetails_PolicyType;
             if (this.PolicyDetails_ResourceLocation != null)
             {
                 context.PolicyDetails_ResourceLocation = new List<System.String>(this.PolicyDetails_ResourceLocation);
             }
+            context.PolicyDetails_SimplifiedResourceType = this.PolicyDetails_SimplifiedResourceType;
             if (this.PolicyDetails_ResourceType != null)
             {
                 context.PolicyDetails_ResourceType = new List<System.String>(this.PolicyDetails_ResourceType);
             }
+            context.PolicyDetails_RetainInterval = this.PolicyDetails_RetainInterval;
             if (this.PolicyDetails_Schedule != null)
             {
                 context.PolicyDetails_Schedule = new List<Amazon.DLM.Model.Schedule>(this.PolicyDetails_Schedule);
@@ -393,6 +700,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             {
                 context.PolicyDetails_TargetTag = new List<Amazon.DLM.Model.Tag>(this.PolicyDetails_TargetTag);
             }
+            context.RetainInterval = this.RetainInterval;
             context.State = this.State;
             #if MODULAR
             if (this.State == null && ParameterWasBound(nameof(this.State)))
@@ -424,13 +732,72 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             // create request
             var request = new Amazon.DLM.Model.CreateLifecyclePolicyRequest();
             
+            if (cmdletContext.CopyTag != null)
+            {
+                request.CopyTags = cmdletContext.CopyTag.Value;
+            }
+            if (cmdletContext.CreateInterval != null)
+            {
+                request.CreateInterval = cmdletContext.CreateInterval.Value;
+            }
+            if (cmdletContext.CrossRegionCopyTarget != null)
+            {
+                request.CrossRegionCopyTargets = cmdletContext.CrossRegionCopyTarget;
+            }
+            if (cmdletContext.DefaultPolicy != null)
+            {
+                request.DefaultPolicy = cmdletContext.DefaultPolicy;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate Exclusions
+            var requestExclusionsIsNull = true;
+            request.Exclusions = new Amazon.DLM.Model.Exclusions();
+            System.Boolean? requestExclusions_exclusions_ExcludeBootVolume = null;
+            if (cmdletContext.Exclusions_ExcludeBootVolume != null)
+            {
+                requestExclusions_exclusions_ExcludeBootVolume = cmdletContext.Exclusions_ExcludeBootVolume.Value;
+            }
+            if (requestExclusions_exclusions_ExcludeBootVolume != null)
+            {
+                request.Exclusions.ExcludeBootVolumes = requestExclusions_exclusions_ExcludeBootVolume.Value;
+                requestExclusionsIsNull = false;
+            }
+            List<Amazon.DLM.Model.Tag> requestExclusions_exclusions_ExcludeTag = null;
+            if (cmdletContext.Exclusions_ExcludeTag != null)
+            {
+                requestExclusions_exclusions_ExcludeTag = cmdletContext.Exclusions_ExcludeTag;
+            }
+            if (requestExclusions_exclusions_ExcludeTag != null)
+            {
+                request.Exclusions.ExcludeTags = requestExclusions_exclusions_ExcludeTag;
+                requestExclusionsIsNull = false;
+            }
+            List<System.String> requestExclusions_exclusions_ExcludeVolumeType = null;
+            if (cmdletContext.Exclusions_ExcludeVolumeType != null)
+            {
+                requestExclusions_exclusions_ExcludeVolumeType = cmdletContext.Exclusions_ExcludeVolumeType;
+            }
+            if (requestExclusions_exclusions_ExcludeVolumeType != null)
+            {
+                request.Exclusions.ExcludeVolumeTypes = requestExclusions_exclusions_ExcludeVolumeType;
+                requestExclusionsIsNull = false;
+            }
+             // determine if request.Exclusions should be set to null
+            if (requestExclusionsIsNull)
+            {
+                request.Exclusions = null;
+            }
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
+            if (cmdletContext.ExtendDeletion != null)
+            {
+                request.ExtendDeletion = cmdletContext.ExtendDeletion.Value;
             }
             
              // populate PolicyDetails
@@ -444,6 +811,56 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             if (requestPolicyDetails_policyDetails_Action != null)
             {
                 request.PolicyDetails.Actions = requestPolicyDetails_policyDetails_Action;
+                requestPolicyDetailsIsNull = false;
+            }
+            System.Boolean? requestPolicyDetails_policyDetails_CopyTag = null;
+            if (cmdletContext.PolicyDetails_CopyTag != null)
+            {
+                requestPolicyDetails_policyDetails_CopyTag = cmdletContext.PolicyDetails_CopyTag.Value;
+            }
+            if (requestPolicyDetails_policyDetails_CopyTag != null)
+            {
+                request.PolicyDetails.CopyTags = requestPolicyDetails_policyDetails_CopyTag.Value;
+                requestPolicyDetailsIsNull = false;
+            }
+            System.Int32? requestPolicyDetails_policyDetails_CreateInterval = null;
+            if (cmdletContext.PolicyDetails_CreateInterval != null)
+            {
+                requestPolicyDetails_policyDetails_CreateInterval = cmdletContext.PolicyDetails_CreateInterval.Value;
+            }
+            if (requestPolicyDetails_policyDetails_CreateInterval != null)
+            {
+                request.PolicyDetails.CreateInterval = requestPolicyDetails_policyDetails_CreateInterval.Value;
+                requestPolicyDetailsIsNull = false;
+            }
+            List<Amazon.DLM.Model.CrossRegionCopyTarget> requestPolicyDetails_policyDetails_CrossRegionCopyTarget = null;
+            if (cmdletContext.PolicyDetails_CrossRegionCopyTarget != null)
+            {
+                requestPolicyDetails_policyDetails_CrossRegionCopyTarget = cmdletContext.PolicyDetails_CrossRegionCopyTarget;
+            }
+            if (requestPolicyDetails_policyDetails_CrossRegionCopyTarget != null)
+            {
+                request.PolicyDetails.CrossRegionCopyTargets = requestPolicyDetails_policyDetails_CrossRegionCopyTarget;
+                requestPolicyDetailsIsNull = false;
+            }
+            System.Boolean? requestPolicyDetails_policyDetails_ExtendDeletion = null;
+            if (cmdletContext.PolicyDetails_ExtendDeletion != null)
+            {
+                requestPolicyDetails_policyDetails_ExtendDeletion = cmdletContext.PolicyDetails_ExtendDeletion.Value;
+            }
+            if (requestPolicyDetails_policyDetails_ExtendDeletion != null)
+            {
+                request.PolicyDetails.ExtendDeletion = requestPolicyDetails_policyDetails_ExtendDeletion.Value;
+                requestPolicyDetailsIsNull = false;
+            }
+            Amazon.DLM.PolicyLanguageValues requestPolicyDetails_policyDetails_PolicyLanguage = null;
+            if (cmdletContext.PolicyDetails_PolicyLanguage != null)
+            {
+                requestPolicyDetails_policyDetails_PolicyLanguage = cmdletContext.PolicyDetails_PolicyLanguage;
+            }
+            if (requestPolicyDetails_policyDetails_PolicyLanguage != null)
+            {
+                request.PolicyDetails.PolicyLanguage = requestPolicyDetails_policyDetails_PolicyLanguage;
                 requestPolicyDetailsIsNull = false;
             }
             Amazon.DLM.PolicyTypeValues requestPolicyDetails_policyDetails_PolicyType = null;
@@ -466,6 +883,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 request.PolicyDetails.ResourceLocations = requestPolicyDetails_policyDetails_ResourceLocation;
                 requestPolicyDetailsIsNull = false;
             }
+            Amazon.DLM.ResourceTypeValues requestPolicyDetails_policyDetails_SimplifiedResourceType = null;
+            if (cmdletContext.PolicyDetails_SimplifiedResourceType != null)
+            {
+                requestPolicyDetails_policyDetails_SimplifiedResourceType = cmdletContext.PolicyDetails_SimplifiedResourceType;
+            }
+            if (requestPolicyDetails_policyDetails_SimplifiedResourceType != null)
+            {
+                request.PolicyDetails.ResourceType = requestPolicyDetails_policyDetails_SimplifiedResourceType;
+                requestPolicyDetailsIsNull = false;
+            }
             List<System.String> requestPolicyDetails_policyDetails_ResourceType = null;
             if (cmdletContext.PolicyDetails_ResourceType != null)
             {
@@ -474,6 +901,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             if (requestPolicyDetails_policyDetails_ResourceType != null)
             {
                 request.PolicyDetails.ResourceTypes = requestPolicyDetails_policyDetails_ResourceType;
+                requestPolicyDetailsIsNull = false;
+            }
+            System.Int32? requestPolicyDetails_policyDetails_RetainInterval = null;
+            if (cmdletContext.PolicyDetails_RetainInterval != null)
+            {
+                requestPolicyDetails_policyDetails_RetainInterval = cmdletContext.PolicyDetails_RetainInterval.Value;
+            }
+            if (requestPolicyDetails_policyDetails_RetainInterval != null)
+            {
+                request.PolicyDetails.RetainInterval = requestPolicyDetails_policyDetails_RetainInterval.Value;
                 requestPolicyDetailsIsNull = false;
             }
             List<Amazon.DLM.Model.Schedule> requestPolicyDetails_policyDetails_Schedule = null;
@@ -566,6 +1003,51 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 request.PolicyDetails.EventSource = requestPolicyDetails_policyDetails_EventSource;
                 requestPolicyDetailsIsNull = false;
             }
+            Amazon.DLM.Model.Exclusions requestPolicyDetails_policyDetails_Exclusions = null;
+            
+             // populate Exclusions
+            var requestPolicyDetails_policyDetails_ExclusionsIsNull = true;
+            requestPolicyDetails_policyDetails_Exclusions = new Amazon.DLM.Model.Exclusions();
+            System.Boolean? requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeBootVolumes = null;
+            if (cmdletContext.PolicyDetails_Exclusions_ExcludeBootVolumes != null)
+            {
+                requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeBootVolumes = cmdletContext.PolicyDetails_Exclusions_ExcludeBootVolumes.Value;
+            }
+            if (requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeBootVolumes != null)
+            {
+                requestPolicyDetails_policyDetails_Exclusions.ExcludeBootVolumes = requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeBootVolumes.Value;
+                requestPolicyDetails_policyDetails_ExclusionsIsNull = false;
+            }
+            List<Amazon.DLM.Model.Tag> requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeTags = null;
+            if (cmdletContext.PolicyDetails_Exclusions_ExcludeTags != null)
+            {
+                requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeTags = cmdletContext.PolicyDetails_Exclusions_ExcludeTags;
+            }
+            if (requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeTags != null)
+            {
+                requestPolicyDetails_policyDetails_Exclusions.ExcludeTags = requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeTags;
+                requestPolicyDetails_policyDetails_ExclusionsIsNull = false;
+            }
+            List<System.String> requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeVolumeTypes = null;
+            if (cmdletContext.PolicyDetails_Exclusions_ExcludeVolumeTypes != null)
+            {
+                requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeVolumeTypes = cmdletContext.PolicyDetails_Exclusions_ExcludeVolumeTypes;
+            }
+            if (requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeVolumeTypes != null)
+            {
+                requestPolicyDetails_policyDetails_Exclusions.ExcludeVolumeTypes = requestPolicyDetails_policyDetails_Exclusions_policyDetails_Exclusions_ExcludeVolumeTypes;
+                requestPolicyDetails_policyDetails_ExclusionsIsNull = false;
+            }
+             // determine if requestPolicyDetails_policyDetails_Exclusions should be set to null
+            if (requestPolicyDetails_policyDetails_ExclusionsIsNull)
+            {
+                requestPolicyDetails_policyDetails_Exclusions = null;
+            }
+            if (requestPolicyDetails_policyDetails_Exclusions != null)
+            {
+                request.PolicyDetails.Exclusions = requestPolicyDetails_policyDetails_Exclusions;
+                requestPolicyDetailsIsNull = false;
+            }
             Amazon.DLM.Model.Parameters requestPolicyDetails_policyDetails_Parameters = null;
             
              // populate Parameters
@@ -615,6 +1097,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             if (requestPolicyDetailsIsNull)
             {
                 request.PolicyDetails = null;
+            }
+            if (cmdletContext.RetainInterval != null)
+            {
+                request.RetainInterval = cmdletContext.RetainInterval.Value;
             }
             if (cmdletContext.State != null)
             {
@@ -685,21 +1171,40 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CopyTag { get; set; }
+            public System.Int32? CreateInterval { get; set; }
+            public List<Amazon.DLM.Model.CrossRegionCopyTarget> CrossRegionCopyTarget { get; set; }
+            public Amazon.DLM.DefaultPolicyTypeValues DefaultPolicy { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? Exclusions_ExcludeBootVolume { get; set; }
+            public List<Amazon.DLM.Model.Tag> Exclusions_ExcludeTag { get; set; }
+            public List<System.String> Exclusions_ExcludeVolumeType { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public System.Boolean? ExtendDeletion { get; set; }
             public List<Amazon.DLM.Model.Action> PolicyDetails_Action { get; set; }
+            public System.Boolean? PolicyDetails_CopyTag { get; set; }
+            public System.Int32? PolicyDetails_CreateInterval { get; set; }
+            public List<Amazon.DLM.Model.CrossRegionCopyTarget> PolicyDetails_CrossRegionCopyTarget { get; set; }
             public System.String Parameters_DescriptionRegex { get; set; }
             public Amazon.DLM.EventTypeValues Parameters_EventType { get; set; }
             public List<System.String> Parameters_SnapshotOwner { get; set; }
             public Amazon.DLM.EventSourceValues EventSource_Type { get; set; }
+            public System.Boolean? PolicyDetails_Exclusions_ExcludeBootVolumes { get; set; }
+            public List<Amazon.DLM.Model.Tag> PolicyDetails_Exclusions_ExcludeTags { get; set; }
+            public List<System.String> PolicyDetails_Exclusions_ExcludeVolumeTypes { get; set; }
+            public System.Boolean? PolicyDetails_ExtendDeletion { get; set; }
             public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
             public List<Amazon.DLM.Model.Tag> Parameters_ExcludeDataVolumeTag { get; set; }
             public System.Boolean? Parameters_NoReboot { get; set; }
+            public Amazon.DLM.PolicyLanguageValues PolicyDetails_PolicyLanguage { get; set; }
             public Amazon.DLM.PolicyTypeValues PolicyDetails_PolicyType { get; set; }
             public List<System.String> PolicyDetails_ResourceLocation { get; set; }
+            public Amazon.DLM.ResourceTypeValues PolicyDetails_SimplifiedResourceType { get; set; }
             public List<System.String> PolicyDetails_ResourceType { get; set; }
+            public System.Int32? PolicyDetails_RetainInterval { get; set; }
             public List<Amazon.DLM.Model.Schedule> PolicyDetails_Schedule { get; set; }
             public List<Amazon.DLM.Model.Tag> PolicyDetails_TargetTag { get; set; }
+            public System.Int32? RetainInterval { get; set; }
             public Amazon.DLM.SettablePolicyStateValues State { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.DLM.Model.CreateLifecyclePolicyResponse, NewDLMLifecyclePolicyCmdlet, object> Select { get; set; } =

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// meet the filter criteria. If you don't specify pool IDs or filters, the output includes
     /// information for all pools.
     /// </para><para>
-    /// If you specify a pool ID that isn't valid, an Error is returned.
+    /// If you specify a pool ID that isn't valid, an error is returned.
     /// </para><para>
     /// A pool is a collection of phone numbers and SenderIds. A pool can include one or more
     /// phone numbers and SenderIds that are associated with your Amazon Web Services account.

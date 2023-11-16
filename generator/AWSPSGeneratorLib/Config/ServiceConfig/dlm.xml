@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>dlm</C2jFilename>
     <AssemblyName>DLM</AssemblyName>
@@ -13,14 +14,18 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateLifecyclePolicy" OutputProperty="PolicyId" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="ExecutionRoleArn" PipelineParameter="ExecutionRoleArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="PolicyDetails_Exclusions_ExcludeBootVolumes" NewName="PolicyDetails_Exclusions_ExcludeBootVolumes" />
+                <Param Name="PolicyDetails_Exclusions_ExcludeTags" NewName="PolicyDetails_Exclusions_ExcludeTags" />
+                <Param Name="PolicyDetails_Exclusions_ExcludeVolumeTypes" NewName="PolicyDetails_Exclusions_ExcludeVolumeTypes" />
+                <Param Name="PolicyDetails_ResourceType" NewName="PolicyDetails_SimplifiedResourceType" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLifecyclePolicy" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
@@ -48,11 +53,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLifecyclePolicy" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="PolicyDetails_Exclusions_ExcludeBootVolumes" NewName="PolicyDetails_Exclusions_ExcludeBootVolumes" />
+                <Param Name="PolicyDetails_Exclusions_ExcludeTags" NewName="PolicyDetails_Exclusions_ExcludeTags" />
+                <Param Name="PolicyDetails_Exclusions_ExcludeVolumeTypes" NewName="PolicyDetails_Exclusions_ExcludeVolumeTypes" />
+                <Param Name="PolicyDetails_ResourceType" NewName="PolicyDetails_SimplifiedResourceType" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

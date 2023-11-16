@@ -89,9 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Defines the impact of the incident to customers and applications. If you provide an
-        /// impact for an incident, it overwrites the impact provided by the response plan.</para><para><b>Possible impacts:</b></para><ul><li><para><code>1</code> - Critical impact, full application failure that impacts many to all
-        /// customers. </para></li><li><para><code>2</code> - High impact, partial application failure with impact to many customers.</para></li><li><para><code>3</code> - Medium impact, the application is providing reduced service to customers.</para></li><li><para><code>4</code> - Low impact, customer aren't impacted by the problem yet.</para></li><li><para><code>5</code> - No impact, customers aren't currently impacted but urgent action
-        /// is needed to avoid impact.</para></li></ul>
+        /// impact for an incident, it overwrites the impact provided by the response plan.</para><para><b>Supported impact codes</b></para><ul><li><para><code>1</code> - Critical</para></li><li><para><code>2</code> - High</para></li><li><para><code>3</code> - Medium</para></li><li><para><code>4</code> - Low</para></li><li><para><code>5</code> - No Impact</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

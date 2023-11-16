@@ -47,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DefaultPolicyType
+        /// <summary>
+        /// <para>
+        /// <para><b>[Default policies only]</b> Specifies the type of default policy to get. Specify
+        /// one of the following:</para><ul><li><para><code>VOLUME</code> - To get only the default policy for EBS snapshots</para></li><li><para><code>INSTANCE</code> - To get only the default policy for EBS-backed AMIs</para></li><li><para><code>ALL</code> - To get all default policies</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DLM.DefaultPoliciesTypeValues")]
+        public Amazon.DLM.DefaultPoliciesTypeValues DefaultPolicyType { get; set; }
+        #endregion
+        
         #region Parameter PolicyId
         /// <summary>
         /// <para>
@@ -128,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 context.Select = CreateSelectDelegate<Amazon.DLM.Model.GetLifecyclePoliciesResponse, GetDLMLifecyclePolicySummaryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DefaultPolicyType = this.DefaultPolicyType;
             if (this.PolicyId != null)
             {
                 context.PolicyId = new List<System.String>(this.PolicyId);
@@ -161,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             // create request
             var request = new Amazon.DLM.Model.GetLifecyclePoliciesRequest();
             
+            if (cmdletContext.DefaultPolicyType != null)
+            {
+                request.DefaultPolicyType = cmdletContext.DefaultPolicyType;
+            }
             if (cmdletContext.PolicyId != null)
             {
                 request.PolicyIds = cmdletContext.PolicyId;
@@ -242,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DLM.DefaultPoliciesTypeValues DefaultPolicyType { get; set; }
             public List<System.String> PolicyId { get; set; }
             public List<System.String> ResourceType { get; set; }
             public Amazon.DLM.GettablePolicyStateValues State { get; set; }

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// meet the filter criteria. If you don't specify SenderIds or filters, the output includes
     /// information for all SenderIds.
     /// </para><para>
-    /// f you specify a sender ID that isn't valid, an Error is returned.
+    /// f you specify a sender ID that isn't valid, an error is returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVSenderId")]

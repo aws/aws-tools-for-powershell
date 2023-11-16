@@ -87,6 +87,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.LanguageCode
+        "Send-SMSVDestinationNumberVerificationCode/LanguageCode"
+        {
+            $v = "DE_DE","EN_GB","EN_US","ES_419","ES_ES","FR_CA","FR_FR","IT_IT","JA_JP","KO_KR","PT_BR","ZH_CN","ZH_TW"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.MessageType
         {
             ($_ -eq "New-SMSVPhoneNumber/MessageType") -Or
@@ -102,7 +109,14 @@ $SMSV_Completers = {
         # Amazon.PinpointSMSVoiceV2.RequestableNumberType
         "New-SMSVPhoneNumber/NumberType"
         {
-            $v = "LONG_CODE","TEN_DLC","TOLL_FREE"
+            $v = "LONG_CODE","SIMULATOR","TEN_DLC","TOLL_FREE"
+            break
+        }
+
+        # Amazon.PinpointSMSVoiceV2.VerificationChannel
+        "Send-SMSVDestinationNumberVerificationCode/VerificationChannel"
+        {
+            $v = "TEXT","VOICE"
             break
         }
 
@@ -130,9 +144,11 @@ $SMSV_Completers = {
 
 $SMSV_map = @{
     "KeywordAction"=@("Set-SMSVKeyword")
+    "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberType"=@("New-SMSVPhoneNumber")
+    "VerificationChannel"=@("Send-SMSVDestinationNumberVerificationCode")
     "VoiceId"=@("Send-SMSVVoiceMessage")
 }
 
@@ -191,6 +207,11 @@ $SMSV_SelectMap = @{
                "New-SMSVEventDestination",
                "New-SMSVOptOutList",
                "New-SMSVPool",
+               "New-SMSVRegistration",
+               "New-SMSVRegistrationAssociation",
+               "New-SMSVRegistrationAttachment",
+               "New-SMSVRegistrationVersion",
+               "New-SMSVVerifiedDestinationNumber",
                "Remove-SMSVConfigurationSet",
                "Remove-SMSVDefaultMessageType",
                "Remove-SMSVDefaultSenderId",
@@ -199,7 +220,11 @@ $SMSV_SelectMap = @{
                "Remove-SMSVOptedOutNumber",
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
+               "Remove-SMSVRegistration",
+               "Remove-SMSVRegistrationAttachment",
+               "Remove-SMSVRegistrationFieldValue",
                "Remove-SMSVTextMessageSpendLimitOverride",
+               "Remove-SMSVVerifiedDestinationNumber",
                "Remove-SMSVVoiceMessageSpendLimitOverride",
                "Get-SMSVAccountAttribute",
                "Get-SMSVAccountLimit",
@@ -209,26 +234,43 @@ $SMSV_SelectMap = @{
                "Get-SMSVOptOutList",
                "Get-SMSVPhoneNumber",
                "Get-SMSVPool",
+               "Get-SMSVRegistrationAttachment",
+               "Get-SMSVRegistrationFieldDefinition",
+               "Get-SMSVRegistrationFieldValue",
+               "Get-SMSVRegistration",
+               "Get-SMSVRegistrationSectionDefinition",
+               "Get-SMSVRegistrationTypeDefinition",
+               "Get-SMSVRegistrationVersion",
                "Get-SMSVSenderId",
                "Get-SMSVSpendLimit",
+               "Get-SMSVVerifiedDestinationNumber",
                "Unregister-SMSVOriginationIdentity",
+               "Close-SMSVRegistrationVersion",
                "Get-SMSVPoolOriginationIdentityList",
+               "Get-SMSVRegistrationAssociationList",
                "Get-SMSVResourceTagList",
                "Set-SMSVKeyword",
                "Set-SMSVOptedOutNumber",
+               "Set-SMSVRegistrationFieldValue",
                "Remove-SMSVPhoneNumber",
+               "Remove-SMSVSenderId",
                "New-SMSVPhoneNumber",
+               "Request-SMSVSenderId",
+               "Send-SMSVDestinationNumberVerificationCode",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
+               "Submit-SMSVRegistrationVersion",
                "Add-SMSVResourceTag",
                "Remove-SMSVResourceTag",
                "Update-SMSVEventDestination",
                "Update-SMSVPhoneNumber",
-               "Update-SMSVPool")
+               "Update-SMSVPool",
+               "Update-SMSVSenderId",
+               "Confirm-SMSVDestinationNumber")
 }
 
 _awsArgumentCompleterRegistration $SMSV_SelectCompleters $SMSV_SelectMap

@@ -48,13 +48,43 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>The Amazon Resource Name (ARN), ID, or alias of the KMS key to use to encrypt sensitive
         /// data that's retrieved. The key must be an existing, customer managed, symmetric encryption
-        /// key that's in the same Amazon Web Services Region as the Amazon Macie account.</para><para>If this value specifies an alias, it must include the following prefix: alias/. If
+        /// key that's enabled in the same Amazon Web Services Region as the Amazon Macie account.</para><para>If this value specifies an alias, it must include the following prefix: alias/. If
         /// this value specifies a key that's owned by another Amazon Web Services account, it
         /// must specify the ARN of the key or the ARN of the key's alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_RetrievalMode
+        /// <summary>
+        /// <para>
+        /// <para>The access method to use when retrieving sensitive data from affected S3 objects.
+        /// Valid values are: ASSUME_ROLE, assume an IAM role that is in the affected Amazon Web
+        /// Services account and delegates access to Amazon Macie; and, CALLER_CREDENTIALS, use
+        /// the credentials of the IAM user who requests the sensitive data. If you specify ASSUME_ROLE,
+        /// also specify the name of an existing IAM role for Macie to assume (roleName).</para><important><para>If you change this value from ASSUME_ROLE to CALLER_CREDENTIALS for an existing configuration,
+        /// Macie permanently deletes the external ID and role name currently specified for the
+        /// configuration. These settings can't be recovered after they're deleted.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Macie2.RetrievalMode")]
+        public Amazon.Macie2.RetrievalMode RetrievalConfiguration_RetrievalMode { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_RoleName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the IAM role that is in the affected Amazon Web Services account and Amazon
+        /// Macie is allowed to assume when retrieving sensitive data from affected S3 objects
+        /// for the account. The trust and permissions policies for the role must meet all requirements
+        /// for Macie to assume the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_RoleName { get; set; }
         #endregion
         
         #region Parameter Configuration_Status
@@ -148,6 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 WriteWarning("You are passing $null as a value for parameter Configuration_Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RetrievalConfiguration_RetrievalMode = this.RetrievalConfiguration_RetrievalMode;
+            context.RetrievalConfiguration_RoleName = this.RetrievalConfiguration_RoleName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -192,6 +224,35 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestConfigurationIsNull)
             {
                 request.Configuration = null;
+            }
+            
+             // populate RetrievalConfiguration
+            var requestRetrievalConfigurationIsNull = true;
+            request.RetrievalConfiguration = new Amazon.Macie2.Model.UpdateRetrievalConfiguration();
+            Amazon.Macie2.RetrievalMode requestRetrievalConfiguration_retrievalConfiguration_RetrievalMode = null;
+            if (cmdletContext.RetrievalConfiguration_RetrievalMode != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_RetrievalMode = cmdletContext.RetrievalConfiguration_RetrievalMode;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_RetrievalMode != null)
+            {
+                request.RetrievalConfiguration.RetrievalMode = requestRetrievalConfiguration_retrievalConfiguration_RetrievalMode;
+                requestRetrievalConfigurationIsNull = false;
+            }
+            System.String requestRetrievalConfiguration_retrievalConfiguration_RoleName = null;
+            if (cmdletContext.RetrievalConfiguration_RoleName != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_RoleName = cmdletContext.RetrievalConfiguration_RoleName;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_RoleName != null)
+            {
+                request.RetrievalConfiguration.RoleName = requestRetrievalConfiguration_retrievalConfiguration_RoleName;
+                requestRetrievalConfigurationIsNull = false;
+            }
+             // determine if request.RetrievalConfiguration should be set to null
+            if (requestRetrievalConfigurationIsNull)
+            {
+                request.RetrievalConfiguration = null;
             }
             
             CmdletOutput output;
@@ -256,6 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         {
             public System.String Configuration_KmsKeyId { get; set; }
             public Amazon.Macie2.RevealStatus Configuration_Status { get; set; }
+            public Amazon.Macie2.RetrievalMode RetrievalConfiguration_RetrievalMode { get; set; }
+            public System.String RetrievalConfiguration_RoleName { get; set; }
             public System.Func<Amazon.Macie2.Model.UpdateRevealConfigurationResponse, UpdateMAC2RevealConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Configuration;
         }

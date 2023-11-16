@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to specify where to start paginating. This is the NextToken from a previously
+        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
         /// truncated response.</para>
         /// </para>
         /// <para>

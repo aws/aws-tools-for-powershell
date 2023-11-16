@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// 
     ///  
     /// <para>
-    /// If the origination phone number is associated with a pool, an Error is returned.
+    /// If the origination phone number is associated with a pool, an error is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SMSVPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -110,6 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TwoWayChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter TwoWayChannelRole
+        /// <summary>
+        /// <para>
+        /// <para>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TwoWayChannelRole { get; set; }
         #endregion
         
         #region Parameter TwoWayEnabled
@@ -196,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             #endif
             context.SelfManagedOptOutsEnabled = this.SelfManagedOptOutsEnabled;
             context.TwoWayChannelArn = this.TwoWayChannelArn;
+            context.TwoWayChannelRole = this.TwoWayChannelRole;
             context.TwoWayEnabled = this.TwoWayEnabled;
             
             // allow further manipulation of loaded context prior to processing
@@ -232,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.TwoWayChannelArn != null)
             {
                 request.TwoWayChannelArn = cmdletContext.TwoWayChannelArn;
+            }
+            if (cmdletContext.TwoWayChannelRole != null)
+            {
+                request.TwoWayChannelRole = cmdletContext.TwoWayChannelRole;
             }
             if (cmdletContext.TwoWayEnabled != null)
             {
@@ -303,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String PhoneNumberId { get; set; }
             public System.Boolean? SelfManagedOptOutsEnabled { get; set; }
             public System.String TwoWayChannelArn { get; set; }
+            public System.String TwoWayChannelRole { get; set; }
             public System.Boolean? TwoWayEnabled { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.UpdatePhoneNumberResponse, UpdateSMSVPhoneNumberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

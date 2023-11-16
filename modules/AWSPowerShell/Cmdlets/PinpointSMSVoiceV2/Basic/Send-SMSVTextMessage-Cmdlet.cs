@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter MessageType
         /// <summary>
         /// <para>
-        /// <para>The type of message. Valid values are TRANSACTIONAL for messages that are critical
-        /// or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</para>
+        /// <para>The type of message. Valid values are for messages that are critical or time-sensitive
+        /// and PROMOTIONAL for messages that aren't critical or time-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter OptOutListName
         /// <summary>
         /// <para>
-        /// <para>The name of the OptOutList to associate with the phone number. You can use the OutOutListName
-        /// or OptPutListArn.</para>
+        /// <para>The name of the OptOutList to associate with the phone number. You can use the OptOutListName
+        /// or OptOutListArn.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

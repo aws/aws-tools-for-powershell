@@ -229,6 +229,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OutputConfig_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter StoppingCondition_MaxPendingTimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum pending time in seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StoppingCondition_MaxPendingTimeInSeconds")]
+        public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
+        #endregion
+        
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
@@ -486,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StoppingCondition_MaxPendingTimeInSecond = this.StoppingCondition_MaxPendingTimeInSecond;
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
             context.StoppingCondition_MaxWaitTimeInSecond = this.StoppingCondition_MaxWaitTimeInSecond;
             if (this.Tag != null)
@@ -675,6 +687,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate StoppingCondition
             var requestStoppingConditionIsNull = true;
             request.StoppingCondition = new Amazon.SageMaker.Model.StoppingCondition();
+            System.Int32? requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond = null;
+            if (cmdletContext.StoppingCondition_MaxPendingTimeInSecond != null)
+            {
+                requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond = cmdletContext.StoppingCondition_MaxPendingTimeInSecond.Value;
+            }
+            if (requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond != null)
+            {
+                request.StoppingCondition.MaxPendingTimeInSeconds = requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond.Value;
+                requestStoppingConditionIsNull = false;
+            }
             System.Int32? requestStoppingCondition_stoppingCondition_MaxRuntimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxRuntimeInSecond != null)
             {
@@ -808,6 +830,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.TargetPlatformArch TargetPlatform_Arch { get; set; }
             public Amazon.SageMaker.TargetPlatformOs TargetPlatform_Os { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

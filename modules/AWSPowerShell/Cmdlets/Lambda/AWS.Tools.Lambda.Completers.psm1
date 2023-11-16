@@ -80,6 +80,16 @@ $LM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Lambda.ApplicationLogLevel
+        {
+            ($_ -eq "Publish-LMFunction/LoggingConfig_ApplicationLogLevel") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_ApplicationLogLevel")
+        }
+        {
+            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
+            break
+        }
+
         # Amazon.Lambda.Architecture
         {
             ($_ -eq "Get-LMLayerList/CompatibleArchitecture") -Or
@@ -152,6 +162,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.LogFormat
+        {
+            ($_ -eq "Publish-LMFunction/LoggingConfig_LogFormat") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_LogFormat")
+        }
+        {
+            $v = "JSON","Text"
+            break
+        }
+
         # Amazon.Lambda.LogType
         {
             ($_ -eq "Invoke-LMFunction/LogType") -Or
@@ -198,6 +218,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.SystemLogLevel
+        {
+            ($_ -eq "Publish-LMFunction/LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_SystemLogLevel")
+        }
+        {
+            $v = "DEBUG","INFO","WARN"
+            break
+        }
+
         # Amazon.Lambda.TracingMode
         {
             ($_ -eq "Publish-LMFunction/TracingConfig_Mode") -Or
@@ -233,6 +263,9 @@ $LM_map = @{
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "InvokeMode"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
+    "LoggingConfig_ApplicationLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "LoggingConfig_LogFormat"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")

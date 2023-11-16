@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class GetQSAssetBundleExportJobCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AssetBundleExportJobId

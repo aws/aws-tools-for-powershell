@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For FSx for Windows File Server file systems, you can update the following properties:
     /// </para><ul><li><para><code>AuditLogConfiguration</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>SelfManagedActiveDirectoryConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>StorageType</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for Lustre file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>LogConfiguration</code></para></li><li><para><code>LustreRootSquashConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>LogConfiguration</code></para></li><li><para><code>LustreRootSquashConfiguration</code></para></li><li><para><code>PerUnitStorageThroughput</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for ONTAP file systems, you can update the following properties:
     /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per
         /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320,
-        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
+        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
         /// or 4096 MB/s.</para></li></ul>
         /// </para>
         /// </summary>

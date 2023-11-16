@@ -168,6 +168,32 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Boolean? IncludeAllDependency { get; set; }
         #endregion
         
+        #region Parameter IncludePermission
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that determines whether all permissions for each resource ARN are exported
+        /// with the job. If you set <code>IncludePermissions</code> to <code>TRUE</code>, any
+        /// permissions associated with each resource are exported. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludePermissions")]
+        public System.Boolean? IncludePermission { get; set; }
+        #endregion
+        
+        #region Parameter IncludeTag
+        /// <summary>
+        /// <para>
+        /// <para> A Boolean that determines whether all tags for each resource ARN are exported with
+        /// the job. If you set <code>IncludeTags</code> to <code>TRUE</code>, any tags associated
+        /// with each resource are exported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeTags")]
+        public System.Boolean? IncludeTag { get; set; }
+        #endregion
+        
         #region Parameter ResourceIdOverrideConfiguration_PrefixForAllResource
         /// <summary>
         /// <para>
@@ -210,6 +236,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ResourceArns")]
         public System.String[] ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter ValidationStrategy_StrictModeForAllResource
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether to export resources under strict or lenient
+        /// mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValidationStrategy_StrictModeForAllResources")]
+        public System.Boolean? ValidationStrategy_StrictModeForAllResource { get; set; }
         #endregion
         
         #region Parameter CloudFormationOverridePropertyConfiguration_Theme
@@ -349,6 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.IncludeAllDependency = this.IncludeAllDependency;
+            context.IncludePermission = this.IncludePermission;
+            context.IncludeTag = this.IncludeTag;
             if (this.ResourceArn != null)
             {
                 context.ResourceArn = new List<System.String>(this.ResourceArn);
@@ -359,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ValidationStrategy_StrictModeForAllResource = this.ValidationStrategy_StrictModeForAllResource;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -495,9 +536,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.IncludeAllDependencies = cmdletContext.IncludeAllDependency.Value;
             }
+            if (cmdletContext.IncludePermission != null)
+            {
+                request.IncludePermissions = cmdletContext.IncludePermission.Value;
+            }
+            if (cmdletContext.IncludeTag != null)
+            {
+                request.IncludeTags = cmdletContext.IncludeTag.Value;
+            }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArns = cmdletContext.ResourceArn;
+            }
+            
+             // populate ValidationStrategy
+            var requestValidationStrategyIsNull = true;
+            request.ValidationStrategy = new Amazon.QuickSight.Model.AssetBundleExportJobValidationStrategy();
+            System.Boolean? requestValidationStrategy_validationStrategy_StrictModeForAllResource = null;
+            if (cmdletContext.ValidationStrategy_StrictModeForAllResource != null)
+            {
+                requestValidationStrategy_validationStrategy_StrictModeForAllResource = cmdletContext.ValidationStrategy_StrictModeForAllResource.Value;
+            }
+            if (requestValidationStrategy_validationStrategy_StrictModeForAllResource != null)
+            {
+                request.ValidationStrategy.StrictModeForAllResources = requestValidationStrategy_validationStrategy_StrictModeForAllResource.Value;
+                requestValidationStrategyIsNull = false;
+            }
+             // determine if request.ValidationStrategy should be set to null
+            if (requestValidationStrategyIsNull)
+            {
+                request.ValidationStrategy = null;
             }
             
             CmdletOutput output;
@@ -572,7 +640,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleExportJobVPCConnectionOverrideProperties> CloudFormationOverridePropertyConfiguration_VPCConnection { get; set; }
             public Amazon.QuickSight.AssetBundleExportFormat ExportFormat { get; set; }
             public System.Boolean? IncludeAllDependency { get; set; }
+            public System.Boolean? IncludePermission { get; set; }
+            public System.Boolean? IncludeTag { get; set; }
             public List<System.String> ResourceArn { get; set; }
+            public System.Boolean? ValidationStrategy_StrictModeForAllResource { get; set; }
             public System.Func<Amazon.QuickSight.Model.StartAssetBundleExportJobResponse, StartQSAssetBundleExportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

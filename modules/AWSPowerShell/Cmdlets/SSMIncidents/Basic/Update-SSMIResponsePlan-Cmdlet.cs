@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Defines the impact to the customers. Providing an impact overwrites the impact provided
-        /// by a response plan.</para><para><b>Possible impacts:</b></para><ul><li><para><code>5</code> - Severe impact</para></li><li><para><code>4</code> - High impact</para></li><li><para><code>3</code> - Medium impact</para></li><li><para><code>2</code> - Low impact</para></li><li><para><code>1</code> - No impact</para></li></ul>
+        /// by a response plan.</para><para><b>Supported impact codes</b></para><ul><li><para><code>1</code> - Critical</para></li><li><para><code>2</code> - High</para></li><li><para><code>3</code> - Medium</para></li><li><para><code>4</code> - Low</para></li><li><para><code>5</code> - No Impact</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

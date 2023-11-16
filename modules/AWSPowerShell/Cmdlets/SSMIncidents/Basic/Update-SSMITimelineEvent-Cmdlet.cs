@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventTime
         /// <summary>
         /// <para>
-        /// <para>The time that the event occurred.</para>
+        /// <para>The timestamp for when the event occurred.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventType
         /// <summary>
         /// <para>
-        /// <para>The type of event. You can update events of type <code>Custom Event</code>.</para>
+        /// <para>The type of event. You can update events of type <code>Custom Event</code> and <code>Note</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

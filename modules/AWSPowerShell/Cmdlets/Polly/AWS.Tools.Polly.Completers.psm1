@@ -87,7 +87,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/Engine")
         }
         {
-            $v = "neural","standard"
+            $v = "long-form","neural","standard"
             break
         }
 

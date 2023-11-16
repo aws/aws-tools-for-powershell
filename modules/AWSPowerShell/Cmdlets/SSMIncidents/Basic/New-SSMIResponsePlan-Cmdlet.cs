@@ -71,8 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentTemplate_DedupeString
         /// <summary>
         /// <para>
-        /// <para>Used to stop Incident Manager from creating multiple incident records for the same
-        /// incident. </para>
+        /// <para>The string Incident Manager uses to prevent the same root cause from creating multiple
+        /// incidents in the same account.</para><para>A deduplication string is a term or phrase the system uses to check for duplicate
+        /// incidents. If you specify a deduplication string, Incident Manager searches for open
+        /// incidents that contain the same string in the <code>dedupeString</code> field when
+        /// it creates the incident. If a duplicate is detected, Incident Manager deduplicates
+        /// the newer incident into the existing incident.</para><note><para>By default, Incident Manager automatically deduplicates multiple incidents created
+        /// by the same Amazon CloudWatch alarm or Amazon EventBridge event. You don't have to
+        /// enter your own deduplication string to prevent duplication for these resource types.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentTemplate_Impact
         /// <summary>
         /// <para>
-        /// <para>The impact of the incident on your customers and applications. </para>
+        /// <para>The impact of the incident on your customers and applications.</para><para><b>Supported impact codes</b></para><ul><li><para><code>1</code> - Critical</para></li><li><para><code>2</code> - High</para></li><li><para><code>3</code> - Medium</para></li><li><para><code>4</code> - Low</para></li><li><para><code>5</code> - No Impact</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
