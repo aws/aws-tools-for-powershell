@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class DisconnectIVSCUserCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Reason

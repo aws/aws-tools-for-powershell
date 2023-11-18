@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>trustedadvisor</C2jFilename>
+    <AssemblyName>TrustedAdvisor</AssemblyName>
+    <ServiceNounPrefix>TA</ServiceNounPrefix>
+    <ServiceName>Trusted Advisor</ServiceName>
+    <ServiceClientInterface>IAmazonTrustedAdvisor</ServiceClientInterface>
+    <ServiceClient>AmazonTrustedAdvisorClient</ServiceClient>
+    <ServiceModuleGuid>f9d6a2c4-1f57-4d2a-8803-49842e0d75e6</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetOrganizationRecommendation" OutputProperty="OrganizationRecommendation" Verb="Get" Noun="OrganizationRecommendation" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendation" OutputProperty="Recommendation" Verb="Get" Noun="Recommendation" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChecks" OutputProperty="CheckSummaries" Verb="Get" Noun="CheckList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationRecommendationAccounts" OutputProperty="AccountRecommendationLifecycleSummaries" Verb="Get" Noun="OrganizationRecommendationAccountList" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationRecommendationResources" OutputProperty="OrganizationRecommendationResourceSummaries" Verb="Get" Noun="OrganizationRecommendationResourceList" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationRecommendations" OutputProperty="OrganizationRecommendationSummaries" Verb="Get" Noun="OrganizationRecommendationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendationResources" OutputProperty="RecommendationResourceSummaries" Verb="Get" Noun="RecommendationResourceList" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOrganizationRecommendationLifecycle" Verb="Update" Noun="OrganizationRecommendationLifecycle" ShouldProcessTarget="OrganizationRecommendationIdentifier" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecommendationLifecycle" Verb="Update" Noun="RecommendationLifecycle" ShouldProcessTarget="RecommendationIdentifier" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -232,9 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// access logs to standard out and configure your Envoy container to use a log driver,
         /// such as <code>awslogs</code>, to export the access logs to a log storage service such
         /// as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file
-        /// system to write the files to disk.</para><pre><code> &lt;note&gt; &lt;p&gt;The Envoy process must have write permissions to
-        /// the path that you specify here. Otherwise, Envoy fails to bootstrap properly.&lt;/p&gt;
-        /// &lt;/note&gt; </code></pre>
+        /// system to write the files to disk.</para><note><para>The Envoy process must have write permissions to the path that you specify here. Otherwise,
+        /// Envoy fails to bootstrap properly.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

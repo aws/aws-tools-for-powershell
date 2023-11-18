@@ -131,6 +131,9 @@ $RDS_Completers = {
 
         # Amazon.RDS.ReplicaMode
         {
+            ($_ -eq "New-RDSDBCluster/RdsCustomClusterConfiguration_ReplicaMode") -Or
+            ($_ -eq "Restore-RDSDBClusterFromSnapshot/RdsCustomClusterConfiguration_ReplicaMode") -Or
+            ($_ -eq "Restore-RDSDBClusterToPointInTime/RdsCustomClusterConfiguration_ReplicaMode") -Or
             ($_ -eq "Edit-RDSDBInstance/ReplicaMode") -Or
             ($_ -eq "New-RDSDBInstanceReadReplica/ReplicaMode")
         }
@@ -159,6 +162,7 @@ $RDS_map = @{
     "AutomationMode"=@("Edit-RDSDBInstance")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
+    "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
     "SourceType"=@("Get-RDSEvent","Get-RDSExportTask")
     "Status"=@("Edit-RDSCustomDBEngineVersion")

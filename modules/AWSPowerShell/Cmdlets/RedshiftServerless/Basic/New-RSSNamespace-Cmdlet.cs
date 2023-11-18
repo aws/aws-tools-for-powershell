@@ -163,6 +163,16 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.String NamespaceName { get; set; }
         #endregion
         
+        #region Parameter RedshiftIdcApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the Redshift application that integrates with IAM Identity Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RedshiftIdcApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -258,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 WriteWarning("You are passing $null as a value for parameter NamespaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RedshiftIdcApplicationArn = this.RedshiftIdcApplicationArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RedshiftServerless.Model.Tag>(this.Tag);
@@ -317,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.NamespaceName != null)
             {
                 request.NamespaceName = cmdletContext.NamespaceName;
+            }
+            if (cmdletContext.RedshiftIdcApplicationArn != null)
+            {
+                request.RedshiftIdcApplicationArn = cmdletContext.RedshiftIdcApplicationArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -393,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public List<System.String> LogExport { get; set; }
             public System.Boolean? ManageAdminPassword { get; set; }
             public System.String NamespaceName { get; set; }
+            public System.String RedshiftIdcApplicationArn { get; set; }
             public List<Amazon.RedshiftServerless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RedshiftServerless.Model.CreateNamespaceResponse, NewRSSNamespaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Namespace;

@@ -104,6 +104,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.IdcUserAssignment
+        "New-EMRStudio/IdcUserAssignment"
+        {
+            $v = "OPTIONAL","REQUIRED"
+            break
+        }
+
         # Amazon.ElasticMapReduce.IdentityType
         {
             ($_ -eq "Get-EMRStudioSessionMapping/IdentityType") -Or
@@ -208,6 +215,7 @@ $EMR_Completers = {
 $EMR_map = @{
     "AuthMode"=@("New-EMRStudio")
     "ExecutionEngine_Type"=@("Start-EMRNotebookExecution")
+    "IdcUserAssignment"=@("New-EMRStudio")
     "IdentityType"=@("Get-EMRStudioSessionMapping","Get-EMRStudioSessionMappingList","New-EMRStudioSessionMapping","Remove-EMRStudioSessionMapping","Update-EMRStudioSessionMapping")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")

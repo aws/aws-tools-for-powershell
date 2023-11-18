@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// Get the information about an existing global endpoint. For more information about
     /// global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making
     /// applications Regional-fault tolerant with global endpoints and event replication</a>
-    /// in the Amazon EventBridge User Guide..
+    /// in the <i>Amazon EventBridge User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "EVBEndpoint")]
     [OutputType("Amazon.EventBridge.Model.DescribeEndpointResponse")]

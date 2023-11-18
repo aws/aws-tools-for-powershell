@@ -28,7 +28,12 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Lists the targets assigned to the specified rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the targets assigned to the specified rule.
+    /// 
+    ///  
+    /// <para>
+    /// The maximum number of results per page for requests is 100.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVBTargetsByRule")]
     [OutputType("Amazon.EventBridge.Model.Target")]

@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// <summary>
     /// This is used by SaaS partners to write events to a customer's partner event bus. Amazon
     /// Web Services customers do not use this operation.
+    /// 
+    ///  
+    /// <para>
+    /// For information on calculating event batch size, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating
+    /// EventBridge PutEvents event entry size</a> in the <i>EventBridge User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "EVBPartnerEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridge.Model.PutPartnerEventsResultEntry")]

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter EventId
         /// <summary>
         /// <para>
-        /// <para>The internally generated identifier of a health event. Because <code>EventID</code>
+        /// <para>The internally-generated identifier of a health event. Because <code>EventID</code>
         /// contains the forward slash (“/”) character, you must URL-encode the <code>EventID</code>
         /// field in the request URL.</para>
         /// </para>

@@ -209,7 +209,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -230,7 +230,7 @@ $CONN_Completers = {
         # Amazon.Connect.ListFlowAssociationResourceType
         "Get-CONNFlowAssociationBatch/ResourceType"
         {
-            $v = "SMS_PHONE_NUMBER","VOICE_PHONE_NUMBER"
+            $v = "VOICE_PHONE_NUMBER"
             break
         }
 

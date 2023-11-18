@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter InputDeviceId
         /// <summary>
         /// <para>
-        /// The unique ID of the input device to reboot.
+        /// The unique ID of the input device to start.
         /// For example, hd-123456789abcdef.
         /// </para>
         /// </summary>

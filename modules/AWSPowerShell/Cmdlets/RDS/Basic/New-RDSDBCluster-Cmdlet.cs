@@ -714,6 +714,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter RdsCustomClusterConfiguration_ReplicaMode
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.ReplicaMode")]
+        public Amazon.RDS.ReplicaMode RdsCustomClusterConfiguration_ReplicaMode { get; set; }
+        #endregion
+        
         #region Parameter ReplicationSourceIdentifier
         /// <summary>
         /// <para>
@@ -959,6 +970,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PreSignedUrl = this.PreSignedUrl;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.RdsCustomClusterConfiguration_InterconnectSubnetId = this.RdsCustomClusterConfiguration_InterconnectSubnetId;
+            context.RdsCustomClusterConfiguration_ReplicaMode = this.RdsCustomClusterConfiguration_ReplicaMode;
             context.RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId = this.RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId;
             context.ReplicationSourceIdentifier = this.ReplicationSourceIdentifier;
             context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
@@ -1183,6 +1195,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_InterconnectSubnetId != null)
             {
                 request.RdsCustomClusterConfiguration.InterconnectSubnetId = requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_InterconnectSubnetId;
+                requestRdsCustomClusterConfigurationIsNull = false;
+            }
+            Amazon.RDS.ReplicaMode requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_ReplicaMode = null;
+            if (cmdletContext.RdsCustomClusterConfiguration_ReplicaMode != null)
+            {
+                requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_ReplicaMode = cmdletContext.RdsCustomClusterConfiguration_ReplicaMode;
+            }
+            if (requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_ReplicaMode != null)
+            {
+                request.RdsCustomClusterConfiguration.ReplicaMode = requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_ReplicaMode;
                 requestRdsCustomClusterConfigurationIsNull = false;
             }
             System.String requestRdsCustomClusterConfiguration_rdsCustomClusterConfiguration_TransitGatewayMulticastDomainId = null;
@@ -1424,6 +1446,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String PreSignedUrl { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String RdsCustomClusterConfiguration_InterconnectSubnetId { get; set; }
+            public Amazon.RDS.ReplicaMode RdsCustomClusterConfiguration_ReplicaMode { get; set; }
             public System.String RdsCustomClusterConfiguration_TransitGatewayMulticastDomainId { get; set; }
             public System.String ReplicationSourceIdentifier { get; set; }
             public System.Boolean? ScalingConfiguration_AutoPause { get; set; }

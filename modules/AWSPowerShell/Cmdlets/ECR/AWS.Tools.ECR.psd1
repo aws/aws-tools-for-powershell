@@ -121,6 +121,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ECRImageScan', 
         'Start-ECRLayerUpload', 
         'Start-ECRLifecyclePolicyPreview', 
+        'Test-ECRPullThroughCacheRule', 
+        'Update-ECRPullThroughCacheRule', 
         'Write-ECRImage', 
         'Write-ECRImageScanningConfiguration', 
         'Write-ECRImageTagMutability', 

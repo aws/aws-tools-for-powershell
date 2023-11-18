@@ -28,18 +28,16 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// <important><para>
-    /// This API is related to <a href="https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html">WebRTC
-    /// Ingestion</a> and is only available in the <code>us-west-2</code> region.
-    /// </para></important><para>
     /// Associates a <code>SignalingChannel</code> to a stream to store the media. There are
-    /// two signaling modes that can specified :
-    /// </para><ul><li><para>
-    /// If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code>
-    /// parameter will not be needed. 
+    /// two signaling modes that you can specify :
+    /// 
+    ///  <ul><li><para>
+    /// If <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code>
+    /// provided. In order for WebRTC Ingestion to work, the stream must have data retention
+    /// enabled.
     /// </para></li><li><para>
-    /// If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code>
-    /// provided. 
+    /// If <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code>
+    /// parameter will not be needed. 
     /// </para></li></ul><important><para>
     /// If <code>StorageStatus</code> is enabled, direct peer-to-peer (master-viewer) connections
     /// no longer occur. Peers connect directly to the storage session. You must call the
@@ -96,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter MediaStorageConfiguration_StreamARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the stream </para>
+        /// <para>The Amazon Resource Name (ARN) of the stream. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

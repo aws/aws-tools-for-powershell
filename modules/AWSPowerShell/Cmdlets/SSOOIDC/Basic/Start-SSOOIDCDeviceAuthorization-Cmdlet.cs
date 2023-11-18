@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     public partial class StartSSOOIDCDeviceAuthorizationCmdlet : AmazonSSOOIDCClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ClientId
@@ -82,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter StartUrl
         /// <summary>
         /// <para>
-        /// <para>The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-        /// the AWS access portal</a> in the <i>IAM Identity Center User Guide</i>.</para>
+        /// <para>The URL for the Amazon Web Services access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
+        /// the Amazon Web Services access portal</a> in the <i>IAM Identity Center User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

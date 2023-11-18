@@ -46,13 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// them using Amazon Web Services Events rules and targets.
     /// </para><para>
     /// Partner event source names follow this format:
-    /// </para><para><code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code></para><para><i>partner_name</i> is determined during partner registration and identifies the
-    /// partner to Amazon Web Services customers. <i>event_namespace</i> is determined by
-    /// the partner and is a way for the partner to categorize their events. <i>event_name</i>
-    /// is determined by the partner, and should uniquely identify an event-generating resource
-    /// within the partner system. The combination of <i>event_namespace</i> and <i>event_name</i>
-    /// should help Amazon Web Services customers decide whether to create an event bus to
-    /// receive these events.
+    /// </para><para><code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code></para><ul><li><para><i>partner_name</i> is determined during partner registration, and identifies the
+    /// partner to Amazon Web Services customers. 
+    /// </para></li><li><para><i>event_namespace</i> is determined by the partner, and is a way for the partner
+    /// to categorize their events.
+    /// </para></li><li><para><i>event_name</i> is determined by the partner, and should uniquely identify an event-generating
+    /// resource within the partner system. 
+    /// </para><para>
+    /// The <i>event_name</i> must be unique across all Amazon Web Services customers. This
+    /// is because the event source is a shared resource between the partner and customer
+    /// accounts, and each partner event source unique in the partner account.
+    /// </para></li></ul><para>
+    /// The combination of <i>event_namespace</i> and <i>event_name</i> should help Amazon
+    /// Web Services customers decide whether to create an event bus to receive these events.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EVBPartnerEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

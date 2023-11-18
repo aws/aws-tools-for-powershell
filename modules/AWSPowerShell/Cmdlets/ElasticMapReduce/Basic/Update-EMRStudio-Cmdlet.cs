@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook
+        /// files when backed up to Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionKeyArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -168,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultS3Location = this.DefaultS3Location;
             context.Description = this.Description;
+            context.EncryptionKeyArn = this.EncryptionKeyArn;
             context.Name = this.Name;
             context.StudioId = this.StudioId;
             #if MODULAR
@@ -203,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EncryptionKeyArn != null)
+            {
+                request.EncryptionKeyArn = cmdletContext.EncryptionKeyArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -279,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             public System.String DefaultS3Location { get; set; }
             public System.String Description { get; set; }
+            public System.String EncryptionKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String StudioId { get; set; }
             public List<System.String> SubnetId { get; set; }

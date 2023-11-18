@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Asn
+        /// <summary>
+        /// <para>
+        /// <para>The public 2-byte or 4-byte ASN that you want to advertise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Asn { get; set; }
+        #endregion
+        
         #region Parameter Cidr
         /// <summary>
         /// <para>
@@ -140,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.Cidr;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Asn = this.Asn;
             context.Cidr = this.Cidr;
             #if MODULAR
             if (this.Cidr == null && ParameterWasBound(nameof(this.Cidr)))
@@ -163,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.AdvertiseByoipCidrRequest();
             
+            if (cmdletContext.Asn != null)
+            {
+                request.Asn = cmdletContext.Asn;
+            }
             if (cmdletContext.Cidr != null)
             {
                 request.Cidr = cmdletContext.Cidr;
@@ -228,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Asn { get; set; }
             public System.String Cidr { get; set; }
             public System.Func<Amazon.EC2.Model.AdvertiseByoipCidrResponse, StartEC2ByoipCidrAdvertisementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ByoipCidr;

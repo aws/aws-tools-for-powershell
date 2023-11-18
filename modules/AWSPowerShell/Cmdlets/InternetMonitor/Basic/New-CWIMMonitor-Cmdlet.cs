@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <para>
         /// <para>The minimum percentage of overall traffic for an application that must be impacted
         /// by an issue before Internet Monitor creates an event when a threshold is crossed for
-        /// a local health score.</para>
+        /// a local health score.</para><para>If you don't set a minimum traffic impact threshold, the default value is 0.01%.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <para>
         /// <para>The minimum percentage of overall traffic for an application that must be impacted
         /// by an issue before Internet Monitor creates an event when a threshold is crossed for
-        /// a local health score.</para>
+        /// a local health score.</para><para>If you don't set a minimum traffic impact threshold, the default value is 0.01%.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1066,6 +1066,9 @@
     <Reference Include="AWSSDK.Translate">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Translate.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.TrustedAdvisor">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TrustedAdvisor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.VerifiedPermissions">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VerifiedPermissions.dll</HintPath>
     </Reference>
@@ -2120,6 +2123,9 @@
     </Reference>
     <Reference Include="AWSSDK.Translate">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Translate.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TrustedAdvisor">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TrustedAdvisor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.VerifiedPermissions">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.VerifiedPermissions.dll</HintPath>

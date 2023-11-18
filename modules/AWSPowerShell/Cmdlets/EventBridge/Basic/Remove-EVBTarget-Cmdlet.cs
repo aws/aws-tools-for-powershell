@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// This action can partially fail if too many requests are made at the same time. If
     /// that happens, <code>FailedEntryCount</code> is non-zero in the response and each entry
     /// in <code>FailedEntries</code> provides the ID of the failed target and the error code.
+    /// </para><para>
+    /// The maximum number of entries per request is 10.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EVBTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

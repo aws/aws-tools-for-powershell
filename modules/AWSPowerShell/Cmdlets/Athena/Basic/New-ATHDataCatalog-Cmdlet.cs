@@ -84,9 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// actual data, use the following syntax. Both parameters are required.</para><para><code>metadata-function=<i>lambda_arn</i>, record-function=<i>lambda_arn</i></code></para></li><li><para> If you have a composite Lambda function that processes both metadata and data, use
         /// the following syntax to specify your Lambda function.</para><para><code>function=<i>lambda_arn</i></code></para></li></ul></li><li><para>The <code>GLUE</code> type takes a catalog ID parameter and is required. The <code><i>catalog_id</i></code> is the account ID of the Amazon Web Services account to
         /// which the Glue Data Catalog belongs.</para><para><code>catalog-id=<i>catalog_id</i></code></para><ul><li><para>The <code>GLUE</code> data catalog type also applies to the default <code>AwsDataCatalog</code>
-        /// that already exists in your account, of which you can have only one and cannot modify.</para></li><li><para>Queries that specify a Glue Data Catalog other than the default <code>AwsDataCatalog</code>
-        /// must be run on Athena engine version 2.</para></li><li><para>In Regions where Athena engine version 2 is not available, creating new Glue data
-        /// catalogs results in an <code>INVALID_INPUT</code> error.</para></li></ul></li></ul>
+        /// that already exists in your account, of which you can have only one and cannot modify.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

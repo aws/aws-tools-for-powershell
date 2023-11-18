@@ -144,7 +144,7 @@ $EVB_Completers = {
         # Amazon.EventBridge.RuleState
         "Write-EVBRule/State"
         {
-            $v = "DISABLED","ENABLED"
+            $v = "DISABLED","ENABLED","ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS"
             break
         }
 

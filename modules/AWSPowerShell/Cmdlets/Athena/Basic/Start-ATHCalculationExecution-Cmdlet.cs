@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// <summary>
     /// Submits calculations for execution within a session. You can supply the code to run
     /// as an inline code block within the request.
+    /// 
+    ///  <note><para>
+    /// The request syntax requires the <a>StartCalculationExecutionRequest$CodeBlock</a>
+    /// parameter or the <a>CalculationConfiguration$CodeBlock</a> parameter, but not both.
+    /// Because <a>CalculationConfiguration$CodeBlock</a> is deprecated, use the <a>StartCalculationExecutionRequest$CodeBlock</a>
+    /// parameter instead.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "ATHCalculationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Athena.Model.StartCalculationExecutionResponse")]
@@ -71,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter CodeBlock
         /// <summary>
         /// <para>
-        /// <para>A string that contains the code of the calculation.</para>
+        /// <para>A string that contains the code of the calculation. Use this parameter instead of
+        /// <a>CalculationConfiguration$CodeBlock</a>, which is deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Copies the specified DB cluster parameter group.
+    /// 
+    ///  <note><para>
+    /// You can't copy a default DB cluster parameter group. Instead, create a new custom
+    /// DB cluster parameter group, which copies the default parameters and values for the
+    /// specified DB cluster parameter group family.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Copy", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterParameterGroup")]

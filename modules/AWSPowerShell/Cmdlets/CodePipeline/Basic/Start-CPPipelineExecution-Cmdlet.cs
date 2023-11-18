@@ -70,6 +70,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SourceRevision
+        /// <summary>
+        /// <para>
+        /// <para>A list that allows you to specify, or override, the source revision for a pipeline
+        /// execution that's being started. A source revision is the version with all the changes
+        /// to your application code, or source artifact, for the pipeline execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceRevisions")]
+        public Amazon.CodePipeline.Model.SourceRevisionOverride[] SourceRevision { get; set; }
+        #endregion
+        
         #region Parameter Variable
         /// <summary>
         /// <para>
@@ -153,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SourceRevision != null)
+            {
+                context.SourceRevision = new List<Amazon.CodePipeline.Model.SourceRevisionOverride>(this.SourceRevision);
+            }
             if (this.Variable != null)
             {
                 context.Variable = new List<Amazon.CodePipeline.Model.PipelineVariable>(this.Variable);
@@ -180,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SourceRevision != null)
+            {
+                request.SourceRevisions = cmdletContext.SourceRevision;
             }
             if (cmdletContext.Variable != null)
             {
@@ -248,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.CodePipeline.Model.SourceRevisionOverride> SourceRevision { get; set; }
             public List<Amazon.CodePipeline.Model.PipelineVariable> Variable { get; set; }
             public System.Func<Amazon.CodePipeline.Model.StartPipelineExecutionResponse, StartCPPipelineExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PipelineExecutionId;

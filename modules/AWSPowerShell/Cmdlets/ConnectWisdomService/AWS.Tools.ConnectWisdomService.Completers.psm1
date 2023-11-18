@@ -94,10 +94,31 @@ $WSDM_Completers = {
             break
         }
 
+        # Amazon.ConnectWisdomService.ExternalSource
+        "Start-WSDMImportJob/ExternalSourceConfiguration_Source"
+        {
+            $v = "AMAZON_CONNECT"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.ImportJobType
+        "Start-WSDMImportJob/ImportJobType"
+        {
+            $v = "QUICK_RESPONSES"
+            break
+        }
+
         # Amazon.ConnectWisdomService.KnowledgeBaseType
         "New-WSDMKnowledgeBase/KnowledgeBaseType"
         {
-            $v = "CUSTOM","EXTERNAL"
+            $v = "CUSTOM","EXTERNAL","QUICK_RESPONSES"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.Order
+        "Search-WSDMQuickResponse/SearchExpression_OrderOnField_Order"
+        {
+            $v = "ASC","DESC"
             break
         }
 
@@ -111,7 +132,10 @@ $WSDM_Completers = {
 
 $WSDM_map = @{
     "AssociationType"=@("New-WSDMAssistantAssociation")
+    "ExternalSourceConfiguration_Source"=@("Start-WSDMImportJob")
+    "ImportJobType"=@("Start-WSDMImportJob")
     "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
+    "SearchExpression_OrderOnField_Order"=@("Search-WSDMQuickResponse")
     "Type"=@("New-WSDMAssistant")
 }
 
@@ -169,33 +193,43 @@ $WSDM_SelectMap = @{
                "New-WSDMAssistantAssociation",
                "New-WSDMContent",
                "New-WSDMKnowledgeBase",
+               "New-WSDMQuickResponse",
                "New-WSDMSession",
                "Remove-WSDMAssistant",
                "Remove-WSDMAssistantAssociation",
                "Remove-WSDMContent",
+               "Remove-WSDMImportJob",
                "Remove-WSDMKnowledgeBase",
+               "Remove-WSDMQuickResponse",
                "Get-WSDMAssistant",
                "Get-WSDMAssistantAssociation",
                "Get-WSDMContent",
                "Get-WSDMContentSummary",
+               "Get-WSDMImportJob",
                "Get-WSDMKnowledgeBase",
+               "Get-WSDMQuickResponse",
                "Get-WSDMRecommendation",
                "Get-WSDMSession",
                "Get-WSDMAssistantAssociationList",
                "Get-WSDMAssistantList",
                "Get-WSDMContentList",
+               "Get-WSDMImportJobList",
                "Get-WSDMKnowledgeBasisList",
+               "Get-WSDMQuickResponseList",
                "Get-WSDMResourceTag",
                "Remove-WSDMRecommendationsReceived",
                "Search-WSDMAssistant",
                "Remove-WSDMKnowledgeBaseTemplateUri",
                "Search-WSDMContent",
+               "Search-WSDMQuickResponse",
                "Search-WSDMSession",
                "Start-WSDMContentUpload",
+               "Start-WSDMImportJob",
                "Add-WSDMResourceTag",
                "Remove-WSDMResourceTag",
                "Update-WSDMContent",
-               "Update-WSDMKnowledgeBaseTemplateUri")
+               "Update-WSDMKnowledgeBaseTemplateUri",
+               "Update-WSDMQuickResponse")
 }
 
 _awsArgumentCompleterRegistration $WSDM_SelectCompleters $WSDM_SelectMap

@@ -222,6 +222,47 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? PubliclyAdvertisable { get; set; }
         #endregion
         
+        #region Parameter SourceResource_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The source resource ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceResource_ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter SourceResource_ResourceOwner
+        /// <summary>
+        /// <para>
+        /// <para>The source resource owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceResource_ResourceOwner { get; set; }
+        #endregion
+        
+        #region Parameter SourceResource_ResourceRegion
+        /// <summary>
+        /// <para>
+        /// <para>The source resource Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceResource_ResourceRegion { get; set; }
+        #endregion
+        
+        #region Parameter SourceResource_ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The source resource type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpamPoolSourceResourceType")]
+        public Amazon.EC2.IpamPoolSourceResourceType SourceResource_ResourceType { get; set; }
+        #endregion
+        
         #region Parameter SourceIpamPoolId
         /// <summary>
         /// <para>
@@ -352,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.PublicIpSource = this.PublicIpSource;
             context.PubliclyAdvertisable = this.PubliclyAdvertisable;
             context.SourceIpamPoolId = this.SourceIpamPoolId;
+            context.SourceResource_ResourceId = this.SourceResource_ResourceId;
+            context.SourceResource_ResourceOwner = this.SourceResource_ResourceOwner;
+            context.SourceResource_ResourceRegion = this.SourceResource_ResourceRegion;
+            context.SourceResource_ResourceType = this.SourceResource_ResourceType;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -427,6 +472,55 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SourceIpamPoolId != null)
             {
                 request.SourceIpamPoolId = cmdletContext.SourceIpamPoolId;
+            }
+            
+             // populate SourceResource
+            var requestSourceResourceIsNull = true;
+            request.SourceResource = new Amazon.EC2.Model.IpamPoolSourceResourceRequest();
+            System.String requestSourceResource_sourceResource_ResourceId = null;
+            if (cmdletContext.SourceResource_ResourceId != null)
+            {
+                requestSourceResource_sourceResource_ResourceId = cmdletContext.SourceResource_ResourceId;
+            }
+            if (requestSourceResource_sourceResource_ResourceId != null)
+            {
+                request.SourceResource.ResourceId = requestSourceResource_sourceResource_ResourceId;
+                requestSourceResourceIsNull = false;
+            }
+            System.String requestSourceResource_sourceResource_ResourceOwner = null;
+            if (cmdletContext.SourceResource_ResourceOwner != null)
+            {
+                requestSourceResource_sourceResource_ResourceOwner = cmdletContext.SourceResource_ResourceOwner;
+            }
+            if (requestSourceResource_sourceResource_ResourceOwner != null)
+            {
+                request.SourceResource.ResourceOwner = requestSourceResource_sourceResource_ResourceOwner;
+                requestSourceResourceIsNull = false;
+            }
+            System.String requestSourceResource_sourceResource_ResourceRegion = null;
+            if (cmdletContext.SourceResource_ResourceRegion != null)
+            {
+                requestSourceResource_sourceResource_ResourceRegion = cmdletContext.SourceResource_ResourceRegion;
+            }
+            if (requestSourceResource_sourceResource_ResourceRegion != null)
+            {
+                request.SourceResource.ResourceRegion = requestSourceResource_sourceResource_ResourceRegion;
+                requestSourceResourceIsNull = false;
+            }
+            Amazon.EC2.IpamPoolSourceResourceType requestSourceResource_sourceResource_ResourceType = null;
+            if (cmdletContext.SourceResource_ResourceType != null)
+            {
+                requestSourceResource_sourceResource_ResourceType = cmdletContext.SourceResource_ResourceType;
+            }
+            if (requestSourceResource_sourceResource_ResourceType != null)
+            {
+                request.SourceResource.ResourceType = requestSourceResource_sourceResource_ResourceType;
+                requestSourceResourceIsNull = false;
+            }
+             // determine if request.SourceResource should be set to null
+            if (requestSourceResourceIsNull)
+            {
+                request.SourceResource = null;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -507,6 +601,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.IpamPoolPublicIpSource PublicIpSource { get; set; }
             public System.Boolean? PubliclyAdvertisable { get; set; }
             public System.String SourceIpamPoolId { get; set; }
+            public System.String SourceResource_ResourceId { get; set; }
+            public System.String SourceResource_ResourceOwner { get; set; }
+            public System.String SourceResource_ResourceRegion { get; set; }
+            public Amazon.EC2.IpamPoolSourceResourceType SourceResource_ResourceType { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateIpamPoolResponse, NewEC2IpamPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamPool;

@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook
+        /// files when backed up to Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionKeyArn { get; set; }
+        #endregion
+        
         #region Parameter EngineSecurityGroupId
         /// <summary>
         /// <para>
@@ -102,6 +113,29 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EngineSecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter IdcInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of the IAM Identity Center instance to create the Studio application. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdcInstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter IdcUserAssignment
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether IAM Identity Center user assignment is <code>REQUIRED</code> or
+        /// <code>OPTIONAL</code>. If the value is set to <code>REQUIRED</code>, users must be
+        /// explicitly assigned to the Studio application to access the Studio. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.IdcUserAssignment")]
+        public Amazon.ElasticMapReduce.IdcUserAssignment IdcUserAssignment { get; set; }
         #endregion
         
         #region Parameter IdpAuthUrl
@@ -196,6 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.ElasticMapReduce.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TrustedIdentityPropagationEnabled
+        /// <summary>
+        /// <para>
+        /// <para> A Boolean indicating whether to enable Trusted identity propagation for the Studio.
+        /// The default value is <code>false</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TrustedIdentityPropagationEnabled { get; set; }
         #endregion
         
         #region Parameter UserRole
@@ -304,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             #endif
             context.Description = this.Description;
+            context.EncryptionKeyArn = this.EncryptionKeyArn;
             context.EngineSecurityGroupId = this.EngineSecurityGroupId;
             #if MODULAR
             if (this.EngineSecurityGroupId == null && ParameterWasBound(nameof(this.EngineSecurityGroupId)))
@@ -311,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 WriteWarning("You are passing $null as a value for parameter EngineSecurityGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdcInstanceArn = this.IdcInstanceArn;
+            context.IdcUserAssignment = this.IdcUserAssignment;
             context.IdpAuthUrl = this.IdpAuthUrl;
             context.IdpRelayStateParameterName = this.IdpRelayStateParameterName;
             context.Name = this.Name;
@@ -341,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 context.Tag = new List<Amazon.ElasticMapReduce.Model.Tag>(this.Tag);
             }
+            context.TrustedIdentityPropagationEnabled = this.TrustedIdentityPropagationEnabled;
             context.UserRole = this.UserRole;
             context.VpcId = this.VpcId;
             #if MODULAR
@@ -384,9 +433,21 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.EncryptionKeyArn != null)
+            {
+                request.EncryptionKeyArn = cmdletContext.EncryptionKeyArn;
+            }
             if (cmdletContext.EngineSecurityGroupId != null)
             {
                 request.EngineSecurityGroupId = cmdletContext.EngineSecurityGroupId;
+            }
+            if (cmdletContext.IdcInstanceArn != null)
+            {
+                request.IdcInstanceArn = cmdletContext.IdcInstanceArn;
+            }
+            if (cmdletContext.IdcUserAssignment != null)
+            {
+                request.IdcUserAssignment = cmdletContext.IdcUserAssignment;
             }
             if (cmdletContext.IdpAuthUrl != null)
             {
@@ -411,6 +472,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TrustedIdentityPropagationEnabled != null)
+            {
+                request.TrustedIdentityPropagationEnabled = cmdletContext.TrustedIdentityPropagationEnabled.Value;
             }
             if (cmdletContext.UserRole != null)
             {
@@ -488,13 +553,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public Amazon.ElasticMapReduce.AuthMode AuthMode { get; set; }
             public System.String DefaultS3Location { get; set; }
             public System.String Description { get; set; }
+            public System.String EncryptionKeyArn { get; set; }
             public System.String EngineSecurityGroupId { get; set; }
+            public System.String IdcInstanceArn { get; set; }
+            public Amazon.ElasticMapReduce.IdcUserAssignment IdcUserAssignment { get; set; }
             public System.String IdpAuthUrl { get; set; }
             public System.String IdpRelayStateParameterName { get; set; }
             public System.String Name { get; set; }
             public System.String ServiceRole { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Tag> Tag { get; set; }
+            public System.Boolean? TrustedIdentityPropagationEnabled { get; set; }
             public System.String UserRole { get; set; }
             public System.String VpcId { get; set; }
             public System.String WorkspaceSecurityGroupId { get; set; }

@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter JwtBearer_AuthorizedTokenIssuer
         /// <summary>
         /// <para>
-        /// <para>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</para>
+        /// <para>A list of allowed token issuers trusted by the Identity Center instances for this
+        /// application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,12 +91,34 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter AuthorizationCode_RedirectUris
         /// <summary>
         /// <para>
-        /// <para>~~~[ TODO: ADD DESCRIPTION HERE ]~~~</para>
+        /// <para>A list of URIs that are valid locations to redirect a user's browser after the user
+        /// is authorized.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Grant_AuthorizationCode_RedirectUris")]
         public System.String[] AuthorizationCode_RedirectUris { get; set; }
+        #endregion
+        
+        #region Parameter Grant_RefreshToken
+        /// <summary>
+        /// <para>
+        /// <para>Configuration options for the <code>refresh_token</code> grant type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SSOAdmin.Model.RefreshTokenGrant Grant_RefreshToken { get; set; }
+        #endregion
+        
+        #region Parameter Grant_TokenExchange
+        /// <summary>
+        /// <para>
+        /// <para>Configuration options for the <code>urn:ietf:params:oauth:grant-type:token-exchange</code>
+        /// grant type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SSOAdmin.Model.TokenExchangeGrant Grant_TokenExchange { get; set; }
         #endregion
         
         #region Parameter Select
@@ -174,6 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             {
                 context.JwtBearer_AuthorizedTokenIssuer = new List<Amazon.SSOAdmin.Model.AuthorizedTokenIssuer>(this.JwtBearer_AuthorizedTokenIssuer);
             }
+            context.Grant_RefreshToken = this.Grant_RefreshToken;
+            context.Grant_TokenExchange = this.Grant_TokenExchange;
             context.GrantType = this.GrantType;
             #if MODULAR
             if (this.GrantType == null && ParameterWasBound(nameof(this.GrantType)))
@@ -205,6 +230,26 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
              // populate Grant
             var requestGrantIsNull = true;
             request.Grant = new Amazon.SSOAdmin.Model.Grant();
+            Amazon.SSOAdmin.Model.RefreshTokenGrant requestGrant_grant_RefreshToken = null;
+            if (cmdletContext.Grant_RefreshToken != null)
+            {
+                requestGrant_grant_RefreshToken = cmdletContext.Grant_RefreshToken;
+            }
+            if (requestGrant_grant_RefreshToken != null)
+            {
+                request.Grant.RefreshToken = requestGrant_grant_RefreshToken;
+                requestGrantIsNull = false;
+            }
+            Amazon.SSOAdmin.Model.TokenExchangeGrant requestGrant_grant_TokenExchange = null;
+            if (cmdletContext.Grant_TokenExchange != null)
+            {
+                requestGrant_grant_TokenExchange = cmdletContext.Grant_TokenExchange;
+            }
+            if (requestGrant_grant_TokenExchange != null)
+            {
+                request.Grant.TokenExchange = requestGrant_grant_TokenExchange;
+                requestGrantIsNull = false;
+            }
             Amazon.SSOAdmin.Model.AuthorizationCodeGrant requestGrant_grant_AuthorizationCode = null;
             
              // populate AuthorizationCode
@@ -328,6 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             public System.String ApplicationArn { get; set; }
             public List<System.String> AuthorizationCode_RedirectUris { get; set; }
             public List<Amazon.SSOAdmin.Model.AuthorizedTokenIssuer> JwtBearer_AuthorizedTokenIssuer { get; set; }
+            public Amazon.SSOAdmin.Model.RefreshTokenGrant Grant_RefreshToken { get; set; }
+            public Amazon.SSOAdmin.Model.TokenExchangeGrant Grant_TokenExchange { get; set; }
             public Amazon.SSOAdmin.GrantType GrantType { get; set; }
             public System.Func<Amazon.SSOAdmin.Model.PutApplicationGrantResponse, WriteSSOADMNApplicationGrantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

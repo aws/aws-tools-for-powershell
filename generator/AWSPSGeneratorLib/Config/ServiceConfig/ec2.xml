@@ -153,6 +153,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateIpamByoasn" OutputProperty="AsnAssociation" Verb="Register" Noun="IpamByoasn" ShouldProcessTarget="Asn" PipelineParameter="Asn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateIpamResourceDiscovery" OutputProperty="IpamResourceDiscoveryAssociation" Verb="Register" Noun="IpamResourceDiscovery" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -950,6 +954,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeprovisionIpamByoasn" OutputProperty="Byoasn" Verb="Remove" Noun="IpamByoasn" ShouldProcessTarget="IpamId" PipelineParameter="Asn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeprovisionIpamPoolCidr" OutputProperty="IpamPoolCidr" Verb="Unregister" Noun="IpamPoolCidr" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1202,6 +1210,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInternetGateways" OutputProperty="InternetGateways" Verb="Get" Noun="InternetGateway" PositionalParameters="Filters" PipelineParameter="InternetGatewayIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamByoasn" OutputProperty="Byoasns" Verb="Get" Noun="IpamByoasn" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1717,6 +1729,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIpamByoasn" OutputProperty="AsnAssociation" Verb="Unregister" Noun="IpamByoasn" ShouldProcessTarget="Asn" PipelineParameter="Asn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIpamResourceDiscovery" OutputProperty="IpamResourceDiscoveryAssociation" Verb="Unregister" Noun="IpamResourceDiscovery" ShouldProcessTarget="IpamResourceDiscoveryAssociationId" PipelineParameter="IpamResourceDiscoveryAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1906,6 +1922,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetIpamDiscoveredAccounts" OutputProperty="IpamDiscoveredAccounts" Verb="Get" Noun="IpamDiscoveredAccount" PipelineParameter="IpamResourceDiscoveryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamDiscoveredPublicAddresses" OutputProperty="*" Verb="Get" Noun="IpamDiscoveredPublicAddress" PipelineParameter="IpamResourceDiscoveryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2350,6 +2370,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvisionByoipCidr" OutputProperty="ByoipCidr" Verb="Register" Noun="ByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ProvisionIpamByoasn" OutputProperty="Byoasn" Verb="Add" Noun="IpamByoasn" ShouldProcessTarget="IpamId" PipelineParameter="Asn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

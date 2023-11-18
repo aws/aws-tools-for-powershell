@@ -498,6 +498,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter RedshiftIdcApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon resource name (ARN) of the Amazon Redshift IAM Identity Center application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RedshiftIdcApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter SnapshotScheduleIdentifier
         /// <summary>
         /// <para>
@@ -651,6 +661,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.Port = this.Port;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.RedshiftIdcApplicationArn = this.RedshiftIdcApplicationArn;
             context.SnapshotScheduleIdentifier = this.SnapshotScheduleIdentifier;
             if (this.Tag != null)
             {
@@ -816,6 +827,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
+            if (cmdletContext.RedshiftIdcApplicationArn != null)
+            {
+                request.RedshiftIdcApplicationArn = cmdletContext.RedshiftIdcApplicationArn;
+            }
             if (cmdletContext.SnapshotScheduleIdentifier != null)
             {
                 request.SnapshotScheduleIdentifier = cmdletContext.SnapshotScheduleIdentifier;
@@ -924,6 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Int32? Port { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String RedshiftIdcApplicationArn { get; set; }
             public System.String SnapshotScheduleIdentifier { get; set; }
             public List<Amazon.Redshift.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }

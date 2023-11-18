@@ -185,10 +185,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePullThroughCacheRule" OutputProperty="*" Verb="Update" Noun="PullThroughCacheRule" ShouldProcessTarget="CredentialArn" PipelineParameter="CredentialArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UploadLayerPart" OutputProperty="*" Verb="Send" Noun="LayerPart" ShouldProcessTarget="RepositoryName" PipelineParameter="LayerPartBlob" NoPipelineParameter="false" DefaultParameterSet="FromBytes">
             <Params>
                 <Param Name="LayerPartBlob" Alias="LayerPartBytes" AutoConvert="ToBase64" ParameterSetName="FromBytes" Mandatory="true" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidatePullThroughCacheRule" OutputProperty="*" Verb="Test" Noun="PullThroughCacheRule" PipelineParameter="EcrRepositoryPrefix" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// 
     ///  <note><para>
     /// The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
-    /// higher, excluding 5.0.x.
+    /// later, excluding 5.0.x.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "EMRInstanceFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

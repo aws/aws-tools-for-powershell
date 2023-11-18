@@ -30,12 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// <summary>
     /// Creates a named query in the specified workgroup. Requires that you have access to
     /// the workgroup.
-    /// 
-    ///  
-    /// <para>
-    /// For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples
-    /// and Code Samples</a> in the <i>Amazon Athena User Guide</i>.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "ATHNamedQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

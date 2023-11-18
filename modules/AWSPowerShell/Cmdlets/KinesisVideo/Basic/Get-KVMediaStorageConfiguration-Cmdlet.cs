@@ -28,13 +28,8 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// <important><para>
-    /// This API is related to <a href="https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html">WebRTC
-    /// Ingestion</a> and is only available in the <code>us-west-2</code> region.
-    /// </para></important><para>
     /// Returns the most current information about the channel. Specify the <code>ChannelName</code>
     /// or <code>ChannelARN</code> in the input.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "KVMediaStorageConfiguration")]
     [OutputType("Amazon.KinesisVideo.Model.MediaStorageConfiguration")]

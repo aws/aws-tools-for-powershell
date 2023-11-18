@@ -124,6 +124,7 @@ $SSOOIDC_SelectCompleters = {
 
 $SSOOIDC_SelectMap = @{
     "Select"=@("New-SSOOIDCToken",
+               "New-SSOOIDCTokenWithIAM",
                "Register-SSOOIDCClient",
                "Start-SSOOIDCDeviceAuthorization")
 }

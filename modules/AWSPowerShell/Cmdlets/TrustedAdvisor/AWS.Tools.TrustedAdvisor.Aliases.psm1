@@ -1,0 +1,3 @@
+﻿# TrustedAdvisor
+
+Export-ModuleMember -Alias *

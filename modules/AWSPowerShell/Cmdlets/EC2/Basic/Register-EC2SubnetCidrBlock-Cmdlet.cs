@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
-    /// block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
+    /// block with your subnet.
     /// </summary>
     [Cmdlet("Register", "EC2SubnetCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateSubnetCidrBlockResponse")]
@@ -45,18 +45,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.</para>
+        /// <para>The IPv6 CIDR block for your subnet.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>An IPv6 IPAM pool ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6IpamPoolId { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6NetmaskLength
+        /// <summary>
+        /// <para>
+        /// <para>An IPv6 netmask length.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv6NetmaskLength { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -139,12 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
-            #if MODULAR
-            if (this.Ipv6CidrBlock == null && ParameterWasBound(nameof(this.Ipv6CidrBlock)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Ipv6CidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Ipv6IpamPoolId = this.Ipv6IpamPoolId;
+            context.Ipv6NetmaskLength = this.Ipv6NetmaskLength;
             context.SubnetId = this.SubnetId;
             #if MODULAR
             if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
@@ -171,6 +180,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6CidrBlock != null)
             {
                 request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
+            }
+            if (cmdletContext.Ipv6IpamPoolId != null)
+            {
+                request.Ipv6IpamPoolId = cmdletContext.Ipv6IpamPoolId;
+            }
+            if (cmdletContext.Ipv6NetmaskLength != null)
+            {
+                request.Ipv6NetmaskLength = cmdletContext.Ipv6NetmaskLength.Value;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -238,6 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Ipv6CidrBlock { get; set; }
+            public System.String Ipv6IpamPoolId { get; set; }
+            public System.Int32? Ipv6NetmaskLength { get; set; }
             public System.String SubnetId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateSubnetCidrBlockResponse, RegisterEC2SubnetCidrBlockCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_GrpcRoute_Match_Port
         /// <summary>
         /// <para>
-        /// <para>The port number to match from the request.</para>
+        /// <para>The gateway route port to be matched on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

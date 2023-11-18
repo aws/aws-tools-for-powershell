@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
-    /// IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an
+    /// IPv6 CIDR block from Amazon's pool of IPv6 addresses or an IPv6 CIDR block from an
     /// IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
     /// </para><para>
     /// By default, each instance that you launch in the VPC has the default DHCP options,

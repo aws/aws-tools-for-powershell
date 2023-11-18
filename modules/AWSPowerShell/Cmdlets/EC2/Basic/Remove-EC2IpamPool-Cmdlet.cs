@@ -51,6 +51,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Cascade
+        /// <summary>
+        /// <para>
+        /// <para>Enables you to quickly delete an IPAM pool and all resources within that pool, including
+        /// provisioned CIDRs, allocations, and other pools.</para><important><para>You can only use this option to delete pools in the private scope or pools in the
+        /// public scope with a source resource. A source resource is a resource used to provision
+        /// CIDRs to a resource planning pool.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Cascade { get; set; }
+        #endregion
+        
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
@@ -130,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.IpamPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Cascade = this.Cascade;
             context.IpamPoolId = this.IpamPoolId;
             #if MODULAR
             if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
@@ -153,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.DeleteIpamPoolRequest();
             
+            if (cmdletContext.Cascade != null)
+            {
+                request.Cascade = cmdletContext.Cascade.Value;
+            }
             if (cmdletContext.IpamPoolId != null)
             {
                 request.IpamPoolId = cmdletContext.IpamPoolId;
@@ -218,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Cascade { get; set; }
             public System.String IpamPoolId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteIpamPoolResponse, RemoveEC2IpamPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamPool;

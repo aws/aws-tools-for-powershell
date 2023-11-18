@@ -28,7 +28,7 @@ using Amazon.MediaLive.Model;
 namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
-    /// Get account configuration
+    /// Describe account configuration
     /// </summary>
     [Cmdlet("Get", "EMLAccountConfiguration")]
     [OutputType("Amazon.MediaLive.Model.AccountConfiguration")]

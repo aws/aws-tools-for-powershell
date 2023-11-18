@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         public System.Boolean? LogPublishingOptions_IsLoggingEnabled { get; set; }
         #endregion
         
+        #region Parameter EncryptionAtRestOptions_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default,
+        /// data is encrypted using an AWS owned key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionAtRestOptions_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogDestination_LogGroup
         /// <summary>
         /// <para>
@@ -85,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MinUnits")]
         public System.Int32? MinUnit { get; set; }
+        #endregion
+        
+        #region Parameter BufferOptions_PersistentBufferEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether persistent buffering should be enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BufferOptions_PersistentBufferEnabled { get; set; }
         #endregion
         
         #region Parameter PipelineConfigurationBody
@@ -178,6 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
                 context.Select = (response, cmdlet) => this.PipelineName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BufferOptions_PersistentBufferEnabled = this.BufferOptions_PersistentBufferEnabled;
+            context.EncryptionAtRestOptions_KmsKeyArn = this.EncryptionAtRestOptions_KmsKeyArn;
             context.CloudWatchLogDestination_LogGroup = this.CloudWatchLogDestination_LogGroup;
             context.LogPublishingOptions_IsLoggingEnabled = this.LogPublishingOptions_IsLoggingEnabled;
             context.MaxUnit = this.MaxUnit;
@@ -206,6 +229,44 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             // create request
             var request = new Amazon.OSIS.Model.UpdatePipelineRequest();
             
+            
+             // populate BufferOptions
+            var requestBufferOptionsIsNull = true;
+            request.BufferOptions = new Amazon.OSIS.Model.BufferOptions();
+            System.Boolean? requestBufferOptions_bufferOptions_PersistentBufferEnabled = null;
+            if (cmdletContext.BufferOptions_PersistentBufferEnabled != null)
+            {
+                requestBufferOptions_bufferOptions_PersistentBufferEnabled = cmdletContext.BufferOptions_PersistentBufferEnabled.Value;
+            }
+            if (requestBufferOptions_bufferOptions_PersistentBufferEnabled != null)
+            {
+                request.BufferOptions.PersistentBufferEnabled = requestBufferOptions_bufferOptions_PersistentBufferEnabled.Value;
+                requestBufferOptionsIsNull = false;
+            }
+             // determine if request.BufferOptions should be set to null
+            if (requestBufferOptionsIsNull)
+            {
+                request.BufferOptions = null;
+            }
+            
+             // populate EncryptionAtRestOptions
+            var requestEncryptionAtRestOptionsIsNull = true;
+            request.EncryptionAtRestOptions = new Amazon.OSIS.Model.EncryptionAtRestOptions();
+            System.String requestEncryptionAtRestOptions_encryptionAtRestOptions_KmsKeyArn = null;
+            if (cmdletContext.EncryptionAtRestOptions_KmsKeyArn != null)
+            {
+                requestEncryptionAtRestOptions_encryptionAtRestOptions_KmsKeyArn = cmdletContext.EncryptionAtRestOptions_KmsKeyArn;
+            }
+            if (requestEncryptionAtRestOptions_encryptionAtRestOptions_KmsKeyArn != null)
+            {
+                request.EncryptionAtRestOptions.KmsKeyArn = requestEncryptionAtRestOptions_encryptionAtRestOptions_KmsKeyArn;
+                requestEncryptionAtRestOptionsIsNull = false;
+            }
+             // determine if request.EncryptionAtRestOptions should be set to null
+            if (requestEncryptionAtRestOptionsIsNull)
+            {
+                request.EncryptionAtRestOptions = null;
+            }
             
              // populate LogPublishingOptions
             var requestLogPublishingOptionsIsNull = true;
@@ -327,6 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BufferOptions_PersistentBufferEnabled { get; set; }
+            public System.String EncryptionAtRestOptions_KmsKeyArn { get; set; }
             public System.String CloudWatchLogDestination_LogGroup { get; set; }
             public System.Boolean? LogPublishingOptions_IsLoggingEnabled { get; set; }
             public System.Int32? MaxUnit { get; set; }

@@ -249,6 +249,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter ConnectionTrackingSpecification_TcpEstablishedTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds.
+        /// Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000
+        /// seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ConnectionTrackingSpecification_TcpEstablishedTimeout { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionTrackingSpecification_UdpStreamTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Timeout (in seconds) for idle UDP flows classified as streams which have seen more
+        /// than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes).
+        /// Default: 180 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ConnectionTrackingSpecification_UdpStreamTimeout { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionTrackingSpecification_UdpTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction
+        /// or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default:
+        /// 30 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ConnectionTrackingSpecification_UdpTimeout { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -324,6 +360,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.ConnectionTrackingSpecification_TcpEstablishedTimeout = this.ConnectionTrackingSpecification_TcpEstablishedTimeout;
+            context.ConnectionTrackingSpecification_UdpStreamTimeout = this.ConnectionTrackingSpecification_UdpStreamTimeout;
+            context.ConnectionTrackingSpecification_UdpTimeout = this.ConnectionTrackingSpecification_UdpTimeout;
             context.Description = this.Description;
             context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             if (this.Group != null)
@@ -382,6 +421,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate ConnectionTrackingSpecification
+            var requestConnectionTrackingSpecificationIsNull = true;
+            request.ConnectionTrackingSpecification = new Amazon.EC2.Model.ConnectionTrackingSpecificationRequest();
+            System.Int32? requestConnectionTrackingSpecification_connectionTrackingSpecification_TcpEstablishedTimeout = null;
+            if (cmdletContext.ConnectionTrackingSpecification_TcpEstablishedTimeout != null)
+            {
+                requestConnectionTrackingSpecification_connectionTrackingSpecification_TcpEstablishedTimeout = cmdletContext.ConnectionTrackingSpecification_TcpEstablishedTimeout.Value;
+            }
+            if (requestConnectionTrackingSpecification_connectionTrackingSpecification_TcpEstablishedTimeout != null)
+            {
+                request.ConnectionTrackingSpecification.TcpEstablishedTimeout = requestConnectionTrackingSpecification_connectionTrackingSpecification_TcpEstablishedTimeout.Value;
+                requestConnectionTrackingSpecificationIsNull = false;
+            }
+            System.Int32? requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpStreamTimeout = null;
+            if (cmdletContext.ConnectionTrackingSpecification_UdpStreamTimeout != null)
+            {
+                requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpStreamTimeout = cmdletContext.ConnectionTrackingSpecification_UdpStreamTimeout.Value;
+            }
+            if (requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpStreamTimeout != null)
+            {
+                request.ConnectionTrackingSpecification.UdpStreamTimeout = requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpStreamTimeout.Value;
+                requestConnectionTrackingSpecificationIsNull = false;
+            }
+            System.Int32? requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpTimeout = null;
+            if (cmdletContext.ConnectionTrackingSpecification_UdpTimeout != null)
+            {
+                requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpTimeout = cmdletContext.ConnectionTrackingSpecification_UdpTimeout.Value;
+            }
+            if (requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpTimeout != null)
+            {
+                request.ConnectionTrackingSpecification.UdpTimeout = requestConnectionTrackingSpecification_connectionTrackingSpecification_UdpTimeout.Value;
+                requestConnectionTrackingSpecificationIsNull = false;
+            }
+             // determine if request.ConnectionTrackingSpecification should be set to null
+            if (requestConnectionTrackingSpecificationIsNull)
+            {
+                request.ConnectionTrackingSpecification = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -505,6 +583,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Int32? ConnectionTrackingSpecification_TcpEstablishedTimeout { get; set; }
+            public System.Int32? ConnectionTrackingSpecification_UdpStreamTimeout { get; set; }
+            public System.Int32? ConnectionTrackingSpecification_UdpTimeout { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public List<System.String> Group { get; set; }

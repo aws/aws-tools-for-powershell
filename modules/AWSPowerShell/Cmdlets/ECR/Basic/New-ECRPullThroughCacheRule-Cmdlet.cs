@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
     /// Creates a pull through cache rule. A pull through cache rule provides a way to cache
-    /// images from an external public registry in your Amazon ECR private registry.
+    /// images from an upstream registry source in your Amazon ECR private registry. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html">Using
+    /// pull through cache rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("New", "ECRPullThroughCacheRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.CreatePullThroughCacheRuleResponse")]
@@ -41,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter CredentialArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+        /// identifies the credentials to authenticate to the upstream registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CredentialArn { get; set; }
+        #endregion
         
         #region Parameter EcrRepositoryPrefix
         /// <summary>
@@ -71,11 +84,23 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public System.String RegistryId { get; set; }
         #endregion
         
+        #region Parameter UpstreamRegistry
+        /// <summary>
+        /// <para>
+        /// <para>The name of the upstream registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECR.UpstreamRegistry")]
+        public Amazon.ECR.UpstreamRegistry UpstreamRegistry { get; set; }
+        #endregion
+        
         #region Parameter UpstreamRegistryUrl
         /// <summary>
         /// <para>
         /// <para>The registry URL of the upstream public registry to use as the source for the pull
-        /// through cache rule.</para>
+        /// through cache rule. The following is the syntax to use for each supported upstream
+        /// registry.</para><ul><li><para>Amazon ECR Public (<code>ecr-public</code>) - <code>public.ecr.aws</code></para></li><li><para>Docker Hub (<code>docker-hub</code>) - <code>registry-1.docker.io</code></para></li><li><para>Quay (<code>quay</code>) - <code>quay.io</code></para></li><li><para>Kubernetes (<code>k8s</code>) - <code>registry.k8s.io</code></para></li><li><para>GitHub Container Registry (<code>github-container-registry</code>) - <code>ghcr.io</code></para></li><li><para>Microsoft Azure Container Registry (<code>azure-container-registry</code>) - <code>&lt;custom&gt;.azurecr.io</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 context.Select = CreateSelectDelegate<Amazon.ECR.Model.CreatePullThroughCacheRuleResponse, NewECRPullThroughCacheRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CredentialArn = this.CredentialArn;
             context.EcrRepositoryPrefix = this.EcrRepositoryPrefix;
             #if MODULAR
             if (this.EcrRepositoryPrefix == null && ParameterWasBound(nameof(this.EcrRepositoryPrefix)))
@@ -139,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             }
             #endif
             context.RegistryId = this.RegistryId;
+            context.UpstreamRegistry = this.UpstreamRegistry;
             context.UpstreamRegistryUrl = this.UpstreamRegistryUrl;
             #if MODULAR
             if (this.UpstreamRegistryUrl == null && ParameterWasBound(nameof(this.UpstreamRegistryUrl)))
@@ -162,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // create request
             var request = new Amazon.ECR.Model.CreatePullThroughCacheRuleRequest();
             
+            if (cmdletContext.CredentialArn != null)
+            {
+                request.CredentialArn = cmdletContext.CredentialArn;
+            }
             if (cmdletContext.EcrRepositoryPrefix != null)
             {
                 request.EcrRepositoryPrefix = cmdletContext.EcrRepositoryPrefix;
@@ -169,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (cmdletContext.RegistryId != null)
             {
                 request.RegistryId = cmdletContext.RegistryId;
+            }
+            if (cmdletContext.UpstreamRegistry != null)
+            {
+                request.UpstreamRegistry = cmdletContext.UpstreamRegistry;
             }
             if (cmdletContext.UpstreamRegistryUrl != null)
             {
@@ -235,8 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CredentialArn { get; set; }
             public System.String EcrRepositoryPrefix { get; set; }
             public System.String RegistryId { get; set; }
+            public Amazon.ECR.UpstreamRegistry UpstreamRegistry { get; set; }
             public System.String UpstreamRegistryUrl { get; set; }
             public System.Func<Amazon.ECR.Model.CreatePullThroughCacheRuleResponse, NewECRPullThroughCacheRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

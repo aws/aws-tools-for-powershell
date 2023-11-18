@@ -135,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Configuration_ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>Role used in a session for accessing the user's resources.</para>
+        /// <para>Role used in a Spark session for accessing the user's resources. This property applies
+        /// only to Spark-enabled workgroups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter CustomerContentEncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
-        /// <para>The KMS key that is used to encrypt the user's data stores in Athena.</para>
+        /// <para>The customer managed KMS key that is used to encrypt the user's data stores in Athena.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

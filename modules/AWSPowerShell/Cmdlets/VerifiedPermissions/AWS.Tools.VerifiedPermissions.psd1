@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AVPPolicyStore', 
         'Remove-AVPPolicyTemplate', 
         'Test-AVPAuthorization', 
+        'Test-AVPBatchAuthorization', 
         'Test-AVPTokenAuthorization', 
         'Update-AVPIdentitySource', 
         'Update-AVPPolicy', 

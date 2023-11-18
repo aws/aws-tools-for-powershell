@@ -28,12 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// <note><para>
-    /// This API action is currently in <b>limited preview only</b>. If you are interested
-    /// in using this feature, contact your account manager.
-    /// </para></note><para>
     /// Associates a branch network interface with a trunk network interface.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a>
     /// command and set <code>--interface-type</code> to <code>trunk</code>. You must also
     /// create a network interface for each branch network interface that you want to associate

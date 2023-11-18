@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuickResponse" OutputProperty="QuickResponse" Verb="New" Noun="QuickResponse" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSession" OutputProperty="Session" Verb="New" Noun="Session" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -50,7 +54,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImportJob" Verb="Remove" Noun="ImportJob" ShouldProcessTarget="ImportJobId" PipelineParameter="ImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteKnowledgeBase" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuickResponse" Verb="Remove" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -70,7 +82,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetImportJob" OutputProperty="ImportJob" Verb="Get" Noun="ImportJob" PipelineParameter="ImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQuickResponse" OutputProperty="QuickResponse" Verb="Get" Noun="QuickResponse" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,7 +114,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListImportJobs" OutputProperty="ImportJobSummaries" Verb="Get" Noun="ImportJobList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuickResponses" OutputProperty="QuickResponseSummaries" Verb="Get" Noun="QuickResponseList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,11 +146,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchQuickResponses" OutputProperty="Results" Verb="Search" Noun="QuickResponse" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartContentUpload" OutputProperty="*" Verb="Start" Noun="ContentUpload" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImportJob" OutputProperty="ImportJob" Verb="Start" Noun="ImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,6 +175,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKnowledgeBaseTemplateUri" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuickResponse" OutputProperty="QuickResponse" Verb="Update" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

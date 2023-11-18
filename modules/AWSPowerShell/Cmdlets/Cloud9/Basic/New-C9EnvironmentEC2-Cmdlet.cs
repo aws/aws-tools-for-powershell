@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <para>
         /// <para>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
         /// To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon
-        /// EC2 Systems Manager (SSM) path.</para><para>From November 20, 2023, you will be required to include the <code>imageId</code> parameter
+        /// EC2 Systems Manager (SSM) path.</para><para>From December 04, 2023, you will be required to include the <code>imageId</code> parameter
         /// for the <code>CreateEnvironmentEC2</code> action. This change will be reflected across
         /// all direct methods of communicating with the API, such as Amazon Web Services SDK,
         /// Amazon Web Services CLI and Amazon Web Services CloudFormation. This change will only
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// in December 2023, and as a result will no longer receive security updates. We recommend
         /// using Amazon Linux 2 as the AMI to create your environment as it is fully supported.
         /// This change will only affect direct API consumers, and not Cloud9 console users.</para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
-        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para><b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>ubuntu-22.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para><b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code></para></li></ul>
+        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>ubuntu-22.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

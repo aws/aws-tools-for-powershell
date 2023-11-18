@@ -116,6 +116,13 @@ $CWIM_Completers = {
             break
         }
 
+        # Amazon.InternetMonitor.QueryType
+        "Start-CWIMQuery/QueryType"
+        {
+            $v = "MEASUREMENTS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
+            break
+        }
+
 
     }
 
@@ -129,6 +136,7 @@ $CWIM_map = @{
     "HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
+    "QueryType"=@("Start-CWIMQuery")
     "Status"=@("Update-CWIMMonitor")
 }
 
@@ -186,9 +194,13 @@ $CWIM_SelectMap = @{
                "Remove-CWIMMonitor",
                "Get-CWIMHealthEvent",
                "Get-CWIMMonitor",
+               "Get-CWIMQueryResult",
+               "Get-CWIMQueryStatus",
                "Get-CWIMHealthEventList",
                "Get-CWIMMonitorList",
                "Get-CWIMResourceTag",
+               "Start-CWIMQuery",
+               "Stop-CWIMQuery",
                "Add-CWIMResourceTag",
                "Remove-CWIMResourceTag",
                "Update-CWIMMonitor")

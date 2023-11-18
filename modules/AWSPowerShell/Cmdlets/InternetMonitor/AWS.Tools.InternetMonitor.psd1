@@ -91,10 +91,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWIMHealthEventList', 
         'Get-CWIMMonitor', 
         'Get-CWIMMonitorList', 
+        'Get-CWIMQueryResult', 
+        'Get-CWIMQueryStatus', 
         'Get-CWIMResourceTag', 
         'New-CWIMMonitor', 
         'Remove-CWIMMonitor', 
         'Remove-CWIMResourceTag', 
+        'Start-CWIMQuery', 
+        'Stop-CWIMQuery', 
         'Update-CWIMMonitor')
 
     # Variables to export from this module

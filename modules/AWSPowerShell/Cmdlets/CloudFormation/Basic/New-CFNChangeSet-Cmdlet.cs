@@ -152,6 +152,23 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ImportExistingResource
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the stack set imports resources that already exist.</para><note><para>This parameter can only import resources that have custom names in templates. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">name
+        /// type</a> in the <i>CloudFormation User Guide</i>. To import resources that do not
+        /// accept custom names, such as EC2 instances, use the resource import feature instead.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">Bringing
+        /// existing resources into CloudFormation management</a> in the <i>CloudFormation User
+        /// Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImportExistingResources")]
+        public System.Boolean? ImportExistingResource { get; set; }
+        #endregion
+        
         #region Parameter IncludeNestedStack
         /// <summary>
         /// <para>
@@ -231,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// the stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. Identity and Access Management (IAM) uses this parameter for condition keys
         /// in IAM policies for CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
-        /// access with Identity and Access Management</a> in the CloudFormation User Guide.</para><note><para>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters
+        /// access with Identity and Access Management</a> in the <i>CloudFormation User Guide</i>.</para><note><para>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters
         /// can be specified.</para></note>
         /// </para>
         /// </summary>
@@ -424,6 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.ChangeSetType = this.ChangeSetType;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.ImportExistingResource = this.ImportExistingResource;
             context.IncludeNestedStack = this.IncludeNestedStack;
             if (this.NotificationARNs != null)
             {
@@ -493,6 +511,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ImportExistingResource != null)
+            {
+                request.ImportExistingResources = cmdletContext.ImportExistingResource.Value;
             }
             if (cmdletContext.IncludeNestedStack != null)
             {
@@ -612,6 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? ImportExistingResource { get; set; }
             public System.Boolean? IncludeNestedStack { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public Amazon.CloudFormation.OnStackFailure OnStackFailure { get; set; }

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     public partial class RegisterSSOOIDCClientCmdlet : AmazonSSOOIDCClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ClientName

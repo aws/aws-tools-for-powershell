@@ -68,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
-        /// contain the ARN.</para>
+        /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
+        /// base if you're storing Wisdom Content resource to it. Can be either the ID or the
+        /// ARN. URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KnowledgeBaseId { get; set; }
+        #endregion
+        
+        #region Parameter PresignedUrlTimeToLive
+        /// <summary>
+        /// <para>
+        /// <para>The expected expiration time of the generated presigned URL, specified in minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PresignedUrlTimeToLive { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
                 WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PresignedUrlTimeToLive = this.PresignedUrlTimeToLive;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             if (cmdletContext.KnowledgeBaseId != null)
             {
                 request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
+            }
+            if (cmdletContext.PresignedUrlTimeToLive != null)
+            {
+                request.PresignedUrlTimeToLive = cmdletContext.PresignedUrlTimeToLive.Value;
             }
             
             CmdletOutput output;
@@ -246,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         {
             public System.String ContentType { get; set; }
             public System.String KnowledgeBaseId { get; set; }
+            public System.Int32? PresignedUrlTimeToLive { get; set; }
             public System.Func<Amazon.ConnectWisdomService.Model.StartContentUploadResponse, StartWSDMContentUploadCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

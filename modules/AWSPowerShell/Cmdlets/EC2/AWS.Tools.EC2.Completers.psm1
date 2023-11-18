@@ -642,10 +642,27 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamPoolSourceResourceType
+        "New-EC2IpamPool/SourceResource_ResourceType"
+        {
+            $v = "vpc"
+            break
+        }
+
         # Amazon.EC2.IpamResourceType
         "Get-EC2IpamResourceCidr/ResourceType"
         {
-            $v = "eip","ipv6-pool","public-ipv4-pool","subnet","vpc"
+            $v = "eip","eni","ipv6-pool","public-ipv4-pool","subnet","vpc"
+            break
+        }
+
+        # Amazon.EC2.IpamTier
+        {
+            ($_ -eq "Edit-EC2Ipam/Tier") -Or
+            ($_ -eq "New-EC2Ipam/Tier")
+        }
+        {
+            $v = "advanced","free"
             break
         }
 
@@ -1230,6 +1247,7 @@ $EC2_map = @{
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
+    "SourceResource_ResourceType"=@("New-EC2IpamPool")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
@@ -1251,6 +1269,7 @@ $EC2_map = @{
     "TargetCapacityUnitType"=@("Get-EC2SpotPlacementScore")
     "TargetEnvironment"=@("New-EC2InstanceExportTask")
     "Tenancy"=@("Add-EC2CapacityReservation","Edit-EC2InstancePlacement","New-EC2CapacityReservationFleet")
+    "Tier"=@("Edit-EC2Ipam","New-EC2Ipam")
     "TpmSupport"=@("Register-EC2Image")
     "TrafficDirection"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2TrafficMirrorFilterRule")
     "TrafficType"=@("New-EC2FlowLog")
@@ -1333,6 +1352,7 @@ $EC2_SelectMap = @{
                "Register-EC2EnclaveCertificateIamRole",
                "Register-EC2IamInstanceProfile",
                "Register-EC2InstanceEventWindow",
+               "Register-EC2IpamByoasn",
                "Register-EC2IpamResourceDiscovery",
                "Register-EC2NatGatewayAddress",
                "Register-EC2RouteTable",
@@ -1522,6 +1542,7 @@ $EC2_SelectMap = @{
                "Remove-EC2VpnConnectionRoute",
                "Remove-EC2VpnGateway",
                "Unregister-EC2ByoipCidr",
+               "Remove-EC2IpamByoasn",
                "Unregister-EC2IpamPoolCidr",
                "Unregister-EC2PublicIpv4PoolCidr",
                "Unregister-EC2Image",
@@ -1583,6 +1604,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceTypeOffering",
                "Get-EC2InstanceType",
                "Get-EC2InternetGateway",
+               "Get-EC2IpamByoasn",
                "Get-EC2IpamPool",
                "Get-EC2IpamResourceDiscovery",
                "Get-EC2IpamResourceDiscoveryAssociation",
@@ -1701,6 +1723,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2InstanceEventWindow",
+               "Unregister-EC2IpamByoasn",
                "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2NatGatewayAddress",
                "Unregister-EC2RouteTable",
@@ -1749,6 +1772,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",
                "Get-EC2IpamDiscoveredAccount",
+               "Get-EC2IpamDiscoveredPublicAddress",
                "Get-EC2IpamDiscoveredResourceCidr",
                "Get-EC2IpamPoolAllocation",
                "Get-EC2IpamPoolCidr",
@@ -1851,6 +1875,7 @@ $EC2_SelectMap = @{
                "Move-EC2AddressToVpc",
                "Move-EC2ByoipCidrToIpam",
                "Register-EC2ByoipCidr",
+               "Add-EC2IpamByoasn",
                "Register-EC2IpamPoolCidr",
                "Register-EC2PublicIpv4PoolCidr",
                "New-EC2EC2CapacityBlock",

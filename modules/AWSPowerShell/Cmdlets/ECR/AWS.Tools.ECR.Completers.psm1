@@ -115,6 +115,13 @@ $ECR_Completers = {
             break
         }
 
+        # Amazon.ECR.UpstreamRegistry
+        "New-ECRPullThroughCacheRule/UpstreamRegistry"
+        {
+            $v = "azure-container-registry","docker-hub","ecr-public","github-container-registry","k8s","quay"
+            break
+        }
+
 
     }
 
@@ -128,6 +135,7 @@ $ECR_map = @{
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","Write-ECRImageTagMutability")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
+    "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
 }
 
 _awsArgumentCompleterRegistration $ECR_Completers $ECR_map
@@ -220,7 +228,9 @@ $ECR_SelectMap = @{
                "Start-ECRLifecyclePolicyPreview",
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
+               "Update-ECRPullThroughCacheRule",
                "Send-ECRLayerPart",
+               "Test-ECRPullThroughCacheRule",
                "Get-ECRLoginCommand")
 }
 

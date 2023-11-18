@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// use.
     /// </para><para>
     /// If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR
-    /// block with a subnet when you create it. The allowed block size for an IPv6 subnet
-    /// is a /64 netmask.
+    /// block with a subnet when you create it. 
     /// </para><para>
     /// If you add more than one subnet to a VPC, they're set up in a star topology with a
     /// logical router in the middle.
@@ -107,15 +106,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrBlock { get; set; }
         #endregion
         
+        #region Parameter Ipv4IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>An IPv4 IPAM pool ID for the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv4IpamPoolId { get; set; }
+        #endregion
+        
+        #region Parameter Ipv4NetmaskLength
+        /// <summary>
+        /// <para>
+        /// <para>An IPv4 netmask length for the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv4NetmaskLength { get; set; }
+        #endregion
+        
         #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use
-        /// a /64 prefix length.</para><para>This parameter is required for an IPv6 only subnet.</para>
+        /// <para>The IPv6 network range for the subnet, in CIDR notation. This parameter is required
+        /// for an IPv6 only subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>An IPv6 IPAM pool ID for the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6IpamPoolId { get; set; }
         #endregion
         
         #region Parameter Ipv6Native
@@ -126,6 +155,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Ipv6Native { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6NetmaskLength
+        /// <summary>
+        /// <para>
+        /// <para>An IPv6 netmask length for the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv6NetmaskLength { get; set; }
         #endregion
         
         #region Parameter OutpostArn
@@ -232,8 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AvailabilityZone = this.AvailabilityZone;
             context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.CidrBlock = this.CidrBlock;
+            context.Ipv4IpamPoolId = this.Ipv4IpamPoolId;
+            context.Ipv4NetmaskLength = this.Ipv4NetmaskLength;
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
+            context.Ipv6IpamPoolId = this.Ipv6IpamPoolId;
             context.Ipv6Native = this.Ipv6Native;
+            context.Ipv6NetmaskLength = this.Ipv6NetmaskLength;
             context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
@@ -274,13 +317,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
             }
+            if (cmdletContext.Ipv4IpamPoolId != null)
+            {
+                request.Ipv4IpamPoolId = cmdletContext.Ipv4IpamPoolId;
+            }
+            if (cmdletContext.Ipv4NetmaskLength != null)
+            {
+                request.Ipv4NetmaskLength = cmdletContext.Ipv4NetmaskLength.Value;
+            }
             if (cmdletContext.Ipv6CidrBlock != null)
             {
                 request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
             }
+            if (cmdletContext.Ipv6IpamPoolId != null)
+            {
+                request.Ipv6IpamPoolId = cmdletContext.Ipv6IpamPoolId;
+            }
             if (cmdletContext.Ipv6Native != null)
             {
                 request.Ipv6Native = cmdletContext.Ipv6Native.Value;
+            }
+            if (cmdletContext.Ipv6NetmaskLength != null)
+            {
+                request.Ipv6NetmaskLength = cmdletContext.Ipv6NetmaskLength.Value;
             }
             if (cmdletContext.OutpostArn != null)
             {
@@ -358,8 +417,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AvailabilityZone { get; set; }
             public System.String AvailabilityZoneId { get; set; }
             public System.String CidrBlock { get; set; }
+            public System.String Ipv4IpamPoolId { get; set; }
+            public System.Int32? Ipv4NetmaskLength { get; set; }
             public System.String Ipv6CidrBlock { get; set; }
+            public System.String Ipv6IpamPoolId { get; set; }
             public System.Boolean? Ipv6Native { get; set; }
+            public System.Int32? Ipv6NetmaskLength { get; set; }
             public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }

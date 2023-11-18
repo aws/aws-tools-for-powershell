@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllowedCidr
+        /// <summary>
+        /// <para>
+        /// <para>Include a particular CIDR range that can be returned by the pool. Allowed CIDRs are
+        /// only allowed if using netmask length for allocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedCidrs")]
+        public System.String[] AllowedCidr { get; set; }
+        #endregion
+        
         #region Parameter Cidr
         /// <summary>
         /// <para>
@@ -205,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.IpamPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AllowedCidr != null)
+            {
+                context.AllowedCidr = new List<System.String>(this.AllowedCidr);
+            }
             context.Cidr = this.Cidr;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
@@ -237,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.AllocateIpamPoolCidrRequest();
             
+            if (cmdletContext.AllowedCidr != null)
+            {
+                request.AllowedCidrs = cmdletContext.AllowedCidr;
+            }
             if (cmdletContext.Cidr != null)
             {
                 request.Cidr = cmdletContext.Cidr;
@@ -326,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedCidr { get; set; }
             public System.String Cidr { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }

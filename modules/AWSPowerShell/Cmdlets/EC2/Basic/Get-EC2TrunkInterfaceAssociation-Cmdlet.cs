@@ -28,12 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// <note><para>
-    /// This API action is currently in <b>limited preview only</b>. If you are interested
-    /// in using this feature, contact your account manager.
-    /// </para></note><para>
-    /// Describes one or more network interface trunk associations.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more network interface trunk associations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2TrunkInterfaceAssociation")]
     [OutputType("Amazon.EC2.Model.TrunkInterfaceAssociation")]

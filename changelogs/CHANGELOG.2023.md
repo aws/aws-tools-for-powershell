@@ -1,4 +1,90 @@
-﻿### 4.1.455 (2023-11-16 22:37Z)
+﻿### 4.1.456 (2023-11-18 00:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.689.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Modified cmdlet New-CFNChangeSet: added parameter ImportExistingResource.
+  * Amazon CloudWatch Internet Monitor
+    * Added cmdlet Get-CWIMQueryResult leveraging the GetQueryResults service API.
+    * Added cmdlet Get-CWIMQueryStatus leveraging the GetQueryStatus service API.
+    * Added cmdlet Start-CWIMQuery leveraging the StartQuery service API.
+    * Added cmdlet Stop-CWIMQuery leveraging the StopQuery service API.
+  * Amazon CodePipeline
+    * Modified cmdlet Start-CPPipelineExecution: added parameter SourceRevision.
+  * Amazon CodeStar Connections
+    * Added cmdlet Get-CSTCRepositoryLink leveraging the GetRepositoryLink service API.
+    * Added cmdlet Get-CSTCRepositoryLinkList leveraging the ListRepositoryLinks service API.
+    * Added cmdlet Get-CSTCRepositorySyncDefinitionList leveraging the ListRepositorySyncDefinitions service API.
+    * Added cmdlet Get-CSTCRepositorySyncStatus leveraging the GetRepositorySyncStatus service API.
+    * Added cmdlet Get-CSTCResourceSyncStatus leveraging the GetResourceSyncStatus service API.
+    * Added cmdlet Get-CSTCSyncBlockerSummary leveraging the GetSyncBlockerSummary service API.
+    * Added cmdlet Get-CSTCSyncConfiguration leveraging the GetSyncConfiguration service API.
+    * Added cmdlet Get-CSTCSyncConfigurationList leveraging the ListSyncConfigurations service API.
+    * Added cmdlet New-CSTCRepositoryLink leveraging the CreateRepositoryLink service API.
+    * Added cmdlet New-CSTCSyncConfiguration leveraging the CreateSyncConfiguration service API.
+    * Added cmdlet Remove-CSTCRepositoryLink leveraging the DeleteRepositoryLink service API.
+    * Added cmdlet Remove-CSTCSyncConfiguration leveraging the DeleteSyncConfiguration service API.
+    * Added cmdlet Update-CSTCRepositoryLink leveraging the UpdateRepositoryLink service API.
+    * Added cmdlet Update-CSTCSyncBlocker leveraging the UpdateSyncBlocker service API.
+    * Added cmdlet Update-CSTCSyncConfiguration leveraging the UpdateSyncConfiguration service API.
+  * Amazon Connect Wisdom Service
+    * Added cmdlet Get-WSDMImportJob leveraging the GetImportJob service API.
+    * Added cmdlet Get-WSDMImportJobList leveraging the ListImportJobs service API.
+    * Added cmdlet Get-WSDMQuickResponse leveraging the GetQuickResponse service API.
+    * Added cmdlet Get-WSDMQuickResponseList leveraging the ListQuickResponses service API.
+    * Added cmdlet New-WSDMQuickResponse leveraging the CreateQuickResponse service API.
+    * Added cmdlet Remove-WSDMImportJob leveraging the DeleteImportJob service API.
+    * Added cmdlet Remove-WSDMQuickResponse leveraging the DeleteQuickResponse service API.
+    * Added cmdlet Search-WSDMQuickResponse leveraging the SearchQuickResponses service API.
+    * Added cmdlet Start-WSDMImportJob leveraging the StartImportJob service API.
+    * Added cmdlet Update-WSDMQuickResponse leveraging the UpdateQuickResponse service API.
+    * Modified cmdlet Start-WSDMContentUpload: added parameter PresignedUrlTimeToLive.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Test-ECRPullThroughCacheRule leveraging the ValidatePullThroughCacheRule service API.
+    * Added cmdlet Update-ECRPullThroughCacheRule leveraging the UpdatePullThroughCacheRule service API.
+    * Modified cmdlet New-ECRPullThroughCacheRule: added parameters CredentialArn and UpstreamRegistry.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Add-EC2IpamByoasn leveraging the ProvisionIpamByoasn service API.
+    * Added cmdlet Get-EC2IpamByoasn leveraging the DescribeIpamByoasn service API.
+    * Added cmdlet Get-EC2IpamDiscoveredPublicAddress leveraging the GetIpamDiscoveredPublicAddresses service API.
+    * Added cmdlet Register-EC2IpamByoasn leveraging the AssociateIpamByoasn service API.
+    * Added cmdlet Remove-EC2IpamByoasn leveraging the DeprovisionIpamByoasn service API.
+    * Added cmdlet Unregister-EC2IpamByoasn leveraging the DisassociateIpamByoasn service API.
+    * Modified cmdlet Edit-EC2Ipam: added parameter Tier.
+    * Modified cmdlet Edit-EC2NetworkInterfaceAttribute: added parameters ConnectionTrackingSpecification_TcpEstablishedTimeout, ConnectionTrackingSpecification_UdpStreamTimeout and ConnectionTrackingSpecification_UdpTimeout.
+    * Modified cmdlet New-EC2Ipam: added parameter Tier.
+    * Modified cmdlet New-EC2IpamPool: added parameters SourceResource_ResourceId, SourceResource_ResourceOwner, SourceResource_ResourceRegion and SourceResource_ResourceType.
+    * Modified cmdlet New-EC2IpamPoolCidr: added parameter AllowedCidr.
+    * Modified cmdlet New-EC2NetworkInterface: added parameters ConnectionTrackingSpecification_TcpEstablishedTimeout, ConnectionTrackingSpecification_UdpStreamTimeout and ConnectionTrackingSpecification_UdpTimeout.
+    * Modified cmdlet New-EC2Subnet: added parameters Ipv4IpamPoolId, Ipv4NetmaskLength, Ipv6IpamPoolId and Ipv6NetmaskLength.
+    * Modified cmdlet Register-EC2SubnetCidrBlock: added parameters Ipv6IpamPoolId and Ipv6NetmaskLength.
+    * Modified cmdlet Remove-EC2IpamPool: added parameter Cascade.
+    * Modified cmdlet Start-EC2ByoipCidrAdvertisement: added parameter Asn.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet New-EMRStudio: added parameters EncryptionKeyArn, IdcInstanceArn, IdcUserAssignment and TrustedIdentityPropagationEnabled.
+    * Modified cmdlet Update-EMRStudio: added parameter EncryptionKeyArn.
+  * Amazon OpenSearch Ingestion
+    * Modified cmdlet New-OSISPipeline: added parameters BufferOptions_PersistentBufferEnabled and EncryptionAtRestOptions_KmsKeyArn.
+    * Modified cmdlet Update-OSISPipeline: added parameters BufferOptions_PersistentBufferEnabled and EncryptionAtRestOptions_KmsKeyArn.
+  * Amazon Redshift
+    * Added cmdlet Edit-RSRedshiftIdcApplication leveraging the ModifyRedshiftIdcApplication service API.
+    * Added cmdlet Get-RSRedshiftIdcApplication leveraging the DescribeRedshiftIdcApplications service API.
+    * Added cmdlet New-RSRedshiftIdcApplication leveraging the CreateRedshiftIdcApplication service API.
+    * Added cmdlet Remove-RSRedshiftIdcApplication leveraging the DeleteRedshiftIdcApplication service API.
+    * Modified cmdlet New-RSCluster: added parameter RedshiftIdcApplicationArn.
+  * Amazon Redshift Serverless
+    * Modified cmdlet New-RSSNamespace: added parameter RedshiftIdcApplicationArn.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameter RdsCustomClusterConfiguration_ReplicaMode.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameter RdsCustomClusterConfiguration_ReplicaMode.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameter RdsCustomClusterConfiguration_ReplicaMode.
+  * Amazon Single Sign-On Admin
+    * Modified cmdlet Write-SSOADMNApplicationGrant: added parameters Grant_RefreshToken and Grant_TokenExchange.
+  * Amazon Single Sign-On OIDC
+    * Added cmdlet New-SSOOIDCTokenWithIAM leveraging the CreateTokenWithIAM service API.
+  * Amazon Trusted Advisor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TA and can be listed using the command 'Get-AWSCmdletName -Service TA'.
+  * Amazon Verified Permissions
+    * Added cmdlet Test-AVPBatchAuthorization leveraging the BatchIsAuthorized service API.
+
+### 4.1.455 (2023-11-16 22:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.688.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeCatalyst
     * Modified cmdlet New-CCATDevEnvironment: added parameter VpcConnectionName.

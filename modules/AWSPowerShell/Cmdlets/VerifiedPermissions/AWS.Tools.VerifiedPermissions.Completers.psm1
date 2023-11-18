@@ -160,7 +160,8 @@ $AVP_SelectCompleters = {
 }
 
 $AVP_SelectMap = @{
-    "Select"=@("New-AVPIdentitySource",
+    "Select"=@("Test-AVPBatchAuthorization",
+               "New-AVPIdentitySource",
                "New-AVPPolicy",
                "New-AVPPolicyStore",
                "New-AVPPolicyTemplate",

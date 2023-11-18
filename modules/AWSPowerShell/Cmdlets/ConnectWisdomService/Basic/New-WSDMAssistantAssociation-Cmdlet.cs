@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter Association_KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the knowledge base.</para>
+        /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
+        /// base if you're storing Wisdom Content resource to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

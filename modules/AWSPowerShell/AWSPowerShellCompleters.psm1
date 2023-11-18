@@ -12594,6 +12594,24 @@ $CSTC_Completers = {
             break
         }
 
+        # Amazon.CodeStarconnections.SyncConfigurationType
+        {
+            ($_ -eq "Get-CSTCRepositorySyncDefinitionList/SyncType") -Or
+            ($_ -eq "Get-CSTCRepositorySyncStatus/SyncType") -Or
+            ($_ -eq "Get-CSTCResourceSyncStatus/SyncType") -Or
+            ($_ -eq "Get-CSTCSyncBlockerSummary/SyncType") -Or
+            ($_ -eq "Get-CSTCSyncConfiguration/SyncType") -Or
+            ($_ -eq "Get-CSTCSyncConfigurationList/SyncType") -Or
+            ($_ -eq "New-CSTCSyncConfiguration/SyncType") -Or
+            ($_ -eq "Remove-CSTCSyncConfiguration/SyncType") -Or
+            ($_ -eq "Update-CSTCSyncBlocker/SyncType") -Or
+            ($_ -eq "Update-CSTCSyncConfiguration/SyncType")
+        }
+        {
+            $v = "CFN_STACK_SYNC"
+            break
+        }
+
 
     }
 
@@ -12605,6 +12623,7 @@ $CSTC_Completers = {
 $CSTC_map = @{
     "ProviderType"=@("New-CSTCConnection","New-CSTCHost")
     "ProviderTypeFilter"=@("Get-CSTCConnectionList")
+    "SyncType"=@("Get-CSTCRepositorySyncDefinitionList","Get-CSTCRepositorySyncStatus","Get-CSTCResourceSyncStatus","Get-CSTCSyncBlockerSummary","Get-CSTCSyncConfiguration","Get-CSTCSyncConfigurationList","New-CSTCSyncConfiguration","Remove-CSTCSyncConfiguration","Update-CSTCSyncBlocker","Update-CSTCSyncConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CSTC_Completers $CSTC_map
@@ -12659,16 +12678,31 @@ $CSTC_SelectCompleters = {
 $CSTC_SelectMap = @{
     "Select"=@("New-CSTCConnection",
                "New-CSTCHost",
+               "New-CSTCRepositoryLink",
+               "New-CSTCSyncConfiguration",
                "Remove-CSTCConnection",
                "Remove-CSTCHost",
+               "Remove-CSTCRepositoryLink",
+               "Remove-CSTCSyncConfiguration",
                "Get-CSTCConnection",
                "Get-CSTCHost",
+               "Get-CSTCRepositoryLink",
+               "Get-CSTCRepositorySyncStatus",
+               "Get-CSTCResourceSyncStatus",
+               "Get-CSTCSyncBlockerSummary",
+               "Get-CSTCSyncConfiguration",
                "Get-CSTCConnectionList",
                "Get-CSTCHostList",
+               "Get-CSTCRepositoryLinkList",
+               "Get-CSTCRepositorySyncDefinitionList",
+               "Get-CSTCSyncConfigurationList",
                "Get-CSTCResourceTagList",
                "Add-CSTCResourceTag",
                "Remove-CSTCResourceTag",
-               "Update-CSTCHost")
+               "Update-CSTCHost",
+               "Update-CSTCRepositoryLink",
+               "Update-CSTCSyncBlocker",
+               "Update-CSTCSyncConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CSTC_SelectCompleters $CSTC_SelectMap
@@ -14431,7 +14465,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -14452,7 +14486,7 @@ $CONN_Completers = {
         # Amazon.Connect.ListFlowAssociationResourceType
         "Get-CONNFlowAssociationBatch/ResourceType"
         {
-            $v = "SMS_PHONE_NUMBER","VOICE_PHONE_NUMBER"
+            $v = "VOICE_PHONE_NUMBER"
             break
         }
 
@@ -20569,10 +20603,27 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamPoolSourceResourceType
+        "New-EC2IpamPool/SourceResource_ResourceType"
+        {
+            $v = "vpc"
+            break
+        }
+
         # Amazon.EC2.IpamResourceType
         "Get-EC2IpamResourceCidr/ResourceType"
         {
-            $v = "eip","ipv6-pool","public-ipv4-pool","subnet","vpc"
+            $v = "eip","eni","ipv6-pool","public-ipv4-pool","subnet","vpc"
+            break
+        }
+
+        # Amazon.EC2.IpamTier
+        {
+            ($_ -eq "Edit-EC2Ipam/Tier") -Or
+            ($_ -eq "New-EC2Ipam/Tier")
+        }
+        {
+            $v = "advanced","free"
             break
         }
 
@@ -21157,6 +21208,7 @@ $EC2_map = @{
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
+    "SourceResource_ResourceType"=@("New-EC2IpamPool")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
@@ -21178,6 +21230,7 @@ $EC2_map = @{
     "TargetCapacityUnitType"=@("Get-EC2SpotPlacementScore")
     "TargetEnvironment"=@("New-EC2InstanceExportTask")
     "Tenancy"=@("Add-EC2CapacityReservation","Edit-EC2InstancePlacement","New-EC2CapacityReservationFleet")
+    "Tier"=@("Edit-EC2Ipam","New-EC2Ipam")
     "TpmSupport"=@("Register-EC2Image")
     "TrafficDirection"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2TrafficMirrorFilterRule")
     "TrafficType"=@("New-EC2FlowLog")
@@ -21260,6 +21313,7 @@ $EC2_SelectMap = @{
                "Register-EC2EnclaveCertificateIamRole",
                "Register-EC2IamInstanceProfile",
                "Register-EC2InstanceEventWindow",
+               "Register-EC2IpamByoasn",
                "Register-EC2IpamResourceDiscovery",
                "Register-EC2NatGatewayAddress",
                "Register-EC2RouteTable",
@@ -21449,6 +21503,7 @@ $EC2_SelectMap = @{
                "Remove-EC2VpnConnectionRoute",
                "Remove-EC2VpnGateway",
                "Unregister-EC2ByoipCidr",
+               "Remove-EC2IpamByoasn",
                "Unregister-EC2IpamPoolCidr",
                "Unregister-EC2PublicIpv4PoolCidr",
                "Unregister-EC2Image",
@@ -21510,6 +21565,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceTypeOffering",
                "Get-EC2InstanceType",
                "Get-EC2InternetGateway",
+               "Get-EC2IpamByoasn",
                "Get-EC2IpamPool",
                "Get-EC2IpamResourceDiscovery",
                "Get-EC2IpamResourceDiscoveryAssociation",
@@ -21628,6 +21684,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2InstanceEventWindow",
+               "Unregister-EC2IpamByoasn",
                "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2NatGatewayAddress",
                "Unregister-EC2RouteTable",
@@ -21676,6 +21733,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",
                "Get-EC2IpamDiscoveredAccount",
+               "Get-EC2IpamDiscoveredPublicAddress",
                "Get-EC2IpamDiscoveredResourceCidr",
                "Get-EC2IpamPoolAllocation",
                "Get-EC2IpamPoolCidr",
@@ -21778,6 +21836,7 @@ $EC2_SelectMap = @{
                "Move-EC2AddressToVpc",
                "Move-EC2ByoipCidrToIpam",
                "Register-EC2ByoipCidr",
+               "Add-EC2IpamByoasn",
                "Register-EC2IpamPoolCidr",
                "Register-EC2PublicIpv4PoolCidr",
                "New-EC2EC2CapacityBlock",
@@ -21948,6 +22007,13 @@ $ECR_Completers = {
             break
         }
 
+        # Amazon.ECR.UpstreamRegistry
+        "New-ECRPullThroughCacheRule/UpstreamRegistry"
+        {
+            $v = "azure-container-registry","docker-hub","ecr-public","github-container-registry","k8s","quay"
+            break
+        }
+
 
     }
 
@@ -21961,6 +22027,7 @@ $ECR_map = @{
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","Write-ECRImageTagMutability")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
+    "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
 }
 
 _awsArgumentCompleterRegistration $ECR_Completers $ECR_map
@@ -22053,7 +22120,9 @@ $ECR_SelectMap = @{
                "Start-ECRLifecyclePolicyPreview",
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
+               "Update-ECRPullThroughCacheRule",
                "Send-ECRLayerPart",
+               "Test-ECRPullThroughCacheRule",
                "Get-ECRLoginCommand")
 }
 
@@ -23572,6 +23641,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.IdcUserAssignment
+        "New-EMRStudio/IdcUserAssignment"
+        {
+            $v = "OPTIONAL","REQUIRED"
+            break
+        }
+
         # Amazon.ElasticMapReduce.IdentityType
         {
             ($_ -eq "Get-EMRStudioSessionMapping/IdentityType") -Or
@@ -23676,6 +23752,7 @@ $EMR_Completers = {
 $EMR_map = @{
     "AuthMode"=@("New-EMRStudio")
     "ExecutionEngine_Type"=@("Start-EMRNotebookExecution")
+    "IdcUserAssignment"=@("New-EMRStudio")
     "IdentityType"=@("Get-EMRStudioSessionMapping","Get-EMRStudioSessionMappingList","New-EMRStudioSessionMapping","Remove-EMRStudioSessionMapping","Update-EMRStudioSessionMapping")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
@@ -24750,7 +24827,7 @@ $EVB_Completers = {
         # Amazon.EventBridge.RuleState
         "Write-EVBRule/State"
         {
-            $v = "DISABLED","ENABLED"
+            $v = "DISABLED","ENABLED","ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS"
             break
         }
 
@@ -30606,6 +30683,13 @@ $CWIM_Completers = {
             break
         }
 
+        # Amazon.InternetMonitor.QueryType
+        "Start-CWIMQuery/QueryType"
+        {
+            $v = "MEASUREMENTS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
+            break
+        }
+
 
     }
 
@@ -30619,6 +30703,7 @@ $CWIM_map = @{
     "HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
+    "QueryType"=@("Start-CWIMQuery")
     "Status"=@("Update-CWIMMonitor")
 }
 
@@ -30676,9 +30761,13 @@ $CWIM_SelectMap = @{
                "Remove-CWIMMonitor",
                "Get-CWIMHealthEvent",
                "Get-CWIMMonitor",
+               "Get-CWIMQueryResult",
+               "Get-CWIMQueryStatus",
                "Get-CWIMHealthEventList",
                "Get-CWIMMonitorList",
                "Get-CWIMResourceTag",
+               "Start-CWIMQuery",
+               "Stop-CWIMQuery",
                "Add-CWIMResourceTag",
                "Remove-CWIMResourceTag",
                "Update-CWIMMonitor")
@@ -49974,6 +50063,9 @@ $RDS_Completers = {
 
         # Amazon.RDS.ReplicaMode
         {
+            ($_ -eq "New-RDSDBCluster/RdsCustomClusterConfiguration_ReplicaMode") -Or
+            ($_ -eq "Restore-RDSDBClusterFromSnapshot/RdsCustomClusterConfiguration_ReplicaMode") -Or
+            ($_ -eq "Restore-RDSDBClusterToPointInTime/RdsCustomClusterConfiguration_ReplicaMode") -Or
             ($_ -eq "Edit-RDSDBInstance/ReplicaMode") -Or
             ($_ -eq "New-RDSDBInstanceReadReplica/ReplicaMode")
         }
@@ -50002,6 +50094,7 @@ $RDS_map = @{
     "AutomationMode"=@("Edit-RDSDBInstance")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
+    "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
     "SourceType"=@("Get-RDSEvent","Get-RDSExportTask")
     "Status"=@("Edit-RDSCustomDBEngineVersion")
@@ -50517,6 +50610,7 @@ $RS_SelectMap = @{
                "New-RSEventSubscription",
                "New-RSHsmClientCertificate",
                "New-RSHsmConfiguration",
+               "New-RSRedshiftIdcApplication",
                "New-RSScheduledAction",
                "New-RSSnapshotCopyGrant",
                "New-RSSnapshotSchedule",
@@ -50535,6 +50629,7 @@ $RS_SelectMap = @{
                "Remove-RSHsmClientCertificate",
                "Remove-RSHsmConfiguration",
                "Remove-RSPartner",
+               "Remove-RSRedshiftIdcApplication",
                "Remove-RSResourcePolicy",
                "Remove-RSScheduledAction",
                "Remove-RSSnapshotCopyGrant",
@@ -50569,6 +50664,7 @@ $RS_SelectMap = @{
                "Get-RSNodeConfigurationOption",
                "Get-RSOrderableClusterOption",
                "Get-RSPartner",
+               "Get-RSRedshiftIdcApplication",
                "Get-RSReservedNodeExchangeStatus",
                "Get-RSReservedNodeOffering",
                "Get-RSReservedNode",
@@ -50604,6 +50700,7 @@ $RS_SelectMap = @{
                "Edit-RSCustomDomainAssociation",
                "Edit-RSEndpointAccess",
                "Edit-RSEventSubscription",
+               "Edit-RSRedshiftIdcApplication",
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",
                "Edit-RSSnapshotSchedule",
@@ -60275,6 +60372,7 @@ $SSOOIDC_SelectCompleters = {
 
 $SSOOIDC_SelectMap = @{
     "Select"=@("New-SSOOIDCToken",
+               "New-SSOOIDCTokenWithIAM",
                "Register-SSOOIDCClient",
                "Start-SSOOIDCDeviceAuthorization")
 }
@@ -62377,6 +62475,174 @@ $TRN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $TRN_SelectCompleters $TRN_SelectMap
+# Argument completions for service Trusted Advisor
+
+
+$TA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.TrustedAdvisor.RecommendationLanguage
+        "Get-TACheckList/Language"
+        {
+            $v = "de","en","es","fr","id","it","ja","ko","pt_BR","zh","zh_TW"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.RecommendationPillar
+        {
+            ($_ -eq "Get-TACheckList/Pillar") -Or
+            ($_ -eq "Get-TAOrganizationRecommendationList/Pillar") -Or
+            ($_ -eq "Get-TARecommendationList/Pillar")
+        }
+        {
+            $v = "cost_optimizing","fault_tolerance","operational_excellence","performance","security","service_limits"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.RecommendationSource
+        {
+            ($_ -eq "Get-TACheckList/Source") -Or
+            ($_ -eq "Get-TAOrganizationRecommendationList/Source") -Or
+            ($_ -eq "Get-TARecommendationList/Source")
+        }
+        {
+            $v = "aws_config","compute_optimizer","cost_explorer","lse","manual","pse","rds","resilience","resilience_hub","security_hub","stir","ta_check","well_architected"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.RecommendationStatus
+        {
+            ($_ -eq "Get-TAOrganizationRecommendationList/Status") -Or
+            ($_ -eq "Get-TARecommendationList/Status")
+        }
+        {
+            $v = "error","ok","warning"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.RecommendationType
+        {
+            ($_ -eq "Get-TAOrganizationRecommendationList/Type") -Or
+            ($_ -eq "Get-TARecommendationList/Type")
+        }
+        {
+            $v = "priority","standard"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.ResourceStatus
+        {
+            ($_ -eq "Get-TAOrganizationRecommendationResourceList/Status") -Or
+            ($_ -eq "Get-TARecommendationResourceList/Status")
+        }
+        {
+            $v = "error","ok","warning"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.UpdateRecommendationLifecycleStage
+        {
+            ($_ -eq "Update-TAOrganizationRecommendationLifecycle/LifecycleStage") -Or
+            ($_ -eq "Update-TARecommendationLifecycle/LifecycleStage")
+        }
+        {
+            $v = "dismissed","in_progress","pending_response","resolved"
+            break
+        }
+
+        # Amazon.TrustedAdvisor.UpdateRecommendationLifecycleStageReasonCode
+        {
+            ($_ -eq "Update-TAOrganizationRecommendationLifecycle/UpdateReasonCode") -Or
+            ($_ -eq "Update-TARecommendationLifecycle/UpdateReasonCode")
+        }
+        {
+            $v = "low_priority","non_critical_account","not_applicable","other","other_methods_available","temporary_account","valid_business_case"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TA_map = @{
+    "Language"=@("Get-TACheckList")
+    "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
+    "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
+    "Source"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
+    "Status"=@("Get-TAOrganizationRecommendationList","Get-TAOrganizationRecommendationResourceList","Get-TARecommendationList","Get-TARecommendationResourceList")
+    "Type"=@("Get-TAOrganizationRecommendationList","Get-TARecommendationList")
+    "UpdateReasonCode"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
+}
+
+_awsArgumentCompleterRegistration $TA_Completers $TA_map
+
+$TA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.TA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TA_SelectMap = @{
+    "Select"=@("Get-TAOrganizationRecommendation",
+               "Get-TARecommendation",
+               "Get-TACheckList",
+               "Get-TAOrganizationRecommendationAccountList",
+               "Get-TAOrganizationRecommendationResourceList",
+               "Get-TAOrganizationRecommendationList",
+               "Get-TARecommendationResourceList",
+               "Get-TARecommendationList",
+               "Update-TAOrganizationRecommendationLifecycle",
+               "Update-TARecommendationLifecycle")
+}
+
+_awsArgumentCompleterRegistration $TA_SelectCompleters $TA_SelectMap
 # Argument completions for service Amazon Verified Permissions
 
 
@@ -62465,7 +62731,8 @@ $AVP_SelectCompleters = {
 }
 
 $AVP_SelectMap = @{
-    "Select"=@("New-AVPIdentitySource",
+    "Select"=@("Test-AVPBatchAuthorization",
+               "New-AVPIdentitySource",
                "New-AVPPolicy",
                "New-AVPPolicyStore",
                "New-AVPPolicyTemplate",
@@ -63700,10 +63967,31 @@ $WSDM_Completers = {
             break
         }
 
+        # Amazon.ConnectWisdomService.ExternalSource
+        "Start-WSDMImportJob/ExternalSourceConfiguration_Source"
+        {
+            $v = "AMAZON_CONNECT"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.ImportJobType
+        "Start-WSDMImportJob/ImportJobType"
+        {
+            $v = "QUICK_RESPONSES"
+            break
+        }
+
         # Amazon.ConnectWisdomService.KnowledgeBaseType
         "New-WSDMKnowledgeBase/KnowledgeBaseType"
         {
-            $v = "CUSTOM","EXTERNAL"
+            $v = "CUSTOM","EXTERNAL","QUICK_RESPONSES"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.Order
+        "Search-WSDMQuickResponse/SearchExpression_OrderOnField_Order"
+        {
+            $v = "ASC","DESC"
             break
         }
 
@@ -63717,7 +64005,10 @@ $WSDM_Completers = {
 
 $WSDM_map = @{
     "AssociationType"=@("New-WSDMAssistantAssociation")
+    "ExternalSourceConfiguration_Source"=@("Start-WSDMImportJob")
+    "ImportJobType"=@("Start-WSDMImportJob")
     "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
+    "SearchExpression_OrderOnField_Order"=@("Search-WSDMQuickResponse")
     "Type"=@("New-WSDMAssistant")
 }
 
@@ -63775,33 +64066,43 @@ $WSDM_SelectMap = @{
                "New-WSDMAssistantAssociation",
                "New-WSDMContent",
                "New-WSDMKnowledgeBase",
+               "New-WSDMQuickResponse",
                "New-WSDMSession",
                "Remove-WSDMAssistant",
                "Remove-WSDMAssistantAssociation",
                "Remove-WSDMContent",
+               "Remove-WSDMImportJob",
                "Remove-WSDMKnowledgeBase",
+               "Remove-WSDMQuickResponse",
                "Get-WSDMAssistant",
                "Get-WSDMAssistantAssociation",
                "Get-WSDMContent",
                "Get-WSDMContentSummary",
+               "Get-WSDMImportJob",
                "Get-WSDMKnowledgeBase",
+               "Get-WSDMQuickResponse",
                "Get-WSDMRecommendation",
                "Get-WSDMSession",
                "Get-WSDMAssistantAssociationList",
                "Get-WSDMAssistantList",
                "Get-WSDMContentList",
+               "Get-WSDMImportJobList",
                "Get-WSDMKnowledgeBasisList",
+               "Get-WSDMQuickResponseList",
                "Get-WSDMResourceTag",
                "Remove-WSDMRecommendationsReceived",
                "Search-WSDMAssistant",
                "Remove-WSDMKnowledgeBaseTemplateUri",
                "Search-WSDMContent",
+               "Search-WSDMQuickResponse",
                "Search-WSDMSession",
                "Start-WSDMContentUpload",
+               "Start-WSDMImportJob",
                "Add-WSDMResourceTag",
                "Remove-WSDMResourceTag",
                "Update-WSDMContent",
-               "Update-WSDMKnowledgeBaseTemplateUri")
+               "Update-WSDMKnowledgeBaseTemplateUri",
+               "Update-WSDMQuickResponse")
 }
 
 _awsArgumentCompleterRegistration $WSDM_SelectCompleters $WSDM_SelectMap
