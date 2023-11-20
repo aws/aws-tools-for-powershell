@@ -1,4 +1,19 @@
-﻿### 4.1.456 (2023-11-18 00:41Z)
+﻿### 4.1.457 (2023-11-20 23:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.690.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * CSTC
+    * [Breaking Change] Removed cmdlets Get-CSTCRepositoryLink, Get-CSTCRepositoryLinkList, Get-CSTCRepositorySyncDefinitionList, Get-CSTCRepositorySyncStatus, Get-CSTCResourceSyncStatus, Get-CSTCSyncBlockerSummary, Get-CSTCSyncConfiguration, Get-CSTCSyncConfigurationList, New-CSTCRepositoryLink, New-CSTCSyncConfiguration, Remove-CSTCRepositoryLink, Remove-CSTCSyncConfiguration, Update-CSTCRepositoryLink, Update-CSTCSyncBlocker and Update-CSTCSyncConfiguration.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBCluster: added parameter StorageType.
+    * Modified cmdlet New-DOCDBCluster: added parameter StorageType.
+    * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameter StorageType.
+    * Modified cmdlet Restore-DOCDBClusterToPointInTime: added parameter StorageType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2TransitGateway: added parameter Options_SecurityGroupReferencingSupport.
+    * Modified cmdlet Edit-EC2TransitGatewayVpcAttachment: added parameter Options_SecurityGroupReferencingSupport.
+    * Modified cmdlet New-EC2TransitGateway: added parameter Options_SecurityGroupReferencingSupport.
+    * Modified cmdlet New-EC2TransitGatewayVpcAttachment: added parameter Options_SecurityGroupReferencingSupport.
+
+### 4.1.456 (2023-11-18 00:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.689.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Modified cmdlet New-CFNChangeSet: added parameter ImportExistingResource.

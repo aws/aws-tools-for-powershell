@@ -28,8 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the VPCs on the other side of a VPC peering connection that are referencing
-    /// the security groups you've specified in this request.
+    /// Describes the VPCs on the other side of a VPC peering connection or the VPCs attached
+    /// to a transit gateway that are referencing the security groups you've specified in
+    /// this request.
     /// </summary>
     [Cmdlet("Get", "EC2SecurityGroupReference")]
     [OutputType("Amazon.EC2.Model.SecurityGroupReference")]

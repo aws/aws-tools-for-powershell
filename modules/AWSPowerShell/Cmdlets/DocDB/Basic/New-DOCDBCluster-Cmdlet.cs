@@ -272,6 +272,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para><note><para>When you create a DocumentDB DB cluster with the storage type set to <code>iopt1</code>,
+        /// the storage type is returned in the response. The storage type isn't returned when
+        /// you set it to <code>standard</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -393,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PreSignedUrl = this.PreSignedUrl;
             context.StorageEncrypted = this.StorageEncrypted;
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.DocDB.Model.Tag>(this.Tag);
@@ -493,6 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -581,6 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.String PreSignedUrl { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.DocDB.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.DocDB.Model.CreateDBClusterResponse, NewDOCDBClusterCmdlet, object> Select { get; set; } =

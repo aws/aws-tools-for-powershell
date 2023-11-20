@@ -12594,24 +12594,6 @@ $CSTC_Completers = {
             break
         }
 
-        # Amazon.CodeStarconnections.SyncConfigurationType
-        {
-            ($_ -eq "Get-CSTCRepositorySyncDefinitionList/SyncType") -Or
-            ($_ -eq "Get-CSTCRepositorySyncStatus/SyncType") -Or
-            ($_ -eq "Get-CSTCResourceSyncStatus/SyncType") -Or
-            ($_ -eq "Get-CSTCSyncBlockerSummary/SyncType") -Or
-            ($_ -eq "Get-CSTCSyncConfiguration/SyncType") -Or
-            ($_ -eq "Get-CSTCSyncConfigurationList/SyncType") -Or
-            ($_ -eq "New-CSTCSyncConfiguration/SyncType") -Or
-            ($_ -eq "Remove-CSTCSyncConfiguration/SyncType") -Or
-            ($_ -eq "Update-CSTCSyncBlocker/SyncType") -Or
-            ($_ -eq "Update-CSTCSyncConfiguration/SyncType")
-        }
-        {
-            $v = "CFN_STACK_SYNC"
-            break
-        }
-
 
     }
 
@@ -12623,7 +12605,6 @@ $CSTC_Completers = {
 $CSTC_map = @{
     "ProviderType"=@("New-CSTCConnection","New-CSTCHost")
     "ProviderTypeFilter"=@("Get-CSTCConnectionList")
-    "SyncType"=@("Get-CSTCRepositorySyncDefinitionList","Get-CSTCRepositorySyncStatus","Get-CSTCResourceSyncStatus","Get-CSTCSyncBlockerSummary","Get-CSTCSyncConfiguration","Get-CSTCSyncConfigurationList","New-CSTCSyncConfiguration","Remove-CSTCSyncConfiguration","Update-CSTCSyncBlocker","Update-CSTCSyncConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CSTC_Completers $CSTC_map
@@ -12678,31 +12659,16 @@ $CSTC_SelectCompleters = {
 $CSTC_SelectMap = @{
     "Select"=@("New-CSTCConnection",
                "New-CSTCHost",
-               "New-CSTCRepositoryLink",
-               "New-CSTCSyncConfiguration",
                "Remove-CSTCConnection",
                "Remove-CSTCHost",
-               "Remove-CSTCRepositoryLink",
-               "Remove-CSTCSyncConfiguration",
                "Get-CSTCConnection",
                "Get-CSTCHost",
-               "Get-CSTCRepositoryLink",
-               "Get-CSTCRepositorySyncStatus",
-               "Get-CSTCResourceSyncStatus",
-               "Get-CSTCSyncBlockerSummary",
-               "Get-CSTCSyncConfiguration",
                "Get-CSTCConnectionList",
                "Get-CSTCHostList",
-               "Get-CSTCRepositoryLinkList",
-               "Get-CSTCRepositorySyncDefinitionList",
-               "Get-CSTCSyncConfigurationList",
                "Get-CSTCResourceTagList",
                "Add-CSTCResourceTag",
                "Remove-CSTCResourceTag",
-               "Update-CSTCHost",
-               "Update-CSTCRepositoryLink",
-               "Update-CSTCSyncBlocker",
-               "Update-CSTCSyncConfiguration")
+               "Update-CSTCHost")
 }
 
 _awsArgumentCompleterRegistration $CSTC_SelectCompleters $CSTC_SelectMap
@@ -20838,6 +20804,18 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SecurityGroupReferencingSupportValue
+        {
+            ($_ -eq "Edit-EC2TransitGateway/Options_SecurityGroupReferencingSupport") -Or
+            ($_ -eq "Edit-EC2TransitGatewayVpcAttachment/Options_SecurityGroupReferencingSupport") -Or
+            ($_ -eq "New-EC2TransitGateway/Options_SecurityGroupReferencingSupport") -Or
+            ($_ -eq "New-EC2TransitGatewayVpcAttachment/Options_SecurityGroupReferencingSupport")
+        }
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.SelfServicePortal
         {
             ($_ -eq "Edit-EC2ClientVpnEndpoint/SelfServicePortal") -Or
@@ -21192,6 +21170,7 @@ $EC2_map = @{
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
     "Options_Protocol"=@("New-EC2TransitGatewayConnect")
+    "Options_SecurityGroupReferencingSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_TunnelInsideIpVersion"=@("New-EC2VpnConnection")
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")

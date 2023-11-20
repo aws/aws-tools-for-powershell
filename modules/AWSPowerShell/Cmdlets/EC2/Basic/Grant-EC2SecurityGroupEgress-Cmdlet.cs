@@ -47,7 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
     /// VPC quotas</a>.
-    /// </para>
+    /// </para><note><para>
+    /// If you want to reference a security group across VPCs attached to a transit gateway
+    /// using the <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">security
+    /// group referencing feature</a>, note that you can only reference security groups for
+    /// ingress rules. You cannot reference a security group for egress rules.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupEgress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse")]

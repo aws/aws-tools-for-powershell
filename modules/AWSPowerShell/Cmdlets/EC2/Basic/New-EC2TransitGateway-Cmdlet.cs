@@ -144,6 +144,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.MulticastSupportValue Options_MulticastSupport { get; set; }
         #endregion
         
+        #region Parameter Options_SecurityGroupReferencingSupport
+        /// <summary>
+        /// <para>
+        /// <para>Enables you to reference a security group across VPCs attached to a transit gateway
+        /// (TGW). Use this option to simplify security group management and control of instance-to-instance
+        /// traffic across VPCs that are connected by transit gateway. You can also use this option
+        /// to migrate from VPC peering (which was the only option that supported security group
+        /// referencing) to transit gateways (which now also support security group referencing).
+        /// This option is disabled by default and there are no additional costs to use this feature.</para><para>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create
+        /// a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SecurityGroupReferencingSupportValue")]
+        public Amazon.EC2.SecurityGroupReferencingSupportValue Options_SecurityGroupReferencingSupport { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -227,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_DefaultRouteTablePropagation = this.Options_DefaultRouteTablePropagation;
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_MulticastSupport = this.Options_MulticastSupport;
+            context.Options_SecurityGroupReferencingSupport = this.Options_SecurityGroupReferencingSupport;
             if (this.Options_TransitGatewayCidrBlock != null)
             {
                 context.Options_TransitGatewayCidrBlock = new List<System.String>(this.Options_TransitGatewayCidrBlock);
@@ -318,6 +336,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_MulticastSupport != null)
             {
                 request.Options.MulticastSupport = requestOptions_options_MulticastSupport;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.SecurityGroupReferencingSupportValue requestOptions_options_SecurityGroupReferencingSupport = null;
+            if (cmdletContext.Options_SecurityGroupReferencingSupport != null)
+            {
+                requestOptions_options_SecurityGroupReferencingSupport = cmdletContext.Options_SecurityGroupReferencingSupport;
+            }
+            if (requestOptions_options_SecurityGroupReferencingSupport != null)
+            {
+                request.Options.SecurityGroupReferencingSupport = requestOptions_options_SecurityGroupReferencingSupport;
                 requestOptionsIsNull = false;
             }
             List<System.String> requestOptions_options_TransitGatewayCidrBlock = null;
@@ -417,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultRouteTablePropagationValue Options_DefaultRouteTablePropagation { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
             public Amazon.EC2.MulticastSupportValue Options_MulticastSupport { get; set; }
+            public Amazon.EC2.SecurityGroupReferencingSupportValue Options_SecurityGroupReferencingSupport { get; set; }
             public List<System.String> Options_TransitGatewayCidrBlock { get; set; }
             public Amazon.EC2.VpnEcmpSupportValue Options_VpnEcmpSupport { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

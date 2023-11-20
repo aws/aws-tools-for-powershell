@@ -91,28 +91,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CSTCConnectionList', 
         'Get-CSTCHost', 
         'Get-CSTCHostList', 
-        'Get-CSTCRepositoryLink', 
-        'Get-CSTCRepositoryLinkList', 
-        'Get-CSTCRepositorySyncDefinitionList', 
-        'Get-CSTCRepositorySyncStatus', 
-        'Get-CSTCResourceSyncStatus', 
         'Get-CSTCResourceTagList', 
-        'Get-CSTCSyncBlockerSummary', 
-        'Get-CSTCSyncConfiguration', 
-        'Get-CSTCSyncConfigurationList', 
         'New-CSTCConnection', 
         'New-CSTCHost', 
-        'New-CSTCRepositoryLink', 
-        'New-CSTCSyncConfiguration', 
         'Remove-CSTCConnection', 
         'Remove-CSTCHost', 
-        'Remove-CSTCRepositoryLink', 
         'Remove-CSTCResourceTag', 
-        'Remove-CSTCSyncConfiguration', 
-        'Update-CSTCHost', 
-        'Update-CSTCRepositoryLink', 
-        'Update-CSTCSyncBlocker', 
-        'Update-CSTCSyncConfiguration')
+        'Update-CSTCHost')
 
     # Variables to export from this module
     VariablesToExport = '*'

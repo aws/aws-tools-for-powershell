@@ -87,6 +87,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Ipv6SupportValue Options_Ipv6Support { get; set; }
         #endregion
         
+        #region Parameter Options_SecurityGroupReferencingSupport
+        /// <summary>
+        /// <para>
+        /// <para>Enables you to reference a security group across VPCs attached to a transit gateway
+        /// (TGW). Use this option to simplify security group management and control of instance-to-instance
+        /// traffic across VPCs that are connected by transit gateway. You can also use this option
+        /// to migrate from VPC peering (which was the only option that supported security group
+        /// referencing) to transit gateways (which now also support security group referencing).
+        /// This option is disabled by default and there are no additional costs to use this feature.</para><para>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
+        /// attachment will inherit the security group referencing support setting on the transit
+        /// gateway.</para><para>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create
+        /// a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SecurityGroupReferencingSupportValue")]
+        public Amazon.EC2.SecurityGroupReferencingSupportValue Options_SecurityGroupReferencingSupport { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
@@ -218,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_ApplianceModeSupport = this.Options_ApplianceModeSupport;
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_Ipv6Support = this.Options_Ipv6Support;
+            context.Options_SecurityGroupReferencingSupport = this.Options_SecurityGroupReferencingSupport;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -294,6 +315,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_Ipv6Support != null)
             {
                 request.Options.Ipv6Support = requestOptions_options_Ipv6Support;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.SecurityGroupReferencingSupportValue requestOptions_options_SecurityGroupReferencingSupport = null;
+            if (cmdletContext.Options_SecurityGroupReferencingSupport != null)
+            {
+                requestOptions_options_SecurityGroupReferencingSupport = cmdletContext.Options_SecurityGroupReferencingSupport;
+            }
+            if (requestOptions_options_SecurityGroupReferencingSupport != null)
+            {
+                request.Options.SecurityGroupReferencingSupport = requestOptions_options_SecurityGroupReferencingSupport;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -381,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.ApplianceModeSupportValue Options_ApplianceModeSupport { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
             public Amazon.EC2.Ipv6SupportValue Options_Ipv6Support { get; set; }
+            public Amazon.EC2.SecurityGroupReferencingSupportValue Options_SecurityGroupReferencingSupport { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String TransitGatewayId { get; set; }

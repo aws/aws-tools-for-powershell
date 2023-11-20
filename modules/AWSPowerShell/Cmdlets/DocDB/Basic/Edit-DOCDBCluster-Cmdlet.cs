@@ -216,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -316,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.StorageType = this.StorageType;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
@@ -413,6 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.VpcSecurityGroupId != null)
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
@@ -492,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.String StorageType { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.DocDB.Model.ModifyDBClusterResponse, EditDOCDBClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBCluster;

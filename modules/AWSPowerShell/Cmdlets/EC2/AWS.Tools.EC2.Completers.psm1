@@ -877,6 +877,18 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SecurityGroupReferencingSupportValue
+        {
+            ($_ -eq "Edit-EC2TransitGateway/Options_SecurityGroupReferencingSupport") -Or
+            ($_ -eq "Edit-EC2TransitGatewayVpcAttachment/Options_SecurityGroupReferencingSupport") -Or
+            ($_ -eq "New-EC2TransitGateway/Options_SecurityGroupReferencingSupport") -Or
+            ($_ -eq "New-EC2TransitGatewayVpcAttachment/Options_SecurityGroupReferencingSupport")
+        }
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.SelfServicePortal
         {
             ($_ -eq "Edit-EC2ClientVpnEndpoint/SelfServicePortal") -Or
@@ -1231,6 +1243,7 @@ $EC2_map = @{
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
     "Options_Protocol"=@("New-EC2TransitGatewayConnect")
+    "Options_SecurityGroupReferencingSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_TunnelInsideIpVersion"=@("New-EC2VpnConnection")
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")

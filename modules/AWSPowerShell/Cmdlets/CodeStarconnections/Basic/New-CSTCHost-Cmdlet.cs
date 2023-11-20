@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags for the host to be created.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

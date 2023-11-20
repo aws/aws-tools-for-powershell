@@ -202,6 +202,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String SnapshotIdentifier { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -322,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 WriteWarning("You are passing $null as a value for parameter SnapshotIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.DocDB.Model.Tag>(this.Tag);
@@ -389,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.SnapshotIdentifier != null)
             {
                 request.SnapshotIdentifier = cmdletContext.SnapshotIdentifier;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -470,6 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String KmsKeyId { get; set; }
             public System.Int32? Port { get; set; }
             public System.String SnapshotIdentifier { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.DocDB.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.DocDB.Model.RestoreDBClusterFromSnapshotResponse, RestoreDOCDBClusterFromSnapshotCmdlet, object> Select { get; set; } =
