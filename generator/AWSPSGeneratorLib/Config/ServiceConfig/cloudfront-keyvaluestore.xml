@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudfront-keyvaluestore</C2jFilename>
+    <AssemblyName>CloudFrontKeyValueStore</AssemblyName>
+    <ServiceNounPrefix>CFKV</ServiceNounPrefix>
+    <ServiceName>Amazon CloudFront KeyValueStore</ServiceName>
+    <ServiceClientInterface>IAmazonCloudFrontKeyValueStore</ServiceClientInterface>
+    <ServiceClient>AmazonCloudFrontKeyValueStoreClient</ServiceClient>
+    <ServiceModuleGuid>07547444-c066-4aeb-bce8-ad862fe7c6fb</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteKey" OutputProperty="*" Verb="Remove" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKeyValueStore" OutputProperty="*" Verb="Get" Noun="KeyValueStore" PipelineParameter="KvsARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKey" OutputProperty="*" Verb="Get" Noun="Key" PipelineParameter="KvsARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Items" Verb="Get" Noun="KeyList" PipelineParameter="KvsARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutKey" OutputProperty="*" Verb="Write" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKeys" OutputProperty="*" Verb="Update" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

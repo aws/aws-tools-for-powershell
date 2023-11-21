@@ -53,6 +53,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.Collections.Hashtable ComponentUpdate { get; set; }
         #endregion
         
+        #region Parameter CompositeComponentUpdate
+        /// <summary>
+        /// <para>
+        /// <para>This is an object that maps strings to <code>compositeComponent</code> updates in
+        /// the request. Each key of the map represents the <code>componentPath</code> of the
+        /// <code>compositeComponent</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompositeComponentUpdates")]
+        public System.Collections.Hashtable CompositeComponentUpdate { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -198,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                     context.ComponentUpdate.Add((String)hashKey, (ComponentUpdateRequest)(this.ComponentUpdate[hashKey]));
                 }
             }
+            if (this.CompositeComponentUpdate != null)
+            {
+                context.CompositeComponentUpdate = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentUpdateRequest>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CompositeComponentUpdate.Keys)
+                {
+                    context.CompositeComponentUpdate.Add((String)hashKey, (CompositeComponentUpdateRequest)(this.CompositeComponentUpdate[hashKey]));
+                }
+            }
             context.Description = this.Description;
             context.EntityId = this.EntityId;
             #if MODULAR
@@ -235,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.ComponentUpdate != null)
             {
                 request.ComponentUpdates = cmdletContext.ComponentUpdate;
+            }
+            if (cmdletContext.CompositeComponentUpdate != null)
+            {
+                request.CompositeComponentUpdates = cmdletContext.CompositeComponentUpdate;
             }
             if (cmdletContext.Description != null)
             {
@@ -343,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.ComponentUpdateRequest> ComponentUpdate { get; set; }
+            public Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentUpdateRequest> CompositeComponentUpdate { get; set; }
             public System.String Description { get; set; }
             public System.String EntityId { get; set; }
             public System.String EntityName { get; set; }

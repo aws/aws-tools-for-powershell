@@ -33,8 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///  <important><para>
-    /// You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk
-    /// import job. For more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.
+    /// Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT
+    /// SiteWise cold tier. For more information about how to configure storage settings,
+    /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.
+    /// </para><para>
+    /// Bulk import is designed to store historical data to IoT SiteWise. It does not trigger
+    /// computations or notifications on IoT SiteWise warm or cold tier storage.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "IOTSWBulkImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AdaptiveIngestion
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, ingest new data into IoT SiteWise storage. Measurements with notifications,
+        /// metrics and transforms are computed. If set to false, historical data is ingested
+        /// into IoT SiteWise as is.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdaptiveIngestion { get; set; }
+        #endregion
         
         #region Parameter ErrorReportLocation_Bucket
         /// <summary>
@@ -75,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobConfiguration_FileFormat_Csv_ColumnNames")]
         public System.String[] Csv_ColumnName { get; set; }
+        #endregion
+        
+        #region Parameter DeleteFilesAfterImport
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, your data files is deleted from S3, after ingestion into IoT SiteWise
+        /// storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteFilesAfterImport { get; set; }
         #endregion
         
         #region Parameter File
@@ -128,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String JobRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter FileFormat_Parquet
+        /// <summary>
+        /// <para>
+        /// <para>The file is in parquet format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobConfiguration_FileFormat_Parquet")]
+        public Amazon.IoTSiteWise.Model.Parquet FileFormat_Parquet { get; set; }
         #endregion
         
         #region Parameter ErrorReportLocation_Prefix
@@ -213,6 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = (response, cmdlet) => this.JobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AdaptiveIngestion = this.AdaptiveIngestion;
+            context.DeleteFilesAfterImport = this.DeleteFilesAfterImport;
             context.ErrorReportLocation_Bucket = this.ErrorReportLocation_Bucket;
             #if MODULAR
             if (this.ErrorReportLocation_Bucket == null && ParameterWasBound(nameof(this.ErrorReportLocation_Bucket)))
@@ -241,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 context.Csv_ColumnName = new List<System.String>(this.Csv_ColumnName);
             }
+            context.FileFormat_Parquet = this.FileFormat_Parquet;
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -271,6 +312,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.CreateBulkImportJobRequest();
             
+            if (cmdletContext.AdaptiveIngestion != null)
+            {
+                request.AdaptiveIngestion = cmdletContext.AdaptiveIngestion.Value;
+            }
+            if (cmdletContext.DeleteFilesAfterImport != null)
+            {
+                request.DeleteFilesAfterImport = cmdletContext.DeleteFilesAfterImport.Value;
+            }
             
              // populate ErrorReportLocation
             var requestErrorReportLocationIsNull = true;
@@ -313,6 +362,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
              // populate FileFormat
             var requestJobConfiguration_jobConfiguration_FileFormatIsNull = true;
             requestJobConfiguration_jobConfiguration_FileFormat = new Amazon.IoTSiteWise.Model.FileFormat();
+            Amazon.IoTSiteWise.Model.Parquet requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet = null;
+            if (cmdletContext.FileFormat_Parquet != null)
+            {
+                requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet = cmdletContext.FileFormat_Parquet;
+            }
+            if (requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet != null)
+            {
+                requestJobConfiguration_jobConfiguration_FileFormat.Parquet = requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet;
+                requestJobConfiguration_jobConfiguration_FileFormatIsNull = false;
+            }
             Amazon.IoTSiteWise.Model.Csv requestJobConfiguration_jobConfiguration_FileFormat_jobConfiguration_FileFormat_Csv = null;
             
              // populate Csv
@@ -422,10 +481,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AdaptiveIngestion { get; set; }
+            public System.Boolean? DeleteFilesAfterImport { get; set; }
             public System.String ErrorReportLocation_Bucket { get; set; }
             public System.String ErrorReportLocation_Prefix { get; set; }
             public List<Amazon.IoTSiteWise.Model.File> File { get; set; }
             public List<System.String> Csv_ColumnName { get; set; }
+            public Amazon.IoTSiteWise.Model.Parquet FileFormat_Parquet { get; set; }
             public System.String JobName { get; set; }
             public System.String JobRoleArn { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse, NewIOTSWBulkImportJobCmdlet, object> Select { get; set; } =

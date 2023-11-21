@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// To use this operation, you must have READ access to the bucket.
     /// </para><para>
-    /// This action is not supported by Amazon S3 on Outposts.
-    /// </para><para>
     /// The following operations are related to <code>ListObjectVersions</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul>
     /// </summary>

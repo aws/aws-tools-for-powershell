@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset.</para>
+        /// <para>The ID of the asset, in UUID format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter PropertyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset property.</para>
+        /// <para>The ID of the asset property, in UUID format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

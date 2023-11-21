@@ -42,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssetModelType
+        /// <summary>
+        /// <para>
+        /// <para>The type of asset model.</para><ul><li><para><b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
+        /// Can't be included as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
+        /// models of other asset models. You can't create assets directly from this type of asset
+        /// model. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetModelTypes")]
+        public System.String[] AssetModelType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -103,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListAssetModelsResponse, GetIOTSWAssetModelListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AssetModelType != null)
+            {
+                context.AssetModelType = new List<System.String>(this.AssetModelType);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -123,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request and set iteration invariants
             var request = new Amazon.IoTSiteWise.Model.ListAssetModelsRequest();
             
+            if (cmdletContext.AssetModelType != null)
+            {
+                request.AssetModelTypes = cmdletContext.AssetModelType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -212,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AssetModelType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ListAssetModelsResponse, GetIOTSWAssetModelListCmdlet, object> Select { get; set; } =

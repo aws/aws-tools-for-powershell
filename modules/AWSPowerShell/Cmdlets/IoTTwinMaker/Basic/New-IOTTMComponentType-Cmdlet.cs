@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String ComponentTypeName { get; set; }
         #endregion
         
+        #region Parameter CompositeComponentType
+        /// <summary>
+        /// <para>
+        /// <para>This is an object that maps strings to <code>compositeComponentTypes</code> of the
+        /// <code>componentType</code>. <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompositeComponentTypes")]
+        public System.Collections.Hashtable CompositeComponentType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -232,6 +244,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             }
             #endif
             context.ComponentTypeName = this.ComponentTypeName;
+            if (this.CompositeComponentType != null)
+            {
+                context.CompositeComponentType = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentTypeRequest>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CompositeComponentType.Keys)
+                {
+                    context.CompositeComponentType.Add((String)hashKey, (CompositeComponentTypeRequest)(this.CompositeComponentType[hashKey]));
+                }
+            }
             context.Description = this.Description;
             if (this.ExtendsFrom != null)
             {
@@ -300,6 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.ComponentTypeName != null)
             {
                 request.ComponentTypeName = cmdletContext.ComponentTypeName;
+            }
+            if (cmdletContext.CompositeComponentType != null)
+            {
+                request.CompositeComponentTypes = cmdletContext.CompositeComponentType;
             }
             if (cmdletContext.Description != null)
             {
@@ -396,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         {
             public System.String ComponentTypeId { get; set; }
             public System.String ComponentTypeName { get; set; }
+            public Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentTypeRequest> CompositeComponentType { get; set; }
             public System.String Description { get; set; }
             public List<System.String> ExtendsFrom { get; set; }
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.FunctionRequest> Function { get; set; }

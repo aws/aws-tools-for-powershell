@@ -1,0 +1,3 @@
+﻿# CloudFrontKeyValueStore
+
+Export-ModuleMember -Alias *

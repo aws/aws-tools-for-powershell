@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting
-    /// assets and models</a> in the <i>IoT SiteWise User Guide</i>. 
+    /// assets and models</a> in the <i>IoT SiteWise User Guide</i>.
     /// 
     ///  <note><para>
     /// You can't delete an asset that's associated to another asset. For more information,
@@ -51,7 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset to delete.</para>
+        /// <para>The ID of the asset to delete. This can be either the actual ID in UUID format, or
+        /// else <code>externalId:</code> followed by the external ID, if it has one. For more
+        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,6 +80,13 @@ $IOTSW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTSiteWise.AssetModelType
+        "New-IOTSWAssetModel/AssetModelType"
+        {
+            $v = "ASSET_MODEL","COMPONENT_MODEL"
+            break
+        }
+
         # Amazon.IoTSiteWise.AuthMode
         "New-IOTSWPortal/PortalAuthMode"
         {
@@ -198,6 +205,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.TargetResourceType
+        "Get-IOTSWActionList/TargetResourceType"
+        {
+            $v = "ASSET"
+            break
+        }
+
         # Amazon.IoTSiteWise.TimeOrdering
         {
             ($_ -eq "Get-IOTSWAssetPropertyAggregate/TimeOrdering") -Or
@@ -222,6 +236,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.WarmTierState
+        "Write-IOTSWStorageConfiguration/WarmTier"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -232,6 +253,7 @@ $IOTSW_Completers = {
 
 $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
+    "AssetModelType"=@("New-IOTSWAssetModel")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
@@ -244,10 +266,12 @@ $IOTSW_map = @{
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
+    "TargetResourceType"=@("Get-IOTSWActionList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TimeSeriesType"=@("Get-IOTSWTimeSeriesList")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
     "TraversalType"=@("Get-IOTSWAssetRelationshipList")
+    "WarmTier"=@("Write-IOTSWStorageConfiguration")
 }
 
 _awsArgumentCompleterRegistration $IOTSW_Completers $IOTSW_map
@@ -311,6 +335,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWAccessPolicy",
                "New-IOTSWAsset",
                "New-IOTSWAssetModel",
+               "New-IOTSWAssetModelCompositeModel",
                "New-IOTSWBulkImportJob",
                "New-IOTSWDashboard",
                "New-IOTSWGateway",
@@ -319,14 +344,18 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWAccessPolicy",
                "Remove-IOTSWAsset",
                "Remove-IOTSWAssetModel",
+               "Remove-IOTSWAssetModelCompositeModel",
                "Remove-IOTSWDashboard",
                "Remove-IOTSWGateway",
                "Remove-IOTSWPortal",
                "Remove-IOTSWProject",
                "Remove-IOTSWTimeSeries",
                "Get-IOTSWAccessPolicy",
+               "Get-IOTSWAction",
                "Get-IOTSWAsset",
+               "Get-IOTSWAssetCompositeModel",
                "Get-IOTSWAssetModel",
+               "Get-IOTSWAssetModelCompositeModel",
                "Get-IOTSWAssetProperty",
                "Get-IOTSWBulkImportJob",
                "Get-IOTSWDashboard",
@@ -340,11 +369,15 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWTimeSeries",
                "Disconnect-IOTSWAsset",
                "Remove-IOTSWTimeSeriesFromAssetProperty",
+               "Start-IOTSWAction",
+               "Start-IOTSWQuery",
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
                "Get-IOTSWInterpolatedAssetPropertyValue",
                "Get-IOTSWAccessPolicyList",
+               "Get-IOTSWActionList",
+               "Get-IOTSWAssetModelCompositeModelList",
                "Get-IOTSWAssetModelPropertyList",
                "Get-IOTSWAssetModelList",
                "Get-IOTSWAssetPropertyList",
@@ -352,6 +385,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetList",
                "Get-IOTSWAssociatedAssetList",
                "Get-IOTSWBulkImportJobList",
+               "Get-IOTSWCompositionRelationshipList",
                "Get-IOTSWDashboardList",
                "Get-IOTSWGatewayList",
                "Get-IOTSWPortalList",
@@ -367,6 +401,7 @@ $IOTSW_SelectMap = @{
                "Update-IOTSWAccessPolicy",
                "Update-IOTSWAsset",
                "Update-IOTSWAssetModel",
+               "Update-IOTSWAssetModelCompositeModel",
                "Update-IOTSWAssetProperty",
                "Update-IOTSWDashboard",
                "Update-IOTSWGateway",

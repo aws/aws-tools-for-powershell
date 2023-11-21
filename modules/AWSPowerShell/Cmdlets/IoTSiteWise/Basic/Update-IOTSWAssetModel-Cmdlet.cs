@@ -59,10 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelCompositeModel
         /// <summary>
         /// <para>
-        /// <para>The composite asset models that are part of this asset model. Composite asset models
-        /// are asset models that contain specific properties. Each composite model has a type
-        /// that defines the properties that the composite model supports. Use composite asset
-        /// models to define alarms on this asset model.</para>
+        /// <para>The composite models that are part of this asset model. It groups properties (such
+        /// as attributes, measurements, transforms, and metrics) and child composite models that
+        /// model parts of your industrial equipment. Each composite model has a type that defines
+        /// the properties that the composite model supports. Use composite models to define alarms
+        /// on this asset model.</para><note><para>When creating custom composite models, you need to use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">CreateAssetModelCompositeModel</a>.
+        /// For more information, see &lt;LINK&gt;.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AssetModelDescription { get; set; }
+        #endregion
+        
+        #region Parameter AssetModelExternalId
+        /// <summary>
+        /// <para>
+        /// <para>An external ID to assign to the asset model. The asset model must not already have
+        /// an external ID. The external ID must be unique within your Amazon Web Services account.
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using
+        /// external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetModelExternalId { get; set; }
         #endregion
         
         #region Parameter AssetModelHierarchy
@@ -98,7 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset model to update.</para>
+        /// <para>The ID of the asset model to update. This can be either the actual ID in UUID format,
+        /// or else <code>externalId:</code> followed by the external ID, if it has one. For more
+        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.AssetModelCompositeModel = new List<Amazon.IoTSiteWise.Model.AssetModelCompositeModel>(this.AssetModelCompositeModel);
             }
             context.AssetModelDescription = this.AssetModelDescription;
+            context.AssetModelExternalId = this.AssetModelExternalId;
             if (this.AssetModelHierarchy != null)
             {
                 context.AssetModelHierarchy = new List<Amazon.IoTSiteWise.Model.AssetModelHierarchy>(this.AssetModelHierarchy);
@@ -266,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.AssetModelDescription != null)
             {
                 request.AssetModelDescription = cmdletContext.AssetModelDescription;
+            }
+            if (cmdletContext.AssetModelExternalId != null)
+            {
+                request.AssetModelExternalId = cmdletContext.AssetModelExternalId;
             }
             if (cmdletContext.AssetModelHierarchy != null)
             {
@@ -350,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public List<Amazon.IoTSiteWise.Model.AssetModelCompositeModel> AssetModelCompositeModel { get; set; }
             public System.String AssetModelDescription { get; set; }
+            public System.String AssetModelExternalId { get; set; }
             public List<Amazon.IoTSiteWise.Model.AssetModelHierarchy> AssetModelHierarchy { get; set; }
             public System.String AssetModelId { get; set; }
             public System.String AssetModelName { get; set; }

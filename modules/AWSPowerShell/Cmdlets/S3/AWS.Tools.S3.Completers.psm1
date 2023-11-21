@@ -219,6 +219,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.PartitionDateSource
+        "Write-S3BucketLogging/LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"
+        {
+            $v = "DeliveryTime","EventTime"
+            break
+        }
+
         # Amazon.S3.ReplicationStatus
         "Write-S3GetObjectResponse/ReplicationStatus"
         {
@@ -351,6 +358,7 @@ $S3_map = @{
     "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
+    "LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockConfiguration_Rule_DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")

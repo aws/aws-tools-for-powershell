@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String ComponentName { get; set; }
         #endregion
         
+        #region Parameter ComponentPath
+        /// <summary>
+        /// <para>
+        /// <para>This string specifies the path to the composite component, starting from the top-level
+        /// component.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentPath { get; set; }
+        #endregion
+        
         #region Parameter ComponentTypeId
         /// <summary>
         /// <para>
@@ -285,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ComponentName = this.ComponentName;
+            context.ComponentPath = this.ComponentPath;
             context.ComponentTypeId = this.ComponentTypeId;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndDateTime = this.EndDateTime;
@@ -344,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.ComponentName != null)
             {
                 request.ComponentName = cmdletContext.ComponentName;
+            }
+            if (cmdletContext.ComponentPath != null)
+            {
+                request.ComponentPath = cmdletContext.ComponentPath;
             }
             if (cmdletContext.ComponentTypeId != null)
             {
@@ -508,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ComponentName { get; set; }
+            public System.String ComponentPath { get; set; }
             public System.String ComponentTypeId { get; set; }
             [System.ObsoleteAttribute]
             public System.DateTime? EndDateTime { get; set; }

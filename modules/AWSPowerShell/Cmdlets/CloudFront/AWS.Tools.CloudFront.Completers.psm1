@@ -192,6 +192,13 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.ImportSourceType
+        "New-CFKeyValueStore/ImportSource_SourceType"
+        {
+            $v = "S3"
+            break
+        }
+
         # Amazon.CloudFront.ItemSelection
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward") -Or
@@ -371,6 +378,7 @@ $CF_map = @{
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistributionWithTag")
     "FunctionConfig_Runtime"=@("New-CFFunction","Update-CFFunction")
+    "ImportSource_SourceType"=@("New-CFKeyValueStore")
     "MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"=@("New-CFMonitoringSubscription")
     "OriginAccessControlConfig_OriginAccessControlOriginType"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningBehavior"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
@@ -448,6 +456,7 @@ $CF_SelectMap = @{
                "New-CFFunction",
                "New-CFInvalidation",
                "New-CFKeyGroup",
+               "New-CFKeyValueStore",
                "New-CFMonitoringSubscription",
                "New-CFOriginAccessControl",
                "New-CFOriginRequestPolicy",
@@ -464,6 +473,7 @@ $CF_SelectMap = @{
                "Remove-CFFieldLevelEncryptionProfile",
                "Remove-CFFunction",
                "Remove-CFKeyGroup",
+               "Remove-CFKeyValueStore",
                "Remove-CFMonitoringSubscription",
                "Remove-CFOriginAccessControl",
                "Remove-CFOriginRequestPolicy",
@@ -472,6 +482,7 @@ $CF_SelectMap = @{
                "Remove-CFResponseHeadersPolicy",
                "Remove-CFStreamingDistribution",
                "Get-CFFunctionSummary",
+               "Get-CFKeyValueStore",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
@@ -516,6 +527,7 @@ $CF_SelectMap = @{
                "Get-CFFunctionList",
                "Get-CFInvalidationList",
                "Get-CFKeyGroupList",
+               "Get-CFKeyValueStoreListItem",
                "Get-CFOriginAccessControlList",
                "Get-CFOriginRequestPolicyList",
                "Get-CFPublicKeyList",
@@ -536,6 +548,7 @@ $CF_SelectMap = @{
                "Update-CFFieldLevelEncryptionProfile",
                "Update-CFFunction",
                "Update-CFKeyGroup",
+               "Update-CFKeyValueStore",
                "Update-CFOriginAccessControl",
                "Update-CFOriginRequestPolicy",
                "Update-CFPublicKey",

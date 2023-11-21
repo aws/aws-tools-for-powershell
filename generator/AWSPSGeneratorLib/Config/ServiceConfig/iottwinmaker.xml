@@ -25,11 +25,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelMetadataTransferJob" OutputProperty="*" Verb="Stop" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="MetadataTransferJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateComponentType" OutputProperty="*" Verb="New" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEntity" OutputProperty="*" Verb="New" Noun="Entity" ShouldProcessTarget="EntityName" PipelineParameter="EntityName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMetadataTransferJob" OutputProperty="*" Verb="New" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="Destination_Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,7 +69,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkspace" OutputProperty="*" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -74,6 +82,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetadataTransferJob" OutputProperty="*" Verb="Get" Noun="MetadataTransferJob" PipelineParameter="MetadataTransferJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -101,11 +113,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentSummaries" Verb="Get" Noun="ComponentList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListComponentTypes" OutputProperty="*" Verb="Get" Noun="ComponentTypeList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaries" Verb="Get" Noun="EntityList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetadataTransferJobs" OutputProperty="MetadataTransferJobSummaries" Verb="Get" Noun="MetadataTransferJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProperties" OutputProperty="PropertySummaries" Verb="Get" Noun="PropertyList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1,4 +1,52 @@
-﻿### 4.1.457 (2023-11-20 23:31Z)
+﻿### 4.1.458 (2023-11-21 22:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.691.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFKeyValueStore leveraging the DescribeKeyValueStore service API.
+    * Added cmdlet Get-CFKeyValueStoreListItem leveraging the ListKeyValueStores service API.
+    * Added cmdlet New-CFKeyValueStore leveraging the CreateKeyValueStore service API.
+    * Added cmdlet Remove-CFKeyValueStore leveraging the DeleteKeyValueStore service API.
+    * Added cmdlet Update-CFKeyValueStore leveraging the UpdateKeyValueStore service API.
+    * Modified cmdlet New-CFFunction: added parameters KeyValueStoreAssociations_Item and KeyValueStoreAssociations_Quantity.
+    * Modified cmdlet Update-CFFunction: added parameters KeyValueStoreAssociations_Item and KeyValueStoreAssociations_Quantity.
+  * Amazon CloudFront KeyValueStore. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CFKV and can be listed using the command 'Get-AWSCmdletName -Service CFKV'.
+  * Amazon Inspector Scan. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ISCAN and can be listed using the command 'Get-AWSCmdletName -Service ISCAN'.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWAction leveraging the DescribeAction service API.
+    * Added cmdlet Get-IOTSWActionList leveraging the ListActions service API.
+    * Added cmdlet Get-IOTSWAssetCompositeModel leveraging the DescribeAssetCompositeModel service API.
+    * Added cmdlet Get-IOTSWAssetModelCompositeModel leveraging the DescribeAssetModelCompositeModel service API.
+    * Added cmdlet Get-IOTSWAssetModelCompositeModelList leveraging the ListAssetModelCompositeModels service API.
+    * Added cmdlet Get-IOTSWCompositionRelationshipList leveraging the ListCompositionRelationships service API.
+    * Added cmdlet New-IOTSWAssetModelCompositeModel leveraging the CreateAssetModelCompositeModel service API.
+    * Added cmdlet Remove-IOTSWAssetModelCompositeModel leveraging the DeleteAssetModelCompositeModel service API.
+    * Added cmdlet Start-IOTSWAction leveraging the ExecuteAction service API.
+    * Added cmdlet Start-IOTSWQuery leveraging the ExecuteQuery service API.
+    * Added cmdlet Update-IOTSWAssetModelCompositeModel leveraging the UpdateAssetModelCompositeModel service API.
+    * Modified cmdlet Get-IOTSWAssetModelList: added parameter AssetModelType.
+    * Modified cmdlet New-IOTSWAsset: added parameters AssetExternalId and AssetId.
+    * Modified cmdlet New-IOTSWAssetModel: added parameters AssetModelExternalId, AssetModelId and AssetModelType.
+    * Modified cmdlet New-IOTSWBulkImportJob: added parameters AdaptiveIngestion, DeleteFilesAfterImport and FileFormat_Parquet.
+    * Modified cmdlet Update-IOTSWAsset: added parameter AssetExternalId.
+    * Modified cmdlet Update-IOTSWAssetModel: added parameter AssetModelExternalId.
+    * Modified cmdlet Write-IOTSWStorageConfiguration: added parameters WarmTier, WarmTierRetentionPeriod_NumberOfDay and WarmTierRetentionPeriod_Unlimited.
+  * Amazon IoT TwinMaker
+    * Added cmdlet Get-IOTTMComponentList leveraging the ListComponents service API.
+    * Added cmdlet Get-IOTTMMetadataTransferJob leveraging the GetMetadataTransferJob service API.
+    * Added cmdlet Get-IOTTMMetadataTransferJobList leveraging the ListMetadataTransferJobs service API.
+    * Added cmdlet Get-IOTTMPropertyList leveraging the ListProperties service API.
+    * Added cmdlet New-IOTTMMetadataTransferJob leveraging the CreateMetadataTransferJob service API.
+    * Added cmdlet Stop-IOTTMMetadataTransferJob leveraging the CancelMetadataTransferJob service API.
+    * Modified cmdlet Get-IOTTMPropertyValue: added parameter ComponentPath.
+    * Modified cmdlet Get-IOTTMPropertyValueHistory: added parameter ComponentPath.
+    * Modified cmdlet New-IOTTMComponentType: added parameter CompositeComponentType.
+    * Modified cmdlet New-IOTTMEntity: added parameter CompositeComponent.
+    * Modified cmdlet Update-IOTTMComponentType: added parameter CompositeComponentType.
+    * Modified cmdlet Update-IOTTMEntity: added parameter CompositeComponentUpdate.
+    * Modified cmdlet Update-IOTTMWorkspace: added parameter S3Location.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3BucketLogging: added parameters PartitionedPrefix_PartitionDateSource and TargetObjectKeyFormat_SimplePrefix.
+
+### 4.1.457 (2023-11-20 23:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.690.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * CSTC
     * [Breaking Change] Removed cmdlets Get-CSTCRepositoryLink, Get-CSTCRepositoryLinkList, Get-CSTCRepositorySyncDefinitionList, Get-CSTCRepositorySyncStatus, Get-CSTCResourceSyncStatus, Get-CSTCSyncBlockerSummary, Get-CSTCSyncConfiguration, Get-CSTCSyncConfigurationList, New-CSTCRepositoryLink, New-CSTCSyncConfiguration, Remove-CSTCRepositoryLink, Remove-CSTCSyncConfiguration, Update-CSTCRepositoryLink, Update-CSTCSyncBlocker and Update-CSTCSyncConfiguration.

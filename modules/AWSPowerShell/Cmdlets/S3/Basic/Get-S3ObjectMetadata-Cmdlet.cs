@@ -37,9 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// A <code>HEAD</code> request has the same options as a <code>GET</code> action on an
     /// object. The response is identical to the <code>GET</code> response except that there
     /// is no response body. Because of this, if the <code>HEAD</code> request generates an
-    /// error, it returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code>
-    /// or <code>404 Not Found</code> code. It is not possible to retrieve the exact exception
-    /// beyond these error codes.
+    /// error, it returns a generic code, such as <code>400 Bad Request</code>, <code>403
+    /// Forbidden</code>, <code>404 Not Found</code>, <code>405 Method Not Allowed</code>,
+    /// <code>412 Precondition Failed</code>, or <code>304 Not Modified</code>. It's not possible
+    /// to retrieve the exact exception of these error codes.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
@@ -90,6 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
     /// HTTP status code 403 error.
+    /// </para></li></ul></dd><dt>Versioning</dt><dd><ul><li><para>
+    /// If the current version of the object is a delete marker, Amazon S3 behaves as if the
+    /// object was deleted and includes <code>x-amz-delete-marker: true</code> in the response.
+    /// </para></li><li><para>
+    /// If the specified version is a delete marker, the response returns a 405 (Method Not
+    /// Allowed) error and the <code>Last-Modified: timestamp</code> response header.
     /// </para></li></ul></dd></dl><para>
     /// The following actions are related to <code>HeadObject</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>

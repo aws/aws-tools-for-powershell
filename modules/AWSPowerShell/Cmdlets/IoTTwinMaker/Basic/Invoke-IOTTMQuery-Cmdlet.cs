@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
 {
     /// <summary>
     /// Run queries to access information from your knowledge graph of entities within individual
-    /// workspaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// workspaces.
+    /// 
+    ///  <note><para>
+    /// The ExecuteQuery action only works with <a href="https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html">Amazon
+    /// Web Services Java SDK2</a>. ExecuteQuery will not work with any Amazon Web Services
+    /// Java SDK version &lt; 2.x.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Invoke", "IOTTMQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTTwinMaker.Model.ExecuteQueryResponse")]
@@ -79,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time. The default is 25.</para><para>Valid Range: Minimum value of 1. Maximum value of 250.</para>
+        /// <para>The maximum number of results to return at one time. The default is 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

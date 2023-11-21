@@ -31,11 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     /// Deletes a workspace.
     /// </summary>
     [Cmdlet("Remove", "IOTTMWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker DeleteWorkspace API operation.", Operation = new[] {"DeleteWorkspace"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse))]
-    [AWSCmdletOutput("None or Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse",
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveIOTTMWorkspaceCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
@@ -61,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse).
+        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         {
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.IoTTwinMaker.Model.DeleteWorkspaceResponse, RemoveIOTTMWorkspaceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

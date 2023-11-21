@@ -53,10 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String AssetDescription { get; set; }
         #endregion
         
+        #region Parameter AssetExternalId
+        /// <summary>
+        /// <para>
+        /// <para>An external ID to assign to the asset. The asset must not already have an external
+        /// ID. The external ID must be unique within your Amazon Web Services account. For more
+        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using
+        /// external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetExternalId { get; set; }
+        #endregion
+        
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset to update.</para>
+        /// <para>The ID of the asset to update. This can be either the actual ID in UUID format, or
+        /// else <code>externalId:</code> followed by the external ID, if it has one. For more
+        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssetDescription = this.AssetDescription;
+            context.AssetExternalId = this.AssetExternalId;
             context.AssetId = this.AssetId;
             #if MODULAR
             if (this.AssetId == null && ParameterWasBound(nameof(this.AssetId)))
@@ -195,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.AssetDescription != null)
             {
                 request.AssetDescription = cmdletContext.AssetDescription;
+            }
+            if (cmdletContext.AssetExternalId != null)
+            {
+                request.AssetExternalId = cmdletContext.AssetExternalId;
             }
             if (cmdletContext.AssetId != null)
             {
@@ -270,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssetDescription { get; set; }
+            public System.String AssetExternalId { get; set; }
             public System.String AssetId { get; set; }
             public System.String AssetName { get; set; }
             public System.String ClientToken { get; set; }

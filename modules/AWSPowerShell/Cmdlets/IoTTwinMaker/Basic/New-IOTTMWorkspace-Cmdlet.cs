@@ -57,14 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <para>The ARN of the execution role associated with the workspace.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Role { get; set; }
         #endregion
         
@@ -74,14 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <para>The ARN of the S3 bucket where resources associated with the workspace are stored.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String S3Location { get; set; }
         #endregion
         
@@ -177,19 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.Role = this.Role;
-            #if MODULAR
-            if (this.Role == null && ParameterWasBound(nameof(this.Role)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Role which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.S3Location = this.S3Location;
-            #if MODULAR
-            if (this.S3Location == null && ParameterWasBound(nameof(this.S3Location)))
-            {
-                WriteWarning("You are passing $null as a value for parameter S3Location which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

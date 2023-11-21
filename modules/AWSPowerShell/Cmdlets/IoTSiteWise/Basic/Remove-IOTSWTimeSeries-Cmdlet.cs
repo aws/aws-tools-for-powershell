@@ -72,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset in which the asset property was created.</para>
+        /// <para>The ID of the asset in which the asset property was created. This can be either the
+        /// actual ID in UUID format, or else <code>externalId:</code> followed by the external
+        /// ID, if it has one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter PropertyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset property.</para>
+        /// <para>The ID of the asset property. This can be either the actual ID in UUID format, or
+        /// else <code>externalId:</code> followed by the external ID, if it has one. For more
+        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

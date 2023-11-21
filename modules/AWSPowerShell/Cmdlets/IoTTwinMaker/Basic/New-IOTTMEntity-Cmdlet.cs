@@ -53,6 +53,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.Collections.Hashtable Component { get; set; }
         #endregion
         
+        #region Parameter CompositeComponent
+        /// <summary>
+        /// <para>
+        /// <para>This is an object that maps strings to <code>compositeComponent</code> updates in
+        /// the request. Each key of the map represents the <code>componentPath</code> of the
+        /// <code>compositeComponent</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompositeComponents")]
+        public System.Collections.Hashtable CompositeComponent { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -198,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                     context.Component.Add((String)hashKey, (ComponentRequest)(this.Component[hashKey]));
                 }
             }
+            if (this.CompositeComponent != null)
+            {
+                context.CompositeComponent = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentRequest>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CompositeComponent.Keys)
+                {
+                    context.CompositeComponent.Add((String)hashKey, (CompositeComponentRequest)(this.CompositeComponent[hashKey]));
+                }
+            }
             context.Description = this.Description;
             context.EntityId = this.EntityId;
             context.EntityName = this.EntityName;
@@ -242,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.Component != null)
             {
                 request.Components = cmdletContext.Component;
+            }
+            if (cmdletContext.CompositeComponent != null)
+            {
+                request.CompositeComponents = cmdletContext.CompositeComponent;
             }
             if (cmdletContext.Description != null)
             {
@@ -329,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.ComponentRequest> Component { get; set; }
+            public Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentRequest> CompositeComponent { get; set; }
             public System.String Description { get; set; }
             public System.String EntityId { get; set; }
             public System.String EntityName { get; set; }

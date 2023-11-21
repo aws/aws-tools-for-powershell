@@ -80,6 +80,16 @@ $IOTTM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTTwinMaker.DestinationType
+        {
+            ($_ -eq "New-IOTTMMetadataTransferJob/Destination_Type") -Or
+            ($_ -eq "Get-IOTTMMetadataTransferJobList/DestinationType")
+        }
+        {
+            $v = "iotsitewise","iottwinmaker","s3"
+            break
+        }
+
         # Amazon.IoTTwinMaker.InterpolationType
         "Get-IOTTMPropertyValueHistory/Interpolation_InterpolationType"
         {
@@ -108,6 +118,13 @@ $IOTTM_Completers = {
             break
         }
 
+        # Amazon.IoTTwinMaker.SourceType
+        "Get-IOTTMMetadataTransferJobList/SourceType"
+        {
+            $v = "iotsitewise","iottwinmaker","s3"
+            break
+        }
+
 
     }
 
@@ -117,10 +134,13 @@ $IOTTM_Completers = {
 }
 
 $IOTTM_map = @{
+    "Destination_Type"=@("New-IOTTMMetadataTransferJob")
+    "DestinationType"=@("Get-IOTTMMetadataTransferJobList")
     "Interpolation_InterpolationType"=@("Get-IOTTMPropertyValueHistory")
     "OrderByTime"=@("Get-IOTTMPropertyValueHistory")
     "ParentEntityUpdate_UpdateType"=@("Update-IOTTMEntity")
     "PricingMode"=@("Update-IOTTMPricingPlan")
+    "SourceType"=@("Get-IOTTMMetadataTransferJobList")
 }
 
 _awsArgumentCompleterRegistration $IOTTM_Completers $IOTTM_map
@@ -174,8 +194,10 @@ $IOTTM_SelectCompleters = {
 
 $IOTTM_SelectMap = @{
     "Select"=@("Import-IOTTMPutPropertyValue",
+               "Stop-IOTTMMetadataTransferJob",
                "New-IOTTMComponentType",
                "New-IOTTMEntity",
+               "New-IOTTMMetadataTransferJob",
                "New-IOTTMScene",
                "New-IOTTMSyncJob",
                "New-IOTTMWorkspace",
@@ -187,14 +209,18 @@ $IOTTM_SelectMap = @{
                "Invoke-IOTTMQuery",
                "Get-IOTTMComponentType",
                "Get-IOTTMEntity",
+               "Get-IOTTMMetadataTransferJob",
                "Get-IOTTMPricingPlan",
                "Get-IOTTMPropertyValue",
                "Get-IOTTMPropertyValueHistory",
                "Get-IOTTMScene",
                "Get-IOTTMSyncJob",
                "Get-IOTTMWorkspace",
+               "Get-IOTTMComponentList",
                "Get-IOTTMComponentTypeList",
                "Get-IOTTMEntityList",
+               "Get-IOTTMMetadataTransferJobList",
+               "Get-IOTTMPropertyList",
                "Get-IOTTMSceneList",
                "Get-IOTTMSyncJobList",
                "Get-IOTTMSyncResourceList",

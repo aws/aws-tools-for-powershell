@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>inspector-scan</C2jFilename>
+    <AssemblyName>InspectorScan</AssemblyName>
+    <ServiceNounPrefix>ISCAN</ServiceNounPrefix>
+    <ServiceName>Inspector Scan</ServiceName>
+    <ServiceClientInterface>IAmazonInspectorScan</ServiceClientInterface>
+    <ServiceClient>AmazonInspectorScanClient</ServiceClient>
+    <ServiceModuleGuid>c299275d-65fd-4148-8c71-51879b5c27cf</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ScanSbom" OutputProperty="Sbom" Verb="Invoke" Noun="SbomScan" ShouldProcessTarget="OutputFormat" PipelineParameter="OutputFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

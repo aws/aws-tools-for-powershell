@@ -9593,6 +9593,13 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.ImportSourceType
+        "New-CFKeyValueStore/ImportSource_SourceType"
+        {
+            $v = "S3"
+            break
+        }
+
         # Amazon.CloudFront.ItemSelection
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward") -Or
@@ -9772,6 +9779,7 @@ $CF_map = @{
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistributionWithTag")
     "FunctionConfig_Runtime"=@("New-CFFunction","Update-CFFunction")
+    "ImportSource_SourceType"=@("New-CFKeyValueStore")
     "MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"=@("New-CFMonitoringSubscription")
     "OriginAccessControlConfig_OriginAccessControlOriginType"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningBehavior"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
@@ -9849,6 +9857,7 @@ $CF_SelectMap = @{
                "New-CFFunction",
                "New-CFInvalidation",
                "New-CFKeyGroup",
+               "New-CFKeyValueStore",
                "New-CFMonitoringSubscription",
                "New-CFOriginAccessControl",
                "New-CFOriginRequestPolicy",
@@ -9865,6 +9874,7 @@ $CF_SelectMap = @{
                "Remove-CFFieldLevelEncryptionProfile",
                "Remove-CFFunction",
                "Remove-CFKeyGroup",
+               "Remove-CFKeyValueStore",
                "Remove-CFMonitoringSubscription",
                "Remove-CFOriginAccessControl",
                "Remove-CFOriginRequestPolicy",
@@ -9873,6 +9883,7 @@ $CF_SelectMap = @{
                "Remove-CFResponseHeadersPolicy",
                "Remove-CFStreamingDistribution",
                "Get-CFFunctionSummary",
+               "Get-CFKeyValueStore",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
@@ -9917,6 +9928,7 @@ $CF_SelectMap = @{
                "Get-CFFunctionList",
                "Get-CFInvalidationList",
                "Get-CFKeyGroupList",
+               "Get-CFKeyValueStoreListItem",
                "Get-CFOriginAccessControlList",
                "Get-CFOriginRequestPolicyList",
                "Get-CFPublicKeyList",
@@ -9937,6 +9949,7 @@ $CF_SelectMap = @{
                "Update-CFFieldLevelEncryptionProfile",
                "Update-CFFunction",
                "Update-CFKeyGroup",
+               "Update-CFKeyValueStore",
                "Update-CFOriginAccessControl",
                "Update-CFOriginRequestPolicy",
                "Update-CFPublicKey",
@@ -9948,6 +9961,66 @@ $CF_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
+# Argument completions for service Amazon CloudFront KeyValueStore
+
+
+$CFKV_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CFKV.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CFKV_SelectMap = @{
+    "Select"=@("Remove-CFKVKey",
+               "Get-CFKVKeyValueStore",
+               "Get-CFKVKey",
+               "Get-CFKVKeyList",
+               "Write-CFKVKey",
+               "Update-CFKVKey")
+}
+
+_awsArgumentCompleterRegistration $CFKV_SelectCompleters $CFKV_SelectMap
 # Argument completions for service AWS CloudHSM
 
 
@@ -30618,6 +30691,87 @@ $INS2_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $INS2_SelectCompleters $INS2_SelectMap
+# Argument completions for service Inspector Scan
+
+
+$ISCAN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.InspectorScan.OutputFormat
+        "Invoke-ISCANSbomScan/OutputFormat"
+        {
+            $v = "CYCLONE_DX_1_5","INSPECTOR"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ISCAN_map = @{
+    "OutputFormat"=@("Invoke-ISCANSbomScan")
+}
+
+_awsArgumentCompleterRegistration $ISCAN_Completers $ISCAN_map
+
+$ISCAN_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ISCAN.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ISCAN_SelectMap = @{
+    "Select"=@("Invoke-ISCANSbomScan")
+}
+
+_awsArgumentCompleterRegistration $ISCAN_SelectCompleters $ISCAN_SelectMap
 # Argument completions for service Amazon CloudWatch Internet Monitor
 
 
@@ -32351,6 +32505,13 @@ $IOTSW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTSiteWise.AssetModelType
+        "New-IOTSWAssetModel/AssetModelType"
+        {
+            $v = "ASSET_MODEL","COMPONENT_MODEL"
+            break
+        }
+
         # Amazon.IoTSiteWise.AuthMode
         "New-IOTSWPortal/PortalAuthMode"
         {
@@ -32469,6 +32630,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.TargetResourceType
+        "Get-IOTSWActionList/TargetResourceType"
+        {
+            $v = "ASSET"
+            break
+        }
+
         # Amazon.IoTSiteWise.TimeOrdering
         {
             ($_ -eq "Get-IOTSWAssetPropertyAggregate/TimeOrdering") -Or
@@ -32493,6 +32661,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.WarmTierState
+        "Write-IOTSWStorageConfiguration/WarmTier"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -32503,6 +32678,7 @@ $IOTSW_Completers = {
 
 $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
+    "AssetModelType"=@("New-IOTSWAssetModel")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
@@ -32515,10 +32691,12 @@ $IOTSW_map = @{
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
+    "TargetResourceType"=@("Get-IOTSWActionList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TimeSeriesType"=@("Get-IOTSWTimeSeriesList")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
     "TraversalType"=@("Get-IOTSWAssetRelationshipList")
+    "WarmTier"=@("Write-IOTSWStorageConfiguration")
 }
 
 _awsArgumentCompleterRegistration $IOTSW_Completers $IOTSW_map
@@ -32582,6 +32760,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWAccessPolicy",
                "New-IOTSWAsset",
                "New-IOTSWAssetModel",
+               "New-IOTSWAssetModelCompositeModel",
                "New-IOTSWBulkImportJob",
                "New-IOTSWDashboard",
                "New-IOTSWGateway",
@@ -32590,14 +32769,18 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWAccessPolicy",
                "Remove-IOTSWAsset",
                "Remove-IOTSWAssetModel",
+               "Remove-IOTSWAssetModelCompositeModel",
                "Remove-IOTSWDashboard",
                "Remove-IOTSWGateway",
                "Remove-IOTSWPortal",
                "Remove-IOTSWProject",
                "Remove-IOTSWTimeSeries",
                "Get-IOTSWAccessPolicy",
+               "Get-IOTSWAction",
                "Get-IOTSWAsset",
+               "Get-IOTSWAssetCompositeModel",
                "Get-IOTSWAssetModel",
+               "Get-IOTSWAssetModelCompositeModel",
                "Get-IOTSWAssetProperty",
                "Get-IOTSWBulkImportJob",
                "Get-IOTSWDashboard",
@@ -32611,11 +32794,15 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWTimeSeries",
                "Disconnect-IOTSWAsset",
                "Remove-IOTSWTimeSeriesFromAssetProperty",
+               "Start-IOTSWAction",
+               "Start-IOTSWQuery",
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
                "Get-IOTSWInterpolatedAssetPropertyValue",
                "Get-IOTSWAccessPolicyList",
+               "Get-IOTSWActionList",
+               "Get-IOTSWAssetModelCompositeModelList",
                "Get-IOTSWAssetModelPropertyList",
                "Get-IOTSWAssetModelList",
                "Get-IOTSWAssetPropertyList",
@@ -32623,6 +32810,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetList",
                "Get-IOTSWAssociatedAssetList",
                "Get-IOTSWBulkImportJobList",
+               "Get-IOTSWCompositionRelationshipList",
                "Get-IOTSWDashboardList",
                "Get-IOTSWGatewayList",
                "Get-IOTSWPortalList",
@@ -32638,6 +32826,7 @@ $IOTSW_SelectMap = @{
                "Update-IOTSWAccessPolicy",
                "Update-IOTSWAsset",
                "Update-IOTSWAssetModel",
+               "Update-IOTSWAssetModelCompositeModel",
                "Update-IOTSWAssetProperty",
                "Update-IOTSWDashboard",
                "Update-IOTSWGateway",
@@ -32794,6 +32983,16 @@ $IOTTM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTTwinMaker.DestinationType
+        {
+            ($_ -eq "New-IOTTMMetadataTransferJob/Destination_Type") -Or
+            ($_ -eq "Get-IOTTMMetadataTransferJobList/DestinationType")
+        }
+        {
+            $v = "iotsitewise","iottwinmaker","s3"
+            break
+        }
+
         # Amazon.IoTTwinMaker.InterpolationType
         "Get-IOTTMPropertyValueHistory/Interpolation_InterpolationType"
         {
@@ -32822,6 +33021,13 @@ $IOTTM_Completers = {
             break
         }
 
+        # Amazon.IoTTwinMaker.SourceType
+        "Get-IOTTMMetadataTransferJobList/SourceType"
+        {
+            $v = "iotsitewise","iottwinmaker","s3"
+            break
+        }
+
 
     }
 
@@ -32831,10 +33037,13 @@ $IOTTM_Completers = {
 }
 
 $IOTTM_map = @{
+    "Destination_Type"=@("New-IOTTMMetadataTransferJob")
+    "DestinationType"=@("Get-IOTTMMetadataTransferJobList")
     "Interpolation_InterpolationType"=@("Get-IOTTMPropertyValueHistory")
     "OrderByTime"=@("Get-IOTTMPropertyValueHistory")
     "ParentEntityUpdate_UpdateType"=@("Update-IOTTMEntity")
     "PricingMode"=@("Update-IOTTMPricingPlan")
+    "SourceType"=@("Get-IOTTMMetadataTransferJobList")
 }
 
 _awsArgumentCompleterRegistration $IOTTM_Completers $IOTTM_map
@@ -32888,8 +33097,10 @@ $IOTTM_SelectCompleters = {
 
 $IOTTM_SelectMap = @{
     "Select"=@("Import-IOTTMPutPropertyValue",
+               "Stop-IOTTMMetadataTransferJob",
                "New-IOTTMComponentType",
                "New-IOTTMEntity",
+               "New-IOTTMMetadataTransferJob",
                "New-IOTTMScene",
                "New-IOTTMSyncJob",
                "New-IOTTMWorkspace",
@@ -32901,14 +33112,18 @@ $IOTTM_SelectMap = @{
                "Invoke-IOTTMQuery",
                "Get-IOTTMComponentType",
                "Get-IOTTMEntity",
+               "Get-IOTTMMetadataTransferJob",
                "Get-IOTTMPricingPlan",
                "Get-IOTTMPropertyValue",
                "Get-IOTTMPropertyValueHistory",
                "Get-IOTTMScene",
                "Get-IOTTMSyncJob",
                "Get-IOTTMWorkspace",
+               "Get-IOTTMComponentList",
                "Get-IOTTMComponentTypeList",
                "Get-IOTTMEntityList",
+               "Get-IOTTMMetadataTransferJobList",
+               "Get-IOTTMPropertyList",
                "Get-IOTTMSceneList",
                "Get-IOTTMSyncJobList",
                "Get-IOTTMSyncResourceList",
@@ -53348,6 +53563,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.PartitionDateSource
+        "Write-S3BucketLogging/LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"
+        {
+            $v = "DeliveryTime","EventTime"
+            break
+        }
+
         # Amazon.S3.ReplicationStatus
         "Write-S3GetObjectResponse/ReplicationStatus"
         {
@@ -53480,6 +53702,7 @@ $S3_map = @{
     "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
+    "LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockConfiguration_Rule_DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")

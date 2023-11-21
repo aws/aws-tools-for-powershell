@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String Role { get; set; }
         #endregion
         
+        #region Parameter S3Location
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the S3 bucket where resources associated with the workspace are stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Location { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
@@ -143,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.Role = this.Role;
+            context.S3Location = this.S3Location;
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -173,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
+            }
+            if (cmdletContext.S3Location != null)
+            {
+                request.S3Location = cmdletContext.S3Location;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         {
             public System.String Description { get; set; }
             public System.String Role { get; set; }
+            public System.String S3Location { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.IoTTwinMaker.Model.UpdateWorkspaceResponse, UpdateIOTTMWorkspaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UpdateDateTime;

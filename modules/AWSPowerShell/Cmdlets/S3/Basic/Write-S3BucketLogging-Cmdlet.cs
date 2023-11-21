@@ -133,6 +133,31 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.Model.S3Grant[] LoggingConfig_Grant { get; set; }
         #endregion
         
+        #region Parameter PartitionedPrefix_PartitionDateSource
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the partition date source for the partitioned prefix. PartitionDateSource
+        /// can be EventTime or DeliveryTime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource")]
+        [AWSConstantClassSource("Amazon.S3.PartitionDateSource")]
+        public Amazon.S3.PartitionDateSource PartitionedPrefix_PartitionDateSource { get; set; }
+        #endregion
+        
+        #region Parameter TargetObjectKeyFormat_SimplePrefix
+        /// <summary>
+        /// <para>
+        /// <para>To use the simple format for S3 keys for log objects. To specify SimplePrefix format,
+        /// set SimplePrefix to {}.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfig_TargetObjectKeyFormat_SimplePrefix")]
+        public Amazon.S3.Model.SimplePrefix TargetObjectKeyFormat_SimplePrefix { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfig_TargetBucketName
         /// <summary>
         /// <para>
@@ -225,6 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.LoggingConfig_Grant = new List<Amazon.S3.Model.S3Grant>(this.LoggingConfig_Grant);
             }
+            context.PartitionedPrefix_PartitionDateSource = this.PartitionedPrefix_PartitionDateSource;
+            context.TargetObjectKeyFormat_SimplePrefix = this.TargetObjectKeyFormat_SimplePrefix;
             context.LoggingConfig_TargetPrefix = this.LoggingConfig_TargetPrefix;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
@@ -283,6 +310,56 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestLoggingConfig_loggingConfig_TargetPrefix != null)
             {
                 request.LoggingConfig.TargetPrefix = requestLoggingConfig_loggingConfig_TargetPrefix;
+                requestLoggingConfigIsNull = false;
+            }
+            Amazon.S3.Model.TargetObjectKeyFormat requestLoggingConfig_loggingConfig_TargetObjectKeyFormat = null;
+            
+             // populate TargetObjectKeyFormat
+            var requestLoggingConfig_loggingConfig_TargetObjectKeyFormatIsNull = true;
+            requestLoggingConfig_loggingConfig_TargetObjectKeyFormat = new Amazon.S3.Model.TargetObjectKeyFormat();
+            Amazon.S3.Model.SimplePrefix requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_targetObjectKeyFormat_SimplePrefix = null;
+            if (cmdletContext.TargetObjectKeyFormat_SimplePrefix != null)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_targetObjectKeyFormat_SimplePrefix = cmdletContext.TargetObjectKeyFormat_SimplePrefix;
+            }
+            if (requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_targetObjectKeyFormat_SimplePrefix != null)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat.SimplePrefix = requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_targetObjectKeyFormat_SimplePrefix;
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormatIsNull = false;
+            }
+            Amazon.S3.Model.PartitionedPrefix requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix = null;
+            
+             // populate PartitionedPrefix
+            var requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefixIsNull = true;
+            requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix = new Amazon.S3.Model.PartitionedPrefix();
+            Amazon.S3.PartitionDateSource requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix_partitionedPrefix_PartitionDateSource = null;
+            if (cmdletContext.PartitionedPrefix_PartitionDateSource != null)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix_partitionedPrefix_PartitionDateSource = cmdletContext.PartitionedPrefix_PartitionDateSource;
+            }
+            if (requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix_partitionedPrefix_PartitionDateSource != null)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix.PartitionDateSource = requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix_partitionedPrefix_PartitionDateSource;
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefixIsNull = false;
+            }
+             // determine if requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix should be set to null
+            if (requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefixIsNull)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix = null;
+            }
+            if (requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix != null)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat.PartitionedPrefix = requestLoggingConfig_loggingConfig_TargetObjectKeyFormat_loggingConfig_TargetObjectKeyFormat_PartitionedPrefix;
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormatIsNull = false;
+            }
+             // determine if requestLoggingConfig_loggingConfig_TargetObjectKeyFormat should be set to null
+            if (requestLoggingConfig_loggingConfig_TargetObjectKeyFormatIsNull)
+            {
+                requestLoggingConfig_loggingConfig_TargetObjectKeyFormat = null;
+            }
+            if (requestLoggingConfig_loggingConfig_TargetObjectKeyFormat != null)
+            {
+                request.LoggingConfig.TargetObjectKeyFormat = requestLoggingConfig_loggingConfig_TargetObjectKeyFormat;
                 requestLoggingConfigIsNull = false;
             }
              // determine if request.LoggingConfig should be set to null
@@ -359,6 +436,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String LoggingConfig_TargetBucketName { get; set; }
             public List<Amazon.S3.Model.S3Grant> LoggingConfig_Grant { get; set; }
+            public Amazon.S3.PartitionDateSource PartitionedPrefix_PartitionDateSource { get; set; }
+            public Amazon.S3.Model.SimplePrefix TargetObjectKeyFormat_SimplePrefix { get; set; }
             public System.String LoggingConfig_TargetPrefix { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketLoggingResponse, WriteS3BucketLoggingCmdlet, object> Select { get; set; } =

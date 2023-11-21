@@ -33,6 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// type that have standardized definitions. Each asset created from a model inherits
     /// the asset model's property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining
     /// asset models</a> in the <i>IoT SiteWise User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// You can create two types of asset models, <code>ASSET_MODEL</code> or <code>COMPONENT_MODEL</code>.
+    /// </para><ul><li><para><b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
+    /// Can't be included as a component in another asset model.
+    /// </para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
+    /// models of other asset models. You can't create assets directly from this type of asset
+    /// model. 
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "IOTSWAssetModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateAssetModelResponse")]
@@ -48,10 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelCompositeModel
         /// <summary>
         /// <para>
-        /// <para>The composite asset models that are part of this asset model. Composite asset models
-        /// are asset models that contain specific properties. Each composite model has a type
-        /// that defines the properties that the composite model supports. Use composite asset
-        /// models to define alarms on this asset model.</para>
+        /// <para>The composite models that are part of this asset model. It groups properties (such
+        /// as attributes, measurements, transforms, and metrics) and child composite models that
+        /// model parts of your industrial equipment. Each composite model has a type that defines
+        /// the properties that the composite model supports. Use composite models to define alarms
+        /// on this asset model.</para><note><para>When creating custom composite models, you need to use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">CreateAssetModelCompositeModel</a>.
+        /// For more information, see &lt;LINK&gt;.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String AssetModelDescription { get; set; }
         #endregion
         
+        #region Parameter AssetModelExternalId
+        /// <summary>
+        /// <para>
+        /// <para>An external ID to assign to the asset model. The external ID must be unique within
+        /// your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using
+        /// external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetModelExternalId { get; set; }
+        #endregion
+        
         #region Parameter AssetModelHierarchy
         /// <summary>
         /// <para>
@@ -82,6 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AssetModelHierarchies")]
         public Amazon.IoTSiteWise.Model.AssetModelHierarchyDefinition[] AssetModelHierarchy { get; set; }
+        #endregion
+        
+        #region Parameter AssetModelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID to assign to the asset model, if desired. IoT SiteWise automatically generates
+        /// a unique ID for you, so this parameter is never required. However, if you prefer to
+        /// supply your own ID instead, you can specify it here in UUID format. If you specify
+        /// your own ID, it must be globally unique.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetModelId { get; set; }
         #endregion
         
         #region Parameter AssetModelName
@@ -112,6 +149,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AssetModelProperties")]
         public Amazon.IoTSiteWise.Model.AssetModelPropertyDefinition[] AssetModelProperty { get; set; }
+        #endregion
+        
+        #region Parameter AssetModelType
+        /// <summary>
+        /// <para>
+        /// <para>The type of asset model.</para><ul><li><para><b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
+        /// Can't be included as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
+        /// models of other asset models. You can't create assets directly from this type of asset
+        /// model. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.AssetModelType")]
+        public Amazon.IoTSiteWise.AssetModelType AssetModelType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -185,10 +236,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.AssetModelCompositeModel = new List<Amazon.IoTSiteWise.Model.AssetModelCompositeModelDefinition>(this.AssetModelCompositeModel);
             }
             context.AssetModelDescription = this.AssetModelDescription;
+            context.AssetModelExternalId = this.AssetModelExternalId;
             if (this.AssetModelHierarchy != null)
             {
                 context.AssetModelHierarchy = new List<Amazon.IoTSiteWise.Model.AssetModelHierarchyDefinition>(this.AssetModelHierarchy);
             }
+            context.AssetModelId = this.AssetModelId;
             context.AssetModelName = this.AssetModelName;
             #if MODULAR
             if (this.AssetModelName == null && ParameterWasBound(nameof(this.AssetModelName)))
@@ -200,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 context.AssetModelProperty = new List<Amazon.IoTSiteWise.Model.AssetModelPropertyDefinition>(this.AssetModelProperty);
             }
+            context.AssetModelType = this.AssetModelType;
             context.ClientToken = this.ClientToken;
             if (this.Tag != null)
             {
@@ -233,9 +287,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 request.AssetModelDescription = cmdletContext.AssetModelDescription;
             }
+            if (cmdletContext.AssetModelExternalId != null)
+            {
+                request.AssetModelExternalId = cmdletContext.AssetModelExternalId;
+            }
             if (cmdletContext.AssetModelHierarchy != null)
             {
                 request.AssetModelHierarchies = cmdletContext.AssetModelHierarchy;
+            }
+            if (cmdletContext.AssetModelId != null)
+            {
+                request.AssetModelId = cmdletContext.AssetModelId;
             }
             if (cmdletContext.AssetModelName != null)
             {
@@ -244,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.AssetModelProperty != null)
             {
                 request.AssetModelProperties = cmdletContext.AssetModelProperty;
+            }
+            if (cmdletContext.AssetModelType != null)
+            {
+                request.AssetModelType = cmdletContext.AssetModelType;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -316,9 +382,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public List<Amazon.IoTSiteWise.Model.AssetModelCompositeModelDefinition> AssetModelCompositeModel { get; set; }
             public System.String AssetModelDescription { get; set; }
+            public System.String AssetModelExternalId { get; set; }
             public List<Amazon.IoTSiteWise.Model.AssetModelHierarchyDefinition> AssetModelHierarchy { get; set; }
+            public System.String AssetModelId { get; set; }
             public System.String AssetModelName { get; set; }
             public List<Amazon.IoTSiteWise.Model.AssetModelPropertyDefinition> AssetModelProperty { get; set; }
+            public Amazon.IoTSiteWise.AssetModelType AssetModelType { get; set; }
             public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreateAssetModelResponse, NewIOTSWAssetModelCmdlet, object> Select { get; set; } =

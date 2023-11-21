@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.Int32? RetentionPeriod_NumberOfDay { get; set; }
         #endregion
         
+        #region Parameter WarmTierRetentionPeriod_NumberOfDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days the data is stored in the warm tier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WarmTierRetentionPeriod_NumberOfDays")]
+        public System.Int32? WarmTierRetentionPeriod_NumberOfDay { get; set; }
+        #endregion
+        
         #region Parameter CustomerManagedS3Storage_RoleArn
         /// <summary>
         /// <para>
@@ -125,6 +136,28 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? RetentionPeriod_Unlimited { get; set; }
+        #endregion
+        
+        #region Parameter WarmTierRetentionPeriod_Unlimited
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, the data is stored indefinitely in the warm tier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WarmTierRetentionPeriod_Unlimited { get; set; }
+        #endregion
+        
+        #region Parameter WarmTier
+        /// <summary>
+        /// <para>
+        /// <para>A service managed storage tier optimized for analytical queries. It stores periodically
+        /// uploaded, buffered and historical data ingested with the CreaeBulkImportJob API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.WarmTierState")]
+        public Amazon.IoTSiteWise.WarmTierState WarmTier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -201,6 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter StorageType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WarmTier = this.WarmTier;
+            context.WarmTierRetentionPeriod_NumberOfDay = this.WarmTierRetentionPeriod_NumberOfDay;
+            context.WarmTierRetentionPeriod_Unlimited = this.WarmTierRetentionPeriod_Unlimited;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -298,6 +334,39 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 request.StorageType = cmdletContext.StorageType;
             }
+            if (cmdletContext.WarmTier != null)
+            {
+                request.WarmTier = cmdletContext.WarmTier;
+            }
+            
+             // populate WarmTierRetentionPeriod
+            var requestWarmTierRetentionPeriodIsNull = true;
+            request.WarmTierRetentionPeriod = new Amazon.IoTSiteWise.Model.WarmTierRetentionPeriod();
+            System.Int32? requestWarmTierRetentionPeriod_warmTierRetentionPeriod_NumberOfDay = null;
+            if (cmdletContext.WarmTierRetentionPeriod_NumberOfDay != null)
+            {
+                requestWarmTierRetentionPeriod_warmTierRetentionPeriod_NumberOfDay = cmdletContext.WarmTierRetentionPeriod_NumberOfDay.Value;
+            }
+            if (requestWarmTierRetentionPeriod_warmTierRetentionPeriod_NumberOfDay != null)
+            {
+                request.WarmTierRetentionPeriod.NumberOfDays = requestWarmTierRetentionPeriod_warmTierRetentionPeriod_NumberOfDay.Value;
+                requestWarmTierRetentionPeriodIsNull = false;
+            }
+            System.Boolean? requestWarmTierRetentionPeriod_warmTierRetentionPeriod_Unlimited = null;
+            if (cmdletContext.WarmTierRetentionPeriod_Unlimited != null)
+            {
+                requestWarmTierRetentionPeriod_warmTierRetentionPeriod_Unlimited = cmdletContext.WarmTierRetentionPeriod_Unlimited.Value;
+            }
+            if (requestWarmTierRetentionPeriod_warmTierRetentionPeriod_Unlimited != null)
+            {
+                request.WarmTierRetentionPeriod.Unlimited = requestWarmTierRetentionPeriod_warmTierRetentionPeriod_Unlimited.Value;
+                requestWarmTierRetentionPeriodIsNull = false;
+            }
+             // determine if request.WarmTierRetentionPeriod should be set to null
+            if (requestWarmTierRetentionPeriodIsNull)
+            {
+                request.WarmTierRetentionPeriod = null;
+            }
             
             CmdletOutput output;
             
@@ -365,6 +434,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.Int32? RetentionPeriod_NumberOfDay { get; set; }
             public System.Boolean? RetentionPeriod_Unlimited { get; set; }
             public Amazon.IoTSiteWise.StorageType StorageType { get; set; }
+            public Amazon.IoTSiteWise.WarmTierState WarmTier { get; set; }
+            public System.Int32? WarmTierRetentionPeriod_NumberOfDay { get; set; }
+            public System.Boolean? WarmTierRetentionPeriod_Unlimited { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.PutStorageConfigurationResponse, WriteIOTSWStorageConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

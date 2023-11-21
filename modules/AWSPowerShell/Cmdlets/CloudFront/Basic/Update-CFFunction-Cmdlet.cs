@@ -108,6 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String IfMatch { get; set; }
         #endregion
         
+        #region Parameter KeyValueStoreAssociations_Item
+        /// <summary>
+        /// <para>
+        /// <para>The items of the Key Value Store association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FunctionConfig_KeyValueStoreAssociations_Items")]
+        public Amazon.CloudFront.Model.KeyValueStoreAssociation[] KeyValueStoreAssociations_Item { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -125,10 +136,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter KeyValueStoreAssociations_Quantity
+        /// <summary>
+        /// <para>
+        /// <para>The quantity of Key Value Store associations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FunctionConfig_KeyValueStoreAssociations_Quantity")]
+        public System.Int32? KeyValueStoreAssociations_Quantity { get; set; }
+        #endregion
+        
         #region Parameter FunctionConfig_Runtime
         /// <summary>
         /// <para>
-        /// <para>The function's runtime environment verion.</para>
+        /// <para>The function's runtime environment version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -218,6 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter FunctionConfig_Comment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.KeyValueStoreAssociations_Item != null)
+            {
+                context.KeyValueStoreAssociations_Item = new List<Amazon.CloudFront.Model.KeyValueStoreAssociation>(this.KeyValueStoreAssociations_Item);
+            }
+            context.KeyValueStoreAssociations_Quantity = this.KeyValueStoreAssociations_Quantity;
             context.FunctionConfig_Runtime = this.FunctionConfig_Runtime;
             #if MODULAR
             if (this.FunctionConfig_Runtime == null && ParameterWasBound(nameof(this.FunctionConfig_Runtime)))
@@ -286,6 +313,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 if (requestFunctionConfig_functionConfig_Runtime != null)
                 {
                     request.FunctionConfig.Runtime = requestFunctionConfig_functionConfig_Runtime;
+                    requestFunctionConfigIsNull = false;
+                }
+                Amazon.CloudFront.Model.KeyValueStoreAssociations requestFunctionConfig_functionConfig_KeyValueStoreAssociations = null;
+                
+                 // populate KeyValueStoreAssociations
+                var requestFunctionConfig_functionConfig_KeyValueStoreAssociationsIsNull = true;
+                requestFunctionConfig_functionConfig_KeyValueStoreAssociations = new Amazon.CloudFront.Model.KeyValueStoreAssociations();
+                List<Amazon.CloudFront.Model.KeyValueStoreAssociation> requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Item = null;
+                if (cmdletContext.KeyValueStoreAssociations_Item != null)
+                {
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Item = cmdletContext.KeyValueStoreAssociations_Item;
+                }
+                if (requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Item != null)
+                {
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociations.Items = requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Item;
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociationsIsNull = false;
+                }
+                System.Int32? requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Quantity = null;
+                if (cmdletContext.KeyValueStoreAssociations_Quantity != null)
+                {
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Quantity = cmdletContext.KeyValueStoreAssociations_Quantity.Value;
+                }
+                if (requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Quantity != null)
+                {
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociations.Quantity = requestFunctionConfig_functionConfig_KeyValueStoreAssociations_keyValueStoreAssociations_Quantity.Value;
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociationsIsNull = false;
+                }
+                 // determine if requestFunctionConfig_functionConfig_KeyValueStoreAssociations should be set to null
+                if (requestFunctionConfig_functionConfig_KeyValueStoreAssociationsIsNull)
+                {
+                    requestFunctionConfig_functionConfig_KeyValueStoreAssociations = null;
+                }
+                if (requestFunctionConfig_functionConfig_KeyValueStoreAssociations != null)
+                {
+                    request.FunctionConfig.KeyValueStoreAssociations = requestFunctionConfig_functionConfig_KeyValueStoreAssociations;
                     requestFunctionConfigIsNull = false;
                 }
                  // determine if request.FunctionConfig should be set to null
@@ -372,6 +434,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             public byte[] FunctionCode { get; set; }
             public System.String FunctionConfig_Comment { get; set; }
+            public List<Amazon.CloudFront.Model.KeyValueStoreAssociation> KeyValueStoreAssociations_Item { get; set; }
+            public System.Int32? KeyValueStoreAssociations_Quantity { get; set; }
             public Amazon.CloudFront.FunctionRuntime FunctionConfig_Runtime { get; set; }
             public System.String IfMatch { get; set; }
             public System.String Name { get; set; }

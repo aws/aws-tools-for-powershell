@@ -226,6 +226,9 @@
     <Reference Include="AWSSDK.CloudFront">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudFront.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudFrontKeyValueStore">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudFrontKeyValueStore.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudHSM">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
@@ -534,6 +537,9 @@
     </Reference>
     <Reference Include="AWSSDK.Inspector2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Inspector2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.InspectorScan">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InspectorScan.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InternetMonitor.dll</HintPath>
@@ -1284,6 +1290,9 @@
     <Reference Include="AWSSDK.CloudFront">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudFront.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudFrontKeyValueStore">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudFrontKeyValueStore.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudHSM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
@@ -1592,6 +1601,9 @@
     </Reference>
     <Reference Include="AWSSDK.Inspector2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Inspector2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.InspectorScan">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InspectorScan.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InternetMonitor.dll</HintPath>

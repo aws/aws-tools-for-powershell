@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset.</para>
+        /// <para>The ID of the asset, in UUID format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter PropertyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the asset property.</para>
+        /// <para>The ID of the asset property, in UUID format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>The maximum number of results to return for each paginated request. A result set is
         /// returned in the two cases, whichever occurs first.</para><ul><li><para>The size of the result set is equal to 1 MB.</para></li><li><para>The number of data points in the result set is equal to the value of <code>maxResults</code>.
-        /// The maximum value of <code>maxResults</code> is 250.</para></li></ul>
+        /// The maximum value of <code>maxResults</code> is 2500.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
