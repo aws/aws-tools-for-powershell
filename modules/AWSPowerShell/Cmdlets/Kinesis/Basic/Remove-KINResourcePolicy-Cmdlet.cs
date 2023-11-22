@@ -28,74 +28,46 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Decreases the Kinesis data stream's retention period, which is the length of time
-    /// data records are accessible after they are added to the stream. The minimum value
-    /// of a stream's retention period is 24 hours.
+    /// Delete a policy for the specified data stream or consumer. Request patterns can be
+    /// one of the following:
     /// 
-    ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
-    /// </para></note><para>
-    /// This operation may result in lost data. For example, if the stream's retention period
-    /// is 48 hours and is decreased to 24 hours, any data already in the stream that is older
-    /// than 24 hours is inaccessible.
-    /// </para>
+    ///  <ul><li><para>
+    /// Data stream pattern: <code>arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+</code></para></li><li><para>
+    /// Consumer pattern: <code>^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</code></para></li></ul>
     /// </summary>
-    [Cmdlet("Request", "KINStreamRetentionPeriodDecrease", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "KINResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kinesis DecreaseStreamRetentionPeriod API operation.", Operation = new[] {"DecreaseStreamRetentionPeriod"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse))]
-    [AWSCmdletOutput("None or Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse",
+    [AWSCmdlet("Calls the Amazon Kinesis DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.Kinesis.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RequestKINStreamRetentionPeriodDecreaseCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class RemoveKINResourcePolicyCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter RetentionPeriodHour
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The new retention period of the stream, in hours. Must be less than the current retention
-        /// period.</para>
+        /// <para>The Amazon Resource Name (ARN) of the data stream or consumer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("RetentionPeriodHours")]
-        public System.Int32? RetentionPeriodHour { get; set; }
-        #endregion
-        
-        #region Parameter StreamARN
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the stream.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StreamARN { get; set; }
-        #endregion
-        
-        #region Parameter StreamName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the stream to modify.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.DeleteResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StreamName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StreamName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-KINStreamRetentionPeriodDecrease (DecreaseStreamRetentionPeriod)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINResourcePolicy (DeleteResourcePolicy)"))
             {
                 return;
             }
@@ -141,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse, RequestKINStreamRetentionPeriodDecreaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.DeleteResourcePolicyResponse, RemoveKINResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,18 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StreamName;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RetentionPeriodHour = this.RetentionPeriodHour;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.RetentionPeriodHour == null && ParameterWasBound(nameof(this.RetentionPeriodHour)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter RetentionPeriodHour which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.StreamARN = this.StreamARN;
-            context.StreamName = this.StreamName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,19 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodRequest();
+            var request = new Amazon.Kinesis.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.RetentionPeriodHour != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.RetentionPeriodHours = cmdletContext.RetentionPeriodHour.Value;
-            }
-            if (cmdletContext.StreamARN != null)
-            {
-                request.StreamARN = cmdletContext.StreamARN;
-            }
-            if (cmdletContext.StreamName != null)
-            {
-                request.StreamName = cmdletContext.StreamName;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
             
             CmdletOutput output;
@@ -223,15 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodRequest request)
+        private Amazon.Kinesis.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DecreaseStreamRetentionPeriod");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DecreaseStreamRetentionPeriod(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.DecreaseStreamRetentionPeriodAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,10 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? RetentionPeriodHour { get; set; }
-            public System.String StreamARN { get; set; }
-            public System.String StreamName { get; set; }
-            public System.Func<Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse, RequestKINStreamRetentionPeriodDecreaseCmdlet, object> Select { get; set; } =
+            public System.String ResourceARN { get; set; }
+            public System.Func<Amazon.Kinesis.Model.DeleteResourcePolicyResponse, RemoveKINResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

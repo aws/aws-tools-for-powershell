@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.691.0",
+    "ProductVersion"    : "3.7.692.0",
     "CoreVersion"       : "3.7.300.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -235,7 +235,7 @@
             "InPreview"               : false
         },
         "Kinesis"              : {
-            "Version" : "3.7.300.7",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.7"
@@ -947,7 +947,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.302.3",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.7"
@@ -1195,7 +1195,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.301.4",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.7"

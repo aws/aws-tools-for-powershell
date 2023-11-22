@@ -39,7 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     ///  
     /// <para>
     /// This operation has a limit of 20 transactions per second per stream.
-    /// </para>
+    /// </para><note><para>
+    /// When making a cross-account call with <code>DescribeStreamConsumer</code>, make sure
+    /// to provide the ARN of the consumer. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "KINStreamConsumer")]
     [OutputType("Amazon.Kinesis.Model.ConsumerDescription")]

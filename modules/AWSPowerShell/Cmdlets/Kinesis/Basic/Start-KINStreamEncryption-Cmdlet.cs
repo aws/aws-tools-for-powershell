@@ -31,8 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Enables or updates server-side encryption using an Amazon Web Services KMS key for
     /// a specified stream. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
+    /// </para></note><para>
     /// Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
     /// Data Streams returns immediately and sets the status of the stream to <code>UPDATING</code>.
     /// After the update is complete, Kinesis Data Streams sets the status of the stream back
@@ -48,10 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// before all records written to the stream are encrypted. After you enable encryption,
     /// you can verify that encryption is applied by inspecting the API response from <code>PutRecord</code>
     /// or <code>PutRecords</code>.
-    /// </para><note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "KINStreamEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Enable-KINEnhancedMonitoring', 
         'Get-KINLimit', 
         'Get-KINRecord', 
+        'Get-KINResourcePolicy', 
         'Get-KINShardIterator', 
         'Get-KINShardList', 
         'Get-KINStream', 
@@ -102,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Merge-KINShard', 
         'New-KINStream', 
         'Register-KINStreamConsumer', 
+        'Remove-KINResourcePolicy', 
         'Remove-KINStream', 
         'Remove-KINTagsFromStream', 
         'Request-KINStreamRetentionPeriodDecrease', 
@@ -113,7 +115,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-KINShardCount', 
         'Update-KINStreamMode', 
         'Write-KINMultipleRecord', 
-        'Write-KINRecord')
+        'Write-KINRecord', 
+        'Write-KINResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

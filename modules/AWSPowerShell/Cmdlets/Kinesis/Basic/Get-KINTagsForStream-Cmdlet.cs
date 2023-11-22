@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// five transactions per second per account.
     /// 
     ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "KINTagsForStream")]

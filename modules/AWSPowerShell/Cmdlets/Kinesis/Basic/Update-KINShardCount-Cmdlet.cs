@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// This API is only supported for the data streams with the provisioned capacity mode.
     /// 
     ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
     /// </para></note><para>
     /// Updating the shard count is an asynchronous operation. Upon receiving the request,
     /// Kinesis Data Streams returns immediately and sets the status of the stream to <code>UPDATING</code>.
@@ -66,6 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// shards
     /// </para></li><li><para>
     /// Scale up to more than the shard limit for your account
+    /// </para></li><li><para>
+    /// Make over 10 TPS. TPS over 10 will trigger the LimitExceededException
     /// </para></li></ul><para>
     /// For the default limits for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
     /// Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>. To request an

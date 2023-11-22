@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// to a maximum data write total of 1 MiB per second.
     /// 
     ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
     /// </para></note><para>
     /// You must specify the name of the stream that captures, stores, and transports the
     /// data; a partition key; and the data blob itself.

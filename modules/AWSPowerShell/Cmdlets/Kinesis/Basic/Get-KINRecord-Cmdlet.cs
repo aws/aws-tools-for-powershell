@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Gets data records from a Kinesis data stream's shard.
     /// 
     ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter in addition to the <code>ShardIterator</code> parameter.
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
     /// </para></note><para>
     /// Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard
     /// iterator specifies the position in the shard from which you want to start reading

@@ -1,4 +1,13 @@
-﻿### 4.1.458 (2023-11-21 22:57Z)
+﻿### 4.1.459 (2023-11-22 22:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.692.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Kinesis
+    * Added cmdlet Get-KINResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-KINResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-KINResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameters Filter_MatchAnyStorageClass, Filter_ObjectSizeGreaterThanByte, Filter_ObjectSizeLessThanByte, KeyNameConstraint_MatchAnyPrefix, KeyNameConstraint_MatchAnySubstring and KeyNameConstraint_MatchAnySuffix.
+
+### 4.1.458 (2023-11-21 22:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.691.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFront
     * Added cmdlet Get-CFKeyValueStore leveraging the DescribeKeyValueStore service API.

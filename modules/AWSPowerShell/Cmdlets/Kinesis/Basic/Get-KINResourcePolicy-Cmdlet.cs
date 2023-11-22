@@ -28,69 +28,59 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Provides a summarized description of the specified Kinesis data stream without the
-    /// shard list.
+    /// Returns a policy attached to the specified data stream or consumer. Request patterns
+    /// can be one of the following:
     /// 
-    ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
-    /// </para></note><para>
-    /// The information returned includes the stream name, Amazon Resource Name (ARN), status,
-    /// record retention period, approximate creation time, monitoring, encryption details,
-    /// and open shard count. 
-    /// </para><para><a>DescribeStreamSummary</a> has a limit of 20 transactions per second per account.
-    /// </para>
+    ///  <ul><li><para>
+    /// Data stream pattern: <code>arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+</code></para></li><li><para>
+    ///  Consumer pattern: <code>^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</code></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "KINStreamSummary")]
-    [OutputType("Amazon.Kinesis.Model.StreamDescriptionSummary")]
-    [AWSCmdlet("Calls the Amazon Kinesis DescribeStreamSummary API operation.", Operation = new[] {"DescribeStreamSummary"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DescribeStreamSummaryResponse))]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.StreamDescriptionSummary or Amazon.Kinesis.Model.DescribeStreamSummaryResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.StreamDescriptionSummary object.",
-        "The service call response (type Amazon.Kinesis.Model.DescribeStreamSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KINResourcePolicy")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Kinesis GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Kinesis.Model.GetResourcePolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Kinesis.Model.GetResourcePolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Kinesis.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKINStreamSummaryCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class GetKINResourcePolicyCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter StreamARN
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the stream.</para>
+        /// <para>The Amazon Resource Name (ARN) of the data stream or consumer.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StreamARN { get; set; }
-        #endregion
-        
-        #region Parameter StreamName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the stream to describe.</para>
-        /// </para>
-        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'StreamDescriptionSummary'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.DescribeStreamSummaryResponse).
-        /// Specifying the name of a property of type Amazon.Kinesis.Model.DescribeStreamSummaryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Policy'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.GetResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.Kinesis.Model.GetResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "StreamDescriptionSummary";
+        public string Select { get; set; } = "Policy";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StreamName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.DescribeStreamSummaryResponse, GetKINStreamSummaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.GetResourcePolicyResponse, GetKINResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,11 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StreamName;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.StreamARN = this.StreamARN;
-            context.StreamName = this.StreamName;
+            context.ResourceARN = this.ResourceARN;
+            #if MODULAR
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,15 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.DescribeStreamSummaryRequest();
+            var request = new Amazon.Kinesis.Model.GetResourcePolicyRequest();
             
-            if (cmdletContext.StreamARN != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.StreamARN = cmdletContext.StreamARN;
-            }
-            if (cmdletContext.StreamName != null)
-            {
-                request.StreamName = cmdletContext.StreamName;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
             
             CmdletOutput output;
@@ -179,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.DescribeStreamSummaryResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DescribeStreamSummaryRequest request)
+        private Amazon.Kinesis.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DescribeStreamSummary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "GetResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DescribeStreamSummary(request);
+                return client.GetResourcePolicy(request);
                 #elif CORECLR
-                return client.DescribeStreamSummaryAsync(request).GetAwaiter().GetResult();
+                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,10 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String StreamARN { get; set; }
-            public System.String StreamName { get; set; }
-            public System.Func<Amazon.Kinesis.Model.DescribeStreamSummaryResponse, GetKINStreamSummaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.StreamDescriptionSummary;
+            public System.String ResourceARN { get; set; }
+            public System.Func<Amazon.Kinesis.Model.GetResourcePolicyResponse, GetKINResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Policy;
         }
         
     }

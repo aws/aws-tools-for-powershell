@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// stream for data ingestion and processing. 
     /// 
     ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
     /// </para></note><para>
     /// Each <code>PutRecords</code> request can support up to 500 records. Each record in
     /// the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,

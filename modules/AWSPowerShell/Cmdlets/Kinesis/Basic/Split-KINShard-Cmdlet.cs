@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// streams with the provisioned capacity mode.
     /// 
     ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
+    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
+    /// parameter when you invoke this API.
     /// </para></note><para>
     /// You can also use <code>SplitShard</code> when a shard appears to be approaching its
     /// maximum utilization; for example, the producers sending data into the specific shard

@@ -304,7 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxPendingTimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum pending time in seconds.</para>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can be
+        /// pending before it is stopped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -15124,6 +15124,8 @@ Set-Alias -Name KIN-CreateStream -Value New-KINStream
 Set-Alias -Name Decrease-KINStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodDecrease
 Set-Alias -Name Decrease-KINStreamRetentionPeriodDecrease -Value Request-KINStreamRetentionPeriodDecrease
 Set-Alias -Name KIN-DecreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodDecrease
+Set-Alias -Name Delete-KINResourcePolicy -Value Remove-KINResourcePolicy
+Set-Alias -Name KIN-DeleteResourcePolicy -Value Remove-KINResourcePolicy
 Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
 Set-Alias -Name Deregister-KINStreamConsumer -Value Unregister-KINStreamConsumer
@@ -15141,6 +15143,7 @@ Set-Alias -Name KIN-DisableEnhancedMonitoring -Value Disable-KINEnhancedMonitori
 Set-Alias -Name KIN-EnableEnhancedMonitoring -Value Enable-KINEnhancedMonitoring
 Set-Alias -Name Get-KINRecords -Value Get-KINRecord
 Set-Alias -Name KIN-GetRecords -Value Get-KINRecord
+Set-Alias -Name KIN-GetResourcePolicy -Value Get-KINResourcePolicy
 Set-Alias -Name KIN-GetShardIterator -Value Get-KINShardIterator
 Set-Alias -Name Increase-KINStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodIncrease
 Set-Alias -Name Increase-KINStreamRetentionPeriodIncrease -Value Request-KINStreamRetentionPeriodIncrease
@@ -15163,6 +15166,8 @@ Set-Alias -Name KIN-PutRecord -Value Write-KINRecord
 Set-Alias -Name Put-KINRecords -Value Write-KINMultipleRecord
 Set-Alias -Name Put-KINMultipleRecord -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-PutRecords -Value Write-KINMultipleRecord
+Set-Alias -Name Put-KINResourcePolicy -Value Write-KINResourcePolicy
+Set-Alias -Name KIN-PutResourcePolicy -Value Write-KINResourcePolicy
 Set-Alias -Name KIN-RegisterStreamConsumer -Value Register-KINStreamConsumer
 Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
