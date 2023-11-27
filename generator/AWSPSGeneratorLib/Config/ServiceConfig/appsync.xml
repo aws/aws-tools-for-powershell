@@ -134,6 +134,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataSourceIntrospection" OutputProperty="*" Verb="Get" Noun="DataSourceIntrospection" PipelineParameter="IntrospectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDomainName" OutputProperty="DomainNameConfig" Verb="Get" Noun="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -207,6 +211,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTypesByAssociation" OutputProperty="Types" Verb="Get" Noun="TypesByAssociationList" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataSourceIntrospection" OutputProperty="*" Verb="Start" Noun="DataSourceIntrospection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

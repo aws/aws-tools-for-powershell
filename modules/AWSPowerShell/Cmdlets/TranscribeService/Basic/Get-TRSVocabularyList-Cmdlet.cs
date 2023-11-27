@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Returns only custom vocabularies with the specified state. Vocabularies are ordered
-        /// by creation date, with the newest vocabulary first. If you don't include <code>StateEquals</code>,
+        /// by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>,
         /// all custom medical vocabularies are returned.</para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The maximum number of custom vocabularies to return in each page of results. If there
         /// are fewer results than the value that you specify, only the actual results are returned.
-        /// If you don't specify a value, a default of 5 is used.</para>
+        /// If you do not specify a value, a default of 5 is used.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

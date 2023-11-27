@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
     /// 
     ///  <note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// This operation only applies to Aurora DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "RDSDBClusterEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

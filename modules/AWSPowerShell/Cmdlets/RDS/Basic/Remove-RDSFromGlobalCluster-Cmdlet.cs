@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and receiving data from a primary cluster in a different Region.
     /// 
     ///  <note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// This operation only applies to Aurora DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RDSFromGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

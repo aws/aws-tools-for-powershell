@@ -28,9 +28,9 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// This decommissions a landing zone. This starts an asynchronous operation that deletes
-    /// Amazon Web Services Control Tower resources deployed in Amazon Web Services Control
-    /// Tower managed accounts.
+    /// Decommissions a landing zone. This API call starts an asynchronous operation that
+    /// deletes Amazon Web Services Control Tower resources deployed in accounts managed by
+    /// Amazon Web Services Control Tower.
     /// </summary>
     [Cmdlet("Remove", "ACTLandingZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter LandingZoneIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the landing zone. </para>
+        /// <para>The unique identifier of the landing zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Use this action to manage storage of your file system. A <code>LifecycleConfiguration</code>
+    /// Use this action to manage storage for your file system. A <code>LifecycleConfiguration</code>
     /// consists of one or more <code>LifecyclePolicy</code> objects that define the following:
     /// 
     ///  <ul><li><para><b><code>TransitionToIA</code></b> – When to move files in the file system from
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </para><note><para>
     ///  The Archive storage class is available only for file systems that use the Elastic
     /// Throughput mode and the General Purpose Performance mode. 
-    /// </para></note></li><li><para><b><code>TransitionToPrimaryStorageClass</code></b> – Whether to move files in
+    /// </para></note></li></ul><ul><li><para><b><code>TransitionToPrimaryStorageClass</code></b> – Whether to move files in
     /// the file system back to primary storage (Standard storage class) after they are accessed
     /// in IA or Archive storage.
     /// </para></li></ul><para>
@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// exists for the specified file system, a <code>PutLifecycleConfiguration</code> call
     /// modifies the existing configuration. A <code>PutLifecycleConfiguration</code> call
     /// with an empty <code>LifecyclePolicies</code> array in the request body deletes any
-    /// existing <code>LifecycleConfiguration</code> for the file system.
-    /// </para><para>
-    /// In the request, specify the following: 
+    /// existing <code>LifecycleConfiguration</code>. In the request, specify the following:
+    /// 
     /// </para><ul><li><para>
     /// The ID for the file system for which you are enabling, disabling, or modifying Lifecycle
     /// management.

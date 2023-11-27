@@ -48,10 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para>The new amount of storage in gibibytes (GiB) to allocate for the DB instance.</para><para>For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL, the value
-        /// supplied must be at least 10% greater than the current value. Values that are not
-        /// at least 10% greater than the existing value are rounded up so that they are 10% greater
-        /// than the current value.</para><para>For the valid values for allocated storage for each engine, see <code>CreateDBInstance</code>.</para>
+        /// <para>The new amount of storage in gibibytes (GiB) to allocate for the DB instance.</para><para>For RDS for Db2, MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL, the
+        /// value supplied must be at least 10% greater than the current value. Values that are
+        /// not at least 10% greater than the existing value are rounded up so that they are 10%
+        /// greater than the current value.</para><para>For the valid values for allocated storage for each engine, see <code>CreateDBInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The port number on which the database accepts connections.</para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
         /// values specified for options in the option group for the DB instance.</para><para>If you change the <code>DBPortNumber</code> value, your database restarts regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Valid Values: <code>1150-65535</code></para><para>Default:</para><ul><li><para>Amazon Aurora - <code>3306</code></para></li><li><para>RDS for MariaDB - <code>3306</code></para></li><li><para>RDS for Microsoft SQL Server - <code>1433</code></para></li><li><para>RDS for MySQL - <code>3306</code></para></li><li><para>RDS for Oracle - <code>1521</code></para></li><li><para>RDS for PostgreSQL - <code>5432</code></para></li></ul><para>Constraints:</para><ul><li><para>For RDS for Microsoft SQL Server, the value can't be <code>1234</code>, <code>1434</code>,
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Valid Values: <code>1150-65535</code></para><para>Default:</para><ul><li><para>Amazon Aurora - <code>3306</code></para></li><li><para>RDS for Db2 - <code>50000</code></para></li><li><para>RDS for MariaDB - <code>3306</code></para></li><li><para>RDS for Microsoft SQL Server - <code>1433</code></para></li><li><para>RDS for MySQL - <code>3306</code></para></li><li><para>RDS for Oracle - <code>1521</code></para></li><li><para>RDS for PostgreSQL - <code>5432</code></para></li></ul><para>Constraints:</para><ul><li><para>For RDS for Microsoft SQL Server, the value can't be <code>1234</code>, <code>1434</code>,
         /// <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, or <code>49152-49156</code>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Active Directory directory ID to move the DB instance to. Specify <code>none</code>
         /// to remove the instance from its current domain. You must create the domain before
-        /// this operation. Currently, you can create only MySQL, Microsoft SQL Server, Oracle,
+        /// this operation. Currently, you can create only Db2, MySQL, Microsoft SQL Server, Oracle,
         /// and PostgreSQL DB instances in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
         /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
         /// </para>
@@ -513,7 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model for the DB instance.</para><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para>RDS for MariaDB - <code>general-public-license</code></para></li><li><para>RDS for Microsoft SQL Server - <code>license-included</code></para></li><li><para>RDS for MySQL - <code>general-public-license</code></para></li><li><para>RDS for Oracle - <code>bring-your-own-license | license-included</code></para></li><li><para>RDS for PostgreSQL - <code>postgresql-license</code></para></li></ul>
+        /// <para>The license model for the DB instance.</para><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para>RDS for Db2 - <code>bring-your-own-license</code></para></li><li><para>RDS for MariaDB - <code>general-public-license</code></para></li><li><para>RDS for Microsoft SQL Server - <code>license-included</code></para></li><li><para>RDS for MySQL - <code>general-public-license</code></para></li><li><para>RDS for Oracle - <code>bring-your-own-license | license-included</code></para></li><li><para>RDS for PostgreSQL - <code>postgresql-license</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -546,10 +546,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The new password for the master user.</para><para>Changing this parameter doesn't result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response.</para><note><para>Amazon RDS API operations never return the password, so this action provides a way
-        /// to regain access to a primary instance user if the password is lost. This includes
+        /// element of the operation response.</para><note><para>Amazon RDS API operations never return the password, so this operation provides a
+        /// way to regain access to a primary instance user if the password is lost. This includes
         /// restoring privileges that might have been accidentally revoked.</para></note><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (The password for the master user is managed by the DB cluster. For
-        /// more information, see <code>ModifyDBCluster</code>.)</para></li><li><para>RDS Custom</para></li></ul><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@".</para></li></ul><para>Length Constraints:</para><ul><li><para>RDS for MariaDB - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MySQL - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Oracle - Must contain from 8 to 30 characters.</para></li><li><para>RDS for PostgreSQL - Must contain from 8 to 128 characters.</para></li></ul>
+        /// more information, see <code>ModifyDBCluster</code>.)</para></li><li><para>RDS Custom</para></li></ul><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle,
+        /// can't include the "&amp;" (ampersand) or the "'" (single quotes) character.</para></li></ul><para>Length Constraints:</para><ul><li><para>RDS for Db2 - Must contain from 8 to 255 characters.</para></li><li><para>RDS for MariaDB - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MySQL - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Oracle - Must contain from 8 to 30 characters.</para></li><li><para>RDS for PostgreSQL - Must contain from 8 to 128 characters.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

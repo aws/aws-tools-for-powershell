@@ -28,8 +28,9 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Creates a new landing zone. This starts an asynchronous operation that creates and
-    /// configures a landing zone based on the parameters specified in the manifest JSON file.
+    /// Creates a new landing zone. This API call starts an asynchronous operation that creates
+    /// and configures a landing zone, based on the parameters specified in the manifest JSON
+    /// file.
     /// </summary>
     [Cmdlet("New", "ACTLandingZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ControlTower.Model.CreateLandingZoneResponse")]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The landing zone version. </para>
+        /// <para>The landing zone version, for example, 3.0.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

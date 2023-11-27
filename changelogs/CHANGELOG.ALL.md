@@ -1,4 +1,64 @@
-﻿### 4.1.460 (2023-11-27 08:05Z)
+﻿### 4.1.461 (2023-11-27 23:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.694.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Added cmdlet Get-ASYNDataSourceIntrospection leveraging the GetDataSourceIntrospection service API.
+    * Added cmdlet Start-ASYNDataSourceIntrospection leveraging the StartDataSourceIntrospection service API.
+  * Amazon B2B Data Interchange. Added cmdlets to support the service. Cmdlets for the service have the noun prefix B2BI and can be listed using the command 'Get-AWSCmdletName -Service B2BI'.
+  * Amazon Backup
+    * Added cmdlet Get-BAKRestoreJobMetadata leveraging the GetRestoreJobMetadata service API.
+    * Added cmdlet Get-BAKRestoreJobsByProtectedResourceList leveraging the ListRestoreJobsByProtectedResource service API.
+    * Added cmdlet Get-BAKRestoreTestingInferredMetadata leveraging the GetRestoreTestingInferredMetadata service API.
+    * Added cmdlet Get-BAKRestoreTestingPlan leveraging the GetRestoreTestingPlan service API.
+    * Added cmdlet Get-BAKRestoreTestingPlanList leveraging the ListRestoreTestingPlans service API.
+    * Added cmdlet Get-BAKRestoreTestingSelection leveraging the GetRestoreTestingSelection service API.
+    * Added cmdlet Get-BAKRestoreTestingSelectionList leveraging the ListRestoreTestingSelections service API.
+    * Added cmdlet New-BAKRestoreTestingPlan leveraging the CreateRestoreTestingPlan service API.
+    * Added cmdlet New-BAKRestoreTestingSelection leveraging the CreateRestoreTestingSelection service API.
+    * Added cmdlet Remove-BAKRestoreTestingPlan leveraging the DeleteRestoreTestingPlan service API.
+    * Added cmdlet Remove-BAKRestoreTestingSelection leveraging the DeleteRestoreTestingSelection service API.
+    * Added cmdlet Update-BAKRestoreTestingPlan leveraging the UpdateRestoreTestingPlan service API.
+    * Added cmdlet Update-BAKRestoreTestingSelection leveraging the UpdateRestoreTestingSelection service API.
+    * Added cmdlet Write-BAKRestoreValidationResult leveraging the PutRestoreValidationResult service API.
+    * Modified cmdlet Get-BAKRestoreJobList: added parameter ByRestoreTestingPlanArn.
+    * Modified cmdlet Start-BAKBackupJob: added parameter Lifecycle_OptInToArchiveForSupportedResource.
+    * Modified cmdlet Start-BAKCopyJob: added parameter Lifecycle_OptInToArchiveForSupportedResource.
+    * Modified cmdlet Update-BAKRecoveryPointLifecycle: added parameter Lifecycle_OptInToArchiveForSupportedResource.
+  * Amazon Control Tower
+    * Added cmdlet Update-ACTEnabledControl leveraging the UpdateEnabledControl service API.
+    * Modified cmdlet Enable-ACTControl: added parameter Parameter.
+  * Amazon Elastic File System
+    * Added cmdlet Update-EFSFileSystemProtection leveraging the UpdateFileSystemProtection service API.
+  * Amazon Fault Injection Simulator
+    * Added cmdlet Get-FISExperimentResolvedTargetList leveraging the ListExperimentResolvedTargets service API.
+    * Added cmdlet Get-FISExperimentTargetAccountConfiguration leveraging the GetExperimentTargetAccountConfiguration service API.
+    * Added cmdlet Get-FISExperimentTargetAccountConfigurationList leveraging the ListExperimentTargetAccountConfigurations service API.
+    * Added cmdlet Get-FISTargetAccountConfiguration leveraging the GetTargetAccountConfiguration service API.
+    * Added cmdlet Get-FISTargetAccountConfigurationList leveraging the ListTargetAccountConfigurations service API.
+    * Added cmdlet New-FISTargetAccountConfiguration leveraging the CreateTargetAccountConfiguration service API.
+    * Added cmdlet Remove-FISTargetAccountConfiguration leveraging the DeleteTargetAccountConfiguration service API.
+    * Added cmdlet Update-FISTargetAccountConfiguration leveraging the UpdateTargetAccountConfiguration service API.
+    * Modified cmdlet New-FISExperimentTemplate: added parameters ExperimentOptions_AccountTargeting and ExperimentOptions_EmptyTargetResolutionMode.
+    * Modified cmdlet Update-FISExperimentTemplate: added parameter ExperimentOptions_EmptyTargetResolutionMode.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBConfigurationPolicy leveraging the GetConfigurationPolicy service API.
+    * Added cmdlet Get-SHUBConfigurationPolicyAssociation leveraging the GetConfigurationPolicyAssociation service API.
+    * Added cmdlet Get-SHUBConfigurationPolicyAssociationList leveraging the ListConfigurationPolicyAssociations service API.
+    * Added cmdlet Get-SHUBConfigurationPolicyList leveraging the ListConfigurationPolicies service API.
+    * Added cmdlet Get-SHUBGetConfigurationPolicyAssociation leveraging the BatchGetConfigurationPolicyAssociations service API.
+    * Added cmdlet New-SHUBConfigurationPolicy leveraging the CreateConfigurationPolicy service API.
+    * Added cmdlet Remove-SHUBConfigurationPolicy leveraging the DeleteConfigurationPolicy service API.
+    * Added cmdlet Start-SHUBConfigurationPolicyAssociation leveraging the StartConfigurationPolicyAssociation service API.
+    * Added cmdlet Start-SHUBConfigurationPolicyDisassociation leveraging the StartConfigurationPolicyDisassociation service API.
+    * Added cmdlet Update-SHUBConfigurationPolicy leveraging the UpdateConfigurationPolicy service API.
+    * Modified cmdlet New-SHUBAutomationRule: added parameters Criteria_AwsAccountName, Criteria_ResourceApplicationArn and Criteria_ResourceApplicationName.
+    * Modified cmdlet Update-SHUBOrganizationConfiguration: added parameters OrganizationConfiguration_ConfigurationType, OrganizationConfiguration_Status and OrganizationConfiguration_StatusMessage.
+  * Amazon Transcribe Service
+    * Added cmdlet Get-TRSMedicalScribeJob leveraging the GetMedicalScribeJob service API.
+    * Added cmdlet Get-TRSMedicalScribeJobList leveraging the ListMedicalScribeJobs service API.
+    * Added cmdlet Remove-TRSMedicalScribeJob leveraging the DeleteMedicalScribeJob service API.
+    * Added cmdlet Start-TRSMedicalScribeJob leveraging the StartMedicalScribeJob service API.
+
+### 4.1.460 (2023-11-27 08:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.693.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingAndCostManagementDataExports. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMDE and can be listed using the command 'Get-AWSCmdletName -Service BCMDE'.
   * Amazon CloudTrail

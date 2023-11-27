@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Used to update the configuration related to Organizations. Can only be called from
-    /// a Security Hub administrator account.
+    /// Updates the configuration of your organization in Security Hub. Only the Security
+    /// Hub administrator account can invoke this operation.
     /// </summary>
     [Cmdlet("Update", "SHUBOrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AutoEnable
         /// <summary>
         /// <para>
-        /// <para>Whether to automatically enable Security Hub for new accounts in the organization.</para><para>By default, this is <code>false</code>, and new accounts are not added automatically.</para><para>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</para>
+        /// <para>Whether to automatically enable Security Hub in new member accounts when they join
+        /// the organization.</para><para>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts.
+        /// If set to <code>false</code>, then Security Hub isn't enabled in new accounts automatically.
+        /// The default value is <code>false</code>.</para><para>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>,
+        /// then this field is set to <code>false</code> and can't be changed in the home Region
+        /// and linked Regions. However, in that case, the delegated administrator can create
+        /// a configuration policy in which Security Hub is enabled and associate the policy with
+        /// new organization accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,15 +70,63 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default
-        /// standards</a> for new member accounts in the organization.</para><para>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts
-        /// are automatically enabled with default Security Hub standards.</para><para>To opt out of enabling default standards for new member accounts, set this parameter
-        /// equal to <code>NONE</code>.</para>
+        /// standards</a> in new member accounts when they join the organization.</para><para>The default value of this parameter is equal to <code>DEFAULT</code>.</para><para>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically
+        /// enabled for new member accounts. If equal to <code>NONE</code>, then default standards
+        /// are not automatically enabled for new member accounts.</para><para>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>,
+        /// then this field is set to <code>NONE</code> and can't be changed in the home Region
+        /// and linked Regions. However, in that case, the delegated administrator can create
+        /// a configuration policy in which specific security standards are enabled and associate
+        /// the policy with new organization accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AutoEnableStandards")]
         [AWSConstantClassSource("Amazon.SecurityHub.AutoEnableStandards")]
         public Amazon.SecurityHub.AutoEnableStandards AutoEnableStandard { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationConfiguration_ConfigurationType
+        /// <summary>
+        /// <para>
+        /// <para> Indicates whether the organization uses local or central configuration. </para><para>If you use local configuration, the Security Hub delegated administrator can set <code>AutoEnable</code>
+        /// to <code>true</code> and <code>AutoEnableStandards</code> to <code>DEFAULT</code>.
+        /// This automatically enables Security Hub and default security standards in new organization
+        /// accounts. These new account settings must be set separately in each Amazon Web Services
+        /// Region, and settings may be different in each Region. </para><para> If you use central configuration, the delegated administrator can create configuration
+        /// policies. Configuration policies can be used to configure Security Hub, security standards,
+        /// and security controls in multiple accounts and Regions. If you want new organization
+        /// accounts to use a specific configuration, you can create a configuration policy and
+        /// associate it with the root or specific organizational units (OUs). New accounts will
+        /// inherit the policy from the root or their assigned OU. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.OrganizationConfigurationConfigurationType")]
+        public Amazon.SecurityHub.OrganizationConfigurationConfigurationType OrganizationConfiguration_ConfigurationType { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationConfiguration_Status
+        /// <summary>
+        /// <para>
+        /// <para> Describes whether central configuration could be enabled as the <code>ConfigurationType</code>
+        /// for the organization. If your <code>ConfigurationType</code> is local configuration,
+        /// then the value of <code>Status</code> is always <code>ENABLED</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.OrganizationConfigurationStatus")]
+        public Amazon.SecurityHub.OrganizationConfigurationStatus OrganizationConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationConfiguration_StatusMessage
+        /// <summary>
+        /// <para>
+        /// <para> Provides an explanation if the value of <code>Status</code> is equal to <code>FAILED</code>
+        /// when <code>ConfigurationType</code> is equal to <code>CENTRAL</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationConfiguration_StatusMessage { get; set; }
         #endregion
         
         #region Parameter Select
@@ -143,6 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #endif
             context.AutoEnableStandard = this.AutoEnableStandard;
+            context.OrganizationConfiguration_ConfigurationType = this.OrganizationConfiguration_ConfigurationType;
+            context.OrganizationConfiguration_Status = this.OrganizationConfiguration_Status;
+            context.OrganizationConfiguration_StatusMessage = this.OrganizationConfiguration_StatusMessage;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +224,45 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.AutoEnableStandard != null)
             {
                 request.AutoEnableStandards = cmdletContext.AutoEnableStandard;
+            }
+            
+             // populate OrganizationConfiguration
+            var requestOrganizationConfigurationIsNull = true;
+            request.OrganizationConfiguration = new Amazon.SecurityHub.Model.OrganizationConfiguration();
+            Amazon.SecurityHub.OrganizationConfigurationConfigurationType requestOrganizationConfiguration_organizationConfiguration_ConfigurationType = null;
+            if (cmdletContext.OrganizationConfiguration_ConfigurationType != null)
+            {
+                requestOrganizationConfiguration_organizationConfiguration_ConfigurationType = cmdletContext.OrganizationConfiguration_ConfigurationType;
+            }
+            if (requestOrganizationConfiguration_organizationConfiguration_ConfigurationType != null)
+            {
+                request.OrganizationConfiguration.ConfigurationType = requestOrganizationConfiguration_organizationConfiguration_ConfigurationType;
+                requestOrganizationConfigurationIsNull = false;
+            }
+            Amazon.SecurityHub.OrganizationConfigurationStatus requestOrganizationConfiguration_organizationConfiguration_Status = null;
+            if (cmdletContext.OrganizationConfiguration_Status != null)
+            {
+                requestOrganizationConfiguration_organizationConfiguration_Status = cmdletContext.OrganizationConfiguration_Status;
+            }
+            if (requestOrganizationConfiguration_organizationConfiguration_Status != null)
+            {
+                request.OrganizationConfiguration.Status = requestOrganizationConfiguration_organizationConfiguration_Status;
+                requestOrganizationConfigurationIsNull = false;
+            }
+            System.String requestOrganizationConfiguration_organizationConfiguration_StatusMessage = null;
+            if (cmdletContext.OrganizationConfiguration_StatusMessage != null)
+            {
+                requestOrganizationConfiguration_organizationConfiguration_StatusMessage = cmdletContext.OrganizationConfiguration_StatusMessage;
+            }
+            if (requestOrganizationConfiguration_organizationConfiguration_StatusMessage != null)
+            {
+                request.OrganizationConfiguration.StatusMessage = requestOrganizationConfiguration_organizationConfiguration_StatusMessage;
+                requestOrganizationConfigurationIsNull = false;
+            }
+             // determine if request.OrganizationConfiguration should be set to null
+            if (requestOrganizationConfigurationIsNull)
+            {
+                request.OrganizationConfiguration = null;
             }
             
             CmdletOutput output;
@@ -230,6 +327,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public System.Boolean? AutoEnable { get; set; }
             public Amazon.SecurityHub.AutoEnableStandards AutoEnableStandard { get; set; }
+            public Amazon.SecurityHub.OrganizationConfigurationConfigurationType OrganizationConfiguration_ConfigurationType { get; set; }
+            public Amazon.SecurityHub.OrganizationConfigurationStatus OrganizationConfiguration_Status { get; set; }
+            public System.String OrganizationConfiguration_StatusMessage { get; set; }
             public System.Func<Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse, UpdateSHUBOrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

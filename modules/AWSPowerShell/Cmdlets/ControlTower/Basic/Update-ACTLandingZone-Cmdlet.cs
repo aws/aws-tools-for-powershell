@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
     /// This API call updates the landing zone. It starts an asynchronous operation that updates
-    /// the landing zone based on the new landing zone version or the updated parameters specified
-    /// in the updated manifest file.
+    /// the landing zone based on the new landing zone version, or on the changed parameters
+    /// specified in the updated manifest file.
     /// </summary>
     [Cmdlet("Update", "ACTLandingZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter LandingZoneIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the landing zone. </para>
+        /// <para>The unique identifier of the landing zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter Manifest
         /// <summary>
         /// <para>
-        /// <para>The manifest.yaml file is a text file that describes your Amazon Web Services resources.
-        /// For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The
-        /// manifest file</a></para>
+        /// <para>The <code>manifest.yaml</code> file is a text file that describes your Amazon Web
+        /// Services resources. For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The
+        /// manifest file</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The landing zone version. </para>
+        /// <para>The landing zone version, for example, 3.2.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

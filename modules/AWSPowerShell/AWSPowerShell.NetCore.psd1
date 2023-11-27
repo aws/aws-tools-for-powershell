@@ -88,6 +88,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.AWSMarketplaceCommerceAnalytics.dll',
         'AWSSDK.AWSMarketplaceMetering.dll',
         'AWSSDK.AWSSupport.dll',
+        'AWSSDK.B2bi.dll',
         'AWSSDK.Backup.dll',
         'AWSSDK.BackupGateway.dll',
         'AWSSDK.BackupStorage.dll',

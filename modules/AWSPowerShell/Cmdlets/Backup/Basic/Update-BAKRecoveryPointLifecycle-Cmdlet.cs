@@ -103,6 +103,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.Int64? Lifecycle_MoveToColdStorageAfterDay { get; set; }
         #endregion
         
+        #region Parameter Lifecycle_OptInToArchiveForSupportedResource
+        /// <summary>
+        /// <para>
+        /// <para>Optional Boolean. If this is true, this setting will instruct your backup plan to
+        /// transition supported resources to archive (cold) storage tier in accordance with your
+        /// lifecycle settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Lifecycle_OptInToArchiveForSupportedResources")]
+        public System.Boolean? Lifecycle_OptInToArchiveForSupportedResource { get; set; }
+        #endregion
+        
         #region Parameter RecoveryPointArn
         /// <summary>
         /// <para>
@@ -192,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #endif
             context.Lifecycle_DeleteAfterDay = this.Lifecycle_DeleteAfterDay;
             context.Lifecycle_MoveToColdStorageAfterDay = this.Lifecycle_MoveToColdStorageAfterDay;
+            context.Lifecycle_OptInToArchiveForSupportedResource = this.Lifecycle_OptInToArchiveForSupportedResource;
             context.RecoveryPointArn = this.RecoveryPointArn;
             #if MODULAR
             if (this.RecoveryPointArn == null && ParameterWasBound(nameof(this.RecoveryPointArn)))
@@ -241,6 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestLifecycle_lifecycle_MoveToColdStorageAfterDay != null)
             {
                 request.Lifecycle.MoveToColdStorageAfterDays = requestLifecycle_lifecycle_MoveToColdStorageAfterDay.Value;
+                requestLifecycleIsNull = false;
+            }
+            System.Boolean? requestLifecycle_lifecycle_OptInToArchiveForSupportedResource = null;
+            if (cmdletContext.Lifecycle_OptInToArchiveForSupportedResource != null)
+            {
+                requestLifecycle_lifecycle_OptInToArchiveForSupportedResource = cmdletContext.Lifecycle_OptInToArchiveForSupportedResource.Value;
+            }
+            if (requestLifecycle_lifecycle_OptInToArchiveForSupportedResource != null)
+            {
+                request.Lifecycle.OptInToArchiveForSupportedResources = requestLifecycle_lifecycle_OptInToArchiveForSupportedResource.Value;
                 requestLifecycleIsNull = false;
             }
              // determine if request.Lifecycle should be set to null
@@ -316,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String BackupVaultName { get; set; }
             public System.Int64? Lifecycle_DeleteAfterDay { get; set; }
             public System.Int64? Lifecycle_MoveToColdStorageAfterDay { get; set; }
+            public System.Boolean? Lifecycle_OptInToArchiveForSupportedResource { get; set; }
             public System.String RecoveryPointArn { get; set; }
             public System.Func<Amazon.Backup.Model.UpdateRecoveryPointLifecycleResponse, UpdateBAKRecoveryPointLifecycleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

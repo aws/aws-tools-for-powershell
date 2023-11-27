@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console,
-    /// the stop-db-instance CLI command, or the StopDBInstance action.
+    /// the stop-db-instance CLI command, or the <code>StopDBInstance</code> operation.
     /// 
     ///  
     /// <para>

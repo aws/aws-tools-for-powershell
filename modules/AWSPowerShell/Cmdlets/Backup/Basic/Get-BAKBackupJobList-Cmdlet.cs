@@ -114,9 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByMessageCategory
         /// <summary>
         /// <para>
-        /// <para>This returns a list of backup jobs for the specified message category.</para><para>Example strings may include <code>AccessDenied</code>, <code>Success</code>, and <code>InvalidParameters</code>.
-        /// See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
-        /// for a list of MessageCategory strings.</para>
+        /// <para>This is an optional parameter that can be used to filter out jobs with a MessageCategory
+        /// which matches the value you input.</para><para>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>,
+        /// and <code>InvalidParameters</code>.</para><para>View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a></para><para>The wildcard () returns count of all message categories.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns
+        /// the sum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <code>maxResults</code> number of items, <code>NextToken</code>
+        /// is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
         /// allows you to return more items in your list starting at the location pointed to by
         /// the next token.</para>
         /// </para>

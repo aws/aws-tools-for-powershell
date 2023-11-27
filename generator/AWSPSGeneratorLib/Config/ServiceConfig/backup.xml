@@ -53,6 +53,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRestoreTestingPlan" OutputProperty="*" Verb="New" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlan_RestoreTestingPlanName" PipelineParameter="RestoreTestingPlan_RestoreTestingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRestoreTestingSelection" OutputProperty="*" Verb="New" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -86,6 +94,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteReportPlan" Verb="Remove" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRestoreTestingPlan" Verb="Remove" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRestoreTestingSelection" Verb="Remove" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,6 +193,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRestoreJobMetadata" OutputProperty="*" Verb="Get" Noun="RestoreJobMetadata" PipelineParameter="RestoreJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRestoreTestingInferredMetadata" OutputProperty="InferredMetadata" Verb="Get" Noun="RestoreTestingInferredMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRestoreTestingPlan" OutputProperty="RestoreTestingPlan" Verb="Get" Noun="RestoreTestingPlan" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRestoreTestingSelection" OutputProperty="RestoreTestingSelection" Verb="Get" Noun="RestoreTestingSelection" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceType" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -257,7 +289,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRestoreJobsByProtectedResource" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobsByProtectedResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRestoreJobSummaries" OutputProperty="*" Verb="Get" Noun="RestoreJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRestoreTestingPlans" OutputProperty="RestoreTestingPlans" Verb="Get" Noun="RestoreTestingPlanList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRestoreTestingSelections" OutputProperty="RestoreTestingSelections" Verb="Get" Noun="RestoreTestingSelectionList" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -274,6 +318,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBackupVaultNotifications" Verb="Write" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRestoreValidationResult" Verb="Write" Noun="RestoreValidationResult" ShouldProcessTarget="RestoreJobId" PipelineParameter="RestoreJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -326,6 +374,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateReportPlan" OutputProperty="*" Verb="Update" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRestoreTestingPlan" OutputProperty="*" Verb="Update" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRestoreTestingSelection" OutputProperty="*" Verb="Update" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB instance that acts as a read replica for an existing source DB instance
-    /// or Multi-AZ DB cluster. You can create a read replica for a DB instance running MySQL,
-    /// MariaDB, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ
-    /// DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
+    /// or Multi-AZ DB cluster. You can create a read replica for a DB instance running Db2,
+    /// MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for
+    /// a Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
     /// with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating
     /// from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon
     /// RDS User Guide</i>.
@@ -584,8 +584,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The identifier of the DB instance that will act as the source for the read replica.
         /// Each DB instance can have up to 15 read replicas, with the exception of Oracle and
-        /// SQL Server, which can have up to five.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server
-        /// DB instance.</para></li><li><para>Can't be specified if the <code>SourceDBClusterIdentifier</code> parameter is also
+        /// SQL Server, which can have up to five.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing Db2, MariaDB, MySQL, Oracle, PostgreSQL, or
+        /// SQL Server DB instance.</para></li><li><para>Can't be specified if the <code>SourceDBClusterIdentifier</code> parameter is also
         /// specified.</para></li><li><para>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses">Version
         /// and licensing considerations for RDS for Oracle replicas</a> in the <i>Amazon RDS
         /// User Guide</i>.</para></li><li><para>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations">Read

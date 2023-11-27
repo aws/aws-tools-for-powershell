@@ -87,6 +87,13 @@ $EFS_Completers = {
             break
         }
 
+        # Amazon.ElasticFileSystem.ReplicationOverwriteProtection
+        "Update-EFSFileSystemProtection/ReplicationOverwriteProtection"
+        {
+            $v = "DISABLED","ENABLED","REPLICATING"
+            break
+        }
+
         # Amazon.ElasticFileSystem.ResourceIdType
         "Write-EFSAccountPreference/ResourceIdType"
         {
@@ -122,6 +129,7 @@ $EFS_Completers = {
 $EFS_map = @{
     "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
     "PerformanceMode"=@("New-EFSFileSystem")
+    "ReplicationOverwriteProtection"=@("Update-EFSFileSystemProtection")
     "ResourceIdType"=@("Write-EFSAccountPreference")
     "ThroughputMode"=@("New-EFSFileSystem","Update-EFSFileSystem")
 }
@@ -205,7 +213,8 @@ $EFS_SelectMap = @{
                "Write-EFSLifecycleConfiguration",
                "Add-EFSResourceTag",
                "Remove-EFSResourceTag",
-               "Update-EFSFileSystem")
+               "Update-EFSFileSystem",
+               "Update-EFSFileSystemProtection")
 }
 
 _awsArgumentCompleterRegistration $EFS_SelectCompleters $EFS_SelectMap

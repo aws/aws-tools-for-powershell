@@ -160,6 +160,9 @@
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AWSSupport.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.B2bi">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.B2bi.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Backup">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Backup.dll</HintPath>
     </Reference>
@@ -1241,6 +1244,9 @@
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AWSSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.B2bi">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.B2bi.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Backup">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Backup.dll</HintPath>

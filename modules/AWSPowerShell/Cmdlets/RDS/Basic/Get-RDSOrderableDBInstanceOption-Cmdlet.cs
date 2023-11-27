@@ -28,8 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns a list of orderable DB instance options for the specified DB engine, DB engine
-    /// version, and DB instance class.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the orderable DB instance options for a specified DB engine.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSOrderableDBInstanceOption")]
     [OutputType("Amazon.RDS.Model.OrderableDBInstanceOption")]
@@ -47,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone group associated with a Local Zone. Specify this parameter to
-        /// retrieve available offerings for the Local Zones in the group.</para><para>Omit this parameter to show the available offerings in the specified Amazon Web Services
-        /// Region.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// retrieve available options for the Local Zones in the group.</para><para>Omit this parameter to show the available options in the specified Amazon Web Services
+        /// Region.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The DB instance class filter value. Specify this parameter to show only the available
-        /// offerings matching the specified DB instance class.</para>
+        /// <para>A filter to include only the available options for the specified DB instance class.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine to retrieve DB instance options for.</para><para>Valid Values:</para><ul><li><para><code>aurora-mysql</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>custom-oracle-ee</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The name of the engine to describe DB instance options for.</para><para>Valid Values:</para><ul><li><para><code>aurora-mysql</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>custom-oracle-ee</code></para></li><li><para><code>db2-ae</code></para></li><li><para><code>db2-se</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version filter value. Specify this parameter to show only the available
-        /// offerings matching the specified engine version.</para>
+        /// <para>A filter to include only the available options for the specified engine version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model filter value. Specify this parameter to show only the available
-        /// offerings matching the specified license model.</para><para>RDS Custom supports only the BYOL licensing model.</para>
+        /// <para>A filter to include only the available options for the specified license model.</para><para>RDS Custom supports only the BYOL licensing model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

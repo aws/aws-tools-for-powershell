@@ -4088,6 +4088,7 @@ $ASYN_SelectMap = @{
                "Get-ASYNApiAssociation",
                "Get-ASYNApiCache",
                "Get-ASYNDataSource",
+               "Get-ASYNDataSourceIntrospection",
                "Get-ASYNDomainName",
                "Get-ASYNFunction",
                "Get-ASYNGraphqlApi",
@@ -4107,6 +4108,7 @@ $ASYN_SelectMap = @{
                "Get-ASYNResourceTag",
                "Get-ASYNTypeList",
                "Get-ASYNTypesByAssociationList",
+               "Start-ASYNDataSourceIntrospection",
                "Start-ASYNSchemaCreation",
                "Start-ASYNSchemaMerge",
                "Add-ASYNResourceTag",
@@ -5166,6 +5168,172 @@ $MH_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MH_SelectCompleters $MH_SelectMap
+# Argument completions for service AWS B2B Data Interchange
+
+
+$B2BI_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.B2bi.CapabilityType
+        "New-B2BICapability/Type"
+        {
+            $v = "edi"
+            break
+        }
+
+        # Amazon.B2bi.FileFormat
+        {
+            ($_ -eq "New-B2BITransformer/FileFormat") -Or
+            ($_ -eq "Test-B2BIMapping/FileFormat") -Or
+            ($_ -eq "Test-B2BIParsing/FileFormat") -Or
+            ($_ -eq "Update-B2BITransformer/FileFormat")
+        }
+        {
+            $v = "JSON","XML"
+            break
+        }
+
+        # Amazon.B2bi.Logging
+        "New-B2BIProfile/Logging"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.B2bi.TransformerStatus
+        "Update-B2BITransformer/Status"
+        {
+            $v = "active","inactive"
+            break
+        }
+
+        # Amazon.B2bi.X12TransactionSet
+        {
+            ($_ -eq "New-B2BICapability/Configuration_Edi_Type_X12Details_TransactionSet") -Or
+            ($_ -eq "Update-B2BICapability/Configuration_Edi_Type_X12Details_TransactionSet") -Or
+            ($_ -eq "New-B2BITransformer/EdiType_X12Details_TransactionSet") -Or
+            ($_ -eq "Test-B2BIParsing/EdiType_X12Details_TransactionSet") -Or
+            ($_ -eq "Update-B2BITransformer/EdiType_X12Details_TransactionSet")
+        }
+        {
+            $v = "X12_110","X12_180","X12_204","X12_210","X12_214","X12_215","X12_310","X12_315","X12_322","X12_404","X12_410","X12_820","X12_824","X12_830","X12_846","X12_850","X12_852","X12_855","X12_856","X12_860","X12_861","X12_864","X12_940","X12_990","X12_997"
+            break
+        }
+
+        # Amazon.B2bi.X12Version
+        {
+            ($_ -eq "New-B2BICapability/Configuration_Edi_Type_X12Details_Version") -Or
+            ($_ -eq "Update-B2BICapability/Configuration_Edi_Type_X12Details_Version") -Or
+            ($_ -eq "New-B2BITransformer/EdiType_X12Details_Version") -Or
+            ($_ -eq "Test-B2BIParsing/EdiType_X12Details_Version") -Or
+            ($_ -eq "Update-B2BITransformer/EdiType_X12Details_Version")
+        }
+        {
+            $v = "VERSION_4010","VERSION_4030","VERSION_5010"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$B2BI_map = @{
+    "Configuration_Edi_Type_X12Details_TransactionSet"=@("New-B2BICapability","Update-B2BICapability")
+    "Configuration_Edi_Type_X12Details_Version"=@("New-B2BICapability","Update-B2BICapability")
+    "EdiType_X12Details_TransactionSet"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
+    "EdiType_X12Details_Version"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
+    "FileFormat"=@("New-B2BITransformer","Test-B2BIMapping","Test-B2BIParsing","Update-B2BITransformer")
+    "Logging"=@("New-B2BIProfile")
+    "Status"=@("Update-B2BITransformer")
+    "Type"=@("New-B2BICapability")
+}
+
+_awsArgumentCompleterRegistration $B2BI_Completers $B2BI_map
+
+$B2BI_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.B2BI.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$B2BI_SelectMap = @{
+    "Select"=@("New-B2BICapability",
+               "New-B2BIPartnership",
+               "New-B2BIProfile",
+               "New-B2BITransformer",
+               "Remove-B2BICapability",
+               "Remove-B2BIPartnership",
+               "Remove-B2BIProfile",
+               "Remove-B2BITransformer",
+               "Get-B2BICapability",
+               "Get-B2BIPartnership",
+               "Get-B2BIProfile",
+               "Get-B2BITransformer",
+               "Get-B2BITransformerJob",
+               "Get-B2BICapabilityList",
+               "Get-B2BIPartnershipList",
+               "Get-B2BIProfileList",
+               "Get-B2BIResourceTag",
+               "Get-B2BITransformerList",
+               "Start-B2BITransformerJob",
+               "Add-B2BIResourceTag",
+               "Test-B2BIMapping",
+               "Test-B2BIParsing",
+               "Remove-B2BIResourceTag",
+               "Update-B2BICapability",
+               "Update-B2BIPartnership",
+               "Update-B2BIProfile",
+               "Update-B2BITransformer")
+}
+
+_awsArgumentCompleterRegistration $B2BI_SelectCompleters $B2BI_SelectMap
 # Argument completions for service AWS Backup
 
 
@@ -5221,9 +5389,29 @@ $BAK_Completers = {
         }
 
         # Amazon.Backup.RestoreJobStatus
-        "Get-BAKRestoreJobList/ByStatus"
+        {
+            ($_ -eq "Get-BAKRestoreJobList/ByStatus") -Or
+            ($_ -eq "Get-BAKRestoreJobsByProtectedResourceList/ByStatus")
+        }
         {
             $v = "ABORTED","COMPLETED","FAILED","PENDING","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.RestoreTestingRecoveryPointSelectionAlgorithm
+        {
+            ($_ -eq "New-BAKRestoreTestingPlan/RestoreTestingPlan_RecoveryPointSelection_Algorithm") -Or
+            ($_ -eq "Update-BAKRestoreTestingPlan/RestoreTestingPlan_RecoveryPointSelection_Algorithm")
+        }
+        {
+            $v = "LATEST_WITHIN_WINDOW","RANDOM_WITHIN_WINDOW"
+            break
+        }
+
+        # Amazon.Backup.RestoreValidationStatus
+        "Write-BAKRestoreValidationResult/ValidationStatus"
+        {
+            $v = "FAILED","SUCCESSFUL","TIMED_OUT","VALIDATING"
             break
         }
 
@@ -5245,9 +5433,11 @@ $BAK_Completers = {
 $BAK_map = @{
     "AggregationPeriod"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
-    "ByStatus"=@("Get-BAKRestoreJobList")
+    "ByStatus"=@("Get-BAKRestoreJobList","Get-BAKRestoreJobsByProtectedResourceList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
+    "RestoreTestingPlan_RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
+    "ValidationStatus"=@("Write-BAKRestoreValidationResult")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -5308,6 +5498,8 @@ $BAK_SelectMap = @{
                "New-BAKLegalHold",
                "New-BAKLogicallyAirGappedBackupVault",
                "New-BAKReportPlan",
+               "New-BAKRestoreTestingPlan",
+               "New-BAKRestoreTestingSelection",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
                "Remove-BAKBackupVault",
@@ -5317,6 +5509,8 @@ $BAK_SelectMap = @{
                "Remove-BAKFramework",
                "Remove-BAKRecoveryPoint",
                "Remove-BAKReportPlan",
+               "Remove-BAKRestoreTestingPlan",
+               "Remove-BAKRestoreTestingSelection",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
@@ -5339,6 +5533,10 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultNotification",
                "Get-BAKLegalHold",
                "Get-BAKRecoveryPointRestoreMetadata",
+               "Get-BAKRestoreJobMetadata",
+               "Get-BAKRestoreTestingInferredMetadata",
+               "Get-BAKRestoreTestingPlan",
+               "Get-BAKRestoreTestingSelection",
                "Get-BAKSupportedResourceType",
                "Get-BAKBackupJobList",
                "Get-BAKBackupJobSummaryList",
@@ -5359,11 +5557,15 @@ $BAK_SelectMap = @{
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
                "Get-BAKRestoreJobList",
+               "Get-BAKRestoreJobsByProtectedResourceList",
                "Get-BAKRestoreJobSummaryList",
+               "Get-BAKRestoreTestingPlanList",
+               "Get-BAKRestoreTestingSelectionList",
                "Get-BAKResourceTag",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultLockConfiguration",
                "Write-BAKBackupVaultNotification",
+               "Write-BAKRestoreValidationResult",
                "Start-BAKBackupJob",
                "Start-BAKCopyJob",
                "Start-BAKReportJob",
@@ -5376,7 +5578,9 @@ $BAK_SelectMap = @{
                "Update-BAKGlobalSetting",
                "Update-BAKRecoveryPointLifecycle",
                "Update-BAKRegionSetting",
-               "Update-BAKReportPlan")
+               "Update-BAKReportPlan",
+               "Update-BAKRestoreTestingPlan",
+               "Update-BAKRestoreTestingSelection")
 }
 
 _awsArgumentCompleterRegistration $BAK_SelectCompleters $BAK_SelectMap
@@ -15695,6 +15899,7 @@ $ACT_SelectMap = @{
                "Reset-ACTLandingZone",
                "Add-ACTResourceTag",
                "Remove-ACTResourceTag",
+               "Update-ACTEnabledControl",
                "Update-ACTLandingZone")
 }
 
@@ -23648,6 +23853,13 @@ $EFS_Completers = {
             break
         }
 
+        # Amazon.ElasticFileSystem.ReplicationOverwriteProtection
+        "Update-EFSFileSystemProtection/ReplicationOverwriteProtection"
+        {
+            $v = "DISABLED","ENABLED","REPLICATING"
+            break
+        }
+
         # Amazon.ElasticFileSystem.ResourceIdType
         "Write-EFSAccountPreference/ResourceIdType"
         {
@@ -23683,6 +23895,7 @@ $EFS_Completers = {
 $EFS_map = @{
     "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
     "PerformanceMode"=@("New-EFSFileSystem")
+    "ReplicationOverwriteProtection"=@("Update-EFSFileSystemProtection")
     "ResourceIdType"=@("Write-EFSAccountPreference")
     "ThroughputMode"=@("New-EFSFileSystem","Update-EFSFileSystem")
 }
@@ -23766,7 +23979,8 @@ $EFS_SelectMap = @{
                "Write-EFSLifecycleConfiguration",
                "Add-EFSResourceTag",
                "Remove-EFSResourceTag",
-               "Update-EFSFileSystem")
+               "Update-EFSFileSystem",
+               "Update-EFSFileSystemProtection")
 }
 
 _awsArgumentCompleterRegistration $EFS_SelectCompleters $EFS_SelectMap
@@ -26367,6 +26581,43 @@ _awsArgumentCompleterRegistration $KINF_SelectCompleters $KINF_SelectMap
 # Argument completions for service AWS Fault Injection Simulator
 
 
+$FIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.FIS.AccountTargeting
+        "New-FISExperimentTemplate/ExperimentOptions_AccountTargeting"
+        {
+            $v = "multi-account","single-account"
+            break
+        }
+
+        # Amazon.FIS.EmptyTargetResolutionMode
+        {
+            ($_ -eq "New-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode") -Or
+            ($_ -eq "Update-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode")
+        }
+        {
+            $v = "fail","skip"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$FIS_map = @{
+    "ExperimentOptions_AccountTargeting"=@("New-FISExperimentTemplate")
+    "ExperimentOptions_EmptyTargetResolutionMode"=@("New-FISExperimentTemplate","Update-FISExperimentTemplate")
+}
+
+_awsArgumentCompleterRegistration $FIS_Completers $FIS_map
+
 $FIS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -26416,21 +26667,29 @@ $FIS_SelectCompleters = {
 
 $FIS_SelectMap = @{
     "Select"=@("New-FISExperimentTemplate",
+               "New-FISTargetAccountConfiguration",
                "Remove-FISExperimentTemplate",
+               "Remove-FISTargetAccountConfiguration",
                "Get-FISAction",
                "Get-FISExperiment",
+               "Get-FISExperimentTargetAccountConfiguration",
                "Get-FISExperimentTemplate",
+               "Get-FISTargetAccountConfiguration",
                "Get-FISTargetResourceType",
                "Get-FISActionList",
+               "Get-FISExperimentResolvedTargetList",
                "Get-FISExperimentList",
+               "Get-FISExperimentTargetAccountConfigurationList",
                "Get-FISExperimentTemplateList",
                "Get-FISResourceTag",
+               "Get-FISTargetAccountConfigurationList",
                "Get-FISTargetResourceTypeList",
                "Start-FISExperiment",
                "Stop-FISExperiment",
                "Add-FISResourceTag",
                "Remove-FISResourceTag",
-               "Update-FISExperimentTemplate")
+               "Update-FISExperimentTemplate",
+               "Update-FISTargetAccountConfiguration")
 }
 
 _awsArgumentCompleterRegistration $FIS_SelectCompleters $FIS_SelectMap
@@ -57862,10 +58121,24 @@ $SHUB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecurityHub.AssociationType
+        "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationType"
+        {
+            $v = "APPLIED","INHERITED"
+            break
+        }
+
         # Amazon.SecurityHub.AutoEnableStandards
         "Update-SHUBOrganizationConfiguration/AutoEnableStandards"
         {
             $v = "DEFAULT","NONE"
+            break
+        }
+
+        # Amazon.SecurityHub.ConfigurationPolicyAssociationStatus
+        "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationStatus"
+        {
+            $v = "FAILED","PENDING","SUCCESS"
             break
         }
 
@@ -57883,6 +58156,20 @@ $SHUB_Completers = {
         "Update-SHUBStandardsControl/ControlStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SecurityHub.OrganizationConfigurationConfigurationType
+        "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_ConfigurationType"
+        {
+            $v = "CENTRAL","LOCAL"
+            break
+        }
+
+        # Amazon.SecurityHub.OrganizationConfigurationStatus
+        "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_Status"
+        {
+            $v = "ENABLED","FAILED","PENDING"
             break
         }
 
@@ -57933,6 +58220,10 @@ $SHUB_map = @{
     "AutoEnableStandards"=@("Update-SHUBOrganizationConfiguration")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
+    "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
+    "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
+    "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
@@ -57996,6 +58287,7 @@ $SHUB_SelectMap = @{
                "Disable-SHUBStandardsBatch",
                "Enable-SHUBStandardsBatch",
                "Get-SHUBGetAutomationRule",
+               "Get-SHUBGetConfigurationPolicyAssociation",
                "Get-SHUBGetSecurityControl",
                "Get-SHUBGetStandardsControlAssociation",
                "Import-SHUBFindingsBatch",
@@ -58004,11 +58296,13 @@ $SHUB_SelectMap = @{
                "Edit-SHUBUpdateStandardsControlAssociation",
                "New-SHUBActionTarget",
                "New-SHUBAutomationRule",
+               "New-SHUBConfigurationPolicy",
                "New-SHUBFindingAggregator",
                "New-SHUBInsight",
                "New-SHUBMember",
                "Deny-SHUBInvitation",
                "Remove-SHUBActionTarget",
+               "Remove-SHUBConfigurationPolicy",
                "Remove-SHUBFindingAggregator",
                "Remove-SHUBInsight",
                "Remove-SHUBInvitation",
@@ -58029,6 +58323,8 @@ $SHUB_SelectMap = @{
                "Enable-SHUBOrganizationAdminAccount",
                "Enable-SHUBSecurityHub",
                "Get-SHUBAdministratorAccount",
+               "Get-SHUBConfigurationPolicy",
+               "Get-SHUBConfigurationPolicyAssociation",
                "Get-SHUBEnabledStandard",
                "Get-SHUBFindingAggregator",
                "Get-SHUBFindingHistory",
@@ -58041,6 +58337,8 @@ $SHUB_SelectMap = @{
                "Get-SHUBSecurityControlDefinition",
                "Send-SHUBMemberInvitation",
                "Get-SHUBAutomationRuleList",
+               "Get-SHUBConfigurationPolicyList",
+               "Get-SHUBConfigurationPolicyAssociationList",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBInvitationList",
@@ -58049,9 +58347,12 @@ $SHUB_SelectMap = @{
                "Get-SHUBSecurityControlDefinitionList",
                "Get-SHUBStandardsControlAssociationList",
                "Get-SHUBResourceTag",
+               "Start-SHUBConfigurationPolicyAssociation",
+               "Start-SHUBConfigurationPolicyDisassociation",
                "Add-SHUBResourceTag",
                "Remove-SHUBResourceTag",
                "Update-SHUBActionTarget",
+               "Update-SHUBConfigurationPolicy",
                "Update-SHUBFindingAggregator",
                "Update-SHUBFinding",
                "Update-SHUBInsight",
@@ -62823,6 +63124,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.MedicalScribeJobStatus
+        "Get-TRSMedicalScribeJobList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","QUEUED"
+            break
+        }
+
         # Amazon.TranscribeService.ModelStatus
         "Get-TRSLanguageModelList/StatusEquals"
         {
@@ -62877,6 +63185,7 @@ $TRS_Completers = {
         # Amazon.TranscribeService.VocabularyFilterMethod
         {
             ($_ -eq "Start-TRSCallAnalyticsJob/Settings_VocabularyFilterMethod") -Or
+            ($_ -eq "Start-TRSMedicalScribeJob/Settings_VocabularyFilterMethod") -Or
             ($_ -eq "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod")
         }
         {
@@ -62912,10 +63221,10 @@ $TRS_map = @{
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
     "Settings_ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob")
     "Settings_ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob")
-    "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
+    "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSMedicalScribeJob","Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
     "StateEquals"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
-    "Status"=@("Get-TRSCallAnalyticsJobList","Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
+    "Status"=@("Get-TRSCallAnalyticsJobList","Get-TRSMedicalScribeJobList","Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
     "StatusEquals"=@("Get-TRSLanguageModelList")
     "Type"=@("Start-TRSMedicalTranscriptionJob")
 }
@@ -62978,6 +63287,7 @@ $TRS_SelectMap = @{
                "Remove-TRSCallAnalyticsCategory",
                "Remove-TRSCallAnalyticsJob",
                "Remove-TRSLanguageModel",
+               "Remove-TRSMedicalScribeJob",
                "Remove-TRSMedicalTranscriptionJob",
                "Remove-TRSMedicalVocabulary",
                "Remove-TRSTranscriptionJob",
@@ -62986,6 +63296,7 @@ $TRS_SelectMap = @{
                "Get-TRSLanguageModel",
                "Get-TRSCallAnalyticsCategory",
                "Get-TRSCallAnalyticsJob",
+               "Get-TRSMedicalScribeJob",
                "Get-TRSMedicalTranscriptionJob",
                "Get-TRSMedicalVocabulary",
                "Get-TRSTranscriptionJob",
@@ -62994,6 +63305,7 @@ $TRS_SelectMap = @{
                "Get-TRSCallAnalyticsCategoryList",
                "Get-TRSCallAnalyticsJobList",
                "Get-TRSLanguageModelList",
+               "Get-TRSMedicalScribeJobList",
                "Get-TRSMedicalTranscriptionJobList",
                "Get-TRSMedicalVocabularyList",
                "Get-TRSResourceTag",
@@ -63001,6 +63313,7 @@ $TRS_SelectMap = @{
                "Get-TRSVocabularyList",
                "Get-TRSVocabularyFilterList",
                "Start-TRSCallAnalyticsJob",
+               "Start-TRSMedicalScribeJob",
                "Start-TRSMedicalTranscriptionJob",
                "Start-TRSTranscriptionJob",
                "Add-TRSResourceTag",

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// that is associated with mirroring; in this case, the instance becomes a mirrored deployment
     /// and not a single-AZ deployment.
     /// </para><note><para>
-    /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
+    /// This operation doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
     /// <code>RestoreDBClusterToPointInTime</code>.
     /// </para></note>
     /// </summary>
@@ -95,9 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BackupTarget
         /// <summary>
         /// <para>
-        /// <para>Specifies where automated backups and manual snapshots are stored for the restored
-        /// DB instance.</para><para>Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code>
-        /// (Amazon Web Services Region). The default is <code>region</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// <para>The location for storing automated backups and manual snapshots for the restored DB
+        /// instance.</para><para>Valid Values:</para><ul><li><para><code>outposts</code> (Amazon Web Services Outposts)</para></li><li><para><code>region</code> (Amazon Web Services Region)</para></li></ul><para>Default: <code>region</code></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
         /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -146,8 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The database name for the restored DB instance.</para><note><para>This parameter isn't supported for the MySQL or MariaDB engines. It also doesn't apply
-        /// to RDS Custom.</para></note>
+        /// <para>The database name for the restored DB instance.</para><para>This parameter doesn't apply to the following DB instances:</para><ul><li><para>RDS Custom</para></li><li><para>RDS for Db2</para></li><li><para>RDS for MariaDB</para></li><li><para>RDS for MySQL</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for the new instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values:</para><ul><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul><para>Default: The same as source</para><para>Constraints:</para><ul><li><para>Must be compatible with the engine of the source.</para></li></ul>
+        /// <para>The database engine to use for the new instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values:</para><ul><li><para><code>db2-ae</code></para></li><li><para><code>db2-se</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul><para>Default: The same as source</para><para>Constraints:</para><ul><li><para>Must be compatible with the engine of the source.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

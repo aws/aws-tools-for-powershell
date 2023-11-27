@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// Amazon Transcribe Medical works</a>.
     /// </para><para>
     /// To make a <code>StartMedicalTranscriptionJob</code> request, you must first upload
-    /// your media file into an Amazon S3 bucket; you can then specify the S3 location of
-    /// the file using the <code>Media</code> parameter.
+    /// your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location
+    /// of the file using the <code>Media</code> parameter.
     /// </para><para>
     /// You must include the following parameters in your <code>StartMedicalTranscriptionJob</code>
     /// request:
@@ -79,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>Enables channel identification in multi-channel audio.</para><para>Channel identification transcribes the audio on each channel independently, then appends
         /// the output for each channel into one transcript.</para><para>If you have multi-channel audio and do not enable channel identification, your audio
         /// is transcribed in a continuous manner and your transcript does not separate the speech
-        /// by channel.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing
+        /// by channel.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing
         /// multi-channel audio</a>.</para>
         /// </para>
         /// </summary>
@@ -188,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaSampleRateHertz
         /// <summary>
         /// <para>
-        /// <para>The sample rate, in hertz, of the audio track in your input media file.</para><para>If you don't specify the media sample rate, Amazon Transcribe Medical determines it
-        /// for you. If you specify the sample rate, it must match the rate detected by Amazon
+        /// <para>The sample rate, in hertz, of the audio track in your input media file.</para><para>If you do not specify the media sample rate, Amazon Transcribe Medical determines
+        /// it for you. If you specify the sample rate, it must match the rate detected by Amazon
         /// Transcribe Medical; if there's a mismatch between the value that you specify and the
         /// value detected, your job fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code>
         /// and let Amazon Transcribe Medical determine the sample rate.</para>
@@ -253,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The KMS key you want to use to encrypt your medical transcription output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
         /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
-        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
         /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// using the <code>OutputLocation</code> parameter.</para><para>Note that the role making the request must have permission to use the specified KMS
         /// key.</para>
@@ -316,8 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning
         /// labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
-        /// <code>MaxSpeakerLabels</code>.</para><para>You can't include <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
+        /// <code>MaxSpeakerLabels</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
         /// speakers (diarization)</a>.</para>
         /// </para>
         /// </summary>
@@ -383,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The name of the custom vocabulary you want to use when processing your medical transcription
         /// job. Custom vocabulary names are case sensitive.</para><para>The language of the specified custom vocabulary must match the language code that
-        /// you specify in your transcription request. If the languages don't match, the custom
+        /// you specify in your transcription request. If the languages do not match, the custom
         /// vocabulary isn't applied. There are no errors or warnings associated with a language
         /// mismatch. US English (<code>en-US</code>) is the only valid language for Amazon Transcribe
         /// Medical.</para>

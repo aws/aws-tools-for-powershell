@@ -38,12 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// If you want to replace your original DB instance with the new, restored DB instance,
-    /// then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot
-    /// action. RDS doesn't allow two DB instances with the same name. After you have renamed
+    /// then rename your original DB instance before you call the <code>RestoreDBInstanceFromDBSnapshot</code>
+    /// operation. RDS doesn't allow two DB instances with the same name. After you have renamed
     /// your original DB instance with a different identifier, then you can pass the original
-    /// name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot
-    /// action. The result is that you replace the original DB instance with the DB instance
-    /// created from the snapshot.
+    /// name of the DB instance as the <code>DBInstanceIdentifier</code> in the call to the
+    /// <code>RestoreDBInstanceFromDBSnapshot</code> operation. The result is that you replace
+    /// the original DB instance with the DB instance created from the snapshot.
     /// </para><para>
     /// If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
     /// must be the ARN of the shared DB snapshot.
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 numbers, letters, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>The name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 numbers, letters, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The database name for the restored DB instance.</para><para>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines. It also
-        /// doesn't apply to RDS Custom DB instances.</para>
+        /// <para>The name of the database for the restored DB instance.</para><para>This parameter only applies to RDS for Oracle and RDS for SQL Server DB instances.
+        /// It doesn't apply to the other engines or to RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you don't specify a value for <code>DBParameterGroupName</code>, then RDS uses
-        /// the default <code>DBParameterGroup</code> for the specified DB engine.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBParameterGroup.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// the default <code>DBParameterGroup</code> for the specified DB engine.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBSnapshot.</para></li><li><para>Can't be specified when <code>DBClusterSnapshotIdentifier</code> is specified.</para></li><li><para>Must be specified when <code>DBClusterSnapshotIdentifier</code> isn't specified.</para></li><li><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+        /// <para>The identifier for the DB snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DB snapshot.</para></li><li><para>Can't be specified when <code>DBClusterSnapshotIdentifier</code> is specified.</para></li><li><para>Must be specified when <code>DBClusterSnapshotIdentifier</code> isn't specified.</para></li><li><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
         /// must be the ARN of the shared DB snapshot.</para></li></ul>
         /// </para>
         /// </summary>
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The DB subnet group name to use for the new instance.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mydbsubnetgroup</code></para>
+        /// <para>The name of the DB subnet group to use for the new instance.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB subnet group.</para></li></ul><para>Example: <code>mydbsubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,8 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specify the Active Directory directory ID to restore the DB instance in. The domain/
-        /// must be created prior to this operation. Currently, you can create only MySQL, Microsoft
+        /// <para>The Active Directory directory ID to restore the DB instance in. The domain/ must
+        /// be created prior to this operation. Currently, you can create only Db2, MySQL, Microsoft
         /// SQL Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
         /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
@@ -318,8 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// <para>The list of logs for the restored DB instance to export to CloudWatch Logs. The values
+        /// in the list depend on the DB engine. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
@@ -361,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The database engine to use for the new instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source. For example, you can
-        /// restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot.</para><para>Valid Values:</para><ul><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot.</para><para>Valid Values:</para><ul><li><para><code>db2-ae</code></para></li><li><para><code>db2-se</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

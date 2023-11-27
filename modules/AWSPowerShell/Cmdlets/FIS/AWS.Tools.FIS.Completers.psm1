@@ -75,6 +75,43 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Fault Injection Simulator
 
 
+$FIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.FIS.AccountTargeting
+        "New-FISExperimentTemplate/ExperimentOptions_AccountTargeting"
+        {
+            $v = "multi-account","single-account"
+            break
+        }
+
+        # Amazon.FIS.EmptyTargetResolutionMode
+        {
+            ($_ -eq "New-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode") -Or
+            ($_ -eq "Update-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode")
+        }
+        {
+            $v = "fail","skip"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$FIS_map = @{
+    "ExperimentOptions_AccountTargeting"=@("New-FISExperimentTemplate")
+    "ExperimentOptions_EmptyTargetResolutionMode"=@("New-FISExperimentTemplate","Update-FISExperimentTemplate")
+}
+
+_awsArgumentCompleterRegistration $FIS_Completers $FIS_map
+
 $FIS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,21 +161,29 @@ $FIS_SelectCompleters = {
 
 $FIS_SelectMap = @{
     "Select"=@("New-FISExperimentTemplate",
+               "New-FISTargetAccountConfiguration",
                "Remove-FISExperimentTemplate",
+               "Remove-FISTargetAccountConfiguration",
                "Get-FISAction",
                "Get-FISExperiment",
+               "Get-FISExperimentTargetAccountConfiguration",
                "Get-FISExperimentTemplate",
+               "Get-FISTargetAccountConfiguration",
                "Get-FISTargetResourceType",
                "Get-FISActionList",
+               "Get-FISExperimentResolvedTargetList",
                "Get-FISExperimentList",
+               "Get-FISExperimentTargetAccountConfigurationList",
                "Get-FISExperimentTemplateList",
                "Get-FISResourceTag",
+               "Get-FISTargetAccountConfigurationList",
                "Get-FISTargetResourceTypeList",
                "Start-FISExperiment",
                "Stop-FISExperiment",
                "Add-FISResourceTag",
                "Remove-FISResourceTag",
-               "Update-FISExperimentTemplate")
+               "Update-FISExperimentTemplate",
+               "Update-FISTargetAccountConfiguration")
 }
 
 _awsArgumentCompleterRegistration $FIS_SelectCompleters $FIS_SelectMap

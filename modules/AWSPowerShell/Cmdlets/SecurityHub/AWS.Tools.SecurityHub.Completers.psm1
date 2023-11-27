@@ -80,10 +80,24 @@ $SHUB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecurityHub.AssociationType
+        "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationType"
+        {
+            $v = "APPLIED","INHERITED"
+            break
+        }
+
         # Amazon.SecurityHub.AutoEnableStandards
         "Update-SHUBOrganizationConfiguration/AutoEnableStandards"
         {
             $v = "DEFAULT","NONE"
+            break
+        }
+
+        # Amazon.SecurityHub.ConfigurationPolicyAssociationStatus
+        "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationStatus"
+        {
+            $v = "FAILED","PENDING","SUCCESS"
             break
         }
 
@@ -101,6 +115,20 @@ $SHUB_Completers = {
         "Update-SHUBStandardsControl/ControlStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SecurityHub.OrganizationConfigurationConfigurationType
+        "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_ConfigurationType"
+        {
+            $v = "CENTRAL","LOCAL"
+            break
+        }
+
+        # Amazon.SecurityHub.OrganizationConfigurationStatus
+        "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_Status"
+        {
+            $v = "ENABLED","FAILED","PENDING"
             break
         }
 
@@ -151,6 +179,10 @@ $SHUB_map = @{
     "AutoEnableStandards"=@("Update-SHUBOrganizationConfiguration")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
+    "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
+    "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
+    "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
@@ -214,6 +246,7 @@ $SHUB_SelectMap = @{
                "Disable-SHUBStandardsBatch",
                "Enable-SHUBStandardsBatch",
                "Get-SHUBGetAutomationRule",
+               "Get-SHUBGetConfigurationPolicyAssociation",
                "Get-SHUBGetSecurityControl",
                "Get-SHUBGetStandardsControlAssociation",
                "Import-SHUBFindingsBatch",
@@ -222,11 +255,13 @@ $SHUB_SelectMap = @{
                "Edit-SHUBUpdateStandardsControlAssociation",
                "New-SHUBActionTarget",
                "New-SHUBAutomationRule",
+               "New-SHUBConfigurationPolicy",
                "New-SHUBFindingAggregator",
                "New-SHUBInsight",
                "New-SHUBMember",
                "Deny-SHUBInvitation",
                "Remove-SHUBActionTarget",
+               "Remove-SHUBConfigurationPolicy",
                "Remove-SHUBFindingAggregator",
                "Remove-SHUBInsight",
                "Remove-SHUBInvitation",
@@ -247,6 +282,8 @@ $SHUB_SelectMap = @{
                "Enable-SHUBOrganizationAdminAccount",
                "Enable-SHUBSecurityHub",
                "Get-SHUBAdministratorAccount",
+               "Get-SHUBConfigurationPolicy",
+               "Get-SHUBConfigurationPolicyAssociation",
                "Get-SHUBEnabledStandard",
                "Get-SHUBFindingAggregator",
                "Get-SHUBFindingHistory",
@@ -259,6 +296,8 @@ $SHUB_SelectMap = @{
                "Get-SHUBSecurityControlDefinition",
                "Send-SHUBMemberInvitation",
                "Get-SHUBAutomationRuleList",
+               "Get-SHUBConfigurationPolicyList",
+               "Get-SHUBConfigurationPolicyAssociationList",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBInvitationList",
@@ -267,9 +306,12 @@ $SHUB_SelectMap = @{
                "Get-SHUBSecurityControlDefinitionList",
                "Get-SHUBStandardsControlAssociationList",
                "Get-SHUBResourceTag",
+               "Start-SHUBConfigurationPolicyAssociation",
+               "Start-SHUBConfigurationPolicyDisassociation",
                "Add-SHUBResourceTag",
                "Remove-SHUBResourceTag",
                "Update-SHUBActionTarget",
+               "Update-SHUBConfigurationPolicy",
                "Update-SHUBFindingAggregator",
                "Update-SHUBFinding",
                "Update-SHUBInsight",

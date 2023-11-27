@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
     /// Returns the status of the specified landing zone operation. Details for an operation
-    /// are available for X days.
+    /// are available for 60 days.
     /// </summary>
     [Cmdlet("Get", "ACTLandingZoneOperation")]
     [OutputType("Amazon.ControlTower.Model.LandingZoneOperationDetail")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter OperationIdentifier
         /// <summary>
         /// <para>
-        /// <para>A unique identifier assigned to a landing zone operation. </para>
+        /// <para>A unique identifier assigned to a landing zone operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns information about the Organizations configuration for Security Hub. Can only
-    /// be called from a Security Hub administrator account.
+    /// Returns information about the way your organization is configured in Security Hub.
+    /// Only the Security Hub administrator account can invoke this operation.
     /// </summary>
     [Cmdlet("Get", "SHUBOrganizationConfiguration")]
     [OutputType("Amazon.SecurityHub.Model.DescribeOrganizationConfigurationResponse")]

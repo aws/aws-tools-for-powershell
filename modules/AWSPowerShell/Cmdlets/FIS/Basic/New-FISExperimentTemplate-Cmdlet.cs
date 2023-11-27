@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     /// the experiment is automatically stopped. You can define a stop condition as a CloudWatch
     /// alarm.
     /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">Experiment
+    /// For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">experiment
     /// templates</a> in the <i>Fault Injection Simulator User Guide</i>.
     /// </para>
     /// </summary>
@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter ExperimentOptions_AccountTargeting
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the account targeting setting for experiment options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FIS.AccountTargeting")]
+        public Amazon.FIS.AccountTargeting ExperimentOptions_AccountTargeting { get; set; }
+        #endregion
         
         #region Parameter Action
         /// <summary>
@@ -102,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ExperimentOptions_EmptyTargetResolutionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the empty target resolution mode for experiment options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FIS.EmptyTargetResolutionMode")]
+        public Amazon.FIS.EmptyTargetResolutionMode ExperimentOptions_EmptyTargetResolutionMode { get; set; }
         #endregion
         
         #region Parameter CloudWatchLogsConfiguration_LogGroupArn
@@ -269,6 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExperimentOptions_AccountTargeting = this.ExperimentOptions_AccountTargeting;
+            context.ExperimentOptions_EmptyTargetResolutionMode = this.ExperimentOptions_EmptyTargetResolutionMode;
             context.CloudWatchLogsConfiguration_LogGroupArn = this.CloudWatchLogsConfiguration_LogGroupArn;
             context.LogConfiguration_LogSchemaVersion = this.LogConfiguration_LogSchemaVersion;
             context.S3Configuration_BucketName = this.S3Configuration_BucketName;
@@ -333,6 +357,35 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ExperimentOptions
+            var requestExperimentOptionsIsNull = true;
+            request.ExperimentOptions = new Amazon.FIS.Model.CreateExperimentTemplateExperimentOptionsInput();
+            Amazon.FIS.AccountTargeting requestExperimentOptions_experimentOptions_AccountTargeting = null;
+            if (cmdletContext.ExperimentOptions_AccountTargeting != null)
+            {
+                requestExperimentOptions_experimentOptions_AccountTargeting = cmdletContext.ExperimentOptions_AccountTargeting;
+            }
+            if (requestExperimentOptions_experimentOptions_AccountTargeting != null)
+            {
+                request.ExperimentOptions.AccountTargeting = requestExperimentOptions_experimentOptions_AccountTargeting;
+                requestExperimentOptionsIsNull = false;
+            }
+            Amazon.FIS.EmptyTargetResolutionMode requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode = null;
+            if (cmdletContext.ExperimentOptions_EmptyTargetResolutionMode != null)
+            {
+                requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode = cmdletContext.ExperimentOptions_EmptyTargetResolutionMode;
+            }
+            if (requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode != null)
+            {
+                request.ExperimentOptions.EmptyTargetResolutionMode = requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode;
+                requestExperimentOptionsIsNull = false;
+            }
+             // determine if request.ExperimentOptions should be set to null
+            if (requestExperimentOptionsIsNull)
+            {
+                request.ExperimentOptions = null;
             }
             
              // populate LogConfiguration
@@ -493,6 +546,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             public Dictionary<System.String, Amazon.FIS.Model.CreateExperimentTemplateActionInput> Action { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.FIS.AccountTargeting ExperimentOptions_AccountTargeting { get; set; }
+            public Amazon.FIS.EmptyTargetResolutionMode ExperimentOptions_EmptyTargetResolutionMode { get; set; }
             public System.String CloudWatchLogsConfiguration_LogGroupArn { get; set; }
             public System.Int32? LogConfiguration_LogSchemaVersion { get; set; }
             public System.String S3Configuration_BucketName { get; set; }

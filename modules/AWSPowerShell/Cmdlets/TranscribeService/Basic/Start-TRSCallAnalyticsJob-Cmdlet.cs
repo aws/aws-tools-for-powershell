@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The name of the custom language model you want to use when processing your Call Analytics
         /// job. Note that custom language model names are case sensitive.</para><para>The language of the specified custom language model must match the language code that
-        /// you specify in your transcription request. If the languages don't match, the custom
+        /// you specify in your transcription request. If the languages do not match, the custom
         /// language model isn't applied. There are no errors or warnings associated with a language
         /// mismatch.</para>
         /// </para>
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The KMS key you want to use to encrypt your Call Analytics output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
         /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
-        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
         /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// using the <code>OutputLocation</code> parameter.</para><para>Note that the role making the request must have permission to use the specified KMS
         /// key.</para>
@@ -236,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// You can use any of the following formats to specify the output location:</para><ol><li><para>s3://DOC-EXAMPLE-BUCKET</para></li><li><para>s3://DOC-EXAMPLE-BUCKET/my-output-folder/</para></li><li><para>s3://DOC-EXAMPLE-BUCKET/my-output-folder/my-call-analytics-job.json</para></li></ol><para>Unless you specify a file name (option 3), the name of your output file has a default
         /// value that matches the name you specified for your transcription job using the <code>CallAnalyticsJobName</code>
         /// parameter.</para><para>You can specify a KMS key to encrypt your output using the <code>OutputEncryptionKMSKeyId</code>
-        /// parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon
-        /// S3 key for server-side encryption.</para><para>If you don't specify <code>OutputLocation</code>, your transcript is placed in a service-managed
-        /// Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
+        /// parameter. If you do not specify a KMS key, Amazon Transcribe uses the default Amazon
+        /// S3 key for server-side encryption.</para><para>If you do not specify <code>OutputLocation</code>, your transcript is placed in a
+        /// service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify which types of personally identifiable information (PII) you want to redact
         /// in your transcript. You can include as many types as you'd like, or you can select
-        /// <code>ALL</code>.</para>
+        /// <code>ALL</code>. If you do not include <code>PiiEntityTypes</code> in your request,
+        /// all PII is redacted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify the category of information you want to redact; <code>PII</code> (personally
         /// identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code>
-        /// to choose which types of PII you want to redact.</para>
+        /// to choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code>
+        /// in your request, all PII is redacted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

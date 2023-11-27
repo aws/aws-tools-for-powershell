@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     /// 
     ///  
     /// <para>
-    /// The return limit is one landing zone ARN. 
+    /// Returns one landing zone ARN.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ACTLandingZoneList")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of returned landing zone ARNs. </para>
+        /// <para>The maximum number of returned landing zone ARNs, which is one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to continue the list from a previous API call with the same parameters.
-        /// </para>
+        /// <para>The token to continue the list from a previous API call with the same parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

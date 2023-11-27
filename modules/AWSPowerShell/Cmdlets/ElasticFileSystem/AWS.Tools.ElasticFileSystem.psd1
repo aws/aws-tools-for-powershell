@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EFSResourceTag', 
         'Remove-EFSTag', 
         'Update-EFSFileSystem', 
+        'Update-EFSFileSystemProtection', 
         'Write-EFSAccountPreference', 
         'Write-EFSBackupPolicy', 
         'Write-EFSFileSystemPolicy', 

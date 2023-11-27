@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ExperimentOptions_EmptyTargetResolutionMode
+        /// <summary>
+        /// <para>
+        /// <para>The empty target resolution mode of the experiment template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FIS.EmptyTargetResolutionMode")]
+        public Amazon.FIS.EmptyTargetResolutionMode ExperimentOptions_EmptyTargetResolutionMode { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -227,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 }
             }
             context.Description = this.Description;
+            context.ExperimentOptions_EmptyTargetResolutionMode = this.ExperimentOptions_EmptyTargetResolutionMode;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -274,6 +286,25 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ExperimentOptions
+            var requestExperimentOptionsIsNull = true;
+            request.ExperimentOptions = new Amazon.FIS.Model.UpdateExperimentTemplateExperimentOptionsInput();
+            Amazon.FIS.EmptyTargetResolutionMode requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode = null;
+            if (cmdletContext.ExperimentOptions_EmptyTargetResolutionMode != null)
+            {
+                requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode = cmdletContext.ExperimentOptions_EmptyTargetResolutionMode;
+            }
+            if (requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode != null)
+            {
+                request.ExperimentOptions.EmptyTargetResolutionMode = requestExperimentOptions_experimentOptions_EmptyTargetResolutionMode;
+                requestExperimentOptionsIsNull = false;
+            }
+             // determine if request.ExperimentOptions should be set to null
+            if (requestExperimentOptionsIsNull)
+            {
+                request.ExperimentOptions = null;
             }
             if (cmdletContext.Id != null)
             {
@@ -433,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         {
             public Dictionary<System.String, Amazon.FIS.Model.UpdateExperimentTemplateActionInputItem> Action { get; set; }
             public System.String Description { get; set; }
+            public Amazon.FIS.EmptyTargetResolutionMode ExperimentOptions_EmptyTargetResolutionMode { get; set; }
             public System.String Id { get; set; }
             public System.String CloudWatchLogsConfiguration_LogGroupArn { get; set; }
             public System.Int32? LogConfiguration_LogSchemaVersion { get; set; }

@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>
-        /// <para>This is the ID of the creation request.</para>
+        /// <para>This is the ID of the creation request.</para><para>This parameter is optional. If used, this parameter must contain 1 to 50 alphanumeric
+        /// or '-_.' characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

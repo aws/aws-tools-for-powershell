@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Stops a database activity stream that was started using the Amazon Web Services console,
     /// the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code>
-    /// action.
+    /// operation.
     /// 
     ///  
     /// <para>

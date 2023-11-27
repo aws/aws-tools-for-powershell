@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         /// <summary>
         /// <para>
         /// <para>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls
-        /// are permitted, with the exception of the <b>Region deny</b> control. For information
-        /// on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the
+        /// are permitted, with the exception of the <b>landing zone Region deny</b> control.
+        /// For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the
         /// overview page</a>.</para>
         /// </para>
         /// </summary>
@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ControlIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>An array of <code>EnabledControlParameter</code> objects</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters")]
+        public Amazon.ControlTower.Model.EnabledControlParameter[] Parameter { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -164,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 WriteWarning("You are passing $null as a value for parameter ControlIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Parameter != null)
+            {
+                context.Parameter = new List<Amazon.ControlTower.Model.EnabledControlParameter>(this.Parameter);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -198,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (cmdletContext.ControlIdentifier != null)
             {
                 request.ControlIdentifier = cmdletContext.ControlIdentifier;
+            }
+            if (cmdletContext.Parameter != null)
+            {
+                request.Parameters = cmdletContext.Parameter;
             }
             if (cmdletContext.Tag != null)
             {
@@ -269,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ControlIdentifier { get; set; }
+            public List<Amazon.ControlTower.Model.EnabledControlParameter> Parameter { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TargetIdentifier { get; set; }
             public System.Func<Amazon.ControlTower.Model.EnableControlResponse, EnableACTControlCmdlet, object> Select { get; set; } =

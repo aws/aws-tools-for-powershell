@@ -96,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.DateTime? ByCreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ByRestoreTestingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>This returns only restore testing jobs that match the specified resource Amazon Resource
+        /// Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByRestoreTestingPlanArn { get; set; }
+        #endregion
+        
         #region Parameter ByStatus
         /// <summary>
         /// <para>
@@ -127,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <code>maxResults</code> number of items, <code>NextToken</code>
+        /// is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
         /// allows you to return more items in your list starting at the location pointed to by
         /// the next token.</para>
         /// </para>
@@ -181,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCompleteBefore = this.ByCompleteBefore;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByRestoreTestingPlanArn = this.ByRestoreTestingPlanArn;
             context.ByStatus = this.ByStatus;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -231,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByRestoreTestingPlanArn != null)
+            {
+                request.ByRestoreTestingPlanArn = cmdletContext.ByRestoreTestingPlanArn;
             }
             if (cmdletContext.ByStatus != null)
             {
@@ -314,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByRestoreTestingPlanArn != null)
+            {
+                request.ByRestoreTestingPlanArn = cmdletContext.ByRestoreTestingPlanArn;
             }
             if (cmdletContext.ByStatus != null)
             {
@@ -443,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCompleteBefore { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
+            public System.String ByRestoreTestingPlanArn { get; set; }
             public Amazon.Backup.RestoreJobStatus ByStatus { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

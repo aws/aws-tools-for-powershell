@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// If you don't specify a security group, the new DB cluster is associated with the default
     /// security group.
     /// </para><note><para>
-    /// This action only restores the DB cluster, not the DB instances for that DB cluster.
-    /// You must invoke the <code>CreateDBInstance</code> action to create DB instances for
-    /// the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>.
-    /// You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code>
-    /// action has completed and the DB cluster is available.
+    /// This operation only restores the DB cluster, not the DB instances for that DB cluster.
+    /// You must invoke the <code>CreateDBInstance</code> operation to create DB instances
+    /// for the restored DB cluster, specifying the identifier of the restored DB cluster
+    /// in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code>
+    /// operation has completed and the DB cluster is available.
     /// </para></note><para>
     /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.

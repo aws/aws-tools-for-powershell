@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnabledControl" OutputProperty="OperationIdentifier" Verb="Update" Noun="EnabledControl" ShouldProcessTarget="EnabledControlIdentifier" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLandingZone" OutputProperty="OperationIdentifier" Verb="Update" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

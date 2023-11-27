@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">
     /// Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// This operation only applies to Aurora DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

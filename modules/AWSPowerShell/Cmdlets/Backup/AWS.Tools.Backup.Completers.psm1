@@ -127,9 +127,29 @@ $BAK_Completers = {
         }
 
         # Amazon.Backup.RestoreJobStatus
-        "Get-BAKRestoreJobList/ByStatus"
+        {
+            ($_ -eq "Get-BAKRestoreJobList/ByStatus") -Or
+            ($_ -eq "Get-BAKRestoreJobsByProtectedResourceList/ByStatus")
+        }
         {
             $v = "ABORTED","COMPLETED","FAILED","PENDING","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.RestoreTestingRecoveryPointSelectionAlgorithm
+        {
+            ($_ -eq "New-BAKRestoreTestingPlan/RestoreTestingPlan_RecoveryPointSelection_Algorithm") -Or
+            ($_ -eq "Update-BAKRestoreTestingPlan/RestoreTestingPlan_RecoveryPointSelection_Algorithm")
+        }
+        {
+            $v = "LATEST_WITHIN_WINDOW","RANDOM_WITHIN_WINDOW"
+            break
+        }
+
+        # Amazon.Backup.RestoreValidationStatus
+        "Write-BAKRestoreValidationResult/ValidationStatus"
+        {
+            $v = "FAILED","SUCCESSFUL","TIMED_OUT","VALIDATING"
             break
         }
 
@@ -151,9 +171,11 @@ $BAK_Completers = {
 $BAK_map = @{
     "AggregationPeriod"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
-    "ByStatus"=@("Get-BAKRestoreJobList")
+    "ByStatus"=@("Get-BAKRestoreJobList","Get-BAKRestoreJobsByProtectedResourceList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
+    "RestoreTestingPlan_RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
+    "ValidationStatus"=@("Write-BAKRestoreValidationResult")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -214,6 +236,8 @@ $BAK_SelectMap = @{
                "New-BAKLegalHold",
                "New-BAKLogicallyAirGappedBackupVault",
                "New-BAKReportPlan",
+               "New-BAKRestoreTestingPlan",
+               "New-BAKRestoreTestingSelection",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
                "Remove-BAKBackupVault",
@@ -223,6 +247,8 @@ $BAK_SelectMap = @{
                "Remove-BAKFramework",
                "Remove-BAKRecoveryPoint",
                "Remove-BAKReportPlan",
+               "Remove-BAKRestoreTestingPlan",
+               "Remove-BAKRestoreTestingSelection",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
@@ -245,6 +271,10 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultNotification",
                "Get-BAKLegalHold",
                "Get-BAKRecoveryPointRestoreMetadata",
+               "Get-BAKRestoreJobMetadata",
+               "Get-BAKRestoreTestingInferredMetadata",
+               "Get-BAKRestoreTestingPlan",
+               "Get-BAKRestoreTestingSelection",
                "Get-BAKSupportedResourceType",
                "Get-BAKBackupJobList",
                "Get-BAKBackupJobSummaryList",
@@ -265,11 +295,15 @@ $BAK_SelectMap = @{
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
                "Get-BAKRestoreJobList",
+               "Get-BAKRestoreJobsByProtectedResourceList",
                "Get-BAKRestoreJobSummaryList",
+               "Get-BAKRestoreTestingPlanList",
+               "Get-BAKRestoreTestingSelectionList",
                "Get-BAKResourceTag",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultLockConfiguration",
                "Write-BAKBackupVaultNotification",
+               "Write-BAKRestoreValidationResult",
                "Start-BAKBackupJob",
                "Start-BAKCopyJob",
                "Start-BAKReportJob",
@@ -282,7 +316,9 @@ $BAK_SelectMap = @{
                "Update-BAKGlobalSetting",
                "Update-BAKRecoveryPointLifecycle",
                "Update-BAKRegionSetting",
-               "Update-BAKReportPlan")
+               "Update-BAKReportPlan",
+               "Update-BAKRestoreTestingPlan",
+               "Update-BAKRestoreTestingSelection")
 }
 
 _awsArgumentCompleterRegistration $BAK_SelectCompleters $BAK_SelectMap

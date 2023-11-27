@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A list of conditions that you define to assign resources to your backup plans using
-        /// tags. For example, <code>"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo",
-        /// "ConditionValue": "true" },</code>. Condition operators are case sensitive.</para><para><code>ListOfTags</code> differs from <code>Conditions</code> as follows:</para><ul><li><para>When you specify more than one condition, you assign all resources that match AT LEAST
+        /// tags. For example, <code>"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo",
+        /// "Value": "true" },</code>. Condition operators are case sensitive.</para><para><code>ListOfTags</code> differs from <code>Conditions</code> as follows:</para><ul><li><para>When you specify more than one condition, you assign all resources that match AT LEAST
         /// ONE condition (using OR logic).</para></li><li><para><code>ListOfTags</code> only supports <code>StringEquals</code>. <code>Conditions</code>
         /// supports <code>StringEquals</code>, <code>StringLike</code>, <code>StringNotEquals</code>,
         /// and <code>StringNotLike</code>. </para></li></ul>

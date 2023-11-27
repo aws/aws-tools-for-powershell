@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code>:
     /// If you know the language of your media file, specify it using the <code>LanguageCode</code>
     /// parameter; you can find all valid language codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
-    /// languages</a> table. If you don't know the languages spoken in your media, use either
+    /// languages</a> table. If you do not know the languages spoken in your media, use either
     /// <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> and let Amazon
     /// Transcribe identify the languages for you.
     /// </para></li></ul>
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Enables channel identification in multi-channel audio.</para><para>Channel identification transcribes the audio on each channel independently, then appends
-        /// the output for each channel into one transcript.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing
+        /// the output for each channel into one transcript.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing
         /// multi-channel audio</a>.</para>
         /// </para>
         /// </summary>
@@ -234,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The name of the custom language model you want to use when processing your transcription
         /// job. Note that custom language model names are case sensitive.</para><para>The language of the specified custom language model must match the language code that
-        /// you specify in your transcription request. If the languages don't match, the custom
+        /// you specify in your transcription request. If the languages do not match, the custom
         /// language model isn't applied. There are no errors or warnings associated with a language
         /// mismatch.</para>
         /// </para>
@@ -312,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaSampleRateHertz
         /// <summary>
         /// <para>
-        /// <para>The sample rate, in hertz, of the audio track in your input media file.</para><para>If you don't specify the media sample rate, Amazon Transcribe determines it for you.
+        /// <para>The sample rate, in hertz, of the audio track in your input media file.</para><para>If you do not specify the media sample rate, Amazon Transcribe determines it for you.
         /// If you specify the sample rate, it must match the rate detected by Amazon Transcribe.
         /// If there's a mismatch between the value that you specify and the value detected, your
         /// job fails. In most cases, you can omit <code>MediaSampleRateHertz</code> and let Amazon
@@ -336,8 +335,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// to <code>test-files/</code>.</para><para>Note that Amazon Transcribe must have permission to use the specified location. You
         /// can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon
         /// Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>If you don't specify <code>OutputBucketName</code>, your transcript is placed in a
-        /// service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
+        /// Required for IAM User Roles</a>.</para><para>If you do not specify <code>OutputBucketName</code>, your transcript is placed in
+        /// a service-managed Amazon S3 bucket and you are provided with a URI to access your
+        /// transcript.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The KMS key you want to use to encrypt your transcription output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
         /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
-        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
         /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// using the <code>OutputLocation</code> parameter.</para><para>Note that the role making the request must have permission to use the specified KMS
         /// key.</para>
@@ -397,7 +397,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify which types of personally identifiable information (PII) you want to redact
         /// in your transcript. You can include as many types as you'd like, or you can select
-        /// <code>ALL</code>.</para>
+        /// <code>ALL</code>. If you do not include <code>PiiEntityTypes</code> in your request,
+        /// all PII is redacted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -436,7 +437,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify the category of information you want to redact; <code>PII</code> (personally
         /// identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code>
-        /// to choose which types of PII you want to redact.</para>
+        /// to choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code>
+        /// in your request, all PII is redacted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -466,8 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning
         /// labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
-        /// <code>MaxSpeakerLabels</code>.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
+        /// <code>MaxSpeakerLabels</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
         /// speakers (diarization)</a>.</para>
         /// </para>
         /// </summary>

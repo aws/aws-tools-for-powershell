@@ -28,10 +28,17 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Deletes an existing replication configuration. Deleting a replication configuration
-    /// ends the replication process. After a replication configuration is deleted, the destination
-    /// file system is no longer read-only. You can write to the destination file system after
-    /// its status becomes <code>Writeable</code>.
+    /// Deletes a replication configuration. Deleting a replication configuration ends the
+    /// replication process. After a replication configuration is deleted, the destination
+    /// file system becomes <code>Writeable</code> and its replication overwrite protection
+    /// is re-enabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html">Delete
+    /// a replication configuration</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions for the <code>elasticfilesystem:DeleteReplicationConfiguration</code>
+    /// action. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EFSReplicationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

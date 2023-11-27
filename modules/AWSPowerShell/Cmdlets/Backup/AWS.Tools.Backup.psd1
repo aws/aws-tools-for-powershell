@@ -127,7 +127,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BAKResourceTag', 
         'Get-BAKRestoreJob', 
         'Get-BAKRestoreJobList', 
+        'Get-BAKRestoreJobMetadata', 
+        'Get-BAKRestoreJobsByProtectedResourceList', 
         'Get-BAKRestoreJobSummaryList', 
+        'Get-BAKRestoreTestingInferredMetadata', 
+        'Get-BAKRestoreTestingPlan', 
+        'Get-BAKRestoreTestingPlanList', 
+        'Get-BAKRestoreTestingSelection', 
+        'Get-BAKRestoreTestingSelectionList', 
         'Get-BAKSupportedResourceType', 
         'Move-BAKRecoveryPoint', 
         'New-BAKBackupPlan', 
@@ -137,6 +144,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-BAKLegalHold', 
         'New-BAKLogicallyAirGappedBackupVault', 
         'New-BAKReportPlan', 
+        'New-BAKRestoreTestingPlan', 
+        'New-BAKRestoreTestingSelection', 
         'Remove-BAKBackupPlan', 
         'Remove-BAKBackupSelection', 
         'Remove-BAKBackupVault', 
@@ -147,6 +156,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BAKRecoveryPoint', 
         'Remove-BAKReportPlan', 
         'Remove-BAKResourceTag', 
+        'Remove-BAKRestoreTestingPlan', 
+        'Remove-BAKRestoreTestingSelection', 
         'Start-BAKBackupJob', 
         'Start-BAKCopyJob', 
         'Start-BAKReportJob', 
@@ -160,9 +171,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BAKRecoveryPointLifecycle', 
         'Update-BAKRegionSetting', 
         'Update-BAKReportPlan', 
+        'Update-BAKRestoreTestingPlan', 
+        'Update-BAKRestoreTestingSelection', 
         'Write-BAKBackupVaultAccessPolicy', 
         'Write-BAKBackupVaultLockConfiguration', 
-        'Write-BAKBackupVaultNotification')
+        'Write-BAKBackupVaultNotification', 
+        'Write-BAKRestoreValidationResult')
 
     # Variables to export from this module
     VariablesToExport = '*'

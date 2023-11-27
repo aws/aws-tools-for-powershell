@@ -137,6 +137,7 @@ $ACT_SelectMap = @{
                "Reset-ACTLandingZone",
                "Add-ACTResourceTag",
                "Remove-ACTResourceTag",
+               "Update-ACTEnabledControl",
                "Update-ACTLandingZone")
 }
 

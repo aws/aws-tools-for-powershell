@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The maximum number of medical transcription jobs to return in each page of results.
         /// If there are fewer results than the value that you specify, only the actual results
-        /// are returned. If you don't specify a value, a default of 5 is used.</para>
+        /// are returned. If you do not specify a value, a default of 5 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Returns only medical transcription jobs with the specified status. Jobs are ordered
-        /// by creation date, with the newest job first. If you don't include <code>Status</code>,
+        /// by creation date, with the newest job first. If you do not include <code>Status</code>,
         /// all medical transcription jobs are returned.</para>
         /// </para>
         /// </summary>

@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetConfigurationPolicyAssociations" OutputProperty="*" Verb="Get" Noun="GetConfigurationPolicyAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetSecurityControls" OutputProperty="*" Verb="Get" Noun="GetSecurityControl" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationPolicy" OutputProperty="*" Verb="New" Noun="ConfigurationPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFindingAggregator" OutputProperty="*" Verb="New" Noun="FindingAggregator" ShouldProcessTarget="RegionLinkingMode" PipelineParameter="RegionLinkingMode" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="RegionList" />
@@ -94,6 +102,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteActionTarget" OutputProperty="ActionTargetArn" Verb="Remove" Noun="ActionTarget" ShouldProcessTarget="ActionTargetArn" PipelineParameter="ActionTargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationPolicy" Verb="Remove" Noun="ConfigurationPolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,6 +189,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationPolicy" OutputProperty="*" Verb="Get" Noun="ConfigurationPolicy" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationPolicyAssociation" OutputProperty="*" Verb="Get" Noun="ConfigurationPolicyAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEnabledStandards" OutputProperty="StandardsSubscriptions" Verb="Get" Noun="EnabledStandard" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -225,6 +245,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationPolicies" OutputProperty="ConfigurationPolicySummaries" Verb="Get" Noun="ConfigurationPolicyList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationPolicyAssociations" OutputProperty="ConfigurationPolicyAssociationSummaries" Verb="Get" Noun="ConfigurationPolicyAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnabledProductsForImport" OutputProperty="ProductSubscriptions" Verb="Get" Noun="EnabledProductsForImportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -259,6 +287,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartConfigurationPolicyAssociation" OutputProperty="*" Verb="Start" Noun="ConfigurationPolicyAssociation" ShouldProcessTarget="ConfigurationPolicyIdentifier" PipelineParameter="ConfigurationPolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartConfigurationPolicyDisassociation" Verb="Start" Noun="ConfigurationPolicyDisassociation" ShouldProcessTarget="ConfigurationPolicyIdentifier" PipelineParameter="ConfigurationPolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -268,6 +304,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateActionTarget" Verb="Update" Noun="ActionTarget" ShouldProcessTarget="ActionTargetArn" PipelineParameter="ActionTargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationPolicy" OutputProperty="*" Verb="Update" Noun="ConfigurationPolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

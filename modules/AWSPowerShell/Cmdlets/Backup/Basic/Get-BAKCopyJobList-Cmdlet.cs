@@ -110,9 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByMessageCategory
         /// <summary>
         /// <para>
-        /// <para>This parameter returns the job count for the specified message category.</para><para>Example accepted strings include <code>AccessDenied</code>, <code>Success</code>,
-        /// and <code>InvalidParameters</code>. See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
-        /// for a list of accepted MessageCategory strings.</para><para>The the value ANY returns count of all message categories.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns
+        /// <para>This is an optional parameter that can be used to filter out jobs with a MessageCategory
+        /// which matches the value you input.</para><para>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>,
+        /// and <code>INVALIDPARAMETERS</code>.</para><para>View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+        /// for a list of accepted strings.</para><para>The the value ANY returns count of all message categories.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns
         /// the sum.</para>
         /// </para>
         /// </summary>
@@ -177,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return maxResults number of items, NextToken allows you to return more
+        /// is made to return MaxResults number of items, NextToken allows you to return more
         /// items in your list starting at the location pointed to by the next token. </para>
         /// </para>
         /// <para>

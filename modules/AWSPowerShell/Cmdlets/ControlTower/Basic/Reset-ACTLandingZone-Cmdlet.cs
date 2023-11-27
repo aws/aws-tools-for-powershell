@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter LandingZoneIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the landing zone. </para>
+        /// <para>The unique identifier of the landing zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

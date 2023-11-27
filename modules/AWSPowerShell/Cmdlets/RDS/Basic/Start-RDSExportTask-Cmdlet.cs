@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// You can't export snapshot data from RDS Custom DB instances.
+    /// You can't export snapshot data from Db2 or RDS Custom DB instances.
     /// </para><para>
     /// You can't export cluster data from Multi-AZ DB clusters.
     /// </para><para>

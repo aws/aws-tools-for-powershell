@@ -64,11 +64,21 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Criteria_AwsAccountId
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services account ID in which a finding was generated. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
+        /// <para>The Amazon Web Services account ID in which a finding was generated.</para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.SecurityHub.Model.StringFilter[] Criteria_AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter Criteria_AwsAccountName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Web Services account in which a finding was generated. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityHub.Model.StringFilter[] Criteria_AwsAccountName { get; set; }
         #endregion
         
         #region Parameter Criteria_CompanyName
@@ -332,6 +342,26 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public Amazon.SecurityHub.Model.StringFilter[] Criteria_RelatedFindingsProductArn { get; set; }
         #endregion
         
+        #region Parameter Criteria_ResourceApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the application that is related to a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourceApplicationArn { get; set; }
+        #endregion
+        
+        #region Parameter Criteria_ResourceApplicationName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the application that is related to a finding. </para><para> Array Members: Minimum number of 1 item. Maximum number of 20 items. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourceApplicationName { get; set; }
+        #endregion
+        
         #region Parameter Criteria_ResourceDetailsOther
         /// <summary>
         /// <para>
@@ -473,7 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> User-defined tags that help you label the purpose of a rule. </para>
+        /// <para> User-defined tags associated with an automation rule. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -602,6 +632,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             {
                 context.Criteria_AwsAccountId = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_AwsAccountId);
             }
+            if (this.Criteria_AwsAccountName != null)
+            {
+                context.Criteria_AwsAccountName = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_AwsAccountName);
+            }
             if (this.Criteria_CompanyName != null)
             {
                 context.Criteria_CompanyName = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_CompanyName);
@@ -681,6 +715,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (this.Criteria_RelatedFindingsProductArn != null)
             {
                 context.Criteria_RelatedFindingsProductArn = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_RelatedFindingsProductArn);
+            }
+            if (this.Criteria_ResourceApplicationArn != null)
+            {
+                context.Criteria_ResourceApplicationArn = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourceApplicationArn);
+            }
+            if (this.Criteria_ResourceApplicationName != null)
+            {
+                context.Criteria_ResourceApplicationName = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourceApplicationName);
             }
             if (this.Criteria_ResourceDetailsOther != null)
             {
@@ -801,6 +843,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_AwsAccountId != null)
             {
                 request.Criteria.AwsAccountId = requestCriteria_criteria_AwsAccountId;
+                requestCriteriaIsNull = false;
+            }
+            List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_AwsAccountName = null;
+            if (cmdletContext.Criteria_AwsAccountName != null)
+            {
+                requestCriteria_criteria_AwsAccountName = cmdletContext.Criteria_AwsAccountName;
+            }
+            if (requestCriteria_criteria_AwsAccountName != null)
+            {
+                request.Criteria.AwsAccountName = requestCriteria_criteria_AwsAccountName;
                 requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_CompanyName = null;
@@ -1001,6 +1053,26 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_RelatedFindingsProductArn != null)
             {
                 request.Criteria.RelatedFindingsProductArn = requestCriteria_criteria_RelatedFindingsProductArn;
+                requestCriteriaIsNull = false;
+            }
+            List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceApplicationArn = null;
+            if (cmdletContext.Criteria_ResourceApplicationArn != null)
+            {
+                requestCriteria_criteria_ResourceApplicationArn = cmdletContext.Criteria_ResourceApplicationArn;
+            }
+            if (requestCriteria_criteria_ResourceApplicationArn != null)
+            {
+                request.Criteria.ResourceApplicationArn = requestCriteria_criteria_ResourceApplicationArn;
+                requestCriteriaIsNull = false;
+            }
+            List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceApplicationName = null;
+            if (cmdletContext.Criteria_ResourceApplicationName != null)
+            {
+                requestCriteria_criteria_ResourceApplicationName = cmdletContext.Criteria_ResourceApplicationName;
+            }
+            if (requestCriteria_criteria_ResourceApplicationName != null)
+            {
+                request.Criteria.ResourceApplicationName = requestCriteria_criteria_ResourceApplicationName;
                 requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.MapFilter> requestCriteria_criteria_ResourceDetailsOther = null;
@@ -1235,6 +1307,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public List<Amazon.SecurityHub.Model.AutomationRulesAction> Action { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_AwsAccountId { get; set; }
+            public List<Amazon.SecurityHub.Model.StringFilter> Criteria_AwsAccountName { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_CompanyName { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ComplianceAssociatedStandardsId { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ComplianceSecurityControlId { get; set; }
@@ -1255,6 +1328,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_RecordState { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_RelatedFindingsId { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_RelatedFindingsProductArn { get; set; }
+            public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceApplicationArn { get; set; }
+            public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceApplicationName { get; set; }
             public List<Amazon.SecurityHub.Model.MapFilter> Criteria_ResourceDetailsOther { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceId { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourcePartition { get; set; }
