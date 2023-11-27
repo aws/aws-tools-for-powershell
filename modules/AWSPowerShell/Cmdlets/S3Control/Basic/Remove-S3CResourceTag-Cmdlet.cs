@@ -29,21 +29,24 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// This operation removes the specified Amazon Web Services resource tags from an S3
-    /// resource. 
+    /// resource. Each tag is a label consisting of a user-defined key and value. Tags can
+    /// help you manage, identify, organize, search for, and filter resources. 
     /// 
-    ///  
-    /// <para>
-    /// To use this operation, you must have the permission to perform the <code>s3:UntagResource</code>
-    /// action. For more information about the required Storage Lens Groups permissions, see
-    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
+    ///  <note><para>
+    /// This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3
+    /// Storage Lens groups</a> and for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html">S3
+    /// Access Grants</a>. The tagged resource can be an S3 Storage Lens group or S3 Access
+    /// Grants instance, registered location, or grant. 
+    /// </para></note><dl><dt>Permissions</dt><dd><para>
+    /// You must have the <code>s3:UntagResource</code> permission to use this operation.
+    /// 
+    /// </para></dd></dl><para>
+    /// For more information about the required Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
     /// account permissions to use S3 Storage Lens groups</a>.
     /// </para><para>
     /// For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List
     /// of Amazon S3 Tagging error codes</a>.
-    /// </para><note><para>
-    /// This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3
-    /// Storage Lens groups</a>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "S3CResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -78,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the S3 resource that you want to remove the resource
+        /// <para> The Amazon Resource Name (ARN) of the S3 resource that you're trying to remove the
         /// tags from. </para>
         /// </para>
         /// </summary>
@@ -96,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> The tag key pair of the S3 resource tag that you're trying to remove. </para>
+        /// <para> The array of tag key-value pairs that you're trying to remove from of the S3 resource.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

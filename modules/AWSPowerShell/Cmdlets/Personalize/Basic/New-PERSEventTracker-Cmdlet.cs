@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para></note><para>
     /// When you create an event tracker, the response includes a tracking ID, which you pass
     /// as a parameter when you use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a>
-    /// operation. Amazon Personalize then appends the event data to the Interactions dataset
-    /// of the dataset group you specify in your event tracker. 
+    /// operation. Amazon Personalize then appends the event data to the Item interactions
+    /// dataset of the dataset group you specify in your event tracker. 
     /// </para><para>
     /// The event tracker can be in one of the following states:
     /// </para><ul><li><para>

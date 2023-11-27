@@ -77,6 +77,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableFederation" OutputProperty="*" Verb="Disable" Noun="Federation" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableFederation" OutputProperty="*" Verb="Enable" Noun="Federation" ShouldProcessTarget="FederationRoleArn" PipelineParameter="FederationRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="Channel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// an event data store ARN. After you run <code>DeleteEventDataStore</code>, the event
     /// data store enters a <code>PENDING_DELETION</code> state, and is automatically deleted
     /// after a wait period of seven days. <code>TerminationProtectionEnabled</code> must
-    /// be set to <code>False</code> on the event data store; this operation cannot work if
-    /// <code>TerminationProtectionEnabled</code> is <code>True</code>.
+    /// be set to <code>False</code> on the event data store and the <code>FederationStatus</code>
+    /// must be <code>DISABLED</code>. You cannot delete an event data store if <code>TerminationProtectionEnabled</code>
+    /// is <code>True</code> or the <code>FederationStatus</code> is <code>ENABLED</code>.
     /// 
     ///  
     /// <para>

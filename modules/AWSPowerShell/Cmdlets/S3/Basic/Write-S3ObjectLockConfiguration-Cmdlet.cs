@@ -40,8 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// but you must select one. You cannot specify <code>Days</code> and <code>Years</code>
     /// at the same time.
     /// </para></li><li><para>
-    /// You can only enable Object Lock for new buckets. If you want to turn on Object Lock
-    /// for an existing bucket, contact Amazon Web Services Support.
+    /// You can enable Object Lock for new or existing buckets. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html">Configuring
+    /// Object Lock</a>.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Write", "S3ObjectLockConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

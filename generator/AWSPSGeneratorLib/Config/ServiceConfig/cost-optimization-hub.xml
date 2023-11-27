@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cost-optimization-hub</C2jFilename>
+    <AssemblyName>CostOptimizationHub</AssemblyName>
+    <ServiceNounPrefix>COH</ServiceNounPrefix>
+    <ServiceName>Cost Optimization Hub</ServiceName>
+    <ServiceClientInterface>IAmazonCostOptimizationHub</ServiceClientInterface>
+    <ServiceClient>AmazonCostOptimizationHubClient</ServiceClient>
+    <ServiceModuleGuid>bba715a4-af97-4495-94f3-77edf9ff2e2d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetPreferences" OutputProperty="*" Verb="Get" Noun="Preference" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendation" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="RecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnrollmentStatuses" OutputProperty="Items" Verb="Get" Noun="EnrollmentStatusList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="Items" Verb="Get" Noun="RecommendationList" PipelineParameter="IncludeAllRecommendations" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendationSummaries" OutputProperty="*" Verb="Get" Noun="RecommendationSummaryList" PipelineParameter="GroupBy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnrollmentStatus" OutputProperty="Status" Verb="Update" Noun="EnrollmentStatus" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePreferences" OutputProperty="*" Verb="Update" Noun="Preference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

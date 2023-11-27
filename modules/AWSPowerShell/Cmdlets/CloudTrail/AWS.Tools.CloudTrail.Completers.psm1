@@ -188,6 +188,8 @@ $CT_SelectMap = @{
                "Unregister-CTOrganizationDelegatedAdmin",
                "Get-CTQuery",
                "Get-CTTrail",
+               "Disable-CTFederation",
+               "Enable-CTFederation",
                "Get-CTChannel",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",

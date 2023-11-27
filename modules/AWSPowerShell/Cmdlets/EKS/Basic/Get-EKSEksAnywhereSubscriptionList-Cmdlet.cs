@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The nextToken value to include in a future ListEksAnywhereSubscriptions request. When
-        /// the results of a ListEksAnywhereSubscriptions request exceed maxResults, you can use
-        /// this value to retrieve the next page of results. This value is null when there are
-        /// no more results to return.</para>
+        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListEksAnywhereSubscriptions</code>
+        /// request where <code>maxResults</code> was used and the results exceeded the value
+        /// of that parameter. Pagination continues from the end of the previous results that
+        /// returned the <code>nextToken</code> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

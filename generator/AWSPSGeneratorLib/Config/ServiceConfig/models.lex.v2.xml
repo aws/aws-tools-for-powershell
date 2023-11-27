@@ -46,7 +46,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBotLocale" OutputProperty="*" Verb="New" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" Alias="BedrockModelSpecification_ModelArn" />
+                <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBotVersion" OutputProperty="*" Verb="New" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
@@ -59,6 +63,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIntent" OutputProperty="*" Verb="New" Noun="Intent" ShouldProcessTarget="IntentName" PipelineParameter="IntentName" NoPipelineParameter="false">
             <Params>
+                <Param Name="KendraConfiguration_QueryFilterString" NewName="KendraConfiguration_QueryFilterString" />
+                <Param Name="KendraConfiguration_QueryFilterStringEnabled" NewName="KendraConfiguration_QueryFilterStringEnabled" />
+                <Param Name="KendraConfiguration_KendraIndex" NewName="KendraConfiguration_KendraIndex" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterString" NewName="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterString" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterStringEnabled" NewName="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterStringEnabled" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_KendraIndex" NewName="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_KendraIndex" />
                 <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_Active" NewName="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_Active" />
                 <Param Name="InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" NewName="InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" />
                 <Param Name="IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" NewName="IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" />
@@ -472,6 +482,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBotResourceGeneration" OutputProperty="*" Verb="Get" Noun="BotResourceGeneration" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBotVersion" OutputProperty="*" Verb="Get" Noun="BotVersion" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -520,6 +534,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateBotElement" OutputProperty="*" Verb="Get" Noun="BotElement" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTestExecutionArtifactsUrl" OutputProperty="*" Verb="Get" Noun="TestExecutionArtifactsUrl" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -537,6 +555,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBotRecommendations" OutputProperty="*" Verb="Get" Noun="BotRecommendationList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBotResourceGenerations" OutputProperty="*" Verb="Get" Noun="BotResourceGenerationList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -640,6 +662,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartBotResourceGeneration" OutputProperty="*" Verb="Start" Noun="BotResourceGeneration" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -673,7 +699,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBotLocale" OutputProperty="*" Verb="Update" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" Alias="BedrockModelSpecification_ModelArn" />
+                <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" />
+                <Param Name="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBotRecommendation" OutputProperty="*" Verb="Update" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
@@ -686,6 +716,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIntent" OutputProperty="*" Verb="Update" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
             <Params>
+                <Param Name="KendraConfiguration_QueryFilterString" NewName="KendraConfiguration_QueryFilterString" />
+                <Param Name="KendraConfiguration_QueryFilterStringEnabled" NewName="KendraConfiguration_QueryFilterStringEnabled" />
+                <Param Name="KendraConfiguration_KendraIndex" NewName="KendraConfiguration_KendraIndex" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterString" NewName="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterString" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterStringEnabled" NewName="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterStringEnabled" />
+                <Param Name="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_KendraIndex" NewName="QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_KendraIndex" />
                 <Param Name="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_Active" NewName="FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_Active" />
                 <Param Name="InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" NewName="InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" />
                 <Param Name="IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" NewName="IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" />

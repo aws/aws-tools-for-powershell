@@ -171,6 +171,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentityPropagationConfig" OutputProperty="*" Verb="Remove" Noun="IdentityPropagationConfig" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -464,6 +468,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityPropagationConfigs" OutputProperty="Services" Verb="Get" Noun="IdentityPropagationConfigList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -647,6 +655,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIAMPolicyAssignment" OutputProperty="*" Verb="Update" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdentityPropagationConfig" OutputProperty="*" Verb="Update" Noun="IdentityPropagationConfig" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

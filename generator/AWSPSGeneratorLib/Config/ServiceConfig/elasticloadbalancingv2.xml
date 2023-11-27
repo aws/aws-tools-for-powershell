@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>elasticloadbalancingv2</C2jFilename>
     <AssemblyName>ElasticLoadBalancingV2</AssemblyName>
@@ -22,7 +23,6 @@
         <Map From="Subnets" To="Subnet" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -33,6 +33,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddTags" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTrustStoreRevocations" OutputProperty="TrustStoreRevocations" Verb="Add" Noun="TrustStoreRevocation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -52,6 +56,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStores" Verb="New" Noun="TrustStore" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -65,6 +73,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTargetGroup" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,6 +128,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustStoreAssociations" OutputProperty="TrustStoreAssociations" Verb="Get" Noun="TrustStoreAssociation" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustStoreRevocations" OutputProperty="TrustStoreRevocations" Verb="Get" Noun="TrustStoreRevocation" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustStores" OutputProperty="TrustStores" Verb="Get" Noun="TrustStore" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustStoreCaCertificatesBundle" OutputProperty="Location" Verb="Get" Noun="TrustStoreCaCertificatesBundle" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustStoreRevocationContent" OutputProperty="Location" Verb="Get" Noun="TrustStoreRevocationContent" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyListener" OutputProperty="Listeners" Verb="Edit" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +168,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTrustStore" OutputProperty="TrustStores" Verb="Edit" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterTargets" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -145,6 +181,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTrustStoreRevocations" Verb="Remove" Noun="TrustStoreRevocation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,8 +205,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.ElasticLoadBalancingV2.Model.Certificate</Type>
     </TypesNotToFlatten>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>freetier</C2jFilename>
+    <AssemblyName>FreeTier</AssemblyName>
+    <ServiceNounPrefix>FT</ServiceNounPrefix>
+    <ServiceName>AWS Free Tier</ServiceName>
+    <ServiceClientInterface>IAmazonFreeTier</ServiceClientInterface>
+    <ServiceClient>AmazonFreeTierClient</ServiceClient>
+    <ServiceModuleGuid>097b56e7-ec31-4533-b6f0-78ec3846e02d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetFreeTierUsage" OutputProperty="FreeTierUsages" Verb="Get" Noun="FreeTierUsage" PipelineParameter="Filter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten>
+        <Type>Amazon.FreeTier.Model.Expression</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

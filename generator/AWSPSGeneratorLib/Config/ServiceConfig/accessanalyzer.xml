@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckAccessNotGranted" OutputProperty="*" Verb="Test" Noun="AccessNotGranted" IgnoreSupportsShouldProcess="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckNoNewAccess" OutputProperty="*" Verb="Test" Noun="NoNewAccess" IgnoreSupportsShouldProcess="true" PipelineParameter="NewPolicyDocument" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAccessPreview" OutputProperty="Id" Verb="New" Noun="AccessPreview" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingV2" OutputProperty="*" Verb="Get" Noun="FindingV2" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGeneratedPolicy" OutputProperty="*" Verb="Get" Noun="GeneratedPolicy" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFindings" OutputProperty="Findings" Verb="Get" Noun="FindingList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFindingsV2" OutputProperty="Findings" Verb="Get" Noun="FindingsV2List" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

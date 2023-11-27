@@ -39,8 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><para>
     /// To list the versions of a secret, use <a>ListSecretVersionIds</a>.
     /// </para><para>
-    /// To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
-    /// call <a>GetSecretValue</a>.
+    /// To retrieve the values for the secrets, call <a>BatchGetSecretValue</a> or <a>GetSecretValue</a>.
     /// </para><para>
     /// For information about finding secrets in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find
     /// secrets in Secrets Manager</a>.

@@ -111,15 +111,20 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter TrainingMode
         /// <summary>
         /// <para>
-        /// <para>The scope of training to be performed when creating the solution version. The <code>FULL</code>
-        /// option trains the solution version based on the entirety of the input solution's training
-        /// data, while the <code>UPDATE</code> option processes only the data that has changed
-        /// in comparison to the input solution. Choose <code>UPDATE</code> when you want to incrementally
-        /// update your solution version instead of creating an entirely new one.</para><important><para>The <code>UPDATE</code> option can only be used when you already have an active solution
+        /// <para>The scope of training to be performed when creating the solution version. The default
+        /// is <code>FULL</code>. This creates a completely new model based on the entirety of
+        /// the training data from the datasets in your dataset group. </para><para>If you use <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>,
+        /// you can specify a training mode of <code>UPDATE</code>. This updates the model to
+        /// consider new items for recommendations. It is not a full retraining. You should still
+        /// complete a full retraining weekly. If you specify <code>UPDATE</code>, Amazon Personalize
+        /// will stop automatic updates for the solution version. To resume updates, create a
+        /// new solution with training mode set to <code>FULL</code> and deploy it in a campaign.
+        /// For more information about automatic updates, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/use-case-recipe-features.html#maintaining-with-automatic-updates">Automatic
+        /// updates</a>. </para><para>The <code>UPDATE</code> option can only be used when you already have an active solution
         /// version created from the input solution using the <code>FULL</code> option and the
         /// input solution was trained with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
-        /// recipe or the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a>
-        /// recipe.</para></important>
+        /// recipe or the legacy <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a>
+        /// recipe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

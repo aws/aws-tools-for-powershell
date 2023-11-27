@@ -256,6 +256,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBInvitationsCount",
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
+               "Get-SHUBSecurityControlDefinition",
                "Send-SHUBMemberInvitation",
                "Get-SHUBAutomationRuleList",
                "Get-SHUBEnabledProductsForImportList",
@@ -273,6 +274,7 @@ $SHUB_SelectMap = @{
                "Update-SHUBFinding",
                "Update-SHUBInsight",
                "Update-SHUBOrganizationConfiguration",
+               "Update-SHUBSecurityControl",
                "Update-SHUBSecurityHubConfiguration",
                "Update-SHUBStandardsControl")
 }

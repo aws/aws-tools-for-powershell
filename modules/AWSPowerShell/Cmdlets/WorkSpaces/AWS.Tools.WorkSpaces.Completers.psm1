@@ -113,6 +113,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.DataReplication
+        "Edit-WKSWorkspaceProperty/DataReplication"
+        {
+            $v = "NO_REPLICATION","PRIMARY_AS_SOURCE"
+            break
+        }
+
         # Amazon.WorkSpaces.DedicatedTenancySupportEnum
         "Edit-WKSAccount/DedicatedTenancySupport"
         {
@@ -210,6 +217,7 @@ $WKS_map = @{
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
+    "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")

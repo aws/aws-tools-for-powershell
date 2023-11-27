@@ -28,8 +28,9 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Updates a campaign by either deploying a new solution or changing the value of the
-    /// campaign's <code>minProvisionedTPS</code> parameter.
+    /// Updates a campaign to deploy a retrained solution version with an existing campaign,
+    /// change your campaign's <code>minProvisionedTPS</code>, or modify your campaign's configuration,
+    /// such as the exploration configuration. 
     /// 
     ///  
     /// <para>
@@ -42,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// generate recommendations until the latest campaign update status is <code>Active</code>.
     /// 
     /// </para></note><para>
-    /// For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
+    /// For more information about updating a campaign, including code samples, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html">Updating
+    /// a campaign</a>. For more information about campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html">Creating
+    /// a campaign</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "PERSCampaign", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,6 +75,22 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CampaignArn { get; set; }
+        #endregion
+        
+        #region Parameter CampaignConfig_EnableMetadataWithRecommendation
+        /// <summary>
+        /// <para>
+        /// <para>Whether metadata with recommendations is enabled for the campaign. If enabled, you
+        /// can specify the columns from your Items dataset in your request for recommendations.
+        /// Amazon Personalize returns this data for each item in the recommendation response.
+        /// </para><para> If you enable metadata in recommendations, you will incur additional costs. For more
+        /// information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize
+        /// pricing</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CampaignConfig_EnableMetadataWithRecommendations")]
+        public System.Boolean? CampaignConfig_EnableMetadataWithRecommendation { get; set; }
         #endregion
         
         #region Parameter CampaignConfig_ItemExplorationConfig
@@ -181,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter CampaignArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CampaignConfig_EnableMetadataWithRecommendation = this.CampaignConfig_EnableMetadataWithRecommendation;
             if (this.CampaignConfig_ItemExplorationConfig != null)
             {
                 context.CampaignConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -215,6 +235,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
              // populate CampaignConfig
             var requestCampaignConfigIsNull = true;
             request.CampaignConfig = new Amazon.Personalize.Model.CampaignConfig();
+            System.Boolean? requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation = null;
+            if (cmdletContext.CampaignConfig_EnableMetadataWithRecommendation != null)
+            {
+                requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation = cmdletContext.CampaignConfig_EnableMetadataWithRecommendation.Value;
+            }
+            if (requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation != null)
+            {
+                request.CampaignConfig.EnableMetadataWithRecommendations = requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation.Value;
+                requestCampaignConfigIsNull = false;
+            }
             Dictionary<System.String, System.String> requestCampaignConfig_campaignConfig_ItemExplorationConfig = null;
             if (cmdletContext.CampaignConfig_ItemExplorationConfig != null)
             {
@@ -300,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CampaignArn { get; set; }
+            public System.Boolean? CampaignConfig_EnableMetadataWithRecommendation { get; set; }
             public Dictionary<System.String, System.String> CampaignConfig_ItemExplorationConfig { get; set; }
             public System.Int32? MinProvisionedTPS { get; set; }
             public System.String SolutionVersionArn { get; set; }

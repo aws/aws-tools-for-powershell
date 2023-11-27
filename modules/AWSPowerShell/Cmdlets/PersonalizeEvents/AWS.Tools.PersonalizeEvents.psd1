@@ -86,6 +86,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Write-PERSEAction', 
+        'Write-PERSEActionInteraction', 
         'Write-PERSEEvent', 
         'Write-PERSEItem', 
         'Write-PERSEUser')

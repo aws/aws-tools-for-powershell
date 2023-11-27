@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// multiple delivery sources to send logs to the same delivery destination.
     /// </para><para>
     /// Only some Amazon Web Services services support being configured as a delivery source.
-    /// These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/ AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions">Enabling
+    /// These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
     /// logging from Amazon Web Services services.</a></para><para>
     /// If you use this operation to update an existing delivery destination, all the current
     /// delivery destination parameters are overwritten with the new parameter values that

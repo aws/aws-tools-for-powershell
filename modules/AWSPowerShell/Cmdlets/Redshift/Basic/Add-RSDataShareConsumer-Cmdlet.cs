@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllowWrite
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, allows write operations for a datashare.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowWrites")]
+        public System.Boolean? AllowWrite { get; set; }
+        #endregion
+        
         #region Parameter AssociateEntireAccount
         /// <summary>
         /// <para>
@@ -154,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.Select = (response, cmdlet) => this.DataShareArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowWrite = this.AllowWrite;
             context.AssociateEntireAccount = this.AssociateEntireAccount;
             context.ConsumerArn = this.ConsumerArn;
             context.ConsumerRegion = this.ConsumerRegion;
@@ -180,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // create request
             var request = new Amazon.Redshift.Model.AssociateDataShareConsumerRequest();
             
+            if (cmdletContext.AllowWrite != null)
+            {
+                request.AllowWrites = cmdletContext.AllowWrite.Value;
+            }
             if (cmdletContext.AssociateEntireAccount != null)
             {
                 request.AssociateEntireAccount = cmdletContext.AssociateEntireAccount.Value;
@@ -257,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowWrite { get; set; }
             public System.Boolean? AssociateEntireAccount { get; set; }
             public System.String ConsumerArn { get; set; }
             public System.String ConsumerRegion { get; set; }

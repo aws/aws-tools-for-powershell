@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-FSXResourceTag', 
         'Clear-FSXFileSystemNfsV3Lock', 
         'Copy-FSXBackup', 
+        'Copy-FSXSnapshotAndUpdateVolume', 
         'Get-FSXBackup', 
         'Get-FSXDataRepositoryAssociation', 
         'Get-FSXDataRepositoryTask', 
@@ -96,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FSXFileSystem', 
         'Get-FSXFileSystemAlias', 
         'Get-FSXResourceTagList', 
+        'Get-FSXSharedVpcConfiguration', 
         'Get-FSXSnapshot', 
         'Get-FSXStorageVirtualMachine', 
         'Get-FSXVolume', 
@@ -125,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-FSXDataRepositoryAssociation', 
         'Update-FSXFileCache', 
         'Update-FSXFileSystem', 
+        'Update-FSXSharedVpcConfiguration', 
         'Update-FSXSnapshot', 
         'Update-FSXStorageVirtualMachine', 
         'Update-FSXVolume')

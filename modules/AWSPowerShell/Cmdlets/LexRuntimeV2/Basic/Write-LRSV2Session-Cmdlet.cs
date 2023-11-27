@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter Intent_ConfirmationState
         /// <summary>
         /// <para>
-        /// <para>Contains information about whether fulfillment of the intent has been confirmed.</para>
+        /// <para>Indicates whether the intent has been <code>Confirmed</code>, <code>Denied</code>,
+        /// or <code>None</code> if the confirmation stage has not yet been reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>Configures the slot to use spell-by-letter or spell-by-word style. When you use a
-        /// style on a slot, users can spell out their input to make it clear to your bot.</para><ul><li><para>Spell by letter - "b" "o" "b"</para></li><li><para>Spell by word - "b as in boy" "o as in oscar" "b as in boy"</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
+        /// style on a slot, users can spell out their input to make it clear to your bot.</para><ul><li><para>Spell by letter - "b" "o" "b"</para></li><li><para>Spell by word - "b as in boy" "o as in oscar" "b as in boy"</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/spelling-styles.html">
         /// Using spelling to enter slot values </a>.</para>
         /// </para>
         /// </summary>
@@ -260,7 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter Intent_State
         /// <summary>
         /// <para>
-        /// <para>Contains fulfillment information for the intent. </para>
+        /// <para>Indicates the fulfillment state for the intent. The meanings of each value are as
+        /// follows:</para><ul><li><para><code>Failed</code> – The bot failed to fulfill the intent.</para></li><li><para><code>Fulfilled</code> – The bot has completed fulfillment of the intent.</para></li><li><para><code>FulfillmentInProgress</code> – The bot is in the middle of fulfilling the intent.</para></li><li><para><code>InProgress</code> – The bot is in the middle of eliciting the slot values that
+        /// are necessary to fulfill the intent.</para></li><li><para><code>ReadyForFulfillment</code> – The bot has elicited all the slot values for the
+        /// intent and is ready to fulfill the intent.</para></li><li><para><code>Waiting</code> – The bot is waiting for a response from the user (limited to
+        /// streaming conversations).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,10 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter DialogAction_Type
         /// <summary>
         /// <para>
-        /// <para>The next action that the bot should take in its interaction with the user. The possible
-        /// values are:</para><ul><li><para><code>Close</code> - Indicates that there will not be a response from the user. For
-        /// example, the statement "Your order has been placed" does not require a response.</para></li><li><para><code>ConfirmIntent</code> - The next action is asking the user if the intent is
-        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> - The next action is determined by Amazon Lex V2.</para></li><li><para><code>ElicitIntent</code> - The next action is to elicit an intent from the user.</para></li><li><para><code>ElicitSlot</code> - The next action is to elicit a slot value from the user.</para></li></ul>
+        /// <para>The next action that the bot should take in its interaction with the user. The following
+        /// values are possible:</para><ul><li><para><code>Close</code> – Indicates that there will not be a response from the user. For
+        /// example, the statement "Your order has been placed" does not require a response.</para></li><li><para><code>ConfirmIntent</code> – The next action is asking the user if the intent is
+        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> – The next action is determined by Amazon Lex V2.</para></li><li><para><code>ElicitIntent</code> – The next action is to elicit an intent from the user.</para></li><li><para><code>ElicitSlot</code> – The next action is to elicit a slot value from the user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

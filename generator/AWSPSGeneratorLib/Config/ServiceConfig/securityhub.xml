@@ -213,6 +213,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityControlDefinition" OutputProperty="SecurityControlDefinition" Verb="Get" Noun="SecurityControlDefinition" PipelineParameter="SecurityControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InviteMembers" OutputProperty="UnprocessedAccounts" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -282,6 +286,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="AutoEnable" PipelineParameter="AutoEnable" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityControl" Verb="Update" Noun="SecurityControl" ShouldProcessTarget="SecurityControlId" PipelineParameter="SecurityControlId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

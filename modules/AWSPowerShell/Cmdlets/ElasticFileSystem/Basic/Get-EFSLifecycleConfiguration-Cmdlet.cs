@@ -29,16 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
-    /// EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code>
-    /// object to identify which files to move to the EFS Infrequent Access (IA) storage class.
-    /// For a file system without a <code>LifecycleConfiguration</code> object, the call returns
-    /// an empty array in the response.
+    /// EFS file system. Llifecycle management uses the <code>LifecycleConfiguration</code>
+    /// object to identify when to move files between storage classes. For a file system without
+    /// a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
+    /// response.
     /// 
     ///  
     /// <para>
-    /// When EFS Intelligent-Tiering is enabled, <code>TransitionToPrimaryStorageClass</code>
-    /// has a value of <code>AFTER_1_ACCESS</code>.
-    /// </para><para>
     /// This operation requires permissions for the <code>elasticfilesystem:DescribeLifecycleConfiguration</code>
     /// operation.
     /// </para>

@@ -250,7 +250,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
+        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
+        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
+        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// value. If you don't use the <code>StorageCapacity</code> parameter, the default is
         /// the backup's <code>StorageCapacity</code> value.</para><para>If used to create a file system other than OpenZFS, you must provide a value that
         /// matches the backup's <code>StorageCapacity</code> value. If you provide any other
-        /// value, Amazon FSx responds with a 400 Bad Request. </para>
+        /// value, Amazon FSx responds with with an HTTP status code 400 Bad Request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

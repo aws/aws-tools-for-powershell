@@ -80,6 +80,16 @@ $MBC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ManagedBlockchain.AccessorNetworkType
+        {
+            ($_ -eq "Get-MBCAccessorList/NetworkType") -Or
+            ($_ -eq "New-MBCAccessor/NetworkType")
+        }
+        {
+            $v = "ETHEREUM_GOERLI","ETHEREUM_MAINNET","ETHEREUM_MAINNET_AND_GOERLI","POLYGON_MAINNET","POLYGON_MUMBAI"
+            break
+        }
+
         # Amazon.ManagedBlockchain.AccessorType
         "New-MBCAccessor/AccessorType"
         {
@@ -158,6 +168,7 @@ $MBC_map = @{
     "AccessorType"=@("New-MBCAccessor")
     "Framework"=@("Get-MBCNetworkList","New-MBCNetwork")
     "FrameworkConfiguration_Fabric_Edition"=@("New-MBCNetwork")
+    "NetworkType"=@("Get-MBCAccessorList","New-MBCAccessor")
     "NodeConfiguration_StateDB"=@("New-MBCNode")
     "Status"=@("Get-MBCMemberList","Get-MBCNetworkList","Get-MBCNodeList")
     "Vote"=@("Send-MBCProposalVote")

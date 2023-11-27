@@ -85,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.Boolean? IncludeLinkedAccount { get; set; }
         #endregion
         
+        #region Parameter LogGroupClass
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the log group class for this log group. There are two classes:</para><ul><li><para>The <code>Standard</code> log class supports all CloudWatch Logs features.</para></li><li><para>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
+        /// features and incurs lower costs.</para></li></ul><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+        /// classes</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.LogGroupClass")]
+        public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
+        #endregion
+        
         #region Parameter LogGroupNamePattern
         /// <summary>
         /// <para>
@@ -216,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.LogGroupClass = this.LogGroupClass;
             context.LogGroupNamePattern = this.LogGroupNamePattern;
             context.LogGroupNamePrefix = this.LogGroupNamePrefix;
             context.NextToken = this.NextToken;
@@ -251,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.LogGroupClass != null)
+            {
+                request.LogGroupClass = cmdletContext.LogGroupClass;
             }
             if (cmdletContext.LogGroupNamePattern != null)
             {
@@ -322,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.IncludeLinkedAccount != null)
             {
                 request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
+            if (cmdletContext.LogGroupClass != null)
+            {
+                request.LogGroupClass = cmdletContext.LogGroupClass;
             }
             if (cmdletContext.LogGroupNamePattern != null)
             {
@@ -453,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public List<System.String> AccountIdentifier { get; set; }
             public System.Boolean? IncludeLinkedAccount { get; set; }
             public int? Limit { get; set; }
+            public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
             public System.String LogGroupNamePattern { get; set; }
             public System.String LogGroupNamePrefix { get; set; }
             public System.String NextToken { get; set; }

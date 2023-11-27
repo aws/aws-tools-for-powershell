@@ -340,6 +340,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ServiceType
+        {
+            ($_ -eq "Remove-QSIdentityPropagationConfig/Service") -Or
+            ($_ -eq "Update-QSIdentityPropagationConfig/Service")
+        }
+        {
+            $v = "REDSHIFT"
+            break
+        }
+
         # Amazon.QuickSight.SharingModel
         "New-QSFolder/SharingModel"
         {
@@ -471,6 +481,7 @@ $QS_map = @{
     "Schedule_RefreshType"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Schedule_ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "Service"=@("Remove-QSIdentityPropagationConfig","Update-QSIdentityPropagationConfig")
     "SharingModel"=@("New-QSFolder")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
@@ -562,6 +573,7 @@ $QS_SelectMap = @{
                "Remove-QSGroup",
                "Remove-QSGroupMembership",
                "Remove-QSIAMPolicyAssignment",
+               "Remove-QSIdentityPropagationConfig",
                "Remove-QSNamespace",
                "Remove-QSRefreshSchedule",
                "Remove-QSRoleCustomPermission",
@@ -634,6 +646,7 @@ $QS_SelectMap = @{
                "Get-QSGroupList",
                "Get-QSIAMPolicyAssignmentList",
                "Get-QSIAMPolicyAssignmentsForUserList",
+               "Get-QSIdentityPropagationConfigList",
                "Get-QSIngestionList",
                "Get-QSNamespaceList",
                "Get-QSRefreshScheduleList",
@@ -679,6 +692,7 @@ $QS_SelectMap = @{
                "Update-QSFolderPermission",
                "Update-QSGroup",
                "Update-QSIAMPolicyAssignment",
+               "Update-QSIdentityPropagationConfig",
                "Update-QSIpRestriction",
                "Update-QSPublicSharingSetting",
                "Update-QSRefreshSchedule",

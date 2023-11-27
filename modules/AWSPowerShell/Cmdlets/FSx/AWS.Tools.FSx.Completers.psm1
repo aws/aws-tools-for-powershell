@@ -145,14 +145,17 @@ $FSX_Completers = {
         # Amazon.FSx.OntapDeploymentType
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
-            $v = "MULTI_AZ_1","SINGLE_AZ_1"
+            $v = "MULTI_AZ_1","SINGLE_AZ_1","SINGLE_AZ_2"
             break
         }
 
         # Amazon.FSx.OpenZFSCopyStrategy
-        "New-FSXVolume/OpenZFSConfiguration_OriginSnapshot_CopyStrategy"
         {
-            $v = "CLONE","FULL_COPY"
+            ($_ -eq "Copy-FSXSnapshotAndUpdateVolume/CopyStrategy") -Or
+            ($_ -eq "New-FSXVolume/OpenZFSConfiguration_OriginSnapshot_CopyStrategy")
+        }
+        {
+            $v = "CLONE","FULL_COPY","INCREMENTAL_COPY"
             break
         }
 
@@ -277,6 +280,16 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.VolumeStyle
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_VolumeStyle") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_VolumeStyle")
+        }
+        {
+            $v = "FLEXGROUP","FLEXVOL"
+            break
+        }
+
         # Amazon.FSx.VolumeType
         "New-FSXVolume/VolumeType"
         {
@@ -293,6 +306,7 @@ $FSX_Completers = {
 }
 
 $FSX_map = @{
+    "CopyStrategy"=@("Copy-FSXSnapshotAndUpdateVolume")
     "FileCacheType"=@("New-FSXFileCache")
     "FileSystemType"=@("New-FSXFileSystem")
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
@@ -307,6 +321,7 @@ $FSX_map = @{
     "OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_SnaplockConfiguration_SnaplockType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "OntapConfiguration_VolumeStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")
     "OpenZFSConfiguration_DeploymentType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
@@ -374,6 +389,7 @@ $FSX_SelectMap = @{
     "Select"=@("Register-FSXFileSystemAlias",
                "Stop-FSXDataRepositoryTask",
                "Copy-FSXBackup",
+               "Copy-FSXSnapshotAndUpdateVolume",
                "New-FSXBackup",
                "New-FSXDataRepositoryAssociation",
                "New-FSXDataRepositoryTask",
@@ -397,6 +413,7 @@ $FSX_SelectMap = @{
                "Get-FSXFileCach",
                "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
+               "Get-FSXSharedVpcConfiguration",
                "Get-FSXSnapshot",
                "Get-FSXStorageVirtualMachine",
                "Get-FSXVolume",
@@ -410,6 +427,7 @@ $FSX_SelectMap = @{
                "Update-FSXDataRepositoryAssociation",
                "Update-FSXFileCache",
                "Update-FSXFileSystem",
+               "Update-FSXSharedVpcConfiguration",
                "Update-FSXSnapshot",
                "Update-FSXStorageVirtualMachine",
                "Update-FSXVolume")

@@ -112,8 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <summary>
         /// <para>
         /// <para>A list of items (by <code>itemId</code>) to rank. If an item was not included in the
-        /// training dataset, the item is appended to the end of the reranked list. The maximum
-        /// is 500.</para>
+        /// training dataset, the item is appended to the end of the reranked list. If you are
+        /// including metadata in recommendations, the maximum is 50. Otherwise, the maximum is
+        /// 500.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,6 +126,21 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String[] InputList { get; set; }
+        #endregion
+        
+        #region Parameter MetadataColumn
+        /// <summary>
+        /// <para>
+        /// <para>If you enabled metadata in recommendations when you created or updated the campaign,
+        /// specify metadata columns from your Items dataset to include in the personalized ranking.
+        /// The map key is <code>ITEMS</code> and the value is a list of column names from your
+        /// Items dataset. The maximum number of columns you can provide is 10.</para><para> For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling
+        /// metadata in recommendations for a campaign</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataColumns")]
+        public System.Collections.Hashtable MetadataColumn { get; set; }
         #endregion
         
         #region Parameter UserId
@@ -224,6 +240,26 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 WriteWarning("You are passing $null as a value for parameter InputList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MetadataColumn != null)
+            {
+                context.MetadataColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MetadataColumn.Keys)
+                {
+                    object hashValue = this.MetadataColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.MetadataColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.MetadataColumn.Add((String)hashKey, valueSet);
+                }
+            }
             context.UserId = this.UserId;
             #if MODULAR
             if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
@@ -266,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.InputList != null)
             {
                 request.InputList = cmdletContext.InputList;
+            }
+            if (cmdletContext.MetadataColumn != null)
+            {
+                request.MetadataColumns = cmdletContext.MetadataColumn;
             }
             if (cmdletContext.UserId != null)
             {
@@ -337,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             public System.String FilterArn { get; set; }
             public Dictionary<System.String, System.String> FilterValue { get; set; }
             public List<System.String> InputList { get; set; }
+            public Dictionary<System.String, List<System.String>> MetadataColumn { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.PersonalizeRuntime.Model.GetPersonalizedRankingResponse, GetPERSRPersonalizedRankingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PersonalizedRanking;

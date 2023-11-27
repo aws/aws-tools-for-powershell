@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For FSx for Lustre file systems, you can update the following properties:
     /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>LogConfiguration</code></para></li><li><para><code>LustreRootSquashConfiguration</code></para></li><li><para><code>PerUnitStorageThroughput</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for ONTAP file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>HAPairs</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>ThroughputCapacityPerHAPair</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
     /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
     /// </summary>
@@ -202,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
+        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
+        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
+        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
+        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
+        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
+        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,10 +333,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_ThroughputCapacity
         /// <summary>
         /// <para>
-        /// <para>Enter a new value to change the amount of throughput capacity for the file system.
-        /// Throughput capacity is measured in megabytes per second (MBps). Valid values are 128,
-        /// 256, 512, 1024, 2048, and 4096 MBps. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing
-        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para>
+        /// <para>Enter a new value to change the amount of throughput capacity for the file system
+        /// in megabytes per second (MBps). For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing
+        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
+        /// are not the same value.</para></li><li><para>The value of <code>ThroughputCapacity</code> when divided by the value of <code>HAPairs</code>
+        /// is outside of the valid range for <code>ThroughputCapacity</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,6 +355,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? OpenZFSConfiguration_ThroughputCapacity { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_ThroughputCapacityPerHAPair
+        /// <summary>
+        /// <para>
+        /// <para>Use to choose the throughput capacity per HA pair, rather than the total throughput
+        /// for the file system. </para><para>This field and <code>ThroughputCapacity</code> cannot be defined in the same API call,
+        /// but one is required.</para><para>This field and <code>ThroughputCapacity</code> are the same for file systems with
+        /// one HA pair.</para><ul><li><para>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256,
+        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
+        /// are not the same value.</para><para>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OntapConfiguration_ThroughputCapacityPerHAPair { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_WeeklyMaintenanceStartTime
@@ -463,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.OntapConfiguration_RemoveRouteTableId = new List<System.String>(this.OntapConfiguration_RemoveRouteTableId);
             }
             context.OntapConfiguration_ThroughputCapacity = this.OntapConfiguration_ThroughputCapacity;
+            context.OntapConfiguration_ThroughputCapacityPerHAPair = this.OntapConfiguration_ThroughputCapacityPerHAPair;
             context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
             if (this.OpenZFSConfiguration_AddRouteTableId != null)
             {
@@ -573,6 +598,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_ThroughputCapacity != null)
             {
                 request.OntapConfiguration.ThroughputCapacity = requestOntapConfiguration_ontapConfiguration_ThroughputCapacity.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_ThroughputCapacityPerHAPair = null;
+            if (cmdletContext.OntapConfiguration_ThroughputCapacityPerHAPair != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_ThroughputCapacityPerHAPair = cmdletContext.OntapConfiguration_ThroughputCapacityPerHAPair.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_ThroughputCapacityPerHAPair != null)
+            {
+                request.OntapConfiguration.ThroughputCapacityPerHAPair = requestOntapConfiguration_ontapConfiguration_ThroughputCapacityPerHAPair.Value;
                 requestOntapConfigurationIsNull = false;
             }
             System.String requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime = null;
@@ -833,6 +868,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
             public List<System.String> OntapConfiguration_RemoveRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
+            public System.Int32? OntapConfiguration_ThroughputCapacityPerHAPair { get; set; }
             public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public List<System.String> OpenZFSConfiguration_AddRouteTableId { get; set; }
             public System.Int32? OpenZFSConfiguration_AutomaticBackupRetentionDay { get; set; }

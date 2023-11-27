@@ -175,6 +175,13 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RecordingFrequency
+        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingMode_RecordingFrequency"
+        {
+            $v = "CONTINUOUS","DAILY"
+            break
+        }
+
         # Amazon.ConfigService.RecordingStrategyType
         "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"
         {
@@ -238,6 +245,7 @@ $CFG_map = @{
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
     "ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"=@("Write-CFGConfigurationRecorder")
+    "ConfigurationRecorder_RecordingMode_RecordingFrequency"=@("Write-CFGConfigurationRecorder")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")

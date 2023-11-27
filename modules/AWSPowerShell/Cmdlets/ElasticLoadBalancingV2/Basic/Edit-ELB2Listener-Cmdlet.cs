@@ -91,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.Model.Action[] DefaultAction { get; set; }
         #endregion
         
+        #region Parameter MutualAuthentication_IgnoreClientCertificateExpiry
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether expired client certificates are ignored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MutualAuthentication_IgnoreClientCertificateExpiry { get; set; }
+        #endregion
+        
         #region Parameter ListenerArn
         /// <summary>
         /// <para>
@@ -106,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ListenerArn { get; set; }
+        #endregion
+        
+        #region Parameter MutualAuthentication_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The client certificate handling method. Options are <code>off</code>, <code>passthrough</code>
+        /// or <code>verify</code>. The default value is <code>off</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MutualAuthentication_Mode { get; set; }
         #endregion
         
         #region Parameter Port
@@ -144,6 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SslPolicy { get; set; }
+        #endregion
+        
+        #region Parameter MutualAuthentication_TrustStoreArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the trust store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MutualAuthentication_TrustStoreArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -227,6 +258,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 WriteWarning("You are passing $null as a value for parameter ListenerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MutualAuthentication_IgnoreClientCertificateExpiry = this.MutualAuthentication_IgnoreClientCertificateExpiry;
+            context.MutualAuthentication_Mode = this.MutualAuthentication_Mode;
+            context.MutualAuthentication_TrustStoreArn = this.MutualAuthentication_TrustStoreArn;
             context.Port = this.Port;
             context.Protocol = this.Protocol;
             context.SslPolicy = this.SslPolicy;
@@ -261,6 +295,45 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.ListenerArn != null)
             {
                 request.ListenerArn = cmdletContext.ListenerArn;
+            }
+            
+             // populate MutualAuthentication
+            var requestMutualAuthenticationIsNull = true;
+            request.MutualAuthentication = new Amazon.ElasticLoadBalancingV2.Model.MutualAuthenticationAttributes();
+            System.Boolean? requestMutualAuthentication_mutualAuthentication_IgnoreClientCertificateExpiry = null;
+            if (cmdletContext.MutualAuthentication_IgnoreClientCertificateExpiry != null)
+            {
+                requestMutualAuthentication_mutualAuthentication_IgnoreClientCertificateExpiry = cmdletContext.MutualAuthentication_IgnoreClientCertificateExpiry.Value;
+            }
+            if (requestMutualAuthentication_mutualAuthentication_IgnoreClientCertificateExpiry != null)
+            {
+                request.MutualAuthentication.IgnoreClientCertificateExpiry = requestMutualAuthentication_mutualAuthentication_IgnoreClientCertificateExpiry.Value;
+                requestMutualAuthenticationIsNull = false;
+            }
+            System.String requestMutualAuthentication_mutualAuthentication_Mode = null;
+            if (cmdletContext.MutualAuthentication_Mode != null)
+            {
+                requestMutualAuthentication_mutualAuthentication_Mode = cmdletContext.MutualAuthentication_Mode;
+            }
+            if (requestMutualAuthentication_mutualAuthentication_Mode != null)
+            {
+                request.MutualAuthentication.Mode = requestMutualAuthentication_mutualAuthentication_Mode;
+                requestMutualAuthenticationIsNull = false;
+            }
+            System.String requestMutualAuthentication_mutualAuthentication_TrustStoreArn = null;
+            if (cmdletContext.MutualAuthentication_TrustStoreArn != null)
+            {
+                requestMutualAuthentication_mutualAuthentication_TrustStoreArn = cmdletContext.MutualAuthentication_TrustStoreArn;
+            }
+            if (requestMutualAuthentication_mutualAuthentication_TrustStoreArn != null)
+            {
+                request.MutualAuthentication.TrustStoreArn = requestMutualAuthentication_mutualAuthentication_TrustStoreArn;
+                requestMutualAuthenticationIsNull = false;
+            }
+             // determine if request.MutualAuthentication should be set to null
+            if (requestMutualAuthenticationIsNull)
+            {
+                request.MutualAuthentication = null;
             }
             if (cmdletContext.Port != null)
             {
@@ -339,6 +412,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public List<Amazon.ElasticLoadBalancingV2.Model.Certificate> Certificate { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Action> DefaultAction { get; set; }
             public System.String ListenerArn { get; set; }
+            public System.Boolean? MutualAuthentication_IgnoreClientCertificateExpiry { get; set; }
+            public System.String MutualAuthentication_Mode { get; set; }
+            public System.String MutualAuthentication_TrustStoreArn { get; set; }
             public System.Int32? Port { get; set; }
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
             public System.String SslPolicy { get; set; }

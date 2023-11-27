@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The number of licenses to purchase with the subscription. Valid values are between
-        /// 1 and 1000. This value cannot be changed after creating the subscription.</para>
+        /// 1 and 100. This value can't be changed after creating the subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The metadata for a subscription to assist with categorization and organization. Each
-        /// tag consists of a key and an optional value. Subscription tags do not propagate to
+        /// tag consists of a key and an optional value. Subscription tags don't propagate to
         /// any other resources associated with the subscription.</para>
         /// </para>
         /// </summary>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Term_Unit
         /// <summary>
         /// <para>
-        /// <para>The term unit of the subscription. Valid value is MONTHS.</para>
+        /// <para>The term unit of the subscription. Valid value is <code>MONTHS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

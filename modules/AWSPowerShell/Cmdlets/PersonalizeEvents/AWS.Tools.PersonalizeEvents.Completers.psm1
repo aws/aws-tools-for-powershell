@@ -123,7 +123,9 @@ $PERSE_SelectCompleters = {
 }
 
 $PERSE_SelectMap = @{
-    "Select"=@("Write-PERSEEvent",
+    "Select"=@("Write-PERSEActionInteraction",
+               "Write-PERSEAction",
+               "Write-PERSEEvent",
                "Write-PERSEItem",
                "Write-PERSEUser")
 }

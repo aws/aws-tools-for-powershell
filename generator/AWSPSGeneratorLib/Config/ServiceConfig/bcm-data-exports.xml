@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bcm-data-exports</C2jFilename>
+    <AssemblyName>BCMDataExports</AssemblyName>
+    <ServiceNounPrefix>BCMDE</ServiceNounPrefix>
+    <ServiceName>AWSBillingAndCostManagementDataExports</ServiceName>
+    <ServiceClientInterface>IAmazonBCMDataExports</ServiceClientInterface>
+    <ServiceClient>AmazonBCMDataExportsClient</ServiceClient>
+    <ServiceModuleGuid>5f88ef0d-2ee1-4a0a-8295-0e61de86e4ee</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateExport" OutputProperty="ExportArn" Verb="New" Noun="Export" ShouldProcessTarget="Export_Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExport" OutputProperty="ExportArn" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportArn" PipelineParameter="ExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="ExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExports" OutputProperty="Exports" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExport" OutputProperty="ExportArn" Verb="Update" Noun="Export" ShouldProcessTarget="ExportArn" PipelineParameter="ExportArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

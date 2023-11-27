@@ -123,7 +123,8 @@ $PERSR_SelectCompleters = {
 }
 
 $PERSR_SelectMap = @{
-    "Select"=@("Get-PERSRPersonalizedRanking",
+    "Select"=@("Get-PERSRActionRecommendation",
+               "Get-PERSRPersonalizedRanking",
                "Get-PERSRRecommendation")
 }
 

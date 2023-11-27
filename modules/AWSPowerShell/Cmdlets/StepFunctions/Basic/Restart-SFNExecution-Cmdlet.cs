@@ -44,10 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// state, <code>RedriveExecution</code> API action reschedules and redrives only the
     /// iterations and branches that failed or aborted.
     /// </para><para>
-    /// To redrive a workflow that includes a Distributed Map state with failed child workflow
-    /// executions, you must redrive the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html#dist-map-orchestrate-parallel-workloads-key-terms">parent
+    /// To redrive a workflow that includes a Distributed Map state whose Map Run failed,
+    /// you must redrive the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html#dist-map-orchestrate-parallel-workloads-key-terms">parent
     /// workflow</a>. The parent workflow redrives all the unsuccessful states, including
-    /// Distributed Map.
+    /// a failed Map Run. If a Map Run was not started in the original execution attempt,
+    /// the redriven parent workflow starts the Map Run.
     /// </para><note><para>
     /// This API action is not supported by <code>EXPRESS</code> state machines.
     /// </para><para>
@@ -110,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// the request. If you don’t specify a client token, the Amazon Web Services SDK automatically
         /// generates a client token and uses it for the request to ensure idempotency. The API
-        /// uses one of the last 10 client tokens provided.</para>
+        /// will return idempotent responses for the last 10 client tokens used to successfully
+        /// redrive the execution. These client tokens are valid for up to 15 minutes after they
+        /// are first used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

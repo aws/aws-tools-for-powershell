@@ -118,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-SFNExecution', 
         'Start-SFNSyncExecution', 
         'Stop-SFNExecution', 
+        'Test-SFNState', 
         'Update-SFNMapRun', 
         'Update-SFNStateMachine', 
         'Update-SFNStateMachineAlias')

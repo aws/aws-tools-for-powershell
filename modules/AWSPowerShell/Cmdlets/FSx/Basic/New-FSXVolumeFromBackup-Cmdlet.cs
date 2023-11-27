@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AggregateConfiguration_Aggregate
+        /// <summary>
+        /// <para>
+        /// <para>Used to specify the names of aggregates on which the volume will be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_AggregateConfiguration_Aggregates")]
+        public System.String[] AggregateConfiguration_Aggregate { get; set; }
+        #endregion
+        
         #region Parameter SnaplockConfiguration_AuditLogVolume
         /// <summary>
         /// <para>
@@ -85,6 +96,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter AggregateConfiguration_ConstituentsPerAggregate
+        /// <summary>
+        /// <para>
+        /// <para>Used to explicitly set the number of constituents within the FlexGroup per storage
+        /// aggregate. This field is optional when creating a FlexGroup volume. If unspecified,
+        /// the default value will be 8. This field cannot be provided when creating a FlexVol
+        /// volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_AggregateConfiguration_ConstituentsPerAggregate")]
+        public System.Int32? AggregateConfiguration_ConstituentsPerAggregate { get; set; }
         #endregion
         
         #region Parameter TieringPolicy_CoolingPeriod
@@ -212,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
         #endregion
         
-        #region Parameter OntapConfiguration_SizeInMegabyte
+        #region Parameter OntapConfiguration_SizeInByte
         /// <summary>
         /// <para>
-        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating.</para>
+        /// <para>The configured size of the volume, in bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OntapConfiguration_SizeInMegabytes")]
-        public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+        [Alias("OntapConfiguration_SizeInBytes")]
+        public System.Int64? OntapConfiguration_SizeInByte { get; set; }
         #endregion
         
         #region Parameter SnaplockConfiguration_SnaplockType
@@ -418,6 +443,32 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Boolean? SnaplockConfiguration_VolumeAppendModeEnabled { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_VolumeStyle
+        /// <summary>
+        /// <para>
+        /// <para>Use to specify the style of an ONTAP volume. For more information about FlexVols and
+        /// FlexGroups, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types.html">Volume
+        /// types</a> in Amazon FSx for NetApp ONTAP User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.VolumeStyle")]
+        public Amazon.FSx.VolumeStyle OntapConfiguration_VolumeStyle { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_SizeInMegabyte
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This property is deprecated, use SizeInBytes instead")]
+        [Alias("OntapConfiguration_SizeInMegabytes")]
+        public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Volume'.
@@ -495,11 +546,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AggregateConfiguration_Aggregate != null)
+            {
+                context.AggregateConfiguration_Aggregate = new List<System.String>(this.AggregateConfiguration_Aggregate);
+            }
+            context.AggregateConfiguration_ConstituentsPerAggregate = this.AggregateConfiguration_ConstituentsPerAggregate;
             context.OntapConfiguration_CopyTagsToBackup = this.OntapConfiguration_CopyTagsToBackup;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
             context.OntapConfiguration_OntapVolumeType = this.OntapConfiguration_OntapVolumeType;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
+            context.OntapConfiguration_SizeInByte = this.OntapConfiguration_SizeInByte;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SnaplockConfiguration_AuditLogVolume = this.SnaplockConfiguration_AuditLogVolume;
             context.AutocommitPeriod_Type = this.AutocommitPeriod_Type;
             context.AutocommitPeriod_Value = this.AutocommitPeriod_Value;
@@ -517,6 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_StorageVirtualMachineId = this.OntapConfiguration_StorageVirtualMachineId;
             context.TieringPolicy_CoolingPeriod = this.TieringPolicy_CoolingPeriod;
             context.TieringPolicy_Name = this.TieringPolicy_Name;
+            context.OntapConfiguration_VolumeStyle = this.OntapConfiguration_VolumeStyle;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.FSx.Model.Tag>(this.Tag);
@@ -593,6 +653,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OntapConfiguration.SecurityStyle = requestOntapConfiguration_ontapConfiguration_SecurityStyle;
                 requestOntapConfigurationIsNull = false;
             }
+            System.Int64? requestOntapConfiguration_ontapConfiguration_SizeInByte = null;
+            if (cmdletContext.OntapConfiguration_SizeInByte != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SizeInByte = cmdletContext.OntapConfiguration_SizeInByte.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SizeInByte != null)
+            {
+                request.OntapConfiguration.SizeInBytes = requestOntapConfiguration_ontapConfiguration_SizeInByte.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestOntapConfiguration_ontapConfiguration_SizeInMegabyte = null;
             if (cmdletContext.OntapConfiguration_SizeInMegabyte != null)
             {
@@ -603,6 +674,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OntapConfiguration.SizeInMegabytes = requestOntapConfiguration_ontapConfiguration_SizeInMegabyte.Value;
                 requestOntapConfigurationIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestOntapConfiguration_ontapConfiguration_SnapshotPolicy = null;
             if (cmdletContext.OntapConfiguration_SnapshotPolicy != null)
             {
@@ -631,6 +703,51 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_StorageVirtualMachineId != null)
             {
                 request.OntapConfiguration.StorageVirtualMachineId = requestOntapConfiguration_ontapConfiguration_StorageVirtualMachineId;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.VolumeStyle requestOntapConfiguration_ontapConfiguration_VolumeStyle = null;
+            if (cmdletContext.OntapConfiguration_VolumeStyle != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_VolumeStyle = cmdletContext.OntapConfiguration_VolumeStyle;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_VolumeStyle != null)
+            {
+                request.OntapConfiguration.VolumeStyle = requestOntapConfiguration_ontapConfiguration_VolumeStyle;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.CreateAggregateConfiguration requestOntapConfiguration_ontapConfiguration_AggregateConfiguration = null;
+            
+             // populate AggregateConfiguration
+            var requestOntapConfiguration_ontapConfiguration_AggregateConfigurationIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_AggregateConfiguration = new Amazon.FSx.Model.CreateAggregateConfiguration();
+            List<System.String> requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_Aggregate = null;
+            if (cmdletContext.AggregateConfiguration_Aggregate != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_Aggregate = cmdletContext.AggregateConfiguration_Aggregate;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_Aggregate != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AggregateConfiguration.Aggregates = requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_Aggregate;
+                requestOntapConfiguration_ontapConfiguration_AggregateConfigurationIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_ConstituentsPerAggregate = null;
+            if (cmdletContext.AggregateConfiguration_ConstituentsPerAggregate != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_ConstituentsPerAggregate = cmdletContext.AggregateConfiguration_ConstituentsPerAggregate.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_ConstituentsPerAggregate != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AggregateConfiguration.ConstituentsPerAggregate = requestOntapConfiguration_ontapConfiguration_AggregateConfiguration_aggregateConfiguration_ConstituentsPerAggregate.Value;
+                requestOntapConfiguration_ontapConfiguration_AggregateConfigurationIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_AggregateConfiguration should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_AggregateConfigurationIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_AggregateConfiguration = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_AggregateConfiguration != null)
+            {
+                request.OntapConfiguration.AggregateConfiguration = requestOntapConfiguration_ontapConfiguration_AggregateConfiguration;
                 requestOntapConfigurationIsNull = false;
             }
             Amazon.FSx.Model.TieringPolicy requestOntapConfiguration_ontapConfiguration_TieringPolicy = null;
@@ -951,10 +1068,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String BackupId { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> AggregateConfiguration_Aggregate { get; set; }
+            public System.Int32? AggregateConfiguration_ConstituentsPerAggregate { get; set; }
             public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
             public Amazon.FSx.InputOntapVolumeType OntapConfiguration_OntapVolumeType { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
+            public System.Int64? OntapConfiguration_SizeInByte { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
             public System.Boolean? SnaplockConfiguration_AuditLogVolume { get; set; }
             public Amazon.FSx.AutocommitPeriodType AutocommitPeriod_Type { get; set; }
@@ -973,6 +1094,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String OntapConfiguration_StorageVirtualMachineId { get; set; }
             public System.Int32? TieringPolicy_CoolingPeriod { get; set; }
             public Amazon.FSx.TieringPolicyName TieringPolicy_Name { get; set; }
+            public Amazon.FSx.VolumeStyle OntapConfiguration_VolumeStyle { get; set; }
             public List<Amazon.FSx.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.FSx.Model.CreateVolumeFromBackupResponse, NewFSXVolumeFromBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Volume;

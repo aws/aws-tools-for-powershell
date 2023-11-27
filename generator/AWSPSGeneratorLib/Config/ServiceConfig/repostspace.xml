@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>repostspace</C2jFilename>
+    <AssemblyName>Repostspace</AssemblyName>
+    <ServiceNounPrefix>RESP</ServiceNounPrefix>
+    <ServiceName>AWS re:Post Private</ServiceName>
+    <ServiceClientInterface>IAmazonRepostspace</ServiceClientInterface>
+    <ServiceClient>AmazonRepostspaceClient</ServiceClient>
+    <ServiceModuleGuid>81309a86-ea7f-45d9-9dd2-2bde0193085d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateSpace" OutputProperty="SpaceId" Verb="New" Noun="Space" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSpace" Verb="Remove" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterAdmin" Verb="Unregister" Noun="Admin" ShouldProcessTarget="AdminId" PipelineParameter="AdminId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpaces" OutputProperty="Spaces" Verb="Get" Noun="SpaceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAdmin" Verb="Register" Noun="Admin" ShouldProcessTarget="AdminId" PipelineParameter="AdminId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendInvites" Verb="Send" Noun="Invite" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSpace" Verb="Update" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -94,6 +94,13 @@ $SFN_Completers = {
             break
         }
 
+        # Amazon.StepFunctions.InspectionLevel
+        "Test-SFNState/InspectionLevel"
+        {
+            $v = "DEBUG","INFO","TRACE"
+            break
+        }
+
         # Amazon.StepFunctions.LogLevel
         {
             ($_ -eq "New-SFNStateMachine/LoggingConfiguration_Level") -Or
@@ -120,6 +127,7 @@ $SFN_Completers = {
 }
 
 $SFN_map = @{
+    "InspectionLevel"=@("Test-SFNState")
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
     "RedriveFilter"=@("Get-SFNExecutionList")
     "StatusFilter"=@("Get-SFNExecutionList")
@@ -207,6 +215,7 @@ $SFN_SelectMap = @{
                "Start-SFNSyncExecution",
                "Stop-SFNExecution",
                "Add-SFNResourceTag",
+               "Test-SFNState",
                "Remove-SFNResourceTag",
                "Update-SFNMapRun",
                "Update-SFNStateMachine",

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <RootNamespace>Amazon.PowerShell.Cmdlets.EKSAuth</RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">../../solutions/</SolutionDir>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591,1574,1570,1587</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../../aws-powershell.snk</AssemblyOriginatorKeyFile>
+    <OutputPath>bin/$(Configuration)/</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningsAsErrors>NU1605,CS0108</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>AWS.Tools.EKSAuth</AssemblyName>
+    <DocumentationFile>$(OutputPath)/AWS.Tools.EKSAuth.XML</DocumentationFile>
+    <DefineConstants>$(DefineConstants);NETSTANDARD;NETSTANDARD2_0;CORECLR;MODULAR</DefineConstants>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <Product>AWS Tools for PowerShell</Product>
+    <Copyright>Copyright 2012-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
+    <Company>Amazon.com, Inc</Company>
+    <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.0" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <Reference Include="AWSSDK.Core">
+      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.EKSAuth">
+      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EKSAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../../aws-powershell.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../ModularAWSPowerShell/AWS.Tools.Common.csproj" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

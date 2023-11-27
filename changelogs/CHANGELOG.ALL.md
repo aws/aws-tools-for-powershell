@@ -1,4 +1,172 @@
-﻿### 4.1.459 (2023-11-22 22:56Z)
+﻿### 4.1.460 (2023-11-27 08:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.693.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingAndCostManagementDataExports. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMDE and can be listed using the command 'Get-AWSCmdletName -Service BCMDE'.
+  * Amazon CloudTrail
+    * Added cmdlet Disable-CTFederation leveraging the DisableFederation service API.
+    * Added cmdlet Enable-CTFederation leveraging the EnableFederation service API.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLAnomalyList leveraging the ListAnomalies service API.
+    * Added cmdlet Get-CWLLogAnomalyDetector leveraging the GetLogAnomalyDetector service API.
+    * Added cmdlet Get-CWLLogAnomalyDetectorList leveraging the ListLogAnomalyDetectors service API.
+    * Added cmdlet New-CWLLogAnomalyDetector leveraging the CreateLogAnomalyDetector service API.
+    * Added cmdlet Remove-CWLLogAnomalyDetector leveraging the DeleteLogAnomalyDetector service API.
+    * Added cmdlet Update-CWLAnomaly leveraging the UpdateAnomaly service API.
+    * Added cmdlet Update-CWLLogAnomalyDetector leveraging the UpdateLogAnomalyDetector service API.
+    * Modified cmdlet Get-CWLLogGroup: added parameter LogGroupClass.
+    * Modified cmdlet New-CWLLogGroup: added parameter LogGroupClass.
+  * Amazon CodeStar Connections
+    * Added cmdlet Get-CSTCRepositoryLink leveraging the GetRepositoryLink service API.
+    * Added cmdlet Get-CSTCRepositoryLinkList leveraging the ListRepositoryLinks service API.
+    * Added cmdlet Get-CSTCRepositorySyncDefinitionList leveraging the ListRepositorySyncDefinitions service API.
+    * Added cmdlet Get-CSTCRepositorySyncStatus leveraging the GetRepositorySyncStatus service API.
+    * Added cmdlet Get-CSTCResourceSyncStatus leveraging the GetResourceSyncStatus service API.
+    * Added cmdlet Get-CSTCSyncBlockerSummary leveraging the GetSyncBlockerSummary service API.
+    * Added cmdlet Get-CSTCSyncConfiguration leveraging the GetSyncConfiguration service API.
+    * Added cmdlet Get-CSTCSyncConfigurationList leveraging the ListSyncConfigurations service API.
+    * Added cmdlet New-CSTCRepositoryLink leveraging the CreateRepositoryLink service API.
+    * Added cmdlet New-CSTCSyncConfiguration leveraging the CreateSyncConfiguration service API.
+    * Added cmdlet Remove-CSTCRepositoryLink leveraging the DeleteRepositoryLink service API.
+    * Added cmdlet Remove-CSTCSyncConfiguration leveraging the DeleteSyncConfiguration service API.
+    * Added cmdlet Update-CSTCRepositoryLink leveraging the UpdateRepositoryLink service API.
+    * Added cmdlet Update-CSTCSyncBlocker leveraging the UpdateSyncBlocker service API.
+    * Added cmdlet Update-CSTCSyncConfiguration leveraging the UpdateSyncConfiguration service API.
+  * Amazon Compute Optimizer
+    * Modified cmdlet Write-CORecommendationPreference: added parameters LookBackPeriod, PreferredResource, SavingsEstimationMode and UtilizationPreference.
+  * Amazon Config
+    * Modified cmdlet Write-CFGConfigurationRecorder: added parameters RecordingMode_RecordingFrequency and RecordingMode_RecordingModeOverride.
+  * Amazon Control Tower
+    * Added cmdlet Get-ACTLandingZone leveraging the GetLandingZone service API.
+    * Added cmdlet Get-ACTLandingZoneList leveraging the ListLandingZones service API.
+    * Added cmdlet Get-ACTLandingZoneOperation leveraging the GetLandingZoneOperation service API.
+    * Added cmdlet New-ACTLandingZone leveraging the CreateLandingZone service API.
+    * Added cmdlet Remove-ACTLandingZone leveraging the DeleteLandingZone service API.
+    * Added cmdlet Reset-ACTLandingZone leveraging the ResetLandingZone service API.
+    * Added cmdlet Update-ACTLandingZone leveraging the UpdateLandingZone service API.
+  * Amazon Cost Optimization Hub. Added cmdlets to support the service. Cmdlets for the service have the noun prefix COH and can be listed using the command 'Get-AWSCmdletName -Service COH'.
+  * Amazon Detective
+    * Added cmdlet Get-DTCTIndicatorList leveraging the ListIndicators service API.
+    * Added cmdlet Get-DTCTInvestigation leveraging the GetInvestigation service API.
+    * Added cmdlet Get-DTCTInvestigationList leveraging the ListInvestigations service API.
+    * Added cmdlet Start-DTCTInvestigation leveraging the StartInvestigation service API.
+    * Added cmdlet Update-DTCTInvestigationState leveraging the UpdateInvestigationState service API.
+  * Amazon EKS Auth. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EKSAU and can be listed using the command 'Get-AWSCmdletName -Service EKSAU'.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSPodIdentityAssociation leveraging the DescribePodIdentityAssociation service API.
+    * Added cmdlet Get-EKSPodIdentityAssociationList leveraging the ListPodIdentityAssociations service API.
+    * Added cmdlet New-EKSPodIdentityAssociation leveraging the CreatePodIdentityAssociation service API.
+    * Added cmdlet Remove-EKSPodIdentityAssociation leveraging the DeletePodIdentityAssociation service API.
+    * Added cmdlet Update-EKSPodIdentityAssociation leveraging the UpdatePodIdentityAssociation service API.
+  * Amazon Elastic Load Balancing V2
+    * Added cmdlet Add-ELB2TrustStoreRevocation leveraging the AddTrustStoreRevocations service API.
+    * Added cmdlet Edit-ELB2TrustStore leveraging the ModifyTrustStore service API.
+    * Added cmdlet Get-ELB2TrustStore leveraging the DescribeTrustStores service API.
+    * Added cmdlet Get-ELB2TrustStoreAssociation leveraging the DescribeTrustStoreAssociations service API.
+    * Added cmdlet Get-ELB2TrustStoreCaCertificatesBundle leveraging the GetTrustStoreCaCertificatesBundle service API.
+    * Added cmdlet Get-ELB2TrustStoreRevocation leveraging the DescribeTrustStoreRevocations service API.
+    * Added cmdlet Get-ELB2TrustStoreRevocationContent leveraging the GetTrustStoreRevocationContent service API.
+    * Added cmdlet New-ELB2TrustStore leveraging the CreateTrustStore service API.
+    * Added cmdlet Remove-ELB2TrustStore leveraging the DeleteTrustStore service API.
+    * Added cmdlet Remove-ELB2TrustStoreRevocation leveraging the RemoveTrustStoreRevocations service API.
+    * Modified cmdlet Edit-ELB2Listener: added parameters MutualAuthentication_IgnoreClientCertificateExpiry, MutualAuthentication_Mode and MutualAuthentication_TrustStoreArn.
+    * Modified cmdlet Get-ELB2TargetHealth: added parameter Include.
+    * Modified cmdlet New-ELB2Listener: added parameters MutualAuthentication_IgnoreClientCertificateExpiry, MutualAuthentication_Mode and MutualAuthentication_TrustStoreArn.
+  * Amazon Free Tier. Added cmdlets to support the service. Cmdlets for the service have the noun prefix FT and can be listed using the command 'Get-AWSCmdletName -Service FT'.
+  * Amazon FSx
+    * Added cmdlet Copy-FSXSnapshotAndUpdateVolume leveraging the CopySnapshotAndUpdateVolume service API.
+    * Added cmdlet Get-FSXSharedVpcConfiguration leveraging the DescribeSharedVpcConfiguration service API.
+    * Added cmdlet Update-FSXSharedVpcConfiguration leveraging the UpdateSharedVpcConfiguration service API.
+    * Modified cmdlet New-FSXFileSystem: added parameters OntapConfiguration_HAPair and OntapConfiguration_ThroughputCapacityPerHAPair.
+    * Modified cmdlet New-FSXVolume: added parameters AggregateConfiguration_Aggregate, AggregateConfiguration_ConstituentsPerAggregate, OntapConfiguration_SizeInByte and OntapConfiguration_VolumeStyle.
+    * Modified cmdlet New-FSXVolumeFromBackup: added parameters AggregateConfiguration_Aggregate, AggregateConfiguration_ConstituentsPerAggregate, OntapConfiguration_SizeInByte and OntapConfiguration_VolumeStyle.
+    * Modified cmdlet Update-FSXFileSystem: added parameter OntapConfiguration_ThroughputCapacityPerHAPair.
+    * Modified cmdlet Update-FSXVolume: added parameter OntapConfiguration_SizeInByte.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Get-IAMAAFindingsV2List leveraging the ListFindingsV2 service API.
+    * Added cmdlet Get-IAMAAFindingV2 leveraging the GetFindingV2 service API.
+    * Added cmdlet Test-IAMAAAccessNotGranted leveraging the CheckAccessNotGranted service API.
+    * Added cmdlet Test-IAMAANoNewAccess leveraging the CheckNoNewAccess service API.
+    * Modified cmdlet New-IAMAAAnalyzer: added parameter UnusedAccess_UnusedAccessAge.
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFLakeFormationIdentityCenterConfiguration leveraging the DescribeLakeFormationIdentityCenterConfiguration service API.
+    * Added cmdlet New-LKFLakeFormationIdentityCenterConfiguration leveraging the CreateLakeFormationIdentityCenterConfiguration service API.
+    * Added cmdlet Remove-LKFLakeFormationIdentityCenterConfiguration leveraging the DeleteLakeFormationIdentityCenterConfiguration service API.
+    * Added cmdlet Update-LKFLakeFormationIdentityCenterConfiguration leveraging the UpdateLakeFormationIdentityCenterConfiguration service API.
+  * Amazon Lex Model Building V2
+    * Added cmdlet Get-LMBV2BotElement leveraging the GenerateBotElement service API.
+    * Added cmdlet Get-LMBV2BotResourceGeneration leveraging the DescribeBotResourceGeneration service API.
+    * Added cmdlet Get-LMBV2BotResourceGenerationList leveraging the ListBotResourceGenerations service API.
+    * Added cmdlet Start-LMBV2BotResourceGeneration leveraging the StartBotResourceGeneration service API.
+    * Modified cmdlet New-LMBV2BotLocale: added parameters DescriptiveBotBuilder_Enabled, GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn, GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn, GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn, SampleUtteranceGeneration_Enabled and SlotResolutionImprovement_Enabled.
+    * Modified cmdlet New-LMBV2Slot: added parameter SlotResolutionSetting_SlotResolutionStrategy.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameters DescriptiveBotBuilder_Enabled, GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn, GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn, GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn, SampleUtteranceGeneration_Enabled and SlotResolutionImprovement_Enabled.
+    * Modified cmdlet Update-LMBV2Slot: added parameter SlotResolutionSetting_SlotResolutionStrategy.
+  * Amazon Managed Blockchain
+    * Modified cmdlet Get-MBCAccessorList: added parameters NetworkType and PassThru.
+    * Modified cmdlet New-MBCAccessor: added parameter NetworkType.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSBatchInferenceJob: added parameters BatchInferenceJobMode and FieldsForThemeGeneration_ItemName.
+    * Modified cmdlet New-PERSCampaign: added parameter CampaignConfig_EnableMetadataWithRecommendation.
+    * Modified cmdlet New-PERSRecommender: added parameter RecommenderConfig_EnableMetadataWithRecommendation.
+    * Modified cmdlet Update-PERSCampaign: added parameter CampaignConfig_EnableMetadataWithRecommendation.
+    * Modified cmdlet Update-PERSRecommender: added parameter RecommenderConfig_EnableMetadataWithRecommendation.
+  * Amazon Personalize Events
+    * Added cmdlet Write-PERSEAction leveraging the PutActions service API.
+    * Added cmdlet Write-PERSEActionInteraction leveraging the PutActionInteractions service API.
+  * Amazon Personalize Runtime
+    * Added cmdlet Get-PERSRActionRecommendation leveraging the GetActionRecommendations service API.
+    * Modified cmdlet Get-PERSRPersonalizedRanking: added parameter MetadataColumn.
+    * Modified cmdlet Get-PERSRRecommendation: added parameter MetadataColumn.
+  * Amazon Prometheus Service
+    * Added cmdlet Get-PROMDefaultScraperConfiguration leveraging the GetDefaultScraperConfiguration service API.
+    * Added cmdlet Get-PROMScraper leveraging the DescribeScraper service API.
+    * Added cmdlet Get-PROMScraperList leveraging the ListScrapers service API.
+    * Added cmdlet New-PROMScraper leveraging the CreateScraper service API.
+    * Added cmdlet Remove-PROMScraper leveraging the DeleteScraper service API.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSIdentityPropagationConfigList leveraging the ListIdentityPropagationConfigs service API.
+    * Added cmdlet Remove-QSIdentityPropagationConfig leveraging the DeleteIdentityPropagationConfig service API.
+    * Added cmdlet Update-QSIdentityPropagationConfig leveraging the UpdateIdentityPropagationConfig service API.
+    * Modified cmdlet New-QSDataSource: added parameter IdentityCenterConfiguration_EnableIdentityPropagation.
+    * Modified cmdlet Update-QSDataSource: added parameter IdentityCenterConfiguration_EnableIdentityPropagation.
+  * Amazon re:Post Private. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RESP and can be listed using the command 'Get-AWSCmdletName -Service RESP'.
+  * Amazon Redshift
+    * Modified cmdlet Add-RSDataShareConsumer: added parameter AllowWrite.
+    * Modified cmdlet Approve-RSDataShare: added parameter AllowWrite.
+  * Amazon S3 Control
+    * Added cmdlet Connect-S3CAccessGrantsIdentityCenter leveraging the AssociateAccessGrantsIdentityCenter service API.
+    * Added cmdlet Disconnect-S3CAccessGrantsIdentityCenter leveraging the DissociateAccessGrantsIdentityCenter service API.
+    * Added cmdlet Get-S3CAccessGrant leveraging the GetAccessGrant service API.
+    * Added cmdlet Get-S3CAccessGrantList leveraging the ListAccessGrants service API.
+    * Added cmdlet Get-S3CAccessGrantsInstance leveraging the GetAccessGrantsInstance service API.
+    * Added cmdlet Get-S3CAccessGrantsInstanceForPrefix leveraging the GetAccessGrantsInstanceForPrefix service API.
+    * Added cmdlet Get-S3CAccessGrantsInstanceList leveraging the ListAccessGrantsInstances service API.
+    * Added cmdlet Get-S3CAccessGrantsInstanceResourcePolicy leveraging the GetAccessGrantsInstanceResourcePolicy service API.
+    * Added cmdlet Get-S3CAccessGrantsLocation leveraging the GetAccessGrantsLocation service API.
+    * Added cmdlet Get-S3CAccessGrantsLocationList leveraging the ListAccessGrantsLocations service API.
+    * Added cmdlet Get-S3CDataAccess leveraging the GetDataAccess service API.
+    * Added cmdlet New-S3CAccessGrant leveraging the CreateAccessGrant service API.
+    * Added cmdlet New-S3CAccessGrantsInstance leveraging the CreateAccessGrantsInstance service API.
+    * Added cmdlet New-S3CAccessGrantsLocation leveraging the CreateAccessGrantsLocation service API.
+    * Added cmdlet Remove-S3CAccessGrant leveraging the DeleteAccessGrant service API.
+    * Added cmdlet Remove-S3CAccessGrantsInstance leveraging the DeleteAccessGrantsInstance service API.
+    * Added cmdlet Remove-S3CAccessGrantsInstanceResourcePolicy leveraging the DeleteAccessGrantsInstanceResourcePolicy service API.
+    * Added cmdlet Remove-S3CAccessGrantsLocation leveraging the DeleteAccessGrantsLocation service API.
+    * Added cmdlet Update-S3CAccessGrantsLocation leveraging the UpdateAccessGrantsLocation service API.
+    * Added cmdlet Write-S3CAccessGrantsInstanceResourcePolicy leveraging the PutAccessGrantsInstanceResourcePolicy service API.
+  * Amazon Secrets Manager
+    * Added cmdlet Get-SECBatchSecretValue leveraging the BatchGetSecretValue service API.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBSecurityControlDefinition leveraging the GetSecurityControlDefinition service API.
+    * Added cmdlet Update-SHUBSecurityControl leveraging the UpdateSecurityControl service API.
+  * Amazon Step Functions
+    * Added cmdlet Test-SFNState leveraging the TestState service API.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSCallAnalyticsJob: added parameter Summarization_GenerateAbstractiveSummary.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSWorkspaceProperty: added parameter DataReplication.
+  * Amazon WorkSpaces Thin Client. Added cmdlets to support the service. Cmdlets for the service have the noun prefix WSTC and can be listed using the command 'Get-AWSCmdletName -Service WSTC'.
+
+### 4.1.459 (2023-11-22 22:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.692.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Kinesis
     * Added cmdlet Get-KINResourcePolicy leveraging the GetResourcePolicy service API.

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
 {
     /// <summary>
     /// Adds one or more items to an Items dataset. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing
-    /// Items Incrementally</a>.
+    /// items individually</a>.
     /// </summary>
     [Cmdlet("Write", "PERSEItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

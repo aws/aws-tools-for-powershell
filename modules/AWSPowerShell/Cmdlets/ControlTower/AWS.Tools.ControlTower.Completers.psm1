@@ -123,14 +123,21 @@ $ACT_SelectCompleters = {
 }
 
 $ACT_SelectMap = @{
-    "Select"=@("Disable-ACTControl",
+    "Select"=@("New-ACTLandingZone",
+               "Remove-ACTLandingZone",
+               "Disable-ACTControl",
                "Enable-ACTControl",
                "Get-ACTControlOperation",
                "Get-ACTEnabledControl",
+               "Get-ACTLandingZone",
+               "Get-ACTLandingZoneOperation",
                "Get-ACTEnabledControlList",
+               "Get-ACTLandingZoneList",
                "Get-ACTResourceTag",
+               "Reset-ACTLandingZone",
                "Add-ACTResourceTag",
-               "Remove-ACTResourceTag")
+               "Remove-ACTResourceTag",
+               "Update-ACTLandingZone")
 }
 
 _awsArgumentCompleterRegistration $ACT_SelectCompleters $ACT_SelectMap

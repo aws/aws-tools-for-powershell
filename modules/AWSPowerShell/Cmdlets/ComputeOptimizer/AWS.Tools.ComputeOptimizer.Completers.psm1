@@ -115,6 +115,13 @@ $CO_Completers = {
             break
         }
 
+        # Amazon.ComputeOptimizer.LookBackPeriodPreference
+        "Write-CORecommendationPreference/LookBackPeriod"
+        {
+            $v = "DAYS_14","DAYS_32","DAYS_93"
+            break
+        }
+
         # Amazon.ComputeOptimizer.MetricStatistic
         {
             ($_ -eq "Get-COEC2RecommendationProjectedMetric/Stat") -Or
@@ -133,6 +140,13 @@ $CO_Completers = {
         }
         {
             $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","License","NotApplicable"
+            break
+        }
+
+        # Amazon.ComputeOptimizer.SavingsEstimationMode
+        "Write-CORecommendationPreference/SavingsEstimationMode"
+        {
+            $v = "AfterDiscounts","BeforeDiscounts"
             break
         }
 
@@ -167,7 +181,9 @@ $CO_map = @{
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
     "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation")
     "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
+    "LookBackPeriod"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
+    "SavingsEstimationMode"=@("Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Stat"=@("Get-COEC2RecommendationProjectedMetric","Get-COECSServiceRecommendationProjectedMetric")
     "Status"=@("Update-COEnrollmentStatus")

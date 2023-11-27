@@ -992,6 +992,21 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String SlotName { get; set; }
         #endregion
         
+        #region Parameter SlotResolutionSetting_SlotResolutionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether assisted slot resolution is turned on for the slot or not. If the
+        /// value is <code>EnhancedFallback</code>, assisted slot resolution is activated when
+        /// Amazon Lex defaults to the <code>AMAZON.FallbackIntent</code>. If the value is <code>Default</code>,
+        /// assisted slot resolution is turned off.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.SlotResolutionStrategy")]
+        public Amazon.LexModelsV2.SlotResolutionStrategy SlotResolutionSetting_SlotResolutionStrategy { get; set; }
+        #endregion
+        
         #region Parameter ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_Intent_Slots
         /// <summary>
         /// <para>
@@ -1882,6 +1897,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter ValueElicitationSetting_SlotConstraint which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SlotResolutionSetting_SlotResolutionStrategy = this.SlotResolutionSetting_SlotResolutionStrategy;
             context.WaitAndContinueSpecification_Active = this.WaitAndContinueSpecification_Active;
             context.ContinueResponse_AllowInterrupt = this.ContinueResponse_AllowInterrupt;
             if (this.ContinueResponse_MessageGroup != null)
@@ -2062,6 +2078,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestValueElicitationSetting_valueElicitationSetting_DefaultValueSpecification != null)
             {
                 request.ValueElicitationSetting.DefaultValueSpecification = requestValueElicitationSetting_valueElicitationSetting_DefaultValueSpecification;
+                requestValueElicitationSettingIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.SlotResolutionSetting requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting = null;
+            
+             // populate SlotResolutionSetting
+            var requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSettingIsNull = true;
+            requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting = new Amazon.LexModelsV2.Model.SlotResolutionSetting();
+            Amazon.LexModelsV2.SlotResolutionStrategy requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting_slotResolutionSetting_SlotResolutionStrategy = null;
+            if (cmdletContext.SlotResolutionSetting_SlotResolutionStrategy != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting_slotResolutionSetting_SlotResolutionStrategy = cmdletContext.SlotResolutionSetting_SlotResolutionStrategy;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting_slotResolutionSetting_SlotResolutionStrategy != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting.SlotResolutionStrategy = requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting_slotResolutionSetting_SlotResolutionStrategy;
+                requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSettingIsNull = false;
+            }
+             // determine if requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting should be set to null
+            if (requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSettingIsNull)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting = null;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting != null)
+            {
+                request.ValueElicitationSetting.SlotResolutionSetting = requestValueElicitationSetting_valueElicitationSetting_SlotResolutionSetting;
                 requestValueElicitationSettingIsNull = false;
             }
             Amazon.LexModelsV2.Model.WaitAndContinueSpecification requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification = null;
@@ -4220,6 +4261,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? ValueElicitationSetting_SlotCaptureSetting_FailureResponse_AllowInterrupt { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> ValueElicitationSetting_SlotCaptureSetting_FailureResponse_MessageGroups { get; set; }
             public Amazon.LexModelsV2.SlotConstraint ValueElicitationSetting_SlotConstraint { get; set; }
+            public Amazon.LexModelsV2.SlotResolutionStrategy SlotResolutionSetting_SlotResolutionStrategy { get; set; }
             public System.Boolean? WaitAndContinueSpecification_Active { get; set; }
             public System.Boolean? ContinueResponse_AllowInterrupt { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> ContinueResponse_MessageGroup { get; set; }

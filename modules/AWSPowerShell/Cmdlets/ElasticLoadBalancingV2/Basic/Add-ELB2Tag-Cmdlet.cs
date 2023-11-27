@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Adds the specified tags to the specified Elastic Load Balancing resource. You can
     /// tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers,
-    /// target groups, listeners, and rules.
+    /// target groups, trust stores, listeners, and rules.
     /// 
     ///  
     /// <para>

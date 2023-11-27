@@ -37,6 +37,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLogAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="New" Noun="LogAnomalyDetector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLogGroup" Verb="New" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -70,6 +74,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLogAnomalyDetector" Verb="Remove" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -181,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLogAnomalyDetector" OutputProperty="*" Verb="Get" Noun="LogAnomalyDetector" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
@@ -194,6 +206,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="AnomalyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLogAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="LogAnomalyDetectorList" PipelineParameter="FilterLogGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -286,6 +306,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnomaly" Verb="Update" Noun="Anomaly" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLogAnomalyDetector" Verb="Update" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

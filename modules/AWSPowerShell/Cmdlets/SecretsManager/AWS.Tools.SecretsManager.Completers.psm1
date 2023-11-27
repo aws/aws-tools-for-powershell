@@ -149,7 +149,8 @@ $SEC_SelectCompleters = {
 }
 
 $SEC_SelectMap = @{
-    "Select"=@("Stop-SECSecretRotation",
+    "Select"=@("Get-SECBatchSecretValue",
+               "Stop-SECSecretRotation",
                "New-SECSecret",
                "Remove-SECResourcePolicy",
                "Remove-SECSecret",

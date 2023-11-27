@@ -172,6 +172,9 @@
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BCMDataExports">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMDataExports.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Bedrock.dll</HintPath>
     </Reference>
@@ -349,6 +352,9 @@
     <Reference Include="AWSSDK.CostExplorer">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CostExplorer.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CostOptimizationHub">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CostOptimizationHub.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CustomerProfiles">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CustomerProfiles.dll</HintPath>
     </Reference>
@@ -421,6 +427,9 @@
     <Reference Include="AWSSDK.EKS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EKS.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EKSAuth">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EKSAuth.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
@@ -480,6 +489,9 @@
     </Reference>
     <Reference Include="AWSSDK.FraudDetector">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FraudDetector.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.FreeTier">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FreeTier.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FSx">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FSx.dll</HintPath>
@@ -895,6 +907,9 @@
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Rekognition.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Repostspace">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Repostspace.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ResilienceHub">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
@@ -1111,6 +1126,9 @@
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WorkSpacesThinClient">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpacesThinClient.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkSpacesWeb">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpacesWeb.dll</HintPath>
     </Reference>
@@ -1235,6 +1253,9 @@
     </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BCMDataExports">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMDataExports.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Bedrock.dll</HintPath>
@@ -1413,6 +1434,9 @@
     <Reference Include="AWSSDK.CostExplorer">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CostExplorer.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CostOptimizationHub">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CostOptimizationHub.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CustomerProfiles">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CustomerProfiles.dll</HintPath>
     </Reference>
@@ -1485,6 +1509,9 @@
     <Reference Include="AWSSDK.EKS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EKS.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EKSAuth">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EKSAuth.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
@@ -1544,6 +1571,9 @@
     </Reference>
     <Reference Include="AWSSDK.FraudDetector">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FraudDetector.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.FreeTier">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FreeTier.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FSx">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FSx.dll</HintPath>
@@ -1959,6 +1989,9 @@
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Rekognition.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Repostspace">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Repostspace.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ResilienceHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
@@ -2174,6 +2207,9 @@
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WorkSpacesThinClient">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpacesThinClient.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpacesWeb">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpacesWeb.dll</HintPath>

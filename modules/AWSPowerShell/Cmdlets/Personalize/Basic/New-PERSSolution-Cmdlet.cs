@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter SolutionConfig_AlgorithmHyperParameter
         /// <summary>
         /// <para>
-        /// <para>Lists the hyperparameter names and ranges.</para>
+        /// <para>Lists the algorithm hyperparameters and their values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,8 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Deletes the event tracker. Does not delete the event-interactions dataset from the
-    /// associated dataset group. For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.
+    /// Deletes the event tracker. Does not delete the dataset from the dataset group. For
+    /// more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.
     /// </summary>
     [Cmdlet("Remove", "PERSEventTracker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

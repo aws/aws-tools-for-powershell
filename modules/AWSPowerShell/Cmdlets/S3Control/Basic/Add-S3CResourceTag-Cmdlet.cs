@@ -29,21 +29,24 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// Creates a new Amazon Web Services resource tag or updates an existing resource tag.
-    /// You can add up to 50 Amazon Web Services resource tags for each S3 resource. 
+    /// Each tag is a label consisting of a user-defined key and value. Tags can help you
+    /// manage, identify, organize, search for, and filter resources. You can add up to 50
+    /// Amazon Web Services resource tags for each S3 resource. 
     /// 
-    ///  
-    /// <para>
-    /// To use this operation, you must have the permission to perform the <code>s3:TagResource</code>
-    /// action. For more information about the required Storage Lens Groups permissions, see
-    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
+    ///  <note><para>
+    /// This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3
+    /// Storage Lens groups</a> and for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html">S3
+    /// Access Grants</a>. The tagged resource can be an S3 Storage Lens group or S3 Access
+    /// Grants instance, registered location, or grant. 
+    /// </para></note><dl><dt>Permissions</dt><dd><para>
+    /// You must have the <code>s3:TagResource</code> permission to use this operation. 
+    /// </para></dd></dl><para>
+    /// For more information about the required Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
     /// account permissions to use S3 Storage Lens groups</a>.
     /// </para><para>
     /// For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List
     /// of Amazon S3 Tagging error codes</a>.
-    /// </para><note><para>
-    /// This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3
-    /// Storage Lens groups</a>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "S3CResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -61,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> The Amazon Web Services account ID that created the S3 resource that you're trying
-        /// to add tags to. </para>
+        /// to add tags to or the requester's account ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags
-        /// to. </para>
+        /// <para>The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags to.
+        /// The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance,
+        /// registered location, or grant.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

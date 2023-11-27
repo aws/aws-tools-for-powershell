@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateScraper" OutputProperty="*" Verb="New" Noun="Scraper" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRuleGroupsNamespace" Verb="Remove" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScraper" OutputProperty="*" Verb="Remove" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,11 +71,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScraper" OutputProperty="Scraper" Verb="Get" Noun="Scraper" PipelineParameter="ScraperId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspace" OutputProperty="Workspace" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDefaultScraperConfiguration" OutputProperty="Configuration" Verb="Get" Noun="DefaultScraperConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRuleGroupsNamespaces" OutputProperty="RuleGroupsNamespaces" Verb="Get" Noun="RuleGroupsNamespaceList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScrapers" OutputProperty="Scrapers" Verb="Get" Noun="ScraperList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

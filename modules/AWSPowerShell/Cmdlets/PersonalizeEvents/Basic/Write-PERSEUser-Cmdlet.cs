@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
 {
     /// <summary>
     /// Adds one or more users to a Users dataset. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing
-    /// Users Incrementally</a>.
+    /// users individually</a>.
     /// </summary>
     [Cmdlet("Write", "PERSEUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -1,0 +1,3 @@
+﻿# EKSAuth
+
+Export-ModuleMember -Alias *

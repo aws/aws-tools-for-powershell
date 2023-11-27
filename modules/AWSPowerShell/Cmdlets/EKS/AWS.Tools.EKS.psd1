@@ -103,6 +103,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EKSIdentityProviderConfigList', 
         'Get-EKSNodegroup', 
         'Get-EKSNodegroupList', 
+        'Get-EKSPodIdentityAssociation', 
+        'Get-EKSPodIdentityAssociationList', 
         'Get-EKSResourceTag', 
         'Get-EKSUpdate', 
         'Get-EKSUpdateList', 
@@ -111,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EKSEksAnywhereSubscription', 
         'New-EKSFargateProfile', 
         'New-EKSNodegroup', 
+        'New-EKSPodIdentityAssociation', 
         'Register-EKSCluster', 
         'Remove-EKSAddon', 
         'Remove-EKSCluster', 
@@ -118,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EKSFargateProfile', 
         'Remove-EKSIdentityProviderConfig', 
         'Remove-EKSNodegroup', 
+        'Remove-EKSPodIdentityAssociation', 
         'Remove-EKSResourceTag', 
         'Unregister-EKSCluster', 
         'Update-EKSAddon', 
@@ -125,7 +129,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-EKSClusterVersion', 
         'Update-EKSEksAnywhereSubscription', 
         'Update-EKSNodegroupConfig', 
-        'Update-EKSNodegroupVersion')
+        'Update-EKSNodegroupVersion', 
+        'Update-EKSPodIdentityAssociation')
 
     # Variables to export from this module
     VariablesToExport = '*'

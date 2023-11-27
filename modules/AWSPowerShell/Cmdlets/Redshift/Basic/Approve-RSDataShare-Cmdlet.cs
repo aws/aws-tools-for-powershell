@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllowWrite
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, allows write operations for a datashare.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowWrites")]
+        public System.Boolean? AllowWrite { get; set; }
+        #endregion
+        
         #region Parameter ConsumerIdentifier
         /// <summary>
         /// <para>
@@ -141,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.Select = (response, cmdlet) => this.DataShareArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowWrite = this.AllowWrite;
             context.ConsumerIdentifier = this.ConsumerIdentifier;
             #if MODULAR
             if (this.ConsumerIdentifier == null && ParameterWasBound(nameof(this.ConsumerIdentifier)))
@@ -171,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // create request
             var request = new Amazon.Redshift.Model.AuthorizeDataShareRequest();
             
+            if (cmdletContext.AllowWrite != null)
+            {
+                request.AllowWrites = cmdletContext.AllowWrite.Value;
+            }
             if (cmdletContext.ConsumerIdentifier != null)
             {
                 request.ConsumerIdentifier = cmdletContext.ConsumerIdentifier;
@@ -240,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowWrite { get; set; }
             public System.String ConsumerIdentifier { get; set; }
             public System.String DataShareArn { get; set; }
             public System.Func<Amazon.Redshift.Model.AuthorizeDataShareResponse, ApproveRSDataShareCmdlet, object> Select { get; set; } =

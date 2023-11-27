@@ -19,6 +19,22 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAccessGrantsIdentityCenter" Verb="Connect" Noun="AccessGrantsIdentityCenter" ShouldProcessTarget="IdentityCenterArn" PipelineParameter="IdentityCenterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessGrant" OutputProperty="*" Verb="New" Noun="AccessGrant" ShouldProcessTarget="AccessGrantsLocationId" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessGrantsInstance" OutputProperty="*" Verb="New" Noun="AccessGrantsInstance" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessGrantsLocation" OutputProperty="*" Verb="New" Noun="AccessGrantsLocation" ShouldProcessTarget="IAMRoleArn" PipelineParameter="IAMRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="AccessPointArn" Verb="New" Noun="AccessPoint" ShouldProcessTarget="Bucket" PipelineParameter="Bucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +79,22 @@
                 <Param Name="StorageLensGroup_Filter_Or_MatchAnySuffix" NewName="StorageLensGroup_Filter_Or_MatchAnySuffix" />
                 <Param Name="StorageLensGroup_Filter_Or_MatchAnyTag" NewName="StorageLensGroup_Filter_Or_MatchAnyTag" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessGrant" Verb="Remove" Noun="AccessGrant" ShouldProcessTarget="AccessGrantId" PipelineParameter="AccessGrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessGrantsInstance" Verb="Remove" Noun="AccessGrantsInstance" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessGrantsInstanceResourcePolicy" Verb="Remove" Noun="AccessGrantsInstanceResourcePolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessGrantsLocation" Verb="Remove" Noun="AccessGrantsLocation" ShouldProcessTarget="AccessGrantsLocationId" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
@@ -133,6 +165,30 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DissociateAccessGrantsIdentityCenter" Verb="Disconnect" Noun="AccessGrantsIdentityCenter" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessGrant" OutputProperty="*" Verb="Get" Noun="AccessGrant" PipelineParameter="AccessGrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessGrantsInstance" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstance" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessGrantsInstanceForPrefix" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstanceForPrefix" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessGrantsInstanceResourcePolicy" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstanceResourcePolicy" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessGrantsLocation" OutputProperty="*" Verb="Get" Noun="AccessGrantsLocation" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccessPoint" OutputProperty="*" Verb="Get" Noun="AccessPoint" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -185,6 +241,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataAccess" OutputProperty="*" Verb="Get" Noun="DataAccess" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetJobTagging" OutputProperty="Tags" Verb="Get" Noun="JobTagging" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -221,6 +281,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessGrants" OutputProperty="AccessGrantsList" Verb="Get" Noun="AccessGrantList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessGrantsInstances" OutputProperty="AccessGrantsInstancesList" Verb="Get" Noun="AccessGrantsInstanceList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessGrantsLocations" OutputProperty="AccessGrantsLocationsList" Verb="Get" Noun="AccessGrantsLocationList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessPoints" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -250,6 +322,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccessGrantsInstanceResourcePolicy" OutputProperty="*" Verb="Write" Noun="AccessGrantsInstanceResourcePolicy" ShouldProcessTarget="Policy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -323,6 +399,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessGrantsLocation" OutputProperty="*" Verb="Update" Noun="AccessGrantsLocation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

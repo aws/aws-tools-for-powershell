@@ -384,6 +384,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AmazonOpenSearchParameters_Domain { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterConfiguration_EnableIdentityPropagation
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean option that controls whether Trusted Identity Propagation should be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation")]
+        public System.Boolean? IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
+        #endregion
+        
         #region Parameter AuroraParameters_Host
         /// <summary>
         /// <para>
@@ -1083,6 +1094,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             context.IAMParameters_DatabaseUser = this.IAMParameters_DatabaseUser;
             context.IAMParameters_RoleArn = this.IAMParameters_RoleArn;
+            context.IdentityCenterConfiguration_EnableIdentityPropagation = this.IdentityCenterConfiguration_EnableIdentityPropagation;
             context.RedshiftParameters_Port = this.RedshiftParameters_Port;
             context.ManifestFileLocation_Bucket = this.ManifestFileLocation_Bucket;
             context.ManifestFileLocation_Key = this.ManifestFileLocation_Key;
@@ -2254,6 +2266,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Port = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port.Value;
                 requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.IdentityCenterConfiguration requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = null;
+            
+             // populate IdentityCenterConfiguration
+            var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = new Amazon.QuickSight.Model.IdentityCenterConfiguration();
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation = null;
+            if (cmdletContext.IdentityCenterConfiguration_EnableIdentityPropagation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation = cmdletContext.IdentityCenterConfiguration_EnableIdentityPropagation.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration.EnableIdentityPropagation = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.IdentityCenterConfiguration = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
             Amazon.QuickSight.Model.RedshiftIAMParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
             
              // populate IAMParameters
@@ -2477,6 +2514,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<System.String> IAMParameters_DatabaseGroup { get; set; }
             public System.String IAMParameters_DatabaseUser { get; set; }
             public System.String IAMParameters_RoleArn { get; set; }
+            public System.Boolean? IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
             public System.Int32? RedshiftParameters_Port { get; set; }
             public System.String ManifestFileLocation_Bucket { get; set; }
             public System.String ManifestFileLocation_Key { get; set; }

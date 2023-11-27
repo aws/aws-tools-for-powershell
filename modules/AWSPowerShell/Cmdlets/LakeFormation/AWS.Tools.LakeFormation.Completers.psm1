@@ -80,10 +80,27 @@ $LKF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LakeFormation.ApplicationStatus
+        "Update-LKFLakeFormationIdentityCenterConfiguration/ApplicationStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
             $v = "CATALOG","DATABASE","DATA_LOCATION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
+            break
+        }
+
+        # Amazon.LakeFormation.EnableStatus
+        {
+            ($_ -eq "New-LKFLakeFormationIdentityCenterConfiguration/ExternalFiltering_Status") -Or
+            ($_ -eq "Update-LKFLakeFormationIdentityCenterConfiguration/ExternalFiltering_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -141,6 +158,8 @@ $LKF_Completers = {
 }
 
 $LKF_map = @{
+    "ApplicationStatus"=@("Update-LKFLakeFormationIdentityCenterConfiguration")
+    "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
     "Resource_LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
@@ -205,13 +224,16 @@ $LKF_SelectMap = @{
                "Stop-LKFTransaction",
                "Write-LKFTransaction",
                "New-LKFDataCellsFilter",
+               "New-LKFLakeFormationIdentityCenterConfiguration",
                "New-LKFLakeFormationOptIn",
                "New-LKFLFTag",
                "Remove-LKFDataCellsFilter",
+               "Remove-LKFLakeFormationIdentityCenterConfiguration",
                "Remove-LKFLakeFormationOptIn",
                "Remove-LKFLFTag",
                "Remove-LKFObjectsOnCancel",
                "Unregister-LKFResource",
+               "Get-LKFLakeFormationIdentityCenterConfiguration",
                "Get-LKFResource",
                "Get-LKFTransaction",
                "Invoke-LKFTransaction",
@@ -244,6 +266,7 @@ $LKF_SelectMap = @{
                "Start-LKFQueryPlanning",
                "Start-LKFTransaction",
                "Update-LKFDataCellsFilter",
+               "Update-LKFLakeFormationIdentityCenterConfiguration",
                "Update-LKFLFTag",
                "Update-LKFResource",
                "Update-LKFTableObject",

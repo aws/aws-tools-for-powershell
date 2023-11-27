@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
     /// This API call activates a control. It starts an asynchronous operation that creates
-    /// AWS resources on the specified organizational unit and the accounts it contains. The
-    /// resources created will vary according to the control that you specify. For usage examples,
-    /// see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
+    /// Amazon Web Services resources on the specified organizational unit and the accounts
+    /// it contains. The resources created will vary according to the control that you specify.
+    /// For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the Amazon Web Services Control Tower User Guide</i></a>.
     /// </summary>
     [Cmdlet("Enable", "ACTControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

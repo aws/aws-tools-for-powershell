@@ -84,10 +84,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter LogGroupClass
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to specify the log group class for this log group. There are two
+        /// classes:</para><ul><li><para>The <code>Standard</code> log class supports all CloudWatch Logs features.</para></li><li><para>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
+        /// features and incurs lower costs.</para></li></ul><para>If you omit this parameter, the default of <code>STANDARD</code> is used.</para><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+        /// classes</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.LogGroupClass")]
+        public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
+        #endregion
+        
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>A name for the log group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KmsKeyId = this.KmsKeyId;
+            context.LogGroupClass = this.LogGroupClass;
             context.LogGroupName = this.LogGroupName;
             #if MODULAR
             if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
@@ -215,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.LogGroupClass != null)
+            {
+                request.LogGroupClass = cmdletContext.LogGroupClass;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -286,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KmsKeyId { get; set; }
+            public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
             public System.String LogGroupName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.CreateLogGroupResponse, NewCWLLogGroupCmdlet, object> Select { get; set; } =

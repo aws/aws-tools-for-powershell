@@ -124,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SHUBOrganizationConfiguration', 
         'Get-SHUBProduct', 
         'Get-SHUBResourceTag', 
+        'Get-SHUBSecurityControlDefinition', 
         'Get-SHUBSecurityControlDefinitionList', 
         'Get-SHUBStandard', 
         'Get-SHUBStandardsControl', 
@@ -151,6 +152,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SHUBFindingsBatch', 
         'Update-SHUBInsight', 
         'Update-SHUBOrganizationConfiguration', 
+        'Update-SHUBSecurityControl', 
         'Update-SHUBSecurityHubConfiguration', 
         'Update-SHUBStandardsControl')
 

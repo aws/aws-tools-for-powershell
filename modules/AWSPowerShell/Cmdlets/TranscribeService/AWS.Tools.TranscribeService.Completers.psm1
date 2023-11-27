@@ -122,7 +122,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "af-ZA","ar-AE","ar-SA","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fa-IR","fr-CA","fr-FR","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","sv-SE","ta-IN","te-IN","th-TH","tr-TR","vi-VN","zh-CN","zh-TW"
+            $v = "ab-GE","af-ZA","ar-AE","ar-SA","ast-ES","az-AZ","ba-RU","be-BY","bg-BG","bn-IN","bs-BA","ca-ES","ckb-IQ","ckb-IR","cs-CZ","cy-WL","da-DK","de-CH","de-DE","el-GR","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","et-ET","eu-ES","fa-IR","fi-FI","fr-CA","fr-FR","gl-ES","gu-IN","ha-NG","he-IL","hi-IN","hr-HR","hu-HU","hy-AM","id-ID","is-IS","it-IT","ja-JP","ka-GE","kab-DZ","kk-KZ","kn-IN","ko-KR","ky-KG","lg-IN","lt-LT","lv-LV","mhr-RU","mi-NZ","mk-MK","ml-IN","mn-MN","mr-IN","ms-MY","mt-MT","nl-NL","no-NO","or-IN","pa-IN","pl-PL","ps-AF","pt-BR","pt-PT","ro-RO","ru-RU","rw-RW","si-LK","sk-SK","sl-SI","so-SO","sr-RS","su-ID","sv-SE","sw-BI","sw-KE","sw-RW","sw-TZ","sw-UG","ta-IN","te-IN","th-TH","tl-PH","tr-TR","tt-RU","ug-CN","uk-UA","uz-UZ","vi-VN","wo-SN","zh-CN","zh-TW","zu-ZA"
             break
         }
 

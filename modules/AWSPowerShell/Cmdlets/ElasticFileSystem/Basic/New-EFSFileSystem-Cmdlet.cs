@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </para><note><para>
     /// For basic use cases, you can use a randomly generated UUID for the creation token.
     /// </para></note><para>
-    ///  The idempotent operation allows you to retry a <code>CreateFileSystem</code> call
+    /// The idempotent operation allows you to retry a <code>CreateFileSystem</code> call
     /// without risk of creating an extra file system. This can happen when an initial call
     /// fails in a way that leaves it uncertain whether or not a file system was actually
     /// created. An example might be that a transport level timeout occurred or your connection
@@ -63,11 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </para></note><para>
     /// This operation accepts an optional <code>PerformanceMode</code> parameter that you
     /// choose for your file system. We recommend <code>generalPurpose</code> performance
-    /// mode for most file systems. File systems using the <code>maxIO</code> performance
-    /// mode can scale to higher levels of aggregate throughput and operations per second
-    /// with a tradeoff of slightly higher latencies for most file operations. The performance
-    /// mode can't be changed after the file system has been created. For more information,
-    /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
+    /// mode for all file systems. File systems using the <code>maxIO</code> mode is a previous
+    /// generation performance type that is designed for highly parallelized workloads that
+    /// can tolerate higher latencies than the General Purpose mode. Max I/O mode is not supported
+    /// for One Zone file systems or file systems that use Elastic throughput.
+    /// </para><important><para>
+    /// Due to the higher per-operation latencies with Max I/O, we recommend using General
+    /// Purpose performance mode for all file systems.
+    /// </para></important><para>
+    /// The performance mode can't be changed after the file system has been created. For
+    /// more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
     /// EFS performance modes</a>.
     /// </para><para>
     /// You can set the throughput mode for the file system using the <code>ThroughputMode</code>
@@ -105,12 +110,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter AvailabilityZoneName
         /// <summary>
         /// <para>
-        /// <para>Used to create a file system that uses One Zone storage classes. It specifies the
-        /// Amazon Web Services Availability Zone in which to create the file system. Use the
-        /// format <code>us-east-1a</code> to specify the Availability Zone. For more information
-        /// about One Zone storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using
-        /// EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</para><note><para>One Zone storage classes are not available in all Availability Zones in Amazon Web
-        /// Services Regions where Amazon EFS is available.</para></note>
+        /// <para>Used to create a One Zone file system. It specifies the Amazon Web Services Availability
+        /// Zone in which to create the file system. Use the format <code>us-east-1a</code> to
+        /// specify the Availability Zone. For more information about One Zone file systems, see
+        /// <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS
+        /// storage classes</a> in the <i>Amazon EFS User Guide</i>.</para><note><para>One Zone file systems are not available in all Availability Zones in Amazon Web Services
+        /// Regions where Amazon EFS is available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>
         /// <para>Specifies whether automatic backups are enabled on the file system that you are creating.
         /// Set the value to <code>true</code> to enable automatic backups. If you are creating
-        /// a file system that uses One Zone storage classes, automatic backups are enabled by
-        /// default. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic
+        /// a One Zone file system, automatic backups are enabled by default. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic
         /// backups</a> in the <i>Amazon EFS User Guide</i>.</para><para>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
         /// the default is <code>true</code>.</para><note><para>Backup is not available in all Amazon Web Services Regions where Amazon EFS is available.</para></note>
         /// </para>
@@ -174,12 +179,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter PerformanceMode
         /// <summary>
         /// <para>
-        /// <para>The performance mode of the file system. We recommend <code>generalPurpose</code>
-        /// performance mode for most file systems. File systems using the <code>maxIO</code>
-        /// performance mode can scale to higher levels of aggregate throughput and operations
-        /// per second with a tradeoff of slightly higher latencies for most file operations.
-        /// The performance mode can't be changed after the file system has been created.</para><note><para>The <code>maxIO</code> mode is not supported on file systems using One Zone storage
-        /// classes.</para></note><para>Default is <code>generalPurpose</code>.</para>
+        /// <para>The Performance mode of the file system. We recommend <code>generalPurpose</code>
+        /// performance mode for all file systems. File systems using the <code>maxIO</code> performance
+        /// mode can scale to higher levels of aggregate throughput and operations per second
+        /// with a tradeoff of slightly higher latencies for most file operations. The performance
+        /// mode can't be changed after the file system has been created. The <code>maxIO</code>
+        /// mode is not supported on One Zone file systems.</para><important><para>Due to the higher per-operation latencies with Max I/O, we recommend using General
+        /// Purpose performance mode for all file systems.</para></important><para>Default is <code>generalPurpose</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,9 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>Specifies the throughput mode for the file system. The mode can be <code>bursting</code>,
         /// <code>provisioned</code>, or <code>elastic</code>. If you set <code>ThroughputMode</code>
         /// to <code>provisioned</code>, you must also set a value for <code>ProvisionedThroughputInMibps</code>.
-        /// After you create the file system, you can decrease your file system's throughput in
-        /// Provisioned Throughput mode or change between the throughput modes, with certain time
-        /// restrictions. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
+        /// After you create the file system, you can decrease your file system's Provisioned
+        /// throughput or change between the throughput modes, with certain time restrictions.
+        /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
         /// throughput with provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </para><para>Default is <code>bursting</code>.</para>
         /// </para>
         /// </summary>

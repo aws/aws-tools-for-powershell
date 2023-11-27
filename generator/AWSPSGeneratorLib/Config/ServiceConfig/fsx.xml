@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CopySnapshotAndUpdateVolume" OutputProperty="*" Verb="Copy" Noun="SnapshotAndUpdateVolume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBackup" OutputProperty="Backup" Verb="New" Noun="Backup" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,7 +132,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSharedVpcConfiguration" OutputProperty="EnableFsxRouteTableUpdatesFromParticipantAccounts" Verb="Get" Noun="SharedVpcConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,6 +191,10 @@
                 <Param Name="OntapConfiguration_DiskIopsConfiguration_Mode" NewName="OntapConfiguration_DiskIopsConfiguration_Mode" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Mode" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Mode" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSharedVpcConfiguration" OutputProperty="EnableFsxRouteTableUpdatesFromParticipantAccounts" Verb="Update" Noun="SharedVpcConfiguration" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">

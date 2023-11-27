@@ -18,6 +18,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateLandingZone" OutputProperty="*" Verb="New" Noun="LandingZone" ShouldProcessTarget="Version" PipelineParameter="Version" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLandingZone" OutputProperty="OperationIdentifier" Verb="Remove" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableControl" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -34,11 +42,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLandingZone" OutputProperty="LandingZone" Verb="Get" Noun="LandingZone" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLandingZoneOperation" OutputProperty="OperationDetails" Verb="Get" Noun="LandingZoneOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnabledControls" OutputProperty="EnabledControls" Verb="Get" Noun="EnabledControlList" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLandingZones" OutputProperty="LandingZones" Verb="Get" Noun="LandingZoneList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetLandingZone" OutputProperty="OperationIdentifier" Verb="Reset" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLandingZone" OutputProperty="OperationIdentifier" Verb="Update" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

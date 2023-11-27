@@ -28,8 +28,8 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor
-    /// contains information required for token based access to your Ethereum nodes.
+    /// Creates a new accessor for use with Amazon Managed Blockchain service that supports
+    /// token based access. The accessor contains information required for token based access.
     /// </summary>
     [Cmdlet("New", "MBCAccessor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ManagedBlockchain.Model.CreateAccessorResponse")]
@@ -71,6 +71,21 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The blockchain network that the <code>Accessor</code> token is created for.</para><note><para>We recommend using the appropriate <code>networkType</code> value for the blockchain
+        /// network that you are creating the <code>Accessor</code> token for. You cannnot use
+        /// the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> to specify a <code>networkType</code>
+        /// for your Accessor token.</para><para>The default value of <code>ETHEREUM_MAINNET_AND_GOERLI</code> is only applied:</para><ul><li><para>when the <code>CreateAccessor</code> action does not set a <code>networkType</code>.</para></li><li><para>to all existing <code>Accessor</code> tokens that were created before the <code>networkType</code>
+        /// property was introduced. </para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ManagedBlockchain.AccessorNetworkType")]
+        public Amazon.ManagedBlockchain.AccessorNetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -158,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.NetworkType = this.NetworkType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -189,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -257,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         {
             public Amazon.ManagedBlockchain.AccessorType AccessorType { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Amazon.ManagedBlockchain.AccessorNetworkType NetworkType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.CreateAccessorResponse, NewMBCAccessorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

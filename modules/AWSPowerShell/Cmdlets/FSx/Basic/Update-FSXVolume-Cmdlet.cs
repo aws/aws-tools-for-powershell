@@ -220,6 +220,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_SizeInByte
+        /// <summary>
+        /// <para>
+        /// <para>The configured size of the volume, in bytes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_SizeInBytes")]
+        public System.Int64? OntapConfiguration_SizeInByte { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_SizeInMegabyte
         /// <summary>
         /// <para>
@@ -502,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_CopyTagsToBackup = this.OntapConfiguration_CopyTagsToBackup;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
+            context.OntapConfiguration_SizeInByte = this.OntapConfiguration_SizeInByte;
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
             context.SnaplockConfiguration_AuditLogVolume = this.SnaplockConfiguration_AuditLogVolume;
             context.AutocommitPeriod_Type = this.AutocommitPeriod_Type;
@@ -594,6 +606,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_SecurityStyle != null)
             {
                 request.OntapConfiguration.SecurityStyle = requestOntapConfiguration_ontapConfiguration_SecurityStyle;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.Int64? requestOntapConfiguration_ontapConfiguration_SizeInByte = null;
+            if (cmdletContext.OntapConfiguration_SizeInByte != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SizeInByte = cmdletContext.OntapConfiguration_SizeInByte.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SizeInByte != null)
+            {
+                request.OntapConfiguration.SizeInBytes = requestOntapConfiguration_ontapConfiguration_SizeInByte.Value;
                 requestOntapConfigurationIsNull = false;
             }
             System.Int32? requestOntapConfiguration_ontapConfiguration_SizeInMegabyte = null;
@@ -1015,6 +1037,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
+            public System.Int64? OntapConfiguration_SizeInByte { get; set; }
             public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
             public System.Boolean? SnaplockConfiguration_AuditLogVolume { get; set; }
             public Amazon.FSx.AutocommitPeriodType AutocommitPeriod_Type { get; set; }

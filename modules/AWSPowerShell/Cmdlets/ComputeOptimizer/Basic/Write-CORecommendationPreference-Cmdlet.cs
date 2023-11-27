@@ -79,6 +79,20 @@ namespace Amazon.PowerShell.Cmdlets.CO
         public Amazon.ComputeOptimizer.InferredWorkloadTypesPreference InferredWorkloadType { get; set; }
         #endregion
         
+        #region Parameter LookBackPeriod
+        /// <summary>
+        /// <para>
+        /// <para> The preference to control the number of days the utilization metrics of the Amazon
+        /// Web Services resource are analyzed. When this preference isn't specified, we use the
+        /// default value <code>DAYS_14</code>. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
+        /// resource types.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ComputeOptimizer.LookBackPeriodPreference")]
+        public Amazon.ComputeOptimizer.LookBackPeriodPreference LookBackPeriod { get; set; }
+        #endregion
+        
         #region Parameter Scope_Name
         /// <summary>
         /// <para>
@@ -91,6 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.CO
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ComputeOptimizer.ScopeName")]
         public Amazon.ComputeOptimizer.ScopeName Scope_Name { get; set; }
+        #endregion
+        
+        #region Parameter PreferredResource
+        /// <summary>
+        /// <para>
+        /// <para> The preference to control which resource type values are considered when generating
+        /// rightsizing recommendations. You can specify this preference as a combination of include
+        /// and exclude lists. You must specify either an <code>includeList</code> or <code>excludeList</code>.
+        /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
+        /// resource types.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreferredResources")]
+        public Amazon.ComputeOptimizer.Model.PreferredResource[] PreferredResource { get; set; }
         #endregion
         
         #region Parameter ResourceType
@@ -112,6 +141,20 @@ namespace Amazon.PowerShell.Cmdlets.CO
         public Amazon.ComputeOptimizer.ResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter SavingsEstimationMode
+        /// <summary>
+        /// <para>
+        /// <para> The status of the savings estimation mode preference to create or update. </para><para>Specify the <code>AfterDiscounts</code> status to activate the preference, or specify
+        /// <code>BeforeDiscounts</code> to deactivate the preference.</para><para>Only the account manager or delegated administrator of your organization can activate
+        /// this preference.</para><para>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/savings-estimation-mode.html">
+        /// Savings estimation mode</a> in the <i>Compute Optimizer User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ComputeOptimizer.SavingsEstimationMode")]
+        public Amazon.ComputeOptimizer.SavingsEstimationMode SavingsEstimationMode { get; set; }
+        #endregion
+        
         #region Parameter ExternalMetricsPreference_Source
         /// <summary>
         /// <para>
@@ -121,6 +164,19 @@ namespace Amazon.PowerShell.Cmdlets.CO
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ComputeOptimizer.ExternalMetricsSource")]
         public Amazon.ComputeOptimizer.ExternalMetricsSource ExternalMetricsPreference_Source { get; set; }
+        #endregion
+        
+        #region Parameter UtilizationPreference
+        /// <summary>
+        /// <para>
+        /// <para> The preference to control the resource’s CPU utilization thresholds - threshold and
+        /// headroom. When this preference isn't specified, we use the following default values:
+        /// </para><ul><li><para><code>P99_5</code> for threshold</para></li><li><para><code>PERCENT_17</code> for headroom</para></li></ul><note><para>You can only set this preference for the Amazon EC2 instance resource type.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UtilizationPreferences")]
+        public Amazon.ComputeOptimizer.Model.UtilizationPreference[] UtilizationPreference { get; set; }
         #endregion
         
         #region Parameter Scope_Value
@@ -199,6 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
             context.EnhancedInfrastructureMetric = this.EnhancedInfrastructureMetric;
             context.ExternalMetricsPreference_Source = this.ExternalMetricsPreference_Source;
             context.InferredWorkloadType = this.InferredWorkloadType;
+            context.LookBackPeriod = this.LookBackPeriod;
+            if (this.PreferredResource != null)
+            {
+                context.PreferredResource = new List<Amazon.ComputeOptimizer.Model.PreferredResource>(this.PreferredResource);
+            }
             context.ResourceType = this.ResourceType;
             #if MODULAR
             if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
@@ -206,8 +267,13 @@ namespace Amazon.PowerShell.Cmdlets.CO
                 WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SavingsEstimationMode = this.SavingsEstimationMode;
             context.Scope_Name = this.Scope_Name;
             context.Scope_Value = this.Scope_Value;
+            if (this.UtilizationPreference != null)
+            {
+                context.UtilizationPreference = new List<Amazon.ComputeOptimizer.Model.UtilizationPreference>(this.UtilizationPreference);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -251,9 +317,21 @@ namespace Amazon.PowerShell.Cmdlets.CO
             {
                 request.InferredWorkloadTypes = cmdletContext.InferredWorkloadType;
             }
+            if (cmdletContext.LookBackPeriod != null)
+            {
+                request.LookBackPeriod = cmdletContext.LookBackPeriod;
+            }
+            if (cmdletContext.PreferredResource != null)
+            {
+                request.PreferredResources = cmdletContext.PreferredResource;
+            }
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.SavingsEstimationMode != null)
+            {
+                request.SavingsEstimationMode = cmdletContext.SavingsEstimationMode;
             }
             
              // populate Scope
@@ -283,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (requestScopeIsNull)
             {
                 request.Scope = null;
+            }
+            if (cmdletContext.UtilizationPreference != null)
+            {
+                request.UtilizationPreferences = cmdletContext.UtilizationPreference;
             }
             
             CmdletOutput output;
@@ -348,9 +430,13 @@ namespace Amazon.PowerShell.Cmdlets.CO
             public Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics EnhancedInfrastructureMetric { get; set; }
             public Amazon.ComputeOptimizer.ExternalMetricsSource ExternalMetricsPreference_Source { get; set; }
             public Amazon.ComputeOptimizer.InferredWorkloadTypesPreference InferredWorkloadType { get; set; }
+            public Amazon.ComputeOptimizer.LookBackPeriodPreference LookBackPeriod { get; set; }
+            public List<Amazon.ComputeOptimizer.Model.PreferredResource> PreferredResource { get; set; }
             public Amazon.ComputeOptimizer.ResourceType ResourceType { get; set; }
+            public Amazon.ComputeOptimizer.SavingsEstimationMode SavingsEstimationMode { get; set; }
             public Amazon.ComputeOptimizer.ScopeName Scope_Name { get; set; }
             public System.String Scope_Value { get; set; }
+            public List<Amazon.ComputeOptimizer.Model.UtilizationPreference> UtilizationPreference { get; set; }
             public System.Func<Amazon.ComputeOptimizer.Model.PutRecommendationPreferencesResponse, WriteCORecommendationPreferenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

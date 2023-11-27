@@ -75,6 +75,56 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Detective
 
 
+$DTCT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Detective.Field
+        "Get-DTCTInvestigationList/SortCriteria_Field"
+        {
+            $v = "CREATED_TIME","SEVERITY","STATUS"
+            break
+        }
+
+        # Amazon.Detective.IndicatorType
+        "Get-DTCTIndicatorList/IndicatorType"
+        {
+            $v = "FLAGGED_IP_ADDRESS","IMPOSSIBLE_TRAVEL","NEW_ASO","NEW_GEOLOCATION","NEW_USER_AGENT","RELATED_FINDING","RELATED_FINDING_GROUP","TTP_OBSERVED"
+            break
+        }
+
+        # Amazon.Detective.SortOrder
+        "Get-DTCTInvestigationList/SortCriteria_SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Detective.State
+        "Update-DTCTInvestigationState/State"
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DTCT_map = @{
+    "IndicatorType"=@("Get-DTCTIndicatorList")
+    "SortCriteria_Field"=@("Get-DTCTInvestigationList")
+    "SortCriteria_SortOrder"=@("Get-DTCTInvestigationList")
+    "State"=@("Update-DTCTInvestigationState")
+}
+
+_awsArgumentCompleterRegistration $DTCT_Completers $DTCT_map
+
 $DTCT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -134,18 +184,23 @@ $DTCT_SelectMap = @{
                "Disable-DTCTOrganizationAdminAccount",
                "Remove-DTCTMembership",
                "Enable-DTCTOrganizationAdminAccount",
+               "Get-DTCTInvestigation",
                "Get-DTCTMember",
                "Get-DTCTDatasourcePackageList",
                "Get-DTCTGraphList",
+               "Get-DTCTIndicatorList",
+               "Get-DTCTInvestigationList",
                "Get-DTCTInvitationList",
                "Get-DTCTMemberList",
                "Get-DTCTOrganizationAdminAccountList",
                "Get-DTCTResourceTag",
                "Deny-DTCTInvitation",
+               "Start-DTCTInvestigation",
                "Start-DTCTMonitoringMember",
                "Add-DTCTResourceTag",
                "Remove-DTCTResourceTag",
                "Update-DTCTDatasourcePackage",
+               "Update-DTCTInvestigationState",
                "Update-DTCTOrganizationConfiguration")
 }
 

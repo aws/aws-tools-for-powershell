@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the analyzer.</para>
+        /// <para>An array of key-value pairs to apply to the analyzer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of analyzer to create. Only ACCOUNT and ORGANIZATION analyzers are supported.
-        /// You can create only one analyzer per account per Region. You can create up to 5 analyzers
-        /// per organization per Region.</para>
+        /// <para>The type of analyzer to create. Only <code>ACCOUNT</code>, <code>ORGANIZATION</code>,
+        /// <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZTAION_UNUSED_ACCESS</code> analyzers
+        /// are supported. You can create only one analyzer per account per Region. You can create
+        /// up to 5 analyzers per organization per Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,6 +100,21 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AccessAnalyzer.Type")]
         public Amazon.AccessAnalyzer.Type Type { get; set; }
+        #endregion
+        
+        #region Parameter UnusedAccess_UnusedAccessAge
+        /// <summary>
+        /// <para>
+        /// <para>The specified access age in days for which to generate findings for unused access.
+        /// For example, if you specify 90 days, the analyzer will generate findings for IAM entities
+        /// within the accounts of the selected organization for any access that hasn't been used
+        /// in 90 or more days since the analyzer's last scan. You can choose a value between
+        /// 1 and 180 days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_UnusedAccess_UnusedAccessAge")]
+        public System.Int32? UnusedAccess_UnusedAccessAge { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -185,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 context.ArchiveRule = new List<Amazon.AccessAnalyzer.Model.InlineArchiveRule>(this.ArchiveRule);
             }
             context.ClientToken = this.ClientToken;
+            context.UnusedAccess_UnusedAccessAge = this.UnusedAccess_UnusedAccessAge;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -227,6 +244,40 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.AccessAnalyzer.Model.AnalyzerConfiguration();
+            Amazon.AccessAnalyzer.Model.UnusedAccessConfiguration requestConfiguration_configuration_UnusedAccess = null;
+            
+             // populate UnusedAccess
+            var requestConfiguration_configuration_UnusedAccessIsNull = true;
+            requestConfiguration_configuration_UnusedAccess = new Amazon.AccessAnalyzer.Model.UnusedAccessConfiguration();
+            System.Int32? requestConfiguration_configuration_UnusedAccess_unusedAccess_UnusedAccessAge = null;
+            if (cmdletContext.UnusedAccess_UnusedAccessAge != null)
+            {
+                requestConfiguration_configuration_UnusedAccess_unusedAccess_UnusedAccessAge = cmdletContext.UnusedAccess_UnusedAccessAge.Value;
+            }
+            if (requestConfiguration_configuration_UnusedAccess_unusedAccess_UnusedAccessAge != null)
+            {
+                requestConfiguration_configuration_UnusedAccess.UnusedAccessAge = requestConfiguration_configuration_UnusedAccess_unusedAccess_UnusedAccessAge.Value;
+                requestConfiguration_configuration_UnusedAccessIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_UnusedAccess should be set to null
+            if (requestConfiguration_configuration_UnusedAccessIsNull)
+            {
+                requestConfiguration_configuration_UnusedAccess = null;
+            }
+            if (requestConfiguration_configuration_UnusedAccess != null)
+            {
+                request.Configuration.UnusedAccess = requestConfiguration_configuration_UnusedAccess;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -300,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             public System.String AnalyzerName { get; set; }
             public List<Amazon.AccessAnalyzer.Model.InlineArchiveRule> ArchiveRule { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Int32? UnusedAccess_UnusedAccessAge { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.AccessAnalyzer.Type Type { get; set; }
             public System.Func<Amazon.AccessAnalyzer.Model.CreateAnalyzerResponse, NewIAMAAAnalyzerCmdlet, object> Select { get; set; } =

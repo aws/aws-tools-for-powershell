@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
         #endregion
         
+        #region Parameter DataReplication
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the data replication status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.DataReplication")]
+        public Amazon.WorkSpaces.DataReplication DataReplication { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceProperties_OperatingSystemName
         /// <summary>
         /// <para>
@@ -215,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DataReplication = this.DataReplication;
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -248,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // create request
             var request = new Amazon.WorkSpaces.Model.ModifyWorkspacePropertiesRequest();
             
+            if (cmdletContext.DataReplication != null)
+            {
+                request.DataReplication = cmdletContext.DataReplication;
+            }
             if (cmdletContext.WorkspaceId != null)
             {
                 request.WorkspaceId = cmdletContext.WorkspaceId;
@@ -392,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WorkSpaces.DataReplication DataReplication { get; set; }
             public System.String WorkspaceId { get; set; }
             public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
             public Amazon.WorkSpaces.OperatingSystemName WorkspaceProperties_OperatingSystemName { get; set; }

@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <summary>
         /// <para>
         /// <para>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code>
-        /// or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</para>
+        /// or must be greater than or equal to the <code>ThresholdPercentage</code> to be approved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

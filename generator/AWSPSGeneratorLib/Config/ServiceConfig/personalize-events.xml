@@ -19,6 +19,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="PutActionInteractions" Verb="Write" Noun="ActionInteraction" ShouldProcessTarget="TrackingId" PipelineParameter="TrackingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutActions" Verb="Write" Noun="Action" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutEvents" Verb="Write" Noun="Event" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -87,10 +87,30 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.EvaluationFrequency
+        {
+            ($_ -eq "New-CWLLogAnomalyDetector/EvaluationFrequency") -Or
+            ($_ -eq "Update-CWLLogAnomalyDetector/EvaluationFrequency")
+        }
+        {
+            $v = "FIFTEEN_MIN","FIVE_MIN","ONE_HOUR","ONE_MIN","TEN_MIN","THIRTY_MIN"
+            break
+        }
+
         # Amazon.CloudWatchLogs.ExportTaskStatusCode
         "Get-CWLExportTask/StatusCode"
         {
             $v = "CANCELLED","COMPLETED","FAILED","PENDING","PENDING_CANCEL","RUNNING"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.LogGroupClass
+        {
+            ($_ -eq "Get-CWLLogGroup/LogGroupClass") -Or
+            ($_ -eq "New-CWLLogGroup/LogGroupClass")
+        }
+        {
+            $v = "INFREQUENT_ACCESS","STANDARD"
             break
         }
 
@@ -133,6 +153,27 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.SuppressionState
+        "Get-CWLAnomalyList/SuppressionState"
+        {
+            $v = "SUPPRESSED","UNSUPPRESSED"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.SuppressionType
+        "Update-CWLAnomaly/SuppressionType"
+        {
+            $v = "INFINITE","LIMITED"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.SuppressionUnit
+        "Update-CWLAnomaly/SuppressionPeriod_SuppressionUnit"
+        {
+            $v = "HOURS","MINUTES","SECONDS"
+            break
+        }
+
 
     }
 
@@ -143,12 +184,17 @@ $CWL_Completers = {
 
 $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
+    "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
+    "LogGroupClass"=@("Get-CWLLogGroup","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "Scope"=@("Write-CWLAccountPolicy")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
+    "SuppressionPeriod_SuppressionUnit"=@("Update-CWLAnomaly")
+    "SuppressionState"=@("Get-CWLAnomalyList")
+    "SuppressionType"=@("Update-CWLAnomaly")
 }
 
 _awsArgumentCompleterRegistration $CWL_Completers $CWL_map
@@ -205,6 +251,7 @@ $CWL_SelectMap = @{
                "Stop-CWLExportTask",
                "New-CWLDelivery",
                "New-CWLExportTask",
+               "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
                "Remove-CWLAccountPolicy",
@@ -214,6 +261,7 @@ $CWL_SelectMap = @{
                "Remove-CWLDeliveryDestinationPolicy",
                "Remove-CWLDeliverySource",
                "Remove-CWLDestination",
+               "Remove-CWLLogAnomalyDetector",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
                "Remove-CWLMetricFilter",
@@ -241,10 +289,13 @@ $CWL_SelectMap = @{
                "Get-CWLDeliveryDestination",
                "Get-CWLDeliveryDestinationPolicy",
                "Get-CWLDeliverySource",
+               "Get-CWLLogAnomalyDetector",
                "Get-CWLLogEvent",
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
+               "Get-CWLAnomalyList",
+               "Get-CWLLogAnomalyDetectorList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
@@ -266,7 +317,9 @@ $CWL_SelectMap = @{
                "Add-CWLResourceTag",
                "Test-CWLMetricFilter",
                "Remove-CWLLogGroupTag",
-               "Remove-CWLResourceTag")
+               "Remove-CWLResourceTag",
+               "Update-CWLAnomaly",
+               "Update-CWLLogAnomalyDetector")
 }
 
 _awsArgumentCompleterRegistration $CWL_SelectCompleters $CWL_SelectMap

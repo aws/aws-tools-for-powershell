@@ -33,11 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// dataset:
     /// 
     ///  <ul><li><para>
-    /// Interactions
+    /// Item interactions
     /// </para></li><li><para>
     /// Items
     /// </para></li><li><para>
     /// Users
+    /// </para></li><li><para>
+    /// Actions
+    /// </para></li><li><para>
+    /// Action interactions
     /// </para></li></ul><para>
     ///  A dataset group can be a Domain dataset group, where you specify a domain and use
     /// pre-configured resources like recommenders, or a Custom dataset group, where you use

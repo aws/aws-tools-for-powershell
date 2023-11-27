@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Used to inclue anomaly detection information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Include { get; set; }
+        #endregion
+        
         #region Parameter TargetGroupArn
         /// <summary>
         /// <para>
@@ -116,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 context.Select = (response, cmdlet) => this.TargetGroupArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
+            }
             context.TargetGroupArn = this.TargetGroupArn;
             #if MODULAR
             if (this.TargetGroupArn == null && ParameterWasBound(nameof(this.TargetGroupArn)))
@@ -143,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request
             var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthRequest();
             
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
+            }
             if (cmdletContext.TargetGroupArn != null)
             {
                 request.TargetGroupArn = cmdletContext.TargetGroupArn;
@@ -212,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Include { get; set; }
             public System.String TargetGroupArn { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.TargetDescription> Target { get; set; }
             public System.Func<Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse, GetELB2TargetHealthCmdlet, object> Select { get; set; } =

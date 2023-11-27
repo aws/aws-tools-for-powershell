@@ -207,11 +207,13 @@ $EKS_SelectMap = @{
                "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
                "New-EKSNodegroup",
+               "New-EKSPodIdentityAssociation",
                "Remove-EKSAddon",
                "Remove-EKSCluster",
                "Remove-EKSEksAnywhereSubscription",
                "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
+               "Remove-EKSPodIdentityAssociation",
                "Unregister-EKSCluster",
                "Get-EKSAddon",
                "Get-EKSAddonConfiguration",
@@ -221,6 +223,7 @@ $EKS_SelectMap = @{
                "Get-EKSFargateProfile",
                "Get-EKSIdentityProviderConfig",
                "Get-EKSNodegroup",
+               "Get-EKSPodIdentityAssociation",
                "Get-EKSUpdate",
                "Remove-EKSIdentityProviderConfig",
                "Get-EKSAddonList",
@@ -229,6 +232,7 @@ $EKS_SelectMap = @{
                "Get-EKSFargateProfileList",
                "Get-EKSIdentityProviderConfigList",
                "Get-EKSNodegroupList",
+               "Get-EKSPodIdentityAssociationList",
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",
                "Register-EKSCluster",
@@ -239,7 +243,8 @@ $EKS_SelectMap = @{
                "Update-EKSClusterVersion",
                "Update-EKSEksAnywhereSubscription",
                "Update-EKSNodegroupConfig",
-               "Update-EKSNodegroupVersion")
+               "Update-EKSNodegroupVersion",
+               "Update-EKSPodIdentityAssociation")
 }
 
 _awsArgumentCompleterRegistration $EKS_SelectCompleters $EKS_SelectMap

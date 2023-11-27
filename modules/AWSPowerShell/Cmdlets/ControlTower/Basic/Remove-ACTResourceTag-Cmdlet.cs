@@ -28,7 +28,7 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Removes tags from a resource. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
+    /// Removes tags from a resource. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the Amazon Web Services Control Tower User Guide</i></a>.
     /// </summary>
     [Cmdlet("Remove", "ACTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

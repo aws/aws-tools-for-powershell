@@ -43,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The blockchain network that the <code>Accessor</code> token is created for.</para><note><para>Use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> for all existing <code>Accessors</code>
+        /// tokens that were created before the <code>networkType</code> property was introduced.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.ManagedBlockchain.AccessorNetworkType")]
+        public Amazon.ManagedBlockchain.AccessorNetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -79,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public string Select { get; set; } = "Accessors";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the NetworkType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NetworkType' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NetworkType' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -99,12 +121,23 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ManagedBlockchain.Model.ListAccessorsResponse, GetMBCAccessorListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.NetworkType;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
+            context.NetworkType = this.NetworkType;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -119,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.ManagedBlockchain.Model.ListAccessorsRequest();
@@ -127,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             
             // Initialize loop variant and commence piping
@@ -214,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResult { get; set; }
+            public Amazon.ManagedBlockchain.AccessorNetworkType NetworkType { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.ListAccessorsResponse, GetMBCAccessorListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Accessors;

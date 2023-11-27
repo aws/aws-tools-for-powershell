@@ -80,6 +80,13 @@ $PERS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Personalize.BatchInferenceJobMode
+        "New-PERSBatchInferenceJob/BatchInferenceJobMode"
+        {
+            $v = "BATCH_INFERENCE","THEME_GENERATION"
+            break
+        }
+
         # Amazon.Personalize.Domain
         {
             ($_ -eq "Get-PERSRecipeList/Domain") -Or
@@ -135,6 +142,7 @@ $PERS_Completers = {
 }
 
 $PERS_map = @{
+    "BatchInferenceJobMode"=@("New-PERSBatchInferenceJob")
     "Domain"=@("Get-PERSRecipeList","New-PERSDatasetGroup","New-PERSSchema")
     "ImportMode"=@("New-PERSDatasetImportJob")
     "IngestionMode"=@("New-PERSDatasetExportJob")

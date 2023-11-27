@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePodIdentityAssociation" OutputProperty="Association" Verb="New" Noun="PodIdentityAssociation" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAddon" OutputProperty="Addon" Verb="Remove" Noun="Addon" ShouldProcessTarget="AddonName" PipelineParameter="AddonName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNodegroup" OutputProperty="Nodegroup" Verb="Remove" Noun="Nodegroup" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePodIdentityAssociation" OutputProperty="Association" Verb="Remove" Noun="PodIdentityAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePodIdentityAssociation" OutputProperty="Association" Verb="Get" Noun="PodIdentityAssociation" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeUpdate" OutputProperty="Update" Verb="Get" Noun="Update" PipelineParameter="UpdateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -132,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNodegroups" OutputProperty="Nodegroups" Verb="Get" Noun="NodegroupList" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPodIdentityAssociations" OutputProperty="Associations" Verb="Get" Noun="PodIdentityAssociationList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,6 +195,10 @@
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePodIdentityAssociation" OutputProperty="Association" Verb="Update" Noun="PodIdentityAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

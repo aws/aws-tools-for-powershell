@@ -1,0 +1,3 @@
+﻿# WorkSpacesThinClient
+
+Export-ModuleMember -Alias *

@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter BackupPolicy_Status
         /// <summary>
         /// <para>
-        /// <para>Describes the status of the file system's backup policy.</para><ul><li><para><b><code>ENABLED</code></b> - EFS is automatically backing up the file system.</para></li><li><para><b><code>ENABLING</code></b> - EFS is turning on automatic backups for the file
-        /// system.</para></li><li><para><b><code>DISABLED</code></b> - Automatic back ups are turned off for the file system.</para></li><li><para><b><code>DISABLING</code></b> - EFS is turning off automatic backups for the file
+        /// <para>Describes the status of the file system's backup policy.</para><ul><li><para><b><code>ENABLED</code></b> – EFS is automatically backing up the file system.</para></li><li><para><b><code>ENABLING</code></b> – EFS is turning on automatic backups for the file
+        /// system.</para></li><li><para><b><code>DISABLED</code></b> – Automatic back ups are turned off for the file system.</para></li><li><para><b><code>DISABLING</code></b> – EFS is turning off automatic backups for the file
         /// system.</para></li></ul>
         /// </para>
         /// </summary>

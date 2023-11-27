@@ -133,6 +133,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter Summarization_GenerateAbstractiveSummary
+        /// <summary>
+        /// <para>
+        /// <para>Enables Generative call summarization in your Call Analytics request</para><para>Generative call summarization provides a summary of the transcript including important
+        /// components discussed in the conversation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-enable-summarization.html">Enabling
+        /// generative call summarization</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_Summarization_GenerateAbstractiveSummary")]
+        public System.Boolean? Summarization_GenerateAbstractiveSummary { get; set; }
+        #endregion
+        
         #region Parameter Settings_LanguageIdSetting
         /// <summary>
         /// <para>
@@ -417,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 context.Settings_LanguageOption = new List<System.String>(this.Settings_LanguageOption);
             }
+            context.Summarization_GenerateAbstractiveSummary = this.Summarization_GenerateAbstractiveSummary;
             context.Settings_VocabularyFilterMethod = this.Settings_VocabularyFilterMethod;
             context.Settings_VocabularyFilterName = this.Settings_VocabularyFilterName;
             context.Settings_VocabularyName = this.Settings_VocabularyName;
@@ -549,6 +563,31 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 request.Settings.VocabularyName = requestSettings_settings_VocabularyName;
                 requestSettingsIsNull = false;
             }
+            Amazon.TranscribeService.Model.Summarization requestSettings_settings_Summarization = null;
+            
+             // populate Summarization
+            var requestSettings_settings_SummarizationIsNull = true;
+            requestSettings_settings_Summarization = new Amazon.TranscribeService.Model.Summarization();
+            System.Boolean? requestSettings_settings_Summarization_summarization_GenerateAbstractiveSummary = null;
+            if (cmdletContext.Summarization_GenerateAbstractiveSummary != null)
+            {
+                requestSettings_settings_Summarization_summarization_GenerateAbstractiveSummary = cmdletContext.Summarization_GenerateAbstractiveSummary.Value;
+            }
+            if (requestSettings_settings_Summarization_summarization_GenerateAbstractiveSummary != null)
+            {
+                requestSettings_settings_Summarization.GenerateAbstractiveSummary = requestSettings_settings_Summarization_summarization_GenerateAbstractiveSummary.Value;
+                requestSettings_settings_SummarizationIsNull = false;
+            }
+             // determine if requestSettings_settings_Summarization should be set to null
+            if (requestSettings_settings_SummarizationIsNull)
+            {
+                requestSettings_settings_Summarization = null;
+            }
+            if (requestSettings_settings_Summarization != null)
+            {
+                request.Settings.Summarization = requestSettings_settings_Summarization;
+                requestSettingsIsNull = false;
+            }
             Amazon.TranscribeService.Model.ContentRedaction requestSettings_settings_ContentRedaction = null;
             
              // populate ContentRedaction
@@ -673,6 +712,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings> Settings_LanguageIdSetting { get; set; }
             public System.String Settings_LanguageModelName { get; set; }
             public List<System.String> Settings_LanguageOption { get; set; }
+            public System.Boolean? Summarization_GenerateAbstractiveSummary { get; set; }
             public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }
             public System.String Settings_VocabularyFilterName { get; set; }
             public System.String Settings_VocabularyName { get; set; }

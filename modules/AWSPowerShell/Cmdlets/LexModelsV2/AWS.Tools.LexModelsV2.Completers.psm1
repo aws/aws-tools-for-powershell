@@ -271,6 +271,13 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.GenerationSortByAttribute
+        "Get-LMBV2BotResourceGenerationList/SortBy_Attribute"
+        {
+            $v = "creationStartTime","lastUpdatedTime"
+            break
+        }
+
         # Amazon.LexModelsV2.ImportExportFileFormat
         "New-LMBV2Export/FileFormat"
         {
@@ -338,6 +345,16 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.SlotResolutionStrategy
+        {
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy")
+        }
+        {
+            $v = "Default","EnhancedFallback"
+            break
+        }
+
         # Amazon.LexModelsV2.SlotSortAttribute
         "Get-LMBV2SlotList/SortBy_Attribute"
         {
@@ -367,6 +384,7 @@ $LMBV2_Completers = {
             ($_ -eq "Get-LMBV2AggregatedUtteranceList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotLocaleList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2BotResourceGenerationList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotVersionList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BuiltInIntentList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BuiltInSlotTypeList/SortBy_Order") -Or
@@ -508,9 +526,9 @@ $LMBV2_map = @{
     "ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
     "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
-    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
+    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
     "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
-    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
+    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -525,6 +543,7 @@ $LMBV2_map = @{
     "ValueElicitationSetting_SlotCaptureSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotCaptureSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "VoiceSettings_Engine"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
@@ -614,6 +633,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2BotAlias",
                "Get-LMBV2BotLocale",
                "Get-LMBV2BotRecommendation",
+               "Get-LMBV2BotResourceGeneration",
                "Get-LMBV2BotVersion",
                "Get-LMBV2CustomVocabularyMetadata",
                "Get-LMBV2Export",
@@ -626,11 +646,13 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2TestSet",
                "Get-LMBV2TestSetDiscrepancyReport",
                "Get-LMBV2TestSetGeneration",
+               "Get-LMBV2BotElement",
                "Get-LMBV2TestExecutionArtifactsUrl",
                "Get-LMBV2AggregatedUtteranceList",
                "Get-LMBV2BotAliasList",
                "Get-LMBV2BotLocaleList",
                "Get-LMBV2BotRecommendationList",
+               "Get-LMBV2BotResourceGenerationList",
                "Get-LMBV2BotList",
                "Get-LMBV2BotVersionList",
                "Get-LMBV2BuiltInIntentList",
@@ -656,6 +678,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2UtteranceMetricList",
                "Search-LMBV2AssociatedTranscript",
                "Start-LMBV2BotRecommendation",
+               "Start-LMBV2BotResourceGeneration",
                "Start-LMBV2Import",
                "Start-LMBV2TestExecution",
                "Start-LMBV2TestSetGeneration",

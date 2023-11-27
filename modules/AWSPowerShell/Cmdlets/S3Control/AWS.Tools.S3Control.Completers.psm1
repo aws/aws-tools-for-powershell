@@ -115,6 +115,16 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.GranteeType
+        {
+            ($_ -eq "New-S3CAccessGrant/Grantee_GranteeType") -Or
+            ($_ -eq "Get-S3CAccessGrantList/GranteeType")
+        }
+        {
+            $v = "DIRECTORY_GROUP","DIRECTORY_USER","IAM"
+            break
+        }
+
         # Amazon.S3Control.JobManifestFormat
         "New-S3CJob/Manifest_Spec_Format"
         {
@@ -147,6 +157,24 @@ $S3C_Completers = {
         "Write-S3CStorageLensConfiguration/StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion"
         {
             $v = "V_1"
+            break
+        }
+
+        # Amazon.S3Control.Permission
+        {
+            ($_ -eq "Get-S3CAccessGrantList/Permission") -Or
+            ($_ -eq "Get-S3CDataAccess/Permission") -Or
+            ($_ -eq "New-S3CAccessGrant/Permission")
+        }
+        {
+            $v = "READ","READWRITE","WRITE"
+            break
+        }
+
+        # Amazon.S3Control.Privilege
+        "Get-S3CDataAccess/Privilege"
+        {
+            $v = "Default","Minimal"
             break
         }
 
@@ -212,6 +240,16 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.S3PrefixType
+        {
+            ($_ -eq "New-S3CAccessGrant/S3PrefixType") -Or
+            ($_ -eq "Get-S3CDataAccess/TargetType")
+        }
+        {
+            $v = "Object"
+            break
+        }
+
         # Amazon.S3Control.S3SSEAlgorithm
         "New-S3CJob/Operation_S3PutObjectCopy_NewObjectMetadata_SSEAlgorithm"
         {
@@ -237,6 +275,8 @@ $S3C_Completers = {
 $S3C_map = @{
     "ACL"=@("New-S3CBucket")
     "CreateBucketConfiguration_LocationConstraint"=@("New-S3CBucket")
+    "Grantee_GranteeType"=@("New-S3CAccessGrant")
+    "GranteeType"=@("Get-S3CAccessGrantList")
     "Manifest_Spec_Format"=@("New-S3CJob")
     "ManifestGenerator_S3JobManifestGenerator_ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "Operation_S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
@@ -250,11 +290,15 @@ $S3C_map = @{
     "Operation_S3PutObjectCopy_StorageClass"=@("New-S3CJob")
     "Operation_S3PutObjectLegalHold_LegalHold_Status"=@("New-S3CJob")
     "Operation_S3PutObjectRetention_Retention_Mode"=@("New-S3CJob")
+    "Permission"=@("Get-S3CAccessGrantList","Get-S3CDataAccess","New-S3CAccessGrant")
+    "Privilege"=@("Get-S3CDataAccess")
     "Report_Format"=@("New-S3CJob")
     "Report_ReportScope"=@("New-S3CJob")
     "RequestedJobStatus"=@("Update-S3CJobStatus")
+    "S3PrefixType"=@("New-S3CAccessGrant")
     "StorageLensConfiguration_DataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
     "StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "TargetType"=@("Get-S3CDataAccess")
     "VersioningConfiguration_MFADelete"=@("Write-S3CBucketVersioning")
     "VersioningConfiguration_Status"=@("Write-S3CBucketVersioning")
 }
@@ -309,12 +353,20 @@ $S3C_SelectCompleters = {
 }
 
 $S3C_SelectMap = @{
-    "Select"=@("New-S3CAccessPoint",
+    "Select"=@("Connect-S3CAccessGrantsIdentityCenter",
+               "New-S3CAccessGrant",
+               "New-S3CAccessGrantsInstance",
+               "New-S3CAccessGrantsLocation",
+               "New-S3CAccessPoint",
                "New-S3CAccessPointForObjectLambda",
                "New-S3CBucket",
                "New-S3CJob",
                "New-S3CMultiRegionAccessPoint",
                "New-S3CStorageLensGroup",
+               "Remove-S3CAccessGrant",
+               "Remove-S3CAccessGrantsInstance",
+               "Remove-S3CAccessGrantsInstanceResourcePolicy",
+               "Remove-S3CAccessGrantsLocation",
                "Remove-S3CAccessPoint",
                "Remove-S3CAccessPointForObjectLambda",
                "Remove-S3CAccessPointPolicy",
@@ -332,6 +384,12 @@ $S3C_SelectMap = @{
                "Remove-S3CStorageLensGroup",
                "Get-S3CJob",
                "Get-S3CMultiRegionAccessPointOperation",
+               "Disconnect-S3CAccessGrantsIdentityCenter",
+               "Get-S3CAccessGrant",
+               "Get-S3CAccessGrantsInstance",
+               "Get-S3CAccessGrantsInstanceForPrefix",
+               "Get-S3CAccessGrantsInstanceResourcePolicy",
+               "Get-S3CAccessGrantsLocation",
                "Get-S3CAccessPoint",
                "Get-S3CAccessPointConfigurationForObjectLambda",
                "Get-S3CAccessPointForObjectLambda",
@@ -345,6 +403,7 @@ $S3C_SelectMap = @{
                "Get-S3CBucketReplication",
                "Get-S3CBucketTagging",
                "Get-S3CBucketVersioning",
+               "Get-S3CDataAccess",
                "Get-S3CJobTagging",
                "Get-S3CMultiRegionAccessPoint",
                "Get-S3CMultiRegionAccessPointPolicy",
@@ -354,6 +413,9 @@ $S3C_SelectMap = @{
                "Get-S3CStorageLensConfiguration",
                "Get-S3CStorageLensConfigurationTagging",
                "Get-S3CStorageLensGroup",
+               "Get-S3CAccessGrantList",
+               "Get-S3CAccessGrantsInstanceList",
+               "Get-S3CAccessGrantsLocationList",
                "Get-S3CAccessPointList",
                "Get-S3CAccessPointsForObjectLambdaList",
                "Get-S3CJobList",
@@ -362,6 +424,7 @@ $S3C_SelectMap = @{
                "Get-S3CStorageLensConfigurationList",
                "Get-S3CStorageLensGroupList",
                "Get-S3CResourceTag",
+               "Write-S3CAccessGrantsInstanceResourcePolicy",
                "Write-S3CAccessPointConfigurationForObjectLambda",
                "Write-S3CAccessPointPolicy",
                "Write-S3CAccessPointPolicyForObjectLambda",
@@ -378,6 +441,7 @@ $S3C_SelectMap = @{
                "Submit-S3CMultiRegionAccessPointRoute",
                "Add-S3CResourceTag",
                "Remove-S3CResourceTag",
+               "Update-S3CAccessGrantsLocation",
                "Update-S3CJobPriority",
                "Update-S3CJobStatus",
                "Update-S3CStorageLensGroup")

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.
     /// </para></li></ul><para>
     /// Only some Amazon Web Services services support being configured as a delivery source.
-    /// These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/ AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions">Enabling
+    /// These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
     /// logging from Amazon Web Services services.</a></para><para>
     /// The contents of the policy must include two statements. One statement enables general
     /// logs delivery, and the other allows delivery to the chosen destination. See the examples

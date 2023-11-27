@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>eks-auth</C2jFilename>
+    <AssemblyName>EKSAuth</AssemblyName>
+    <ServiceNounPrefix>EKSAU</ServiceNounPrefix>
+    <ServiceName>Amazon EKS Auth</ServiceName>
+    <ServiceClientInterface>IAmazonEKSAuth</ServiceClientInterface>
+    <ServiceClient>AmazonEKSAuthClient</ServiceClient>
+    <ServiceModuleGuid>a1512eda-eac7-4f7d-b8fc-973437399bce</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssumeRoleForPodIdentity" OutputProperty="*" Verb="Use" Noun="RoleForPodIdentity" IgnoreSupportsShouldProcess="true" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

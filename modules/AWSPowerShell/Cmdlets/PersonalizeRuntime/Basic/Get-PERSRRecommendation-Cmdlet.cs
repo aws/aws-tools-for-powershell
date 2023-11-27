@@ -121,10 +121,29 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         public System.String ItemId { get; set; }
         #endregion
         
+        #region Parameter MetadataColumn
+        /// <summary>
+        /// <para>
+        /// <para>If you enabled metadata in recommendations when you created or updated the campaign
+        /// or recommender, specify the metadata columns from your Items dataset to include in
+        /// item recommendations. The map key is <code>ITEMS</code> and the value is a list of
+        /// column names from your Items dataset. The maximum number of columns you can provide
+        /// is 10.</para><para> For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling
+        /// metadata in recommendations for a campaign</a>. For information about enabling metadata
+        /// for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-recommender-return-metadata.html">Enabling
+        /// metadata in recommendations for a recommender</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataColumns")]
+        public System.Collections.Hashtable MetadataColumn { get; set; }
+        #endregion
+        
         #region Parameter NumResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to return. The default is 25. The maximum is 500.</para>
+        /// <para>The number of results to return. The default is 25. If you are including metadata
+        /// in recommendations, the maximum is 50. Otherwise, the maximum is 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,6 +250,26 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 }
             }
             context.ItemId = this.ItemId;
+            if (this.MetadataColumn != null)
+            {
+                context.MetadataColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MetadataColumn.Keys)
+                {
+                    object hashValue = this.MetadataColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.MetadataColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.MetadataColumn.Add((String)hashKey, valueSet);
+                }
+            }
             context.NumResult = this.NumResult;
             if (this.Promotion != null)
             {
@@ -273,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.ItemId != null)
             {
                 request.ItemId = cmdletContext.ItemId;
+            }
+            if (cmdletContext.MetadataColumn != null)
+            {
+                request.MetadataColumns = cmdletContext.MetadataColumn;
             }
             if (cmdletContext.NumResult != null)
             {
@@ -356,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             public System.String FilterArn { get; set; }
             public Dictionary<System.String, System.String> FilterValue { get; set; }
             public System.String ItemId { get; set; }
+            public Dictionary<System.String, List<System.String>> MetadataColumn { get; set; }
             public System.Int32? NumResult { get; set; }
             public List<Amazon.PersonalizeRuntime.Model.Promotion> Promotion { get; set; }
             public System.String RecommenderArn { get; set; }

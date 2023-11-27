@@ -48,6 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// control plane over the Kubernetes API server endpoint and a certificate file that
     /// is created for your cluster.
     /// </para><para>
+    /// You can use the <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
+    /// parameters to enable or disable public and private access to your cluster's Kubernetes
+    /// API server endpoint. By default, public access is enabled, and private access is disabled.
+    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+    /// EKS Cluster Endpoint Access Control</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// 
+    /// </para><para>
+    /// You can use the <code>logging</code> parameter to enable or disable exporting the
+    /// Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster
+    /// control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
+    /// EKS Cluster Control Plane Logs</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// </para><note><para>
+    /// CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
+    /// control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch
+    /// Pricing</a>.
+    /// </para></note><para>
     /// In most cases, it takes several minutes to create a cluster. After you create an Amazon
     /// EKS cluster, you must configure your Kubernetes tooling to communicate with the API
     /// server and launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// by default, you must first opt in to the Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing
     /// Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference Reference
     /// Guide</i></para></li><li><para><b>Availability Zone</b> - If you want the destination file system to use EFS One
-    /// Zone availability and durability, you must specify the Availability Zone to create
-    /// the file system in. For more information about EFS storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
+    /// Zone availability, you must specify the Availability Zone to create the file system
+    /// in. For more information about EFS storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
     /// Amazon EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.
     /// </para></li><li><para><b>Encryption</b> - All destination file systems are created with encryption at rest
     /// enabled. You can specify the Key Management Service (KMS) key that is used to encrypt
@@ -66,10 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// mode.
     /// </para></li></ul><para>
     /// The following properties are turned off by default:
-    /// </para><ul><li><para><b>Lifecycle management</b> - EFS lifecycle management and EFS Intelligent-Tiering
-    /// are not enabled on the destination file system. After the destination file system
-    /// is created, you can enable EFS lifecycle management and EFS Intelligent-Tiering.
-    /// </para></li><li><para><b>Automatic backups</b> - Automatic daily backups are enabled on the destination
+    /// </para><ul><li><para><b>Lifecycle management</b> – Lifecycle management is not enabled on the destination
+    /// file system. After the destination file system is created, you can enable it.
+    /// </para></li><li><para><b>Automatic backups</b> – Automatic daily backups are enabled on the destination
     /// file system. After the file system is created, you can change this setting.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon

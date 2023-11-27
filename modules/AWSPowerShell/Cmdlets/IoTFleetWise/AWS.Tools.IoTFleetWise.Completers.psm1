@@ -114,7 +114,7 @@ $IFW_Completers = {
             ($_ -eq "Update-IFWModelManifest/Status")
         }
         {
-            $v = "ACTIVE","DRAFT"
+            $v = "ACTIVE","DRAFT","INVALID","VALIDATING"
             break
         }
 

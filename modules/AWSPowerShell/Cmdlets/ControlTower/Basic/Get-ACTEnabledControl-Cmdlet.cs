@@ -28,7 +28,7 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the AWS Control Tower User Guide</i></a>.
+    /// Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the Amazon Web Services Control Tower User Guide</i></a>.
     /// </summary>
     [Cmdlet("Get", "ACTEnabledControl")]
     [OutputType("Amazon.ControlTower.Model.EnabledControlDetails")]

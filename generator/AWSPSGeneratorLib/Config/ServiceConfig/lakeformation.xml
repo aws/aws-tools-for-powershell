@@ -49,6 +49,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLakeFormationIdentityCenterConfiguration" OutputProperty="ApplicationArn" Verb="New" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLakeFormationOptIn" Verb="New" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -58,6 +62,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataCellsFilter" Verb="Remove" Noun="DataCellsFilter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLakeFormationIdentityCenterConfiguration" Verb="Remove" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -74,6 +82,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterResource" Verb="Unregister" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLakeFormationIdentityCenterConfiguration" OutputProperty="*" Verb="Get" Noun="LakeFormationIdentityCenterConfiguration" PipelineParameter="CatalogId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -202,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataCellsFilter" Verb="Update" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLakeFormationIdentityCenterConfiguration" Verb="Update" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

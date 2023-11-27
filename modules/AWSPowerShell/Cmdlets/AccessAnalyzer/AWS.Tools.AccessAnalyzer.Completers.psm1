@@ -80,6 +80,16 @@ $IAMAA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AccessAnalyzer.AccessCheckPolicyType
+        {
+            ($_ -eq "Test-IAMAAAccessNotGranted/PolicyType") -Or
+            ($_ -eq "Test-IAMAANoNewAccess/PolicyType")
+        }
+        {
+            $v = "IDENTITY_POLICY","RESOURCE_POLICY"
+            break
+        }
+
         # Amazon.AccessAnalyzer.FindingStatusUpdate
         "Update-IAMAAFinding/Status"
         {
@@ -95,7 +105,10 @@ $IAMAA_Completers = {
         }
 
         # Amazon.AccessAnalyzer.OrderBy
-        "Get-IAMAAFindingList/Sort_OrderBy"
+        {
+            ($_ -eq "Get-IAMAAFindingList/Sort_OrderBy") -Or
+            ($_ -eq "Get-IAMAAFindingsV2List/Sort_OrderBy")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -121,7 +134,7 @@ $IAMAA_Completers = {
             ($_ -eq "New-IAMAAAnalyzer/Type")
         }
         {
-            $v = "ACCOUNT","ORGANIZATION"
+            $v = "ACCOUNT","ACCOUNT_UNUSED_ACCESS","ORGANIZATION","ORGANIZATION_UNUSED_ACCESS"
             break
         }
 
@@ -142,9 +155,9 @@ $IAMAA_Completers = {
 
 $IAMAA_map = @{
     "Locale"=@("Use-IAMAAPolicyValidation")
-    "PolicyType"=@("Use-IAMAAPolicyValidation")
+    "PolicyType"=@("Test-IAMAAAccessNotGranted","Test-IAMAANoNewAccess","Use-IAMAAPolicyValidation")
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList")
-    "Sort_OrderBy"=@("Get-IAMAAFindingList")
+    "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
     "ValidatePolicyResourceType"=@("Use-IAMAAPolicyValidation")
@@ -202,6 +215,8 @@ $IAMAA_SelectCompleters = {
 $IAMAA_SelectMap = @{
     "Select"=@("Start-IAMAAArchiveRule",
                "Stop-IAMAAPolicyGeneration",
+               "Test-IAMAAAccessNotGranted",
+               "Test-IAMAANoNewAccess",
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
@@ -212,6 +227,7 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAAnalyzer",
                "Get-IAMAAArchiveRule",
                "Get-IAMAAFinding",
+               "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
                "Get-IAMAAAccessPreviewFindingList",
                "Get-IAMAAAccessPreviewList",
@@ -219,6 +235,7 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAAnalyzerList",
                "Get-IAMAAArchiveRuleList",
                "Get-IAMAAFindingList",
+               "Get-IAMAAFindingsV2List",
                "Get-IAMAAPolicyGenerationList",
                "Get-IAMAAResourceTag",
                "Start-IAMAAPolicyGeneration",

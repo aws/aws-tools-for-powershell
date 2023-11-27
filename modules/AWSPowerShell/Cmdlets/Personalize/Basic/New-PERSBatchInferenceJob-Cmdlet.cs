@@ -28,9 +28,29 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Creates a batch inference job. The operation can handle up to 50 million records and
-    /// the input file must be in JSON format. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating
-    /// a batch inference job</a>.
+    /// Generates batch recommendations based on a list of items or users stored in Amazon
+    /// S3 and exports the recommendations to an Amazon S3 bucket.
+    /// 
+    ///  
+    /// <para>
+    /// To generate batch recommendations, specify the ARN of a solution version and an Amazon
+    /// S3 URI for the input and output data. For user personalization, popular items, and
+    /// personalized ranking solutions, the batch inference job generates a list of recommended
+    /// items for each user ID in the input file. For related items solutions, the job generates
+    /// a list of recommended items for each item ID in the input file.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/getting-batch-recommendations.html">Creating
+    /// a batch inference job </a>.
+    /// </para><para>
+    ///  If you use the Similar-Items recipe, Amazon Personalize can add descriptive themes
+    /// to batch recommendations. To generate themes, set the job's mode to <code>THEME_GENERATION</code>
+    /// and specify the name of the field that contains item names in the input data.
+    /// </para><para>
+    ///  For more information about generating themes, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html">Batch
+    /// recommendations with themes from Content Generator </a>. 
+    /// </para><para>
+    /// You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "PERSBatchInferenceJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,6 +63,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter BatchInferenceJobMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode of the batch inference job. To generate descriptive themes for groups of
+        /// similar items, set the job mode to <code>THEME_GENERATION</code>. If you don't want
+        /// to generate themes, use the default <code>BATCH_INFERENCE</code>.</para><para> When you get batch recommendations with themes, you will incur additional costs.
+        /// For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon
+        /// Personalize pricing</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Personalize.BatchInferenceJobMode")]
+        public Amazon.Personalize.BatchInferenceJobMode BatchInferenceJobMode { get; set; }
+        #endregion
         
         #region Parameter FilterArn
         /// <summary>
@@ -67,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable BatchInferenceJobConfig_ItemExplorationConfig { get; set; }
+        #endregion
+        
+        #region Parameter FieldsForThemeGeneration_ItemName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Items dataset column that stores the name of each item in the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThemeGenerationConfig_FieldsForThemeGeneration_ItemName")]
+        public System.String FieldsForThemeGeneration_ItemName { get; set; }
         #endregion
         
         #region Parameter JobName
@@ -275,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.BatchInferenceJobConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.BatchInferenceJobConfig_ItemExplorationConfig[hashKey]));
                 }
             }
+            context.BatchInferenceJobMode = this.BatchInferenceJobMode;
             context.FilterArn = this.FilterArn;
             context.S3DataSource_KmsKeyArn = this.S3DataSource_KmsKeyArn;
             context.S3DataSource_Path = this.S3DataSource_Path;
@@ -318,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
             }
+            context.FieldsForThemeGeneration_ItemName = this.FieldsForThemeGeneration_ItemName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -352,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestBatchInferenceJobConfigIsNull)
             {
                 request.BatchInferenceJobConfig = null;
+            }
+            if (cmdletContext.BatchInferenceJobMode != null)
+            {
+                request.BatchInferenceJobMode = cmdletContext.BatchInferenceJobMode;
             }
             if (cmdletContext.FilterArn != null)
             {
@@ -466,6 +518,40 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate ThemeGenerationConfig
+            var requestThemeGenerationConfigIsNull = true;
+            request.ThemeGenerationConfig = new Amazon.Personalize.Model.ThemeGenerationConfig();
+            Amazon.Personalize.Model.FieldsForThemeGeneration requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration = null;
+            
+             // populate FieldsForThemeGeneration
+            var requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGenerationIsNull = true;
+            requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration = new Amazon.Personalize.Model.FieldsForThemeGeneration();
+            System.String requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration_fieldsForThemeGeneration_ItemName = null;
+            if (cmdletContext.FieldsForThemeGeneration_ItemName != null)
+            {
+                requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration_fieldsForThemeGeneration_ItemName = cmdletContext.FieldsForThemeGeneration_ItemName;
+            }
+            if (requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration_fieldsForThemeGeneration_ItemName != null)
+            {
+                requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration.ItemName = requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration_fieldsForThemeGeneration_ItemName;
+                requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGenerationIsNull = false;
+            }
+             // determine if requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration should be set to null
+            if (requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGenerationIsNull)
+            {
+                requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration = null;
+            }
+            if (requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration != null)
+            {
+                request.ThemeGenerationConfig.FieldsForThemeGeneration = requestThemeGenerationConfig_themeGenerationConfig_FieldsForThemeGeneration;
+                requestThemeGenerationConfigIsNull = false;
+            }
+             // determine if request.ThemeGenerationConfig should be set to null
+            if (requestThemeGenerationConfigIsNull)
+            {
+                request.ThemeGenerationConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -527,6 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> BatchInferenceJobConfig_ItemExplorationConfig { get; set; }
+            public Amazon.Personalize.BatchInferenceJobMode BatchInferenceJobMode { get; set; }
             public System.String FilterArn { get; set; }
             public System.String S3DataSource_KmsKeyArn { get; set; }
             public System.String S3DataSource_Path { get; set; }
@@ -537,6 +624,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String RoleArn { get; set; }
             public System.String SolutionVersionArn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
+            public System.String FieldsForThemeGeneration_ItemName { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateBatchInferenceJobResponse, NewPERSBatchInferenceJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BatchInferenceJobArn;
         }

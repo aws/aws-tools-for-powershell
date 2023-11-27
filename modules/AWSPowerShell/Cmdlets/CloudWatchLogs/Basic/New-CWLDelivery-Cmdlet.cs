@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// Only some Amazon Web Services services support being configured as a delivery source
     /// using this operation. These services are listed as <b>Supported [V2 Permissions]</b>
-    /// in the table at <a href="https://docs.aws.amazon.com/ AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions">Enabling
+    /// in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
     /// logging from Amazon Web Services services.</a></para><para>
     /// A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3
     /// bucket, or a delivery stream in Kinesis Data Firehose.

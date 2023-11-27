@@ -33,16 +33,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// 
     ///  
     /// <para>
-    /// There are three types of datasets:
+    /// There are 5 types of datasets:
     /// </para><ul><li><para>
-    /// Interactions
+    /// Item interactions
     /// </para></li><li><para>
     /// Items
     /// </para></li><li><para>
     /// Users
+    /// </para></li><li><para>
+    /// Action interactions
+    /// </para></li><li><para>
+    /// Actions
     /// </para></li></ul><para>
-    /// Each dataset type has an associated schema with required field types. Only the <code>Interactions</code>
-    /// dataset is required in order to train a model (also referred to as creating a solution).
+    /// Each dataset type has an associated schema with required field types. Only the <code>Item
+    /// interactions</code> dataset is required in order to train a model (also referred to
+    /// as creating a solution).
     /// </para><para>
     /// A dataset can be in one of the following states:
     /// </para><ul><li><para>
@@ -85,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter DatasetType
         /// <summary>
         /// <para>
-        /// <para>The type of dataset.</para><para>One of the following (case insensitive) values:</para><ul><li><para>Interactions</para></li><li><para>Items</para></li><li><para>Users</para></li></ul>
+        /// <para>The type of dataset.</para><para>One of the following (case insensitive) values:</para><ul><li><para>Interactions</para></li><li><para>Items</para></li><li><para>Users</para></li><li><para>Actions</para></li><li><para>Action_Interactions</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

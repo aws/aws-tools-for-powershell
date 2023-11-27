@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInvestigation" OutputProperty="*" Verb="Get" Noun="Investigation" PipelineParameter="InvestigationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMembers" OutputProperty="*" Verb="Get" Noun="Member" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +76,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGraphs" OutputProperty="GraphList" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndicators" OutputProperty="*" Verb="Get" Noun="IndicatorList" PipelineParameter="InvestigationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInvestigations" OutputProperty="InvestigationDetails" Verb="Get" Noun="InvestigationList" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartInvestigation" OutputProperty="InvestigationId" Verb="Start" Noun="Investigation" AnonymousShouldProcessTarget="true" PipelineParameter="EntityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringMember" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +124,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDatasourcePackages" Verb="Update" Noun="DatasourcePackage" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInvestigationState" Verb="Update" Noun="InvestigationState" ShouldProcessTarget="InvestigationId" PipelineParameter="InvestigationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

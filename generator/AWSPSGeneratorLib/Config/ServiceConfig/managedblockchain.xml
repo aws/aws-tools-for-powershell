@@ -72,7 +72,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessors" OutputProperty="Accessors" Verb="Get" Noun="AccessorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccessors" OutputProperty="Accessors" Verb="Get" Noun="AccessorList" PipelineParameter="NetworkType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

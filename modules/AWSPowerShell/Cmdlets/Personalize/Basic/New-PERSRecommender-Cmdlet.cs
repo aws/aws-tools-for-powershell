@@ -104,6 +104,22 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String DatasetGroupArn { get; set; }
         #endregion
         
+        #region Parameter RecommenderConfig_EnableMetadataWithRecommendation
+        /// <summary>
+        /// <para>
+        /// <para>Whether metadata with recommendations is enabled for the recommender. If enabled,
+        /// you can specify the columns from your Items dataset in your request for recommendations.
+        /// Amazon Personalize returns this data for each item in the recommendation response.
+        /// </para><para> If you enable metadata in recommendations, you will incur additional costs. For more
+        /// information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize
+        /// pricing</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderConfig_EnableMetadataWithRecommendations")]
+        public System.Boolean? RecommenderConfig_EnableMetadataWithRecommendation { get; set; }
+        #endregion
+        
         #region Parameter TrainingDataConfig_ExcludedDatasetColumn
         /// <summary>
         /// <para>
@@ -280,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter RecipeArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecommenderConfig_EnableMetadataWithRecommendation = this.RecommenderConfig_EnableMetadataWithRecommendation;
             if (this.RecommenderConfig_ItemExplorationConfig != null)
             {
                 context.RecommenderConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -345,6 +362,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
              // populate RecommenderConfig
             var requestRecommenderConfigIsNull = true;
             request.RecommenderConfig = new Amazon.Personalize.Model.RecommenderConfig();
+            System.Boolean? requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation = null;
+            if (cmdletContext.RecommenderConfig_EnableMetadataWithRecommendation != null)
+            {
+                requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation = cmdletContext.RecommenderConfig_EnableMetadataWithRecommendation.Value;
+            }
+            if (requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation != null)
+            {
+                request.RecommenderConfig.EnableMetadataWithRecommendations = requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation.Value;
+                requestRecommenderConfigIsNull = false;
+            }
             Dictionary<System.String, System.String> requestRecommenderConfig_recommenderConfig_ItemExplorationConfig = null;
             if (cmdletContext.RecommenderConfig_ItemExplorationConfig != null)
             {
@@ -463,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String DatasetGroupArn { get; set; }
             public System.String Name { get; set; }
             public System.String RecipeArn { get; set; }
+            public System.Boolean? RecommenderConfig_EnableMetadataWithRecommendation { get; set; }
             public Dictionary<System.String, System.String> RecommenderConfig_ItemExplorationConfig { get; set; }
             public System.Int32? RecommenderConfig_MinRecommendationRequestsPerSecond { get; set; }
             public Dictionary<System.String, List<System.String>> TrainingDataConfig_ExcludedDatasetColumn { get; set; }

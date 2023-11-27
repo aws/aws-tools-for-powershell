@@ -28,10 +28,10 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Deletes an expired / inactive subscription. Deleting inactive subscriptions removes
+    /// Deletes an expired or inactive subscription. Deleting inactive subscriptions removes
     /// them from the Amazon Web Services Management Console view and from list/describe API
-    /// responses. Subscriptions can only be cancelled within 7 days of creation, and are
-    /// cancelled by creating a ticket in the Amazon Web Services Support Center.
+    /// responses. Subscriptions can only be cancelled within 7 days of creation and are cancelled
+    /// by creating a ticket in the Amazon Web Services Support Center.
     /// </summary>
     [Cmdlet("Remove", "EKSEksAnywhereSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EKS.Model.EksAnywhereSubscription")]

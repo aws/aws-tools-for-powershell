@@ -79,6 +79,22 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CampaignConfig_EnableMetadataWithRecommendation
+        /// <summary>
+        /// <para>
+        /// <para>Whether metadata with recommendations is enabled for the campaign. If enabled, you
+        /// can specify the columns from your Items dataset in your request for recommendations.
+        /// Amazon Personalize returns this data for each item in the recommendation response.
+        /// </para><para> If you enable metadata in recommendations, you will incur additional costs. For more
+        /// information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize
+        /// pricing</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CampaignConfig_EnableMetadataWithRecommendations")]
+        public System.Boolean? CampaignConfig_EnableMetadataWithRecommendation { get; set; }
+        #endregion
+        
         #region Parameter CampaignConfig_ItemExplorationConfig
         /// <summary>
         /// <para>
@@ -215,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CampaignConfig_EnableMetadataWithRecommendation = this.CampaignConfig_EnableMetadataWithRecommendation;
             if (this.CampaignConfig_ItemExplorationConfig != null)
             {
                 context.CampaignConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -262,6 +279,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
              // populate CampaignConfig
             var requestCampaignConfigIsNull = true;
             request.CampaignConfig = new Amazon.Personalize.Model.CampaignConfig();
+            System.Boolean? requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation = null;
+            if (cmdletContext.CampaignConfig_EnableMetadataWithRecommendation != null)
+            {
+                requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation = cmdletContext.CampaignConfig_EnableMetadataWithRecommendation.Value;
+            }
+            if (requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation != null)
+            {
+                request.CampaignConfig.EnableMetadataWithRecommendations = requestCampaignConfig_campaignConfig_EnableMetadataWithRecommendation.Value;
+                requestCampaignConfigIsNull = false;
+            }
             Dictionary<System.String, System.String> requestCampaignConfig_campaignConfig_ItemExplorationConfig = null;
             if (cmdletContext.CampaignConfig_ItemExplorationConfig != null)
             {
@@ -354,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CampaignConfig_EnableMetadataWithRecommendation { get; set; }
             public Dictionary<System.String, System.String> CampaignConfig_ItemExplorationConfig { get; set; }
             public System.Int32? MinProvisionedTPS { get; set; }
             public System.String Name { get; set; }

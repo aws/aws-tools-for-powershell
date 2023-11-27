@@ -73,6 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// the wait time to retire a Fargate task. For information about the Fargate tasks maintenance,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon
     /// Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer Guide</i>.
+    /// </para><para>
+    /// The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates
+    /// whether Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator
+    /// in your Amazon ECS account. Amazon GuardDuty controls this account setting on your
+    /// behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting
+    /// Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ECSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -104,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging
         /// authorization timeline</a> in the <i>Amazon ECS Developer Guide</i>. If you specify
         /// <code>fargateTaskRetirementWaitPeriod</code>, the wait time to retire a Fargate task
-        /// is affected.</para>
+        /// is affected.</para><para>The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates
+        /// whether Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator
+        /// in your Amazon ECS account. Amazon GuardDuty controls this account setting on your
+        /// behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting
+        /// Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

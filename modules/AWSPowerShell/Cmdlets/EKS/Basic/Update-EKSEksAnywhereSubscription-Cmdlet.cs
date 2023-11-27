@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the subscription.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
