@@ -646,9 +646,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (!string.IsNullOrEmpty(cmdletContext.KeyPrefix))
                 return CopyS3ObjectsToLocalFolder(context);
-
+            
             // S3 requires multi-part operation for objects > 5GB
-            var objectSize = GetSourceObjectData(cmdletContext.SourceBucket, cmdletContext.SourceKey).Size;
+            var objectSize = GetSourceObjectData(cmdletContext.SourceBucket, cmdletContext.SourceKey).ContentLength;
             return objectSize > FiveGigabytes ? MultipartCopyS3ObjectToS3(context, objectSize) : CopyS3ObjectToS3(context);
         }
 
@@ -658,9 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         #endregion
-        private S3Object GetSourceObjectData(string bucketName, string objectKey)
+        private GetObjectMetadataResponse GetSourceObjectData(string bucketName, string objectKey)
         {
-
             var copySourceRegionArgs = new StandaloneRegionArguments
             {
                 Region = this.SourceRegion,
@@ -669,14 +668,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
             copySourceRegionArgs.TryGetRegion(true, out var region, out var regionSource, SessionState);
             var sourceRegionClient = CreateClient(_CurrentCredentials, region);
 
-            var request = new ListObjectsRequest
+
+            var request = new GetObjectMetadataRequest
             {
                 BucketName = bucketName,
-                Prefix = objectKey.TrimStart('/')
+                Key = objectKey.TrimStart('/')
             };
 
             var response = CallAWSServiceOperation(sourceRegionClient, request);
-            return response.S3Objects[0];
+            return response;
 
         }
 
@@ -684,15 +684,34 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             // The underlying S3 api does not like listing with prefixes starting with / so strip
             // (eg Copy-S3Object -BucketName test-bucket -Key /data/sample.txt -DestinationKey /data/sample-copy.txt)
-
+            string key = objectKey.TrimStart('/');
             var request = new ListObjectsRequest
             {
                 BucketName = bucketName,
-                Prefix = objectKey.TrimStart('/')
+                Prefix = key
             };
-
-            var response = CallAWSServiceOperation(s3Client, request);
-            return response.S3Objects[0];
+            try
+            {
+                var response = CallAWSServiceOperation(s3Client, request);
+                return response.S3Objects[0];
+            }
+            catch (AmazonS3Exception ex)
+            {
+                if (ex.StatusCode != System.Net.HttpStatusCode.NotImplemented)
+                    throw;
+            }
+            // ListObjects is not implemented for Directory Buckets. ListObjectsV2 and GetObjectMetadata are implemented.
+            // But ListObjectsV2 is only supported for prefix that end with the delimiter.
+            // To overcome this limitation without introducing a breaking change, we will convert the result of GetObjectMetadata call to S3Object
+            // Only few documented properties will be converted and any future additions to S3Object will not be maintained.
+            
+            var metadataRequest = new GetObjectMetadataRequest
+            {
+                BucketName = bucketName,
+                Key = key
+            };
+            var objectMetadata = CallAWSServiceOperation(s3Client, metadataRequest);
+            return AmazonS3Helper.Convert(objectMetadata, bucketName, key);
         }
 
         #region S3 to S3 Copy
@@ -776,8 +795,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     var response = CallAWSServiceOperation(client, request);
                     var objectData = GetObjectData(Client,
-                                                   request.DestinationBucket, 
-                                                   string.IsNullOrEmpty(cmdletContext.DestinationKey) 
+                                                   request.DestinationBucket,
+                                                   string.IsNullOrEmpty(cmdletContext.DestinationKey)
                                                     ? cmdletContext.SourceKey : cmdletContext.DestinationKey);
                     output = new CmdletOutput
                     {
@@ -805,12 +824,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             const string msgFormat = "Copied {0:N0} of {1:N0} bytes";
             CmdletOutput output = null;
 
-            var activity = string.Format(activityFormat, 
-                                         cmdletContext.SourceBucket, 
+            var activity = string.Format(activityFormat,
+                                         cmdletContext.SourceBucket,
                                          cmdletContext.SourceKey,
-                                         cmdletContext.DestinationBucket, 
+                                         cmdletContext.DestinationBucket,
                                          cmdletContext.DestinationKey);
-                                                               
+
             Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3", "CopyObject");
 
             WriteProgressRecord(activity, string.Format(msgFormat, 0, objectSize), 0);
@@ -1078,6 +1097,46 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return null;
         }
 
+        private Amazon.S3.Model.ListObjectsV2Response CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListObjectsV2Request request)
+        {
+            try
+            {
+#if DESKTOP
+                return client.ListObjectsV2(request);
+#elif CORECLR
+                return client.ListObjectsV2Async(request).GetAwaiter().GetResult();
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                TestForNameResolutionException(client, exc);
+            }
+
+            return null;
+        }
+
+        private Amazon.S3.Model.GetObjectMetadataResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectMetadataRequest request)
+        {
+            try
+            {
+#if DESKTOP
+                return client.GetObjectMetadata(request);
+#elif CORECLR
+                return client.GetObjectMetadataAsync(request).GetAwaiter().GetResult();
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                TestForNameResolutionException(client, exc);
+            }
+
+            return null;
+        }
+
         private Amazon.S3.Model.InitiateMultipartUploadResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.InitiateMultipartUploadRequest request)
         {
             try
@@ -1182,7 +1241,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public ChecksumMode ChecksumMode { get; set; }
         }
-       
+
         internal class MultiPartObjectCopyController
         {
             private static readonly long MinPartSize = 5 * (long)Math.Pow(2, 20);
@@ -1338,8 +1397,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Debug.Assert(_this != null, "_this != null");
 
 #if DEBUG
-                Thread.CurrentThread.Name = string.Format("UploadPartCopyThreadWorker {0}:{1}", 
-                                                          _this._context.DestinationBucket, 
+                Thread.CurrentThread.Name = string.Format("UploadPartCopyThreadWorker {0}:{1}",
+                                                          _this._context.DestinationBucket,
                                                           _this._context.DestinationKey);
 #endif
 
@@ -1387,7 +1446,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         if (partIndex < _parts.Count)
                             return _parts[partIndex];
                     }
-                        
+
                     return null;
                 }
             }
@@ -1455,7 +1514,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         StartByte = startByte,
                         Size = (remaining > partSize) ? partSize : remaining
                     };
-                    
+
                     _parts.Add(part);
 
                     remaining -= part.Size;

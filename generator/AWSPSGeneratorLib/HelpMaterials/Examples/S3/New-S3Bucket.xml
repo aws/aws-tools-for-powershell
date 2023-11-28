@@ -6,10 +6,27 @@
   </example>
   <example>
     <code>New-S3Bucket -BucketName sample-bucket -PublicReadWrite</code>
-    <description>This command creates a new bucket named "sample-bucket" with read-write permissions.</description>
+    <description>This command creates a new bucket named "sample-bucket" with read-write
+      permissions.</description>
   </example>
   <example>
     <code>New-S3Bucket -BucketName sample-bucket -PublicReadOnly</code>
     <description>This command creates a new bucket named "sample-bucket" with read-only permissions.</description>
+  </example>
+  <example>
+    <code>
+    $bucketConfiguration = @{
+      BucketInfo = @{
+          DataRedundancy = 'SingleAvailabilityZone'
+          Type = 'Directory'
+      }
+      Location = @{
+          Name = 'use1-az5'
+          Type = 'AvailabilityZone'
+      }
+    }
+New-S3Bucket -BucketName samplebucket--use1-az5--x-s3 -BucketConfiguration $bucketConfiguration</code>
+    <description>This command creates a new Directory bucket named "samplebucket--use1-az5--x-s3"
+      with PutBucketConfiguration.</description>
   </example>
 </examples>

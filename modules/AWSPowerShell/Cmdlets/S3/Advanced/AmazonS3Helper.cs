@@ -205,6 +205,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 value = ServerSideEncryptionMethod.None;
             return value;
         }
+        // This method is used to Convert GetObjectMetadataResponse to S3Object for Directory Buckets
+        // Only the following Proprties of S3Object will be set.
+        // BucketName, Key, ETag, Size, StorageClass, LastModified.
+        // This method will not be maintained to add new properties.
+        // In a future major version, we will change the return type of Copy-S3Object so that we don't have to do the conversion manually
+        public static S3Object Convert(GetObjectMetadataResponse objectMetadata, string bucketName, string key)
+        {
+            return new S3Object
+            {
+                BucketName = bucketName,
+                Key = key,
+                ETag = objectMetadata.ETag,
+                Size = objectMetadata.ContentLength,
+                StorageClass = objectMetadata.StorageClass,
+                LastModified = objectMetadata.LastModified
+            };
+        }
 
         private static readonly ServerSideEncryptionMethod serverSideEncryptionNone = "None";
     }
