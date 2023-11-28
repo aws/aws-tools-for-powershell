@@ -110,6 +110,16 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.DataStorageUnit
+        {
+            ($_ -eq "Edit-ECServerlessCache/CacheUsageLimits_DataStorage_Unit") -Or
+            ($_ -eq "New-ECServerlessCache/CacheUsageLimits_DataStorage_Unit")
+        }
+        {
+            $v = "GB"
+            break
+        }
+
         # Amazon.ElastiCache.InputAuthenticationType
         {
             ($_ -eq "Edit-ECUser/AuthenticationMode_Type") -Or
@@ -152,7 +162,7 @@ $EC_Completers = {
         # Amazon.ElastiCache.SourceType
         "Get-ECEvent/SourceType"
         {
-            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group","user","user-group"
+            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group","serverless-cache","serverless-cache-snapshot","user","user-group"
             break
         }
 
@@ -178,6 +188,7 @@ $EC_map = @{
     "AuthenticationMode_Type"=@("Edit-ECUser","New-ECUser")
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
+    "CacheUsageLimits_DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
@@ -241,6 +252,7 @@ $EC_SelectMap = @{
                "Start-ECUpdateActionBatch",
                "Stop-ECUpdateActionBatch",
                "Complete-ECMigration",
+               "Copy-ECServerlessCacheSnapshot",
                "Copy-ECSnapshot",
                "New-ECCacheCluster",
                "New-ECCacheParameterGroup",
@@ -248,6 +260,8 @@ $EC_SelectMap = @{
                "New-ECCacheSubnetGroup",
                "New-ECGlobalReplicationGroup",
                "New-ECReplicationGroup",
+               "New-ECServerlessCache",
+               "New-ECServerlessCacheSnapshot",
                "New-ECSnapshot",
                "New-ECUser",
                "New-ECUserGroup",
@@ -259,6 +273,8 @@ $EC_SelectMap = @{
                "Remove-ECCacheSubnetGroup",
                "Remove-ECGlobalReplicationGroup",
                "Remove-ECReplicationGroup",
+               "Remove-ECServerlessCache",
+               "Remove-ECServerlessCacheSnapshot",
                "Remove-ECSnapshot",
                "Remove-ECUser",
                "Remove-ECUserGroup",
@@ -274,12 +290,15 @@ $EC_SelectMap = @{
                "Get-ECReplicationGroup",
                "Get-ECReservedCacheNode",
                "Get-ECReservedCacheNodesOffering",
+               "Get-ECServerlessCache",
+               "Get-ECServerlessCacheSnapshot",
                "Get-ECServiceUpdate",
                "Get-ECSnapshot",
                "Get-ECUpdateAction",
                "Get-ECUserGroup",
                "Get-ECUser",
                "Remove-ECReplicationGroupFromGlobalReplicationGroup",
+               "Export-ECServerlessCacheSnapshot",
                "Request-ECGlobalReplicationGroupFailover",
                "Request-ECNodeGroupIncreaseInGlobalReplicationGroup",
                "Request-ECReplicaCountIncrease",
@@ -291,6 +310,7 @@ $EC_SelectMap = @{
                "Edit-ECGlobalReplicationGroup",
                "Edit-ECReplicationGroup",
                "Edit-ECReplicationGroupShardConfiguration",
+               "Edit-ECServerlessCache",
                "Edit-ECUser",
                "Edit-ECUserGroup",
                "Request-ECReservedCacheNodesOffering",

@@ -9738,6 +9738,7 @@ Set-Alias -Name Batch-ECStopUpdateAction -Value Stop-ECUpdateActionBatch
 Set-Alias -Name Batch-ECUpdateActionBatch -Value Stop-ECUpdateActionBatch
 Set-Alias -Name EC-BatchStopUpdateAction -Value Stop-ECUpdateActionBatch
 Set-Alias -Name EC-CompleteMigration -Value Complete-ECMigration
+Set-Alias -Name EC-CopyServerlessCacheSnapshot -Value Copy-ECServerlessCacheSnapshot
 Set-Alias -Name EC-CopySnapshot -Value Copy-ECSnapshot
 Set-Alias -Name Create-ECCacheCluster -Value New-ECCacheCluster
 Set-Alias -Name EC-CreateCacheCluster -Value New-ECCacheCluster
@@ -9751,6 +9752,10 @@ Set-Alias -Name Create-ECGlobalReplicationGroup -Value New-ECGlobalReplicationGr
 Set-Alias -Name EC-CreateGlobalReplicationGroup -Value New-ECGlobalReplicationGroup
 Set-Alias -Name Create-ECReplicationGroup -Value New-ECReplicationGroup
 Set-Alias -Name EC-CreateReplicationGroup -Value New-ECReplicationGroup
+Set-Alias -Name Create-ECServerlessCache -Value New-ECServerlessCache
+Set-Alias -Name EC-CreateServerlessCache -Value New-ECServerlessCache
+Set-Alias -Name Create-ECServerlessCacheSnapshot -Value New-ECServerlessCacheSnapshot
+Set-Alias -Name EC-CreateServerlessCacheSnapshot -Value New-ECServerlessCacheSnapshot
 Set-Alias -Name Create-ECSnapshot -Value New-ECSnapshot
 Set-Alias -Name EC-CreateSnapshot -Value New-ECSnapshot
 Set-Alias -Name Create-ECUser -Value New-ECUser
@@ -9775,6 +9780,10 @@ Set-Alias -Name Delete-ECGlobalReplicationGroup -Value Remove-ECGlobalReplicatio
 Set-Alias -Name EC-DeleteGlobalReplicationGroup -Value Remove-ECGlobalReplicationGroup
 Set-Alias -Name Delete-ECReplicationGroup -Value Remove-ECReplicationGroup
 Set-Alias -Name EC-DeleteReplicationGroup -Value Remove-ECReplicationGroup
+Set-Alias -Name Delete-ECServerlessCache -Value Remove-ECServerlessCache
+Set-Alias -Name EC-DeleteServerlessCache -Value Remove-ECServerlessCache
+Set-Alias -Name Delete-ECServerlessCacheSnapshot -Value Remove-ECServerlessCacheSnapshot
+Set-Alias -Name EC-DeleteServerlessCacheSnapshot -Value Remove-ECServerlessCacheSnapshot
 Set-Alias -Name Delete-ECSnapshot -Value Remove-ECSnapshot
 Set-Alias -Name EC-DeleteSnapshot -Value Remove-ECSnapshot
 Set-Alias -Name Delete-ECUser -Value Remove-ECUser
@@ -9817,6 +9826,12 @@ Set-Alias -Name EC-DescribeReservedCacheNodes -Value Get-ECReservedCacheNode
 Set-Alias -Name Describe-ECReservedCacheNodesOfferings -Value Get-ECReservedCacheNodesOffering
 Set-Alias -Name Describe-ECReservedCacheNodesOffering -Value Get-ECReservedCacheNodesOffering
 Set-Alias -Name EC-DescribeReservedCacheNodesOfferings -Value Get-ECReservedCacheNodesOffering
+Set-Alias -Name Describe-ECServerlessCaches -Value Get-ECServerlessCache
+Set-Alias -Name Describe-ECServerlessCache -Value Get-ECServerlessCache
+Set-Alias -Name EC-DescribeServerlessCaches -Value Get-ECServerlessCache
+Set-Alias -Name Describe-ECServerlessCacheSnapshots -Value Get-ECServerlessCacheSnapshot
+Set-Alias -Name Describe-ECServerlessCacheSnapshot -Value Get-ECServerlessCacheSnapshot
+Set-Alias -Name EC-DescribeServerlessCacheSnapshots -Value Get-ECServerlessCacheSnapshot
 Set-Alias -Name Describe-ECServiceUpdates -Value Get-ECServiceUpdate
 Set-Alias -Name Describe-ECServiceUpdate -Value Get-ECServiceUpdate
 Set-Alias -Name EC-DescribeServiceUpdates -Value Get-ECServiceUpdate
@@ -9835,6 +9850,7 @@ Set-Alias -Name EC-DescribeUsers -Value Get-ECUser
 Set-Alias -Name Disassociate-ECGlobalReplicationGroup -Value Remove-ECReplicationGroupFromGlobalReplicationGroup
 Set-Alias -Name Disassociate-ECReplicationGroupFromGlobalReplicationGroup -Value Remove-ECReplicationGroupFromGlobalReplicationGroup
 Set-Alias -Name EC-DisassociateGlobalReplicationGroup -Value Remove-ECReplicationGroupFromGlobalReplicationGroup
+Set-Alias -Name EC-ExportServerlessCacheSnapshot -Value Export-ECServerlessCacheSnapshot
 Set-Alias -Name Failover-ECGlobalReplicationGroup -Value Request-ECGlobalReplicationGroupFailover
 Set-Alias -Name Failover-ECGlobalReplicationGroupFailover -Value Request-ECGlobalReplicationGroupFailover
 Set-Alias -Name EC-FailoverGlobalReplicationGroup -Value Request-ECGlobalReplicationGroupFailover
@@ -9861,6 +9877,8 @@ Set-Alias -Name Modify-ECReplicationGroup -Value Edit-ECReplicationGroup
 Set-Alias -Name EC-ModifyReplicationGroup -Value Edit-ECReplicationGroup
 Set-Alias -Name Modify-ECReplicationGroupShardConfiguration -Value Edit-ECReplicationGroupShardConfiguration
 Set-Alias -Name EC-ModifyReplicationGroupShardConfiguration -Value Edit-ECReplicationGroupShardConfiguration
+Set-Alias -Name Modify-ECServerlessCache -Value Edit-ECServerlessCache
+Set-Alias -Name EC-ModifyServerlessCache -Value Edit-ECServerlessCache
 Set-Alias -Name Modify-ECUser -Value Edit-ECUser
 Set-Alias -Name EC-ModifyUser -Value Edit-ECUser
 Set-Alias -Name Modify-ECUserGroup -Value Edit-ECUserGroup

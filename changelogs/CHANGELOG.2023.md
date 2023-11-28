@@ -1,4 +1,18 @@
-﻿### 4.1.461 (2023-11-27 23:24Z)
+﻿### 4.1.462 (2023-11-28 08:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.695.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ElastiCache
+    * Added cmdlet Copy-ECServerlessCacheSnapshot leveraging the CopyServerlessCacheSnapshot service API.
+    * Added cmdlet Edit-ECServerlessCache leveraging the ModifyServerlessCache service API.
+    * Added cmdlet Export-ECServerlessCacheSnapshot leveraging the ExportServerlessCacheSnapshot service API.
+    * Added cmdlet Get-ECServerlessCache leveraging the DescribeServerlessCaches service API.
+    * Added cmdlet Get-ECServerlessCacheSnapshot leveraging the DescribeServerlessCacheSnapshots service API.
+    * Added cmdlet New-ECServerlessCache leveraging the CreateServerlessCache service API.
+    * Added cmdlet New-ECServerlessCacheSnapshot leveraging the CreateServerlessCacheSnapshot service API.
+    * Added cmdlet Remove-ECServerlessCache leveraging the DeleteServerlessCache service API.
+    * Added cmdlet Remove-ECServerlessCacheSnapshot leveraging the DeleteServerlessCacheSnapshot service API.
+    * Modified cmdlet New-ECReplicationGroup: added parameter ServerlessCacheSnapshotName.
+
+### 4.1.461 (2023-11-27 23:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.694.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Added cmdlet Get-ASYNDataSourceIntrospection leveraging the GetDataSourceIntrospection service API.

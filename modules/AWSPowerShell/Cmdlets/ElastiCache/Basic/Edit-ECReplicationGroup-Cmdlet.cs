@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Modifies the settings for a replication group.
+    /// Modifies the settings for a replication group. This is limited to Redis 7 and newer.
     /// 
     ///  <ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling
     /// for Amazon ElastiCache for Redis (cluster mode enabled)</a> in the ElastiCache User

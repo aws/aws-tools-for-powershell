@@ -59,6 +59,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CopyServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Copy" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="SourceServerlessCacheSnapshotName" PipelineParameter="SourceServerlessCacheSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CopySnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PositionalParameters="TargetSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +92,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationGroup" OutputProperty="ReplicationGroup" Verb="New" Noun="ReplicationGroup" ShouldProcessTarget="PrimaryClusterId" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServerlessCache" OutputProperty="ServerlessCache" Verb="New" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="New" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -132,6 +144,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteReplicationGroup" OutputProperty="ReplicationGroup" Verb="Remove" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServerlessCache" OutputProperty="ServerlessCache" Verb="Remove" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Remove" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheSnapshotName" PipelineParameter="ServerlessCacheSnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +220,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServerlessCaches" OutputProperty="ServerlessCaches" Verb="Get" Noun="ServerlessCache" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServerlessCacheSnapshots" OutputProperty="ServerlessCacheSnapshots" Verb="Get" Noun="ServerlessCacheSnapshot" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -221,6 +249,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="ReplicationGroupFromGlobalReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Export" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheSnapshotName" PipelineParameter="ServerlessCacheSnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -265,6 +297,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroupShardConfiguration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyServerlessCache" OutputProperty="ServerlessCache" Verb="Edit" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

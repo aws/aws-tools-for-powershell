@@ -28,55 +28,36 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Redis engine version 6.0 onwards: Creates a Redis user group. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
-    /// Role Based Access Control (RBAC)</a>
+    /// Creates a copy of an existing serverless cache’s snapshot. Available for Redis only.
     /// </summary>
-    [Cmdlet("New", "ECUserGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElastiCache.Model.CreateUserGroupResponse")]
-    [AWSCmdlet("Calls the Amazon ElastiCache CreateUserGroup API operation.", Operation = new[] {"CreateUserGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateUserGroupResponse))]
-    [AWSCmdletOutput("Amazon.ElastiCache.Model.CreateUserGroupResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.CreateUserGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Copy", "ECServerlessCacheSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElastiCache.Model.ServerlessCacheSnapshot")]
+    [AWSCmdlet("Calls the Amazon ElastiCache CopyServerlessCacheSnapshot API operation.", Operation = new[] {"CopyServerlessCacheSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse))]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCacheSnapshot or Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse",
+        "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCacheSnapshot object.",
+        "The service call response (type Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewECUserGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class CopyECServerlessCacheSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Engine
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The current supported value is Redis. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Engine { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A list of tags to be added to this resource. A tag is a key-value pair. A tag key
-        /// must be accompanied by a tag value, although null is accepted. Available for Redis
+        /// <para>The identifier of the KMS key used to encrypt the target snapshot. Available for Redis
         /// only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        public System.String KmsKeyId { get; set; }
         #endregion
         
-        #region Parameter UserGroupId
+        #region Parameter SourceServerlessCacheSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The ID of the user group.</para>
+        /// <para>The identifier of the existing serverless cache’s snapshot to be copied. Available
+        /// for Redis only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,37 +68,55 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserGroupId { get; set; }
+        public System.String SourceServerlessCacheSnapshotName { get; set; }
         #endregion
         
-        #region Parameter UserId
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of user IDs that belong to the user group.</para>
+        /// <para>A list of tags to be added to the target snapshot resource. A tag is a key-value pair.
+        /// Available for Redis only. Default: NULL</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("UserIds")]
-        public System.String[] UserId { get; set; }
+        [Alias("Tags")]
+        public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TargetServerlessCacheSnapshotName
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the snapshot to be created. Available for Redis only.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TargetServerlessCacheSnapshotName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElastiCache.Model.CreateUserGroupResponse).
-        /// Specifying the name of a property of type Amazon.ElastiCache.Model.CreateUserGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ServerlessCacheSnapshot'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse).
+        /// Specifying the name of a property of type Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ServerlessCacheSnapshot";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserGroupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserGroupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SourceServerlessCacheSnapshotName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SourceServerlessCacheSnapshotName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserGroupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceServerlessCacheSnapshotName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -137,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserGroupId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ECUserGroup (CreateUserGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceServerlessCacheSnapshotName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-ECServerlessCacheSnapshot (CopyServerlessCacheSnapshot)"))
             {
                 return;
             }
@@ -151,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElastiCache.Model.CreateUserGroupResponse, NewECUserGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse, CopyECServerlessCacheSnapshotCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -160,31 +159,28 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserGroupId;
+                context.Select = (response, cmdlet) => this.SourceServerlessCacheSnapshotName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Engine = this.Engine;
+            context.KmsKeyId = this.KmsKeyId;
+            context.SourceServerlessCacheSnapshotName = this.SourceServerlessCacheSnapshotName;
             #if MODULAR
-            if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
+            if (this.SourceServerlessCacheSnapshotName == null && ParameterWasBound(nameof(this.SourceServerlessCacheSnapshotName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SourceServerlessCacheSnapshotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
-            context.UserGroupId = this.UserGroupId;
+            context.TargetServerlessCacheSnapshotName = this.TargetServerlessCacheSnapshotName;
             #if MODULAR
-            if (this.UserGroupId == null && ParameterWasBound(nameof(this.UserGroupId)))
+            if (this.TargetServerlessCacheSnapshotName == null && ParameterWasBound(nameof(this.TargetServerlessCacheSnapshotName)))
             {
-                WriteWarning("You are passing $null as a value for parameter UserGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TargetServerlessCacheSnapshotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.UserId != null)
-            {
-                context.UserId = new List<System.String>(this.UserId);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,23 +195,23 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElastiCache.Model.CreateUserGroupRequest();
+            var request = new Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotRequest();
             
-            if (cmdletContext.Engine != null)
+            if (cmdletContext.KmsKeyId != null)
             {
-                request.Engine = cmdletContext.Engine;
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.SourceServerlessCacheSnapshotName != null)
+            {
+                request.SourceServerlessCacheSnapshotName = cmdletContext.SourceServerlessCacheSnapshotName;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.UserGroupId != null)
+            if (cmdletContext.TargetServerlessCacheSnapshotName != null)
             {
-                request.UserGroupId = cmdletContext.UserGroupId;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserIds = cmdletContext.UserId;
+                request.TargetServerlessCacheSnapshotName = cmdletContext.TargetServerlessCacheSnapshotName;
             }
             
             CmdletOutput output;
@@ -250,15 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private Amazon.ElastiCache.Model.CreateUserGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CreateUserGroupRequest request)
+        private Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "CreateUserGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "CopyServerlessCacheSnapshot");
             try
             {
                 #if DESKTOP
-                return client.CreateUserGroup(request);
+                return client.CopyServerlessCacheSnapshot(request);
                 #elif CORECLR
-                return client.CreateUserGroupAsync(request).GetAwaiter().GetResult();
+                return client.CopyServerlessCacheSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -278,12 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Engine { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String SourceServerlessCacheSnapshotName { get; set; }
             public List<Amazon.ElastiCache.Model.Tag> Tag { get; set; }
-            public System.String UserGroupId { get; set; }
-            public List<System.String> UserId { get; set; }
-            public System.Func<Amazon.ElastiCache.Model.CreateUserGroupResponse, NewECUserGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String TargetServerlessCacheSnapshotName { get; set; }
+            public System.Func<Amazon.ElastiCache.Model.CopyServerlessCacheSnapshotResponse, CopyECServerlessCacheSnapshotCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ServerlessCacheSnapshot;
         }
         
     }

@@ -136,11 +136,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The compute and memory capacity of the nodes in the node group (shard).</para><para>The following node types are supported by ElastiCache. Generally speaking, the current
         /// generation types provide more memory and computational power at lower cost when compared
-        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
+        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <code>cache.m7g.large</code>, <code>cache.m7g.xlarge</code>,
+        /// <code>cache.m7g.2xlarge</code>, <code>cache.m7g.4xlarge</code>, <code>cache.m7g.8xlarge</code>,
+        /// <code>cache.m7g.12xlarge</code>, <code>cache.m7g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Node Types</a></para></note><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
         /// Memcached engine version 1.5.16 onward): <code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>,
         /// <code>cache.m6g.2xlarge</code>, <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>,
-        /// <code>cache.m6g.12xlarge</code>, <code>cache.m6g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
-        /// Node Types</a></para></note><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+        /// <code>cache.m6g.12xlarge</code>, <code>cache.m6g.16xlarge</code></para><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
         /// <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>, <code>cache.m5.12xlarge</code>,
         /// <code>cache.m5.24xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
@@ -149,11 +151,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para><para><b>M3 node types:</b><code>cache.m3.medium</code>, <code>cache.m3.large</code>,
         /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward).</para><para><code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>, <code>cache.r6g.2xlarge</code>,
-        /// <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>, <code>cache.r6g.12xlarge</code>,
-        /// <code>cache.r6g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
-        /// Node Types</a></para></note><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
+        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <code>cache.r7g.large</code>, <code>cache.r7g.xlarge</code>,
+        /// <code>cache.r7g.2xlarge</code>, <code>cache.r7g.4xlarge</code>, <code>cache.r7g.8xlarge</code>,
+        /// <code>cache.r7g.12xlarge</code>, <code>cache.r7g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Node Types</a></para></note><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
+        /// Memcached engine version 1.5.16 onward): <code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>,
+        /// <code>cache.r6g.2xlarge</code>, <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>,
+        /// <code>cache.r6g.12xlarge</code>, <code>cache.r6g.16xlarge</code></para><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
         /// <code>cache.r5.2xlarge</code>, <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
         /// <code>cache.r5.24xlarge</code></para><para><b>R4 node types:</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
         /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
@@ -497,6 +501,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String[] SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter ServerlessCacheSnapshotName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the snapshot used to create a replication group. Available for Redis only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerlessCacheSnapshotName { get; set; }
+        #endregion
+        
         #region Parameter SnapshotArn
         /// <summary>
         /// <para>
@@ -726,6 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
+            context.ServerlessCacheSnapshotName = this.ServerlessCacheSnapshotName;
             if (this.SnapshotArn != null)
             {
                 context.SnapshotArn = new List<System.String>(this.SnapshotArn);
@@ -879,6 +894,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
             }
+            if (cmdletContext.ServerlessCacheSnapshotName != null)
+            {
+                request.ServerlessCacheSnapshotName = cmdletContext.ServerlessCacheSnapshotName;
+            }
             if (cmdletContext.SnapshotArn != null)
             {
                 request.SnapshotArns = cmdletContext.SnapshotArn;
@@ -1002,6 +1021,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String ReplicationGroupDescription { get; set; }
             public System.String ReplicationGroupId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
+            public System.String ServerlessCacheSnapshotName { get; set; }
             public List<System.String> SnapshotArn { get; set; }
             public System.String SnapshotName { get; set; }
             public System.Int32? SnapshotRetentionLimit { get; set; }
