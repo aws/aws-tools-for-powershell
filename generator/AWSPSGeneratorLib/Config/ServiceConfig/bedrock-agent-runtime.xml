@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bedrock-agent-runtime</C2jFilename>
+    <AssemblyName>BedrockAgentRuntime</AssemblyName>
+    <ServiceNounPrefix>BAR</ServiceNounPrefix>
+    <ServiceName>Amazon Bedrock Agent Runtime</ServiceName>
+    <ServiceClientInterface>IAmazonBedrockAgentRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonBedrockAgentRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>12f91a83-4a1d-41a5-9a38-33fe99ce73ce</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="InvokeAgent" OutputProperty="*" Verb="Invoke" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveAndGenerate" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerate" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

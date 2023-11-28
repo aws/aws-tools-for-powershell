@@ -32,27 +32,40 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// can use the request parameters as selection criteria to return a subset of the objects
     /// in a bucket. A <code>200 OK</code> response can contain valid or invalid XML. Make
     /// sure to design your application to parse the contents of the response and handle it
-    /// appropriately. Objects are returned sorted in an ascending order of the respective
-    /// key names in the list. For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing
-    /// object keys programmatically</a> in the <i>Amazon S3 User Guide</i>.
+    /// appropriately. For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing
+    /// object keys programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list
+    /// of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.
     /// 
-    ///  
-    /// <para>
-    /// To use this operation, you must have READ access to the bucket.
-    /// </para><para>
-    /// To use this action in an Identity and Access Management (IAM) policy, you must have
-    /// permission to perform the <code>s3:ListBucket</code> action. The bucket owner has
-    /// this permission by default and can grant this permission to others. For more information
-    /// about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    ///  <note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
+    /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
+    /// requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use this operation, you must have
+    /// READ access to the bucket. You must have permission to perform the <code>s3:ListBucket</code>
+    /// action. The bucket owner has this permission by default and can grant this permission
+    /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para><important><para>
+    /// </para></li><li><para><b>Directory bucket permissions</b> - To grant access to this API operation on a
+    /// directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><code>CreateSession</code></a> API operation for session-based authorization. Specifically,
+    /// you grant the <code>s3express:CreateSession</code> permission to the directory bucket
+    /// in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code>
+    /// API call on the bucket to obtain a session token. With the session token in your request
+    /// header, you can make API requests to this operation. After the session token expires,
+    /// you make another <code>CreateSession</code> API call to generate a new session token
+    /// for use. Amazon Web Services CLI or SDKs create session and refresh the session token
+    /// automatically to avoid service interruptions when a session expires. For more information
+    /// about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><code>CreateSession</code></a>.
+    /// </para></li></ul></dd><dt>Sorting order of returned objects</dt><dd><ul><li><para><b>General purpose bucket</b> - For general purpose buckets, <code>ListObjectsV2</code>
+    /// returns objects in lexicographical order based on their key names.
+    /// </para></li><li><para><b>Directory bucket</b> - For directory buckets, <code>ListObjectsV2</code> does
+    /// not return objects in lexicographical order.
+    /// </para></li></ul></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <code><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.
+    /// </para></dd></dl><important><para>
     /// This section describes the latest revision of this action. We recommend that you use
     /// this revised API operation for application development. For backward compatibility,
     /// Amazon S3 continues to support the prior version of this API operation, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.
     /// </para></important><para>
-    /// To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.
-    /// </para><para>
     /// The following operations are related to <code>ListObjectsV2</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -71,13 +84,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>Bucket name to list. </para><para>When using this action with an access point, you must direct requests to the access
-        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// <para><b>Directory buckets</b> - When you use this operation with a directory bucket, you
+        /// must use virtual-hosted-style requests in the format <code><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.
+        /// Path-style requests are not supported. Directory bucket names must be unique in the
+        /// chosen Availability Zone. Bucket names must follow the format <code><i>bucket_base_name</i>--<i>az-id</i>--x-s3</code>
+        /// (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For
+        /// information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point, you must provide
+        /// the alias of the access point in place of the bucket name or specify the access point
+        /// ARN. When using the access point ARN, you must direct requests to the access point
+        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When you use this action with Amazon S3 on Outposts, you must direct requests to the
-        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Access points and Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with Amazon S3 on Outposts, you
+        /// must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes
+        /// the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
         /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
         /// you provide the Outposts access point ARN in place of the bucket name. For more information
         /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
@@ -107,8 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
-        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,9 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter FetchOwner
         /// <summary>
         /// <para>
-        /// The owner field is not present in <code>ListObjectsV2</code> by default. If you want
+        /// <para>The owner field is not present in <code>ListObjectsV2</code> by default. If you want
         /// to return the owner field with each key in the result, then set the <code>FetchOwner</code>
-        /// field to <code>true</code>..
+        /// field to <code>true</code>.</para><note><para><b>Directory buckets</b> - For directory buckets, the bucket owner is returned as
+        /// the object owner for all objects.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Specifies the optional fields that you want returned in the response. Fields that
-        /// you do not specify are not returned.</para>
+        /// you do not specify are not returned.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Confirms that the requester knows that she or he will be charged for the list objects
-        /// request in V2 style. Bucket owners need not specify this parameter in their requests.</para>
+        /// request in V2 style. Bucket owners need not specify this parameter in their requests.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing
-        /// after this specified key. StartAfter can be any key in the bucket.</para>
+        /// after this specified key. StartAfter can be any key in the bucket.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued
         /// on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not
-        /// a real key.</para>
+        /// a real key. You can use this <code>ContinuationToken</code> for pagination of the
+        /// list results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -182,7 +207,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Delimiter
         /// <summary>
         /// <para>
-        /// A delimiter is a character that you use to group keys.
+        /// <para>A delimiter is a character that you use to group keys.</para><note><ul><li><para><b>Directory buckets</b> - For directory buckets, <code>/</code> is the only supported
+        /// delimiter.</para></li><li><para><b>Directory buckets </b> - When you query <code>ListObjectsV2</code> with a delimiter
+        /// during in-progress multipart uploads, the <code>CommonPrefixes</code> response parameter
+        /// contains the prefixes that are associated with the in-progress multipart uploads.
+        /// For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart
+        /// Upload Overview</a> in the <i>Amazon S3 User Guide</i>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
@@ -210,7 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// Limits the response to keys that begin with the specified prefix.
+        /// <para>Limits the response to keys that begin with the specified prefix.</para><note><para><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter
+        /// (<code>/</code>) are supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]

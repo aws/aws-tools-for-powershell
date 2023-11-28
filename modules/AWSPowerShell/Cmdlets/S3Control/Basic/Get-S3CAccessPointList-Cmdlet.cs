@@ -28,14 +28,15 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns a list of the access points that are owned by the current account that's associated
     /// with the specified bucket. You can retrieve up to 1000 access points per call. If
     /// the specified bucket has more than 1,000 access points (or the number specified in
     /// <code>maxResults</code>, whichever is less), the response will include a continuation
     /// token that you can use to list the additional access points.
-    /// 
-    ///   
-    /// <para>
+    /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
     /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.

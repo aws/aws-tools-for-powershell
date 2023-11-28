@@ -100,6 +100,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ChatEventType
+        "Send-CONNChatIntegrationEvent/Event_Type"
+        {
+            $v = "DISCONNECT","EVENT","MESSAGE"
+            break
+        }
+
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
@@ -169,7 +176,18 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            break
+        }
+
+        # Amazon.Connect.FlowAssociationResourceType
+        {
+            ($_ -eq "Add-CONNFlow/ResourceType") -Or
+            ($_ -eq "Get-CONNFlowAssociation/ResourceType") -Or
+            ($_ -eq "Remove-CONNFlow/ResourceType")
+        }
+        {
+            $v = "SMS_PHONE_NUMBER"
             break
         }
 
@@ -228,7 +246,10 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ListFlowAssociationResourceType
-        "Get-CONNFlowAssociationBatch/ResourceType"
+        {
+            ($_ -eq "Get-CONNFlowAssociationBatch/ResourceType") -Or
+            ($_ -eq "Get-CONNFlowAssociationList/ResourceType")
+        }
         {
             $v = "VOICE_PHONE_NUMBER"
             break
@@ -251,7 +272,7 @@ $CONN_Completers = {
         # Amazon.Connect.PhoneNumberType
         "Search-CONNAvailablePhoneNumber/PhoneNumberType"
         {
-            $v = "DID","SHARED","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
+            $v = "DID","SHARED","SHORT_CODE","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
             break
         }
 
@@ -269,6 +290,13 @@ $CONN_Completers = {
         }
         {
             $v = "PHONE_NUMBER","QUEUE","USER"
+            break
+        }
+
+        # Amazon.Connect.RealTimeContactAnalysisOutputType
+        "Get-CONNRealtimeContactAnalysisSegmentsV2List/OutputType"
+        {
+            $v = "Raw","Redacted"
             break
         }
 
@@ -359,6 +387,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.VideoCapability
+        {
+            ($_ -eq "Start-CONNWebRTCContact/AllowedCapabilities_Agent_Video") -Or
+            ($_ -eq "Start-CONNWebRTCContact/AllowedCapabilities_Customer_Video")
+        }
+        {
+            $v = "SEND"
+            break
+        }
+
         # Amazon.Connect.ViewStatus
         {
             ($_ -eq "New-CONNView/Status") -Or
@@ -412,15 +450,19 @@ $CONN_Completers = {
 
 $CONN_map = @{
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
+    "AllowedCapabilities_Agent_Video"=@("Start-CONNWebRTCContact")
+    "AllowedCapabilities_Customer_Video"=@("Start-CONNWebRTCContact")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
@@ -428,7 +470,7 @@ $CONN_map = @{
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "RehydrationType"=@("New-CONNPersistentContactAssociation")
-    "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNFlowAssociationBatch","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -500,9 +542,11 @@ $CONN_SelectCompleters = {
 
 $CONN_SelectMap = @{
     "Select"=@("Enable-CONNEvaluationForm",
+               "Register-CONNAnalyticsDataSet",
                "Add-CONNApprovedOrigin",
                "Add-CONNBot",
                "Add-CONNDefaultVocabulary",
+               "Add-CONNFlow",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
@@ -511,6 +555,8 @@ $CONN_SelectMap = @{
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
                "Add-CONNTrafficDistributionGroupUser",
+               "Register-CONNBatchAnalyticsDataSet",
+               "Unregister-CONNBatchAnalyticsDataSet",
                "Get-CONNFlowAssociationBatch",
                "Set-CONNBatchPutContact",
                "Request-CONNPhoneNumber",
@@ -582,8 +628,10 @@ $CONN_SelectMap = @{
                "Get-CONNUserHierarchyStructure",
                "Get-CONNView",
                "Get-CONNVocabulary",
+               "Unregister-CONNAnalyticsDataSet",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
+               "Remove-CONNFlow",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
@@ -597,12 +645,15 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
                "Get-CONNFederationToken",
+               "Get-CONNFlowAssociation",
                "Get-CONNMetricData",
                "Get-CONNMetricDataV2",
                "Get-CONNPromptFile",
                "Get-CONNTaskTemplate",
                "Get-CONNTrafficDistribution",
+               "Import-CONNPhoneNumber",
                "Get-CONNAgentStatusList",
+               "Get-CONNAnalyticsDataAssociationList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
                "Get-CONNContactEvaluationList",
@@ -612,6 +663,7 @@ $CONN_SelectMap = @{
                "Get-CONNDefaultVocabularyList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
+               "Get-CONNFlowAssociationList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -625,6 +677,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueueQuickConnectList",
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
+               "Get-CONNRealtimeContactAnalysisSegmentsV2List",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",
@@ -656,12 +709,14 @@ $CONN_SelectMap = @{
                "Search-CONNSecurityProfile",
                "Search-CONNUser",
                "Search-CONNVocabulary",
+               "Send-CONNChatIntegrationEvent",
                "Start-CONNChatContact",
                "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNOutboundVoiceContact",
                "Start-CONNTaskContact",
+               "Start-CONNWebRTCContact",
                "Stop-CONNContact",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",

@@ -87,6 +87,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.CustomizationType
+        "New-BDRModelCustomizationJob/CustomizationType"
+        {
+            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            break
+        }
+
         # Amazon.Bedrock.FineTuningJobStatus
         "Get-BDRModelCustomizationJobList/StatusEquals"
         {
@@ -104,7 +111,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.ModelCustomization
         "Get-BDRFoundationModelList/ByCustomizationType"
         {
-            $v = "FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
             break
         }
 
@@ -167,6 +174,7 @@ $BDR_map = @{
     "ByInferenceType"=@("Get-BDRFoundationModelList")
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
+    "CustomizationType"=@("New-BDRModelCustomizationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEquals"=@("Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")

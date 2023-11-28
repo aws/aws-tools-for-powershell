@@ -28,10 +28,11 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Deletes the specified Object Lambda Access Point.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// The following actions are related to <code>DeleteAccessPointForObjectLambda</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html">ListAccessPointsForObjectLambda</a></para></li></ul>
     /// </summary>

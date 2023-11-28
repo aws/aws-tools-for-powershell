@@ -28,10 +28,11 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns the versioning state of a bucket.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To retrieve the versioning state of a bucket, you must be the bucket owner.
     /// </para><para>
     /// This implementation also returns the MFA Delete status of the versioning state. If
@@ -66,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

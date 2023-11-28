@@ -28,7 +28,8 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// List of Bedrock foundation models that you can use. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation
+    /// List of Amazon Bedrock foundation models that you can use. For more information, see
+    /// <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation
     /// models</a> in the Bedrock User Guide.
     /// </summary>
     [Cmdlet("Get", "BDRFoundationModelList")]
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ByProvider
         /// <summary>
         /// <para>
-        /// <para>A Bedrock model provider.</para>
+        /// <para>A Amazon Bedrock model provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -181,6 +181,12 @@
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Bedrock.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BedrockAgent">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockAgent.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockAgentRuntime">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockAgentRuntime.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.BedrockRuntime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockRuntime.dll</HintPath>
     </Reference>
@@ -877,6 +883,12 @@
     <Reference Include="AWSSDK.Proton">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Proton.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.QBusiness">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QBusiness.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.QConnect">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QConnect.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.QLDB">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDB.dll</HintPath>
     </Reference>
@@ -1265,6 +1277,12 @@
     </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Bedrock.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockAgent">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgent.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockAgentRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgentRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockRuntime.dll</HintPath>
@@ -1961,6 +1979,12 @@
     </Reference>
     <Reference Include="AWSSDK.Proton">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Proton.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.QBusiness">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QBusiness.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.QConnect">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QLDB">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QLDB.dll</HintPath>

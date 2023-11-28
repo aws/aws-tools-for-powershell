@@ -28,10 +28,11 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Replaces configuration for an Object Lambda Access Point.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// The following actions are related to <code>PutAccessPointConfigurationForObjectLambda</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointConfigurationForObjectLambda.html">GetAccessPointConfigurationForObjectLambda</a></para></li></ul>
     /// </summary>

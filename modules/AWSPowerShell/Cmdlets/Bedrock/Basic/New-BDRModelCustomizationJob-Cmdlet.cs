@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// the model-customization job completes successfully, your custom model resource will
     /// be ready to use. Training data contains input and output text for each record in a
     /// JSONL format. Optionally, you can specify validation data in the same format as the
-    /// training data. Bedrock returns validation loss metrics and output generations after
-    /// the job completes. 
+    /// training data. Amazon Bedrock returns validation loss metrics and output generations
+    /// after the job completes. 
     /// </para><para>
     ///  Model-customization jobs are asynchronous and the completion time depends on the
     /// base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code>
@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter CustomizationType
+        /// <summary>
+        /// <para>
+        /// <para>The customization type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.CustomizationType")]
+        public Amazon.Bedrock.CustomizationType CustomizationType { get; set; }
         #endregion
         
         #region Parameter CustomModelKmsKeyId
@@ -174,10 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks
-        /// on your behalf. For example, during model training, Bedrock needs your permission
-        /// to read input data from an S3 bucket, write model artifacts to an S3 bucket. To pass
-        /// this role to Bedrock, the caller of this API must have the <code>iam:PassRole</code>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon Bedrock can assume to perform
+        /// tasks on your behalf. For example, during model training, Amazon Bedrock needs your
+        /// permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
+        /// To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code>
         /// permission. </para>
         /// </para>
         /// </summary>
@@ -309,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.CustomizationType = this.CustomizationType;
             context.CustomModelKmsKeyId = this.CustomModelKmsKeyId;
             context.CustomModelName = this.CustomModelName;
             #if MODULAR
@@ -402,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.CustomizationType != null)
+            {
+                request.CustomizationType = cmdletContext.CustomizationType;
             }
             if (cmdletContext.CustomModelKmsKeyId != null)
             {
@@ -580,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.String BaseModelIdentifier { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Amazon.Bedrock.CustomizationType CustomizationType { get; set; }
             public System.String CustomModelKmsKeyId { get; set; }
             public System.String CustomModelName { get; set; }
             public List<Amazon.Bedrock.Model.Tag> CustomModelTag { get; set; }

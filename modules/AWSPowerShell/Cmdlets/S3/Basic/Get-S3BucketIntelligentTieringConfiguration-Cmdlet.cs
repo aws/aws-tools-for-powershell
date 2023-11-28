@@ -28,10 +28,11 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Gets the S3 Intelligent-Tiering configuration from the specified bucket.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
     /// automatically moving data to the most cost-effective storage access tier, without
     /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic

@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3
     /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// 
-    ///   
-    /// <para>
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// To use the <code>DescribeJob</code> operation, you must have permission to perform
+    /// the <code>s3:DescribeJob</code> action.
+    /// </para></dd></dl><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
     /// </summary>

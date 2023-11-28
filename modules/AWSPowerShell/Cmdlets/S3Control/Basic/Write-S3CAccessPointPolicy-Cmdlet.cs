@@ -28,12 +28,13 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Associates an access policy with the specified access point. Each access point can
     /// have only one policy, so a request made to this API replaces any existing policy associated
     /// with the specified access point.
-    /// 
-    ///   
-    /// <para>
+    /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
     /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.

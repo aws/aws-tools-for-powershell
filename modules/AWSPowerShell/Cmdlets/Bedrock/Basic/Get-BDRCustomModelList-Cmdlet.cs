@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Continuation token from the previous response, for Bedrock to list the next set of
-        /// results.</para>
+        /// <para>Continuation token from the previous response, for Amazon Bedrock to list the next
+        /// set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

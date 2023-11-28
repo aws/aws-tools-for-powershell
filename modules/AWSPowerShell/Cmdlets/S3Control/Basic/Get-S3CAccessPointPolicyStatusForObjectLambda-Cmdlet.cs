@@ -28,8 +28,12 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns the status of the resource policy associated with an Object Lambda Access
     /// Point.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointPolicyStatusForObjectLambda")]
     [OutputType("Amazon.S3Control.Model.PolicyStatus")]

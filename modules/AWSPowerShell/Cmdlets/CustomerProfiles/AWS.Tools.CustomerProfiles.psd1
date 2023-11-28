@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CPFProfileKey', 
         'Add-CPFResourceTag', 
+        'Find-CPFProfileObjectType', 
         'Get-CPFAccountIntegrationList', 
         'Get-CPFAutoMergingPreview', 
         'Get-CPFCalculatedAttributeDefinition', 

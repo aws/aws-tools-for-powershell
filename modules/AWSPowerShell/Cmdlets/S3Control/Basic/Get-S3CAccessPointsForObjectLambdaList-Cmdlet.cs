@@ -28,13 +28,14 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns some or all (up to 1,000) access points associated with the Object Lambda
     /// Access Point per call. If there are more access points than what can be returned in
     /// one call, the response will include a continuation token that you can use to list
     /// the additional access points.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// The following actions are related to <code>ListAccessPointsForObjectLambda</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a></para></li></ul>
     /// </summary>

@@ -29,6 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><note><para>
     /// Bucket lifecycle configuration now supports specifying a lifecycle rule using an object
     /// key name prefix, one or more object tags, or a combination of both. Accordingly, this
     /// section describes the latest API. The response describes the new filter element that
@@ -82,8 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

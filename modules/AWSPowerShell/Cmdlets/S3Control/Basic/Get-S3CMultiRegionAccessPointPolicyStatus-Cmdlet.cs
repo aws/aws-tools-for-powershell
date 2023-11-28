@@ -28,11 +28,12 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Indicates whether the specified Multi-Region Access Point has an access control policy
     /// that allows public access.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This action will always be routed to the US West (Oregon) Region. For more information
     /// about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
     /// Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.

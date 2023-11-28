@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>qconnect</C2jFilename>
+    <AssemblyName>QConnect</AssemblyName>
+    <ServiceNounPrefix>QC</ServiceNounPrefix>
+    <ServiceName>Amazon Q Connect</ServiceName>
+    <ServiceClientInterface>IAmazonQConnect</ServiceClientInterface>
+    <ServiceClient>AmazonQConnectClient</ServiceClient>
+    <ServiceModuleGuid>9ef1fd55-f80e-4a6d-a074-e5fda14b517c</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAssistant" OutputProperty="Assistant" Verb="New" Noun="Assistant" ShouldProcessTarget="Name" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssistantAssociation" OutputProperty="AssistantAssociation" Verb="New" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContent" OutputProperty="Content" Verb="New" Noun="Content" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuickResponse" OutputProperty="QuickResponse" Verb="New" Noun="QuickResponse" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSession" OutputProperty="Session" Verb="New" Noun="Session" ShouldProcessTarget="Name" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssistant" Verb="Remove" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssistantAssociation" Verb="Remove" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContent" Verb="Remove" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImportJob" Verb="Remove" Noun="ImportJob" ShouldProcessTarget="ImportJobId" PipelineParameter="ImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnowledgeBase" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuickResponse" Verb="Remove" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssistant" OutputProperty="Assistant" Verb="Get" Noun="Assistant" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssistantAssociation" OutputProperty="AssistantAssociation" Verb="Get" Noun="AssistantAssociation" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContent" OutputProperty="Content" Verb="Get" Noun="Content" PipelineParameter="ContentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContentSummary" OutputProperty="ContentSummary" Verb="Get" Noun="ContentSummary" PipelineParameter="ContentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImportJob" OutputProperty="ImportJob" Verb="Get" Noun="ImportJob" PipelineParameter="ImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQuickResponse" OutputProperty="QuickResponse" Verb="Get" Noun="QuickResponse" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendations" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssistantAssociations" OutputProperty="AssistantAssociationSummaries" Verb="Get" Noun="AssistantAssociationList" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssistants" OutputProperty="AssistantSummaries" Verb="Get" Noun="AssistantList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContents" OutputProperty="ContentSummaries" Verb="Get" Noun="ContentList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImportJobs" OutputProperty="ImportJobSummaries" Verb="Get" Noun="ImportJobList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuickResponses" OutputProperty="QuickResponseSummaries" Verb="Get" Noun="QuickResponseList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyRecommendationsReceived" OutputProperty="*" Verb="Remove" Noun="RecommendationsReceived" ShouldProcessTarget="SessionId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="QueryAssistant" OutputProperty="Results" Verb="Search" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveKnowledgeBaseTemplateUri" Verb="Remove" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchContent" OutputProperty="ContentSummaries" Verb="Search" Noun="Content" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchQuickResponses" OutputProperty="Results" Verb="Search" Noun="QuickResponse" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartContentUpload" OutputProperty="*" Verb="Start" Noun="ContentUpload" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImportJob" OutputProperty="ImportJob" Verb="Start" Noun="ImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContent" OutputProperty="Content" Verb="Update" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKnowledgeBaseTemplateUri" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuickResponse" OutputProperty="QuickResponse" Verb="Update" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -133,9 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QuickConnectConfig_QuickConnectType
         /// <summary>
         /// <para>
-        /// <para>The type of quick connect. In the Amazon Connect console, when you create a quick
-        /// connect, you are prompted to assign one of the following types: Agent (USER), External
-        /// (PHONE_NUMBER), or Queue (QUEUE). </para>
+        /// <para>The type of quick connect. In the Amazon Connect admin website, when you create a
+        /// quick connect, you are prompted to assign one of the following types: Agent (USER),
+        /// External (PHONE_NUMBER), or Queue (QUEUE). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

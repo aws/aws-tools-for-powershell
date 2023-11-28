@@ -317,6 +317,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
                "Remove-CPFWorkflow",
+               "Find-CPFProfileObjectType",
                "Get-CPFAutoMergingPreview",
                "Get-CPFCalculatedAttributeDefinition",
                "Get-CPFCalculatedAttributeForProfile",

@@ -28,14 +28,15 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
     /// OK</code> response upon successfully deleting a website configuration on the specified
     /// bucket. You will get a <code>200 OK</code> response if the website configuration you
     /// are trying to delete does not exist on the bucket. Amazon S3 returns a <code>404</code>
     /// response if the bucket specified in the request does not exist.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This DELETE action requires the <code>S3:DeleteBucketWebsite</code> permission. By
     /// default, only the bucket owner can delete the website configuration attached to a
     /// bucket. However, bucket owners can grant other users permission to delete the website
@@ -73,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

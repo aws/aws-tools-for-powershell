@@ -28,13 +28,13 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Returns the tags on an S3 Batch Operations job. To use the <code>GetJobTagging</code>
-    /// operation, you must have permission to perform the <code>s3:GetJobTagging</code> action.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
-    /// access and labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>.
+    /// Returns the tags on an S3 Batch Operations job. 
     /// 
-    ///   
-    /// <para>
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// To use the <code>GetJobTagging</code> operation, you must have permission to perform
+    /// the <code>s3:GetJobTagging</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+    /// access and labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></dd></dl><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html">PutJobTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html">DeleteJobTagging</a></para></li></ul>
     /// </summary>

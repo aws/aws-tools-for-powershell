@@ -28,13 +28,14 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all
     /// the lifecycle configuration rules in the lifecycle subresource associated with the
     /// bucket. Your objects never expire, and Amazon S3 no longer automatically deletes any
     /// objects on the basis of rules contained in the deleted lifecycle configuration.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To use this operation, you must have permission to perform the <code>s3:PutLifecycleConfiguration</code>
     /// action. By default, the bucket owner has this permission and the bucket owner can
     /// grant this permission to others.
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket on which the lifecycle configuration is to be deleted.
+        /// <para>The bucket name of the lifecycle to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

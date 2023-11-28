@@ -28,13 +28,14 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// This implementation of the GET action uses the <code>accelerate</code> subresource
     /// to return the Transfer Acceleration state of a bucket, which is either <code>Enabled</code>
     /// or <code>Suspended</code>. Amazon S3 Transfer Acceleration is a bucket-level feature
     /// that enables you to perform faster data transfers to and from Amazon S3.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To use this operation, you must have permission to perform the <code>s3:GetAccelerateConfiguration</code>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
@@ -80,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
-        /// account, the request fails with the HTTP status code <code>403 Forbidden</code> (access
-        /// denied).</para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

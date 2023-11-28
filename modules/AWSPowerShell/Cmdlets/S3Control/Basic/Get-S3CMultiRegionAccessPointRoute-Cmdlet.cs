@@ -28,11 +28,12 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns the routing configuration for a Multi-Region Access Point, indicating which
     /// Regions are active or passive.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To obtain routing control changes and failover requests, use the Amazon S3 failover
     /// control infrastructure endpoints in these five Amazon Web Services Regions:
     /// </para><ul><li><para><code>us-east-1</code></para></li><li><para><code>us-west-2</code></para></li><li><para><code>ap-southeast-2</code></para></li><li><para><code>ap-northeast-1</code></para></li><li><para><code>eu-west-1</code></para></li></ul><note><para>

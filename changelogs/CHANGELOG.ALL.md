@@ -1,4 +1,35 @@
-﻿### 4.1.462 (2023-11-28 08:55Z)
+﻿### 4.1.463 (2023-11-28 22:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.696.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AAB and can be listed using the command 'Get-AWSCmdletName -Service AAB'.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRModelCustomizationJob: added parameter CustomizationType.
+  * Amazon Bedrock Agent Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BAR and can be listed using the command 'Get-AWSCmdletName -Service BAR'.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Find-CPFProfileObjectType leveraging the DetectProfileObjectType service API.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNFlow leveraging the AssociateFlow service API.
+    * Added cmdlet Get-CONNAnalyticsDataAssociationList leveraging the ListAnalyticsDataAssociations service API.
+    * Added cmdlet Get-CONNFlowAssociation leveraging the GetFlowAssociation service API.
+    * Added cmdlet Get-CONNFlowAssociationList leveraging the ListFlowAssociations service API.
+    * Added cmdlet Get-CONNRealtimeContactAnalysisSegmentsV2List leveraging the ListRealtimeContactAnalysisSegmentsV2 service API.
+    * Added cmdlet Import-CONNPhoneNumber leveraging the ImportPhoneNumber service API.
+    * Added cmdlet Register-CONNAnalyticsDataSet leveraging the AssociateAnalyticsDataSet service API.
+    * Added cmdlet Register-CONNBatchAnalyticsDataSet leveraging the BatchAssociateAnalyticsDataSet service API.
+    * Added cmdlet Remove-CONNFlow leveraging the DisassociateFlow service API.
+    * Added cmdlet Send-CONNChatIntegrationEvent leveraging the SendChatIntegrationEvent service API.
+    * Added cmdlet Start-CONNWebRTCContact leveraging the StartWebRTCContact service API.
+    * Added cmdlet Unregister-CONNAnalyticsDataSet leveraging the DisassociateAnalyticsDataSet service API.
+    * Added cmdlet Unregister-CONNBatchAnalyticsDataSet leveraging the BatchDisassociateAnalyticsDataSet service API.
+  * Amazon Q Connect. Added cmdlets to support the service. Cmdlets for the service have the noun prefix QC and can be listed using the command 'Get-AWSCmdletName -Service QC'.
+  * Amazon QBusiness. Added cmdlets to support the service. Cmdlets for the service have the noun prefix QBUS and can be listed using the command 'Get-AWSCmdletName -Service QBUS'.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameters LambdaInvoke_InvocationSchemaVersion and LambdaInvoke_UserArgument.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3DirectoryBucket leveraging the ListDirectoryBuckets service API.
+    * Added cmdlet New-S3Session leveraging the CreateSession service API.
+    * Modified cmdlet New-S3Bucket: added parameter BucketConfiguration.
+
+### 4.1.462 (2023-11-28 08:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.695.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ElastiCache
     * Added cmdlet Copy-ECServerlessCacheSnapshot leveraging the CopyServerlessCacheSnapshot service API.

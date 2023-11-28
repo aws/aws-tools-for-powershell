@@ -288,7 +288,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -318,6 +318,13 @@ $S3_Completers = {
         }
         {
             $v = "","AES256","aws:kms","aws:kms:dsse"
+            break
+        }
+
+        # Amazon.S3.SessionMode
+        "New-S3Session/SessionMode"
+        {
+            $v = "ReadOnly","ReadWrite"
             break
         }
 
@@ -376,6 +383,7 @@ $S3_map = @{
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
+    "SessionMode"=@("New-S3Session")
     "SSECustomerAlgorithm"=@("Write-S3GetObjectResponse")
     "StorageClass"=@("Write-S3GetObjectResponse")
     "Tier"=@("Restore-S3Object")
@@ -432,7 +440,8 @@ $S3_SelectCompleters = {
 }
 
 $S3_SelectMap = @{
-    "Select"=@("Remove-S3BucketAnalyticsConfiguration",
+    "Select"=@("New-S3Session",
+               "Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
                "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
@@ -478,6 +487,7 @@ $S3_SelectMap = @{
                "Get-S3BucketInventoryConfigurationList",
                "Get-S3BucketMetricsConfigurationList",
                "Get-S3Bucket",
+               "Get-S3DirectoryBucket",
                "Get-S3Object",
                "Get-S3ObjectV2",
                "Get-S3Version",

@@ -28,13 +28,14 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use
     /// this operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission.
     /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying
     /// permissions in a policy</a>. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using
     /// object ownership</a>. 
     /// </para><para>

@@ -28,11 +28,12 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Sets an analytics configuration for the bucket (specified by the analytics configuration
     /// ID). You can have up to 1,000 analytics configurations per bucket.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// You can choose to have storage class analysis export analysis reports sent to a comma-separated
     /// values (CSV) flat file. See the <code>DataExport</code> request element. Reports are
     /// updated daily and are based on the object filters that you configure. When selecting
@@ -138,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

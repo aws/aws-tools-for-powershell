@@ -28,7 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Get details about a Bedrock foundation model.
+    /// Get details about a Amazon Bedrock foundation model.
     /// </summary>
     [Cmdlet("Get", "BDRFoundationModel")]
     [OutputType("Amazon.Bedrock.Model.FoundationModelDetails")]

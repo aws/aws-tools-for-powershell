@@ -28,18 +28,19 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
     /// the bucket.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
     /// action. By default, the bucket owner has this permission and can grant it to others.
     /// </para><para>
-    /// To use this API operation against an access point, provide the alias of the access
+    /// When you use this API operation with an access point, provide the alias of the access
     /// point in place of the bucket name.
     /// </para><para>
-    /// To use this API operation against an Object Lambda access point, provide the alias
+    /// When you use this API operation with an Object Lambda access point, provide the alias
     /// of the Object Lambda access point in place of the bucket name. If the Object Lambda
     /// access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code>
     /// is returned. For more information about <code>InvalidAccessPointAliasError</code>,
@@ -77,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

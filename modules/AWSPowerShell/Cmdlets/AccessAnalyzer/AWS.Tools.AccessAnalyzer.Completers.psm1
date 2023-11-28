@@ -124,7 +124,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 

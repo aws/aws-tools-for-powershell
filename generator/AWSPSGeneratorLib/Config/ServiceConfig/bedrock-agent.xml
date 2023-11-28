@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bedrock-agent</C2jFilename>
+    <AssemblyName>BedrockAgent</AssemblyName>
+    <ServiceNounPrefix>AAB</ServiceNounPrefix>
+    <ServiceName>Agents for Amazon Bedrock</ServiceName>
+    <ServiceClientInterface>IAmazonBedrockAgent</ServiceClientInterface>
+    <ServiceClient>AmazonBedrockAgentClient</ServiceClient>
+    <ServiceModuleGuid>29ed7572-f866-41d6-9d7c-3ee9994cab63</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Register" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgent" OutputProperty="Agent" Verb="New" Noun="Agent" ShouldProcessTarget="AgentName" PipelineParameter="AgentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="New" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentAlias" OutputProperty="AgentAlias" Verb="New" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="DataSource" Verb="New" Noun="DataSource" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_PineconeConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgent" OutputProperty="*" Verb="Remove" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentActionGroup" Verb="Remove" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentAlias" OutputProperty="*" Verb="Remove" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentVersion" OutputProperty="*" Verb="Remove" Noun="AgentVersion" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAgentKnowledgeBase" Verb="Unregister" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgent" OutputProperty="Agent" Verb="Get" Noun="Agent" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Get" Noun="AgentActionGroup" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentAlias" OutputProperty="AgentAlias" Verb="Get" Noun="AgentAlias" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Get" Noun="AgentKnowledgeBase" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentVersion" OutputProperty="AgentVersion" Verb="Get" Noun="AgentVersion" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIngestionJob" OutputProperty="IngestionJob" Verb="Get" Noun="IngestionJob" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentActionGroups" OutputProperty="ActionGroupSummaries" Verb="Get" Noun="AgentActionGroupList" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentAliases" OutputProperty="AgentAliasSummaries" Verb="Get" Noun="AgentAliasList" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentKnowledgeBases" OutputProperty="AgentKnowledgeBaseSummaries" Verb="Get" Noun="AgentKnowledgeBasisList" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgents" OutputProperty="AgentSummaries" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentVersions" OutputProperty="AgentVersionSummaries" Verb="Get" Noun="AgentVersionList" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSourceSummaries" Verb="Get" Noun="DataSourceList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIngestionJobs" OutputProperty="IngestionJobSummaries" Verb="Get" Noun="IngestionJobList" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PrepareAgent" OutputProperty="*" Verb="Initialize" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartIngestionJob" OutputProperty="IngestionJob" Verb="Start" Noun="IngestionJob" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgent" OutputProperty="Agent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Update" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentAlias" OutputProperty="AgentAlias" Verb="Update" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Update" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_PineconeConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_PineconeConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

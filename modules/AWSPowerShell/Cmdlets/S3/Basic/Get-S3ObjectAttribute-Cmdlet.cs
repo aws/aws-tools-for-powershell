@@ -29,52 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Retrieves all the metadata from an object without returning the object itself. This
-    /// action is useful if you're interested only in an object's metadata. To use <code>GetObjectAttributes</code>,
-    /// you must have READ access to the object.
+    /// operation is useful if you're interested only in an object's metadata. 
     /// 
     ///  
     /// <para><code>GetObjectAttributes</code> combines the functionality of <code>HeadObject</code>
     /// and <code>ListParts</code>. All of the data returned with each of those individual
     /// calls can be returned with a single call to <code>GetObjectAttributes</code>.
-    /// </para><para>
-    /// If you encrypt an object by using server-side encryption with customer-provided encryption
-    /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
-    /// from the object, you must use the following headers:
-    /// </para><ul><li><para><code>x-amz-server-side-encryption-customer-algorithm</code></para></li><li><para><code>x-amz-server-side-encryption-customer-key</code></para></li><li><para><code>x-amz-server-side-encryption-customer-key-MD5</code></para></li></ul><para>
-    /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
-    /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
-    /// Guide</i>.
-    /// </para><note><ul><li><para>
-    /// Encryption request headers, such as <code>x-amz-server-side-encryption</code>, should
-    /// not be sent for GET requests if your object uses server-side encryption with Amazon
-    /// Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS)
-    /// or server-side encryption with Amazon S3 managed keys (SSE-S3). If your object does
-    /// use these types of keys, you'll get an HTTP <code>400 Bad Request</code> error.
-    /// </para></li><li><para>
-    ///  The last modified property in this case is the creation date of the object.
-    /// </para></li></ul></note><para>
-    /// Consider the following when using request headers:
-    /// </para><ul><li><para>
-    ///  If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers
-    /// are present in the request as follows, then Amazon S3 returns the HTTP status code
-    /// <code>200 OK</code> and the data requested:
-    /// </para><ul><li><para><code>If-Match</code> condition evaluates to <code>true</code>.
-    /// </para></li><li><para><code>If-Unmodified-Since</code> condition evaluates to <code>false</code>.
-    /// </para></li></ul></li><li><para>
-    /// If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers
-    /// are present in the request as follows, then Amazon S3 returns the HTTP status code
-    /// <code>304 Not Modified</code>:
-    /// </para><ul><li><para><code>If-None-Match</code> condition evaluates to <code>false</code>.
-    /// </para></li><li><para><code>If-Modified-Since</code> condition evaluates to <code>true</code>.
-    /// </para></li></ul></li></ul><para>
-    /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
-    /// 7232</a>.
-    /// </para><dl><dt>Permissions</dt><dd><para>
-    /// The permissions that you need to use this operation depend on whether the bucket is
-    /// versioned. If the bucket is versioned, you need both the <code>s3:GetObjectVersion</code>
-    /// and <code>s3:GetObjectVersionAttributes</code> permissions for this operation. If
-    /// the bucket is not versioned, you need the <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code>
-    /// permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// </para><note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
+    /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
+    /// requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use <code>GetObjectAttributes</code>,
+    /// you must have READ access to the object. The permissions that you need to use this
+    /// operation with depend on whether the bucket is versioned. If the bucket is versioned,
+    /// you need both the <code>s3:GetObjectVersion</code> and <code>s3:GetObjectVersionAttributes</code>
+    /// permissions for this operation. If the bucket is not versioned, you need the <code>s3:GetObject</code>
+    /// and <code>s3:GetObjectAttributes</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
     /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object that
     /// you request does not exist, the error Amazon S3 returns depends on whether you also
     /// have the <code>s3:ListBucket</code> permission.
@@ -84,7 +54,63 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     /// If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
     /// HTTP status code <code>403 Forbidden</code> ("access denied") error.
-    /// </para></li></ul></dd></dl><para>
+    /// </para></li></ul></li><li><para><b>Directory bucket permissions</b> - To grant access to this API operation on a
+    /// directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><code>CreateSession</code></a> API operation for session-based authorization. Specifically,
+    /// you grant the <code>s3express:CreateSession</code> permission to the directory bucket
+    /// in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code>
+    /// API call on the bucket to obtain a session token. With the session token in your request
+    /// header, you can make API requests to this operation. After the session token expires,
+    /// you make another <code>CreateSession</code> API call to generate a new session token
+    /// for use. Amazon Web Services CLI or SDKs create session and refresh the session token
+    /// automatically to avoid service interruptions when a session expires. For more information
+    /// about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><code>CreateSession</code></a>.
+    /// </para></li></ul></dd><dt>Encryption</dt><dd><note><para>
+    /// Encryption request headers, like <code>x-amz-server-side-encryption</code>, should
+    /// not be sent for <code>HEAD</code> requests if your object uses server-side encryption
+    /// with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption
+    /// with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon
+    /// S3 managed encryption keys (SSE-S3). The <code>x-amz-server-side-encryption</code>
+    /// header is used when you <code>PUT</code> an object to S3 and want to specify the encryption
+    /// method. If you include this header in a <code>GET</code> request for an object that
+    /// uses these types of keys, you’ll get an HTTP <code>400 Bad Request</code> error. It's
+    /// because the encryption method can't be changed when you retrieve the object.
+    /// </para></note><para>
+    /// If you encrypt an object by using server-side encryption with customer-provided encryption
+    /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
+    /// from the object, you must use the following headers to provide the encryption key
+    /// for the server to be able to retrieve the object's metadata. The headers are: 
+    /// </para><ul><li><para><code>x-amz-server-side-encryption-customer-algorithm</code></para></li><li><para><code>x-amz-server-side-encryption-customer-key</code></para></li><li><para><code>x-amz-server-side-encryption-customer-key-MD5</code></para></li></ul><para>
+    /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
+    /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
+    /// Guide</i>.
+    /// </para><note><para><b>Directory bucket permissions</b> - For directory buckets, only server-side encryption
+    /// with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.
+    /// </para></note></dd><dt>Versioning</dt><dd><para><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory
+    /// buckets. For this API operation, only the <code>null</code> value of the version ID
+    /// is supported by directory buckets. You can only specify <code>null</code> to the <code>versionId</code>
+    /// query parameter in the request.
+    /// </para></dd><dt>Conditional request headers</dt><dd><para>
+    /// Consider the following when using request headers:
+    /// </para><ul><li><para>
+    /// If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers
+    /// are present in the request as follows, then Amazon S3 returns the HTTP status code
+    /// <code>200 OK</code> and the data requested:
+    /// </para><ul><li><para><code>If-Match</code> condition evaluates to <code>true</code>.
+    /// </para></li><li><para><code>If-Unmodified-Since</code> condition evaluates to <code>false</code>.
+    /// </para></li></ul><para>
+    /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+    /// 7232</a>.
+    /// </para></li><li><para>
+    /// If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers
+    /// are present in the request as follows, then Amazon S3 returns the HTTP status code
+    /// <code>304 Not Modified</code>:
+    /// </para><ul><li><para><code>If-None-Match</code> condition evaluates to <code>false</code>.
+    /// </para></li><li><para><code>If-Modified-Since</code> condition evaluates to <code>true</code>.
+    /// </para></li></ul><para>
+    /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+    /// 7232</a>.
+    /// </para></li></ul></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <code><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.
+    /// </para></dd></dl><para>
     /// The following actions are related to <code>GetObjectAttributes</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html">GetObjectLegalHold</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html">GetObjectLockConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html">GetObjectRetention</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html">HeadObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a></para></li></ul>
     /// </summary>
@@ -102,13 +128,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket that contains the object.</para><para>When using this action with an access point, you must direct requests to the access
-        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// <para>The name of the bucket that contains the object.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you
+        /// must use virtual-hosted-style requests in the format <code><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.
+        /// Path-style requests are not supported. Directory bucket names must be unique in the
+        /// chosen Availability Zone. Bucket names must follow the format <code><i>bucket_base_name</i>--<i>az-id</i>--x-s3</code>
+        /// (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For
+        /// information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point, you must provide
+        /// the alias of the access point in place of the bucket name or specify the access point
+        /// ARN. When using the access point ARN, you must direct requests to the access point
+        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When you use this action with Amazon S3 on Outposts, you must direct requests to the
-        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Access points and Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with Amazon S3 on Outposts, you
+        /// must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes
+        /// the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
         /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
         /// you provide the Outposts access point ARN in place of the bucket name. For more information
         /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
@@ -122,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
-        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSECustomerAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Specifies the algorithm to use to when encrypting the object (for example, AES256).</para>
+        /// <para>Specifies the algorithm to use to when encrypting the object (for example, AES256).</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting
         /// data. This value is used to store the object and then it is discarded; Amazon S3 does
         /// not store the encryption key. The key must be appropriate for use with the algorithm
-        /// specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</para>
+        /// specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon
         /// S3 uses this header for a message integrity check to ensure that the encryption key
-        /// was transmitted without error.</para>
+        /// was transmitted without error.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The version ID used to reference a specific version of the object.</para><note><para>S3 Versioning isn't enabled and supported for directory buckets. For this API operation,
+        /// only the <code>null</code> value of the version ID is supported by directory buckets.
+        /// You can only specify <code>null</code> to the <code>versionId</code> query parameter
+        /// in the request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

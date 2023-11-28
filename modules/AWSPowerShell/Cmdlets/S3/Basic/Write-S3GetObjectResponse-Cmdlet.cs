@@ -28,12 +28,13 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Passes transformed objects to a <code>GetObject</code> operation when using Object
     /// Lambda access points. For information about Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming
     /// objects with Object Lambda access points</a> in the <i>Amazon S3 User Guide</i>.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This operation supports metadata that can be returned by <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>,
     /// in addition to <code>RequestRoute</code>, <code>RequestToken</code>, <code>StatusCode</code>,
     /// <code>ErrorCode</code>, and <code>ErrorMessage</code>. The <code>GetObject</code>

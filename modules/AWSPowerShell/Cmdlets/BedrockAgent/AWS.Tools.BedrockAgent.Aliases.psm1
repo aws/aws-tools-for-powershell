@@ -1,0 +1,3 @@
+﻿# BedrockAgent
+
+Export-ModuleMember -Alias *

@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateApprovedOrigin" Verb="Add" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +36,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateDefaultVocabulary" Verb="Add" Noun="DefaultVocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateFlow" Verb="Add" Noun="Flow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -69,6 +77,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateTrafficDistributionGroupUser" Verb="Add" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateAnalyticsDataSet" OutputProperty="*" Verb="Unregister" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -356,11 +372,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAnalyticsDataSet" Verb="Unregister" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateApprovedOrigin" Verb="Remove" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateBot" Verb="Remove" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFlow" Verb="Remove" Noun="Flow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -416,6 +440,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFlowAssociation" OutputProperty="*" Verb="Get" Noun="FlowAssociation" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMetricData" OutputProperty="MetricResults" Verb="Get" Noun="MetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -436,7 +464,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportPhoneNumber" OutputProperty="*" Verb="Import" Noun="PhoneNumber" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAgentStatuses" OutputProperty="AgentStatusSummaryList" Verb="Get" Noun="AgentStatusList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnalyticsDataAssociations" OutputProperty="Results" Verb="Get" Noun="AnalyticsDataAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -473,6 +509,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEvaluationFormVersions" OutputProperty="EvaluationFormVersionSummaryList" Verb="Get" Noun="EvaluationFormVersionList" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlowAssociations" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -525,6 +565,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRealtimeContactAnalysisSegmentsV2" OutputProperty="*" Verb="Get" Noun="RealtimeContactAnalysisSegmentsV2List" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -701,6 +745,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendChatIntegrationEvent" OutputProperty="*" Verb="Send" Noun="ChatIntegrationEvent" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DestinationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartChatContact" OutputProperty="*" Verb="Start" Noun="ChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -722,6 +770,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTaskContact" OutputProperty="ContactId" Verb="Start" Noun="TaskContact" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartWebRTCContact" OutputProperty="*" Verb="Start" Noun="WebRTCContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,11 +28,12 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Lists the analytics configurations for the bucket. You can have up to 1,000 analytics
     /// configurations per bucket.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This action supports list pagination and does not return more than 100 configurations
     /// at a time. You should always check the <code>IsTruncated</code> element in the response.
     /// If there are no more configurations to list, <code>IsTruncated</code> is set to false.
@@ -88,8 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

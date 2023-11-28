@@ -124,7 +124,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 
@@ -6129,6 +6129,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.CustomizationType
+        "New-BDRModelCustomizationJob/CustomizationType"
+        {
+            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            break
+        }
+
         # Amazon.Bedrock.FineTuningJobStatus
         "Get-BDRModelCustomizationJobList/StatusEquals"
         {
@@ -6146,7 +6153,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.ModelCustomization
         "Get-BDRFoundationModelList/ByCustomizationType"
         {
-            $v = "FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
             break
         }
 
@@ -6209,6 +6216,7 @@ $BDR_map = @{
     "ByInferenceType"=@("Get-BDRFoundationModelList")
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
+    "CustomizationType"=@("New-BDRModelCustomizationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEquals"=@("Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
@@ -6287,6 +6295,294 @@ $BDR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BDR_SelectCompleters $BDR_SelectMap
+# Argument completions for service Agents for Amazon Bedrock
+
+
+$AAB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockAgent.ActionGroupSignature
+        {
+            ($_ -eq "New-AABAgentActionGroup/ParentActionGroupSignature") -Or
+            ($_ -eq "Update-AABAgentActionGroup/ParentActionGroupSignature")
+        }
+        {
+            $v = "AMAZON.UserInput"
+            break
+        }
+
+        # Amazon.BedrockAgent.ActionGroupState
+        {
+            ($_ -eq "New-AABAgentActionGroup/ActionGroupState") -Or
+            ($_ -eq "Update-AABAgentActionGroup/ActionGroupState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgent.ChunkingStrategy
+        {
+            ($_ -eq "New-AABDataSource/VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy") -Or
+            ($_ -eq "Update-AABDataSource/VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy")
+        }
+        {
+            $v = "FIXED_SIZE","NONE"
+            break
+        }
+
+        # Amazon.BedrockAgent.DataSourceType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_Type") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
+        }
+        {
+            $v = "S3"
+            break
+        }
+
+        # Amazon.BedrockAgent.IngestionJobSortByAttribute
+        "Get-AABIngestionJobList/SortBy_Attribute"
+        {
+            $v = "STARTED_AT","STATUS"
+            break
+        }
+
+        # Amazon.BedrockAgent.KnowledgeBaseState
+        {
+            ($_ -eq "Register-AABAgentKnowledgeBase/KnowledgeBaseState") -Or
+            ($_ -eq "Update-AABAgentKnowledgeBase/KnowledgeBaseState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgent.KnowledgeBaseStorageType
+        {
+            ($_ -eq "New-AABKnowledgeBase/StorageConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/StorageConfiguration_Type")
+        }
+        {
+            $v = "OPENSEARCH_SERVERLESS","PINECONE","REDIS_ENTERPRISE_CLOUD"
+            break
+        }
+
+        # Amazon.BedrockAgent.KnowledgeBaseType
+        {
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_Type")
+        }
+        {
+            $v = "VECTOR"
+            break
+        }
+
+        # Amazon.BedrockAgent.SortOrder
+        "Get-AABIngestionJobList/SortBy_Order"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AAB_map = @{
+    "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
+    "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "SortBy_Attribute"=@("Get-AABIngestionJobList")
+    "SortBy_Order"=@("Get-AABIngestionJobList")
+    "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+}
+
+_awsArgumentCompleterRegistration $AAB_Completers $AAB_map
+
+$AAB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AAB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AAB_SelectMap = @{
+    "Select"=@("Register-AABAgentKnowledgeBase",
+               "New-AABAgent",
+               "New-AABAgentActionGroup",
+               "New-AABAgentAlias",
+               "New-AABDataSource",
+               "New-AABKnowledgeBase",
+               "Remove-AABAgent",
+               "Remove-AABAgentActionGroup",
+               "Remove-AABAgentAlias",
+               "Remove-AABAgentVersion",
+               "Remove-AABDataSource",
+               "Remove-AABKnowledgeBase",
+               "Unregister-AABAgentKnowledgeBase",
+               "Get-AABAgent",
+               "Get-AABAgentActionGroup",
+               "Get-AABAgentAlias",
+               "Get-AABAgentKnowledgeBase",
+               "Get-AABAgentVersion",
+               "Get-AABDataSource",
+               "Get-AABIngestionJob",
+               "Get-AABKnowledgeBase",
+               "Get-AABAgentActionGroupList",
+               "Get-AABAgentAliasList",
+               "Get-AABAgentKnowledgeBasisList",
+               "Get-AABAgentList",
+               "Get-AABAgentVersionList",
+               "Get-AABDataSourceList",
+               "Get-AABIngestionJobList",
+               "Get-AABKnowledgeBasisList",
+               "Get-AABResourceTag",
+               "Initialize-AABAgent",
+               "Start-AABIngestionJob",
+               "Add-AABResourceTag",
+               "Remove-AABResourceTag",
+               "Update-AABAgent",
+               "Update-AABAgentActionGroup",
+               "Update-AABAgentAlias",
+               "Update-AABAgentKnowledgeBase",
+               "Update-AABDataSource",
+               "Update-AABKnowledgeBase")
+}
+
+_awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap
+# Argument completions for service Amazon Bedrock Agent Runtime
+
+
+$BAR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockAgentRuntime.RetrieveAndGenerateType
+        "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type"
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAR_map = @{
+    "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
+}
+
+_awsArgumentCompleterRegistration $BAR_Completers $BAR_map
+
+$BAR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BAR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAR_SelectMap = @{
+    "Select"=@("Invoke-BARAgent",
+               "Invoke-BARRetrieve",
+               "Invoke-BARRetrieveAndGenerate")
+}
+
+_awsArgumentCompleterRegistration $BAR_SelectCompleters $BAR_SelectMap
 # Argument completions for service Amazon Bedrock Runtime
 
 
@@ -14820,6 +15116,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ChatEventType
+        "Send-CONNChatIntegrationEvent/Event_Type"
+        {
+            $v = "DISCONNECT","EVENT","MESSAGE"
+            break
+        }
+
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
@@ -14889,7 +15192,18 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            break
+        }
+
+        # Amazon.Connect.FlowAssociationResourceType
+        {
+            ($_ -eq "Add-CONNFlow/ResourceType") -Or
+            ($_ -eq "Get-CONNFlowAssociation/ResourceType") -Or
+            ($_ -eq "Remove-CONNFlow/ResourceType")
+        }
+        {
+            $v = "SMS_PHONE_NUMBER"
             break
         }
 
@@ -14948,7 +15262,10 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ListFlowAssociationResourceType
-        "Get-CONNFlowAssociationBatch/ResourceType"
+        {
+            ($_ -eq "Get-CONNFlowAssociationBatch/ResourceType") -Or
+            ($_ -eq "Get-CONNFlowAssociationList/ResourceType")
+        }
         {
             $v = "VOICE_PHONE_NUMBER"
             break
@@ -14971,7 +15288,7 @@ $CONN_Completers = {
         # Amazon.Connect.PhoneNumberType
         "Search-CONNAvailablePhoneNumber/PhoneNumberType"
         {
-            $v = "DID","SHARED","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
+            $v = "DID","SHARED","SHORT_CODE","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
             break
         }
 
@@ -14989,6 +15306,13 @@ $CONN_Completers = {
         }
         {
             $v = "PHONE_NUMBER","QUEUE","USER"
+            break
+        }
+
+        # Amazon.Connect.RealTimeContactAnalysisOutputType
+        "Get-CONNRealtimeContactAnalysisSegmentsV2List/OutputType"
+        {
+            $v = "Raw","Redacted"
             break
         }
 
@@ -15079,6 +15403,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.VideoCapability
+        {
+            ($_ -eq "Start-CONNWebRTCContact/AllowedCapabilities_Agent_Video") -Or
+            ($_ -eq "Start-CONNWebRTCContact/AllowedCapabilities_Customer_Video")
+        }
+        {
+            $v = "SEND"
+            break
+        }
+
         # Amazon.Connect.ViewStatus
         {
             ($_ -eq "New-CONNView/Status") -Or
@@ -15132,15 +15466,19 @@ $CONN_Completers = {
 
 $CONN_map = @{
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
+    "AllowedCapabilities_Agent_Video"=@("Start-CONNWebRTCContact")
+    "AllowedCapabilities_Customer_Video"=@("Start-CONNWebRTCContact")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
@@ -15148,7 +15486,7 @@ $CONN_map = @{
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "RehydrationType"=@("New-CONNPersistentContactAssociation")
-    "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNFlowAssociationBatch","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -15220,9 +15558,11 @@ $CONN_SelectCompleters = {
 
 $CONN_SelectMap = @{
     "Select"=@("Enable-CONNEvaluationForm",
+               "Register-CONNAnalyticsDataSet",
                "Add-CONNApprovedOrigin",
                "Add-CONNBot",
                "Add-CONNDefaultVocabulary",
+               "Add-CONNFlow",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
@@ -15231,6 +15571,8 @@ $CONN_SelectMap = @{
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
                "Add-CONNTrafficDistributionGroupUser",
+               "Register-CONNBatchAnalyticsDataSet",
+               "Unregister-CONNBatchAnalyticsDataSet",
                "Get-CONNFlowAssociationBatch",
                "Set-CONNBatchPutContact",
                "Request-CONNPhoneNumber",
@@ -15302,8 +15644,10 @@ $CONN_SelectMap = @{
                "Get-CONNUserHierarchyStructure",
                "Get-CONNView",
                "Get-CONNVocabulary",
+               "Unregister-CONNAnalyticsDataSet",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
+               "Remove-CONNFlow",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
@@ -15317,12 +15661,15 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
                "Get-CONNFederationToken",
+               "Get-CONNFlowAssociation",
                "Get-CONNMetricData",
                "Get-CONNMetricDataV2",
                "Get-CONNPromptFile",
                "Get-CONNTaskTemplate",
                "Get-CONNTrafficDistribution",
+               "Import-CONNPhoneNumber",
                "Get-CONNAgentStatusList",
+               "Get-CONNAnalyticsDataAssociationList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
                "Get-CONNContactEvaluationList",
@@ -15332,6 +15679,7 @@ $CONN_SelectMap = @{
                "Get-CONNDefaultVocabularyList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
+               "Get-CONNFlowAssociationList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -15345,6 +15693,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueueQuickConnectList",
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
+               "Get-CONNRealtimeContactAnalysisSegmentsV2List",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",
@@ -15376,12 +15725,14 @@ $CONN_SelectMap = @{
                "Search-CONNSecurityProfile",
                "Search-CONNUser",
                "Search-CONNVocabulary",
+               "Send-CONNChatIntegrationEvent",
                "Start-CONNChatContact",
                "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNOutboundVoiceContact",
                "Start-CONNTaskContact",
+               "Start-CONNWebRTCContact",
                "Stop-CONNContact",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",
@@ -16405,6 +16756,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
                "Remove-CPFWorkflow",
+               "Find-CPFProfileObjectType",
                "Get-CPFAutoMergingPreview",
                "Get-CPFCalculatedAttributeDefinition",
                "Get-CPFCalculatedAttributeForProfile",
@@ -50034,6 +50386,392 @@ $PRO_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PRO_SelectCompleters $PRO_SelectMap
+# Argument completions for service Amazon QBusiness
+
+
+$QBUS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.QBusiness.AttachmentsControlMode
+        {
+            ($_ -eq "New-QBUSApplication/AttachmentsConfiguration_AttachmentsControlMode") -Or
+            ($_ -eq "Update-QBUSApplication/AttachmentsConfiguration_AttachmentsControlMode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.QBusiness.DataSourceSyncJobStatus
+        "Get-QBUSDataSourceSyncJobList/StatusFilter"
+        {
+            $v = "ABORTED","FAILED","INCOMPLETE","STOPPING","SUCCEEDED","SYNCING","SYNCING_INDEXING"
+            break
+        }
+
+        # Amazon.QBusiness.DocumentEnrichmentConditionOperator
+        {
+            ($_ -eq "New-QBUSDataSource/DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "Update-QBUSDataSource/DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "New-QBUSDataSource/DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator") -Or
+            ($_ -eq "Update-QBUSDataSource/DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator")
+        }
+        {
+            $v = "BEGINS_WITH","CONTAINS","EQUALS","EXISTS","GREATER_THAN","GREATER_THAN_OR_EQUALS","LESS_THAN","LESS_THAN_OR_EQUALS","NOT_CONTAINS","NOT_EQUALS","NOT_EXISTS"
+            break
+        }
+
+        # Amazon.QBusiness.MembershipType
+        "Write-QBUSGroup/Type"
+        {
+            $v = "DATASOURCE","INDEX"
+            break
+        }
+
+        # Amazon.QBusiness.MessageUsefulness
+        "Write-QBUSFeedback/MessageUsefulness_Usefulness"
+        {
+            $v = "NOT_USEFUL","USEFUL"
+            break
+        }
+
+        # Amazon.QBusiness.MessageUsefulnessReason
+        "Write-QBUSFeedback/MessageUsefulness_Reason"
+        {
+            $v = "COMPLETE","FACTUALLY_CORRECT","HARMFUL_OR_UNSAFE","HELPFUL","INCORRECT_OR_MISSING_SOURCES","NOT_FACTUALLY_CORRECT","NOT_HELPFUL","RELEVANT_SOURCES"
+            break
+        }
+
+        # Amazon.QBusiness.PluginState
+        "Update-QBUSPlugin/State"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.QBusiness.PluginType
+        "New-QBUSPlugin/Type"
+        {
+            $v = "JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
+            break
+        }
+
+        # Amazon.QBusiness.ResponseScope
+        "Update-QBUSChatControlsConfiguration/ResponseScope"
+        {
+            $v = "ENTERPRISE_CONTENT_ONLY","EXTENDED_KNOWLEDGE_ENABLED"
+            break
+        }
+
+        # Amazon.QBusiness.RetrieverType
+        "New-QBUSRetriever/Type"
+        {
+            $v = "KENDRA_INDEX","NATIVE_INDEX"
+            break
+        }
+
+        # Amazon.QBusiness.WebExperienceSamplePromptsControlMode
+        {
+            ($_ -eq "New-QBUSWebExperience/SamplePromptsControlMode") -Or
+            ($_ -eq "Update-QBUSWebExperience/SamplePromptsControlMode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$QBUS_map = @{
+    "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
+    "DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
+    "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "ResponseScope"=@("Update-QBUSChatControlsConfiguration")
+    "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
+    "State"=@("Update-QBUSPlugin")
+    "StatusFilter"=@("Get-QBUSDataSourceSyncJobList")
+    "Type"=@("New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
+}
+
+_awsArgumentCompleterRegistration $QBUS_Completers $QBUS_map
+
+$QBUS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.QBUS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$QBUS_SelectMap = @{
+    "Select"=@("Remove-QBUSBatchDeleteDocument",
+               "Set-QBUSBatchPutDocument",
+               "Set-QBUSChatSync",
+               "New-QBUSApplication",
+               "New-QBUSDataSource",
+               "New-QBUSIndex",
+               "New-QBUSPlugin",
+               "New-QBUSRetriever",
+               "New-QBUSUser",
+               "New-QBUSWebExperience",
+               "Remove-QBUSApplication",
+               "Remove-QBUSChatControlsConfiguration",
+               "Remove-QBUSConversation",
+               "Remove-QBUSDataSource",
+               "Remove-QBUSGroup",
+               "Remove-QBUSIndex",
+               "Remove-QBUSPlugin",
+               "Remove-QBUSRetriever",
+               "Remove-QBUSUser",
+               "Remove-QBUSWebExperience",
+               "Get-QBUSApplication",
+               "Get-QBUSChatControlsConfiguration",
+               "Get-QBUSDataSource",
+               "Get-QBUSGroup",
+               "Get-QBUSIndex",
+               "Get-QBUSPlugin",
+               "Get-QBUSRetriever",
+               "Get-QBUSUser",
+               "Get-QBUSWebExperience",
+               "Get-QBUSApplicationList",
+               "Get-QBUSConversationList",
+               "Get-QBUSDataSourceList",
+               "Get-QBUSDataSourceSyncJobList",
+               "Get-QBUSDocumentList",
+               "Get-QBUSGroupList",
+               "Get-QBUSIndexList",
+               "Get-QBUSMessageList",
+               "Get-QBUSPluginList",
+               "Get-QBUSRetrieverList",
+               "Get-QBUSResourceTag",
+               "Get-QBUSWebExperienceList",
+               "Write-QBUSFeedback",
+               "Write-QBUSGroup",
+               "Start-QBUSDataSourceSyncJob",
+               "Stop-QBUSDataSourceSyncJob",
+               "Add-QBUSResourceTag",
+               "Remove-QBUSResourceTag",
+               "Update-QBUSApplication",
+               "Update-QBUSChatControlsConfiguration",
+               "Update-QBUSDataSource",
+               "Update-QBUSIndex",
+               "Update-QBUSPlugin",
+               "Update-QBUSRetriever",
+               "Update-QBUSUser",
+               "Update-QBUSWebExperience")
+}
+
+_awsArgumentCompleterRegistration $QBUS_SelectCompleters $QBUS_SelectMap
+# Argument completions for service Amazon Q Connect
+
+
+$QC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.QConnect.AssistantType
+        "New-QCAssistant/Type"
+        {
+            $v = "AGENT"
+            break
+        }
+
+        # Amazon.QConnect.AssociationType
+        "New-QCAssistantAssociation/AssociationType"
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+        # Amazon.QConnect.ExternalSource
+        "Start-QCImportJob/ExternalSourceConfiguration_Source"
+        {
+            $v = "AMAZON_CONNECT"
+            break
+        }
+
+        # Amazon.QConnect.ImportJobType
+        "Start-QCImportJob/ImportJobType"
+        {
+            $v = "QUICK_RESPONSES"
+            break
+        }
+
+        # Amazon.QConnect.KnowledgeBaseType
+        "New-QCKnowledgeBase/KnowledgeBaseType"
+        {
+            $v = "CUSTOM","EXTERNAL","QUICK_RESPONSES"
+            break
+        }
+
+        # Amazon.QConnect.Order
+        "Search-QCQuickResponse/SearchExpression_OrderOnField_Order"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$QC_map = @{
+    "AssociationType"=@("New-QCAssistantAssociation")
+    "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
+    "ImportJobType"=@("Start-QCImportJob")
+    "KnowledgeBaseType"=@("New-QCKnowledgeBase")
+    "SearchExpression_OrderOnField_Order"=@("Search-QCQuickResponse")
+    "Type"=@("New-QCAssistant")
+}
+
+_awsArgumentCompleterRegistration $QC_Completers $QC_map
+
+$QC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.QC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$QC_SelectMap = @{
+    "Select"=@("New-QCAssistant",
+               "New-QCAssistantAssociation",
+               "New-QCContent",
+               "New-QCKnowledgeBase",
+               "New-QCQuickResponse",
+               "New-QCSession",
+               "Remove-QCAssistant",
+               "Remove-QCAssistantAssociation",
+               "Remove-QCContent",
+               "Remove-QCImportJob",
+               "Remove-QCKnowledgeBase",
+               "Remove-QCQuickResponse",
+               "Get-QCAssistant",
+               "Get-QCAssistantAssociation",
+               "Get-QCContent",
+               "Get-QCContentSummary",
+               "Get-QCImportJob",
+               "Get-QCKnowledgeBase",
+               "Get-QCQuickResponse",
+               "Get-QCRecommendation",
+               "Get-QCSession",
+               "Get-QCAssistantAssociationList",
+               "Get-QCAssistantList",
+               "Get-QCContentList",
+               "Get-QCImportJobList",
+               "Get-QCKnowledgeBasisList",
+               "Get-QCQuickResponseList",
+               "Get-QCResourceTag",
+               "Remove-QCRecommendationsReceived",
+               "Search-QCAssistant",
+               "Remove-QCKnowledgeBaseTemplateUri",
+               "Search-QCContent",
+               "Search-QCQuickResponse",
+               "Search-QCSession",
+               "Start-QCContentUpload",
+               "Start-QCImportJob",
+               "Add-QCResourceTag",
+               "Remove-QCResourceTag",
+               "Update-QCContent",
+               "Update-QCKnowledgeBaseTemplateUri",
+               "Update-QCQuickResponse")
+}
+
+_awsArgumentCompleterRegistration $QC_SelectCompleters $QC_SelectMap
 # Argument completions for service Amazon QLDB
 
 
@@ -54680,7 +55418,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -54710,6 +55448,13 @@ $S3_Completers = {
         }
         {
             $v = "","AES256","aws:kms","aws:kms:dsse"
+            break
+        }
+
+        # Amazon.S3.SessionMode
+        "New-S3Session/SessionMode"
+        {
+            $v = "ReadOnly","ReadWrite"
             break
         }
 
@@ -54768,6 +55513,7 @@ $S3_map = @{
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
+    "SessionMode"=@("New-S3Session")
     "SSECustomerAlgorithm"=@("Write-S3GetObjectResponse")
     "StorageClass"=@("Write-S3GetObjectResponse")
     "Tier"=@("Restore-S3Object")
@@ -54824,7 +55570,8 @@ $S3_SelectCompleters = {
 }
 
 $S3_SelectMap = @{
-    "Select"=@("Remove-S3BucketAnalyticsConfiguration",
+    "Select"=@("New-S3Session",
+               "Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
                "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
@@ -54870,6 +55617,7 @@ $S3_SelectMap = @{
                "Get-S3BucketInventoryConfigurationList",
                "Get-S3BucketMetricsConfigurationList",
                "Get-S3Bucket",
+               "Get-S3DirectoryBucket",
                "Get-S3Object",
                "Get-S3ObjectV2",
                "Get-S3Version",

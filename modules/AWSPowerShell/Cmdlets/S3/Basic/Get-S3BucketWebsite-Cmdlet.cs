@@ -28,13 +28,14 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// Returns the website configuration for a bucket. To host website on Amazon S3, you
     /// can configure a bucket as website by adding a website configuration. For more information
     /// about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
     /// Websites on Amazon S3</a>. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This GET action requires the <code>S3:GetBucketWebsite</code> permission. By default,
     /// only the bucket owner can read the bucket website configuration. However, bucket owners
     /// can allow other users to read the website configuration by writing a bucket policy
@@ -68,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
-        /// account, the request fails with the HTTP status code <code>403 Forbidden</code> (access
-        /// denied).</para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

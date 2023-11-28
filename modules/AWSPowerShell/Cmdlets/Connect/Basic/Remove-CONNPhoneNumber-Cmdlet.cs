@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  <important><para>
     /// To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code>
-    /// API, not the Amazon Connect console.
+    /// API, not the Amazon Connect admin website.
     /// </para><para>
     /// After releasing a phone number, the phone number enters into a cooldown period of
     /// 30 days. It cannot be searched for or claimed again until the period has ended. If

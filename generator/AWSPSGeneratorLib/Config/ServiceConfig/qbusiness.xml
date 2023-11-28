@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>qbusiness</C2jFilename>
+    <AssemblyName>QBusiness</AssemblyName>
+    <ServiceNounPrefix>QBUS</ServiceNounPrefix>
+    <ServiceName>Amazon QBusiness</ServiceName>
+    <ServiceClientInterface>IAmazonQBusiness</ServiceClientInterface>
+    <ServiceClient>AmazonQBusinessClient</ServiceClient>
+    <ServiceModuleGuid>a9f5c6f6-8f98-4312-a388-1750725f0f4b</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteDocument" OutputProperty="FailedDocuments" Verb="Remove" Noun="BatchDeleteDocument" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutDocument" OutputProperty="FailedDocuments" Verb="Set" Noun="BatchPutDocument" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChatSync" OutputProperty="*" Verb="Set" Noun="ChatSync" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Key" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_Key" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Key" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_Key" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_Operator" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_Operator" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_DateValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_DateValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_DateValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_DateValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_LongValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_LongValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_LongValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_LongValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_StringListValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_StringListValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringListValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringListValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_StringValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringValue" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="*" Verb="New" Noun="Index" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlugin" OutputProperty="*" Verb="New" Noun="Plugin" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRetriever" OutputProperty="*" Verb="New" Noun="Retriever" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWebExperience" OutputProperty="*" Verb="New" Noun="WebExperience" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChatControlsConfiguration" Verb="Remove" Noun="ChatControlsConfiguration" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConversation" Verb="Remove" Noun="Conversation" ShouldProcessTarget="ConversationId" PipelineParameter="ConversationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndex" Verb="Remove" Noun="Index" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlugin" Verb="Remove" Noun="Plugin" ShouldProcessTarget="PluginId" PipelineParameter="PluginId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRetriever" Verb="Remove" Noun="Retriever" ShouldProcessTarget="RetrieverId" PipelineParameter="RetrieverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebExperience" Verb="Remove" Noun="WebExperience" ShouldProcessTarget="WebExperienceId" PipelineParameter="WebExperienceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChatControlsConfiguration" OutputProperty="*" Verb="Get" Noun="ChatControlsConfiguration" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlugin" OutputProperty="*" Verb="Get" Noun="Plugin" PipelineParameter="PluginId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRetriever" OutputProperty="*" Verb="Get" Noun="Retriever" PipelineParameter="RetrieverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUser" OutputProperty="UserAliases" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWebExperience" OutputProperty="*" Verb="Get" Noun="WebExperience" PipelineParameter="WebExperienceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConversations" OutputProperty="Conversations" Verb="Get" Noun="ConversationList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSourceSyncJobs" OutputProperty="History" Verb="Get" Noun="DataSourceSyncJobList" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDocuments" OutputProperty="DocumentDetailList" Verb="Get" Noun="DocumentList" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Items" Verb="Get" Noun="GroupList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndices" OutputProperty="Indices" Verb="Get" Noun="IndexList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMessages" OutputProperty="Messages" Verb="Get" Noun="MessageList" PipelineParameter="ConversationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlugins" OutputProperty="Plugins" Verb="Get" Noun="PluginList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRetrievers" OutputProperty="Retrievers" Verb="Get" Noun="RetrieverList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebExperiences" OutputProperty="WebExperiences" Verb="Get" Noun="WebExperienceList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFeedback" Verb="Write" Noun="Feedback" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutGroup" Verb="Write" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataSourceSyncJob" OutputProperty="ExecutionId" Verb="Start" Noun="DataSourceSyncJob" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDataSourceSyncJob" Verb="Stop" Noun="DataSourceSyncJob" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChatControlsConfiguration" Verb="Update" Noun="ChatControlsConfiguration" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Key" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_Key" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Key" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_Key" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_Operator" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_Operator" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_DateValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_DateValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_DateValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_DateValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_LongValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_LongValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_LongValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_LongValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_StringListValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_StringListValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringListValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringListValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PostInvocationCondition_StringValue" />
+                <Param Name="DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Value_StringValue" NewName="DocumentEnrichmentConfiguration_PreInvocationCondition_StringValue" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIndex" Verb="Update" Noun="Index" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePlugin" Verb="Update" Noun="Plugin" ShouldProcessTarget="PluginId" PipelineParameter="PluginId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRetriever" Verb="Update" Noun="Retriever" ShouldProcessTarget="RetrieverId" PipelineParameter="RetrieverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUser" OutputProperty="*" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWebExperience" Verb="Update" Noun="WebExperience" ShouldProcessTarget="WebExperienceId" PipelineParameter="WebExperienceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten>
+        <Type>Amazon.QBusiness.Model.AttributeFilter</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

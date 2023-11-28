@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Unique token value that you can provide. If this token matches a previous request,
-        /// Bedrock ignores the request, but does not return an error.</para>
+        /// Amazon Bedrock ignores the request, but does not return an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

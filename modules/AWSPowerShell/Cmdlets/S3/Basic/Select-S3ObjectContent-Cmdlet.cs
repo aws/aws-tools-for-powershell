@@ -28,23 +28,25 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
+    /// </para></note><para>
     /// This action filters the contents of an Amazon S3 object based on a simple structured
     /// query language (SQL) statement. In the request, along with the SQL expression, you
     /// must also specify a data serialization format (JSON, CSV, or Apache Parquet) of the
     /// object. Amazon S3 uses this format to parse object data into records, and returns
     /// only records that match the specified SQL expression. You must also specify the data
     /// serialization format for the response.
-    /// 
-    ///  
-    /// <para>
-    /// This action is not supported by Amazon S3 on Outposts.
+    /// </para><para>
+    /// This functionality is not supported for Amazon S3 on Outposts.
     /// </para><para>
     /// For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting
     /// Content from Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
     /// Command</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><dl><dt>Permissions</dt><dd><para>
-    /// You must have <code>s3:GetObject</code> permission for this operation. Amazon S3 Select
-    /// does not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// You must have the <code>s3:GetObject</code> permission for this operation. Amazon
+    /// S3 Select does not support anonymous access. For more information about permissions,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
     /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></dd><dt>Object Data Formats</dt><dd><para>
     /// You can use Amazon S3 Select to query objects that have the following format properties:
@@ -133,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

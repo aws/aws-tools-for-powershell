@@ -28,15 +28,18 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
+    /// This operation creates an S3 Batch Operations job.
+    /// 
+    ///  
+    /// <para>
     /// You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3
     /// objects. Batch Operations can run a single action on lists of Amazon S3 objects that
     /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3
     /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
-    /// 
-    ///  
-    /// <para>
-    /// This action creates a S3 Batch Operations job.
-    /// </para><para>
+    /// </para><dl><dt>Permissions</dt><dd><para>
+    /// For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Granting
+    /// permissions for S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></dd></dl><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a></para></li></ul>
     /// </summary>
@@ -55,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_AccessControlGrant
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter ManifestOutputLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>The bucket ARN the generated manifest should be written to.</para>
+        /// <para>The bucket ARN the generated manifest should be written to.</para><note><para><b>Directory buckets</b> - Directory buckets aren't supported as the buckets to store
+        /// the generated manifest.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the bucket where specified job-completion report
-        /// will be stored.</para>
+        /// will be stored.</para><note><para><b>Directory buckets</b> - Directory buckets aren't supported as a location for Batch
+        /// Operations to store job completion reports.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// server-side encryption using Amazon Web Services KMS (SSE-KMS). Setting this header
         /// to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption
         /// with SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
-        /// settings for S3 Bucket Key.</para>
+        /// settings for S3 Bucket Key.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_CannedAccessControlList
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter NewObjectMetadata_ContentLength
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para><i>This member has been deprecated.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter NewObjectMetadata_ContentMD5
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para><i>This member has been deprecated.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -500,6 +505,26 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String Owner_ID { get; set; }
         #endregion
         
+        #region Parameter LambdaInvoke_InvocationSchemaVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the schema version for the payload that Batch Operations sends when invoking
+        /// an Lambda function. Version <code>1.0</code> is the default. Version <code>2.0</code>
+        /// is required when you use Batch Operations to invoke Lambda functions that act on directory
+        /// buckets, or if you need to specify <code>UserArguments</code>. For more information,
+        /// see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
+        /// Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon
+        /// Web Services Storage Blog</i>.</para><important><para>Ensure that your Lambda function code expects <code>InvocationSchemaVersion</code><b>2.0</b> and uses bucket name rather than bucket ARN. If the <code>InvocationSchemaVersion</code>
+        /// does not match what your Lambda function expects, your function might not work as
+        /// expected.</para></important><note><para><b>Directory buckets</b> - To initiate Amazon Web Services Lambda function to perform
+        /// custom actions on objects in directory buckets, you must specify <code>2.0</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_LambdaInvoke_InvocationSchemaVersion")]
+        public System.String LambdaInvoke_InvocationSchemaVersion { get; set; }
+        #endregion
+        
         #region Parameter SSEKMS_KeyId
         /// <summary>
         /// <para>
@@ -623,7 +648,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_NewObjectTagging
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies a list of tags to add to the destination objects after they are copied.
+        /// If <code>NewObjectTagging</code> is not specified, the tags of the source objects
+        /// are copied to destination objects by default.</para><note><para><b>Directory buckets</b> - Tags aren't supported by directory buckets. If your source
+        /// objects have tags and your destination bucket is a directory bucket, specify an empty
+        /// tag set in the <code>NewObjectTagging</code> field to prevent copying the source object
+        /// tags to the directory bucket.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -648,7 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_ObjectLockLegalHoldStatus
         /// <summary>
         /// <para>
-        /// <para>The legal hold status to be applied to all objects in the Batch Operations job.</para>
+        /// <para>The legal hold status to be applied to all objects in the Batch Operations job.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -660,7 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_ObjectLockMode
         /// <summary>
         /// <para>
-        /// <para>The retention mode to be applied to all objects in the Batch Operations job.</para>
+        /// <para>The retention mode to be applied to all objects in the Batch Operations job.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -673,7 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The date when the applied object retention configuration expires on all objects in
-        /// the Batch Operations job.</para>
+        /// the Batch Operations job.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -758,8 +788,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_RedirectLocation
         /// <summary>
         /// <para>
-        /// <para>Specifies an optional metadata property for website redirects, <code>x-amz-website-redirect-location</code>.
-        /// Allows webpage redirects if the object is accessed through a website endpoint.</para>
+        /// <para>If the destination bucket is configured as a website, specifies an optional metadata
+        /// property for website redirects, <code>x-amz-website-redirect-location</code>. Allows
+        /// webpage redirects if the object copy is accessed through a website endpoint.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -782,7 +813,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter NewObjectMetadata_RequesterCharged
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para><i>This member has been deprecated.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -793,7 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_RequesterPay
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -835,7 +866,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Directs the specified job to execute a DELETE Object tagging call on every object
-        /// in the manifest.</para>
+        /// in the manifest.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -846,7 +877,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Directs the specified job to invoke <code>ReplicateObject</code> on every object in
-        /// the job's manifest.</para>
+        /// the job's manifest.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -856,7 +887,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3JobManifestGenerator_SourceBucket
         /// <summary>
         /// <para>
-        /// <para>The source bucket used by the ManifestGenerator.</para>
+        /// <para>The source bucket used by the ManifestGenerator.</para><note><para><b>Directory buckets</b> - Directory buckets aren't supported as the source buckets
+        /// used by <code>S3JobManifestGenerator</code> to generate the job manifest.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -867,7 +899,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter NewObjectMetadata_SSEAlgorithm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <note><para>For directory buckets, only the server-side encryption with Amazon S3 managed keys
+        /// (SSE-S3) (<code>AES256</code>) is supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -879,7 +912,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_SSEAwsKmsKeyId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -914,7 +947,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_StorageClass
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specify the storage class for the destination objects in a <code>Copy</code> operation.</para><note><para><b>Directory buckets </b> - This functionality is not supported by directory buckets.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -962,9 +996,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_TargetResource
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.
-        /// For example, to copy objects to a bucket named <code>destinationBucket</code>, set
-        /// the <code>TargetResource</code> property to <code>arn:aws:s3:::destinationBucket</code>.</para>
+        /// <para>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.</para><ul><li><para><b>General purpose buckets</b> - For example, to copy objects to a general purpose
+        /// bucket named <code>destinationBucket</code>, set the <code>TargetResource</code> property
+        /// to <code>arn:aws:s3:::destinationBucket</code>.</para></li><li><para><b>Directory buckets</b> - For example, to copy objects to a directory bucket named
+        /// <code>destinationBucket</code> in the Availability Zone; identified by the AZ ID <code>usw2-az2</code>,
+        /// set the <code>TargetResource</code> property to <code>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -981,6 +1017,22 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Operation_S3PutObjectCopy_UnModifiedSinceConstraint")]
         public System.DateTime? S3PutObjectCopy_UnModifiedSinceConstraint { get; set; }
+        #endregion
+        
+        #region Parameter LambdaInvoke_UserArgument
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs that are passed in the payload that Batch Operations sends when invoking
+        /// an Lambda function. You must specify <code>InvocationSchemaVersion</code><b>2.0</b>
+        /// for <code>LambdaInvoke</code> operations that include <code>UserArguments</code>.
+        /// For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
+        /// Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon
+        /// Web Services Storage Blog</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_LambdaInvoke_UserArguments")]
+        public System.Collections.Hashtable LambdaInvoke_UserArgument { get; set; }
         #endregion
         
         #region Parameter NewObjectMetadata_UserMetadata
@@ -1109,6 +1161,15 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             context.ManifestOutputLocation_ManifestPrefix = this.ManifestOutputLocation_ManifestPrefix;
             context.S3JobManifestGenerator_SourceBucket = this.S3JobManifestGenerator_SourceBucket;
             context.LambdaInvoke_FunctionArn = this.LambdaInvoke_FunctionArn;
+            context.LambdaInvoke_InvocationSchemaVersion = this.LambdaInvoke_InvocationSchemaVersion;
+            if (this.LambdaInvoke_UserArgument != null)
+            {
+                context.LambdaInvoke_UserArgument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.LambdaInvoke_UserArgument.Keys)
+                {
+                    context.LambdaInvoke_UserArgument.Add((String)hashKey, (String)(this.LambdaInvoke_UserArgument[hashKey]));
+                }
+            }
             context.Operation_S3DeleteObjectTagging = this.Operation_S3DeleteObjectTagging;
             context.S3InitiateRestoreObject_ExpirationInDay = this.S3InitiateRestoreObject_ExpirationInDay;
             context.S3InitiateRestoreObject_GlacierJobTier = this.S3InitiateRestoreObject_GlacierJobTier;
@@ -1632,31 +1693,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.Operation.S3ReplicateObject = requestOperation_operation_S3ReplicateObject;
                 requestOperationIsNull = false;
             }
-            Amazon.S3Control.Model.LambdaInvokeOperation requestOperation_operation_LambdaInvoke = null;
-            
-             // populate LambdaInvoke
-            var requestOperation_operation_LambdaInvokeIsNull = true;
-            requestOperation_operation_LambdaInvoke = new Amazon.S3Control.Model.LambdaInvokeOperation();
-            System.String requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn = null;
-            if (cmdletContext.LambdaInvoke_FunctionArn != null)
-            {
-                requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn = cmdletContext.LambdaInvoke_FunctionArn;
-            }
-            if (requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn != null)
-            {
-                requestOperation_operation_LambdaInvoke.FunctionArn = requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn;
-                requestOperation_operation_LambdaInvokeIsNull = false;
-            }
-             // determine if requestOperation_operation_LambdaInvoke should be set to null
-            if (requestOperation_operation_LambdaInvokeIsNull)
-            {
-                requestOperation_operation_LambdaInvoke = null;
-            }
-            if (requestOperation_operation_LambdaInvoke != null)
-            {
-                request.Operation.LambdaInvoke = requestOperation_operation_LambdaInvoke;
-                requestOperationIsNull = false;
-            }
             Amazon.S3Control.Model.S3SetObjectAclOperation requestOperation_operation_S3PutObjectAcl = null;
             
              // populate S3PutObjectAcl
@@ -1915,6 +1951,51 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectRetention != null)
             {
                 request.Operation.S3PutObjectRetention = requestOperation_operation_S3PutObjectRetention;
+                requestOperationIsNull = false;
+            }
+            Amazon.S3Control.Model.LambdaInvokeOperation requestOperation_operation_LambdaInvoke = null;
+            
+             // populate LambdaInvoke
+            var requestOperation_operation_LambdaInvokeIsNull = true;
+            requestOperation_operation_LambdaInvoke = new Amazon.S3Control.Model.LambdaInvokeOperation();
+            System.String requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn = null;
+            if (cmdletContext.LambdaInvoke_FunctionArn != null)
+            {
+                requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn = cmdletContext.LambdaInvoke_FunctionArn;
+            }
+            if (requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn != null)
+            {
+                requestOperation_operation_LambdaInvoke.FunctionArn = requestOperation_operation_LambdaInvoke_lambdaInvoke_FunctionArn;
+                requestOperation_operation_LambdaInvokeIsNull = false;
+            }
+            System.String requestOperation_operation_LambdaInvoke_lambdaInvoke_InvocationSchemaVersion = null;
+            if (cmdletContext.LambdaInvoke_InvocationSchemaVersion != null)
+            {
+                requestOperation_operation_LambdaInvoke_lambdaInvoke_InvocationSchemaVersion = cmdletContext.LambdaInvoke_InvocationSchemaVersion;
+            }
+            if (requestOperation_operation_LambdaInvoke_lambdaInvoke_InvocationSchemaVersion != null)
+            {
+                requestOperation_operation_LambdaInvoke.InvocationSchemaVersion = requestOperation_operation_LambdaInvoke_lambdaInvoke_InvocationSchemaVersion;
+                requestOperation_operation_LambdaInvokeIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestOperation_operation_LambdaInvoke_lambdaInvoke_UserArgument = null;
+            if (cmdletContext.LambdaInvoke_UserArgument != null)
+            {
+                requestOperation_operation_LambdaInvoke_lambdaInvoke_UserArgument = cmdletContext.LambdaInvoke_UserArgument;
+            }
+            if (requestOperation_operation_LambdaInvoke_lambdaInvoke_UserArgument != null)
+            {
+                requestOperation_operation_LambdaInvoke.UserArguments = requestOperation_operation_LambdaInvoke_lambdaInvoke_UserArgument;
+                requestOperation_operation_LambdaInvokeIsNull = false;
+            }
+             // determine if requestOperation_operation_LambdaInvoke should be set to null
+            if (requestOperation_operation_LambdaInvokeIsNull)
+            {
+                requestOperation_operation_LambdaInvoke = null;
+            }
+            if (requestOperation_operation_LambdaInvoke != null)
+            {
+                request.Operation.LambdaInvoke = requestOperation_operation_LambdaInvoke;
                 requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3CopyObjectOperation requestOperation_operation_S3PutObjectCopy = null;
@@ -2393,6 +2474,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String ManifestOutputLocation_ManifestPrefix { get; set; }
             public System.String S3JobManifestGenerator_SourceBucket { get; set; }
             public System.String LambdaInvoke_FunctionArn { get; set; }
+            public System.String LambdaInvoke_InvocationSchemaVersion { get; set; }
+            public Dictionary<System.String, System.String> LambdaInvoke_UserArgument { get; set; }
             public Amazon.S3Control.Model.S3DeleteObjectTaggingOperation Operation_S3DeleteObjectTagging { get; set; }
             public System.Int32? S3InitiateRestoreObject_ExpirationInDay { get; set; }
             public Amazon.S3Control.S3GlacierJobTier S3InitiateRestoreObject_GlacierJobTier { get; set; }
