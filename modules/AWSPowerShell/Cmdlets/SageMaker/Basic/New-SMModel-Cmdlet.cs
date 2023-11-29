@@ -102,14 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// permission.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
@@ -156,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
-        /// the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
+        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,12 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.EnableNetworkIsolation = this.EnableNetworkIsolation;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
-            #if MODULAR
-            if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InferenceExecutionConfig_Mode = this.InferenceExecutionConfig_Mode;
             context.ModelName = this.ModelName;
             #if MODULAR

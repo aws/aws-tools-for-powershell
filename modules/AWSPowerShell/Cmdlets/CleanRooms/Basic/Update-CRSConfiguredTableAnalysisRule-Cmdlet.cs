@@ -118,6 +118,20 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.ConfiguredTableAnalysisRuleType AnalysisRuleType { get; set; }
         #endregion
         
+        #region Parameter DifferentialPrivacy_Column
+        /// <summary>
+        /// <para>
+        /// <para>The name of the column (such as user_id) that contains the unique identifier of your
+        /// users whose privacy you want to protect. If you want to turn on diﬀerential privacy
+        /// for two or more tables in a collaboration, you must conﬁgure the same column as the
+        /// user identiﬁer column in both analysis rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_Custom_DifferentialPrivacy_Columns")]
+        public Amazon.CleanRooms.Model.DifferentialPrivacyColumn[] DifferentialPrivacy_Column { get; set; }
+        #endregion
+        
         #region Parameter ConfiguredTableIdentifier
         /// <summary>
         /// <para>
@@ -314,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 context.Custom_AllowedAnalysisProvider = new List<System.String>(this.Custom_AllowedAnalysisProvider);
             }
+            if (this.DifferentialPrivacy_Column != null)
+            {
+                context.DifferentialPrivacy_Column = new List<Amazon.CleanRooms.Model.DifferentialPrivacyColumn>(this.DifferentialPrivacy_Column);
+            }
             if (this.List_AllowedJoinOperator != null)
             {
                 context.List_AllowedJoinOperator = new List<System.String>(this.List_AllowedJoinOperator);
@@ -388,6 +406,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_AllowedAnalysisProvider != null)
             {
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AllowedAnalysisProviders = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_AllowedAnalysisProvider;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
+            }
+            Amazon.CleanRooms.Model.DifferentialPrivacyConfiguration requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy = null;
+            
+             // populate DifferentialPrivacy
+            var requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacyIsNull = true;
+            requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy = new Amazon.CleanRooms.Model.DifferentialPrivacyConfiguration();
+            List<Amazon.CleanRooms.Model.DifferentialPrivacyColumn> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy_differentialPrivacy_Column = null;
+            if (cmdletContext.DifferentialPrivacy_Column != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy_differentialPrivacy_Column = cmdletContext.DifferentialPrivacy_Column;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy_differentialPrivacy_Column != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy.Columns = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy_differentialPrivacy_Column;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacyIsNull = false;
+            }
+             // determine if requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy should be set to null
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacyIsNull)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy = null;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.DifferentialPrivacy = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy;
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
             }
              // determine if requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom should be set to null
@@ -623,6 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public List<System.String> Aggregation_ScalarFunction { get; set; }
             public List<System.String> Custom_AllowedAnalysis { get; set; }
             public List<System.String> Custom_AllowedAnalysisProvider { get; set; }
+            public List<Amazon.CleanRooms.Model.DifferentialPrivacyColumn> DifferentialPrivacy_Column { get; set; }
             public List<System.String> List_AllowedJoinOperator { get; set; }
             public List<System.String> List_JoinColumn { get; set; }
             public List<System.String> List_ListColumn { get; set; }

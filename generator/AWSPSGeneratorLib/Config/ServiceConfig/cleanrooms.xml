@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="New" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredTable" OutputProperty="ConfiguredTable" Verb="New" Noun="ConfiguredTable" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -50,11 +54,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="New" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnalysisTemplate" Verb="Remove" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCollaboration" Verb="Remove" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredAudienceModelAssociation" Verb="Remove" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -78,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePrivacyBudgetTemplate" Verb="Remove" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Get" Noun="AnalysisTemplate" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,6 +103,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCollaborationAnalysisTemplate" OutputProperty="CollaborationAnalysisTemplate" Verb="Get" Noun="CollaborationAnalysisTemplate" PipelineParameter="AnalysisTemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationConfiguredAudienceModelAssociation" OutputProperty="CollaborationConfiguredAudienceModelAssociation" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationPrivacyBudgetTemplate" OutputProperty="CollaborationPrivacyBudgetTemplate" Verb="Get" Noun="CollaborationPrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Get" Noun="ConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,6 +131,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMembership" OutputProperty="Membership" Verb="Get" Noun="Membership" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Get" Noun="PrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,7 +158,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationConfiguredAudienceModelAssociations" OutputProperty="CollaborationConfiguredAudienceModelAssociationSummaries" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationPrivacyBudgets" OutputProperty="CollaborationPrivacyBudgetSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationPrivacyBudgetTemplates" OutputProperty="CollaborationPrivacyBudgetTemplateSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCollaborations" OutputProperty="CollaborationList" Verb="Get" Noun="CollaborationList" PipelineParameter="MemberStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfiguredAudienceModelAssociations" OutputProperty="ConfiguredAudienceModelAssociationSummaries" Verb="Get" Noun="ConfiguredAudienceModelAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,6 +194,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPrivacyBudgets" OutputProperty="PrivacyBudgetSummaries" Verb="Get" Noun="PrivacyBudgetList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrivacyBudgetTemplates" OutputProperty="PrivacyBudgetTemplateSummaries" Verb="Get" Noun="PrivacyBudgetTemplateList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProtectedQueries" OutputProperty="ProtectedQueries" Verb="Get" Noun="ProtectedQueryList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -155,6 +211,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PreviewPrivacyImpact" OutputProperty="PrivacyImpact" Verb="Test" Noun="PrivacyImpact" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -178,6 +238,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Update" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTable" OutputProperty="ConfiguredTable" Verb="Update" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -191,6 +255,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMembership" OutputProperty="Membership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Update" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

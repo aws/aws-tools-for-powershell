@@ -28,11 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of
-    /// an associated Amazon Elastic File System (EFS) volume, a list of authorized users,
-    /// and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC)
-    /// configurations. Users within a domain can share notebook files and other artifacts
-    /// with each other.
+    /// Creates a <code>Domain</code>. A domain consists of an associated Amazon Elastic File
+    /// System (EFS) volume, a list of authorized users, and a variety of security, application,
+    /// policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain
+    /// can share notebook files and other artifacts with each other.
     /// 
     ///  
     /// <para><b>EFS storage</b></para><para>
@@ -46,25 +45,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect
     /// Data at Rest Using Encryption</a>.
     /// </para><para><b>VPC configuration</b></para><para>
-    /// All SageMaker Studio traffic between the domain and the EFS volume is through the
-    /// specified VPC and subnets. For other Studio traffic, you can specify the <code>AppNetworkAccessType</code>
+    /// All traffic between the domain and the EFS volume is through the specified VPC and
+    /// subnets. For other traffic, you can specify the <code>AppNetworkAccessType</code>
     /// parameter. <code>AppNetworkAccessType</code> corresponds to the network access type
-    /// that you choose when you onboard to Studio. The following options are available:
+    /// that you choose when you onboard to the domain. The following options are available:
     /// </para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by Amazon
     /// SageMaker, which allows internet access. This is the default value.
-    /// </para></li><li><para><code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.
-    /// Internet access is disabled by default. To allow internet access, you must specify
-    /// a NAT gateway.
+    /// </para></li><li><para><code>VpcOnly</code> - All traffic is through the specified VPC and subnets. Internet
+    /// access is disabled by default. To allow internet access, you must specify a NAT gateway.
     /// </para><para>
-    /// When internet access is disabled, you won't be able to run a Studio notebook or to
-    /// train or host models unless your VPC has an interface endpoint to the SageMaker API
-    /// and runtime or a NAT gateway and your security groups allow outbound connections.
+    /// When internet access is disabled, you won't be able to run a Amazon SageMaker Studio
+    /// notebook or to train or host models unless your VPC has an interface endpoint to the
+    /// SageMaker API and runtime or a NAT gateway and your security groups allow outbound
+    /// connections.
     /// </para></li></ul><important><para>
     /// NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound
-    /// rules in order to launch a SageMaker Studio app successfully.
+    /// rules in order to launch a Amazon SageMaker Studio app successfully.
     /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect
-    /// SageMaker Studio Notebooks to Resources in a VPC</a>.
+    /// Amazon SageMaker Studio Notebooks to Resources in a VPC</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies the VPC used for non-EFS traffic. The default value is <code>PublicInternetOnly</code>.</para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon
-        /// SageMaker, which allows direct internet access</para></li><li><para><code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</para></li></ul>
+        /// SageMaker, which allows direct internet access</para></li><li><para><code>VpcOnly</code> - All traffic is through the specified VPC and subnets</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,6 +375,36 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
         #endregion
         
+        #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The SageMakerImageVersionAlias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
+        #endregion
+        
+        #region Parameter DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The SageMakerImageVersionAlias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
+        #endregion
+        
+        #region Parameter DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The SageMakerImageVersionAlias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn
         /// <summary>
         /// <para>
@@ -434,7 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets that Studio uses for communication.</para>
+        /// <para>The VPC subnets that the domain uses for communication.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -465,7 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</para>
+        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -570,6 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType;
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn;
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn;
+            context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
             if (this.JupyterServerAppSettings_LifecycleConfigArn != null)
             {
@@ -582,6 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType;
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn;
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn;
+            context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
             if (this.KernelGatewayAppSettings_LifecycleConfigArn != null)
             {
@@ -609,6 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
             context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
             context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
+            context.DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultResourceSpec_SageMakerImageVersionArn;
             context.RStudioServerProDomainSettings_DomainExecutionRoleArn = this.RStudioServerProDomainSettings_DomainExecutionRoleArn;
             context.RStudioServerProDomainSettings_RStudioConnectUrl = this.RStudioServerProDomainSettings_RStudioConnectUrl;
@@ -754,6 +786,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec.SageMakerImageArn = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn;
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull = false;
             }
+            System.String requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = null;
+            if (cmdletContext.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = cmdletContext.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec.SageMakerImageVersionAlias = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull = false;
+            }
             System.String requestDefaultSpaceSettings_defaultSpaceSettings_JupyterServerAppSettings_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_defaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = null;
             if (cmdletContext.DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn != null)
             {
@@ -842,6 +884,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn != null)
             {
                 requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec.SageMakerImageArn = requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = null;
+            if (cmdletContext.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = cmdletContext.DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec.SageMakerImageVersionAlias = requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
                 requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpecIsNull = false;
             }
             System.String requestDefaultSpaceSettings_defaultSpaceSettings_KernelGatewayAppSettings_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_defaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = null;
@@ -981,6 +1033,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec.SageMakerImageArn = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageArn;
                 requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = false;
             }
+            System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias = null;
+            if (cmdletContext.DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias = cmdletContext.DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+            }
+            if (requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec.SageMakerImageVersionAlias = requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+                requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpecIsNull = false;
+            }
             System.String requestDomainSettings_domainSettings_RStudioServerProDomainSettings_domainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_defaultResourceSpec_SageMakerImageVersionArn = null;
             if (cmdletContext.DefaultResourceSpec_SageMakerImageVersionArn != null)
             {
@@ -1107,12 +1169,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<System.String> JupyterServerAppSettings_LifecycleConfigArn { get; set; }
             public List<Amazon.SageMaker.Model.CustomImage> KernelGatewayAppSettings_CustomImage { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<System.String> KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
             public List<System.String> DefaultSpaceSettings_SecurityGroup { get; set; }
@@ -1122,6 +1186,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public System.String RStudioServerProDomainSettings_DomainExecutionRoleArn { get; set; }
             public System.String RStudioServerProDomainSettings_RStudioConnectUrl { get; set; }

@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, to wait for a previous scaling activity to take effect.
-        /// If not specified, the default value is 300. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#step-scaling-cooldown">Cooldown
+        /// If not specified, the default value is 300. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/step-scaling-policy-overview.html#step-scaling-cooldown">Cooldown
         /// period</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The scaling policy type. This parameter is required if you are creating a scaling
-        /// policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
+        /// policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR.</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
         /// Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
         /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
         /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
@@ -263,7 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li><li><para>Amazon ElastiCache replication group - The resource type is <code>replication-group</code>
         /// and the unique identifier is the replication group name. Example: <code>replication-group/mycluster</code>.</para></li><li><para>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier
         /// is the cluster name. Example: <code>cluster:mycluster</code>.</para></li><li><para>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the
-        /// unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li></ul>
+        /// unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li><li><para>SageMaker inference component - The resource type is <code>inference-component</code>
+        /// and the unique identifier is the resource ID. Example: <code>inference-component/my-inference-component</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -321,7 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for an Amazon ElastiCache replication group.</para></li><li><para><code>elasticache:replication-group:Replicas</code> - The number of replicas per
         /// node group for an Amazon ElastiCache replication group.</para></li><li><para><code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an
         /// Amazon Neptune DB cluster.</para></li><li><para><code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a SageMaker Serverless endpoint.</para></li></ul>
+        /// for a SageMaker Serverless endpoint.</para></li><li><para><code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies
+        /// across an endpoint for a SageMaker inference component.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -339,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scale-in activity completes before another
-        /// scale-in activity can start. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#target-tracking-cooldown">Define
+        /// scale-in activity can start. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define
         /// cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -351,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, to wait for a previous scale-out activity to take
-        /// effect. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#target-tracking-cooldown">Define
+        /// effect. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define
         /// cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>

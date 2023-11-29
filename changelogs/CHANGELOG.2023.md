@@ -1,4 +1,62 @@
-﻿### 4.1.463 (2023-11-28 22:27Z)
+﻿### 4.1.464 (2023-11-29 22:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.697.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSCollaborationConfiguredAudienceModelAssociation leveraging the GetCollaborationConfiguredAudienceModelAssociation service API.
+    * Added cmdlet Get-CRSCollaborationConfiguredAudienceModelAssociationList leveraging the ListCollaborationConfiguredAudienceModelAssociations service API.
+    * Added cmdlet Get-CRSCollaborationPrivacyBudgetList leveraging the ListCollaborationPrivacyBudgets service API.
+    * Added cmdlet Get-CRSCollaborationPrivacyBudgetTemplate leveraging the GetCollaborationPrivacyBudgetTemplate service API.
+    * Added cmdlet Get-CRSCollaborationPrivacyBudgetTemplateList leveraging the ListCollaborationPrivacyBudgetTemplates service API.
+    * Added cmdlet Get-CRSConfiguredAudienceModelAssociation leveraging the GetConfiguredAudienceModelAssociation service API.
+    * Added cmdlet Get-CRSConfiguredAudienceModelAssociationList leveraging the ListConfiguredAudienceModelAssociations service API.
+    * Added cmdlet Get-CRSPrivacyBudgetList leveraging the ListPrivacyBudgets service API.
+    * Added cmdlet Get-CRSPrivacyBudgetTemplate leveraging the GetPrivacyBudgetTemplate service API.
+    * Added cmdlet Get-CRSPrivacyBudgetTemplateList leveraging the ListPrivacyBudgetTemplates service API.
+    * Added cmdlet New-CRSConfiguredAudienceModelAssociation leveraging the CreateConfiguredAudienceModelAssociation service API.
+    * Added cmdlet New-CRSPrivacyBudgetTemplate leveraging the CreatePrivacyBudgetTemplate service API.
+    * Added cmdlet Remove-CRSConfiguredAudienceModelAssociation leveraging the DeleteConfiguredAudienceModelAssociation service API.
+    * Added cmdlet Remove-CRSPrivacyBudgetTemplate leveraging the DeletePrivacyBudgetTemplate service API.
+    * Added cmdlet Test-CRSPrivacyImpact leveraging the PreviewPrivacyImpact service API.
+    * Added cmdlet Update-CRSConfiguredAudienceModelAssociation leveraging the UpdateConfiguredAudienceModelAssociation service API.
+    * Added cmdlet Update-CRSPrivacyBudgetTemplate leveraging the UpdatePrivacyBudgetTemplate service API.
+    * Modified cmdlet New-CRSConfiguredTableAnalysisRule: added parameter DifferentialPrivacy_Column.
+    * Modified cmdlet Update-CRSConfiguredTableAnalysisRule: added parameter DifferentialPrivacy_Column.
+  * Amazon CleanRoomsML. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CRML and can be listed using the command 'Get-AWSCmdletName -Service CRML'.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSCollection: added parameter StandbyReplica.
+  * Amazon OpenSearch Service
+    * Added cmdlet Add-OSDataSource leveraging the AddDataSource service API.
+    * Added cmdlet Get-OSDataSource leveraging the GetDataSource service API.
+    * Added cmdlet Get-OSDataSourceList leveraging the ListDataSources service API.
+    * Added cmdlet Remove-OSDataSource leveraging the DeleteDataSource service API.
+    * Added cmdlet Update-OSDataSource leveraging the UpdateDataSource service API.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpoint: added parameter InferenceComponentName.
+    * Modified cmdlet Invoke-SMREndpointWithResponseStream: added parameter InferenceComponentName.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMCluster leveraging the DescribeCluster service API.
+    * Added cmdlet Get-SMClusterList leveraging the ListClusters service API.
+    * Added cmdlet Get-SMClusterNode leveraging the DescribeClusterNode service API.
+    * Added cmdlet Get-SMClusterNodeList leveraging the ListClusterNodes service API.
+    * Added cmdlet Get-SMInferenceComponent leveraging the DescribeInferenceComponent service API.
+    * Added cmdlet Get-SMInferenceComponentList leveraging the ListInferenceComponents service API.
+    * Added cmdlet New-SMCluster leveraging the CreateCluster service API.
+    * Added cmdlet New-SMInferenceComponent leveraging the CreateInferenceComponent service API.
+    * Added cmdlet Remove-SMCluster leveraging the DeleteCluster service API.
+    * Added cmdlet Remove-SMInferenceComponent leveraging the DeleteInferenceComponent service API.
+    * Added cmdlet Update-SMCluster leveraging the UpdateCluster service API.
+    * Added cmdlet Update-SMInferenceComponent leveraging the UpdateInferenceComponent service API.
+    * Added cmdlet Update-SMInferenceComponentRuntimeConfig leveraging the UpdateInferenceComponentRuntimeConfig service API.
+    * Modified cmdlet New-SMApp: added parameter ResourceSpec_SageMakerImageVersionAlias.
+    * Modified cmdlet New-SMAutoMLJobV2: added parameter TextGenerationJobConfig_TextGenerationHyperParameter.
+    * Modified cmdlet New-SMDomain: added parameters DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias and DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias.
+    * Modified cmdlet New-SMEndpointConfig: added parameters EnableNetworkIsolation, ExecutionRoleArn, VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet New-SMPresignedDomainUrl: added parameter LandingUri.
+    * Modified cmdlet New-SMSpace: added parameters SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias and SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias.
+    * Modified cmdlet New-SMTrainingJob: added parameter InfraCheckConfig_EnableInfraCheck.
+    * Modified cmdlet Update-SMDomain: added parameters AppNetworkAccessType, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias, DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias and SubnetId.
+    * Modified cmdlet Update-SMSpace: added parameters SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias and SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias.
+
+### 4.1.463 (2023-11-28 22:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.696.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AAB and can be listed using the command 'Get-AWSCmdletName -Service AAB'.
   * Amazon Bedrock

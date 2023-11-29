@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.696.0",
+    "ProductVersion"    : "3.7.697.0",
     "CoreVersion"       : "3.7.300.11",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -323,7 +323,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.300.11",
+            "Version" : "3.7.300.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -555,7 +555,7 @@
             "InPreview"               : false
         },
         "ApplicationAutoScaling"          : {
-            "Version" : "3.7.300.11",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -931,7 +931,7 @@
             "InPreview"               : false
         },
         "SageMakerRuntime"                : {
-            "Version" : "3.7.300.11",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -947,7 +947,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.303.4",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -2227,7 +2227,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.300.11",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -2619,7 +2619,7 @@
             "InPreview"               : false
         },
         "OpenSearchServerless"                : {
-            "Version" : "3.7.300.11",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -2699,7 +2699,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "3.7.301.9",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.11"
@@ -2979,6 +2979,14 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
+            "Version" : "3.7.300.0",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.300.11"
+            },
+            "InPreview"               : false
+        },
+        "CleanRoomsML"                        : {
             "Version" : "3.7.300.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {

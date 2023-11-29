@@ -145,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }
         #endregion
         
+        #region Parameter InfraCheckConfig_EnableInfraCheck
+        /// <summary>
+        /// <para>
+        /// <para>Enables an infrastructure health check.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InfraCheckConfig_EnableInfraCheck { get; set; }
+        #endregion
+        
         #region Parameter EnableInterContainerTrafficEncryption
         /// <summary>
         /// <para>
@@ -505,8 +515,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
-        /// the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
+        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -693,6 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.HyperParameter.Add((String)hashKey, (String)(this.HyperParameter[hashKey]));
                 }
             }
+            context.InfraCheckConfig_EnableInfraCheck = this.InfraCheckConfig_EnableInfraCheck;
             if (this.InputDataConfig != null)
             {
                 context.InputDataConfig = new List<Amazon.SageMaker.Model.Channel>(this.InputDataConfig);
@@ -928,6 +939,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.HyperParameter != null)
             {
                 request.HyperParameters = cmdletContext.HyperParameter;
+            }
+            
+             // populate InfraCheckConfig
+            var requestInfraCheckConfigIsNull = true;
+            request.InfraCheckConfig = new Amazon.SageMaker.Model.InfraCheckConfig();
+            System.Boolean? requestInfraCheckConfig_infraCheckConfig_EnableInfraCheck = null;
+            if (cmdletContext.InfraCheckConfig_EnableInfraCheck != null)
+            {
+                requestInfraCheckConfig_infraCheckConfig_EnableInfraCheck = cmdletContext.InfraCheckConfig_EnableInfraCheck.Value;
+            }
+            if (requestInfraCheckConfig_infraCheckConfig_EnableInfraCheck != null)
+            {
+                request.InfraCheckConfig.EnableInfraCheck = requestInfraCheckConfig_infraCheckConfig_EnableInfraCheck.Value;
+                requestInfraCheckConfigIsNull = false;
+            }
+             // determine if request.InfraCheckConfig should be set to null
+            if (requestInfraCheckConfigIsNull)
+            {
+                request.InfraCheckConfig = null;
             }
             if (cmdletContext.InputDataConfig != null)
             {
@@ -1200,6 +1230,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
             public System.String ExperimentConfig_TrialName { get; set; }
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
+            public System.Boolean? InfraCheckConfig_EnableInfraCheck { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
             public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }

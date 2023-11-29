@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety
         /// of large language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-models.html#autopilot-llms-finetuning-supported-llms">Text
         /// generation models supporting fine-tuning in Autopilot</a>. If no <code>BaseModelName</code>
-        /// is provided, the default model used is Falcon-7B-Instruct. </para>
+        /// is provided, the default model used is <b>Falcon7BInstruct</b>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -495,7 +495,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
         /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
-        /// the runtime of the job candidate.</para>
+        /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
+        /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -511,7 +512,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
         /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
-        /// the runtime of the job candidate.</para>
+        /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
+        /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,7 +529,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
         /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
-        /// the runtime of the job candidate.</para>
+        /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
+        /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -543,7 +546,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
         /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
-        /// the runtime of the job candidate.</para>
+        /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
+        /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -559,7 +563,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
         /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
-        /// the runtime of the job candidate.</para>
+        /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
+        /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -696,8 +701,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
-        /// the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
+        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -765,6 +770,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AutoMLProblemTypeConfig_TextClassificationJobConfig_TargetLabelColumn")]
         public System.String TextClassificationJobConfig_TargetLabelColumn { get; set; }
+        #endregion
+        
+        #region Parameter TextGenerationJobConfig_TextGenerationHyperParameter
+        /// <summary>
+        /// <para>
+        /// <para>The hyperparameters used to configure and optimize the learning process of the base
+        /// model. You can set any combination of the following hyperparameters for all base models.
+        /// For more information on each supported hyperparameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-set-hyperparameters.html">Optimize
+        /// the learning process of your text generation models with hyperparameters</a>.</para><ul><li><para><code>"epochCount"</code>: The number of times the model goes through the entire
+        /// training dataset. Its value should be a string containing an integer value within
+        /// the range of "1" to "10".</para></li><li><para><code>"batchSize"</code>: The number of data samples used in each iteration of training.
+        /// Its value should be a string containing an integer value within the range of "1" to
+        /// "64".</para></li><li><para><code>"learningRate"</code>: The step size at which a model's parameters are updated
+        /// during training. Its value should be a string containing a floating-point value within
+        /// the range of "0" to "1".</para></li><li><para><code>"learningRateWarmupSteps"</code>: The number of training steps during which
+        /// the learning rate gradually increases before reaching its target or maximum value.
+        /// Its value should be a string containing an integer value within the range of "0" to
+        /// "250".</para></li></ul><para>Here is an example where all four hyperparameters are configured.</para><para><code>{ "epochCount":"5", "learningRate":"0.5", "batchSize": "32", "learningRateWarmupSteps":
+        /// "10" }</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TextGenerationJobConfig_TextGenerationHyperParameters")]
+        public System.Collections.Hashtable TextGenerationJobConfig_TextGenerationHyperParameter { get; set; }
         #endregion
         
         #region Parameter TimeSeriesConfig_TimestampAttributeName
@@ -906,6 +935,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate;
             context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
+            if (this.TextGenerationJobConfig_TextGenerationHyperParameter != null)
+            {
+                context.TextGenerationJobConfig_TextGenerationHyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TextGenerationJobConfig_TextGenerationHyperParameter.Keys)
+                {
+                    context.TextGenerationJobConfig_TextGenerationHyperParameter.Add((String)hashKey, (String)(this.TextGenerationJobConfig_TextGenerationHyperParameter[hashKey]));
+                }
+            }
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate;
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
@@ -1082,76 +1119,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.AutoMLProblemTypeConfig.ImageClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_ImageClassificationJobConfig;
                 requestAutoMLProblemTypeConfigIsNull = false;
             }
-            Amazon.SageMaker.Model.TextGenerationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
-            
-             // populate TextGenerationJobConfig
-            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = true;
-            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = new Amazon.SageMaker.Model.TextGenerationJobConfig();
-            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName = null;
-            if (cmdletContext.TextGenerationJobConfig_BaseModelName != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName = cmdletContext.TextGenerationJobConfig_BaseModelName;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.BaseModelName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
-            }
-            Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
-            
-             // populate CompletionCriteria
-            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = true;
-            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = new Amazon.SageMaker.Model.AutoMLJobCompletionCriteria();
-            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = null;
-            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxAutoMLJobRuntimeInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
-            }
-            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = null;
-            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxCandidates = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
-            }
-            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = null;
-            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxRuntimePerTrainingJobInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
-            }
-             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria should be set to null
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria != null)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.CompletionCriteria = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria;
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
-            }
-             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig should be set to null
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull)
-            {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
-            }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig != null)
-            {
-                request.AutoMLProblemTypeConfig.TextGenerationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
-            }
             Amazon.SageMaker.Model.TextClassificationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig = null;
             
              // populate TextClassificationJobConfig
@@ -1230,6 +1197,86 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.TextClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig;
+                requestAutoMLProblemTypeConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.TextGenerationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
+            
+             // populate TextGenerationJobConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = new Amazon.SageMaker.Model.TextGenerationJobConfig();
+            System.String requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName = null;
+            if (cmdletContext.TextGenerationJobConfig_BaseModelName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName = cmdletContext.TextGenerationJobConfig_BaseModelName;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.BaseModelName = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_BaseModelName;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_TextGenerationHyperParameter = null;
+            if (cmdletContext.TextGenerationJobConfig_TextGenerationHyperParameter != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_TextGenerationHyperParameter = cmdletContext.TextGenerationJobConfig_TextGenerationHyperParameter;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_TextGenerationHyperParameter != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.TextGenerationHyperParameters = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_TextGenerationHyperParameter;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
+            
+             // populate CompletionCriteria
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = new Amazon.SageMaker.Model.AutoMLJobCompletionCriteria();
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxAutoMLJobRuntimeInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxCandidates = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
+            }
+            System.Int32? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = cmdletContext.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria.MaxRuntimePerTrainingJobInSeconds = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteriaIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.CompletionCriteria = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig != null)
+            {
+                request.AutoMLProblemTypeConfig.TextGenerationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig;
                 requestAutoMLProblemTypeConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TabularJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
@@ -1817,6 +1864,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
+            public Dictionary<System.String, System.String> TextGenerationJobConfig_TextGenerationHyperParameter { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }

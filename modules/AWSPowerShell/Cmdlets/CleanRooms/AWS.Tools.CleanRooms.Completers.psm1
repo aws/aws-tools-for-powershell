@@ -154,6 +154,25 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.PrivacyBudgetTemplateAutoRefresh
+        "New-CRSPrivacyBudgetTemplate/AutoRefresh"
+        {
+            $v = "CALENDAR_MONTH","NONE"
+            break
+        }
+
+        # Amazon.CleanRooms.PrivacyBudgetType
+        {
+            ($_ -eq "Get-CRSCollaborationPrivacyBudgetList/PrivacyBudgetType") -Or
+            ($_ -eq "Get-CRSPrivacyBudgetList/PrivacyBudgetType") -Or
+            ($_ -eq "New-CRSPrivacyBudgetTemplate/PrivacyBudgetType") -Or
+            ($_ -eq "Update-CRSPrivacyBudgetTemplate/PrivacyBudgetType")
+        }
+        {
+            $v = "DIFFERENTIAL_PRIVACY"
+            break
+        }
+
         # Amazon.CleanRooms.ProtectedQueryStatus
         "Get-CRSProtectedQueryList/Status"
         {
@@ -205,9 +224,11 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
     "Format"=@("New-CRSAnalysisTemplate")
     "MemberStatus"=@("Get-CRSCollaborationList")
+    "PrivacyBudgetType"=@("Get-CRSCollaborationPrivacyBudgetList","Get-CRSPrivacyBudgetList","New-CRSPrivacyBudgetTemplate","Update-CRSPrivacyBudgetTemplate")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "ResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("Start-CRSProtectedQuery")
     "SchemaType"=@("Get-CRSSchemaList")
@@ -270,46 +291,63 @@ $CRS_SelectMap = @{
                "Get-CRSBatchSchema",
                "New-CRSAnalysisTemplate",
                "New-CRSCollaboration",
+               "New-CRSConfiguredAudienceModelAssociation",
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
                "New-CRSConfiguredTableAssociation",
                "New-CRSMembership",
+               "New-CRSPrivacyBudgetTemplate",
                "Remove-CRSAnalysisTemplate",
                "Remove-CRSCollaboration",
+               "Remove-CRSConfiguredAudienceModelAssociation",
                "Remove-CRSConfiguredTable",
                "Remove-CRSConfiguredTableAnalysisRule",
                "Remove-CRSConfiguredTableAssociation",
                "Remove-CRSMember",
                "Remove-CRSMembership",
+               "Remove-CRSPrivacyBudgetTemplate",
                "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
+               "Get-CRSCollaborationConfiguredAudienceModelAssociation",
+               "Get-CRSCollaborationPrivacyBudgetTemplate",
+               "Get-CRSConfiguredAudienceModelAssociation",
                "Get-CRSConfiguredTable",
                "Get-CRSConfiguredTableAnalysisRule",
                "Get-CRSConfiguredTableAssociation",
                "Get-CRSMembership",
+               "Get-CRSPrivacyBudgetTemplate",
                "Get-CRSProtectedQuery",
                "Get-CRSSchema",
                "Get-CRSSchemaAnalysisRule",
                "Get-CRSAnalysisTemplateList",
                "Get-CRSCollaborationAnalysisTemplateList",
+               "Get-CRSCollaborationConfiguredAudienceModelAssociationList",
+               "Get-CRSCollaborationPrivacyBudgetList",
+               "Get-CRSCollaborationPrivacyBudgetTemplateList",
                "Get-CRSCollaborationList",
+               "Get-CRSConfiguredAudienceModelAssociationList",
                "Get-CRSConfiguredTableAssociationList",
                "Get-CRSConfiguredTableList",
                "Get-CRSMemberList",
                "Get-CRSMembershipList",
+               "Get-CRSPrivacyBudgetList",
+               "Get-CRSPrivacyBudgetTemplateList",
                "Get-CRSProtectedQueryList",
                "Get-CRSSchemaList",
                "Get-CRSResourceTag",
+               "Test-CRSPrivacyImpact",
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",
                "Remove-CRSResourceTag",
                "Update-CRSAnalysisTemplate",
                "Update-CRSCollaboration",
+               "Update-CRSConfiguredAudienceModelAssociation",
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",
                "Update-CRSConfiguredTableAssociation",
                "Update-CRSMembership",
+               "Update-CRSPrivacyBudgetTemplate",
                "Update-CRSProtectedQuery")
 }
 

@@ -76,6 +76,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="ClusterArn" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="New" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -106,6 +110,9 @@
                 <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
                 <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -158,6 +165,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImageVersion" OutputProperty="ImageVersionArn" Verb="New" Noun="ImageVersion" ShouldProcessTarget="ImageName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInferenceComponent" OutputProperty="InferenceComponentArn" Verb="New" Noun="InferenceComponent" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -287,6 +298,8 @@
                 <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
                 <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -343,6 +356,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAssociation" OutputProperty="*" Verb="Remove" Noun="Association" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="ClusterArn" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -411,6 +428,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteImageVersion" Verb="Remove" Noun="ImageVersion" ShouldProcessTarget="ImageName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInferenceComponent" Verb="Remove" Noun="InferenceComponent" ShouldProcessTarget="InferenceComponentName" PipelineParameter="InferenceComponentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -534,6 +555,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="*" Verb="Get" Noun="Cluster" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterNode" OutputProperty="NodeDetails" Verb="Get" Noun="ClusterNode" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCodeRepository" OutputProperty="*" Verb="Get" Noun="CodeRepository" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -615,6 +644,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageVersion" OutputProperty="*" Verb="Get" Noun="ImageVersion" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInferenceComponent" OutputProperty="*" Verb="Get" Noun="InferenceComponent" PipelineParameter="InferenceComponentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -814,6 +847,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterNodes" OutputProperty="ClusterNodeSummaries" Verb="Get" Noun="ClusterNodeList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterSummaries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCodeRepositories" OutputProperty="CodeRepositorySummaryList" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -895,6 +936,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListImageVersions" OutputProperty="ImageVersions" Verb="Get" Noun="ImageVersionList" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceComponents" OutputProperty="InferenceComponents" Verb="Get" Noun="InferenceComponentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1186,6 +1231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="ClusterArn" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1212,6 +1261,9 @@
                 <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
                 <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1244,6 +1296,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateImageVersion" OutputProperty="ImageVersionArn" Verb="Update" Noun="ImageVersion" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInferenceComponent" OutputProperty="InferenceComponentArn" Verb="Update" Noun="InferenceComponent" ShouldProcessTarget="InferenceComponentName" PipelineParameter="InferenceComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInferenceComponentRuntimeConfig" OutputProperty="InferenceComponentArn" Verb="Update" Noun="InferenceComponentRuntimeConfig" ShouldProcessTarget="InferenceComponentName" PipelineParameter="InferenceComponentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1297,6 +1357,8 @@
                 <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
                 <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

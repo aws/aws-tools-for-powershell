@@ -28,9 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes the Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration,
-    /// there must be no running apps using the Lifecycle Configuration. You must also remove
-    /// the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.
+    /// Deletes the Amazon SageMaker Studio Lifecycle Configuration. In order to delete the
+    /// Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration.
+    /// You must also remove the Lifecycle Configuration from UserSettings in all Domains
+    /// and UserProfiles.
     /// </summary>
     [Cmdlet("Remove", "SMStudioLifecycleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StudioLifecycleConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of the Studio Lifecycle Configuration to delete.</para>
+        /// <para>The name of the Amazon SageMaker Studio Lifecycle Configuration to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

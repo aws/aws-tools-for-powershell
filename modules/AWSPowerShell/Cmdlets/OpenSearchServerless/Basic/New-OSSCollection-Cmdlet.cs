@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter StandbyReplica
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether standby replicas should be used for a collection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StandbyReplicas")]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.StandbyReplicas")]
+        public Amazon.OpenSearchServerless.StandbyReplicas StandbyReplica { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -174,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StandbyReplica = this.StandbyReplica;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.OpenSearchServerless.Model.Tag>(this.Tag);
@@ -206,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.StandbyReplica != null)
+            {
+                request.StandbyReplicas = cmdletContext.StandbyReplica;
             }
             if (cmdletContext.Tag != null)
             {
@@ -279,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public Amazon.OpenSearchServerless.StandbyReplicas StandbyReplica { get; set; }
             public List<Amazon.OpenSearchServerless.Model.Tag> Tag { get; set; }
             public Amazon.OpenSearchServerless.CollectionType Type { get; set; }
             public System.Func<Amazon.OpenSearchServerless.Model.CreateCollectionResponse, NewOSSCollectionCmdlet, object> Select { get; set; } =

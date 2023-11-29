@@ -164,6 +164,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter InferenceComponentName
+        /// <summary>
+        /// <para>
+        /// <para>If the endpoint hosts one or more inference components, this parameter specifies the
+        /// name of inference component to invoke.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InferenceComponentName { get; set; }
+        #endregion
+        
         #region Parameter InferenceId
         /// <summary>
         /// <para>
@@ -291,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InferenceComponentName = this.InferenceComponentName;
             context.InferenceId = this.InferenceId;
             context.TargetContainerHostname = this.TargetContainerHostname;
             context.TargetModel = this.TargetModel;
@@ -339,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.EndpointName != null)
                 {
                     request.EndpointName = cmdletContext.EndpointName;
+                }
+                if (cmdletContext.InferenceComponentName != null)
+                {
+                    request.InferenceComponentName = cmdletContext.InferenceComponentName;
                 }
                 if (cmdletContext.InferenceId != null)
                 {
@@ -431,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String CustomAttribute { get; set; }
             public System.String EnableExplanation { get; set; }
             public System.String EndpointName { get; set; }
+            public System.String InferenceComponentName { get; set; }
             public System.String InferenceId { get; set; }
             public System.String TargetContainerHostname { get; set; }
             public System.String TargetModel { get; set; }

@@ -179,6 +179,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
         #endregion
         
+        #region Parameter SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The SageMakerImageVersionAlias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias")]
+        public System.String SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
+        #endregion
+        
+        #region Parameter SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The SageMakerImageVersionAlias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias")]
+        public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn
         /// <summary>
         /// <para>
@@ -314,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType = this.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType;
             context.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn = this.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn;
             context.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn = this.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn;
+            context.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
             if (this.JupyterServerAppSettings_LifecycleConfigArn != null)
             {
@@ -326,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType = this.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType;
             context.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn = this.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn;
             context.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn = this.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn;
+            context.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = this.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
             context.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
             if (this.KernelGatewayAppSettings_LifecycleConfigArn != null)
             {
@@ -423,6 +447,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec.SageMakerImageArn = requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn;
                 requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull = false;
             }
+            System.String requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = null;
+            if (cmdletContext.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = cmdletContext.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+            }
+            if (requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec.SageMakerImageVersionAlias = requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+                requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpecIsNull = false;
+            }
             System.String requestSpaceSettings_spaceSettings_JupyterServerAppSettings_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_spaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = null;
             if (cmdletContext.SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn != null)
             {
@@ -511,6 +545,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn != null)
             {
                 requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec.SageMakerImageArn = requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn;
+                requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpecIsNull = false;
+            }
+            System.String requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = null;
+            if (cmdletContext.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias = cmdletContext.SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
+            }
+            if (requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias != null)
+            {
+                requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec.SageMakerImageVersionAlias = requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias;
                 requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpecIsNull = false;
             }
             System.String requestSpaceSettings_spaceSettings_KernelGatewayAppSettings_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_spaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = null;
@@ -619,12 +663,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AppInstanceType SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType { get; set; }
             public System.String SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<System.String> JupyterServerAppSettings_LifecycleConfigArn { get; set; }
             public List<Amazon.SageMaker.Model.CustomImage> KernelGatewayAppSettings_CustomImage { get; set; }
             public Amazon.SageMaker.AppInstanceType SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType { get; set; }
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
+            public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<System.String> KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClarifyExplainerConfig_EnableExplanation { get; set; }
         #endregion
         
+        #region Parameter EnableNetworkIsolation
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether all model containers deployed to the endpoint are isolated. If they are,
+        /// no inbound or outbound network calls can be made to or from the model containers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableNetworkIsolation { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
@@ -171,6 +182,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AsyncInferenceConfig_OutputConfig_NotificationConfig_ErrorTopic")]
         public System.String NotificationConfig_ErrorTopic { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+        /// perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+        /// Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this action must have
+        /// the <code>iam:PassRole</code> permission.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleArn { get; set; }
         #endregion
         
         #region Parameter InferenceConfig_FeatureHeader
@@ -511,6 +535,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OutputConfig_S3OutputPath { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
+        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter ShapConfig_Seed
         /// <summary>
         /// <para>
@@ -574,6 +610,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_ShapBaselineUri")]
         public System.String ShapBaselineConfig_ShapBaselineUri { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
+        /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
+        /// Instance Types and Availability Zones</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
         #endregion
         
         #region Parameter NotificationConfig_SuccessTopic
@@ -702,6 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DataCaptureConfig_EnableCapture = this.DataCaptureConfig_EnableCapture;
             context.DataCaptureConfig_InitialSamplingPercentage = this.DataCaptureConfig_InitialSamplingPercentage;
             context.DataCaptureConfig_KmsKeyId = this.DataCaptureConfig_KmsKeyId;
+            context.EnableNetworkIsolation = this.EnableNetworkIsolation;
             context.EndpointConfigName = this.EndpointConfigName;
             #if MODULAR
             if (this.EndpointConfigName == null && ParameterWasBound(nameof(this.EndpointConfigName)))
@@ -709,6 +759,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter EndpointConfigName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.ClarifyExplainerConfig_EnableExplanation = this.ClarifyExplainerConfig_EnableExplanation;
             context.InferenceConfig_ContentTemplate = this.InferenceConfig_ContentTemplate;
             if (this.InferenceConfig_FeatureHeader != null)
@@ -756,6 +807,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -991,9 +1050,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DataCaptureConfig = null;
             }
+            if (cmdletContext.EnableNetworkIsolation != null)
+            {
+                request.EnableNetworkIsolation = cmdletContext.EnableNetworkIsolation.Value;
+            }
             if (cmdletContext.EndpointConfigName != null)
             {
                 request.EndpointConfigName = cmdletContext.EndpointConfigName;
+            }
+            if (cmdletContext.ExecutionRoleArn != null)
+            {
+                request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
             }
             
              // populate ExplainerConfig
@@ -1296,6 +1363,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate VpcConfig
+            var requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.SageMaker.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnet != null)
+            {
+                requestVpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
+            }
+            if (requestVpcConfig_vpcConfig_Subnet != null)
+            {
+                request.VpcConfig.Subnets = requestVpcConfig_vpcConfig_Subnet;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -1370,7 +1466,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? DataCaptureConfig_EnableCapture { get; set; }
             public System.Int32? DataCaptureConfig_InitialSamplingPercentage { get; set; }
             public System.String DataCaptureConfig_KmsKeyId { get; set; }
+            public System.Boolean? EnableNetworkIsolation { get; set; }
             public System.String EndpointConfigName { get; set; }
+            public System.String ExecutionRoleArn { get; set; }
             public System.String ClarifyExplainerConfig_EnableExplanation { get; set; }
             public System.String InferenceConfig_ContentTemplate { get; set; }
             public List<System.String> InferenceConfig_FeatureHeader { get; set; }
@@ -1395,6 +1493,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariant { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ShadowProductionVariant { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_Subnet { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateEndpointConfigResponse, NewSMEndpointConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EndpointConfigArn;
         }

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cleanroomsml</C2jFilename>
+    <AssemblyName>CleanRoomsML</AssemblyName>
+    <ServiceNounPrefix>CRML</ServiceNounPrefix>
+    <ServiceName>CleanRoomsML</ServiceName>
+    <ServiceClientInterface>IAmazonCleanRoomsML</ServiceClientInterface>
+    <ServiceClient>AmazonCleanRoomsMLClient</ServiceClient>
+    <ServiceModuleGuid>5c06ac01-d5e4-41a8-b6e1-224cef8b9555</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAudienceModel" OutputProperty="AudienceModelArn" Verb="New" Noun="AudienceModel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredAudienceModel" OutputProperty="ConfiguredAudienceModelArn" Verb="New" Noun="ConfiguredAudienceModel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrainingDataset" OutputProperty="TrainingDatasetArn" Verb="New" Noun="TrainingDataset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAudienceGenerationJob" Verb="Remove" Noun="AudienceGenerationJob" ShouldProcessTarget="AudienceGenerationJobArn" PipelineParameter="AudienceGenerationJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAudienceModel" Verb="Remove" Noun="AudienceModel" ShouldProcessTarget="AudienceModelArn" PipelineParameter="AudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredAudienceModel" Verb="Remove" Noun="ConfiguredAudienceModel" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredAudienceModelPolicy" Verb="Remove" Noun="ConfiguredAudienceModelPolicy" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrainingDataset" Verb="Remove" Noun="TrainingDataset" ShouldProcessTarget="TrainingDatasetArn" PipelineParameter="TrainingDatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAudienceGenerationJob" OutputProperty="*" Verb="Get" Noun="AudienceGenerationJob" PipelineParameter="AudienceGenerationJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAudienceModel" OutputProperty="*" Verb="Get" Noun="AudienceModel" PipelineParameter="AudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredAudienceModel" OutputProperty="*" Verb="Get" Noun="ConfiguredAudienceModel" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredAudienceModelPolicy" OutputProperty="*" Verb="Get" Noun="ConfiguredAudienceModelPolicy" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrainingDataset" OutputProperty="*" Verb="Get" Noun="TrainingDataset" PipelineParameter="TrainingDatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAudienceExportJobs" OutputProperty="AudienceExportJobs" Verb="Get" Noun="AudienceExportJobList" PipelineParameter="AudienceGenerationJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAudienceGenerationJobs" OutputProperty="AudienceGenerationJobs" Verb="Get" Noun="AudienceGenerationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAudienceModels" OutputProperty="AudienceModels" Verb="Get" Noun="AudienceModelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfiguredAudienceModels" OutputProperty="ConfiguredAudienceModels" Verb="Get" Noun="ConfiguredAudienceModelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainingDatasets" OutputProperty="TrainingDatasets" Verb="Get" Noun="TrainingDatasetList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfiguredAudienceModelPolicy" OutputProperty="*" Verb="Write" Noun="ConfiguredAudienceModelPolicy" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAudienceExportJob" Verb="Start" Noun="AudienceExportJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAudienceGenerationJob" OutputProperty="AudienceGenerationJobArn" Verb="Start" Noun="AudienceGenerationJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfiguredAudienceModel" OutputProperty="ConfiguredAudienceModelArn" Verb="Update" Noun="ConfiguredAudienceModel" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

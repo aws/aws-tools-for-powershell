@@ -45,6 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// For information about how to process the streaming response, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html">Invoke
     /// real-time endpoints</a>.
     /// </para></li></ul><para>
+    /// Before you can use this operation, your IAM permissions must allow the <code>sagemaker:InvokeEndpoint</code>
+    /// action. For more information about Amazon SageMaker actions for IAM policies, see
+    /// <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html">Actions,
+    /// resources, and condition keys for Amazon SageMaker</a> in the <i>IAM Service Authorization
+    /// Reference</i>.
+    /// </para><para>
     /// Amazon SageMaker strips all POST headers except those supported by the API. Amazon
     /// SageMaker might add additional headers. You should not rely on the behavior of headers
     /// outside those enumerated in the request syntax. 
@@ -148,6 +154,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EndpointName { get; set; }
+        #endregion
+        
+        #region Parameter InferenceComponentName
+        /// <summary>
+        /// <para>
+        /// <para>If the endpoint hosts one or more inference components, this parameter specifies the
+        /// name of inference component to invoke for a streaming response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InferenceComponentName { get; set; }
         #endregion
         
         #region Parameter InferenceId
@@ -264,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InferenceComponentName = this.InferenceComponentName;
             context.InferenceId = this.InferenceId;
             context.TargetContainerHostname = this.TargetContainerHostname;
             context.TargetVariant = this.TargetVariant;
@@ -307,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.EndpointName != null)
                 {
                     request.EndpointName = cmdletContext.EndpointName;
+                }
+                if (cmdletContext.InferenceComponentName != null)
+                {
+                    request.InferenceComponentName = cmdletContext.InferenceComponentName;
                 }
                 if (cmdletContext.InferenceId != null)
                 {
@@ -394,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String ContentType { get; set; }
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }
+            public System.String InferenceComponentName { get; set; }
             public System.String InferenceId { get; set; }
             public System.String TargetContainerHostname { get; set; }
             public System.String TargetVariant { get; set; }

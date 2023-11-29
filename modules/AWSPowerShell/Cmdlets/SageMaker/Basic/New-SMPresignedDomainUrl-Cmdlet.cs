@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a URL for a specified UserProfile in a Domain. When accessed in a web browser,
-    /// the user will be automatically signed in to Amazon SageMaker Studio, and granted access
-    /// to all of the Apps and files associated with the Domain's Amazon Elastic File System
-    /// (EFS) volume. This operation can only be called when the authentication mode equals
-    /// IAM. 
+    /// the user will be automatically signed in to the domain, and granted access to all
+    /// of the Apps and files associated with the Domain's Amazon Elastic File System (EFS)
+    /// volume. This operation can only be called when the authentication mode equals IAM.
+    /// 
     /// 
     ///  
     /// <para>
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// You can restrict access to this API and to the URL that it returns to a list of IP
     /// addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more information,
     /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect
-    /// to SageMaker Studio Through an Interface VPC Endpoint</a> .
+    /// to Amazon SageMaker Studio Through an Interface VPC Endpoint</a> .
     /// </para><note><para>
     /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default
     /// timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>.
@@ -90,6 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ExpiresInSeconds")]
         public System.Int32? ExpiresInSecond { get; set; }
+        #endregion
+        
+        #region Parameter LandingUri
+        /// <summary>
+        /// <para>
+        /// <para>The landing page that the user is directed to when accessing the presigned URL. Using
+        /// this value, users can access Studio or Studio Classic, even if it is not the default
+        /// experience for the domain. The supported values are:</para><ul><li><para><code>studio::relative/path</code>: Directs users to the relative path in Studio.</para></li><li><para><code>app:JupyterServer:relative/path</code>: Directs users to the relative path
+        /// in the Studio Classic application.</para></li><li><para><code>app:JupyterLab:relative/path</code>: Directs users to the relative path in
+        /// the JupyterLab application.</para></li><li><para><code>app:RStudioServerPro:relative/path</code>: Directs users to the relative path
+        /// in the RStudio application.</para></li><li><para><code>app:Canvas:relative/path</code>: Directs users to the relative path in the
+        /// Canvas application.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LandingUri { get; set; }
         #endregion
         
         #region Parameter SessionExpirationDurationInSecond
@@ -200,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.ExpiresInSecond = this.ExpiresInSecond;
+            context.LandingUri = this.LandingUri;
             context.SessionExpirationDurationInSecond = this.SessionExpirationDurationInSecond;
             context.SpaceName = this.SpaceName;
             context.UserProfileName = this.UserProfileName;
@@ -232,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ExpiresInSecond != null)
             {
                 request.ExpiresInSeconds = cmdletContext.ExpiresInSecond.Value;
+            }
+            if (cmdletContext.LandingUri != null)
+            {
+                request.LandingUri = cmdletContext.LandingUri;
             }
             if (cmdletContext.SessionExpirationDurationInSecond != null)
             {
@@ -308,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String DomainId { get; set; }
             public System.Int32? ExpiresInSecond { get; set; }
+            public System.String LandingUri { get; set; }
             public System.Int32? SessionExpirationDurationInSecond { get; set; }
             public System.String SpaceName { get; set; }
             public System.String UserProfileName { get; set; }
