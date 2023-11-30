@@ -44,7 +44,95 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaryList" Verb="Get" Noun="EntityList" PipelineParameter="Catalog" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="EntityTypeFilters_AmiProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_AmiProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_AmiProductFilters_ProductTitle_ValueList" NewName="EntityTypeFilters_AmiProductFilters_ProductTitle_ValueList" />
+                <Param Name="EntityTypeFilters_AmiProductFilters_ProductTitle_WildCardValue" NewName="EntityTypeFilters_AmiProductFilters_ProductTitle_WildCardValue" />
+                <Param Name="EntityTypeFilters_AmiProductFilters_Visibility_ValueList" NewName="EntityTypeFilters_AmiProductFilters_Visibility_ValueList" />
+                <Param Name="EntityTypeFilters_AmiProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_AmiProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_AmiProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_AmiProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_AudienceFilters_EntityId_ValueList" NewName="EntityTypeFilters_AudienceFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_AudienceFilters_ExperienceId_ValueList as ExperienceId_ValueList (aliases: EntityTypeFilters_AudienceFilters_ExperienceId_ValueList" />
+                <Param Name="EntityTypeFilters_AudienceFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_AudienceFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_AudienceFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_AudienceFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_AudienceFilters_Name_ValueList" NewName="EntityTypeFilters_AudienceFilters_Name_ValueList" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_AvailableSince_DateRange_AfterValue" NewName="EntityTypeFilters_BeerProductFilters_AvailableSince_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_AvailableSince_DateRange_BeforeValue" NewName="EntityTypeFilters_BeerProductFilters_AvailableSince_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_Category_ValueList as Category_ValueList (aliases: EntityTypeFilters_BeerProductFilters_Category_ValueList" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_BeerProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_BeerProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_BeerProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_MarketplaceId_ValueList as MarketplaceId_ValueList (aliases: EntityTypeFilters_BeerProductFilters_MarketplaceId_ValueList" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_ProductTitle_ValueList" NewName="EntityTypeFilters_BeerProductFilters_ProductTitle_ValueList" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_RelatedEntityId_ValueList as RelatedEntityId_ValueList (aliases: EntityTypeFilters_BeerProductFilters_RelatedEntityId_ValueList" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_SKU_WildCardValue as SKU_WildCardValue (aliases: EntityTypeFilters_BeerProductFilters_SKU_WildCardValue" />
+                <Param Name="EntityTypeFilters_BeerProductFilters_Visibility_ValueList" NewName="EntityTypeFilters_BeerProductFilters_Visibility_ValueList" />
+                <Param Name="EntityTypeFilters_BrandingSettingsFilters_EntityId_ValueList" NewName="EntityTypeFilters_BrandingSettingsFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_BrandingSettingsFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_BrandingSettingsFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_BrandingSettingsFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_BrandingSettingsFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ContainerProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_ContainerProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_ContainerProductFilters_ProductTitle_ValueList" NewName="EntityTypeFilters_ContainerProductFilters_ProductTitle_ValueList" />
+                <Param Name="EntityTypeFilters_ContainerProductFilters_ProductTitle_WildCardValue" NewName="EntityTypeFilters_ContainerProductFilters_ProductTitle_WildCardValue" />
+                <Param Name="EntityTypeFilters_ContainerProductFilters_Visibility_ValueList" NewName="EntityTypeFilters_ContainerProductFilters_Visibility_ValueList" />
+                <Param Name="EntityTypeFilters_ContainerProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ContainerProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ContainerProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ContainerProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_DataProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_DataProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_DataProductFilters_ProductTitle_ValueList" NewName="EntityTypeFilters_DataProductFilters_ProductTitle_ValueList" />
+                <Param Name="EntityTypeFilters_DataProductFilters_ProductTitle_WildCardValue" NewName="EntityTypeFilters_DataProductFilters_ProductTitle_WildCardValue" />
+                <Param Name="EntityTypeFilters_DataProductFilters_Visibility_ValueList" NewName="EntityTypeFilters_DataProductFilters_Visibility_ValueList" />
+                <Param Name="EntityTypeFilters_DataProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_DataProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_DataProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_DataProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ExperienceFilters_EntityId_ValueList" NewName="EntityTypeFilters_ExperienceFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_ExperienceFilters_IntegrationId_ValueList as IntegrationId_ValueList (aliases: EntityTypeFilters_ExperienceFilters_IntegrationId_ValueList" />
+                <Param Name="EntityTypeFilters_ExperienceFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ExperienceFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ExperienceFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ExperienceFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ExperienceFilters_Name_ValueList" NewName="EntityTypeFilters_ExperienceFilters_Name_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue" NewName="EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue" NewName="EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_AvailabilityEndDate_ValueList" NewName="EntityTypeFilters_OfferFilters_AvailabilityEndDate_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_BuyerAccounts_WildCardValue as BuyerAccounts_WildCardValue (aliases: EntityTypeFilters_OfferFilters_BuyerAccounts_WildCardValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_EntityId_ValueList" NewName="EntityTypeFilters_OfferFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_Name_ValueList" NewName="EntityTypeFilters_OfferFilters_Name_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_Name_WildCardValue" NewName="EntityTypeFilters_OfferFilters_Name_WildCardValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_OfferStatus_ValueList as OfferStatus_ValueList (aliases: EntityTypeFilters_OfferFilters_OfferStatus_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_ProductId_ValueList" NewName="EntityTypeFilters_OfferFilters_ProductId_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_AfterValue" NewName="EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue" NewName="EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_OfferFilters_ReleaseDate_ValueList as ReleaseDate_ValueList (aliases: EntityTypeFilters_OfferFilters_ReleaseDate_ValueList" />
+                <Param Name="EntityTypeFilters_OfferFilters_Visibility_ValueList" NewName="EntityTypeFilters_OfferFilters_Visibility_ValueList" />
+                <Param Name="EntityTypeFilters_ProcurementPolicyFilters_EntityId_ValueList" NewName="EntityTypeFilters_ProcurementPolicyFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_ProcurementPolicyFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ProcurementPolicyFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ProcurementPolicyFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ProcurementPolicyFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ProfessionalServicesProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_ProfessionalServicesProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_ProfessionalServicesProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ProfessionalServicesProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ProfessionalServicesProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ProfessionalServicesProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_AfterValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_ValueList" NewName="EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_ValueList" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_ValueList as CreatedDate_ValueList (aliases: EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_ValueList" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList" NewName="EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_SaaSProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_SaaSProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_SaaSProductFilters_ProductTitle_ValueList" NewName="EntityTypeFilters_SaaSProductFilters_ProductTitle_ValueList" />
+                <Param Name="EntityTypeFilters_SaaSProductFilters_ProductTitle_WildCardValue" NewName="EntityTypeFilters_SaaSProductFilters_ProductTitle_WildCardValue" />
+                <Param Name="EntityTypeFilters_SaaSProductFilters_Visibility_ValueList" NewName="EntityTypeFilters_SaaSProductFilters_Visibility_ValueList" />
+                <Param Name="EntityTypeFilters_SellerFilters_EntityId_ValueList" NewName="EntityTypeFilters_SellerFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_SellerFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_SellerFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_SellerFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_SellerFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ServerProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_ServerProductFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_ServerProductFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_ServerProductFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_ServerProductFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_ServerProductFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_ProductId_ValueList" NewName="EntityTypeFilters_ResaleAuthorizationFilters_ProductId_ValueList" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_Name_ValueList" NewName="EntityTypeFilters_ResaleAuthorizationFilters_Name_ValueList" />
+                <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_Name_WildCardValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_Name_WildCardValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">

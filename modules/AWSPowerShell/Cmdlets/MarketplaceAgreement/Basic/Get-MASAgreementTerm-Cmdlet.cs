@@ -22,62 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RedshiftServerless;
-using Amazon.RedshiftServerless.Model;
+using Amazon.MarketplaceAgreement;
+using Amazon.MarketplaceAgreement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RSS
+namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// Returns an array of <code>EndpointAccess</code> objects and relevant information.
+    /// Obtains details about the terms in an agreement that you participated in as proposer
+    /// or acceptor.
+    /// 
+    ///  
+    /// <para>
+    /// The details include:
+    /// </para><ul><li><para><code>TermType</code> – The type of term, such as <code>LegalTerm</code>, <code>RenewalTerm</code>,
+    /// or <code>ConfigurableUpfrontPricingTerm</code>.
+    /// </para></li><li><para><code>TermID</code> – The ID of the particular term, which is common between offer
+    /// and agreement.
+    /// </para></li><li><para><code>TermPayload</code> – The key information contained in the term, such as the
+    /// EULA for <code>LegalTerm</code> or pricing and dimensions for various pricing terms,
+    /// such as <code>ConfigurableUpfrontPricingTerm</code> or <code>UsageBasedPricingTerm</code>.
+    /// </para></li></ul><ul><li><para><code>Configuration</code> – The buyer/acceptor's selection at the time of agreement
+    /// creation, such as the number of units purchased for a dimension or setting the <code>EnableAutoRenew</code>
+    /// flag.
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "RSSEndpointAccessList")]
-    [OutputType("Amazon.RedshiftServerless.Model.EndpointAccess")]
-    [AWSCmdlet("Calls the Redshift Serverless ListEndpointAccess API operation.", Operation = new[] {"ListEndpointAccess"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListEndpointAccessResponse))]
-    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.EndpointAccess or Amazon.RedshiftServerless.Model.ListEndpointAccessResponse",
-        "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.EndpointAccess objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MASAgreementTerm")]
+    [OutputType("Amazon.MarketplaceAgreement.Model.AcceptedTerm")]
+    [AWSCmdlet("Calls the AWS Marketplace Agreement Service GetAgreementTerms API operation.", Operation = new[] {"GetAgreementTerms"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse))]
+    [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.AcceptedTerm or Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse",
+        "This cmdlet returns a collection of Amazon.MarketplaceAgreement.Model.AcceptedTerm objects.",
+        "The service call response (type Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRSSEndpointAccessListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
+    public partial class GetMASAgreementTermCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter OwnerAccount
+        #region Parameter AgreementId
         /// <summary>
         /// <para>
-        /// <para>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</para>
+        /// <para>The unique identifier of the agreement.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OwnerAccount { get; set; }
-        #endregion
-        
-        #region Parameter VpcId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the virtual private cloud with access to Amazon Redshift
-        /// Serverless.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VpcId { get; set; }
-        #endregion
-        
-        #region Parameter WorkgroupName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the workgroup associated with the VPC endpoint to return.</para>
-        /// </para>
-        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String WorkgroupName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AgreementId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to display the next page of results.</para>
+        /// <para>The maximum number of agreements to return in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>A token to specify where to start pagination</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,21 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoints'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.ListEndpointAccessResponse).
-        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AcceptedTerms'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse).
+        /// Specifying the name of a property of type Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Endpoints";
+        public string Select { get; set; } = "AcceptedTerms";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkgroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkgroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AgreementId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AgreementId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkgroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgreementId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -131,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.ListEndpointAccessResponse, GetRSSEndpointAccessListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse, GetMASAgreementTermCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,14 +139,18 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.WorkgroupName;
+                context.Select = (response, cmdlet) => this.AgreementId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AgreementId = this.AgreementId;
+            #if MODULAR
+            if (this.AgreementId == null && ParameterWasBound(nameof(this.AgreementId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AgreementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.OwnerAccount = this.OwnerAccount;
-            context.VpcId = this.VpcId;
-            context.WorkgroupName = this.WorkgroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,8 +165,12 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RedshiftServerless.Model.ListEndpointAccessRequest();
+            var request = new Amazon.MarketplaceAgreement.Model.GetAgreementTermsRequest();
             
+            if (cmdletContext.AgreementId != null)
+            {
+                request.AgreementId = cmdletContext.AgreementId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -171,18 +178,6 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.OwnerAccount != null)
-            {
-                request.OwnerAccount = cmdletContext.OwnerAccount;
-            }
-            if (cmdletContext.VpcId != null)
-            {
-                request.VpcId = cmdletContext.VpcId;
-            }
-            if (cmdletContext.WorkgroupName != null)
-            {
-                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -217,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region AWS Service Operation Call
         
-        private Amazon.RedshiftServerless.Model.ListEndpointAccessResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.ListEndpointAccessRequest request)
+        private Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse CallAWSServiceOperation(IAmazonMarketplaceAgreement client, Amazon.MarketplaceAgreement.Model.GetAgreementTermsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "ListEndpointAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Agreement Service", "GetAgreementTerms");
             try
             {
                 #if DESKTOP
-                return client.ListEndpointAccess(request);
+                return client.GetAgreementTerms(request);
                 #elif CORECLR
-                return client.ListEndpointAccessAsync(request).GetAwaiter().GetResult();
+                return client.GetAgreementTermsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,13 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AgreementId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String OwnerAccount { get; set; }
-            public System.String VpcId { get; set; }
-            public System.String WorkgroupName { get; set; }
-            public System.Func<Amazon.RedshiftServerless.Model.ListEndpointAccessResponse, GetRSSEndpointAccessListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Endpoints;
+            public System.Func<Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse, GetMASAgreementTermCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AcceptedTerms;
         }
         
     }

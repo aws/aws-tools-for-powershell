@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter OwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnerAccount { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
@@ -178,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OwnerAccount = this.OwnerAccount;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -218,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.EndpointName != null)
             {
                 request.EndpointName = cmdletContext.EndpointName;
+            }
+            if (cmdletContext.OwnerAccount != null)
+            {
+                request.OwnerAccount = cmdletContext.OwnerAccount;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -293,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EndpointName { get; set; }
+            public System.String OwnerAccount { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.String WorkgroupName { get; set; }

@@ -28,56 +28,36 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Returns an array of <code>EndpointAccess</code> objects and relevant information.
+    /// Returns a list of scheduled actions. You can use the flags to filter the list of returned
+    /// scheduled actions.
     /// </summary>
-    [Cmdlet("Get", "RSSEndpointAccessList")]
-    [OutputType("Amazon.RedshiftServerless.Model.EndpointAccess")]
-    [AWSCmdlet("Calls the Redshift Serverless ListEndpointAccess API operation.", Operation = new[] {"ListEndpointAccess"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListEndpointAccessResponse))]
-    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.EndpointAccess or Amazon.RedshiftServerless.Model.ListEndpointAccessResponse",
-        "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.EndpointAccess objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RSSScheduledActionList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Redshift Serverless ListScheduledActions API operation.", Operation = new[] {"ListScheduledActions"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListScheduledActionsResponse))]
+    [AWSCmdletOutput("System.String or Amazon.RedshiftServerless.Model.ListScheduledActionsResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.RedshiftServerless.Model.ListScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRSSEndpointAccessListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
+    public partial class GetRSSScheduledActionListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter OwnerAccount
+        #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OwnerAccount { get; set; }
-        #endregion
-        
-        #region Parameter VpcId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the virtual private cloud with access to Amazon Redshift
-        /// Serverless.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VpcId { get; set; }
-        #endregion
-        
-        #region Parameter WorkgroupName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the workgroup associated with the VPC endpoint to return.</para>
+        /// <para>The name of namespace associated with the scheduled action to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String WorkgroupName { get; set; }
+        public System.String NamespaceName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to display the next page of results.</para>
+        /// <para>An optional parameter that specifies the maximum number of results to return. Use
+        /// <code>nextToken</code> to display the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
+        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
+        /// again using the returned token to retrieve the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,21 +79,21 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoints'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.ListEndpointAccessResponse).
-        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ScheduledActions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.ListScheduledActionsResponse).
+        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.ListScheduledActionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Endpoints";
+        public string Select { get; set; } = "ScheduledActions";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkgroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkgroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the NamespaceName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NamespaceName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkgroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NamespaceName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -131,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.ListEndpointAccessResponse, GetRSSEndpointAccessListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.ListScheduledActionsResponse, GetRSSScheduledActionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,14 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.WorkgroupName;
+                context.Select = (response, cmdlet) => this.NamespaceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
+            context.NamespaceName = this.NamespaceName;
             context.NextToken = this.NextToken;
-            context.OwnerAccount = this.OwnerAccount;
-            context.VpcId = this.VpcId;
-            context.WorkgroupName = this.WorkgroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,27 +140,19 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RedshiftServerless.Model.ListEndpointAccessRequest();
+            var request = new Amazon.RedshiftServerless.Model.ListScheduledActionsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            if (cmdletContext.NamespaceName != null)
+            {
+                request.NamespaceName = cmdletContext.NamespaceName;
+            }
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.OwnerAccount != null)
-            {
-                request.OwnerAccount = cmdletContext.OwnerAccount;
-            }
-            if (cmdletContext.VpcId != null)
-            {
-                request.VpcId = cmdletContext.VpcId;
-            }
-            if (cmdletContext.WorkgroupName != null)
-            {
-                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -217,15 +187,15 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region AWS Service Operation Call
         
-        private Amazon.RedshiftServerless.Model.ListEndpointAccessResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.ListEndpointAccessRequest request)
+        private Amazon.RedshiftServerless.Model.ListScheduledActionsResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.ListScheduledActionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "ListEndpointAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "ListScheduledActions");
             try
             {
                 #if DESKTOP
-                return client.ListEndpointAccess(request);
+                return client.ListScheduledActions(request);
                 #elif CORECLR
-                return client.ListEndpointAccessAsync(request).GetAwaiter().GetResult();
+                return client.ListScheduledActionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,12 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResult { get; set; }
+            public System.String NamespaceName { get; set; }
             public System.String NextToken { get; set; }
-            public System.String OwnerAccount { get; set; }
-            public System.String VpcId { get; set; }
-            public System.String WorkgroupName { get; set; }
-            public System.Func<Amazon.RedshiftServerless.Model.ListEndpointAccessResponse, GetRSSEndpointAccessListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Endpoints;
+            public System.Func<Amazon.RedshiftServerless.Model.ListScheduledActionsResponse, GetRSSScheduledActionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ScheduledActions;
         }
         
     }

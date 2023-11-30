@@ -72,61 +72,13 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Redshift Serverless
+# Argument completions for service AWS Marketplace Deployment Service
 
 
-$RSS_Completers = {
+$MD_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.RedshiftServerless.UsageLimitBreachAction
-        {
-            ($_ -eq "New-RSSUsageLimit/BreachAction") -Or
-            ($_ -eq "Update-RSSUsageLimit/BreachAction")
-        }
-        {
-            $v = "deactivate","emit-metric","log"
-            break
-        }
-
-        # Amazon.RedshiftServerless.UsageLimitPeriod
-        "New-RSSUsageLimit/Period"
-        {
-            $v = "daily","monthly","weekly"
-            break
-        }
-
-        # Amazon.RedshiftServerless.UsageLimitUsageType
-        {
-            ($_ -eq "Get-RSSUsageLimitList/UsageType") -Or
-            ($_ -eq "New-RSSUsageLimit/UsageType")
-        }
-        {
-            $v = "cross-region-datasharing","serverless-compute"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$RSS_map = @{
-    "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
-    "Period"=@("New-RSSUsageLimit")
-    "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
-}
-
-_awsArgumentCompleterRegistration $RSS_Completers $RSS_map
-
-$RSS_SelectCompleters = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.RSS.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MD.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -170,63 +122,12 @@ $RSS_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$RSS_SelectMap = @{
-    "Select"=@("Convert-RSSRecoveryPointToSnapshot",
-               "New-RSSCustomDomainAssociation",
-               "New-RSSEndpointAccess",
-               "New-RSSNamespace",
-               "New-RSSScheduledAction",
-               "New-RSSSnapshot",
-               "New-RSSSnapshotCopyConfiguration",
-               "New-RSSUsageLimit",
-               "New-RSSWorkgroup",
-               "Remove-RSSCustomDomainAssociation",
-               "Remove-RSSEndpointAccess",
-               "Remove-RSSNamespace",
-               "Remove-RSSResourcePolicy",
-               "Remove-RSSScheduledAction",
-               "Remove-RSSSnapshot",
-               "Remove-RSSSnapshotCopyConfiguration",
-               "Remove-RSSUsageLimit",
-               "Remove-RSSWorkgroup",
-               "Get-RSSCredential",
-               "Get-RSSCustomDomainAssociation",
-               "Get-RSSEndpointAccess",
-               "Get-RSSNamespace",
-               "Get-RSSRecoveryPoint",
-               "Get-RSSResourcePolicy",
-               "Get-RSSScheduledAction",
-               "Get-RSSSnapshot",
-               "Get-RSSTableRestoreStatus",
-               "Get-RSSUsageLimit",
-               "Get-RSSWorkgroup",
-               "Get-RSSCustomDomainAssociationList",
-               "Get-RSSEndpointAccessList",
-               "Get-RSSNamespaceList",
-               "Get-RSSRecoveryPointList",
-               "Get-RSSScheduledActionList",
-               "Get-RSSSnapshotCopyConfigurationList",
-               "Get-RSSSnapshotList",
-               "Get-RSSTableRestoreStatusList",
-               "Get-RSSResourceTag",
-               "Get-RSSUsageLimitList",
-               "Get-RSSWorkgroupList",
-               "Write-RSSResourcePolicy",
-               "Restore-RSSFromRecoveryPoint",
-               "Restore-RSSFromSnapshot",
-               "Restore-RSSTableFromRecoveryPoint",
-               "Restore-RSSTableFromSnapshot",
-               "Add-RSSResourceTag",
-               "Remove-RSSResourceTag",
-               "Update-RSSCustomDomainAssociation",
-               "Update-RSSEndpointAccess",
-               "Update-RSSNamespace",
-               "Update-RSSScheduledAction",
-               "Update-RSSSnapshot",
-               "Update-RSSSnapshotCopyConfiguration",
-               "Update-RSSUsageLimit",
-               "Update-RSSWorkgroup")
+$MD_SelectMap = @{
+    "Select"=@("Get-MDResourceTag",
+               "Write-MDDeploymentParameter",
+               "Add-MDResourceTag",
+               "Remove-MDResourceTag")
 }
 
-_awsArgumentCompleterRegistration $RSS_SelectCompleters $RSS_SelectMap
+_awsArgumentCompleterRegistration $MD_SelectCompleters $MD_SelectMap
 

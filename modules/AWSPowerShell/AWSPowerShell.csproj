@@ -724,8 +724,14 @@
     <Reference Include="AWSSDK.ManagedGrafana">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedGrafana.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MarketplaceAgreement">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceAgreement.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceCatalog">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceCatalog.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MarketplaceDeployment">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceDeployment.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
@@ -1824,8 +1830,14 @@
     <Reference Include="AWSSDK.ManagedGrafana">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedGrafana.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MarketplaceAgreement">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceAgreement.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceCatalog">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceCatalog.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MarketplaceDeployment">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceDeployment.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceEntitlementService.dll</HintPath>

@@ -1,0 +1,3 @@
+﻿# MarketplaceDeployment
+
+Export-ModuleMember -Alias *

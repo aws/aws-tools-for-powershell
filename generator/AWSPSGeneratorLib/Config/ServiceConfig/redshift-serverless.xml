@@ -34,7 +34,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="ScheduledAction" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="New" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,7 +70,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledAction" OutputProperty="ScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="Remove" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="SnapshotCopyConfigurationId" PipelineParameter="SnapshotCopyConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -98,6 +114,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetScheduledAction" OutputProperty="ScheduledAction" Verb="Get" Noun="ScheduledAction" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="Snapshot" PipelineParameter="SnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +150,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledActionList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSnapshotCopyConfigurations" OutputProperty="SnapshotCopyConfigurations" Verb="Get" Noun="SnapshotCopyConfigurationList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -146,7 +174,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkgroups" OutputProperty="Workgroups" Verb="Get" Noun="WorkgroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkgroups" OutputProperty="Workgroups" Verb="Get" Noun="WorkgroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,6 +187,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreFromSnapshot" OutputProperty="*" Verb="Restore" Noun="FromSnapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreTableFromRecoveryPoint" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromRecoveryPoint" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -186,7 +218,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="Update" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="SnapshotCopyConfigurationId" PipelineParameter="SnapshotCopyConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

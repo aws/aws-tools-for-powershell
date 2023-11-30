@@ -80,6 +80,34 @@ $MCAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceCatalog.AmiProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_AmiProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.ContainerProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_ContainerProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.DataProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_DataProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.OfferSortBy
+        "Get-MCATEntityList/EntityTypeSort_OfferSort_SortBy"
+        {
+            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","State","Targeting"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OwnershipType
         "Get-MCATEntityList/OwnershipType"
         {
@@ -87,8 +115,28 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.ResaleAuthorizationSortBy
+        "Get-MCATEntityList/EntityTypeSort_ResaleAuthorizationSort_SortBy"
+        {
+            $v = "AvailabilityEndDate","CreatedDate","EntityId","LastModifiedDate","ManufacturerAccountId","ManufacturerLegalName","Name","OfferExtendedStatus","ProductId","ProductName","ResellerAccountID","ResellerLegalName","Status"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.SaaSProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_SaaSProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.SortOrder
         {
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_AmiProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ContainerProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_OfferSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ResaleAuthorizationSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_SaaSProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATChangeSetList/Sort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/Sort_SortOrder")
         }
@@ -106,6 +154,18 @@ $MCAT_Completers = {
 }
 
 $MCAT_map = @{
+    "EntityTypeSort_AmiProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_AmiProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_ContainerProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_ContainerProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_DataProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_DataProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_OfferSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_OfferSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_ResaleAuthorizationSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_ResaleAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_SaaSProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_SaaSProductSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")
     "Sort_SortOrder"=@("Get-MCATChangeSetList","Get-MCATEntityList")
 }

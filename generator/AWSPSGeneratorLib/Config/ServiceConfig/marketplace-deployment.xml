@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>marketplace-deployment</C2jFilename>
+    <AssemblyName>MarketplaceDeployment</AssemblyName>
+    <ServiceNounPrefix>MD</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Deployment Service</ServiceName>
+    <ServiceClientInterface>IAmazonMarketplaceDeployment</ServiceClientInterface>
+    <ServiceClient>AmazonMarketplaceDeploymentClient</ServiceClient>
+    <ServiceModuleGuid>ae4f9c3b-bc27-4cd9-8e74-170e98e91b3e</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeploymentParameter" OutputProperty="*" Verb="Write" Noun="DeploymentParameter" ShouldProcessTarget="DeploymentParameter_Name" PipelineParameter="DeploymentParameter_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

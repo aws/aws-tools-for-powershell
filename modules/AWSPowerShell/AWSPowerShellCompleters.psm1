@@ -40735,6 +40735,89 @@ $MBCQ_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MBCQ_SelectCompleters $MBCQ_SelectMap
+# Argument completions for service AWS Marketplace Agreement Service
+
+
+$MAS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MarketplaceAgreement.SortOrder
+        "Search-MASAgreement/Sort_SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MAS_map = @{
+    "Sort_SortOrder"=@("Search-MASAgreement")
+}
+
+_awsArgumentCompleterRegistration $MAS_Completers $MAS_map
+
+$MAS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MAS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MAS_SelectMap = @{
+    "Select"=@("Get-MASAgreement",
+               "Get-MASAgreementTerm",
+               "Search-MASAgreement")
+}
+
+_awsArgumentCompleterRegistration $MAS_SelectCompleters $MAS_SelectMap
 # Argument completions for service AWS Marketplace Catalog Service
 
 
@@ -40743,6 +40826,34 @@ $MCAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceCatalog.AmiProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_AmiProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.ContainerProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_ContainerProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.DataProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_DataProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.OfferSortBy
+        "Get-MCATEntityList/EntityTypeSort_OfferSort_SortBy"
+        {
+            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","State","Targeting"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OwnershipType
         "Get-MCATEntityList/OwnershipType"
         {
@@ -40750,8 +40861,28 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.ResaleAuthorizationSortBy
+        "Get-MCATEntityList/EntityTypeSort_ResaleAuthorizationSort_SortBy"
+        {
+            $v = "AvailabilityEndDate","CreatedDate","EntityId","LastModifiedDate","ManufacturerAccountId","ManufacturerLegalName","Name","OfferExtendedStatus","ProductId","ProductName","ResellerAccountID","ResellerLegalName","Status"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.SaaSProductSortBy
+        "Get-MCATEntityList/EntityTypeSort_SaaSProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.SortOrder
         {
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_AmiProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ContainerProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_OfferSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ResaleAuthorizationSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_SaaSProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATChangeSetList/Sort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/Sort_SortOrder")
         }
@@ -40769,6 +40900,18 @@ $MCAT_Completers = {
 }
 
 $MCAT_map = @{
+    "EntityTypeSort_AmiProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_AmiProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_ContainerProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_ContainerProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_DataProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_DataProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_OfferSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_OfferSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_ResaleAuthorizationSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_ResaleAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_SaaSProductSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_SaaSProductSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")
     "Sort_SortOrder"=@("Get-MCATChangeSetList","Get-MCATEntityList")
 }
@@ -40927,6 +41070,64 @@ $MCA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MCA_SelectCompleters $MCA_SelectMap
+# Argument completions for service AWS Marketplace Deployment Service
+
+
+$MD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MD_SelectMap = @{
+    "Select"=@("Get-MDResourceTag",
+               "Write-MDDeploymentParameter",
+               "Add-MDResourceTag",
+               "Remove-MDResourceTag")
+}
+
+_awsArgumentCompleterRegistration $MD_SelectCompleters $MD_SelectMap
 # Argument completions for service AWS Elemental MediaConnect
 
 
@@ -52979,14 +53180,18 @@ $RSS_SelectMap = @{
                "New-RSSCustomDomainAssociation",
                "New-RSSEndpointAccess",
                "New-RSSNamespace",
+               "New-RSSScheduledAction",
                "New-RSSSnapshot",
+               "New-RSSSnapshotCopyConfiguration",
                "New-RSSUsageLimit",
                "New-RSSWorkgroup",
                "Remove-RSSCustomDomainAssociation",
                "Remove-RSSEndpointAccess",
                "Remove-RSSNamespace",
                "Remove-RSSResourcePolicy",
+               "Remove-RSSScheduledAction",
                "Remove-RSSSnapshot",
+               "Remove-RSSSnapshotCopyConfiguration",
                "Remove-RSSUsageLimit",
                "Remove-RSSWorkgroup",
                "Get-RSSCredential",
@@ -52995,6 +53200,7 @@ $RSS_SelectMap = @{
                "Get-RSSNamespace",
                "Get-RSSRecoveryPoint",
                "Get-RSSResourcePolicy",
+               "Get-RSSScheduledAction",
                "Get-RSSSnapshot",
                "Get-RSSTableRestoreStatus",
                "Get-RSSUsageLimit",
@@ -53003,6 +53209,8 @@ $RSS_SelectMap = @{
                "Get-RSSEndpointAccessList",
                "Get-RSSNamespaceList",
                "Get-RSSRecoveryPointList",
+               "Get-RSSScheduledActionList",
+               "Get-RSSSnapshotCopyConfigurationList",
                "Get-RSSSnapshotList",
                "Get-RSSTableRestoreStatusList",
                "Get-RSSResourceTag",
@@ -53011,13 +53219,16 @@ $RSS_SelectMap = @{
                "Write-RSSResourcePolicy",
                "Restore-RSSFromRecoveryPoint",
                "Restore-RSSFromSnapshot",
+               "Restore-RSSTableFromRecoveryPoint",
                "Restore-RSSTableFromSnapshot",
                "Add-RSSResourceTag",
                "Remove-RSSResourceTag",
                "Update-RSSCustomDomainAssociation",
                "Update-RSSEndpointAccess",
                "Update-RSSNamespace",
+               "Update-RSSScheduledAction",
                "Update-RSSSnapshot",
+               "Update-RSSSnapshotCopyConfiguration",
                "Update-RSSUsageLimit",
                "Update-RSSWorkgroup")
 }

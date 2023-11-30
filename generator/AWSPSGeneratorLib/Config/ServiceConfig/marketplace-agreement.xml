@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>marketplace-agreement</C2jFilename>
+    <AssemblyName>MarketplaceAgreement</AssemblyName>
+    <ServiceNounPrefix>MAS</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Agreement Service</ServiceName>
+    <ServiceClientInterface>IAmazonMarketplaceAgreement</ServiceClientInterface>
+    <ServiceClient>AmazonMarketplaceAgreementClient</ServiceClient>
+    <ServiceModuleGuid>F88C94C0-BA80-496D-8027-ECFFA6095A99</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeAgreement" OutputProperty="*" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgreementTerms" OutputProperty="AcceptedTerms" Verb="Get" Noun="AgreementTerm" PipelineParameter="AgreementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchAgreements" OutputProperty="*" Verb="Search" Noun="Agreement" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

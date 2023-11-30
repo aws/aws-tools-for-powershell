@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter OwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnerAccount { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -94,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OwnerAccount = this.OwnerAccount;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.OwnerAccount != null)
+            {
+                request.OwnerAccount = cmdletContext.OwnerAccount;
             }
             
             CmdletOutput output;
@@ -181,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OwnerAccount { get; set; }
             public System.Func<Amazon.RedshiftServerless.Model.ListWorkgroupsResponse, GetRSSWorkgroupListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Workgroups;
         }
