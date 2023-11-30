@@ -28,23 +28,30 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Lists all the resources in your Amazon Web Services account in this Amazon Web Services
-    /// Region that are managed for zonal shifts in Amazon Route 53 Application Recovery Controller,
-    /// and information about them. The information includes the zonal autoshift status for
-    /// the resource, as well as the Amazon Resource Name (ARN), the Availability Zones that
-    /// each resource is deployed in, and the resource name.
+    /// Returns the active autoshifts for a specified resource.
     /// </summary>
-    [Cmdlet("Get", "AZSManagedResourceList")]
-    [OutputType("Amazon.ARCZonalShift.Model.ManagedResourceSummary")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift ListManagedResources API operation.", Operation = new[] {"ListManagedResources"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.ListManagedResourcesResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.ManagedResourceSummary or Amazon.ARCZonalShift.Model.ListManagedResourcesResponse",
-        "This cmdlet returns a collection of Amazon.ARCZonalShift.Model.ManagedResourceSummary objects.",
-        "The service call response (type Amazon.ARCZonalShift.Model.ListManagedResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AZSAutoshiftList")]
+    [OutputType("Amazon.ARCZonalShift.Model.AutoshiftSummary")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift ListAutoshifts API operation.", Operation = new[] {"ListAutoshifts"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.ListAutoshiftsResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.AutoshiftSummary or Amazon.ARCZonalShift.Model.ListAutoshiftsResponse",
+        "This cmdlet returns a collection of Amazon.ARCZonalShift.Model.AutoshiftSummary objects.",
+        "The service call response (type Amazon.ARCZonalShift.Model.ListAutoshiftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAZSManagedResourceListCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class GetAZSAutoshiftListCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the autoshift.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.ARCZonalShift.AutoshiftExecutionStatus")]
+        public Amazon.ARCZonalShift.AutoshiftExecutionStatus Status { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -73,12 +80,22 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.ListManagedResourcesResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.ListManagedResourcesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.ListAutoshiftsResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.ListAutoshiftsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Items";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Status parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -91,13 +108,24 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.ListManagedResourcesResponse, GetAZSManagedResourceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.ListAutoshiftsResponse, GetAZSAutoshiftListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Status;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -112,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.ListManagedResourcesRequest();
+            var request = new Amazon.ARCZonalShift.Model.ListAutoshiftsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -121,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -155,15 +187,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.ListManagedResourcesResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.ListManagedResourcesRequest request)
+        private Amazon.ARCZonalShift.Model.ListAutoshiftsResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.ListAutoshiftsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "ListManagedResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "ListAutoshifts");
             try
             {
                 #if DESKTOP
-                return client.ListManagedResources(request);
+                return client.ListAutoshifts(request);
                 #elif CORECLR
-                return client.ListManagedResourcesAsync(request).GetAwaiter().GetResult();
+                return client.ListAutoshiftsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -185,7 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.ListManagedResourcesResponse, GetAZSManagedResourceListCmdlet, object> Select { get; set; } =
+            public Amazon.ARCZonalShift.AutoshiftExecutionStatus Status { get; set; }
+            public System.Func<Amazon.ARCZonalShift.Model.ListAutoshiftsResponse, GetAZSAutoshiftListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

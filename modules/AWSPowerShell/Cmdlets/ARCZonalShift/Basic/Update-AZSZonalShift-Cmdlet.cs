@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
     /// Update an active zonal shift in Amazon Route 53 Application Recovery Controller in
-    /// your AWS account. You can update a zonal shift to set a new expiration, or edit or
-    /// replace the comment for the zonal shift.
+    /// your Amazon Web Services account. You can update a zonal shift to set a new expiration,
+    /// or edit or replace the comment for the zonal shift.
     /// </summary>
     [Cmdlet("Update", "AZSZonalShift", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ARCZonalShift.Model.UpdateZonalShiftResponse")]

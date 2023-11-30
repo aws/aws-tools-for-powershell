@@ -28,105 +28,81 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// You start a zonal shift to temporarily move load balancer traffic away from an Availability
-    /// Zone in an Amazon Web Services Region, to help your application recover immediately,
-    /// for example, from a developer's bad code deployment or from an Amazon Web Services
-    /// infrastructure failure in a single Availability Zone. You can start a zonal shift
-    /// in Route 53 ARC only for managed resources in your Amazon Web Services account in
-    /// an Amazon Web Services Region. Resources are automatically registered with Route 53
-    /// ARC by Amazon Web Services services.
-    /// 
-    ///  
-    /// <para>
-    /// At this time, you can only start a zonal shift for Network Load Balancers and Application
-    /// Load Balancers with cross-zone load balancing turned off.
-    /// </para><para>
-    /// When you start a zonal shift, traffic for the resource is no longer routed to the
-    /// Availability Zone. The zonal shift is created immediately in Route 53 ARC. However,
-    /// it can take a short time, typically up to a few minutes, for existing, in-progress
-    /// connections in the Availability Zone to complete.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal
-    /// shift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
-    /// </para>
+    /// Update a practice run configuration to change one or more of the following: add, change,
+    /// or remove the blocking alarm; change the outcome alarm; or add, change, or remove
+    /// blocking dates or time windows.
     /// </summary>
-    [Cmdlet("Start", "AZSZonalShift", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ARCZonalShift.Model.StartZonalShiftResponse")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift StartZonalShift API operation.", Operation = new[] {"StartZonalShift"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.StartZonalShiftResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.StartZonalShiftResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.StartZonalShiftResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AZSPracticeRunConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift UpdatePracticeRunConfiguration API operation.", Operation = new[] {"UpdatePracticeRunConfiguration"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartAZSZonalShiftCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class UpdateAZSPracticeRunConfigurationCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AwayFrom
+        #region Parameter BlockedDate
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone that traffic is moved away from for a resource when you start
-        /// a zonal shift. Until the zonal shift expires or you cancel it, traffic for the resource
-        /// is instead moved to other Availability Zones in the Amazon Web Services Region.</para>
+        /// <para>Add, change, or remove blocked dates for a practice run in zonal autoshift.</para><para>Optionally, you can block practice runs for specific calendar dates. The format for
+        /// blocked dates is: YYYY-MM-DD. Keep in mind, when you specify dates, that dates and
+        /// times for practice runs are in UTC. Separate multiple blocked dates with spaces.</para><para>For example, if you have an application update scheduled to launch on May 1, 2024,
+        /// and you don't want practice runs to shift traffic away at that time, you could set
+        /// a blocked date for <code>2024-05-01</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwayFrom { get; set; }
+        [Alias("BlockedDates")]
+        public System.String[] BlockedDate { get; set; }
         #endregion
         
-        #region Parameter Comment
+        #region Parameter BlockedWindow
         /// <summary>
         /// <para>
-        /// <para>A comment that you enter about the zonal shift. Only the latest comment is retained;
-        /// no comment history is maintained. A new comment overwrites any existing comment string.</para>
+        /// <para>Add, change, or remove windows of days and times for when you can, optionally, block
+        /// Route 53 ARC from starting a practice run for a resource.</para><para>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
+        /// dates, that dates and times for practice runs are in UTC. Also, be aware of potential
+        /// time adjustments that might be required for daylight saving time differences. Separate
+        /// multiple blocked windows with spaces.</para><para>For example, say you run business report summaries three days a week. For this scenario,
+        /// you might set the following recurring days and times as blocked windows, for example:
+        /// <code>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Comment { get; set; }
+        [Alias("BlockedWindows")]
+        public System.String[] BlockedWindow { get; set; }
         #endregion
         
-        #region Parameter ExpiresIn
+        #region Parameter BlockingAlarm
         /// <summary>
         /// <para>
-        /// <para>The length of time that you want a zonal shift to be active, which Route 53 ARC converts
-        /// to an expiry time (expiration time). Zonal shifts are temporary. You can set a zonal
-        /// shift to be active initially for up to three days (72 hours).</para><para>If you want to still keep traffic away from an Availability Zone, you can update the
-        /// zonal shift and set a new expiration. You can also cancel a zonal shift, before it
-        /// expires, for example, if you're ready to restore traffic to the Availability Zone.</para><para>To set a length of time for a zonal shift to be active, specify a whole number, and
-        /// then one of the following, with no space:</para><ul><li><para><b>A lowercase letter m:</b> To specify that the value is in minutes.</para></li><li><para><b>A lowercase letter h:</b> To specify that the value is in hours.</para></li></ul><para>For example: <code>20h</code> means the zonal shift expires in 20 hours. <code>120m</code>
-        /// means the zonal shift expires in 120 minutes (2 hours).</para>
+        /// <para>Add, change, or remove the Amazon CloudWatch alarm that you optionally specify as
+        /// the blocking alarm for practice runs.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExpiresIn { get; set; }
+        [Alias("BlockingAlarms")]
+        public Amazon.ARCZonalShift.Model.ControlCondition[] BlockingAlarm { get; set; }
+        #endregion
+        
+        #region Parameter OutcomeAlarm
+        /// <summary>
+        /// <para>
+        /// <para>Specify a new the Amazon CloudWatch alarm as the outcome alarm for practice runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutcomeAlarms")]
+        public Amazon.ARCZonalShift.Model.ControlCondition[] OutcomeAlarm { get; set; }
         #endregion
         
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource to shift away traffic for. The identifier is the Amazon
-        /// Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
-        /// Balancers with cross-zone load balancing turned off.</para>
+        /// <para>The identifier for the resource that you want to update the practice run configuration
+        /// for. The identifier is the Amazon Resource Name (ARN) for the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.StartZonalShiftResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.StartZonalShiftResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-AZSZonalShift (StartZonalShift)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AZSPracticeRunConfiguration (UpdatePracticeRunConfiguration)"))
             {
                 return;
             }
@@ -190,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.StartZonalShiftResponse, StartAZSZonalShiftCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse, UpdateAZSPracticeRunConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -202,27 +178,22 @@ namespace Amazon.PowerShell.Cmdlets.AZS
                 context.Select = (response, cmdlet) => this.ResourceIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AwayFrom = this.AwayFrom;
-            #if MODULAR
-            if (this.AwayFrom == null && ParameterWasBound(nameof(this.AwayFrom)))
+            if (this.BlockedDate != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AwayFrom which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.BlockedDate = new List<System.String>(this.BlockedDate);
             }
-            #endif
-            context.Comment = this.Comment;
-            #if MODULAR
-            if (this.Comment == null && ParameterWasBound(nameof(this.Comment)))
+            if (this.BlockedWindow != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Comment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.BlockedWindow = new List<System.String>(this.BlockedWindow);
             }
-            #endif
-            context.ExpiresIn = this.ExpiresIn;
-            #if MODULAR
-            if (this.ExpiresIn == null && ParameterWasBound(nameof(this.ExpiresIn)))
+            if (this.BlockingAlarm != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ExpiresIn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.BlockingAlarm = new List<Amazon.ARCZonalShift.Model.ControlCondition>(this.BlockingAlarm);
             }
-            #endif
+            if (this.OutcomeAlarm != null)
+            {
+                context.OutcomeAlarm = new List<Amazon.ARCZonalShift.Model.ControlCondition>(this.OutcomeAlarm);
+            }
             context.ResourceIdentifier = this.ResourceIdentifier;
             #if MODULAR
             if (this.ResourceIdentifier == null && ParameterWasBound(nameof(this.ResourceIdentifier)))
@@ -244,19 +215,23 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.StartZonalShiftRequest();
+            var request = new Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationRequest();
             
-            if (cmdletContext.AwayFrom != null)
+            if (cmdletContext.BlockedDate != null)
             {
-                request.AwayFrom = cmdletContext.AwayFrom;
+                request.BlockedDates = cmdletContext.BlockedDate;
             }
-            if (cmdletContext.Comment != null)
+            if (cmdletContext.BlockedWindow != null)
             {
-                request.Comment = cmdletContext.Comment;
+                request.BlockedWindows = cmdletContext.BlockedWindow;
             }
-            if (cmdletContext.ExpiresIn != null)
+            if (cmdletContext.BlockingAlarm != null)
             {
-                request.ExpiresIn = cmdletContext.ExpiresIn;
+                request.BlockingAlarms = cmdletContext.BlockingAlarm;
+            }
+            if (cmdletContext.OutcomeAlarm != null)
+            {
+                request.OutcomeAlarms = cmdletContext.OutcomeAlarm;
             }
             if (cmdletContext.ResourceIdentifier != null)
             {
@@ -295,15 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.StartZonalShiftResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.StartZonalShiftRequest request)
+        private Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "StartZonalShift");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "UpdatePracticeRunConfiguration");
             try
             {
                 #if DESKTOP
-                return client.StartZonalShift(request);
+                return client.UpdatePracticeRunConfiguration(request);
                 #elif CORECLR
-                return client.StartZonalShiftAsync(request).GetAwaiter().GetResult();
+                return client.UpdatePracticeRunConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -323,11 +298,12 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwayFrom { get; set; }
-            public System.String Comment { get; set; }
-            public System.String ExpiresIn { get; set; }
+            public List<System.String> BlockedDate { get; set; }
+            public List<System.String> BlockedWindow { get; set; }
+            public List<Amazon.ARCZonalShift.Model.ControlCondition> BlockingAlarm { get; set; }
+            public List<Amazon.ARCZonalShift.Model.ControlCondition> OutcomeAlarm { get; set; }
             public System.String ResourceIdentifier { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.StartZonalShiftResponse, StartAZSZonalShiftCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationResponse, UpdateAZSPracticeRunConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

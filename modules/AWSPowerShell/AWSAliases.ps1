@@ -1554,7 +1554,14 @@ Set-Alias -Name PROM-UpdateLoggingConfiguration -Value Update-PROMLoggingConfigu
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
 Set-Alias -Name Cancel-AZSZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name AZS-CancelZonalShift -Value Stop-AZSZonalShift
+Set-Alias -Name Create-AZSPracticeRunConfiguration -Value New-AZSPracticeRunConfiguration
+Set-Alias -Name AZS-CreatePracticeRunConfiguration -Value New-AZSPracticeRunConfiguration
+Set-Alias -Name Delete-AZSPracticeRunConfiguration -Value Remove-AZSPracticeRunConfiguration
+Set-Alias -Name AZS-DeletePracticeRunConfiguration -Value Remove-AZSPracticeRunConfiguration
 Set-Alias -Name AZS-GetManagedResource -Value Get-AZSManagedResource
+Set-Alias -Name List-AZSAutoshifts -Value Get-AZSAutoshiftList
+Set-Alias -Name List-AZSAutoshiftList -Value Get-AZSAutoshiftList
+Set-Alias -Name AZS-ListAutoshifts -Value Get-AZSAutoshiftList
 Set-Alias -Name List-AZSManagedResources -Value Get-AZSManagedResourceList
 Set-Alias -Name List-AZSManagedResourceList -Value Get-AZSManagedResourceList
 Set-Alias -Name AZS-ListManagedResources -Value Get-AZSManagedResourceList
@@ -1562,6 +1569,8 @@ Set-Alias -Name List-AZSZonalShifts -Value Get-AZSZonalShiftList
 Set-Alias -Name List-AZSZonalShiftList -Value Get-AZSZonalShiftList
 Set-Alias -Name AZS-ListZonalShifts -Value Get-AZSZonalShiftList
 Set-Alias -Name AZS-StartZonalShift -Value Start-AZSZonalShift
+Set-Alias -Name AZS-UpdatePracticeRunConfiguration -Value Update-AZSPracticeRunConfiguration
+Set-Alias -Name AZS-UpdateZonalAutoshiftConfiguration -Value Update-AZSZonalAutoshiftConfiguration
 Set-Alias -Name AZS-UpdateZonalShift -Value Update-AZSZonalShift
 Set-Alias -Name Batch-ATHGetNamedQuery -Value Get-ATHNamedQueryBatch
 Set-Alias -Name Batch-ATHNamedQueryBatch -Value Get-ATHNamedQueryBatch

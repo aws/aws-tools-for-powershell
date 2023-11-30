@@ -61,6 +61,39 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String AppImageConfigName { get; set; }
         #endregion
         
+        #region Parameter ContainerConfig_ContainerArgument
+        /// <summary>
+        /// <para>
+        /// <para>The arguments for the container when you're running the application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JupyterLabAppImageConfig_ContainerConfig_ContainerArguments")]
+        public System.String[] ContainerConfig_ContainerArgument { get; set; }
+        #endregion
+        
+        #region Parameter ContainerConfig_ContainerEntrypoint
+        /// <summary>
+        /// <para>
+        /// <para>The entrypoint used to run the application in the container.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JupyterLabAppImageConfig_ContainerConfig_ContainerEntrypoint")]
+        public System.String[] ContainerConfig_ContainerEntrypoint { get; set; }
+        #endregion
+        
+        #region Parameter ContainerConfig_ContainerEnvironmentVariable
+        /// <summary>
+        /// <para>
+        /// <para>The environment variables to set in the container</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JupyterLabAppImageConfig_ContainerConfig_ContainerEnvironmentVariables")]
+        public System.Collections.Hashtable ContainerConfig_ContainerEnvironmentVariable { get; set; }
+        #endregion
+        
         #region Parameter FileSystemConfig_DefaultGid
         /// <summary>
         /// <para>
@@ -186,6 +219,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter AppImageConfigName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ContainerConfig_ContainerArgument != null)
+            {
+                context.ContainerConfig_ContainerArgument = new List<System.String>(this.ContainerConfig_ContainerArgument);
+            }
+            if (this.ContainerConfig_ContainerEntrypoint != null)
+            {
+                context.ContainerConfig_ContainerEntrypoint = new List<System.String>(this.ContainerConfig_ContainerEntrypoint);
+            }
+            if (this.ContainerConfig_ContainerEnvironmentVariable != null)
+            {
+                context.ContainerConfig_ContainerEnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ContainerConfig_ContainerEnvironmentVariable.Keys)
+                {
+                    context.ContainerConfig_ContainerEnvironmentVariable.Add((String)hashKey, (String)(this.ContainerConfig_ContainerEnvironmentVariable[hashKey]));
+                }
+            }
             context.FileSystemConfig_DefaultGid = this.FileSystemConfig_DefaultGid;
             context.FileSystemConfig_DefaultUid = this.FileSystemConfig_DefaultUid;
             context.FileSystemConfig_MountPath = this.FileSystemConfig_MountPath;
@@ -216,6 +265,60 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.AppImageConfigName != null)
             {
                 request.AppImageConfigName = cmdletContext.AppImageConfigName;
+            }
+            
+             // populate JupyterLabAppImageConfig
+            var requestJupyterLabAppImageConfigIsNull = true;
+            request.JupyterLabAppImageConfig = new Amazon.SageMaker.Model.JupyterLabAppImageConfig();
+            Amazon.SageMaker.Model.ContainerConfig requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig = null;
+            
+             // populate ContainerConfig
+            var requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfigIsNull = true;
+            requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig = new Amazon.SageMaker.Model.ContainerConfig();
+            List<System.String> requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerArgument = null;
+            if (cmdletContext.ContainerConfig_ContainerArgument != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerArgument = cmdletContext.ContainerConfig_ContainerArgument;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerArgument != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig.ContainerArguments = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerArgument;
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfigIsNull = false;
+            }
+            List<System.String> requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEntrypoint = null;
+            if (cmdletContext.ContainerConfig_ContainerEntrypoint != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEntrypoint = cmdletContext.ContainerConfig_ContainerEntrypoint;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEntrypoint != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig.ContainerEntrypoint = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEntrypoint;
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEnvironmentVariable = null;
+            if (cmdletContext.ContainerConfig_ContainerEnvironmentVariable != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEnvironmentVariable = cmdletContext.ContainerConfig_ContainerEnvironmentVariable;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEnvironmentVariable != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig.ContainerEnvironmentVariables = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig_containerConfig_ContainerEnvironmentVariable;
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfigIsNull = false;
+            }
+             // determine if requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig should be set to null
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfigIsNull)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig = null;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig != null)
+            {
+                request.JupyterLabAppImageConfig.ContainerConfig = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig;
+                requestJupyterLabAppImageConfigIsNull = false;
+            }
+             // determine if request.JupyterLabAppImageConfig should be set to null
+            if (requestJupyterLabAppImageConfigIsNull)
+            {
+                request.JupyterLabAppImageConfig = null;
             }
             
              // populate KernelGatewayImageConfig
@@ -347,6 +450,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppImageConfigName { get; set; }
+            public List<System.String> ContainerConfig_ContainerArgument { get; set; }
+            public List<System.String> ContainerConfig_ContainerEntrypoint { get; set; }
+            public Dictionary<System.String, System.String> ContainerConfig_ContainerEnvironmentVariable { get; set; }
             public System.Int32? FileSystemConfig_DefaultGid { get; set; }
             public System.Int32? FileSystemConfig_DefaultUid { get; set; }
             public System.String FileSystemConfig_MountPath { get; set; }

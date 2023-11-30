@@ -28,25 +28,17 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Get information about a resource that's been registered for zonal shifts with Amazon
-    /// Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources
-    /// that are registered for zonal shifts are managed resources in Route 53 ARC. You can
-    /// start zonal shifts and configure zonal autoshift for managed resources.
-    /// 
-    ///  
-    /// <para>
-    /// At this time, you can only start a zonal shift or configure zonal autoshift for Network
-    /// Load Balancers and Application Load Balancers with cross-zone load balancing turned
-    /// off.
-    /// </para>
+    /// Deletes the practice run configuration for a resource. Before you can delete a practice
+    /// run configuration for a resource., you must disable zonal autoshift for the resource.
+    /// Practice runs must be configured for zonal autoshift to be enabled.
     /// </summary>
-    [Cmdlet("Get", "AZSManagedResource")]
-    [OutputType("Amazon.ARCZonalShift.Model.GetManagedResourceResponse")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift GetManagedResource API operation.", Operation = new[] {"GetManagedResource"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.GetManagedResourceResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.GetManagedResourceResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.GetManagedResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "AZSPracticeRunConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift DeletePracticeRunConfiguration API operation.", Operation = new[] {"DeletePracticeRunConfiguration"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAZSManagedResourceCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class RemoveAZSPracticeRunConfigurationCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -54,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource to shift away traffic for. The identifier is the Amazon
-        /// Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
-        /// Balancers with cross-zone load balancing turned off.</para>
+        /// <para>The identifier for the resource that you want to delete the practice run configuration
+        /// for. The identifier is the Amazon Resource Name (ARN) for the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.GetManagedResourceResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.GetManagedResourceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +82,26 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AZSPracticeRunConfiguration (DeletePracticeRunConfiguration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -104,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.GetManagedResourceResponse, GetAZSManagedResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse, RemoveAZSPracticeRunConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.GetManagedResourceRequest();
+            var request = new Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationRequest();
             
             if (cmdletContext.ResourceIdentifier != null)
             {
@@ -176,15 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.GetManagedResourceResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.GetManagedResourceRequest request)
+        private Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "GetManagedResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "DeletePracticeRunConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetManagedResource(request);
+                return client.DeletePracticeRunConfiguration(request);
                 #elif CORECLR
-                return client.GetManagedResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeletePracticeRunConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -205,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceIdentifier { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.GetManagedResourceResponse, GetAZSManagedResourceCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse, RemoveAZSPracticeRunConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

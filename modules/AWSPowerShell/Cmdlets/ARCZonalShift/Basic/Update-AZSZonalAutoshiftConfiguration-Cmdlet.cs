@@ -28,25 +28,19 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Get information about a resource that's been registered for zonal shifts with Amazon
-    /// Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources
-    /// that are registered for zonal shifts are managed resources in Route 53 ARC. You can
-    /// start zonal shifts and configure zonal autoshift for managed resources.
-    /// 
-    ///  
-    /// <para>
-    /// At this time, you can only start a zonal shift or configure zonal autoshift for Network
-    /// Load Balancers and Application Load Balancers with cross-zone load balancing turned
-    /// off.
-    /// </para>
+    /// You can update the zonal autoshift status for a resource, to enable or disable zonal
+    /// autoshift. When zonal autoshift is <code>ENABLED</code>, Amazon Web Services shifts
+    /// away resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
+    /// determines that there's an issue in the Availability Zone that could potentially affect
+    /// customers.
     /// </summary>
-    [Cmdlet("Get", "AZSManagedResource")]
-    [OutputType("Amazon.ARCZonalShift.Model.GetManagedResourceResponse")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift GetManagedResource API operation.", Operation = new[] {"GetManagedResource"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.GetManagedResourceResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.GetManagedResourceResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.GetManagedResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AZSZonalAutoshiftConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift UpdateZonalAutoshiftConfiguration API operation.", Operation = new[] {"UpdateZonalAutoshiftConfiguration"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAZSManagedResourceCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class UpdateAZSZonalAutoshiftConfigurationCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -54,9 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource to shift away traffic for. The identifier is the Amazon
-        /// Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
-        /// Balancers with cross-zone load balancing turned off.</para>
+        /// <para>The identifier for the resource that you want to update the zonal autoshift configuration
+        /// for. The identifier is the Amazon Resource Name (ARN) for the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,11 +63,29 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         public System.String ResourceIdentifier { get; set; }
         #endregion
         
+        #region Parameter ZonalAutoshiftStatus
+        /// <summary>
+        /// <para>
+        /// <para>The zonal autoshift status for the resource that you want to update the zonal autoshift
+        /// configuration for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.ARCZonalShift.ZonalAutoshiftStatus")]
+        public Amazon.ARCZonalShift.ZonalAutoshiftStatus ZonalAutoshiftStatus { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.GetManagedResourceResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.GetManagedResourceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +102,26 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AZSZonalAutoshiftConfiguration (UpdateZonalAutoshiftConfiguration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -104,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.GetManagedResourceResponse, GetAZSManagedResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse, UpdateAZSZonalAutoshiftConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,6 +150,13 @@ namespace Amazon.PowerShell.Cmdlets.AZS
                 WriteWarning("You are passing $null as a value for parameter ResourceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ZonalAutoshiftStatus = this.ZonalAutoshiftStatus;
+            #if MODULAR
+            if (this.ZonalAutoshiftStatus == null && ParameterWasBound(nameof(this.ZonalAutoshiftStatus)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ZonalAutoshiftStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -137,11 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.GetManagedResourceRequest();
+            var request = new Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationRequest();
             
             if (cmdletContext.ResourceIdentifier != null)
             {
                 request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
+            }
+            if (cmdletContext.ZonalAutoshiftStatus != null)
+            {
+                request.ZonalAutoshiftStatus = cmdletContext.ZonalAutoshiftStatus;
             }
             
             CmdletOutput output;
@@ -176,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.GetManagedResourceResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.GetManagedResourceRequest request)
+        private Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "GetManagedResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "UpdateZonalAutoshiftConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetManagedResource(request);
+                return client.UpdateZonalAutoshiftConfiguration(request);
                 #elif CORECLR
-                return client.GetManagedResourceAsync(request).GetAwaiter().GetResult();
+                return client.UpdateZonalAutoshiftConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -205,7 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceIdentifier { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.GetManagedResourceResponse, GetAZSManagedResourceCmdlet, object> Select { get; set; } =
+            public Amazon.ARCZonalShift.ZonalAutoshiftStatus ZonalAutoshiftStatus { get; set; }
+            public System.Func<Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse, UpdateAZSZonalAutoshiftConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

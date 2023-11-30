@@ -1,4 +1,19 @@
-﻿### 4.1.465 (2023-11-30 05:14Z)
+﻿### 4.1.466 (2023-11-30 22:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.699.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Zonal Shift
+    * Added cmdlet Get-AZSAutoshiftList leveraging the ListAutoshifts service API.
+    * Added cmdlet New-AZSPracticeRunConfiguration leveraging the CreatePracticeRunConfiguration service API.
+    * Added cmdlet Remove-AZSPracticeRunConfiguration leveraging the DeletePracticeRunConfiguration service API.
+    * Added cmdlet Update-AZSPracticeRunConfiguration leveraging the UpdatePracticeRunConfiguration service API.
+    * Added cmdlet Update-AZSZonalAutoshiftConfiguration leveraging the UpdateZonalAutoshiftConfiguration service API.
+    * Modified cmdlet Get-AZSZonalShiftList: added parameter ResourceIdentifier.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAppImageConfig: added parameters ContainerConfig_ContainerArgument, ContainerConfig_ContainerEntrypoint and ContainerConfig_ContainerEnvironmentVariable.
+    * Modified cmdlet New-SMSpace: added parameters EbsStorageSettings_EbsVolumeSizeInGb, JupyterLabAppSettings_CodeRepository, OwnershipSettings_OwnerUserProfileName, SpaceDisplayName, SpaceSettings_AppType, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_LifecycleConfigArn, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageArn, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, SpaceSettings_CustomFileSystem, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn and SpaceSharingSettings_SharingType.
+    * Modified cmdlet Update-SMAppImageConfig: added parameters ContainerConfig_ContainerArgument, ContainerConfig_ContainerEntrypoint and ContainerConfig_ContainerEnvironmentVariable.
+    * Modified cmdlet Update-SMSpace: added parameters EbsStorageSettings_EbsVolumeSizeInGb, JupyterLabAppSettings_CodeRepository, SpaceDisplayName, SpaceSettings_AppType, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_LifecycleConfigArn, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageArn, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias, SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, SpaceSettings_CustomFileSystem, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn, SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias and SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn.
+
+### 4.1.465 (2023-11-30 05:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.698.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Marketplace Agreement Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MAS and can be listed using the command 'Get-AWSCmdletName -Service MAS'.
   * Amazon Marketplace Catalog Service

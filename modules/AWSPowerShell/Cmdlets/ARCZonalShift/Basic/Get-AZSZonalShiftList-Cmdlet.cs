@@ -28,8 +28,16 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Lists all the active zonal shifts in Amazon Route 53 Application Recovery Controller
-    /// in your AWS account in this AWS Region.
+    /// Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery
+    /// Controller in your Amazon Web Services account in this Amazon Web Services Region.
+    /// <code>ListZonalShifts</code> returns customer-started zonal shifts, as well as practice
+    /// run zonal shifts that Route 53 ARC started on your behalf for zonal autoshift.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>ListZonalShifts</code> operation does not list autoshifts. For more information
+    /// about listing autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "AZSZonalShiftList")]
     [OutputType("Amazon.ARCZonalShift.Model.ZonalShiftSummary")]
@@ -43,10 +51,21 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ResourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the resource that you want to list zonal shifts for. The identifier
+        /// is the Amazon Resource Name (ARN) for the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>A status for a zonal shift.</para><para>The <code>Status</code> for a zonal shift can have one of the following values:</para><ul><li><para><b>ACTIVE</b>: The zonal shift is started and active.</para></li><li><para><b>EXPIRED</b>: The zonal shift has expired (the expiry time was exceeded).</para></li><li><para><b>CANCELED</b>: The zonal shift was canceled.</para></li></ul>
+        /// <para>A status for a zonal shift.</para><para>The <code>Status</code> for a zonal shift can have one of the following values:</para><ul><li><para><b>ACTIVE</b>: The zonal shift has been started and active.</para></li><li><para><b>EXPIRED</b>: The zonal shift has expired (the expiry time was exceeded).</para></li><li><para><b>CANCELED</b>: The zonal shift was canceled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -126,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ResourceIdentifier = this.ResourceIdentifier;
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -150,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ResourceIdentifier != null)
+            {
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
             if (cmdletContext.Status != null)
             {
@@ -218,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ResourceIdentifier { get; set; }
             public Amazon.ARCZonalShift.ZonalShiftStatus Status { get; set; }
             public System.Func<Amazon.ARCZonalShift.Model.ListZonalShiftsResponse, GetAZSZonalShiftListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;

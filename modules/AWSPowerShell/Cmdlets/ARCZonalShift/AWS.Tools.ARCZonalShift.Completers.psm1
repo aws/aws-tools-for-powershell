@@ -80,6 +80,20 @@ $AZS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ARCZonalShift.AutoshiftExecutionStatus
+        "Get-AZSAutoshiftList/Status"
+        {
+            $v = "ACTIVE","COMPLETED"
+            break
+        }
+
+        # Amazon.ARCZonalShift.ZonalAutoshiftStatus
+        "Update-AZSZonalAutoshiftConfiguration/ZonalAutoshiftStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ARCZonalShift.ZonalShiftStatus
         "Get-AZSZonalShiftList/Status"
         {
@@ -96,7 +110,8 @@ $AZS_Completers = {
 }
 
 $AZS_map = @{
-    "Status"=@("Get-AZSZonalShiftList")
+    "Status"=@("Get-AZSAutoshiftList","Get-AZSZonalShiftList")
+    "ZonalAutoshiftStatus"=@("Update-AZSZonalAutoshiftConfiguration")
 }
 
 _awsArgumentCompleterRegistration $AZS_Completers $AZS_map
@@ -150,10 +165,15 @@ $AZS_SelectCompleters = {
 
 $AZS_SelectMap = @{
     "Select"=@("Stop-AZSZonalShift",
+               "New-AZSPracticeRunConfiguration",
+               "Remove-AZSPracticeRunConfiguration",
                "Get-AZSManagedResource",
+               "Get-AZSAutoshiftList",
                "Get-AZSManagedResourceList",
                "Get-AZSZonalShiftList",
                "Start-AZSZonalShift",
+               "Update-AZSPracticeRunConfiguration",
+               "Update-AZSZonalAutoshiftConfiguration",
                "Update-AZSZonalShift")
 }
 
