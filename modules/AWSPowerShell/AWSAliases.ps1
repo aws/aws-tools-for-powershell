@@ -21271,6 +21271,8 @@ Set-Alias -Name QC-ListQuickResponses -Value Get-QCQuickResponseList
 Set-Alias -Name QC-ListTagsForResource -Value Get-QCResourceTag
 Set-Alias -Name Notify-QCRecommendationsReceived -Value Remove-QCRecommendationsReceived
 Set-Alias -Name QC-NotifyRecommendationsReceived -Value Remove-QCRecommendationsReceived
+Set-Alias -Name Put-QCFeedback -Value Write-QCFeedback
+Set-Alias -Name QC-PutFeedback -Value Write-QCFeedback
 Set-Alias -Name Query-QCAssistant -Value Search-QCAssistant
 Set-Alias -Name QC-QueryAssistant -Value Search-QCAssistant
 Set-Alias -Name QC-RemoveKnowledgeBaseTemplateUri -Value Remove-QCKnowledgeBaseTemplateUri

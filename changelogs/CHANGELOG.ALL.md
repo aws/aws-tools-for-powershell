@@ -1,4 +1,12 @@
-﻿### 4.1.466 (2023-11-30 22:32Z)
+﻿### 4.1.467 (2023-12-01 23:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.700.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Q Connect
+    * Added cmdlet Write-QCFeedback leveraging the PutFeedback service API.
+  * Amazon Verified Permissions
+    * Modified cmdlet New-AVPPolicyStore: added parameter Description.
+    * Modified cmdlet Update-AVPPolicyStore: added parameter Description.
+
+### 4.1.466 (2023-11-30 22:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.699.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Zonal Shift
     * Added cmdlet Get-AZSAutoshiftList leveraging the ListAutoshifts service API.

@@ -28,7 +28,7 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Searches existing Amazon Q quick responses in a Amazon Q knowledge base.
+    /// Searches existing Amazon Q quick responses in an Amazon Q knowledge base.
     /// </summary>
     [Cmdlet("Search", "QCQuickResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.QuickResponseSearchResultData")]

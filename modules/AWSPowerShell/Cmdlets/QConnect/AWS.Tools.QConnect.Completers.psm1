@@ -122,6 +122,20 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.Relevance
+        "Write-QCFeedback/ContentFeedback_GenerativeContentFeedbackData_Relevance"
+        {
+            $v = "HELPFUL","NOT_HELPFUL"
+            break
+        }
+
+        # Amazon.QConnect.TargetType
+        "Write-QCFeedback/TargetType"
+        {
+            $v = "RECOMMENDATION","RESULT"
+            break
+        }
+
 
     }
 
@@ -132,10 +146,12 @@ $QC_Completers = {
 
 $QC_map = @{
     "AssociationType"=@("New-QCAssistantAssociation")
+    "ContentFeedback_GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
     "SearchExpression_OrderOnField_Order"=@("Search-QCQuickResponse")
+    "TargetType"=@("Write-QCFeedback")
     "Type"=@("New-QCAssistant")
 }
 
@@ -218,6 +234,7 @@ $QC_SelectMap = @{
                "Get-QCQuickResponseList",
                "Get-QCResourceTag",
                "Remove-QCRecommendationsReceived",
+               "Write-QCFeedback",
                "Search-QCAssistant",
                "Remove-QCKnowledgeBaseTemplateUri",
                "Search-QCContent",

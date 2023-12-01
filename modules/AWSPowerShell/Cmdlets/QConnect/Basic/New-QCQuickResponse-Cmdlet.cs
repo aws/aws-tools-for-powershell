@@ -28,7 +28,7 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Creates a Amazon Q quick response.
+    /// Creates an Amazon Q quick response.
     /// </summary>
     [Cmdlet("New", "QCQuickResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.QuickResponseData")]

@@ -50,7 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class NewAVPPolicyStoreCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>Descriptive text that you can provide to help with identification of the current policy
+        /// store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
         
         #region Parameter ValidationSettings_Mode
         /// <summary>
@@ -154,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
             context.ValidationSettings_Mode = this.ValidationSettings_Mode;
             #if MODULAR
             if (this.ValidationSettings_Mode == null && ParameterWasBound(nameof(this.ValidationSettings_Mode)))
@@ -180,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             
              // populate ValidationSettings
@@ -262,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
             public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.CreatePolicyStoreResponse, NewAVPPolicyStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

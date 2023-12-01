@@ -126,7 +126,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-QCImportJob', 
         'Update-QCContent', 
         'Update-QCKnowledgeBaseTemplateUri', 
-        'Update-QCQuickResponse')
+        'Update-QCQuickResponse', 
+        'Write-QCFeedback')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -46,7 +46,20 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class UpdateAVPPolicyStoreCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>Descriptive text that you can provide to help with identification of the current policy
+        /// store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
         
         #region Parameter ValidationSettings_Mode
         /// <summary>
@@ -149,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 context.Select = (response, cmdlet) => this.PolicyStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Description = this.Description;
             context.PolicyStoreId = this.PolicyStoreId;
             #if MODULAR
             if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
@@ -179,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             // create request
             var request = new Amazon.VerifiedPermissions.Model.UpdatePolicyStoreRequest();
             
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.PolicyStoreId != null)
             {
                 request.PolicyStoreId = cmdletContext.PolicyStoreId;
@@ -263,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Description { get; set; }
             public System.String PolicyStoreId { get; set; }
             public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.UpdatePolicyStoreResponse, UpdateAVPPolicyStoreCmdlet, object> Select { get; set; } =
