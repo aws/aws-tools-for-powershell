@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter QuantumTaskArn
         /// <summary>
         /// <para>
-        /// <para>the ARN of the task to retrieve.</para>
+        /// <para>The ARN of the task to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

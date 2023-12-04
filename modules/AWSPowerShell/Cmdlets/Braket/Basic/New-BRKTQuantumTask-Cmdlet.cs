@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         public System.String Action { get; set; }
         #endregion
         
+        #region Parameter Association
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Braket resources associated with the quantum task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Associations")]
+        public Amazon.Braket.Model.Association[] Association { get; set; }
+        #endregion
+        
         #region Parameter DeviceArn
         /// <summary>
         /// <para>
@@ -218,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
                 WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Association != null)
+            {
+                context.Association = new List<Amazon.Braket.Model.Association>(this.Association);
+            }
             context.ClientToken = this.ClientToken;
             context.DeviceArn = this.DeviceArn;
             #if MODULAR
@@ -276,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             if (cmdletContext.Action != null)
             {
                 request.Action = cmdletContext.Action;
+            }
+            if (cmdletContext.Association != null)
+            {
+                request.Associations = cmdletContext.Association;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -371,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Action { get; set; }
+            public List<Amazon.Braket.Model.Association> Association { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String DeviceParameter { get; set; }

@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filters_AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services accounts in which this custom line item will be applied to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_AccountIds")]
+        public System.String[] Filters_AccountId { get; set; }
+        #endregion
+        
         #region Parameter Filters_Arn
         /// <summary>
         /// <para>
@@ -157,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BillingPeriod = this.BillingPeriod;
+            if (this.Filters_AccountId != null)
+            {
+                context.Filters_AccountId = new List<System.String>(this.Filters_AccountId);
+            }
             if (this.Filters_Arn != null)
             {
                 context.Filters_Arn = new List<System.String>(this.Filters_Arn);
@@ -195,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
              // populate Filters
             var requestFiltersIsNull = true;
             request.Filters = new Amazon.BillingConductor.Model.ListCustomLineItemsFilter();
+            List<System.String> requestFilters_filters_AccountId = null;
+            if (cmdletContext.Filters_AccountId != null)
+            {
+                requestFilters_filters_AccountId = cmdletContext.Filters_AccountId;
+            }
+            if (requestFilters_filters_AccountId != null)
+            {
+                request.Filters.AccountIds = requestFilters_filters_AccountId;
+                requestFiltersIsNull = false;
+            }
             List<System.String> requestFilters_filters_Arn = null;
             if (cmdletContext.Filters_Arn != null)
             {
@@ -300,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BillingPeriod { get; set; }
+            public List<System.String> Filters_AccountId { get; set; }
             public List<System.String> Filters_Arn { get; set; }
             public List<System.String> Filters_BillingGroup { get; set; }
             public List<System.String> Filters_Name { get; set; }

@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account in which this custom line item will be applied to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter Percentage_AssociatedValue
         /// <summary>
         /// <para>
@@ -268,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 context.Select = (response, cmdlet) => this.BillingGroupArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
             context.BillingGroupArn = this.BillingGroupArn;
             #if MODULAR
             if (this.BillingGroupArn == null && ParameterWasBound(nameof(this.BillingGroupArn)))
@@ -333,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             // create request
             var request = new Amazon.BillingConductor.Model.CreateCustomLineItemRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             if (cmdletContext.BillingGroupArn != null)
             {
                 request.BillingGroupArn = cmdletContext.BillingGroupArn;
@@ -532,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.String BillingGroupArn { get; set; }
             public System.String BillingPeriodRange_ExclusiveEndBillingPeriod { get; set; }
             public System.String BillingPeriodRange_InclusiveStartBillingPeriod { get; set; }

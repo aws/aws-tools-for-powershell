@@ -131,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// storage of data during the savedown process. If you specify this field in your request,
         /// you must provide the <code>savedownStorageConfiguration</code> parameter.</para></li><li><para>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems.
         /// It allows you to create your own routing logic using the initialization scripts and
-        /// custom code. This type of cluster does not require a writable local storage.</para></li></ul>
+        /// custom code. This type of cluster does not require a writable local storage.</para></li><li><para>GP – A general purpose cluster allows you to quickly iterate on code during development
+        /// by granting greater access to system commands and enabling a fast reload of custom
+        /// code. This cluster type can optionally mount databases including cache and savedown
+        /// storage. For this cluster type, the node count is fixed at 1. It does not support
+        /// autoscaling and supports only <code>SINGLE</code> AZ mode.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

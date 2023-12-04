@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     ///  You must also have these additional permissions if you don't use the <code>AWSServiceCatalogAppRegistryFullAccess</code>
     /// policy. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html">AWSServiceCatalogAppRegistryFullAccess</a>
     /// in the AppRegistry Administrator Guide. 
-    /// </para><ul><li><para><code>resource-groups:DisassociateResource</code></para></li><li><para><code>cloudformation:UpdateStack</code></para></li><li><para><code>cloudformation:DescribeStacks</code></para></li></ul><note><para>
+    /// </para><ul><li><para><code>resource-groups:AssociateResource</code></para></li><li><para><code>cloudformation:UpdateStack</code></para></li><li><para><code>cloudformation:DescribeStacks</code></para></li></ul><note><para>
     ///  In addition, you must have the tagging permission defined by the Amazon Web Services
     /// service that creates the resource. For more information, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html">TagResources</a>
     /// in the <i>Resource Groups Tagging API Reference</i>. 

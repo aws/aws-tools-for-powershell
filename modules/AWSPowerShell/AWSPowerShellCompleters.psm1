@@ -26638,7 +26638,7 @@ $FINSP_Completers = {
         # Amazon.Finspace.KxClusterCodeDeploymentStrategy
         "Update-FINSPKxClusterCodeConfiguration/DeploymentConfiguration_DeploymentStrategy"
         {
-            $v = "FORCE","ROLLING"
+            $v = "FORCE","NO_RESTART","ROLLING"
             break
         }
 
@@ -26648,7 +26648,7 @@ $FINSP_Completers = {
             ($_ -eq "New-FINSPKxCluster/ClusterType")
         }
         {
-            $v = "GATEWAY","HDB","RDB"
+            $v = "GATEWAY","GP","HDB","RDB"
             break
         }
 

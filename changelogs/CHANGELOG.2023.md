@@ -1,4 +1,14 @@
-﻿### 4.1.467 (2023-12-01 23:10Z)
+﻿### 4.1.468 (2023-12-04 23:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.701.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Macie
+  * Amazon AWSBillingConductor
+    * Modified cmdlet Get-ABCCustomLineItemList: added parameter Filters_AccountId.
+    * Modified cmdlet New-ABCCustomLineItem: added parameter AccountId.
+  * Amazon Braket
+    * Modified cmdlet New-BRKTJob: added parameter Association.
+    * Modified cmdlet New-BRKTQuantumTask: added parameter Association.
+
+### 4.1.467 (2023-12-01 23:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.700.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Q Connect
     * Added cmdlet Write-QCFeedback leveraging the PutFeedback service API.

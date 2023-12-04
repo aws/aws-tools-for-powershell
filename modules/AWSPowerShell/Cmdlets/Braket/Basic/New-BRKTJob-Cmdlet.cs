@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Association
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Braket resources associated with the hybrid job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Associations")]
+        public Amazon.Braket.Model.Association[] Association { get; set; }
+        #endregion
+        
         #region Parameter ScriptModeConfig_CompressionType
         /// <summary>
         /// <para>
@@ -342,6 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             context.ScriptModeConfig_CompressionType = this.ScriptModeConfig_CompressionType;
             context.ScriptModeConfig_EntryPoint = this.ScriptModeConfig_EntryPoint;
             context.ScriptModeConfig_S3Uri = this.ScriptModeConfig_S3Uri;
+            if (this.Association != null)
+            {
+                context.Association = new List<Amazon.Braket.Model.Association>(this.Association);
+            }
             context.CheckpointConfig_LocalPath = this.CheckpointConfig_LocalPath;
             context.CheckpointConfig_S3Uri = this.CheckpointConfig_S3Uri;
             context.ClientToken = this.ClientToken;
@@ -504,6 +519,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             if (requestAlgorithmSpecificationIsNull)
             {
                 request.AlgorithmSpecification = null;
+            }
+            if (cmdletContext.Association != null)
+            {
+                request.Associations = cmdletContext.Association;
             }
             
              // populate CheckpointConfig
@@ -729,6 +748,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             public Amazon.Braket.CompressionType ScriptModeConfig_CompressionType { get; set; }
             public System.String ScriptModeConfig_EntryPoint { get; set; }
             public System.String ScriptModeConfig_S3Uri { get; set; }
+            public List<Amazon.Braket.Model.Association> Association { get; set; }
             public System.String CheckpointConfig_LocalPath { get; set; }
             public System.String CheckpointConfig_S3Uri { get; set; }
             public System.String ClientToken { get; set; }

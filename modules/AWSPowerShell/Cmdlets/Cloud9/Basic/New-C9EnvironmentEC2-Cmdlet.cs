@@ -120,10 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// in December 2023, and as a result will no longer receive security updates. We recommend
         /// using Amazon Linux 2 as the AMI to create your environment as it is fully supported.
         /// This change will only affect direct API consumers, and not Cloud9 console users.</para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
-        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>ubuntu-22.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code></para></li></ul>
+        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux: <code>amazonlinux-1-x86_64</code></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>ubuntu-22.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li><li><para>Ubuntu 22.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code></para></li></ul>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImageId { get; set; }
         #endregion
         
@@ -264,6 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.C9
             context.Description = this.Description;
             context.DryRun = this.DryRun;
             context.ImageId = this.ImageId;
+            #if MODULAR
+            if (this.ImageId == null && ParameterWasBound(nameof(this.ImageId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ImageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceType = this.InstanceType;
             #if MODULAR
             if (this.InstanceType == null && ParameterWasBound(nameof(this.InstanceType)))
