@@ -53,6 +53,19 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String ConfigurationUpdates_AdditionalConfiguration { get; set; }
         #endregion
         
+        #region Parameter QueryResultsS3AccessGrantsConfiguration_AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type used for Amazon S3 access grants. Currently, only <code>DIRECTORY_IDENTITY</code>
+        /// is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_AuthenticationType")]
+        [AWSConstantClassSource("Amazon.Athena.AuthenticationType")]
+        public Amazon.Athena.AuthenticationType QueryResultsS3AccessGrantsConfiguration_AuthenticationType { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationUpdates_BytesScannedCutoffPerQuery
         /// <summary>
         /// <para>
@@ -62,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? ConfigurationUpdates_BytesScannedCutoffPerQuery { get; set; }
+        #endregion
+        
+        #region Parameter QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix
+        /// <summary>
+        /// <para>
+        /// <para>When enabled, appends the user ID as an Amazon S3 path prefix to the query result
+        /// output location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix")]
+        public System.Boolean? QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix { get; set; }
         #endregion
         
         #region Parameter Description
@@ -105,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Boolean? ConfigurationUpdates_EnableMinimumEncryptionConfiguration { get; set; }
         #endregion
         
+        #region Parameter QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon S3 access grants are enabled for query results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrants")]
+        public System.Boolean? QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
@@ -136,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ConfigurationUpdates_ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The ARN of the execution role used to access user resources. This property applies
-        /// only to Spark-enabled workgroups.</para>
+        /// <para>The ARN of the execution role used to access user resources for Spark sessions and
+        /// Identity Center enabled workgroups. This property applies only to Spark enabled workgroups
+        /// and Identity Center enabled workgroups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,6 +479,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
             context.ConfigurationUpdates_ExecutionRole = this.ConfigurationUpdates_ExecutionRole;
             context.ConfigurationUpdates_PublishCloudWatchMetricsEnabled = this.ConfigurationUpdates_PublishCloudWatchMetricsEnabled;
+            context.QueryResultsS3AccessGrantsConfiguration_AuthenticationType = this.QueryResultsS3AccessGrantsConfiguration_AuthenticationType;
+            context.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix = this.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix;
+            context.QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant = this.QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant;
             context.ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery = this.ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery;
             context.ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration = this.ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration;
             context.ConfigurationUpdates_RequesterPaysEnabled = this.ConfigurationUpdates_RequesterPaysEnabled;
@@ -631,6 +671,51 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfigurationUpdates_configurationUpdates_EngineVersion != null)
             {
                 request.ConfigurationUpdates.EngineVersion = requestConfigurationUpdates_configurationUpdates_EngineVersion;
+                requestConfigurationUpdatesIsNull = false;
+            }
+            Amazon.Athena.Model.QueryResultsS3AccessGrantsConfiguration requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration = null;
+            
+             // populate QueryResultsS3AccessGrantsConfiguration
+            var requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfigurationIsNull = true;
+            requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration = new Amazon.Athena.Model.QueryResultsS3AccessGrantsConfiguration();
+            Amazon.Athena.AuthenticationType requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_AuthenticationType = null;
+            if (cmdletContext.QueryResultsS3AccessGrantsConfiguration_AuthenticationType != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_AuthenticationType = cmdletContext.QueryResultsS3AccessGrantsConfiguration_AuthenticationType;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_AuthenticationType != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration.AuthenticationType = requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_AuthenticationType;
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfigurationIsNull = false;
+            }
+            System.Boolean? requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix = null;
+            if (cmdletContext.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix = cmdletContext.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix.Value;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration.CreateUserLevelPrefix = requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix.Value;
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfigurationIsNull = false;
+            }
+            System.Boolean? requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant = null;
+            if (cmdletContext.QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant = cmdletContext.QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant.Value;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration.EnableS3AccessGrants = requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration_queryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant.Value;
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration should be set to null
+            if (requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfigurationIsNull)
+            {
+                requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration = null;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration != null)
+            {
+                request.ConfigurationUpdates.QueryResultsS3AccessGrantsConfiguration = requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration;
                 requestConfigurationUpdatesIsNull = false;
             }
             Amazon.Athena.Model.ResultConfigurationUpdates requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates = null;
@@ -855,6 +940,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String EngineVersion_SelectedEngineVersion { get; set; }
             public System.String ConfigurationUpdates_ExecutionRole { get; set; }
             public System.Boolean? ConfigurationUpdates_PublishCloudWatchMetricsEnabled { get; set; }
+            public Amazon.Athena.AuthenticationType QueryResultsS3AccessGrantsConfiguration_AuthenticationType { get; set; }
+            public System.Boolean? QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix { get; set; }
+            public System.Boolean? QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant { get; set; }
             public System.Boolean? ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery { get; set; }
             public System.Boolean? ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration { get; set; }
             public System.Boolean? ConfigurationUpdates_RequesterPaysEnabled { get; set; }

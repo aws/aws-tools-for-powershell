@@ -179,7 +179,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataCatalogs" OutputProperty="DataCatalogsSummary" Verb="Get" Noun="DataCatalogList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataCatalogs" OutputProperty="DataCatalogsSummary" Verb="Get" Noun="DataCatalogList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

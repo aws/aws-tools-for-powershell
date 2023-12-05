@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter WorkGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workgroup. Required if making an IAM Identity Center request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkGroup { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -112,6 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.WorkGroup = this.WorkGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.WorkGroup != null)
+            {
+                request.WorkGroup = cmdletContext.WorkGroup;
             }
             
             // Initialize loop variant and commence piping
@@ -221,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String WorkGroup { get; set; }
             public System.Func<Amazon.Athena.Model.ListDataCatalogsResponse, GetATHDataCatalogListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DataCatalogsSummary;
         }

@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter WorkGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workgroup for which the metadata is being fetched. Required if requesting
+        /// an IAM Identity Center enabled Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkGroup { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Database'.
@@ -136,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WorkGroup = this.WorkGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.WorkGroup != null)
+            {
+                request.WorkGroup = cmdletContext.WorkGroup;
             }
             
             CmdletOutput output;
@@ -223,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             public System.String CatalogName { get; set; }
             public System.String DatabaseName { get; set; }
+            public System.String WorkGroup { get; set; }
             public System.Func<Amazon.Athena.Model.GetDatabaseResponse, GetATHDatabaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Database;
         }

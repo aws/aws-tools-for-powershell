@@ -1,4 +1,16 @@
-﻿### 4.1.468 (2023-12-04 23:15Z)
+﻿### 4.1.469 (2023-12-05 22:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.702.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * Modified cmdlet Get-ATHDatabase: added parameter WorkGroup.
+    * Modified cmdlet Get-ATHDatabasisList: added parameter WorkGroup.
+    * Modified cmdlet Get-ATHDataCatalog: added parameter WorkGroup.
+    * Modified cmdlet Get-ATHDataCatalogList: added parameter WorkGroup.
+    * Modified cmdlet Get-ATHTableMetadata: added parameter WorkGroup.
+    * Modified cmdlet Get-ATHTableMetadataList: added parameter WorkGroup.
+    * Modified cmdlet New-ATHWorkGroup: added parameters IdentityCenterConfiguration_EnableIdentityCenter, IdentityCenterConfiguration_IdentityCenterInstanceArn, QueryResultsS3AccessGrantsConfiguration_AuthenticationType, QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix and QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant.
+    * Modified cmdlet Update-ATHWorkGroup: added parameters QueryResultsS3AccessGrantsConfiguration_AuthenticationType, QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix and QueryResultsS3AccessGrantsConfiguration_EnableS3AccessGrant.
+
+### 4.1.468 (2023-12-04 23:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.701.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Macie
   * Amazon AWSBillingConductor

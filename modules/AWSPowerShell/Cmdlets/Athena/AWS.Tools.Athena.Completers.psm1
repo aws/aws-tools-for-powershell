@@ -80,6 +80,16 @@ $ATH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Athena.AuthenticationType
+        {
+            ($_ -eq "New-ATHWorkGroup/Configuration_QueryResultsS3AccessGrantsConfiguration_AuthenticationType") -Or
+            ($_ -eq "Update-ATHWorkGroup/ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_AuthenticationType")
+        }
+        {
+            $v = "DIRECTORY_IDENTITY"
+            break
+        }
+
         # Amazon.Athena.CalculationExecutionState
         "Get-ATHCalculationExecutionList/StateFilter"
         {
@@ -159,8 +169,10 @@ $ATH_Completers = {
 }
 
 $ATH_map = @{
+    "Configuration_QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("New-ATHWorkGroup")
     "Configuration_ResultConfiguration_AclConfiguration_S3AclOption"=@("New-ATHWorkGroup")
     "Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup")
+    "ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("Update-ATHWorkGroup")
     "ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption"=@("Update-ATHWorkGroup")
     "ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption"=@("Update-ATHWorkGroup")
     "ExecutorStateFilter"=@("Get-ATHExecutorList")

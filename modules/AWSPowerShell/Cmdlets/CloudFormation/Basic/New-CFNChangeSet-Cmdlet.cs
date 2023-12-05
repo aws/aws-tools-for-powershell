@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ImportExistingResource
         /// <summary>
         /// <para>
-        /// <para>Indicates if the stack set imports resources that already exist.</para><note><para>This parameter can only import resources that have custom names in templates. For
+        /// <para>Indicates if the change set imports resources that already exist.</para><note><para>This parameter can only import resources that have custom names in templates. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">name
         /// type</a> in the <i>CloudFormation User Guide</i>. To import resources that do not
         /// accept custom names, such as EC2 instances, use the resource import feature instead.
