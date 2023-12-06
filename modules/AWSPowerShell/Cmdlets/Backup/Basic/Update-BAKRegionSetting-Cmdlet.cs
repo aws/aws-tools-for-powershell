@@ -28,11 +28,13 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates the current service opt-in settings for the Region. If service-opt-in is enabled
-    /// for a service, Backup tries to protect that service's resources in this Region, when
-    /// the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
-    /// Backup does not try to protect that service's resources in this Region. Use the <code>DescribeRegionSettings</code>
-    /// API to determine the resource types that are supported.
+    /// Updates the current service opt-in settings for the Region.
+    /// 
+    ///  
+    /// <para>
+    /// Use the <code>DescribeRegionSettings</code> API to determine the resource types that
+    /// are supported.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRegionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,7 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ResourceTypeOptInPreference
         /// <summary>
         /// <para>
-        /// <para>Updates the list of services along with the opt-in preferences for the Region.</para>
+        /// <para>Updates the list of services along with the opt-in preferences for the Region.</para><para>If resource assignments are only based on tags, then service opt-in settings are applied.
+        /// If a resource type is explicitly assigned to a backup plan, such as Amazon S3, Amazon
+        /// EC2, or Amazon RDS, it will be included in the backup even if the opt-in is not enabled
+        /// for that particular service. If both a resource type and tags are specified in a resource
+        /// assignment, the resource type specified in the backup plan takes priority over the
+        /// tag condition. Service opt-in settings are disregarded in this situation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,10 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Performs toxicity analysis on the list of text strings that you provide as input.
-    /// The analysis uses the order of strings in the list to determine context when predicting
-    /// toxicity. The API response contains a results list that matches the size of the input
-    /// list. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity
-    /// detection</a> in the <i>Amazon Comprehend Developer Guide</i>
+    /// The API response contains a results list that matches the size of the input list.
+    /// For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity
+    /// detection</a> in the <i>Amazon Comprehend Developer Guide</i>.
     /// </summary>
     [Cmdlet("Find", "COMPToxicContent")]
     [OutputType("Amazon.Comprehend.Model.ToxicLabels")]
@@ -68,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter TextSegment
         /// <summary>
         /// <para>
-        /// <para>A list of up to 10 text strings. The maximum size for the list is 10 KB.</para>
+        /// <para>A list of up to 10 text strings. Each string has a maximum size of 1 KB, and the maximum
+        /// size of the list is 10 KB.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

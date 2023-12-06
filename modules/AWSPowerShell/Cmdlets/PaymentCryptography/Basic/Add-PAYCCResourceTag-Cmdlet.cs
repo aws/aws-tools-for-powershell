@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// be an empty (null) string. You can't have more than one tag on an Amazon Web Services
         /// Payment Cryptography key with the same tag key. If you specify an existing tag key
         /// with a different tag value, Amazon Web Services Payment Cryptography replaces the
-        /// current tag value with the new one.</para><important><para>Don't include confidential or sensitive information in this field. This field may
-        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To use this parameter, you must have <a>TagResource</a> permission in an IAM policy.</para><important><para>Don't include confidential or sensitive information in this field. This field may
-        /// be displayed in plaintext in CloudTrail logs and other output.</para></important>
+        /// current tag value with the new one.</para><important><para>Don't include personal, confidential or sensitive information in this field. This
+        /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To use this parameter, you must have <a>TagResource</a> permission in an IAM policy.</para><important><para>Don't include personal, confidential or sensitive information in this field. This
+        /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

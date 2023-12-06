@@ -28,7 +28,7 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Deletes the key material and all metadata associated with Amazon Web Services Payment
+    /// Deletes the key material and metadata associated with Amazon Web Services Payment
     /// Cryptography key.
     /// 
     ///  
@@ -39,13 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// Because key deletion is destructive, Amazon Web Services Payment Cryptography has
     /// a safety mechanism to prevent accidental deletion of a key. When you call this operation,
     /// Amazon Web Services Payment Cryptography disables the specified key but doesn't delete
-    /// it until after a waiting period. The default waiting period is 7 days. To set a different
-    /// waiting period, set <code>DeleteKeyInDays</code>. During the waiting period, the <code>KeyState</code>
-    /// is <code>DELETE_PENDING</code>. After the key is deleted, the <code>KeyState</code>
-    /// is <code>DELETE_COMPLETE</code>.
-    /// </para><para>
-    /// If you delete key material, you can use <a>ImportKey</a> to reimport the same key
-    /// material into the Amazon Web Services Payment Cryptography key.
+    /// it until after a waiting period set using <code>DeleteKeyInDays</code>. The default
+    /// waiting period is 7 days. During the waiting period, the <code>KeyState</code> is
+    /// <code>DELETE_PENDING</code>. After the key is deleted, the <code>KeyState</code> is
+    /// <code>DELETE_COMPLETE</code>.
     /// </para><para>
     /// You should delete a key only when you are sure that you don't need to use it anymore
     /// and no other parties are utilizing this key. If you aren't sure, consider deactivating

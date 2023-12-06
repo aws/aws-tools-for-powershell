@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
-        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><code>TABLES</code> - Returns information about any tables that are detected in the
-        /// input document. </para></li><li><para><code>FORMS</code> - Returns information and the data from any forms that are detected
+        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><code>TABLES</code> - Returns additional information about any tables that are detected
+        /// in the input document. </para></li><li><para><code>FORMS</code> - Returns additional information about any forms that are detected
         /// in the input document. </para></li></ul>
         /// </para>
         /// </summary>

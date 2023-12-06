@@ -28,8 +28,9 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Starts an asynchronous document classification job. Use the <code>DescribeDocumentClassificationJob</code>
-    /// operation to track the progress of the job.
+    /// Starts an asynchronous document classification job using a custom classification model.
+    /// Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress
+    /// of the job.
     /// </summary>
     [Cmdlet("Start", "COMPDocumentClassificationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Comprehend.Model.StartDocumentClassificationJobResponse")]

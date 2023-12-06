@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The signing key algorithm to generate a signing key certificate. This certificate
-        /// signs the wrapped key under export within the TR-34 key block cryptogram. <code>RSA_2048</code>
+        /// signs the wrapped key under export within the TR-34 key block. <code>RSA_2048</code>
         /// is the only signing key algorithm allowed.</para>
         /// </para>
         /// </summary>

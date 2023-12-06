@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <para>
         /// <para>Use this parameter to specify the maximum number of items to return. When this value
         /// is present, Amazon Web Services Payment Cryptography does not return more than the
-        /// specified number of items, but it might return fewer.</para>
+        /// specified number of items, but it might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 100, inclusive.
+        /// If you do not include a value, it defaults to 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

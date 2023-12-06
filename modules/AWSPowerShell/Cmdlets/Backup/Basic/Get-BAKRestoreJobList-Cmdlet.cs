@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.DateTime? ByCreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ByResourceType
+        /// <summary>
+        /// <para>
+        /// <para>Include this parameter to return only restore jobs for the specified resources:</para><ul><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>CloudFormation</code> for CloudFormation</para></li><li><para><code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>FSx</code> for Amazon FSx</para></li><li><para><code>Neptune</code> for Amazon Neptune</para></li><li><para><code>Redshift</code> for Amazon Redshift</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>SAP HANA on Amazon EC2</code> for SAP HANA databases</para></li><li><para><code>Storage Gateway</code> for Storage Gateway</para></li><li><para><code>S3</code> for Amazon S3</para></li><li><para><code>Timestream</code> for Amazon Timestream</para></li><li><para><code>VirtualMachine</code> for virtual machines</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByResourceType { get; set; }
+        #endregion
+        
         #region Parameter ByRestoreTestingPlanArn
         /// <summary>
         /// <para>
@@ -192,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCompleteBefore = this.ByCompleteBefore;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByResourceType = this.ByResourceType;
             context.ByRestoreTestingPlanArn = this.ByRestoreTestingPlanArn;
             context.ByStatus = this.ByStatus;
             context.MaxResult = this.MaxResult;
@@ -243,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByResourceType != null)
+            {
+                request.ByResourceType = cmdletContext.ByResourceType;
             }
             if (cmdletContext.ByRestoreTestingPlanArn != null)
             {
@@ -330,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByResourceType != null)
+            {
+                request.ByResourceType = cmdletContext.ByResourceType;
             }
             if (cmdletContext.ByRestoreTestingPlanArn != null)
             {
@@ -463,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCompleteBefore { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
+            public System.String ByResourceType { get; set; }
             public System.String ByRestoreTestingPlanArn { get; set; }
             public Amazon.Backup.RestoreJobStatus ByStatus { get; set; }
             public int? MaxResult { get; set; }

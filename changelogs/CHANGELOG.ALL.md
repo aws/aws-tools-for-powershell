@@ -1,4 +1,13 @@
-﻿### 4.1.469 (2023-12-05 22:30Z)
+﻿### 4.1.470 (2023-12-06 22:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.703.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKRestoreJobList: added parameter ByResourceType.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNInstance: added parameter Tag.
+  * Amazon Payment Cryptography Control Plane
+    * Modified cmdlet Export-PAYCCKey: added parameters ExportAttributes_KeyCheckValueAlgorithm and ExportDukptInitialKey_KeySerialNumber.
+
+### 4.1.469 (2023-12-05 22:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.702.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Get-ATHDatabase: added parameter WorkGroup.

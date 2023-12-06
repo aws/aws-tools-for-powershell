@@ -47980,6 +47980,7 @@ $PAYCC_Completers = {
 
         # Amazon.PaymentCryptography.KeyCheckValueAlgorithm
         {
+            ($_ -eq "Export-PAYCCKey/ExportAttributes_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Import-PAYCCKey/KeyCheckValueAlgorithm") -Or
             ($_ -eq "New-PAYCCKey/KeyCheckValueAlgorithm")
         }
@@ -48046,6 +48047,7 @@ $PAYCC_Completers = {
 }
 
 $PAYCC_map = @{
+    "ExportAttributes_KeyCheckValueAlgorithm"=@("Export-PAYCCKey")
     "KeyAttributes_KeyAlgorithm"=@("New-PAYCCKey")
     "KeyAttributes_KeyClass"=@("New-PAYCCKey")
     "KeyAttributes_KeyUsage"=@("New-PAYCCKey")

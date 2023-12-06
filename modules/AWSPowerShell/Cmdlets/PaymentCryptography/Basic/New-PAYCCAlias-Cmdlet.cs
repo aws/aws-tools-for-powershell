@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>A friendly name that you can use to refer a key. An alias must begin with <code>alias/</code>
+        /// <para>A friendly name that you can use to refer to a key. An alias must begin with <code>alias/</code>
         /// followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only
-        /// alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</para><important><para>Don't include confidential or sensitive information in this field. This field may
-        /// be displayed in plaintext in CloudTrail logs and other output.</para></important>
+        /// alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</para><important><para>Don't include personal, confidential or sensitive information in this field. This
+        /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
