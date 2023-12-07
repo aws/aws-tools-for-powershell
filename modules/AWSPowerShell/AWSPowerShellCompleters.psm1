@@ -12701,6 +12701,13 @@ $CD_Completers = {
             break
         }
 
+        # Amazon.CodeDeploy.MinimumHealthyHostsPerZoneType
+        "New-CDDeploymentConfig/ZonalConfig_MinimumHealthyHostsPerZone_Type"
+        {
+            $v = "FLEET_PERCENT","HOST_COUNT"
+            break
+        }
+
         # Amazon.CodeDeploy.MinimumHealthyHostsType
         "New-CDDeploymentConfig/MinimumHealthyHosts_Type"
         {
@@ -12777,6 +12784,7 @@ $CD_map = @{
     "SortOrder"=@("Get-CDApplicationRevisionList")
     "Status"=@("Write-CDLifecycleEventHookExecutionStatus")
     "TrafficRoutingConfig_Type"=@("New-CDDeploymentConfig")
+    "ZonalConfig_MinimumHealthyHostsPerZone_Type"=@("New-CDDeploymentConfig")
 }
 
 _awsArgumentCompleterRegistration $CD_Completers $CD_map

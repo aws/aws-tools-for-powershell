@@ -48,7 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para> The unique ID of a deployment. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DeploymentId { get; set; }
         #endregion
         
@@ -58,7 +65,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para> The unique ID of a deployment target. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetId { get; set; }
         #endregion
         
@@ -89,7 +103,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DeploymentId = this.DeploymentId;
+            #if MODULAR
+            if (this.DeploymentId == null && ParameterWasBound(nameof(this.DeploymentId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DeploymentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.TargetId = this.TargetId;
+            #if MODULAR
+            if (this.TargetId == null && ParameterWasBound(nameof(this.TargetId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TargetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

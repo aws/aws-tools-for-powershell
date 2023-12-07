@@ -380,6 +380,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.TargetGroupPairInfo[] LoadBalancerInfo_TargetGroupPairInfoList { get; set; }
         #endregion
         
+        #region Parameter TerminationHookEnabled
+        /// <summary>
+        /// <para>
+        /// <para>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling.
+        /// For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
+        /// CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</para><para>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install
+        /// a termination hook into your Auto Scaling group when you update a deployment group.
+        /// When this hook is installed, CodeDeploy will perform termination deployments.</para><para>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling
+        /// termination deployments during Auto Scaling scale-in events</a> in the <i>CodeDeploy
+        /// User Guide</i>.</para><para>For more information about Auto Scaling scale-in events, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in">Scale
+        /// in</a> topic in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TerminationHookEnabled { get; set; }
+        #endregion
+        
         #region Parameter OnSuccessBlueInstanceTerminationWaitTime
         /// <summary>
         /// <para>
@@ -567,6 +584,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             }
             context.OutdatedInstancesStrategy = this.OutdatedInstancesStrategy;
             context.ServiceRoleArn = this.ServiceRoleArn;
+            context.TerminationHookEnabled = this.TerminationHookEnabled;
             if (this.TriggerConfiguration != null)
             {
                 context.TriggerConfiguration = new List<Amazon.CodeDeploy.Model.TriggerConfig>(this.TriggerConfiguration);
@@ -909,6 +927,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.ServiceRoleArn = cmdletContext.ServiceRoleArn;
             }
+            if (cmdletContext.TerminationHookEnabled != null)
+            {
+                request.TerminationHookEnabled = cmdletContext.TerminationHookEnabled.Value;
+            }
             if (cmdletContext.TriggerConfiguration != null)
             {
                 request.TriggerConfigurations = cmdletContext.TriggerConfiguration;
@@ -1002,6 +1024,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public List<List<Amazon.CodeDeploy.Model.TagFilter>> OnPremisesTagSetList { get; set; }
             public Amazon.CodeDeploy.OutdatedInstancesStrategy OutdatedInstancesStrategy { get; set; }
             public System.String ServiceRoleArn { get; set; }
+            public System.Boolean? TerminationHookEnabled { get; set; }
             public List<Amazon.CodeDeploy.Model.TriggerConfig> TriggerConfiguration { get; set; }
             public System.Func<Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse, UpdateCDDeploymentGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.HooksNotCleanedUp;

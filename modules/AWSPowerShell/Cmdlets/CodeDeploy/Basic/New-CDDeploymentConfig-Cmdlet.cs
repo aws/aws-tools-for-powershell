@@ -95,6 +95,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String DeploymentConfigName { get; set; }
         #endregion
         
+        #region Parameter ZonalConfig_FirstZoneMonitorDurationInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The period of time, in seconds, that CodeDeploy must wait after completing a deployment
+        /// to the <i>first</i> Availability Zone. CodeDeploy will wait this amount of time before
+        /// starting a deployment to the second Availability Zone. You might set this option if
+        /// you want to allow extra bake time for the first Availability Zone. If you don't specify
+        /// a value for <code>firstZoneMonitorDurationInSeconds</code>, then CodeDeploy uses the
+        /// <code>monitorDurationInSeconds</code> value for the first Availability Zone.</para><para>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal
+        /// configuration</a> in the <i>CodeDeploy User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ZonalConfig_FirstZoneMonitorDurationInSeconds")]
+        public System.Int64? ZonalConfig_FirstZoneMonitorDurationInSecond { get; set; }
+        #endregion
+        
         #region Parameter TimeBasedLinear_LinearInterval
         /// <summary>
         /// <para>
@@ -117,6 +134,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TrafficRoutingConfig_TimeBasedLinear_LinearPercentage")]
         public System.Int32? TimeBasedLinear_LinearPercentage { get; set; }
+        #endregion
+        
+        #region Parameter ZonalConfig_MonitorDurationInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The period of time, in seconds, that CodeDeploy must wait after completing a deployment
+        /// to an Availability Zone. CodeDeploy will wait this amount of time before starting
+        /// a deployment to the next Availability Zone. Consider adding a monitor duration to
+        /// give the deployment some time to prove itself (or 'bake') in one Availability Zone
+        /// before it is released in the next zone. If you don't specify a <code>monitorDurationInSeconds</code>,
+        /// CodeDeploy starts deploying to the next Availability Zone immediately.</para><para>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal
+        /// configuration</a> in the <i>CodeDeploy User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ZonalConfig_MonitorDurationInSeconds")]
+        public System.Int64? ZonalConfig_MonitorDurationInSecond { get; set; }
         #endregion
         
         #region Parameter MinimumHealthyHosts_Type
@@ -156,6 +190,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.TrafficRoutingType TrafficRoutingConfig_Type { get; set; }
         #endregion
         
+        #region Parameter MinimumHealthyHostsPerZone_Type
+        /// <summary>
+        /// <para>
+        /// <para>The <code>type</code> associated with the <code>MinimumHealthyHostsPerZone</code>
+        /// option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ZonalConfig_MinimumHealthyHostsPerZone_Type")]
+        [AWSConstantClassSource("Amazon.CodeDeploy.MinimumHealthyHostsPerZoneType")]
+        public Amazon.CodeDeploy.MinimumHealthyHostsPerZoneType MinimumHealthyHostsPerZone_Type { get; set; }
+        #endregion
+        
         #region Parameter MinimumHealthyHosts_Value
         /// <summary>
         /// <para>
@@ -164,6 +211,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MinimumHealthyHosts_Value { get; set; }
+        #endregion
+        
+        #region Parameter MinimumHealthyHostsPerZone_Value
+        /// <summary>
+        /// <para>
+        /// <para>The <code>value</code> associated with the <code>MinimumHealthyHostsPerZone</code>
+        /// option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ZonalConfig_MinimumHealthyHostsPerZone_Value")]
+        public System.Int32? MinimumHealthyHostsPerZone_Value { get; set; }
         #endregion
         
         #region Parameter Select
@@ -243,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.TimeBasedLinear_LinearInterval = this.TimeBasedLinear_LinearInterval;
             context.TimeBasedLinear_LinearPercentage = this.TimeBasedLinear_LinearPercentage;
             context.TrafficRoutingConfig_Type = this.TrafficRoutingConfig_Type;
+            context.ZonalConfig_FirstZoneMonitorDurationInSecond = this.ZonalConfig_FirstZoneMonitorDurationInSecond;
+            context.MinimumHealthyHostsPerZone_Type = this.MinimumHealthyHostsPerZone_Type;
+            context.MinimumHealthyHostsPerZone_Value = this.MinimumHealthyHostsPerZone_Value;
+            context.ZonalConfig_MonitorDurationInSecond = this.ZonalConfig_MonitorDurationInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -386,6 +449,70 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.TrafficRoutingConfig = null;
             }
             
+             // populate ZonalConfig
+            var requestZonalConfigIsNull = true;
+            request.ZonalConfig = new Amazon.CodeDeploy.Model.ZonalConfig();
+            System.Int64? requestZonalConfig_zonalConfig_FirstZoneMonitorDurationInSecond = null;
+            if (cmdletContext.ZonalConfig_FirstZoneMonitorDurationInSecond != null)
+            {
+                requestZonalConfig_zonalConfig_FirstZoneMonitorDurationInSecond = cmdletContext.ZonalConfig_FirstZoneMonitorDurationInSecond.Value;
+            }
+            if (requestZonalConfig_zonalConfig_FirstZoneMonitorDurationInSecond != null)
+            {
+                request.ZonalConfig.FirstZoneMonitorDurationInSeconds = requestZonalConfig_zonalConfig_FirstZoneMonitorDurationInSecond.Value;
+                requestZonalConfigIsNull = false;
+            }
+            System.Int64? requestZonalConfig_zonalConfig_MonitorDurationInSecond = null;
+            if (cmdletContext.ZonalConfig_MonitorDurationInSecond != null)
+            {
+                requestZonalConfig_zonalConfig_MonitorDurationInSecond = cmdletContext.ZonalConfig_MonitorDurationInSecond.Value;
+            }
+            if (requestZonalConfig_zonalConfig_MonitorDurationInSecond != null)
+            {
+                request.ZonalConfig.MonitorDurationInSeconds = requestZonalConfig_zonalConfig_MonitorDurationInSecond.Value;
+                requestZonalConfigIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.MinimumHealthyHostsPerZone requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone = null;
+            
+             // populate MinimumHealthyHostsPerZone
+            var requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZoneIsNull = true;
+            requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone = new Amazon.CodeDeploy.Model.MinimumHealthyHostsPerZone();
+            Amazon.CodeDeploy.MinimumHealthyHostsPerZoneType requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Type = null;
+            if (cmdletContext.MinimumHealthyHostsPerZone_Type != null)
+            {
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Type = cmdletContext.MinimumHealthyHostsPerZone_Type;
+            }
+            if (requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Type != null)
+            {
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone.Type = requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Type;
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZoneIsNull = false;
+            }
+            System.Int32? requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Value = null;
+            if (cmdletContext.MinimumHealthyHostsPerZone_Value != null)
+            {
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Value = cmdletContext.MinimumHealthyHostsPerZone_Value.Value;
+            }
+            if (requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Value != null)
+            {
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone.Value = requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone_minimumHealthyHostsPerZone_Value.Value;
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZoneIsNull = false;
+            }
+             // determine if requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone should be set to null
+            if (requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZoneIsNull)
+            {
+                requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone = null;
+            }
+            if (requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone != null)
+            {
+                request.ZonalConfig.MinimumHealthyHostsPerZone = requestZonalConfig_zonalConfig_MinimumHealthyHostsPerZone;
+                requestZonalConfigIsNull = false;
+            }
+             // determine if request.ZonalConfig should be set to null
+            if (requestZonalConfigIsNull)
+            {
+                request.ZonalConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -455,6 +582,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.Int32? TimeBasedLinear_LinearInterval { get; set; }
             public System.Int32? TimeBasedLinear_LinearPercentage { get; set; }
             public Amazon.CodeDeploy.TrafficRoutingType TrafficRoutingConfig_Type { get; set; }
+            public System.Int64? ZonalConfig_FirstZoneMonitorDurationInSecond { get; set; }
+            public Amazon.CodeDeploy.MinimumHealthyHostsPerZoneType MinimumHealthyHostsPerZone_Type { get; set; }
+            public System.Int32? MinimumHealthyHostsPerZone_Value { get; set; }
+            public System.Int64? ZonalConfig_MonitorDurationInSecond { get; set; }
             public System.Func<Amazon.CodeDeploy.Model.CreateDeploymentConfigResponse, NewCDDeploymentConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeploymentConfigId;
         }

@@ -1,4 +1,11 @@
-﻿### 4.1.470 (2023-12-06 22:44Z)
+﻿### 4.1.471 (2023-12-07 22:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.704.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeDeploy
+    * Modified cmdlet New-CDDeploymentConfig: added parameters MinimumHealthyHostsPerZone_Type, MinimumHealthyHostsPerZone_Value, ZonalConfig_FirstZoneMonitorDurationInSecond and ZonalConfig_MonitorDurationInSecond.
+    * Modified cmdlet New-CDDeploymentGroup: added parameter TerminationHookEnabled.
+    * Modified cmdlet Update-CDDeploymentGroup: added parameter TerminationHookEnabled.
+
+### 4.1.470 (2023-12-06 22:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.703.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Modified cmdlet Get-BAKRestoreJobList: added parameter ByResourceType.
