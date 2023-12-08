@@ -97,7 +97,7 @@ $CW_Completers = {
         # Amazon.CloudWatch.MetricStreamOutputFormat
         "Write-CWMetricStream/OutputFormat"
         {
-            $v = "json","opentelemetry0.7"
+            $v = "json","opentelemetry0.7","opentelemetry1.0"
             break
         }
 

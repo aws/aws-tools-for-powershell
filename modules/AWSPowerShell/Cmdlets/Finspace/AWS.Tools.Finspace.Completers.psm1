@@ -105,7 +105,11 @@ $FINSP_Completers = {
         }
 
         # Amazon.Finspace.KxAzMode
-        "New-FINSPKxCluster/AzMode"
+        {
+            ($_ -eq "New-FINSPKxCluster/AzMode") -Or
+            ($_ -eq "New-FINSPKxDataview/AzMode") -Or
+            ($_ -eq "New-FINSPKxVolume/AzMode")
+        }
         {
             $v = "MULTI","SINGLE"
             break
@@ -124,7 +128,7 @@ $FINSP_Completers = {
             ($_ -eq "New-FINSPKxCluster/ClusterType")
         }
         {
-            $v = "GATEWAY","GP","HDB","RDB"
+            $v = "GATEWAY","GP","HDB","RDB","TICKERPLANT"
             break
         }
 
@@ -135,10 +139,30 @@ $FINSP_Completers = {
             break
         }
 
+        # Amazon.Finspace.KxNAS1Type
+        {
+            ($_ -eq "New-FINSPKxVolume/Nas1Configuration_Type") -Or
+            ($_ -eq "Update-FINSPKxVolume/Nas1Configuration_Type")
+        }
+        {
+            $v = "HDD_12","SSD_1000","SSD_250"
+            break
+        }
+
         # Amazon.Finspace.KxSavedownStorageType
         "New-FINSPKxCluster/SavedownStorageConfiguration_Type"
         {
             $v = "SDS01"
+            break
+        }
+
+        # Amazon.Finspace.KxVolumeType
+        {
+            ($_ -eq "Get-FINSPKxVolumeList/VolumeType") -Or
+            ($_ -eq "New-FINSPKxVolume/VolumeType")
+        }
+        {
+            $v = "NAS_1"
             break
         }
 
@@ -152,11 +176,13 @@ $FINSP_Completers = {
 
 $FINSP_map = @{
     "AutoScalingConfiguration_AutoScalingMetric"=@("New-FINSPKxCluster")
-    "AzMode"=@("New-FINSPKxCluster")
+    "AzMode"=@("New-FINSPKxCluster","New-FINSPKxDataview","New-FINSPKxVolume")
     "ClusterType"=@("Get-FINSPKxClusterList","New-FINSPKxCluster")
     "DeploymentConfiguration_DeploymentStrategy"=@("Update-FINSPKxClusterCodeConfiguration","Update-FINSPKxClusterDatabasis")
     "FederationMode"=@("New-FINSPEnvironment","Update-FINSPEnvironment")
+    "Nas1Configuration_Type"=@("New-FINSPKxVolume","Update-FINSPKxVolume")
     "SavedownStorageConfiguration_Type"=@("New-FINSPKxCluster")
+    "VolumeType"=@("Get-FINSPKxVolumeList","New-FINSPKxVolume")
     "VpcConfiguration_IpAddressType"=@("New-FINSPKxCluster")
 }
 
@@ -214,27 +240,39 @@ $FINSP_SelectMap = @{
                "New-FINSPKxChangeset",
                "New-FINSPKxCluster",
                "New-FINSPKxDatabase",
+               "New-FINSPKxDataview",
                "New-FINSPKxEnvironment",
+               "New-FINSPKxScalingGroup",
                "New-FINSPKxUser",
+               "New-FINSPKxVolume",
                "Remove-FINSPEnvironment",
                "Remove-FINSPKxCluster",
                "Remove-FINSPKxDatabase",
+               "Remove-FINSPKxDataview",
                "Remove-FINSPKxEnvironment",
+               "Remove-FINSPKxScalingGroup",
                "Remove-FINSPKxUser",
+               "Remove-FINSPKxVolume",
                "Get-FINSPEnvironment",
                "Get-FINSPKxChangeset",
                "Get-FINSPKxCluster",
                "Get-FINSPKxConnectionString",
                "Get-FINSPKxDatabase",
+               "Get-FINSPKxDataview",
                "Get-FINSPKxEnvironment",
+               "Get-FINSPKxScalingGroup",
                "Get-FINSPKxUser",
+               "Get-FINSPKxVolume",
                "Get-FINSPEnvironmentList",
                "Get-FINSPKxChangesetList",
                "Get-FINSPKxClusterNodeList",
                "Get-FINSPKxClusterList",
                "Get-FINSPKxDatabasisList",
+               "Get-FINSPKxDataviewList",
                "Get-FINSPKxEnvironmentList",
+               "Get-FINSPKxScalingGroupList",
                "Get-FINSPKxUserList",
+               "Get-FINSPKxVolumeList",
                "Get-FINSPResourceTag",
                "Add-FINSPResourceTag",
                "Remove-FINSPResourceTag",
@@ -242,9 +280,11 @@ $FINSP_SelectMap = @{
                "Update-FINSPKxClusterCodeConfiguration",
                "Update-FINSPKxClusterDatabasis",
                "Update-FINSPKxDatabase",
+               "Update-FINSPKxDataview",
                "Update-FINSPKxEnvironment",
                "Update-FINSPKxEnvironmentNetwork",
-               "Update-FINSPKxUser")
+               "Update-FINSPKxUser",
+               "Update-FINSPKxVolume")
 }
 
 _awsArgumentCompleterRegistration $FINSP_SelectCompleters $FINSP_SelectMap

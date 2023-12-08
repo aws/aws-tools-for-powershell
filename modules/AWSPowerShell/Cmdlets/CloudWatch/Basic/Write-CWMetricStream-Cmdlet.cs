@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>The output format for the stream. Valid values are <code>json</code> and <code>opentelemetry0.7</code>.
-        /// For more information about metric stream output formats, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
+        /// <para>The output format for the stream. Valid values are <code>json</code>, <code>opentelemetry1.0</code>,
+        /// and <code>opentelemetry0.7</code>. For more information about metric stream output
+        /// formats, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
         /// Metric streams output formats</a>.</para>
         /// </para>
         /// </summary>
@@ -204,8 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// depend on the stream's <code>OutputFormat</code>. If the <code>OutputFormat</code>
         /// is <code>json</code>, you can stream any additional statistic that is supported by
         /// CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
-        /// CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is <code>opentelemetry0.7</code>,
-        /// you can stream percentile statistics such as p95, p99.9, and so on.</para>
+        /// CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is <code>opentelemetry1.0</code>
+        /// or <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95,
+        /// p99.9, and so on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

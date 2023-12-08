@@ -135,7 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// by granting greater access to system commands and enabling a fast reload of custom
         /// code. This cluster type can optionally mount databases including cache and savedown
         /// storage. For this cluster type, the node count is fixed at 1. It does not support
-        /// autoscaling and supports only <code>SINGLE</code> AZ mode.</para></li></ul>
+        /// autoscaling and supports only <code>SINGLE</code> AZ mode.</para></li><li><para>Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based
+        /// on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers
+        /// (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment.
+        /// It supports only single-node that is only one kdb process.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CommandLineArguments")]
         public Amazon.Finspace.Model.KxCommandLineArgument[] CommandLineArgument { get; set; }
+        #endregion
+        
+        #region Parameter ScalingGroupConfiguration_Cpu
+        /// <summary>
+        /// <para>
+        /// <para> The number of vCPUs that you want to reserve for each node of this kdb cluster on
+        /// the scaling group host. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ScalingGroupConfiguration_Cpu { get; set; }
         #endregion
         
         #region Parameter Databases
@@ -232,6 +246,27 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.Int32? AutoScalingConfiguration_MaxNodeCount { get; set; }
         #endregion
         
+        #region Parameter ScalingGroupConfiguration_MemoryLimit
+        /// <summary>
+        /// <para>
+        /// <para> An optional hard limit on the amount of memory a kdb cluster can use. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingGroupConfiguration_MemoryLimit { get; set; }
+        #endregion
+        
+        #region Parameter ScalingGroupConfiguration_MemoryReservation
+        /// <summary>
+        /// <para>
+        /// <para> A reservation of the minimum amount of memory that should be available on the scaling
+        /// group for a kdb cluster to be successfully placed in a scaling group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingGroupConfiguration_MemoryReservation { get; set; }
+        #endregion
+        
         #region Parameter AutoScalingConfiguration_MetricTarget
         /// <summary>
         /// <para>
@@ -264,6 +299,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? CapacityConfiguration_NodeCount { get; set; }
+        #endregion
+        
+        #region Parameter ScalingGroupConfiguration_NodeCount
+        /// <summary>
+        /// <para>
+        /// <para> The number of kdb cluster nodes. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingGroupConfiguration_NodeCount { get; set; }
         #endregion
         
         #region Parameter CapacityConfiguration_NodeType
@@ -358,6 +403,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.Double? AutoScalingConfiguration_ScaleOutCooldownSecond { get; set; }
         #endregion
         
+        #region Parameter ScalingGroupConfiguration_ScalingGroupName
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the kdb scaling group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ScalingGroupConfiguration_ScalingGroupName { get; set; }
+        #endregion
+        
         #region Parameter VpcConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
@@ -403,6 +458,17 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter TickerplantLogConfiguration_TickerplantLogVolume
+        /// <summary>
+        /// <para>
+        /// <para> The name of the volumes for tickerplant logs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TickerplantLogConfiguration_TickerplantLogVolumes")]
+        public System.String[] TickerplantLogConfiguration_TickerplantLogVolume { get; set; }
+        #endregion
+        
         #region Parameter SavedownStorageConfiguration_Type
         /// <summary>
         /// <para>
@@ -413,6 +479,17 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Finspace.KxSavedownStorageType")]
         public Amazon.Finspace.KxSavedownStorageType SavedownStorageConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter SavedownStorageConfiguration_VolumeName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the kdb volume that you want to use as writeable save-down storage for
+        /// clusters. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SavedownStorageConfiguration_VolumeName { get; set; }
         #endregion
         
         #region Parameter VpcConfiguration_VpcId
@@ -562,6 +639,12 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             #endif
             context.SavedownStorageConfiguration_Size = this.SavedownStorageConfiguration_Size;
             context.SavedownStorageConfiguration_Type = this.SavedownStorageConfiguration_Type;
+            context.SavedownStorageConfiguration_VolumeName = this.SavedownStorageConfiguration_VolumeName;
+            context.ScalingGroupConfiguration_Cpu = this.ScalingGroupConfiguration_Cpu;
+            context.ScalingGroupConfiguration_MemoryLimit = this.ScalingGroupConfiguration_MemoryLimit;
+            context.ScalingGroupConfiguration_MemoryReservation = this.ScalingGroupConfiguration_MemoryReservation;
+            context.ScalingGroupConfiguration_NodeCount = this.ScalingGroupConfiguration_NodeCount;
+            context.ScalingGroupConfiguration_ScalingGroupName = this.ScalingGroupConfiguration_ScalingGroupName;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -569,6 +652,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 {
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
+            }
+            if (this.TickerplantLogConfiguration_TickerplantLogVolume != null)
+            {
+                context.TickerplantLogConfiguration_TickerplantLogVolume = new List<System.String>(this.TickerplantLogConfiguration_TickerplantLogVolume);
             }
             context.VpcConfiguration_IpAddressType = this.VpcConfiguration_IpAddressType;
             if (this.VpcConfiguration_SecurityGroupId != null)
@@ -809,14 +896,102 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 request.SavedownStorageConfiguration.Type = requestSavedownStorageConfiguration_savedownStorageConfiguration_Type;
                 requestSavedownStorageConfigurationIsNull = false;
             }
+            System.String requestSavedownStorageConfiguration_savedownStorageConfiguration_VolumeName = null;
+            if (cmdletContext.SavedownStorageConfiguration_VolumeName != null)
+            {
+                requestSavedownStorageConfiguration_savedownStorageConfiguration_VolumeName = cmdletContext.SavedownStorageConfiguration_VolumeName;
+            }
+            if (requestSavedownStorageConfiguration_savedownStorageConfiguration_VolumeName != null)
+            {
+                request.SavedownStorageConfiguration.VolumeName = requestSavedownStorageConfiguration_savedownStorageConfiguration_VolumeName;
+                requestSavedownStorageConfigurationIsNull = false;
+            }
              // determine if request.SavedownStorageConfiguration should be set to null
             if (requestSavedownStorageConfigurationIsNull)
             {
                 request.SavedownStorageConfiguration = null;
             }
+            
+             // populate ScalingGroupConfiguration
+            var requestScalingGroupConfigurationIsNull = true;
+            request.ScalingGroupConfiguration = new Amazon.Finspace.Model.KxScalingGroupConfiguration();
+            System.Double? requestScalingGroupConfiguration_scalingGroupConfiguration_Cpu = null;
+            if (cmdletContext.ScalingGroupConfiguration_Cpu != null)
+            {
+                requestScalingGroupConfiguration_scalingGroupConfiguration_Cpu = cmdletContext.ScalingGroupConfiguration_Cpu.Value;
+            }
+            if (requestScalingGroupConfiguration_scalingGroupConfiguration_Cpu != null)
+            {
+                request.ScalingGroupConfiguration.Cpu = requestScalingGroupConfiguration_scalingGroupConfiguration_Cpu.Value;
+                requestScalingGroupConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryLimit = null;
+            if (cmdletContext.ScalingGroupConfiguration_MemoryLimit != null)
+            {
+                requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryLimit = cmdletContext.ScalingGroupConfiguration_MemoryLimit.Value;
+            }
+            if (requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryLimit != null)
+            {
+                request.ScalingGroupConfiguration.MemoryLimit = requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryLimit.Value;
+                requestScalingGroupConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryReservation = null;
+            if (cmdletContext.ScalingGroupConfiguration_MemoryReservation != null)
+            {
+                requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryReservation = cmdletContext.ScalingGroupConfiguration_MemoryReservation.Value;
+            }
+            if (requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryReservation != null)
+            {
+                request.ScalingGroupConfiguration.MemoryReservation = requestScalingGroupConfiguration_scalingGroupConfiguration_MemoryReservation.Value;
+                requestScalingGroupConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingGroupConfiguration_scalingGroupConfiguration_NodeCount = null;
+            if (cmdletContext.ScalingGroupConfiguration_NodeCount != null)
+            {
+                requestScalingGroupConfiguration_scalingGroupConfiguration_NodeCount = cmdletContext.ScalingGroupConfiguration_NodeCount.Value;
+            }
+            if (requestScalingGroupConfiguration_scalingGroupConfiguration_NodeCount != null)
+            {
+                request.ScalingGroupConfiguration.NodeCount = requestScalingGroupConfiguration_scalingGroupConfiguration_NodeCount.Value;
+                requestScalingGroupConfigurationIsNull = false;
+            }
+            System.String requestScalingGroupConfiguration_scalingGroupConfiguration_ScalingGroupName = null;
+            if (cmdletContext.ScalingGroupConfiguration_ScalingGroupName != null)
+            {
+                requestScalingGroupConfiguration_scalingGroupConfiguration_ScalingGroupName = cmdletContext.ScalingGroupConfiguration_ScalingGroupName;
+            }
+            if (requestScalingGroupConfiguration_scalingGroupConfiguration_ScalingGroupName != null)
+            {
+                request.ScalingGroupConfiguration.ScalingGroupName = requestScalingGroupConfiguration_scalingGroupConfiguration_ScalingGroupName;
+                requestScalingGroupConfigurationIsNull = false;
+            }
+             // determine if request.ScalingGroupConfiguration should be set to null
+            if (requestScalingGroupConfigurationIsNull)
+            {
+                request.ScalingGroupConfiguration = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TickerplantLogConfiguration
+            var requestTickerplantLogConfigurationIsNull = true;
+            request.TickerplantLogConfiguration = new Amazon.Finspace.Model.TickerplantLogConfiguration();
+            List<System.String> requestTickerplantLogConfiguration_tickerplantLogConfiguration_TickerplantLogVolume = null;
+            if (cmdletContext.TickerplantLogConfiguration_TickerplantLogVolume != null)
+            {
+                requestTickerplantLogConfiguration_tickerplantLogConfiguration_TickerplantLogVolume = cmdletContext.TickerplantLogConfiguration_TickerplantLogVolume;
+            }
+            if (requestTickerplantLogConfiguration_tickerplantLogConfiguration_TickerplantLogVolume != null)
+            {
+                request.TickerplantLogConfiguration.TickerplantLogVolumes = requestTickerplantLogConfiguration_tickerplantLogConfiguration_TickerplantLogVolume;
+                requestTickerplantLogConfigurationIsNull = false;
+            }
+             // determine if request.TickerplantLogConfiguration should be set to null
+            if (requestTickerplantLogConfigurationIsNull)
+            {
+                request.TickerplantLogConfiguration = null;
             }
             
              // populate VpcConfiguration
@@ -954,7 +1129,14 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             public System.String ReleaseLabel { get; set; }
             public System.Int32? SavedownStorageConfiguration_Size { get; set; }
             public Amazon.Finspace.KxSavedownStorageType SavedownStorageConfiguration_Type { get; set; }
+            public System.String SavedownStorageConfiguration_VolumeName { get; set; }
+            public System.Double? ScalingGroupConfiguration_Cpu { get; set; }
+            public System.Int32? ScalingGroupConfiguration_MemoryLimit { get; set; }
+            public System.Int32? ScalingGroupConfiguration_MemoryReservation { get; set; }
+            public System.Int32? ScalingGroupConfiguration_NodeCount { get; set; }
+            public System.String ScalingGroupConfiguration_ScalingGroupName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public List<System.String> TickerplantLogConfiguration_TickerplantLogVolume { get; set; }
             public Amazon.Finspace.IPAddressType VpcConfiguration_IpAddressType { get; set; }
             public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
             public List<System.String> VpcConfiguration_SubnetId { get; set; }

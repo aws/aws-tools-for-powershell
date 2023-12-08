@@ -255,9 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
         /// operation, you must specify either <code>MetricName</code> or a <code>Metrics</code>
         /// array.</para><para>If you are creating an alarm based on a math expression, you cannot specify this parameter,
-        /// or any of the <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>,
-        /// <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you
-        /// specify all this information in the <code>Metrics</code> array.</para>
+        /// or any of the <code>Namespace</code>, <code>Dimensions</code>, <code>Period</code>,
+        /// <code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters.
+        /// Instead, you specify all this information in the <code>Metrics</code> array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,11 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// array.</para><para>Each item in the <code>Metrics</code> array either retrieves a metric or performs
         /// a math expression.</para><para>One item in the <code>Metrics</code> array is the expression that the alarm watches.
         /// You designate this expression by setting <code>ReturnData</code> to true for this
-        /// object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>,
-        /// <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>,
-        /// or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the
-        /// same operation. Instead, you retrieve the metrics you are using in your math expression
-        /// as part of the <code>Metrics</code> array.</para>
+        /// object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>Namespace</code>,
+        /// <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Unit</code>,
+        /// <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code>
+        /// in the same operation. Instead, you retrieve the metrics you are using in your math
+        /// expression as part of the <code>Metrics</code> array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,7 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// metric are Bytes because NetworkIn tracks the number of bytes that an instance receives
         /// on all network interfaces. You can also specify a unit when you create a custom metric.
         /// Units help provide conceptual meaning to your data. Metric data points that specify
-        /// a unit of measure, such as Percent, are aggregated separately.</para><para>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have
+        /// a unit of measure, such as Percent, are aggregated separately. If you are creating
+        /// an alarm based on a metric math expression, you can specify the unit for each metric
+        /// (if needed) within the objects in the <code>Metrics</code> array.</para><para>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have
         /// been published for the metric and attempts to evaluate the alarm. Usually, metrics
         /// are published with only one unit, so the alarm works as intended.</para><para>However, if the metric is published with multiple types of units and you don't specify
         /// a unit, the alarm's behavior is not defined and it behaves unpredictably.</para><para>We recommend omitting <code>Unit</code> so that you don't inadvertently specify an

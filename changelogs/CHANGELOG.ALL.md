@@ -1,4 +1,25 @@
-﻿### 4.1.471 (2023-12-07 22:22Z)
+﻿### 4.1.472 (2023-12-08 22:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.705.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon FinSpace User Environment Management Service
+    * Added cmdlet Get-FINSPKxDataview leveraging the GetKxDataview service API.
+    * Added cmdlet Get-FINSPKxDataviewList leveraging the ListKxDataviews service API.
+    * Added cmdlet Get-FINSPKxScalingGroup leveraging the GetKxScalingGroup service API.
+    * Added cmdlet Get-FINSPKxScalingGroupList leveraging the ListKxScalingGroups service API.
+    * Added cmdlet Get-FINSPKxVolume leveraging the GetKxVolume service API.
+    * Added cmdlet Get-FINSPKxVolumeList leveraging the ListKxVolumes service API.
+    * Added cmdlet New-FINSPKxDataview leveraging the CreateKxDataview service API.
+    * Added cmdlet New-FINSPKxScalingGroup leveraging the CreateKxScalingGroup service API.
+    * Added cmdlet New-FINSPKxVolume leveraging the CreateKxVolume service API.
+    * Added cmdlet Remove-FINSPKxDataview leveraging the DeleteKxDataview service API.
+    * Added cmdlet Remove-FINSPKxScalingGroup leveraging the DeleteKxScalingGroup service API.
+    * Added cmdlet Remove-FINSPKxVolume leveraging the DeleteKxVolume service API.
+    * Added cmdlet Update-FINSPKxDataview leveraging the UpdateKxDataview service API.
+    * Added cmdlet Update-FINSPKxVolume leveraging the UpdateKxVolume service API.
+    * Modified cmdlet New-FINSPKxCluster: added parameters SavedownStorageConfiguration_VolumeName, ScalingGroupConfiguration_Cpu, ScalingGroupConfiguration_MemoryLimit, ScalingGroupConfiguration_MemoryReservation, ScalingGroupConfiguration_NodeCount, ScalingGroupConfiguration_ScalingGroupName and TickerplantLogConfiguration_TickerplantLogVolume.
+    * Modified cmdlet Remove-FINSPKxEnvironment: added parameter ClientToken.
+    * Modified cmdlet Remove-FINSPKxUser: added parameter ClientToken.
+
+### 4.1.471 (2023-12-07 22:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.704.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeDeploy
     * Modified cmdlet New-CDDeploymentConfig: added parameters MinimumHealthyHostsPerZone_Type, MinimumHealthyHostsPerZone_Value, ZonalConfig_FirstZoneMonitorDurationInSecond and ZonalConfig_MonitorDurationInSecond.

@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.String EnvironmentId { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that ensures idempotency. This token expires in 10 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -121,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 context.Select = (response, cmdlet) => this.EnvironmentId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
@@ -144,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             // create request
             var request = new Amazon.Finspace.Model.DeleteKxEnvironmentRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
@@ -209,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String EnvironmentId { get; set; }
             public System.Func<Amazon.Finspace.Model.DeleteKxEnvironmentResponse, RemoveFINSPKxEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

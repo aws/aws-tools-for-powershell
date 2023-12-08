@@ -28,24 +28,60 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Deletes a user in the specified kdb environment.
+    /// Deletes the specified dataview. Before deleting a dataview, make sure that it is
+    /// not in use by any cluster.
     /// </summary>
-    [Cmdlet("Remove", "FINSPKxUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "FINSPKxDataview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the FinSpace User Environment Management Service DeleteKxUser API operation.", Operation = new[] {"DeleteKxUser"}, SelectReturnType = typeof(Amazon.Finspace.Model.DeleteKxUserResponse))]
-    [AWSCmdletOutput("None or Amazon.Finspace.Model.DeleteKxUserResponse",
+    [AWSCmdlet("Calls the FinSpace User Environment Management Service DeleteKxDataview API operation.", Operation = new[] {"DeleteKxDataview"}, SelectReturnType = typeof(Amazon.Finspace.Model.DeleteKxDataviewResponse))]
+    [AWSCmdletOutput("None or Amazon.Finspace.Model.DeleteKxDataviewResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.DeleteKxUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Finspace.Model.DeleteKxDataviewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFINSPKxUserCmdlet : AmazonFinspaceClientCmdlet, IExecutor
+    public partial class RemoveFINSPKxDataviewCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database whose dataview you want to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter DataviewName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the dataview that you want to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DataviewName { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the kdb environment.</para>
+        /// <para>A unique identifier for the kdb environment, from where you want to delete the dataview.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,23 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentId { get; set; }
-        #endregion
-        
-        #region Parameter UserName
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the user that you want to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserName { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -89,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.DeleteKxUserResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.DeleteKxDataviewResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DataviewName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DataviewName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DataviewName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FINSPKxUser (DeleteKxUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataviewName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FINSPKxDataview (DeleteKxDataview)"))
             {
                 return;
             }
@@ -135,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.DeleteKxUserResponse, RemoveFINSPKxUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.DeleteKxDataviewResponse, RemoveFINSPKxDataviewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,22 +163,29 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserName;
+                context.Select = (response, cmdlet) => this.DataviewName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.DatabaseName = this.DatabaseName;
+            #if MODULAR
+            if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.DataviewName = this.DataviewName;
+            #if MODULAR
+            if (this.DataviewName == null && ParameterWasBound(nameof(this.DataviewName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DataviewName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
             {
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UserName = this.UserName;
-            #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,19 +202,23 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Finspace.Model.DeleteKxUserRequest();
+            var request = new Amazon.Finspace.Model.DeleteKxDataviewRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.DatabaseName != null)
+            {
+                request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.DataviewName != null)
+            {
+                request.DataviewName = cmdletContext.DataviewName;
+            }
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
-            }
-            if (cmdletContext.UserName != null)
-            {
-                request.UserName = cmdletContext.UserName;
             }
             
             CmdletOutput output;
@@ -223,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region AWS Service Operation Call
         
-        private Amazon.Finspace.Model.DeleteKxUserResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.DeleteKxUserRequest request)
+        private Amazon.Finspace.Model.DeleteKxDataviewResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.DeleteKxDataviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "DeleteKxUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "DeleteKxDataview");
             try
             {
                 #if DESKTOP
-                return client.DeleteKxUser(request);
+                return client.DeleteKxDataview(request);
                 #elif CORECLR
-                return client.DeleteKxUserAsync(request).GetAwaiter().GetResult();
+                return client.DeleteKxDataviewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,9 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String DatabaseName { get; set; }
+            public System.String DataviewName { get; set; }
             public System.String EnvironmentId { get; set; }
-            public System.String UserName { get; set; }
-            public System.Func<Amazon.Finspace.Model.DeleteKxUserResponse, RemoveFINSPKxUserCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Finspace.Model.DeleteKxDataviewResponse, RemoveFINSPKxDataviewCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

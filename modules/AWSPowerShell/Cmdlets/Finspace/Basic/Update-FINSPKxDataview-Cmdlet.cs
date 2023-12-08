@@ -28,24 +28,79 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Deletes a user in the specified kdb environment.
+    /// Updates the specified dataview. The dataviews get automatically updated when any
+    /// new changesets are ingested. Each update of the dataview creates a new version, including
+    /// changeset details and cache configurations
     /// </summary>
-    [Cmdlet("Remove", "FINSPKxUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the FinSpace User Environment Management Service DeleteKxUser API operation.", Operation = new[] {"DeleteKxUser"}, SelectReturnType = typeof(Amazon.Finspace.Model.DeleteKxUserResponse))]
-    [AWSCmdletOutput("None or Amazon.Finspace.Model.DeleteKxUserResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.DeleteKxUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "FINSPKxDataview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Finspace.Model.UpdateKxDataviewResponse")]
+    [AWSCmdlet("Calls the FinSpace User Environment Management Service UpdateKxDataview API operation.", Operation = new[] {"UpdateKxDataview"}, SelectReturnType = typeof(Amazon.Finspace.Model.UpdateKxDataviewResponse))]
+    [AWSCmdletOutput("Amazon.Finspace.Model.UpdateKxDataviewResponse",
+        "This cmdlet returns an Amazon.Finspace.Model.UpdateKxDataviewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFINSPKxUserCmdlet : AmazonFinspaceClientCmdlet, IExecutor
+    public partial class UpdateFINSPKxDataviewCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ChangesetId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the changeset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChangesetId { get; set; }
+        #endregion
+        
+        #region Parameter DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the database.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter DataviewName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the dataview that you want to update.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DataviewName { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para> The description for a dataview. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the kdb environment.</para>
+        /// <para>A unique identifier for the kdb environment, where you want to update the dataview.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,21 +114,18 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.String EnvironmentId { get; set; }
         #endregion
         
-        #region Parameter UserName
+        #region Parameter SegmentConfiguration
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the user that you want to delete.</para>
+        /// <para> The configuration that contains the database path of the data that you want to place
+        /// on each selected volume. Each segment must have a unique database path for each volume.
+        /// If you do not explicitly specify any database path for a volume, they are accessible
+        /// from the cluster through the default S3/object store segment. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserName { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentConfigurations")]
+        public Amazon.Finspace.Model.KxDataviewSegmentConfiguration[] SegmentConfiguration { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -88,8 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.DeleteKxUserResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.UpdateKxDataviewResponse).
+        /// Specifying the name of a property of type Amazon.Finspace.Model.UpdateKxDataviewResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DataviewName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DataviewName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DataviewName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FINSPKxUser (DeleteKxUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataviewName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FINSPKxDataview (UpdateKxDataview)"))
             {
                 return;
             }
@@ -135,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.DeleteKxUserResponse, RemoveFINSPKxUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.UpdateKxDataviewResponse, UpdateFINSPKxDataviewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,10 +197,26 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserName;
+                context.Select = (response, cmdlet) => this.DataviewName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ChangesetId = this.ChangesetId;
             context.ClientToken = this.ClientToken;
+            context.DatabaseName = this.DatabaseName;
+            #if MODULAR
+            if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.DataviewName = this.DataviewName;
+            #if MODULAR
+            if (this.DataviewName == null && ParameterWasBound(nameof(this.DataviewName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DataviewName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Description = this.Description;
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
@@ -155,13 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UserName = this.UserName;
-            #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
+            if (this.SegmentConfiguration != null)
             {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.SegmentConfiguration = new List<Amazon.Finspace.Model.KxDataviewSegmentConfiguration>(this.SegmentConfiguration);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,19 +242,35 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Finspace.Model.DeleteKxUserRequest();
+            var request = new Amazon.Finspace.Model.UpdateKxDataviewRequest();
             
+            if (cmdletContext.ChangesetId != null)
+            {
+                request.ChangesetId = cmdletContext.ChangesetId;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DatabaseName != null)
+            {
+                request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.DataviewName != null)
+            {
+                request.DataviewName = cmdletContext.DataviewName;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
             }
-            if (cmdletContext.UserName != null)
+            if (cmdletContext.SegmentConfiguration != null)
             {
-                request.UserName = cmdletContext.UserName;
+                request.SegmentConfigurations = cmdletContext.SegmentConfiguration;
             }
             
             CmdletOutput output;
@@ -223,15 +305,15 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region AWS Service Operation Call
         
-        private Amazon.Finspace.Model.DeleteKxUserResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.DeleteKxUserRequest request)
+        private Amazon.Finspace.Model.UpdateKxDataviewResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.UpdateKxDataviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "DeleteKxUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "UpdateKxDataview");
             try
             {
                 #if DESKTOP
-                return client.DeleteKxUser(request);
+                return client.UpdateKxDataview(request);
                 #elif CORECLR
-                return client.DeleteKxUserAsync(request).GetAwaiter().GetResult();
+                return client.UpdateKxDataviewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,11 +333,15 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ChangesetId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String DatabaseName { get; set; }
+            public System.String DataviewName { get; set; }
+            public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
-            public System.String UserName { get; set; }
-            public System.Func<Amazon.Finspace.Model.DeleteKxUserResponse, RemoveFINSPKxUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.Finspace.Model.KxDataviewSegmentConfiguration> SegmentConfiguration { get; set; }
+            public System.Func<Amazon.Finspace.Model.UpdateKxDataviewResponse, UpdateFINSPKxDataviewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

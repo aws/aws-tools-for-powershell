@@ -28,24 +28,36 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Deletes a user in the specified kdb environment.
+    /// Updates the throughput or capacity of a volume. During the update process, the filesystem
+    /// might be unavailable for a few minutes. You can retry any operations after the update
+    /// is complete.
     /// </summary>
-    [Cmdlet("Remove", "FINSPKxUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the FinSpace User Environment Management Service DeleteKxUser API operation.", Operation = new[] {"DeleteKxUser"}, SelectReturnType = typeof(Amazon.Finspace.Model.DeleteKxUserResponse))]
-    [AWSCmdletOutput("None or Amazon.Finspace.Model.DeleteKxUserResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.DeleteKxUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "FINSPKxVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Finspace.Model.UpdateKxVolumeResponse")]
+    [AWSCmdlet("Calls the FinSpace User Environment Management Service UpdateKxVolume API operation.", Operation = new[] {"UpdateKxVolume"}, SelectReturnType = typeof(Amazon.Finspace.Model.UpdateKxVolumeResponse))]
+    [AWSCmdletOutput("Amazon.Finspace.Model.UpdateKxVolumeResponse",
+        "This cmdlet returns an Amazon.Finspace.Model.UpdateKxVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFINSPKxUserCmdlet : AmazonFinspaceClientCmdlet, IExecutor
+    public partial class UpdateFINSPKxVolumeCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para> A description of the volume. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the kdb environment.</para>
+        /// <para>A unique identifier for the kdb environment where you created the storage volume.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,10 +71,31 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         public System.String EnvironmentId { get; set; }
         #endregion
         
-        #region Parameter UserName
+        #region Parameter Nas1Configuration_Size
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the user that you want to delete.</para>
+        /// <para> The size of the network attached storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Nas1Configuration_Size { get; set; }
+        #endregion
+        
+        #region Parameter Nas1Configuration_Type
+        /// <summary>
+        /// <para>
+        /// <para> The type of the network attached storage. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Finspace.KxNAS1Type")]
+        public Amazon.Finspace.KxNAS1Type Nas1Configuration_Type { get; set; }
+        #endregion
+        
+        #region Parameter VolumeName
+        /// <summary>
+        /// <para>
+        /// <para> A unique identifier for the volume.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserName { get; set; }
+        public System.String VolumeName { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -88,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.DeleteKxUserResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Finspace.Model.UpdateKxVolumeResponse).
+        /// Specifying the name of a property of type Amazon.Finspace.Model.UpdateKxVolumeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the VolumeName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VolumeName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VolumeName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FINSPKxUser (DeleteKxUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VolumeName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FINSPKxVolume (UpdateKxVolume)"))
             {
                 return;
             }
@@ -135,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.DeleteKxUserResponse, RemoveFINSPKxUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Finspace.Model.UpdateKxVolumeResponse, UpdateFINSPKxVolumeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,10 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserName;
+                context.Select = (response, cmdlet) => this.VolumeName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
@@ -155,11 +190,13 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UserName = this.UserName;
+            context.Nas1Configuration_Size = this.Nas1Configuration_Size;
+            context.Nas1Configuration_Type = this.Nas1Configuration_Type;
+            context.VolumeName = this.VolumeName;
             #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
+            if (this.VolumeName == null && ParameterWasBound(nameof(this.VolumeName)))
             {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter VolumeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,19 +213,52 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Finspace.Model.DeleteKxUserRequest();
+            var request = new Amazon.Finspace.Model.UpdateKxVolumeRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
             }
-            if (cmdletContext.UserName != null)
+            
+             // populate Nas1Configuration
+            var requestNas1ConfigurationIsNull = true;
+            request.Nas1Configuration = new Amazon.Finspace.Model.KxNAS1Configuration();
+            System.Int32? requestNas1Configuration_nas1Configuration_Size = null;
+            if (cmdletContext.Nas1Configuration_Size != null)
             {
-                request.UserName = cmdletContext.UserName;
+                requestNas1Configuration_nas1Configuration_Size = cmdletContext.Nas1Configuration_Size.Value;
+            }
+            if (requestNas1Configuration_nas1Configuration_Size != null)
+            {
+                request.Nas1Configuration.Size = requestNas1Configuration_nas1Configuration_Size.Value;
+                requestNas1ConfigurationIsNull = false;
+            }
+            Amazon.Finspace.KxNAS1Type requestNas1Configuration_nas1Configuration_Type = null;
+            if (cmdletContext.Nas1Configuration_Type != null)
+            {
+                requestNas1Configuration_nas1Configuration_Type = cmdletContext.Nas1Configuration_Type;
+            }
+            if (requestNas1Configuration_nas1Configuration_Type != null)
+            {
+                request.Nas1Configuration.Type = requestNas1Configuration_nas1Configuration_Type;
+                requestNas1ConfigurationIsNull = false;
+            }
+             // determine if request.Nas1Configuration should be set to null
+            if (requestNas1ConfigurationIsNull)
+            {
+                request.Nas1Configuration = null;
+            }
+            if (cmdletContext.VolumeName != null)
+            {
+                request.VolumeName = cmdletContext.VolumeName;
             }
             
             CmdletOutput output;
@@ -223,15 +293,15 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         
         #region AWS Service Operation Call
         
-        private Amazon.Finspace.Model.DeleteKxUserResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.DeleteKxUserRequest request)
+        private Amazon.Finspace.Model.UpdateKxVolumeResponse CallAWSServiceOperation(IAmazonFinspace client, Amazon.Finspace.Model.UpdateKxVolumeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "DeleteKxUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace User Environment Management Service", "UpdateKxVolume");
             try
             {
                 #if DESKTOP
-                return client.DeleteKxUser(request);
+                return client.UpdateKxVolume(request);
                 #elif CORECLR
-                return client.DeleteKxUserAsync(request).GetAwaiter().GetResult();
+                return client.UpdateKxVolumeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,10 +322,13 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
-            public System.String UserName { get; set; }
-            public System.Func<Amazon.Finspace.Model.DeleteKxUserResponse, RemoveFINSPKxUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Int32? Nas1Configuration_Size { get; set; }
+            public Amazon.Finspace.KxNAS1Type Nas1Configuration_Type { get; set; }
+            public System.String VolumeName { get; set; }
+            public System.Func<Amazon.Finspace.Model.UpdateKxVolumeResponse, UpdateFINSPKxVolumeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
