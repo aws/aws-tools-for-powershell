@@ -228,6 +228,16 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String SourceDBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid values: <code>standard</code>, <code>iopt1</code></para><para>Default: <code>standard</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -369,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 WriteWarning("You are passing $null as a value for parameter SourceDBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Neptune.Model.Tag>(this.Tag);
@@ -474,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.SourceDBClusterIdentifier = cmdletContext.SourceDBClusterIdentifier;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -567,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.Neptune.Model.Tag> Tag { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }

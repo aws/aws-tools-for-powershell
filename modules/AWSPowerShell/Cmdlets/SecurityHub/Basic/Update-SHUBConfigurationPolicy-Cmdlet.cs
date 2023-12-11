@@ -111,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the configuration policy. </para>
+        /// <para> The name of the configuration policy. Alphanumeric characters and the following ASCII
+        /// characters are permitted: <code>-, ., !, *, /</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

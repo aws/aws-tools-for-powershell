@@ -160,7 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs.</para>
+        /// <para>A list of the log types that this DB cluster should export to CloudWatch Logs. Valid
+        /// log types are: <code>audit</code> (to publish audit logs) and <code>slowquery</code>
+        /// (to publish slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing
+        /// Neptune logs to Amazon CloudWatch logs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,6 +372,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>standard | iopt1</code></para></li></ul><para>Default:</para><ul><li><para><code>standard</code></para></li></ul><note><para>When you create a Neptune cluster with the storage type set to <code>iopt1</code>,
+        /// the storage type is returned in the response. The storage type isn't returned when
+        /// you set it to <code>standard</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -498,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
             context.StorageEncrypted = this.StorageEncrypted;
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Neptune.Model.Tag>(this.Tag);
@@ -651,6 +667,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -747,6 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.Neptune.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.Neptune.Model.CreateDBClusterResponse, NewNPTDBClusterCmdlet, object> Select { get; set; } =

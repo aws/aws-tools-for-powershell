@@ -1,4 +1,12 @@
-﻿### 4.1.472 (2023-12-08 22:04Z)
+﻿### 4.1.473 (2023-12-11 22:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.706.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Neptune
+    * Modified cmdlet Edit-NPTDBCluster: added parameter StorageType.
+    * Modified cmdlet New-NPTDBCluster: added parameter StorageType.
+    * Modified cmdlet Restore-NPTDBClusterFromSnapshot: added parameter StorageType.
+    * Modified cmdlet Restore-NPTDBClusterToPointInTime: added parameter StorageType.
+
+### 4.1.472 (2023-12-08 22:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.705.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon FinSpace User Environment Management Service
     * Added cmdlet Get-FINSPKxDataview leveraging the GetKxDataview service API.

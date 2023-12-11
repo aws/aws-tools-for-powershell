@@ -281,6 +281,16 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>standard | iopt1</code></para></li></ul><para>Default:</para><ul><li><para><code>standard</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -386,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
+            context.StorageType = this.StorageType;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
@@ -528,6 +539,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.ServerlessV2ScalingConfiguration = null;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.VpcSecurityGroupId != null)
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
@@ -613,6 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
+            public System.String StorageType { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.Neptune.Model.ModifyDBClusterResponse, EditNPTDBClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBCluster;
