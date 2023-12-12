@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Amis_Region
         /// <summary>
         /// <para>
-        /// <para>Specifies Amazon Web Services accounts whose resources are excluded from the lifecycle
-        /// action.</para>
+        /// <para>Configures Amazon Web Services Regions that are excluded from the lifecycle action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Amis_SharedAccount
         /// <summary>
         /// <para>
-        /// <para>Specifies configuration details for Image Builder to exclude the most recent resources
-        /// from lifecycle actions.</para>
+        /// <para>Specifies Amazon Web Services accounts whose resources are excluded from the lifecycle
+        /// action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

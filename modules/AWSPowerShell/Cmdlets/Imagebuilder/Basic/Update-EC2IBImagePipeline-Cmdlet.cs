@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
     /// Updates an image pipeline. Image pipelines enable you to automate the creation and
-    /// distribution of images.
+    /// distribution of images. You must specify exactly one recipe for your image, using
+    /// either a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.
     /// 
     ///  <note><para>
     /// UpdateImagePipeline does not support selective updates for the pipeline. You must
@@ -102,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionRole
+        /// <summary>
+        /// <para>
+        /// <para>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image
+        /// Builder access to perform workflow actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRole { get; set; }
         #endregion
         
         #region Parameter ImagePipelineArn
@@ -252,6 +264,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Schedule_Timezone { get; set; }
         #endregion
         
+        #region Parameter Workflow
+        /// <summary>
+        /// <para>
+        /// <para>Contains the workflows to run for the pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Workflows")]
+        public Amazon.Imagebuilder.Model.WorkflowConfiguration[] Workflow { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -331,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.Description = this.Description;
             context.DistributionConfigurationArn = this.DistributionConfigurationArn;
             context.EnhancedImageMetadataEnabled = this.EnhancedImageMetadataEnabled;
+            context.ExecutionRole = this.ExecutionRole;
             context.ImagePipelineArn = this.ImagePipelineArn;
             #if MODULAR
             if (this.ImagePipelineArn == null && ParameterWasBound(nameof(this.ImagePipelineArn)))
@@ -358,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
             context.Schedule_Timezone = this.Schedule_Timezone;
             context.Status = this.Status;
+            if (this.Workflow != null)
+            {
+                context.Workflow = new List<Amazon.Imagebuilder.Model.WorkflowConfiguration>(this.Workflow);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -393,6 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.EnhancedImageMetadataEnabled != null)
             {
                 request.EnhancedImageMetadataEnabled = cmdletContext.EnhancedImageMetadataEnabled.Value;
+            }
+            if (cmdletContext.ExecutionRole != null)
+            {
+                request.ExecutionRole = cmdletContext.ExecutionRole;
             }
             if (cmdletContext.ImagePipelineArn != null)
             {
@@ -532,6 +564,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Status = cmdletContext.Status;
             }
+            if (cmdletContext.Workflow != null)
+            {
+                request.Workflows = cmdletContext.Workflow;
+            }
             
             CmdletOutput output;
             
@@ -598,6 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String Description { get; set; }
             public System.String DistributionConfigurationArn { get; set; }
             public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
+            public System.String ExecutionRole { get; set; }
             public System.String ImagePipelineArn { get; set; }
             public System.String ImageRecipeArn { get; set; }
             public List<System.String> EcrConfiguration_ContainerTag { get; set; }
@@ -610,6 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String Schedule_ScheduleExpression { get; set; }
             public System.String Schedule_Timezone { get; set; }
             public Amazon.Imagebuilder.PipelineStatus Status { get; set; }
+            public List<Amazon.Imagebuilder.Model.WorkflowConfiguration> Workflow { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.UpdateImagePipelineResponse, UpdateEC2IBImagePipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImagePipelineArn;
         }

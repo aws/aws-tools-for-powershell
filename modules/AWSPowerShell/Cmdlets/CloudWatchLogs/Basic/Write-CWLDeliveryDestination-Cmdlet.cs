@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Use <code>PutDeliveryDestination</code> to create a <i>delivery destination</i>, which
     /// is a logical object that represents the actual delivery destination. 
     /// </para></li><li><para>
-    /// If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a>
+    /// If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>
     /// in the destination account to assign an IAM policy to the destination. This policy
     /// allows delivery to that destination. 
     /// </para></li><li><para>

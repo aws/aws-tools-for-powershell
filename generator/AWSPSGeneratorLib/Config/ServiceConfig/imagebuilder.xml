@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowBuildVersionArn" Verb="New" Noun="Workflow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteComponent" OutputProperty="*" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentBuildVersionArn" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="LifecyclePolicyArn" PipelineParameter="LifecyclePolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkflow" OutputProperty="WorkflowBuildVersionArn" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowBuildVersionArn" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +148,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="LifecyclePolicy" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="LifecyclePolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -227,7 +239,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListWaitingWorkflowSteps" OutputProperty="Steps" Verb="Get" Noun="WaitingWorkflowStepList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowBuildVersions" OutputProperty="WorkflowSummaryList" Verb="Get" Noun="WorkflowBuildVersionList" PipelineParameter="WorkflowVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListWorkflowExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowExecutionList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="WorkflowVersionList" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -248,6 +272,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutImageRecipePolicy" OutputProperty="*" Verb="Write" Noun="ImageRecipePolicy" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendWorkflowStepAction" OutputProperty="*" Verb="Send" Noun="WorkflowStepAction" ShouldProcessTarget="StepExecutionId" PipelineParameter="StepExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

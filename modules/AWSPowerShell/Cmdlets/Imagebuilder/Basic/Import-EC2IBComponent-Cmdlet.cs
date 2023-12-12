@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The change description of the component. This description indicates the change that
         /// has been made in this version, or what makes this version different from other versions
-        /// of this component.</para>
+        /// of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

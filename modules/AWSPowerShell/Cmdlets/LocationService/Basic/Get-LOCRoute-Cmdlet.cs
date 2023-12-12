@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ArrivalTime
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the desired time of arrival. Uses the given time to calculate the route.
+        /// Otherwise, the best time of day to travel with the best traffic conditions is used
+        /// to calculate the route.</para><note><para>ArrivalTime is not supported Esri.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ArrivalTime { get; set; }
+        #endregion
+        
         #region Parameter CarModeOptions_AvoidFerry
         /// <summary>
         /// <para>
@@ -170,8 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Specifies the desired time of departure. Uses the given time to calculate the route.
         /// Otherwise, the best time of day to travel with the best traffic conditions is used
-        /// to calculate the route.</para><note><para>Setting a departure time in the past returns a <code>400 ValidationException</code>
-        /// error.</para></note><ul><li><para>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+        /// to calculate the route.</para><ul><li><para>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
         /// <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020–07-2T12:15:20.000Z+01:00</code></para></li></ul>
         /// </para>
         /// </summary>
@@ -253,6 +264,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TruckModeOptions_Dimensions_Length")]
         public System.Double? Dimensions_Length { get; set; }
+        #endregion
+        
+        #region Parameter OptimizeFor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the distance to optimize for when calculating a route.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LocationService.OptimizationMode")]
+        public Amazon.LocationService.OptimizationMode OptimizeFor { get; set; }
         #endregion
         
         #region Parameter Weight_Total
@@ -381,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.CalculatorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ArrivalTime = this.ArrivalTime;
             context.CalculatorName = this.CalculatorName;
             #if MODULAR
             if (this.CalculatorName == null && ParameterWasBound(nameof(this.CalculatorName)))
@@ -415,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             context.DistanceUnit = this.DistanceUnit;
             context.IncludeLegGeometry = this.IncludeLegGeometry;
             context.Key = this.Key;
+            context.OptimizeFor = this.OptimizeFor;
             context.TravelMode = this.TravelMode;
             context.TruckModeOptions_AvoidFerry = this.TruckModeOptions_AvoidFerry;
             context.TruckModeOptions_AvoidToll = this.TruckModeOptions_AvoidToll;
@@ -448,6 +472,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // create request
             var request = new Amazon.LocationService.Model.CalculateRouteRequest();
             
+            if (cmdletContext.ArrivalTime != null)
+            {
+                request.ArrivalTime = cmdletContext.ArrivalTime.Value;
+            }
             if (cmdletContext.CalculatorName != null)
             {
                 request.CalculatorName = cmdletContext.CalculatorName;
@@ -508,6 +536,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
+            }
+            if (cmdletContext.OptimizeFor != null)
+            {
+                request.OptimizeFor = cmdletContext.OptimizeFor;
             }
             if (cmdletContext.TravelMode != null)
             {
@@ -697,6 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.DateTime? ArrivalTime { get; set; }
             public System.String CalculatorName { get; set; }
             public System.Boolean? CarModeOptions_AvoidFerry { get; set; }
             public System.Boolean? CarModeOptions_AvoidToll { get; set; }
@@ -707,6 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public Amazon.LocationService.DistanceUnit DistanceUnit { get; set; }
             public System.Boolean? IncludeLegGeometry { get; set; }
             public System.String Key { get; set; }
+            public Amazon.LocationService.OptimizationMode OptimizeFor { get; set; }
             public Amazon.LocationService.TravelMode TravelMode { get; set; }
             public System.Boolean? TruckModeOptions_AvoidFerry { get; set; }
             public System.Boolean? TruckModeOptions_AvoidToll { get; set; }

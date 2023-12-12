@@ -279,6 +279,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartLiveTail" OutputProperty="ResponseStream" Verb="Start" Noun="LiveTail" ShouldProcessTarget="LogEventFilterPattern" PipelineParameter="LogEventFilterPattern" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="LogGroupName" PipelineParameter="QueryString" NoPipelineParameter="false">
             <Params>
                 <Param Name="LogGroupNames" NewName="LogGroupNameList" AutoApplyAlias="false" />

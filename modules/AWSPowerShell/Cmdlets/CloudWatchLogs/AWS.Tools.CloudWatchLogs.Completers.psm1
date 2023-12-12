@@ -311,6 +311,7 @@ $CWL_SelectMap = @{
                "Write-CWLResourcePolicy",
                "Write-CWLRetentionPolicy",
                "Write-CWLSubscriptionFilter",
+               "Start-CWLLiveTail",
                "Start-CWLQuery",
                "Stop-CWLQuery",
                "Add-CWLLogGroupTag",

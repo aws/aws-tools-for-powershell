@@ -1,4 +1,22 @@
-﻿### 4.1.473 (2023-12-11 22:05Z)
+﻿### 4.1.474 (2023-12-12 21:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.707.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Start-CWLLiveTail leveraging the StartLiveTail service API.
+  * Amazon EC2 Image Builder
+    * Added cmdlet Get-EC2IBWaitingWorkflowStepList leveraging the ListWaitingWorkflowSteps service API.
+    * Added cmdlet Get-EC2IBWorkflow leveraging the GetWorkflow service API.
+    * Added cmdlet Get-EC2IBWorkflowBuildVersionList leveraging the ListWorkflowBuildVersions service API.
+    * Added cmdlet Get-EC2IBWorkflowList leveraging the ListWorkflows service API.
+    * Added cmdlet New-EC2IBWorkflow leveraging the CreateWorkflow service API.
+    * Added cmdlet Remove-EC2IBWorkflow leveraging the DeleteWorkflow service API.
+    * Added cmdlet Send-EC2IBWorkflowStepAction leveraging the SendWorkflowStepAction service API.
+    * Modified cmdlet New-EC2IBImage: added parameters ExecutionRole and Workflow.
+    * Modified cmdlet New-EC2IBImagePipeline: added parameters ExecutionRole and Workflow.
+    * Modified cmdlet Update-EC2IBImagePipeline: added parameters ExecutionRole and Workflow.
+  * Amazon Location Service
+    * Modified cmdlet Get-LOCRoute: added parameters ArrivalTime and OptimizeFor.
+
+### 4.1.473 (2023-12-11 22:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.706.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Neptune
     * Modified cmdlet Edit-NPTDBCluster: added parameter StorageType.

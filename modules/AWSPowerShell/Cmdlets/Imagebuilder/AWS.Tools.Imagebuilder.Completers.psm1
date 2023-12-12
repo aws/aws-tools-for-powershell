@@ -140,7 +140,8 @@ $EC2IB_Completers = {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
             ($_ -eq "Get-EC2IBContainerRecipeList/Owner") -Or
             ($_ -eq "Get-EC2IBImageList/Owner") -Or
-            ($_ -eq "Get-EC2IBImageRecipeList/Owner")
+            ($_ -eq "Get-EC2IBImageRecipeList/Owner") -Or
+            ($_ -eq "Get-EC2IBWorkflowList/Owner")
         }
         {
             $v = "Amazon","Self","Shared","ThirdParty"
@@ -186,6 +187,20 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.WorkflowStepActionType
+        "Send-EC2IBWorkflowStepAction/Action"
+        {
+            $v = "RESUME","STOP"
+            break
+        }
+
+        # Amazon.Imagebuilder.WorkflowType
+        "New-EC2IBWorkflow/Type"
+        {
+            $v = "BUILD","DISTRIBUTION","TEST"
+            break
+        }
+
 
     }
 
@@ -195,10 +210,11 @@ $EC2IB_Completers = {
 }
 
 $EC2IB_map = @{
+    "Action"=@("Send-EC2IBWorkflowStepAction")
     "ContainerType"=@("New-EC2IBContainerRecipe")
     "ExclusionRules_Amis_LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Format"=@("Import-EC2IBComponent")
-    "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList")
+    "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList","Get-EC2IBWorkflowList")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
     "ResourceType"=@("New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")
@@ -206,7 +222,7 @@ $EC2IB_map = @{
     "State_Status"=@("Start-EC2IBResourceStateUpdate")
     "Status"=@("New-EC2IBImagePipeline","New-EC2IBLifecyclePolicy","Update-EC2IBImagePipeline","Update-EC2IBLifecyclePolicy")
     "TargetRepository_Service"=@("New-EC2IBContainerRecipe")
-    "Type"=@("Import-EC2IBComponent")
+    "Type"=@("Import-EC2IBComponent","New-EC2IBWorkflow")
 }
 
 _awsArgumentCompleterRegistration $EC2IB_Completers $EC2IB_map
@@ -269,6 +285,7 @@ $EC2IB_SelectMap = @{
                "New-EC2IBImageRecipe",
                "New-EC2IBInfrastructureConfiguration",
                "New-EC2IBLifecyclePolicy",
+               "New-EC2IBWorkflow",
                "Remove-EC2IBComponent",
                "Remove-EC2IBContainerRecipe",
                "Remove-EC2IBDistributionConfiguration",
@@ -277,6 +294,7 @@ $EC2IB_SelectMap = @{
                "Remove-EC2IBImageRecipe",
                "Remove-EC2IBInfrastructureConfiguration",
                "Remove-EC2IBLifecyclePolicy",
+               "Remove-EC2IBWorkflow",
                "Get-EC2IBComponent",
                "Get-EC2IBComponentPolicy",
                "Get-EC2IBContainerRecipe",
@@ -290,6 +308,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBInfrastructureConfiguration",
                "Get-EC2IBLifecycleExecution",
                "Get-EC2IBLifecyclePolicy",
+               "Get-EC2IBWorkflow",
                "Get-EC2IBWorkflowExecution",
                "Get-EC2IBWorkflowStepExecution",
                "Import-EC2IBComponent",
@@ -311,12 +330,16 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBLifecycleExecutionList",
                "Get-EC2IBLifecyclePolicyList",
                "Get-EC2IBResourceTag",
+               "Get-EC2IBWaitingWorkflowStepList",
+               "Get-EC2IBWorkflowBuildVersionList",
                "Get-EC2IBWorkflowExecutionList",
+               "Get-EC2IBWorkflowList",
                "Get-EC2IBWorkflowStepExecutionList",
                "Write-EC2IBComponentPolicy",
                "Write-EC2IBContainerRecipePolicy",
                "Write-EC2IBImagePolicy",
                "Write-EC2IBImageRecipePolicy",
+               "Send-EC2IBWorkflowStepAction",
                "Start-EC2IBImagePipelineExecution",
                "Start-EC2IBResourceStateUpdate",
                "Add-EC2IBResourceTag",

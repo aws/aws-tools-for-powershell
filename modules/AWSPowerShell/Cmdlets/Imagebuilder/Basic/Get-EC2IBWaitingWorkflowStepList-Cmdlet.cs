@@ -28,37 +28,20 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns runtime data for each step in a runtime instance of the workflow that you
-    /// specify in the request.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Get a list of workflow steps that are waiting for action for workflows in your Amazon
+    /// Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2IBWorkflowStepExecutionList")]
-    [OutputType("Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse")]
-    [AWSCmdlet("Calls the EC2 Image Builder ListWorkflowStepExecutions API operation.", Operation = new[] {"ListWorkflowStepExecutions"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse))]
-    [AWSCmdletOutput("Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse",
-        "This cmdlet returns an Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2IBWaitingWorkflowStepList")]
+    [OutputType("Amazon.Imagebuilder.Model.WorkflowStepExecution")]
+    [AWSCmdlet("Calls the EC2 Image Builder ListWaitingWorkflowSteps API operation.", Operation = new[] {"ListWaitingWorkflowSteps"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse))]
+    [AWSCmdletOutput("Amazon.Imagebuilder.Model.WorkflowStepExecution or Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse",
+        "This cmdlet returns a collection of Amazon.Imagebuilder.Model.WorkflowStepExecution objects.",
+        "The service call response (type Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2IBWorkflowStepExecutionListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
+    public partial class GetEC2IBWaitingWorkflowStepListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter WorkflowExecutionId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier that Image Builder assigned to keep track of runtime details
-        /// when it ran the workflow.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkflowExecutionId { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -88,23 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse).
-        /// Specifying the name of a property of type Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Steps'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse).
+        /// Specifying the name of a property of type Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkflowExecutionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkflowExecutionId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowExecutionId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "Steps";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -127,30 +100,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse, GetEC2IBWorkflowStepExecutionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse, GetEC2IBWaitingWorkflowStepListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.WorkflowExecutionId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.WorkflowExecutionId = this.WorkflowExecutionId;
-            #if MODULAR
-            if (this.WorkflowExecutionId == null && ParameterWasBound(nameof(this.WorkflowExecutionId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkflowExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,20 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsRequest();
+            var request = new Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.WorkflowExecutionId != null)
-            {
-                request.WorkflowExecutionId = cmdletContext.WorkflowExecutionId;
             }
             
             // Initialize loop variant and commence piping
@@ -236,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         #region AWS Service Operation Call
         
-        private Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse CallAWSServiceOperation(IAmazonImagebuilder client, Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsRequest request)
+        private Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse CallAWSServiceOperation(IAmazonImagebuilder client, Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EC2 Image Builder", "ListWorkflowStepExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EC2 Image Builder", "ListWaitingWorkflowSteps");
             try
             {
                 #if DESKTOP
-                return client.ListWorkflowStepExecutions(request);
+                return client.ListWaitingWorkflowSteps(request);
                 #elif CORECLR
-                return client.ListWorkflowStepExecutionsAsync(request).GetAwaiter().GetResult();
+                return client.ListWaitingWorkflowStepsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,9 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String WorkflowExecutionId { get; set; }
-            public System.Func<Amazon.Imagebuilder.Model.ListWorkflowStepExecutionsResponse, GetEC2IBWorkflowStepExecutionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Imagebuilder.Model.ListWaitingWorkflowStepsResponse, GetEC2IBWaitingWorkflowStepListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Steps;
         }
         
     }

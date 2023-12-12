@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Use this parameter to specify the log group class for this log group. There are two
         /// classes:</para><ul><li><para>The <code>Standard</code> log class supports all CloudWatch Logs features.</para></li><li><para>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
-        /// features and incurs lower costs.</para></li></ul><para>If you omit this parameter, the default of <code>STANDARD</code> is used.</para><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+        /// features and incurs lower costs.</para></li></ul><para>If you omit this parameter, the default of <code>STANDARD</code> is used.</para><important><para>After a log group is created, its class can't be changed.</para></important><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
         /// classes</a></para>
         /// </para>
         /// </summary>

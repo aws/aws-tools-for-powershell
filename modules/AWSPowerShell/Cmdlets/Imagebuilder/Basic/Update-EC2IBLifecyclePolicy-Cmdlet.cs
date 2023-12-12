@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM role that Image Builder should use to update the lifecycle policy.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to
+        /// update the lifecycle policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

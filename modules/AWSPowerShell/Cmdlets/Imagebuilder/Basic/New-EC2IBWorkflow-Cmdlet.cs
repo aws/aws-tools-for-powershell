@@ -28,25 +28,16 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Creates a new component that can be used to build, validate, test, and assess your
-    /// image. The component is based on a YAML document that you specify using exactly one
-    /// of the following methods:
-    /// 
-    ///  <ul><li><para>
-    /// Inline, using the <code>data</code> property in the request body.
-    /// </para></li><li><para>
-    /// A URL that points to a YAML document file stored in Amazon S3, using the <code>uri</code>
-    /// property in the request body.
-    /// </para></li></ul>
+    /// Create a new workflow or a new version of an existing workflow.
     /// </summary>
-    [Cmdlet("New", "EC2IBComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "EC2IBWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the EC2 Image Builder CreateComponent API operation.", Operation = new[] {"CreateComponent"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.CreateComponentResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.CreateComponentResponse",
+    [AWSCmdlet("Calls the EC2 Image Builder CreateWorkflow API operation.", Operation = new[] {"CreateWorkflow"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.CreateWorkflowResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.CreateWorkflowResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.CreateComponentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.CreateWorkflowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEC2IBComponentCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
+    public partial class NewEC2IBWorkflowCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -54,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ChangeDescription
         /// <summary>
         /// <para>
-        /// <para>The change description of the component. Describes what change has been made in this
-        /// version, or what makes this version different from other versions of the component.</para>
+        /// <para>Describes what change has been made in this version of the workflow, or what makes
+        /// this version different from other versions of the workflow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>Component <code>data</code> contains inline YAML document content for the component.
-        /// Alternatively, you can specify the <code>uri</code> of a YAML document file stored
-        /// in Amazon S3. However, you cannot specify both properties.</para>
+        /// <para>Contains the UTF-8 encoded YAML document content for the workflow. Alternatively,
+        /// you can specify the <code>uri</code> of a YAML document file stored in Amazon S3.
+        /// However, you cannot specify both properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Describes the contents of the component.</para>
+        /// <para>Describes the workflow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the KMS key that is used to encrypt this component.</para>
+        /// <para>The ID of the KMS key that is used to encrypt this workflow resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the component.</para>
+        /// <para>The name of the workflow to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,27 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Platform
-        /// <summary>
-        /// <para>
-        /// <para>The operating system platform of the component.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Imagebuilder.Platform")]
-        public Amazon.Imagebuilder.Platform Platform { get; set; }
-        #endregion
-        
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// <para>The semantic version of the component. This version follows the semantic version syntax.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// <para>The semantic version of this workflow resource. The semantic version syntax adheres
+        /// to the following rules.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
         /// You can assign values for the first three, and can filter on all of them.</para><para><b>Assignment:</b> For the first three nodes you can assign any positive integer
         /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
         /// Image Builder automatically assigns the build number to the fourth node.</para><para><b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
@@ -150,28 +125,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String SemanticVersion { get; set; }
         #endregion
         
-        #region Parameter SupportedOsVersion
-        /// <summary>
-        /// <para>
-        /// <para>The operating system (OS) version supported by the component. If the OS information
-        /// is available, a prefix match is performed against the base image OS version during
-        /// image recipe creation.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SupportedOsVersions")]
-        public System.String[] SupportedOsVersion { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags that apply to the component.</para>
+        /// <para>Tags that apply to the workflow resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The phase in the image build process for which the workflow resource is responsible.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Imagebuilder.WorkflowType")]
+        public Amazon.Imagebuilder.WorkflowType Type { get; set; }
         #endregion
         
         #region Parameter Uri
@@ -201,13 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ComponentBuildVersionArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Imagebuilder.Model.CreateComponentResponse).
-        /// Specifying the name of a property of type Amazon.Imagebuilder.Model.CreateComponentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkflowBuildVersionArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Imagebuilder.Model.CreateWorkflowResponse).
+        /// Specifying the name of a property of type Amazon.Imagebuilder.Model.CreateWorkflowResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ComponentBuildVersionArn";
+        public string Select { get; set; } = "WorkflowBuildVersionArn";
         #endregion
         
         #region Parameter PassThru
@@ -236,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2IBComponent (CreateComponent)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2IBWorkflow (CreateWorkflow)"))
             {
                 return;
             }
@@ -249,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Imagebuilder.Model.CreateComponentResponse, NewEC2IBComponentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Imagebuilder.Model.CreateWorkflowResponse, NewEC2IBWorkflowCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -273,13 +252,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Platform = this.Platform;
-            #if MODULAR
-            if (this.Platform == null && ParameterWasBound(nameof(this.Platform)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Platform which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SemanticVersion = this.SemanticVersion;
             #if MODULAR
             if (this.SemanticVersion == null && ParameterWasBound(nameof(this.SemanticVersion)))
@@ -287,10 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter SemanticVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.SupportedOsVersion != null)
-            {
-                context.SupportedOsVersion = new List<System.String>(this.SupportedOsVersion);
-            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -299,6 +267,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.Type = this.Type;
+            #if MODULAR
+            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Uri = this.Uri;
             
             // allow further manipulation of loaded context prior to processing
@@ -314,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Imagebuilder.Model.CreateComponentRequest();
+            var request = new Amazon.Imagebuilder.Model.CreateWorkflowRequest();
             
             if (cmdletContext.ChangeDescription != null)
             {
@@ -340,21 +315,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Platform != null)
-            {
-                request.Platform = cmdletContext.Platform;
-            }
             if (cmdletContext.SemanticVersion != null)
             {
                 request.SemanticVersion = cmdletContext.SemanticVersion;
             }
-            if (cmdletContext.SupportedOsVersion != null)
-            {
-                request.SupportedOsVersions = cmdletContext.SupportedOsVersion;
-            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             if (cmdletContext.Uri != null)
             {
@@ -393,15 +364,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         #region AWS Service Operation Call
         
-        private Amazon.Imagebuilder.Model.CreateComponentResponse CallAWSServiceOperation(IAmazonImagebuilder client, Amazon.Imagebuilder.Model.CreateComponentRequest request)
+        private Amazon.Imagebuilder.Model.CreateWorkflowResponse CallAWSServiceOperation(IAmazonImagebuilder client, Amazon.Imagebuilder.Model.CreateWorkflowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EC2 Image Builder", "CreateComponent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EC2 Image Builder", "CreateWorkflow");
             try
             {
                 #if DESKTOP
-                return client.CreateComponent(request);
+                return client.CreateWorkflow(request);
                 #elif CORECLR
-                return client.CreateComponentAsync(request).GetAwaiter().GetResult();
+                return client.CreateWorkflowAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -427,13 +398,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
-            public Amazon.Imagebuilder.Platform Platform { get; set; }
             public System.String SemanticVersion { get; set; }
-            public List<System.String> SupportedOsVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.Imagebuilder.WorkflowType Type { get; set; }
             public System.String Uri { get; set; }
-            public System.Func<Amazon.Imagebuilder.Model.CreateComponentResponse, NewEC2IBComponentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ComponentBuildVersionArn;
+            public System.Func<Amazon.Imagebuilder.Model.CreateWorkflowResponse, NewEC2IBWorkflowCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.WorkflowBuildVersionArn;
         }
         
     }

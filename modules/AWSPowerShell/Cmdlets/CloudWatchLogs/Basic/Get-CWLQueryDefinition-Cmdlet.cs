@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// This operation returns a paginated list of your saved CloudWatch Logs Insights query
-    /// definitions.
+    /// definitions. You can retrieve query definitions from the current account or from a
+    /// source account that is linked to the current account.
     /// 
     ///  
     /// <para>

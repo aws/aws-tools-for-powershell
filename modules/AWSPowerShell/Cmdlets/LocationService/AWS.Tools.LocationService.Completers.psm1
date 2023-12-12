@@ -110,6 +110,13 @@ $LOC_Completers = {
             break
         }
 
+        # Amazon.LocationService.OptimizationMode
+        "Get-LOCRoute/OptimizeFor"
+        {
+            $v = "FastestRoute","ShortestRoute"
+            break
+        }
+
         # Amazon.LocationService.PositionFiltering
         {
             ($_ -eq "Edit-LOCTracker/PositionFiltering") -Or
@@ -177,6 +184,7 @@ $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "Filter_KeyStatus"=@("Get-LOCKeyList")
+    "OptimizeFor"=@("Get-LOCRoute")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "TravelMode"=@("Get-LOCRoute","Get-LOCRouteMatrix")

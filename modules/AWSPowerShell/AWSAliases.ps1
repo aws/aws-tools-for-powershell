@@ -13567,6 +13567,8 @@ Set-Alias -Name Create-EC2IBInfrastructureConfiguration -Value New-EC2IBInfrastr
 Set-Alias -Name EC2IB-CreateInfrastructureConfiguration -Value New-EC2IBInfrastructureConfiguration
 Set-Alias -Name Create-EC2IBLifecyclePolicy -Value New-EC2IBLifecyclePolicy
 Set-Alias -Name EC2IB-CreateLifecyclePolicy -Value New-EC2IBLifecyclePolicy
+Set-Alias -Name Create-EC2IBWorkflow -Value New-EC2IBWorkflow
+Set-Alias -Name EC2IB-CreateWorkflow -Value New-EC2IBWorkflow
 Set-Alias -Name Delete-EC2IBComponent -Value Remove-EC2IBComponent
 Set-Alias -Name EC2IB-DeleteComponent -Value Remove-EC2IBComponent
 Set-Alias -Name Delete-EC2IBContainerRecipe -Value Remove-EC2IBContainerRecipe
@@ -13583,6 +13585,8 @@ Set-Alias -Name Delete-EC2IBInfrastructureConfiguration -Value Remove-EC2IBInfra
 Set-Alias -Name EC2IB-DeleteInfrastructureConfiguration -Value Remove-EC2IBInfrastructureConfiguration
 Set-Alias -Name Delete-EC2IBLifecyclePolicy -Value Remove-EC2IBLifecyclePolicy
 Set-Alias -Name EC2IB-DeleteLifecyclePolicy -Value Remove-EC2IBLifecyclePolicy
+Set-Alias -Name Delete-EC2IBWorkflow -Value Remove-EC2IBWorkflow
+Set-Alias -Name EC2IB-DeleteWorkflow -Value Remove-EC2IBWorkflow
 Set-Alias -Name EC2IB-GetComponent -Value Get-EC2IBComponent
 Set-Alias -Name EC2IB-GetComponentPolicy -Value Get-EC2IBComponentPolicy
 Set-Alias -Name EC2IB-GetContainerRecipe -Value Get-EC2IBContainerRecipe
@@ -13596,6 +13600,7 @@ Set-Alias -Name EC2IB-GetImageRecipePolicy -Value Get-EC2IBImageRecipePolicy
 Set-Alias -Name EC2IB-GetInfrastructureConfiguration -Value Get-EC2IBInfrastructureConfiguration
 Set-Alias -Name EC2IB-GetLifecycleExecution -Value Get-EC2IBLifecycleExecution
 Set-Alias -Name EC2IB-GetLifecyclePolicy -Value Get-EC2IBLifecyclePolicy
+Set-Alias -Name EC2IB-GetWorkflow -Value Get-EC2IBWorkflow
 Set-Alias -Name EC2IB-GetWorkflowExecution -Value Get-EC2IBWorkflowExecution
 Set-Alias -Name EC2IB-GetWorkflowStepExecution -Value Get-EC2IBWorkflowStepExecution
 Set-Alias -Name EC2IB-ImportComponent -Value Import-EC2IBComponent
@@ -13649,9 +13654,18 @@ Set-Alias -Name List-EC2IBLifecyclePolicies -Value Get-EC2IBLifecyclePolicyList
 Set-Alias -Name List-EC2IBLifecyclePolicyList -Value Get-EC2IBLifecyclePolicyList
 Set-Alias -Name EC2IB-ListLifecyclePolicies -Value Get-EC2IBLifecyclePolicyList
 Set-Alias -Name EC2IB-ListTagsForResource -Value Get-EC2IBResourceTag
+Set-Alias -Name List-EC2IBWaitingWorkflowSteps -Value Get-EC2IBWaitingWorkflowStepList
+Set-Alias -Name List-EC2IBWaitingWorkflowStepList -Value Get-EC2IBWaitingWorkflowStepList
+Set-Alias -Name EC2IB-ListWaitingWorkflowSteps -Value Get-EC2IBWaitingWorkflowStepList
+Set-Alias -Name List-EC2IBWorkflowBuildVersions -Value Get-EC2IBWorkflowBuildVersionList
+Set-Alias -Name List-EC2IBWorkflowBuildVersionList -Value Get-EC2IBWorkflowBuildVersionList
+Set-Alias -Name EC2IB-ListWorkflowBuildVersions -Value Get-EC2IBWorkflowBuildVersionList
 Set-Alias -Name List-EC2IBWorkflowExecutions -Value Get-EC2IBWorkflowExecutionList
 Set-Alias -Name List-EC2IBWorkflowExecutionList -Value Get-EC2IBWorkflowExecutionList
 Set-Alias -Name EC2IB-ListWorkflowExecutions -Value Get-EC2IBWorkflowExecutionList
+Set-Alias -Name List-EC2IBWorkflows -Value Get-EC2IBWorkflowList
+Set-Alias -Name List-EC2IBWorkflowList -Value Get-EC2IBWorkflowList
+Set-Alias -Name EC2IB-ListWorkflows -Value Get-EC2IBWorkflowList
 Set-Alias -Name List-EC2IBWorkflowStepExecutions -Value Get-EC2IBWorkflowStepExecutionList
 Set-Alias -Name List-EC2IBWorkflowStepExecutionList -Value Get-EC2IBWorkflowStepExecutionList
 Set-Alias -Name EC2IB-ListWorkflowStepExecutions -Value Get-EC2IBWorkflowStepExecutionList
@@ -13663,6 +13677,7 @@ Set-Alias -Name Put-EC2IBImagePolicy -Value Write-EC2IBImagePolicy
 Set-Alias -Name EC2IB-PutImagePolicy -Value Write-EC2IBImagePolicy
 Set-Alias -Name Put-EC2IBImageRecipePolicy -Value Write-EC2IBImageRecipePolicy
 Set-Alias -Name EC2IB-PutImageRecipePolicy -Value Write-EC2IBImageRecipePolicy
+Set-Alias -Name EC2IB-SendWorkflowStepAction -Value Send-EC2IBWorkflowStepAction
 Set-Alias -Name EC2IB-StartImagePipelineExecution -Value Start-EC2IBImagePipelineExecution
 Set-Alias -Name EC2IB-StartResourceStateUpdate -Value Start-EC2IBResourceStateUpdate
 Set-Alias -Name EC2IB-TagResource -Value Add-EC2IBResourceTag
@@ -16847,6 +16862,7 @@ Set-Alias -Name Put-CWLRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name CWL-PutRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name Put-CWLSubscriptionFilter -Value Write-CWLSubscriptionFilter
 Set-Alias -Name CWL-PutSubscriptionFilter -Value Write-CWLSubscriptionFilter
+Set-Alias -Name CWL-StartLiveTail -Value Start-CWLLiveTail
 Set-Alias -Name CWL-StartQuery -Value Start-CWLQuery
 Set-Alias -Name CWL-StopQuery -Value Stop-CWLQuery
 Set-Alias -Name Tag-CWLLogGroup -Value Add-CWLLogGroupTag
