@@ -1,4 +1,7 @@
-﻿### 4.1.474 (2023-12-12 21:51Z)
+﻿### 4.1.475 (2023-12-13 22:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.708.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.474 (2023-12-12 21:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.707.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Added cmdlet Start-CWLLiveTail leveraging the StartLiveTail service API.
