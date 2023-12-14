@@ -28,8 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Deletes the specified transformer. Transformers describe how to process the incoming
-    /// EDI (electronic data interchange) documents, and extract the necessary information.
+    /// Deletes the specified transformer. A transformer describes how to process the incoming
+    /// EDI documents and extract the necessary information to the output file.
     /// </summary>
     [Cmdlet("Remove", "B2BITransformer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

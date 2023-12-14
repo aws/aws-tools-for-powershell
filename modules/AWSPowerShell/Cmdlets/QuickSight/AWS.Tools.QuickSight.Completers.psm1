@@ -682,6 +682,7 @@ $QS_SelectMap = @{
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSDashboard",
+               "Update-QSDashboardLink",
                "Update-QSDashboardPermission",
                "Update-QSDashboardPublishedVersion",
                "Update-QSDataSet",

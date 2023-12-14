@@ -198,6 +198,7 @@ $ABC_SelectMap = @{
                "Remove-ABCPricingRule",
                "Unregister-ABCAccount",
                "Unregister-ABCPricingRule",
+               "Get-ABCBillingGroupCostReport",
                "Get-ABCAccountAssociationList",
                "Get-ABCBillingGroupCostReportList",
                "Get-ABCBillingGroupList",

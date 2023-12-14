@@ -229,6 +229,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-QSAnalysis', 
         'Update-QSAnalysisPermission', 
         'Update-QSDashboard', 
+        'Update-QSDashboardLink', 
         'Update-QSDashboardPermission', 
         'Update-QSDashboardPublishedVersion', 
         'Update-QSDataSet', 

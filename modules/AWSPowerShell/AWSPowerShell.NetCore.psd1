@@ -302,6 +302,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MWAA.dll',
         'AWSSDK.Neptune.dll',
         'AWSSDK.Neptunedata.dll',
+        'AWSSDK.NeptuneGraph.dll',
         'AWSSDK.NetworkFirewall.dll',
         'AWSSDK.NetworkManager.dll',
         'AWSSDK.NimbleStudio.dll',

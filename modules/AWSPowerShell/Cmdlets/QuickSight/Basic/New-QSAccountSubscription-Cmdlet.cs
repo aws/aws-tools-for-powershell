@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     ///  
     /// <para>
     /// The Amazon Web Services Region for the account is derived from what is configured
-    /// in the CLI or SDK. This operation isn't supported in the US East (Ohio) Region, South
-    /// America (Sao Paulo) Region, or Asia Pacific (Singapore) Region. 
+    /// in the CLI or SDK.
     /// </para><para>
     /// Before you use this operation, make sure that you can connect to an existing Amazon
     /// Web Services account. If you don't have an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html">Sign

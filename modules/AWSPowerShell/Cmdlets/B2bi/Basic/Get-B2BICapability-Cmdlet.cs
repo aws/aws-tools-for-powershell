@@ -28,8 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Retrieves the details for the specified capability. Capabilities contain the information
-    /// necessary to process incoming EDI (electronic data interchange) documents.
+    /// Retrieves the details for the specified capability. A trading capability contains
+    /// the information required to transform incoming EDI documents into JSON or XML outputs.
     /// </summary>
     [Cmdlet("Get", "B2BICapability")]
     [OutputType("Amazon.B2bi.Model.GetCapabilityResponse")]

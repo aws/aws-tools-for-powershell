@@ -28,7 +28,9 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Maps the input file according to the provided template file.
+    /// Maps the input file according to the provided template file. The API call downloads
+    /// the file contents from the Amazon S3 location, and passes the contents in as a string,
+    /// to the <code>inputFileContent</code> parameter.
     /// </summary>
     [Cmdlet("Test", "B2BIMapping")]
     [OutputType("System.String")]
@@ -63,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter InputFileContent
         /// <summary>
         /// <para>
-        /// <para>Specify the EDI (electronic data interchange) file that is used as input for the transform.</para>
+        /// <para>Specify the contents of the EDI (electronic data interchange) XML or JSON file that
+        /// is used as input for the transform.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

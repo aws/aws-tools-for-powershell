@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>neptune-graph</C2jFilename>
+    <AssemblyName>NeptuneGraph</AssemblyName>
+    <ServiceNounPrefix>NEPTG</ServiceNounPrefix>
+    <ServiceName>Amazon Neptune Graph</ServiceName>
+    <ServiceClientInterface>IAmazonNeptuneGraph</ServiceClientInterface>
+    <ServiceClient>AmazonNeptuneGraphClient</ServiceClient>
+    <ServiceModuleGuid>b2acb06e-7ce4-49d9-ac20-f67076ff94ab</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="ImportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGraph" OutputProperty="*" Verb="New" Noun="Graph" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGraphSnapshot" OutputProperty="*" Verb="New" Noun="GraphSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGraphUsingImportTask" OutputProperty="*" Verb="New" Noun="GraphUsingImportTask" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePrivateGraphEndpoint" OutputProperty="*" Verb="New" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGraph" OutputProperty="*" Verb="Remove" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGraphSnapshot" OutputProperty="*" Verb="Remove" Noun="GraphSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePrivateGraphEndpoint" OutputProperty="*" Verb="Remove" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGraph" OutputProperty="*" Verb="Get" Noun="Graph" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGraphSnapshot" OutputProperty="*" Verb="Get" Noun="GraphSnapshot" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImportTask" OutputProperty="*" Verb="Get" Noun="ImportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPrivateGraphEndpoint" OutputProperty="*" Verb="Get" Noun="PrivateGraphEndpoint" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGraphs" OutputProperty="Graphs" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGraphSnapshots" OutputProperty="GraphSnapshots" Verb="Get" Noun="GraphSnapshotList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTaskList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrivateGraphEndpoints" OutputProperty="PrivateGraphEndpoints" Verb="Get" Noun="PrivateGraphEndpointList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetGraph" OutputProperty="*" Verb="Reset" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreGraphFromSnapshot" OutputProperty="*" Verb="Restore" Noun="GraphFromSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGraph" OutputProperty="*" Verb="Update" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -343,6 +343,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String PaperMargin_Left { get; set; }
         #endregion
         
+        #region Parameter LinkEntity
+        /// <summary>
+        /// <para>
+        /// <para>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LinkEntities")]
+        public System.String[] LinkEntity { get; set; }
+        #endregion
+        
         #region Parameter ValidationStrategy_Mode
         /// <summary>
         /// <para>
@@ -722,6 +733,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.FolderArn != null)
             {
                 context.FolderArn = new List<System.String>(this.FolderArn);
+            }
+            if (this.LinkEntity != null)
+            {
+                context.LinkEntity = new List<System.String>(this.LinkEntity);
             }
             if (this.LinkSharingConfiguration_Permission != null)
             {
@@ -1509,6 +1524,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.FolderArns = cmdletContext.FolderArn;
             }
+            if (cmdletContext.LinkEntity != null)
+            {
+                request.LinkEntities = cmdletContext.LinkEntity;
+            }
             
              // populate LinkSharingConfiguration
             var requestLinkSharingConfigurationIsNull = true;
@@ -1753,6 +1772,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public List<System.String> FolderArn { get; set; }
+            public List<System.String> LinkEntity { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> LinkSharingConfiguration_Permission { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.DateTimeParameter> Parameters_DateTimeParameter { get; set; }

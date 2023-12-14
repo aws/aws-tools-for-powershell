@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBillingGroupCostReport" OutputProperty="BillingGroupCostReportResults" Verb="Get" Noun="BillingGroupCostReport" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccountAssociations" OutputProperty="LinkedAccounts" Verb="Get" Noun="AccountAssociationList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params>
                 <Param Name="Filters_AccountIds" NewName="Filters_AccountIds" />

@@ -118,6 +118,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCertificateProvider" OutputProperty="*" Verb="New" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomMetric" OutputProperty="*" Verb="New" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -251,6 +255,10 @@
             <Params>
                 <Param Name="ForceDelete" NewName="DeleteWithForce" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificateProvider" Verb="Remove" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCustomMetric" Verb="Remove" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
@@ -402,6 +410,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCertificate" OutputProperty="CertificateDescription" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificateProvider" OutputProperty="*" Verb="Get" Noun="CertificateProvider" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -651,6 +663,10 @@
         <ServiceOperation MethodName="ListCACertificates" OutputProperty="Certificates" Verb="Get" Noun="CACertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificateProviders" OutputProperty="CertificateProviders" Verb="Get" Noun="CertificateProviderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
@@ -1014,6 +1030,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCertificate" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCertificateProvider" OutputProperty="*" Verb="Update" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

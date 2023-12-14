@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Describes the data source details.
+    /// Retrieves information about a direct query data source.
     /// </summary>
     [Cmdlet("Get", "OSDataSource")]
     [OutputType("Amazon.OpenSearchService.Model.GetDataSourceResponse")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the data source.</para>
+        /// <para>The name of the data source to get information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

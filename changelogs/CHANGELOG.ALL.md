@@ -1,4 +1,24 @@
-﻿### 4.1.475 (2023-12-13 22:30Z)
+﻿### 4.1.476 (2023-12-14 22:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.709.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingConductor
+    * Added cmdlet Get-ABCBillingGroupCostReport leveraging the GetBillingGroupCostReport service API.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNContactTag leveraging the TagContact service API.
+    * Added cmdlet Remove-CONNContactTag leveraging the UntagContact service API.
+  * Amazon GameLift Service
+    * Modified cmdlet Update-GMLGameSession: added parameter GameProperty.
+  * Amazon IoT
+    * Added cmdlet Get-IOTCertificateProvider leveraging the DescribeCertificateProvider service API.
+    * Added cmdlet Get-IOTCertificateProviderList leveraging the ListCertificateProviders service API.
+    * Added cmdlet New-IOTCertificateProvider leveraging the CreateCertificateProvider service API.
+    * Added cmdlet Remove-IOTCertificateProvider leveraging the DeleteCertificateProvider service API.
+    * Added cmdlet Update-IOTCertificateProvider leveraging the UpdateCertificateProvider service API.
+  * Amazon Neptune Graph. Added cmdlets to support the service. Cmdlets for the service have the noun prefix NEPTG and can be listed using the command 'Get-AWSCmdletName -Service NEPTG'.
+  * Amazon QuickSight
+    * Added cmdlet Update-QSDashboardLink leveraging the UpdateDashboardLinks service API.
+    * Modified cmdlet New-QSDashboard: added parameter LinkEntity.
+
+### 4.1.475 (2023-12-13 22:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.708.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.474 (2023-12-12 21:51Z)

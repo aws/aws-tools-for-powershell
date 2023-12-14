@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Creates a customer profile. You can have up to five customer profiles, each representing
-    /// a distinct private network. Profiles contain basic information about you and your
-    /// business.
+    /// a distinct private network. A profile is the mechanism used to create the concept
+    /// of a private network.
     /// </summary>
     [Cmdlet("New", "B2BIProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.B2bi.Model.CreateProfileResponse")]

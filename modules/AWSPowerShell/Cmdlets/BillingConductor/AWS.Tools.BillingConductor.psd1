@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-ABCResourceTag', 
         'Get-ABCAccountAssociationList', 
+        'Get-ABCBillingGroupCostReport', 
         'Get-ABCBillingGroupCostReportList', 
         'Get-ABCBillingGroupList', 
         'Get-ABCCustomLineItemList', 

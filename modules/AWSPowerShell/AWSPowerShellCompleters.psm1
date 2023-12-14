@@ -3635,7 +3635,7 @@ $APS_Completers = {
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
-            $v = "AMAZON_LINUX2","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019"
+            $v = "AMAZON_LINUX2","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 
@@ -6797,6 +6797,7 @@ $ABC_SelectMap = @{
                "Remove-ABCPricingRule",
                "Unregister-ABCAccount",
                "Unregister-ABCPricingRule",
+               "Get-ABCBillingGroupCostReport",
                "Get-ABCAccountAssociationList",
                "Get-ABCBillingGroupCostReportList",
                "Get-ABCBillingGroupList",
@@ -15942,8 +15943,10 @@ $CONN_SelectMap = @{
                "Stop-CONNContactStreaming",
                "Submit-CONNContactEvaluation",
                "Suspend-CONNContactRecording",
+               "Add-CONNContactTag",
                "Add-CONNResourceTag",
                "Move-CONNContact",
+               "Remove-CONNContactTag",
                "Remove-CONNResourceTag",
                "Update-CONNAgentStatus",
                "Update-CONNContact",
@@ -32855,6 +32858,7 @@ $IOT_SelectMap = @{
                "New-IOTAuthorizer",
                "New-IOTBillingGroup",
                "New-IOTCertificateFromCsr",
+               "New-IOTCertificateProvider",
                "New-IOTCustomMetric",
                "New-IOTDimension",
                "New-IOTDomainConfiguration",
@@ -32887,6 +32891,7 @@ $IOT_SelectMap = @{
                "Remove-IOTBillingGroup",
                "Remove-IOTCACertificate",
                "Remove-IOTCertificate",
+               "Remove-IOTCertificateProvider",
                "Remove-IOTCustomMetric",
                "Remove-IOTDimension",
                "Remove-IOTDomainConfiguration",
@@ -32924,6 +32929,7 @@ $IOT_SelectMap = @{
                "Get-IOTBillingGroup",
                "Get-IOTCACertificate",
                "Get-IOTCertificate",
+               "Get-IOTCertificateProvider",
                "Get-IOTCustomMetric",
                "Get-IOTDefaultAuthorizer",
                "Get-IOTDetectMitigationActionsTask",
@@ -32983,6 +32989,7 @@ $IOT_SelectMap = @{
                "Get-IOTAuthorizerList",
                "Get-IOTBillingGroupList",
                "Get-IOTCACertificateList",
+               "Get-IOTCertificateProviderList",
                "Get-IOTCertificateList",
                "Get-IOTCertificateListByCA",
                "Get-IOTCustomMetricList",
@@ -33063,6 +33070,7 @@ $IOT_SelectMap = @{
                "Update-IOTBillingGroup",
                "Update-IOTCACertificate",
                "Update-IOTCertificate",
+               "Update-IOTCertificateProvider",
                "Update-IOTCustomMetric",
                "Update-IOTDimension",
                "Update-IOTDomainConfiguration",
@@ -45520,6 +45528,108 @@ $NEPT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $NEPT_SelectCompleters $NEPT_SelectMap
+# Argument completions for service Amazon Neptune Graph
+
+
+$NEPTG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.NeptuneGraph.Format
+        "New-NEPTGGraphUsingImportTask/Format"
+        {
+            $v = "CSV","OPEN_CYPHER"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NEPTG_map = @{
+    "Format"=@("New-NEPTGGraphUsingImportTask")
+}
+
+_awsArgumentCompleterRegistration $NEPTG_Completers $NEPTG_map
+
+$NEPTG_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.NEPTG.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NEPTG_SelectMap = @{
+    "Select"=@("Stop-NEPTGImportTask",
+               "New-NEPTGGraph",
+               "New-NEPTGGraphSnapshot",
+               "New-NEPTGGraphUsingImportTask",
+               "New-NEPTGPrivateGraphEndpoint",
+               "Remove-NEPTGGraph",
+               "Remove-NEPTGGraphSnapshot",
+               "Remove-NEPTGPrivateGraphEndpoint",
+               "Get-NEPTGGraph",
+               "Get-NEPTGGraphSnapshot",
+               "Get-NEPTGImportTask",
+               "Get-NEPTGPrivateGraphEndpoint",
+               "Get-NEPTGGraphList",
+               "Get-NEPTGGraphSnapshotList",
+               "Get-NEPTGImportTaskList",
+               "Get-NEPTGPrivateGraphEndpointList",
+               "Get-NEPTGResourceTag",
+               "Reset-NEPTGGraph",
+               "Restore-NEPTGGraphFromSnapshot",
+               "Add-NEPTGResourceTag",
+               "Remove-NEPTGResourceTag",
+               "Update-NEPTGGraph")
+}
+
+_awsArgumentCompleterRegistration $NEPTG_SelectCompleters $NEPTG_SelectMap
 # Argument completions for service AWS Network Firewall
 
 
@@ -52004,6 +52114,7 @@ $QS_SelectMap = @{
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSDashboard",
+               "Update-QSDashboardLink",
                "Update-QSDashboardPermission",
                "Update-QSDashboardPublishedVersion",
                "Update-QSDataSet",

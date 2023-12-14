@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Updates some of the parameters for a partnership between a customer and trading partner.
-    /// Partnerships link trading partners with your profile and a specific transformer, so
-    /// that the EDI (electronic data interchange) documents that they upload to Amazon S3
-    /// can be processed according to their specifications.
+    /// A partnership represents the connection between you and your trading partner. It ties
+    /// together a profile and one or more trading capabilities.
     /// </summary>
     [Cmdlet("Update", "B2BIPartnership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.B2bi.Model.UpdatePartnershipResponse")]

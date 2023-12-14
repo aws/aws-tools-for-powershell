@@ -28,8 +28,9 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Instantiates a capability based on the specified parameters. Capabilities contain
-    /// the information necessary to process incoming EDI (electronic data interchange) documents.
+    /// Instantiates a capability based on the specified parameters. A trading capability
+    /// contains the information required to transform incoming EDI documents into JSON or
+    /// XML outputs.
     /// </summary>
     [Cmdlet("New", "B2BICapability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.B2bi.Model.CreateCapabilityResponse")]

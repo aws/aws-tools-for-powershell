@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Adds the data source on the domain.
+    /// Creates a new direct-query data source to the specified domain. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating
+    /// Amazon OpenSearch Service data source integrations with Amazon S3</a>.
     /// </summary>
     [Cmdlet("Add", "OSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain.</para>
+        /// <para>The name of the domain to add the data source to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the data source.</para>
+        /// <para>A name for the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter S3GlueDataCatalog_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN for the AWS S3 Glue Data Catalog.</para>
+        /// <para>&gt;The Amazon Resource Name (ARN) for the S3 Glue Data Catalog.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

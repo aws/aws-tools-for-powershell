@@ -28,9 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Deletes the specified partnership. Partnerships link trading partners with your profile
-    /// and a specific transformer, so that the EDI (electronic data interchange) documents
-    /// that they upload to Amazon S3 can be processed according to their specifications.
+    /// Deletes the specified partnership. A partnership represents the connection between
+    /// you and your trading partner. It ties together a profile and one or more trading capabilities.
     /// </summary>
     [Cmdlet("Remove", "B2BIPartnership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

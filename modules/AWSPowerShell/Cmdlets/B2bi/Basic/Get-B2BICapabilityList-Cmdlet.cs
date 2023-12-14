@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Lists the capabilities associated with your Amazon Web Services account for your current
-    /// or specified region. Capabilities contain the information necessary to process incoming
-    /// EDI (electronic data interchange) documents.
+    /// or specified region. A trading capability contains the information required to transform
+    /// incoming EDI documents into JSON or XML outputs.
     /// </summary>
     [Cmdlet("Get", "B2BICapabilityList")]
     [OutputType("Amazon.B2bi.Model.CapabilitySummary")]

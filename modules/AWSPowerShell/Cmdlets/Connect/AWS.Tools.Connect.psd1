@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CONNApprovedOrigin', 
         'Add-CONNBot', 
+        'Add-CONNContactTag', 
         'Add-CONNDefaultVocabulary', 
         'Add-CONNFlow', 
         'Add-CONNInstanceStorageConfig', 
@@ -211,6 +212,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CONNContactEvaluation', 
         'Remove-CONNContactFlow', 
         'Remove-CONNContactFlowModule', 
+        'Remove-CONNContactTag', 
         'Remove-CONNEvaluationForm', 
         'Remove-CONNFlow', 
         'Remove-CONNHoursOfOperation', 

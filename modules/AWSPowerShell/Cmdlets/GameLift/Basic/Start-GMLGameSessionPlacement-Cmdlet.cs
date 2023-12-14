@@ -102,10 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameProperty
         /// <summary>
         /// <para>
-        /// <para>A set of custom properties for a game session, formatted as key:value pairs. These
-        /// properties are passed to a game server process with a request to start a new game
-        /// session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-        /// a Game Session</a>).</para>
+        /// <para>A set of key-value pairs that can store custom data in a game session. For example:
+        /// <code>{"Key": "difficulty", "Value": "novice"}</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

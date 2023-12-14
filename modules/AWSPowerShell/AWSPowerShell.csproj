@@ -802,6 +802,9 @@
     <Reference Include="AWSSDK.Neptunedata">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Neptunedata.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NeptuneGraph">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NeptuneGraph.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
@@ -1904,6 +1907,9 @@
     </Reference>
     <Reference Include="AWSSDK.Neptunedata">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Neptunedata.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NeptuneGraph">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NeptuneGraph.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFirewall.dll</HintPath>

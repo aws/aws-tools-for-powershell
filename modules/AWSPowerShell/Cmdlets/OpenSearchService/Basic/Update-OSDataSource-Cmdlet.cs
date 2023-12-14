@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Updates the data source on the domain.
+    /// Updates a direct-query data source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Working
+    /// with Amazon OpenSearch Service data source integrations with Amazon S3</a>.
     /// </summary>
     [Cmdlet("Update", "OSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the data source.</para>
+        /// <para>A new description of the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the data source.</para>
+        /// <para>The name of the data source to modify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter S3GlueDataCatalog_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN for the AWS S3 Glue Data Catalog.</para>
+        /// <para>&gt;The Amazon Resource Name (ARN) for the S3 Glue Data Catalog.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

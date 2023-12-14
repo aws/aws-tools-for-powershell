@@ -28,8 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Creates a transformer. Transformers describe how to process the incoming EDI (electronic
-    /// data interchange) documents, and extract the necessary information.
+    /// Creates a transformer. A transformer describes how to process the incoming EDI documents
+    /// and extract the necessary information to the output file.
     /// </summary>
     [Cmdlet("New", "B2BITransformer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.B2bi.Model.CreateTransformerResponse")]

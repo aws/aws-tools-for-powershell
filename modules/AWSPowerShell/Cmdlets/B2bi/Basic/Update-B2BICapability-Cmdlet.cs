@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Updates some of the parameters for a capability, based on the specified parameters.
-    /// Capabilities contain the information necessary to process incoming EDI (electronic
-    /// data interchange) documents.
+    /// A trading capability contains the information required to transform incoming EDI documents
+    /// into JSON or XML outputs.
     /// </summary>
     [Cmdlet("Update", "B2BICapability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.B2bi.Model.UpdateCapabilityResponse")]

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Lists the profiles associated with your Amazon Web Services account for your current
-    /// or specified region. Profiles contain basic information about you and your business.
+    /// or specified region. A profile is the mechanism used to create the concept of a private
+    /// network.
     /// </summary>
     [Cmdlet("Get", "B2BIProfileList")]
     [OutputType("Amazon.B2bi.Model.ProfileSummary")]

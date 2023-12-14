@@ -28,8 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Retrieves the details for the profile specified by the profile ID. Profiles contain
-    /// basic information about you and your business.
+    /// Retrieves the details for the profile specified by the profile ID. A profile is the
+    /// mechanism used to create the concept of a private network.
     /// </summary>
     [Cmdlet("Get", "B2BIProfile")]
     [OutputType("Amazon.B2bi.Model.GetProfileResponse")]

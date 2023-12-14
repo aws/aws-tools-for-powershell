@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Deletes the data source.
+    /// Deletes a direct-query data source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html">Deleting
+    /// an Amazon OpenSearch Service data source with Amazon S3</a>.
     /// </summary>
     [Cmdlet("Remove", "OSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the data source.</para>
+        /// <para>The name of the data source to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

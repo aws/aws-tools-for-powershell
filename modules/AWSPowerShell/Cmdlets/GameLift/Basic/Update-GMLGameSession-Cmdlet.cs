@@ -53,6 +53,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter GameProperty
+        /// <summary>
+        /// <para>
+        /// <para>A set of key-value pairs that can store custom data in a game session. For example:
+        /// <code>{"Key": "difficulty", "Value": "novice"}</code>. You can use this parameter
+        /// to modify game properties in an active game session. This action adds new properties
+        /// and modifies existing properties. There is no way to delete properties. For an example,
+        /// see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update
+        /// the value of a game property</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GameProperties")]
+        public Amazon.GameLift.Model.GameProperty[] GameProperty { get; set; }
+        #endregion
+        
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
@@ -176,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.GameSessionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.GameProperty != null)
+            {
+                context.GameProperty = new List<Amazon.GameLift.Model.GameProperty>(this.GameProperty);
+            }
             context.GameSessionId = this.GameSessionId;
             #if MODULAR
             if (this.GameSessionId == null && ParameterWasBound(nameof(this.GameSessionId)))
@@ -203,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.UpdateGameSessionRequest();
             
+            if (cmdletContext.GameProperty != null)
+            {
+                request.GameProperties = cmdletContext.GameProperty;
+            }
             if (cmdletContext.GameSessionId != null)
             {
                 request.GameSessionId = cmdletContext.GameSessionId;
@@ -284,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.GameLift.Model.GameProperty> GameProperty { get; set; }
             public System.String GameSessionId { get; set; }
             public System.Int32? MaximumPlayerSessionCount { get; set; }
             public System.String Name { get; set; }

@@ -28,8 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Deletes the specified capability. Capabilities contain the information necessary to
-    /// process incoming EDI (electronic data interchange) documents.
+    /// Deletes the specified capability. A trading capability contains the information required
+    /// to transform incoming EDI documents into JSON or XML outputs.
     /// </summary>
     [Cmdlet("Remove", "B2BICapability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
